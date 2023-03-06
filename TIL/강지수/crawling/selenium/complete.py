@@ -140,14 +140,6 @@ for c in category:
 
 driver.close()
 
-nameList = []
-imgUrlList = []
-ingredientsList = []
-recipe = []
-garnishs = []
-glasses = []
-urls = []
-
 data = {"name" : nameList, "img" : imgUrlList, "ingredients" : ingredientsList , "recipe" : recipe , "garnish" : garnishs, "glass" : glasses, "url" : urls}
 df = pd.DataFrame(data)
 
