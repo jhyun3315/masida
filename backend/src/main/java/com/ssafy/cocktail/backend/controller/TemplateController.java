@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value = "/api/v1/temp/")
+//@RequestMapping(value = "/api/v1/temp/")
+@RequestMapping(value = "/v3/api-docs/")
 @Tag(name = "Template", description = "템플릿 API Document")
 public class TemplateController {
 
