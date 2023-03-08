@@ -1,0 +1,21 @@
+.main {
+  background-color: #253976;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main_left {
+  display: flex;
+}
+
+.main_right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+
+  span {
+    padding: 1rem;
+  }
+}
