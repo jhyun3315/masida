@@ -1,0 +1,19 @@
+.mainCocktail {
+  margin: 1%;
+  margin: 0 5%;
+
+
+  .mainCocktail_content {
+    display: flex;
+
+    .mainCocktail_recommend {
+      display: flex;
+      border: 1px solid black;
+
+
+      .mainCocktail_recoomend_img {}
+
+      .mainCocktail_recommend_detail {}
+    }
+  }
+}

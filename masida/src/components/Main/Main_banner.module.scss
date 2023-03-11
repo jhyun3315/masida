@@ -1,0 +1,27 @@
+.mainBanner {
+  position: relative;
+  min-height: 700px;
+  margin: 1%;
+
+  .mainHeader {
+    margin-top: 2%;
+    margin-left: 75%;
+    text-align: right;
+    position: absolute;
+
+    span {
+      margin-right: 2%;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  }
+
+  .mainTitle {
+    position: absolute;
+    margin-top: 22%;
+    margin-left: 65%;
+    text-align: left;
+    font-size: 1.7rem;
+    color: white;
+  }
+}
