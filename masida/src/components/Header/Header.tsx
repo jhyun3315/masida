@@ -6,7 +6,7 @@ const Header = () => {
     <>
       <div className={style.main}>
         <div className={style.main_left}>
-          <Image src="/logo.png" width={214} height={74} alt="logo" />
+          <Image src="/assets/image/logo.png" width={214} height={74} alt="logo" />
         </div>
         <div className={style.main_right}>
           <span>칵테일 추천</span>
