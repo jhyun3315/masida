@@ -1,0 +1,20 @@
+.ingredient {
+  .ingredient_form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .ingredient_form_input {
+    border-radius: 5px;
+    width: 70%;
+    margin-left: 1rem;
+    height: 35px;
+    border-width: 1px;
+  }
+  .ingredient_search_result_list {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 95%;
+    height: auto;
+  }
+}
