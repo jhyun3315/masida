@@ -12,7 +12,7 @@ const Category = () => {
   return (
     <>
       <div className={style.category}>
-        <h3>카테고리</h3>
+        <h3 className={style.category_title}>카테고리</h3>
         <hr />
         <Base />
         <Color />
