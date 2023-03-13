@@ -16,14 +16,26 @@
     border: 1px solid black;
     border-radius: 5px;
     width: 95%;
-    height: auto;
+    .ingredient_search_result_item {
+      display: inline-block;
+      border: 1px solid black;
+      border-radius: 5px;
+      box-sizing: border-box;
+      width: max-content;
+      margin: 8px;
+      padding: 4px;
+    }
   }
-  .ingredient_search_result_item {
-    border: 1px solid black;
-    border-radius: 5px;
-    box-sizing: border-box;
-    width: max-content;
-    margin : 8px;
-    padding: 4px;
+  .ingredient_search_added_list {
+    width: 95%;
+    .ingredient_search_added_item {
+      display: inline-block;
+      border: 1px solid black;
+      border-radius: 5px;
+      box-sizing: border-box;
+      width: max-content;
+      margin: 8px;
+      padding: 4px;
+    }
   }
 }
