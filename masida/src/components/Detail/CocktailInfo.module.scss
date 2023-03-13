@@ -1,0 +1,92 @@
+.detail_cocktail_info {
+  position: absolute;
+  width: 1023px;
+  height: 739px;
+  left: 97px;
+  top: 205px;
+  display: flex;
+  // 이미지 영역
+  .detail_cocktail_img_div {
+    left: 0px;
+    top: 0px;
+    display: flex;
+    .detail_cocktail_img {
+      box-sizing: border-box;
+      position: relative;
+      width: 222px;
+      height: 222px;
+      left: 0px;
+      top: 0px;
+    }
+    .detail_cocktail_bookmark {
+      position: absolute;
+      z-index: 1;
+      left: 172px;
+    }
+  }
+
+  // 헤더 영역
+  .detail_cocktail_info_header {
+    width: 506px;
+    height: 99px;
+    left: 505px;
+    top: 53px;
+    .detail_cocktail_title {
+      width: 454px;
+      height: 50px;
+      left: 0px;
+      top: 0px;
+
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 33px;
+      line-height: 45px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+
+      color: #000000;
+    }
+    .detail_cocktail_likebtn {
+      left: 90.71%;
+      right: 1.01%;
+      top: 3.03%;
+      bottom: 52.66%;
+    }
+    .detail_cocktail_rating_score {
+      width: 79px;
+      height: 46px;
+      left: 15px;
+      top: 54px;
+      .detail_rating_score {
+        width: 48px;
+        height: 46px;
+        left: 31px;
+        top: 0px;
+
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 27px;
+        line-height: 32px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+      }
+    }
+  }
+
+  // 재료 리스트 영역
+  .detail_cocktail_ingredient {
+  }
+
+  // 레시피 영역
+  .detail_cocktail_recipe_textarea {
+  }
+
+  // 소개 영역
+  .detail_cocktail_recipe_content_textarea {
+  }
+}
