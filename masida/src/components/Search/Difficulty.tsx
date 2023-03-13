@@ -1,8 +1,10 @@
 import style from "./Difficulty.module.scss";
 
 const Difficulty = () => {
-  const click = () => {
-    console.log("나 눌리나?");
+
+  const click = (event: React.MouseEvent<HTMLElement>) => {
+    const target = event.target as HTMLInputElement;
+    console.log(target.checked);
   };
   return (
     <>
@@ -11,9 +13,10 @@ const Difficulty = () => {
           <h3 className={style.difficulty_title}>난이도</h3>
           <div className={style.difficulty_selector}>
             <input
-              type="radio"
+              type="checkbox"
               id="high"
               className={style.difficulty_selector_btn}
+              name="level"
               onClick={click}
             />
             <label htmlFor="high" className={style.difficulty_selector_lev}>
@@ -21,18 +24,20 @@ const Difficulty = () => {
             </label>
             |
             <input
-              type="radio"
+              type="checkbox"
               id="medium"
               className={style.difficulty_selector_btn}
+              name="level"
             />
             <label htmlFor="medium" className={style.difficulty_selector_lev}>
               중
             </label>
             |
             <input
-              type="radio"
+              type="checkbox"
               id="low"
               className={style.difficulty_selector_btn}
+              name="level"
             />
             <label htmlFor="low" className={style.difficulty_selector_lev}>
               하
