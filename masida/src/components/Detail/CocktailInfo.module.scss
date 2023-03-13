@@ -1,10 +1,11 @@
 .detail_cocktail_info {
-  position: absolute;
+  position: relative;
   width: 1023px;
   height: 739px;
-  left: 97px;
-  top: 205px;
+  left: 50px;
+  top: 50px;
   display: flex;
+  flex-direction: row;
   // 이미지 영역
   .detail_cocktail_img_div {
     left: 0px;
@@ -13,29 +14,45 @@
     .detail_cocktail_img {
       box-sizing: border-box;
       position: relative;
-      width: 222px;
-      height: 222px;
+      width: 474px;
+      height: 739px;
       left: 0px;
       top: 0px;
     }
     .detail_cocktail_bookmark {
       position: absolute;
+      // right: 5px;
       z-index: 1;
-      left: 172px;
+      left: 400px;
     }
   }
 
   // 헤더 영역
   .detail_cocktail_info_header {
+    display: inline-block;
+    flex-direction: row;
+    padding-left: 5%;
     width: 506px;
     height: 99px;
     left: 505px;
     top: 53px;
+    img{
+      width: 30px;
+      height: 30px;
+      padding-right: 3%;
+    }
+    .detail_cocktail_info_header_top {
+      display: flex;
+      flex-direction: row;
+    }
+    .detail_cocktail_info_header_bottom {
+      display: flex;
+      flex-direction: row;
+      gap: 5%;
+    }
     .detail_cocktail_title {
       width: 454px;
       height: 50px;
-      left: 0px;
-      top: 0px;
 
       font-family: "Inter";
       font-style: normal;
@@ -49,20 +66,15 @@
       color: #000000;
     }
     .detail_cocktail_likebtn {
-      left: 90.71%;
-      right: 1.01%;
-      top: 3.03%;
-      bottom: 52.66%;
+      padding-top: 10px;
     }
     .detail_cocktail_rating_score {
-      width: 79px;
+      display: flex;
+      width: 60px;
       height: 46px;
-      left: 15px;
-      top: 54px;
       .detail_rating_score {
         width: 48px;
         height: 46px;
-        left: 31px;
         top: 0px;
 
         font-family: "Inter";
@@ -75,6 +87,48 @@
 
         color: #000000;
       }
+    }
+    .detail_cocktail_like_count {
+      display: flex;
+      width: 120px;
+      height: 46px;
+      .detail_like_count {
+        height: 46px;
+        top: 0px;
+
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 27px;
+        line-height: 32px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+      }
+    }
+    .detail_cocktail_comment_count {
+      display: flex;
+      height: 46px;
+      .detail_comment_count {
+        width: 80px;
+        height: 46px;
+        top: 0px;
+
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 27px;
+        line-height: 32px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+      }
+    }
+    .detail_comment_difficulty{
+      width: 134px;
+      height: 36px;
     }
   }
 

@@ -75,7 +75,6 @@ const detail = () => {
   return (
     <>
       <Header />
-      <h1>detail~ {x}</h1>
       <CocktailInfo {...props} />
     </>
   );
