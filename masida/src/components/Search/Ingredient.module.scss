@@ -12,12 +12,14 @@
     border-width: 1px;
     font-size: 16px;
   }
+  .ingredient_search_result_key {
+    display: inline-block;
+  }
   .ingredient_search_result_list {
     border: 1px solid black;
     border-radius: 5px;
     width: 95%;
     .ingredient_search_result_item {
-      display: inline-block;
       border: 1px solid black;
       border-radius: 5px;
       box-sizing: border-box;
@@ -29,7 +31,6 @@
   .ingredient_search_added_list {
     width: 95%;
     .ingredient_search_added_item {
-      display: inline-block;
       border: 1px solid black;
       border-radius: 5px;
       box-sizing: border-box;

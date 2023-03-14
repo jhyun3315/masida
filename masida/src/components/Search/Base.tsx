@@ -1,9 +1,5 @@
 import style from "./Base.module.scss";
 
-type base = {
-  base_name: string;
-};
-
 const Base = () => {
   return (
     <>

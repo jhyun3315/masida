@@ -4,7 +4,7 @@ import { searchedIngredient, searchIngredient } from "../Search/Category";
 
 const Ingredient = (props: searchedIngredient) => {
   const { ingredient } = props;
-  let [inputvalue, setInputValue] = useState<string>("")
+  let [inputvalue, setInputValue] = useState<string>("");
   let [addedIngredient, setAddedIngredient] = useState<searchIngredient[]>([]);
   let [listIngredient, setListIngredient] = useState<searchIngredient[]>([]);
 
@@ -12,33 +12,34 @@ const Ingredient = (props: searchedIngredient) => {
   const searchIngredient = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
     setListIngredient(() => {
-      return ingredient.filter((ingre) => ingre.ingredient_name.includes(target.value)
+      return ingredient.filter((ingre) =>
+        ingre.ingredient_name.includes(target.value)
       );
-    })
+    });
+    if (target.value.length === 0) {
+      //아무것도 안써있으면 빈배열이여야해
+      setListIngredient([]);
+    }
     //ingre.ingredient_name 이 target.value를 포함하고 있다면 그 요소들만 보여주기.
     setInputValue(target.value);
   };
 
   //재료추가
-  const addIngredient = (e : searchIngredient) => {
+  const addIngredient = (e: searchIngredient) => {
     console.log(e.ingredient_add);
     e.ingredient_add = true;
     setAddedIngredient((prevInfo) => [...prevInfo, e]);
-  }
+  };
 
-  const removeIngredient = (e : searchIngredient) => {
+  const removeIngredient = (e: searchIngredient) => {
     console.log(e.ingredient_add);
     e.ingredient_add = false;
     console.log(addedIngredient);
-    
-    for(let i = 0; i < addedIngredient.length; i++) {
-      if(addedIngredient[i].ingredient_id === e.ingredient_id) {
-        addedIngredient.splice(i,1);
-        break;
-      }
-    }
-    setAddedIngredient(addedIngredient);
-  }
+    //id가 같은것은 빼주자.
+    setAddedIngredient(
+      addedIngredient.filter((add) => add.ingredient_id !== e.ingredient_id)
+    );
+  };
 
   return (
     <>
@@ -55,28 +56,40 @@ const Ingredient = (props: searchedIngredient) => {
         </div>
         <div className={style.ingredient_search_result_list}>
           {listIngredient.map((ingre) => (
-            <>
+            <div
+              key={ingre.ingredient_id}
+              className={style.ingredient_search_result_key}
+            >
               {ingre.ingredient_add ? (
-                <div></div>
+                <></>
               ) : (
-                <div className={style.ingredient_search_result_item} key={ingre.ingredient_id} onClick={() => addIngredient(ingre)}>
+                <div
+                  className={style.ingredient_search_result_item}
+                  onClick={() => addIngredient(ingre)}
+                >
                   {ingre.ingredient_name} +
                 </div>
               )}
-            </>
+            </div>
           ))}
         </div>
         <div className={style.ingredient_search_added_list}>
           {addedIngredient.map((ingre) => (
-            <>
+            <div
+              key={ingre.ingredient_id}
+              className={style.ingredient_search_result_key}
+            >
               {ingre.ingredient_add ? (
-                <div className={style.ingredient_search_added_item} key={ingre.ingredient_id} onClick={() => removeIngredient(ingre)}>
+                <div
+                  className={style.ingredient_search_added_item}
+                  onClick={() => removeIngredient(ingre)}
+                >
                   {ingre.ingredient_name} -
                 </div>
               ) : (
-                <div></div>
+                <></>
               )}
-            </>
+            </div>
           ))}
         </div>
       </div>

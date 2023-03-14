@@ -31,12 +31,12 @@ const Category = () => {
       {
         ingredient_id: 3,
         ingredient_name: "콜라",
-        ingredient_add: true,
+        ingredient_add: false,
       },
       {
         ingredient_id: 4,
         ingredient_name: "피냐콜라닥!",
-        ingredient_add: true,
+        ingredient_add: false,
       },
     ],
   };
