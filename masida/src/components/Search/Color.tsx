@@ -3,24 +3,26 @@ import style from "./Color.module.scss";
 
 const Color = () => {
   const [checked, isChecked] = useState<number>(0);
+  const [errorMsg, isErrorMsg] = useState<boolean>(false);
 
   //색상은 2개이상 선택할수 없게 만들어주게 하려함.
   const checkedColor = (event: React.MouseEvent<HTMLElement>) => {
     const target = event.target as HTMLInputElement;
     if (checked > 1 && target.checked === true) {
       //만약 2개가 선택되었다면?
-      alert("더이상 선택이 불가합니다.");
       if (target.checked === true) {
         target.checked = false;
       } else {
         target.checked = true;
       }
+      isErrorMsg(true);
     } else {
       if (target.checked === true) {
         isChecked(checked + 1);
       } else {
         isChecked(checked - 1);
       }
+      isErrorMsg(false);
     }
     console.log(checked);
   };
@@ -102,6 +104,13 @@ const Color = () => {
               onClick={checkedColor}
             />
           </label>
+          {errorMsg ? (
+            <div className={style.color_errmsg}>
+              색상은 최대 2개까지 선택 가능합니다.
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </>

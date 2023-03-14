@@ -1,6 +1,7 @@
 import Result from "./Result";
 import Sidebar from "./Sidebar";
 import style from "./SearchPage.module.scss";
+
 const SearchPage = () => {
   return (
     <>
