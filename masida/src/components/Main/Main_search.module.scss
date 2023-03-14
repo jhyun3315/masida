@@ -4,11 +4,28 @@
   margin: 1%;
 
   .searchText {
+    flex: 1;
+    line-height: 0.3;
     color: white;
-    margin-left: 2%;
+    margin: 2% 0 5% 10%;
+
+    h3 {
+      font-size: 1.7rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
   }
 
   .searchBox {
-    margin-top: 2%;
+    flex: 1;
+    margin-top: 3%;
+
+    input {
+      width: 50%;
+      height: 35%;
+      border-radius: 2%;
+    }
   }
 }
