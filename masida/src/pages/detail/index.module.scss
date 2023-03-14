@@ -1,0 +1,15 @@
+.detail_layout {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-between;
+  width: 98%;
+  height: 80vh;
+  margin: 0 auto;
+  .detail_layout_left{
+    flex: 1;
+  }
+  .detail_layout_right{
+    flex: 1;
+  }
+}

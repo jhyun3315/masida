@@ -1,7 +1,7 @@
-import style from "./Cocktail_info.module.scss";
-import { idProps } from "../../pages/detail/[id]";
+import style from "./Cocktail_info.module.css";
+import { detail_props } from "../../pages/detail/[id]";
 
-const Cocktail_info = (props: idProps) => {
+const Cocktail_info = (props: detail_props) => {
   const {
     cocktail_id,
     cocktail_name_ko,
@@ -30,7 +30,6 @@ const Cocktail_info = (props: idProps) => {
 
   return (
     <div className={style.detail_cocktail_info}>
-      <div>
         <div className={style.detail_cocktail_img_div}>
           <img
             className={style.detail_cocktail_img}
@@ -38,9 +37,8 @@ const Cocktail_info = (props: idProps) => {
             alt="image"
           />
         </div>
-      </div>
 
-      <div>
+      <div className={style.detail_cocktail_info_text} >
         <div className={style.detail_cocktail_info_header}>
           <div className={style.detail_cocktail_info_header_top}>
             <div className={style.detail_cocktail_title}>

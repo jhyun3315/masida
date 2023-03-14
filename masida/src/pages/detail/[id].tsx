@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
+import style from "./index.module.scss";
 
 import Header from "../../components/Header/Header";
 import Cocktail_Info from "@/components/Detail/Cocktail_Info";
+import Cocktail_recommend from "@/components/Detail/Cocktail_recommend";
 
 // 1. 칵테일 상세 조회
 export type recipeType = {
@@ -16,7 +18,7 @@ export type ingredientType = {
 };
 
 // 화면 단에서 axios 호출을 하여 결과 값을 컴포넌트에 props로 넘겨준다.
-export type idProps = {
+export type detail_props = {
   cocktail_id: number;
   cocktail_name_ko: string;
   cocktail_name_en: string;
@@ -35,22 +37,28 @@ export type idProps = {
 
 // 2. 특정 칵테일의 재료와 유사한 칵테일 상위 5개 추천 (컨텐츠 기반)
 export type cocktailType = {
-  cocktail_id: number,
-	cocktail_name_ko: string,
-	cocktail_name_en: string,
-	cocktail_img: string,
-	cocktail_likes: number,
-	cocktail_rating: number,
-	cocktail_difficulty : string
-}
+  cocktail_id: number;
+  cocktail_name_ko: string;
+  cocktail_name_en: string;
+  cocktail_img: string;
+  cocktail_likes: number;
+  cocktail_rating: number;
+  cocktail_difficulty: string;
+};
 export type ingredientRecommend = {
-  data:cocktailType[]
-}
+  data: cocktailType[];
+};
 
 // 3. 특정 칵테일의 색상와 유사한 칵테일 상위 5개 추천 (컨텐츠 기반)
 export type colorRecommend = {
-  data:cocktailType[]
-}
+  data: cocktailType[];
+};
+
+// 4. 2,3을 자식 컴포넌트에 전달할 type
+export type recommend_props = {
+  color_recommend: colorRecommend;
+  ingredient_recommend: ingredientRecommend;
+};
 
 const detail = () => {
   const router = useRouter();
@@ -58,7 +66,7 @@ const detail = () => {
   // router.query.id가 undefined일 수 있기 때문에 as String을 붙혀줘서 해결한다.
   const x: string = router.query.id as string;
 
-  const props: idProps = {
+  const detail_props: detail_props = {
     cocktail_id: parseInt(x, 10),
     cocktail_name_ko: "피치 크러쉬",
     cocktail_name_en: "Peach Crush",
@@ -69,8 +77,8 @@ const detail = () => {
     cocktail_rating: 3.5,
     cocktail_likes: 3212,
     cocktail_comments: 2233,
-    likes_checker: false,
-    bookmark_checker: false,
+    likes_checker: true,
+    bookmark_checker: true,
     glass: "동그리 동동잔",
     recipe: [
       {
@@ -111,14 +119,67 @@ const detail = () => {
         ingredient_amount: "20",
         ingredient_unit: "ml",
       },
-
     ],
+  };
+
+  const recommend_props: recommend_props = {
+    color_recommend: {
+      data: [
+        {
+          cocktail_id: 1,
+          cocktail_name_ko: "오렌지 블라썸c1",
+          cocktail_name_en: "(orange Blossom)",
+          cocktail_img: "/assets/image/cocktailSample.png",
+          cocktail_likes: 292,
+          cocktail_rating: 4.6,
+          cocktail_difficulty: "하",
+        },
+        {
+          cocktail_id: 2,
+          cocktail_name_ko: "오렌지 블라썸c2",
+          cocktail_name_en: "(orange Blossom)",
+          cocktail_img: "/assets/image/cocktailSample.png",
+          cocktail_likes: 292,
+          cocktail_rating: 4.6,
+          cocktail_difficulty: "하",
+        },
+      ],
+    },
+    ingredient_recommend: {
+      data: [
+        {
+          cocktail_id: 1,
+          cocktail_name_ko: "오렌지 블라썸i",
+          cocktail_name_en: "(orange Blossom)",
+          cocktail_img: "/assets/image/cocktailSample.png",
+          cocktail_likes: 333,
+          cocktail_rating: 4.6,
+          cocktail_difficulty: "중",
+        },
+        {
+          cocktail_id: 2,
+          cocktail_name_ko: "오렌지 블라썸i2",
+          cocktail_name_en: "(orange Blossom)",
+          cocktail_img: "/assets/image/cocktailSample.png",
+          cocktail_likes: 333,
+          cocktail_rating: 4.6,
+          cocktail_difficulty: "중",
+        },
+      ],
+    },
   };
 
   return (
     <>
       <Header />
-      <Cocktail_Info {...props} />
+      <div className={style.detail_layout}>
+        <div className={style.detail_layout_left}>
+          <Cocktail_Info {...detail_props} />
+        </div>
+        <div className={style.detail_layout_right}>
+          <Cocktail_recommend {...recommend_props} />
+        </div>
+      </div>
     </>
   );
 };
