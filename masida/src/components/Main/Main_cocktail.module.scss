@@ -28,6 +28,7 @@
 
         p {
           margin-top: 10%;
+
         }
       }
     }
@@ -35,6 +36,29 @@
     .mainCocktail_topLike {
       width: 30%;
       flex: 1;
+
+      a {
+        color: black;
+        text-decoration-line: none;
+        margin-left: 70%;
+      }
+
+      .cocktailTopLike {
+        display: flex;
+        // flex-direction: column;
+
+        .cocktailTopLike_Img {
+          flex: 1;
+        }
+
+        .cocktailTopLike_desc {
+          flex: 1;
+
+          p {
+            display: flex;
+          }
+        }
+      }
     }
   }
 }
