@@ -5,12 +5,13 @@
   width: fit-content;
   display: flex;
   flex-direction: row;
-  border: 1px solid blue;
+  // border: 1px solid blue;
   // 이미지 영역
   div {
     // padding-right: 2%;
   }
   .detail_cocktail_img_div {
+    flex: 1;
     display: flex;
     // width: fit-content;
     width: 30vw;
@@ -20,7 +21,10 @@
     }
   }
   .detail_cocktail_info_text {
-    width: 100%;
+    flex: 1;
+    width: 98%;
+    padding-left: 3%;
+
     // 헤더 영역
     .detail_cocktail_info_header {
       display: inline-block;
