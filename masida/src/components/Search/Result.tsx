@@ -1,38 +1,68 @@
 import style from "./Result.module.scss";
+import { Search_result_card } from "../UI/Card_ui";
+import { cocktailType } from "@/type/cocktailTypes";
 
-type cocktail = {
-  id: string;
-  name: string;
-  image: string;
-  like_cnt: number;
-  rating_cnt: number;
-  difficulty: string;
-};
-
-const DUMMY_COCKTAIL: cocktail[] = [
+const DUMMY_COCKTAIL: cocktailType[] = [
   {
-    id: "m1",
-    name: "오렌지 블라썸",
-    image: "/assets/image/cocktail.png",
-    like_cnt: 292,
-    rating_cnt: 4.6,
-    difficulty: "중",
+    cocktail_id: 1,
+    cocktail_name_ko: "오렌지 블라썸",
+    cocktail_name_en: "orange blossom",
+    cocktail_img: "/assets/image/cocktail.png",
+    cocktail_likes: 292,
+    cocktail_rating: 4.6,
+    cocktail_difficulty: "중",
   },
   {
-    id: "m2",
-    name: "오렌지 블라썸",
-    image: "/assets/image/cocktail.png",
-    like_cnt: 292,
-    rating_cnt: 4.6,
-    difficulty: "하",
+    cocktail_id: 2,
+    cocktail_name_ko: "오렌지 블라썸",
+    cocktail_name_en: "orange blossom",
+    cocktail_img: "/assets/image/cocktail.png",
+    cocktail_likes: 292,
+    cocktail_rating: 4.6,
+    cocktail_difficulty: "중",
   },
   {
-    id: "m3",
-    name: "오렌지 블라썸",
-    image: "/assets/image/cocktail.png",
-    like_cnt: 292,
-    rating_cnt: 4.6,
-    difficulty: "상",
+    cocktail_id: 3,
+    cocktail_name_ko: "오렌지 블라썸",
+    cocktail_name_en: "orange blossom",
+    cocktail_img: "/assets/image/cocktail.png",
+    cocktail_likes: 292,
+    cocktail_rating: 4.6,
+    cocktail_difficulty: "중",
+  },{
+    cocktail_id: 4,
+    cocktail_name_ko: "오렌지 블라썸",
+    cocktail_name_en: "orange blossom",
+    cocktail_img: "/assets/image/cocktail.png",
+    cocktail_likes: 292,
+    cocktail_rating: 4.6,
+    cocktail_difficulty: "중",
+  },
+  {
+    cocktail_id: 5,
+    cocktail_name_ko: "오렌지 블라썸",
+    cocktail_name_en: "orange blossom",
+    cocktail_img: "/assets/image/cocktail.png",
+    cocktail_likes: 292,
+    cocktail_rating: 4.6,
+    cocktail_difficulty: "중",
+  },
+  {
+    cocktail_id: 5,
+    cocktail_name_ko: "오렌지 블라썸",
+    cocktail_name_en: "orange blossom",
+    cocktail_img: "/assets/image/cocktail.png",
+    cocktail_likes: 292,
+    cocktail_rating: 4.6,
+    cocktail_difficulty: "중",
+  },{
+    cocktail_id: 5,
+    cocktail_name_ko: "오렌지 블라썸",
+    cocktail_name_en: "orange blossom",
+    cocktail_img: "/assets/image/cocktail.png",
+    cocktail_likes: 292,
+    cocktail_rating: 4.6,
+    cocktail_difficulty: "중",
   },
 ];
 
@@ -43,24 +73,31 @@ const Result = () => {
         <div className={style.result_header}>
           <div className={style.result_count}>총 198건</div>
           <div className={style.result_sort}>
-              <input type="radio" id="like" name="sort" className={style.result_sort_btn} />
+            <input
+              type="radio"
+              id="like"
+              name="sort"
+              className={style.result_sort_btn}
+            />
             <label htmlFor="like" className={style.result_sort_label}>
               좋아요
             </label>
             |
-              <input
-                type="radio"
-                id="rank"
-                name="sort"
-                className={style.result_sort_btn}
-              />
+            <input
+              type="radio"
+              id="rank"
+              name="sort"
+              className={style.result_sort_btn}
+            />
             <label htmlFor="rank" className={style.result_sort_label}>
               별점
             </label>
           </div>
         </div>
         <div className={style.result_card_list}>
-          <ul></ul>
+          {DUMMY_COCKTAIL.map((key) => (
+            <Search_result_card {...key} />
+          ))}
         </div>
       </div>
     </>
