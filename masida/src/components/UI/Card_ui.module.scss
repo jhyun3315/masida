@@ -1,16 +1,16 @@
-.card {
+.detail_card {
   height: fit-content;
   //   border: 1px solid red;
-  .card_top {
-    .cocktailImg {
+  .detail_card_top {
+    .detail_cocktailImg {
       margin: 0 auto;
       border-radius: 9%;
       width: 50%;
     }
   }
 
-  .card_bottom {
-    .cocktailName {
+  .detail_card_bottom {
+    .detail_cocktailName {
       margin: 0 auto;
 
       font-family: "Roboto";
@@ -23,7 +23,7 @@
       align-items: center;
       text-align: center;
     }
-    .sub {
+    .detail_sub {
       width: fit-content;
       display: flex;
       margin: 0 auto;
@@ -32,11 +32,11 @@
       gap: 5px;
       align-items: center;
       text-align: center;
-      .likeImg {
+      .detail_likeImg {
         width: 24px;
         height: 24px;
       }
-      .like {
+      .detail_like {
         width: fit-content;
         height: 32px;
 
@@ -46,11 +46,11 @@
         font-size: 24px;
         line-height: 32px;
       }
-      .rateImg {
+      .detail_rateImg {
         width: 30px;
         height: 30px;
       }
-      .rate {
+      .detail_rate {
         width: fit-content;
         height: 32px;
 
@@ -61,6 +61,64 @@
         line-height: 32px;
       }
     }
+  }
+}
+
+.result_card {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  .result_card_img {
+    width: 95%;
+  }
+
+  .result_card_title {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .result_stat {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 7%;
+    .result_like {
+      display: flex;
+      .result_likeImg {
+        width: 50%;
+      }
+      .result_like_count {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 29px;
+        line-height: 29px;
+        align-items: center;
+      }
+    }
+    .result_rating {
+      display: flex;
+
+      .result_rateImg {
+        width: 50%;
+      }
+      .result_rating_score {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 29px;
+        line-height: 29px;
+        align-items: center;
+      }
+    }
+  }
+
+  .result_card_difficulty_div {
   }
 }
 
@@ -149,128 +207,6 @@
         font-size: 12px;
         line-height: 22px;
       }
-    }
-  }
-}
-
-.detailCard {
-  box-sizing: border-box;
-  width: 383px;
-  height: fit-content;
-  padding: 5px;
-
-  background: #ffffff;
-  border: 1px solid #000000;
-  border-radius: 10px;
-  .cocktailKorName {
-    height: 30px;
-
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 35px;
-    text-align: center;
-  }
-  .cocktailEngName {
-    height: 35px;
-
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 35px;
-    text-align: center;
-  }
-  .cocktailImg {
-    box-sizing: border-box;
-    margin: 5px;
-    margin-bottom: 10px;
-    height: 442px;
-    border-radius: 9px;
-  }
-  .detailHeader {
-    box-sizing: border-box;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    gap: 10px;
-    margin-top: 5px;
-
-    height: 46px;
-    border: 1px solid #000000;
-    border-radius: 10px;
-    .likeImg {
-      width: 24px;
-      height: 24px;
-    }
-    .like {
-      width: fit-content;
-      height: 40px;
-
-      font-family: "Inter";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 40px;
-      display: flex;
-      align-items: center;
-
-      flex: none;
-      flex-grow: 0;
-    }
-    .commentImg {
-      width: 20px;
-      height: 20px;
-
-      flex: none;
-    }
-    .comment {
-      width: fit-content;
-      height: 40px;
-
-      font-family: "Inter";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 40px;
-      display: flex;
-      align-items: center;
-
-      color: #000000;
-
-      /* Inside auto layout */
-    }
-
-    .ratioImg {
-      width: 22px;
-      height: 18px;
-    }
-    .ratio {
-      width: fit-content;
-      height: 40px;
-
-      font-family: "Inter";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 40px;
-      display: flex;
-      align-items: center;
-
-      color: #ffcd1d;
-
-      /* Inside auto layout */
-
-      flex: none;
-    }
-    .bookmark {
-      width: 24px;
-      height: 31px;
-
-      /* Inside auto layout */
     }
   }
 }

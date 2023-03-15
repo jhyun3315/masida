@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 24px;
-    .result_sort{
+    .result_sort {
       .result_sort_btn {
         opacity: 0;
       }
@@ -17,8 +17,16 @@
       input:checked + label {
         font-size: 25px;
         color: black;
-        font-weight:bold;
+        font-weight: bold;
       }
     }
+  }
+  .result_card_list {
+    justify-content: center;
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 1%;
   }
 }

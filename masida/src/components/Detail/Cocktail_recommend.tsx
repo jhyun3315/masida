@@ -3,8 +3,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { Detail_recommend } from "../UI/Card_ui";
-import { recommend_props, cocktailType } from "../../pages/detail/[id]";
+import { Detail_recommend_card } from "../UI/Card_ui";
+import { recommend_props } from "../../pages/detail/[id]";
 
 const Cocktail_recommend = (props: recommend_props) => {
   const ingredientList = props.ingredient_recommend.data;
@@ -40,7 +40,7 @@ const Cocktail_recommend = (props: recommend_props) => {
           <div className={style.carousel}>
             <Slider {...settings}>
               {ingredientList.map((key) => (
-                <Detail_recommend {...key} />
+                <Detail_recommend_card {...key} />
               ))}
             </Slider>
           </div>
@@ -55,7 +55,7 @@ const Cocktail_recommend = (props: recommend_props) => {
           <div className={style.carousel}>
             <Slider {...settings}>
               {colorList.map((key) => (
-                <Detail_recommend {...key} />
+                <Detail_recommend_card {...key} />
               ))}
             </Slider>
           </div>

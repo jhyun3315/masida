@@ -5,6 +5,8 @@ import Header from "../../components/Header/Header";
 import Cocktail_Info from "@/components/Detail/Cocktail_Info";
 import Cocktail_recommend from "@/components/Detail/Cocktail_recommend";
 
+import { cocktailType } from "@/type/cocktailTypes";
+
 // 1. 칵테일 상세 조회
 export type recipeType = {
   recipe_num: number;
@@ -36,15 +38,7 @@ export type detail_props = {
 };
 
 // 2. 특정 칵테일의 재료와 유사한 칵테일 상위 5개 추천 (컨텐츠 기반)
-export type cocktailType = {
-  cocktail_id: number;
-  cocktail_name_ko: string;
-  cocktail_name_en: string;
-  cocktail_img: string;
-  cocktail_likes: number;
-  cocktail_rating: number;
-  cocktail_difficulty: string;
-};
+
 export type ingredientRecommend = {
   data: cocktailType[];
 };
