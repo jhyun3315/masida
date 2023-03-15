@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 const Main_cocktail_topLike = () => {
   const settings = {
     // dots: true,
-    infinite: true,
+    // infinite: true,
     speed: 100,
     autoplay: true,
     autoplaySpeed: 1000
