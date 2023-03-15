@@ -43,17 +43,18 @@ const Result = () => {
         <div className={style.result_header}>
           <div className={style.result_count}>총 198건</div>
           <div className={style.result_sort}>
-            <label className={style.result_sort_label}>
-              <input type="radio" id="high" className={style.result_sort_btn} />
+              <input type="radio" id="like" name="sort" className={style.result_sort_btn} />
+            <label htmlFor="like" className={style.result_sort_label}>
               좋아요
             </label>
             |
-            <label className={style.result_sort_label}>
               <input
                 type="radio"
-                id="medium"
+                id="rank"
+                name="sort"
                 className={style.result_sort_btn}
               />
+            <label htmlFor="rank" className={style.result_sort_label}>
               별점
             </label>
           </div>

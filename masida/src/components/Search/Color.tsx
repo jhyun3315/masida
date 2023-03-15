@@ -32,6 +32,7 @@ const Color = () => {
       <div>
         <h3 className={style.color_title}>색상</h3>
         <div className={style.color}>
+          <div className={style.color_up}>
           <label>
             <input
               type="checkbox"
@@ -68,6 +69,8 @@ const Color = () => {
               onClick={checkedColor}
             />
           </label>
+          </div>
+          <div className={style.color_down}>
           <label>
             <input
               type="checkbox"
@@ -104,6 +107,7 @@ const Color = () => {
               onClick={checkedColor}
             />
           </label>
+          </div>
           {errorMsg ? (
             <div className={style.color_errmsg}>
               색상은 최대 2개까지 선택 가능합니다.
