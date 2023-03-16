@@ -1,5 +1,5 @@
 .result {
-  display: flex;
+  height: 10vh;
   flex-direction: column;
   margin: 30px;
   .result_header {
@@ -22,6 +22,10 @@
     }
   }
   .result_card_list {
+    margin-top: 1%;
+    height: 82vh;
+    overflow: scroll;
+    overflow-x: hidden;
     justify-content: center;
     text-align: center;
 
