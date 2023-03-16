@@ -1,8 +1,30 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import counterSlice from "./counter/counterSlice";
+import baseSlice from "./category/baseSlice";
 
 import persistReducer from 'redux-persist/lib/persistReducer';
-import local from 'redux-persist/lib/storage';
+
+import createWebStorage from "redux-persist/lib/storage/createWebStorage";
+
+//로컬 스토리지에 persist 적용시키는 것.
+const createNoopStorage = () => {
+  return {
+    getItem(_key : any) {
+      return Promise.resolve(null);
+    },
+    setItem(_key : any , value : any) {
+      return Promise.resolve(value);
+    },
+    removeItem(_key: any) {
+      return Promise.resolve();
+    },
+  };
+};
+
+const local =
+  typeof window !== "undefined"
+    ? createWebStorage("local")
+    : createNoopStorage();
 
 import {
   persistStore,
@@ -16,7 +38,8 @@ import {
 
 
 const reducers = combineReducers({
-    counter : counterSlice,
+  counter: counterSlice,
+  baseselect : baseSlice,
 })
 
 const persistConfig = {

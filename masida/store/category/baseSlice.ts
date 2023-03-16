@@ -10,10 +10,10 @@ const initialState: baseState = {
 };
 
 const counterSlice = createSlice({
-  name: 'base',
+  name: 'baseselect',
   initialState,
   reducers: {
-    setBase : (state, action : PayloadAction<string>) => {
+    setSelectBase : (state, action : PayloadAction<string>) => {
       state.base = action.payload ;
     },
   },
@@ -21,6 +21,6 @@ const counterSlice = createSlice({
 
 const { actions, reducer: baseReducer } = counterSlice;
 
-export const { setBase } = actions;
+export const { setSelectBase } = actions;
 
 export default baseReducer;
