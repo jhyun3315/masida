@@ -1,5 +1,5 @@
 import style from "./Result.module.scss";
-import { Search_result_card } from "../UI/Card_ui";
+import { Search_result_card, My_bookmark_card } from "../UI/Card_ui";
 import { cocktailType } from "@/type/cocktailTypes";
 
 const DUMMY_COCKTAIL: cocktailType[] = [
@@ -21,81 +21,81 @@ const DUMMY_COCKTAIL: cocktailType[] = [
     cocktail_rating: 4.6,
     cocktail_difficulty: "중",
   },
-  {
-    cocktail_id: 3,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },{
-    cocktail_id: 4,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },
-  {
-    cocktail_id: 5,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },
-  {
-    cocktail_id: 6,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },{
-    cocktail_id: 7,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },{
-    cocktail_id: 8,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },{
-    cocktail_id: 9,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },{
-    cocktail_id: 10,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },{
-    cocktail_id: 11,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },
+  // {
+  //   cocktail_id: 3,
+  //   cocktail_name_ko: "오렌지 블라썸",
+  //   cocktail_name_en: "orange blossom",
+  //   cocktail_img: "/assets/image/cocktail.png",
+  //   cocktail_likes: 292,
+  //   cocktail_rating: 4.6,
+  //   cocktail_difficulty: "중",
+  // },{
+  //   cocktail_id: 4,
+  //   cocktail_name_ko: "오렌지 블라썸",
+  //   cocktail_name_en: "orange blossom",
+  //   cocktail_img: "/assets/image/cocktail.png",
+  //   cocktail_likes: 292,
+  //   cocktail_rating: 4.6,
+  //   cocktail_difficulty: "중",
+  // },
+  // {
+  //   cocktail_id: 5,
+  //   cocktail_name_ko: "오렌지 블라썸",
+  //   cocktail_name_en: "orange blossom",
+  //   cocktail_img: "/assets/image/cocktail.png",
+  //   cocktail_likes: 292,
+  //   cocktail_rating: 4.6,
+  //   cocktail_difficulty: "중",
+  // },
+  // {
+  //   cocktail_id: 6,
+  //   cocktail_name_ko: "오렌지 블라썸",
+  //   cocktail_name_en: "orange blossom",
+  //   cocktail_img: "/assets/image/cocktail.png",
+  //   cocktail_likes: 292,
+  //   cocktail_rating: 4.6,
+  //   cocktail_difficulty: "중",
+  // },{
+  //   cocktail_id: 7,
+  //   cocktail_name_ko: "오렌지 블라썸",
+  //   cocktail_name_en: "orange blossom",
+  //   cocktail_img: "/assets/image/cocktail.png",
+  //   cocktail_likes: 292,
+  //   cocktail_rating: 4.6,
+  //   cocktail_difficulty: "중",
+  // },{
+  //   cocktail_id: 8,
+  //   cocktail_name_ko: "오렌지 블라썸",
+  //   cocktail_name_en: "orange blossom",
+  //   cocktail_img: "/assets/image/cocktail.png",
+  //   cocktail_likes: 292,
+  //   cocktail_rating: 4.6,
+  //   cocktail_difficulty: "중",
+  // },{
+  //   cocktail_id: 9,
+  //   cocktail_name_ko: "오렌지 블라썸",
+  //   cocktail_name_en: "orange blossom",
+  //   cocktail_img: "/assets/image/cocktail.png",
+  //   cocktail_likes: 292,
+  //   cocktail_rating: 4.6,
+  //   cocktail_difficulty: "중",
+  // },{
+  //   cocktail_id: 10,
+  //   cocktail_name_ko: "오렌지 블라썸",
+  //   cocktail_name_en: "orange blossom",
+  //   cocktail_img: "/assets/image/cocktail.png",
+  //   cocktail_likes: 292,
+  //   cocktail_rating: 4.6,
+  //   cocktail_difficulty: "중",
+  // },{
+  //   cocktail_id: 11,
+  //   cocktail_name_ko: "오렌지 블라썸",
+  //   cocktail_name_en: "orange blossom",
+  //   cocktail_img: "/assets/image/cocktail.png",
+  //   cocktail_likes: 292,
+  //   cocktail_rating: 4.6,
+  //   cocktail_difficulty: "중",
+  // },
 ];
 
 const Result = () => {
@@ -128,7 +128,7 @@ const Result = () => {
         </div>
         <div className={style.result_card_list}>
           {DUMMY_COCKTAIL.map((key) => (
-            <Search_result_card {...key} />
+            <My_bookmark_card {...key} />
           ))}
         </div>
       </div>
