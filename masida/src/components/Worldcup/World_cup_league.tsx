@@ -1,3 +1,4 @@
+import styles from  "./World_cup_league.module.scss"
 import { cocktailType } from "@/type/cocktailTypes";
 import React, { useState, useEffect } from "react";
 import { World_cup_league_card } from "../UI/card2";
@@ -155,7 +156,7 @@ const World_cup_league = () => {
   const [cocktails, setCocktails] = useState<cocktailType[]>([]);
   const [displays, setDisplays] = useState<cocktailType[]>([]);
   const [winners, setWinners] = useState<cocktailType[]>([]);
-  const [rounds, setRounds] = useState<number>(0);
+  const [rounds, setRounds] = useState<number>(1);
 
   useEffect(() => {
     items.sort(() => Math.random() - 0.5);
@@ -169,7 +170,7 @@ const World_cup_league = () => {
   const clickHandler = (cocktail: cocktailType) => (e: React.MouseEvent) => {
     if(rounds < 15)
       setRounds(rounds+1);
-    
+
     if (cocktails.length <= 2) {
       if (winners.length === 0) {
         // 우승자가 나온 상황
@@ -193,11 +194,13 @@ const World_cup_league = () => {
         <div onClick={clickHandler(key)}>{key.cocktail_id}</div>
       ))} */}
       <div>{rounds}</div>
+      <div className= {styles.random_cocktail_selector}>
       {displays.map((key) => (
-        <div onClick={clickHandler(key)}>
+        <div onClick={clickHandler(key)} className = {styles.random_cocktail_card}>
           <World_cup_league_card {...key} />
         </div>
       ))}
+      </div>
     </>
   );
 };
