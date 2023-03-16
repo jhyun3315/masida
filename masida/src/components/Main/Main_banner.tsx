@@ -23,8 +23,8 @@ const Main_banner = () => {
                   objectFit="cover"
                   objectPosition="center" />
             <div className={style.mainHeader}>
-              <Link href="">칵테일 월드컵</Link>
-              <Link href="">칵테일 검색</Link>
+              <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
+              <Link href="/search">칵테일 검색</Link>
               <Link href="">로그인</Link>
             </div>
             <div className={style.mainTitle}>
