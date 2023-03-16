@@ -1,6 +1,17 @@
+import {useEffect, useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import style from "./Base.module.scss";
 
 const Base = () => {
+  const [base, setBase] = useState<string>("");
+  const dispatch = useDispatch();
+  // const searchbase = useSelector((state) => state.
+  useEffect(() => {
+
+  }, [base])
+  
+
   return (
     <>
       <div>
