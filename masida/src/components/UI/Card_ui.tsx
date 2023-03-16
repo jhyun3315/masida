@@ -145,6 +145,45 @@ const My_bookmark_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
   );
 };
 
+const My_like_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
+  return (
+    <>
+      <div className={styles.result_card}>
+        <Link href={`/detail/${cocktail.cocktail_id}`}>
+          <img
+            className={styles.result_card_img}
+            src={cocktail.cocktail_img}
+            alt=""
+          />
+        </Link>
+        <div className={styles.result_card_title}>
+          {cocktail.cocktail_name_ko}
+        </div>
+        <div className={styles.result_stat}>
+          <div className={styles.result_like}>
+            <img
+              className={styles.result_likeImg}
+              src="/assets/icons/LikeCheckedICON.png"
+            ></img>
+            <div className={styles.result_like_count}>
+              {cocktail.cocktail_likes}
+            </div>
+          </div>
+          <div className={styles.result_rating}>
+            <img
+              className={styles.result_rateImg}
+              src="/assets/icons/ratingICON.png"
+            ></img>
+            <div className={styles.result_rating_score}>
+              {cocktail.cocktail_rating}
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
 // const AnalysisCardComponent: React.FC<AnalysisProps> = ({
 //   analysisCard,
 // }: AnalysisProps) => {
@@ -158,4 +197,9 @@ const My_bookmark_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
 //   );
 // };
 
-export { Detail_recommend_card, Search_result_card, My_bookmark_card };
+export {
+  Detail_recommend_card,
+  Search_result_card,
+  My_bookmark_card,
+  My_like_card,
+};

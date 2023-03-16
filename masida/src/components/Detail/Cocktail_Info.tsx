@@ -30,15 +30,14 @@ const Cocktail_info = (props: detail_props) => {
 
   return (
     <div className={style.detail_cocktail_info}>
-        <div className={style.detail_cocktail_img_div}>
-          <img
-            className={style.detail_cocktail_img}
-            src={cocktail_img}
-            alt="image"
-          />
-        </div>
-
-      <div className={style.detail_cocktail_info_text} >
+      <div className={style.detail_cocktail_img_div}>
+        <img
+          className={style.detail_cocktail_img}
+          src={cocktail_img}
+          alt="image"
+        />
+      </div>
+      <div className={style.detail_cocktail_info_text}>
         <div className={style.detail_cocktail_info_header}>
           <div className={style.detail_cocktail_info_header_top}>
             <div className={style.detail_cocktail_title}>

@@ -49,7 +49,7 @@ const Main_cocktail = (props: cocktail_props) => {
                 </div>
                 ))}
                </Slider>
-              <Link href="">더 많은 레시피 보러가기{">"}</Link>
+              <Link href="/search">더 많은 레시피 보러가기{">"}</Link>
             </div>
           </div>
         </div>
