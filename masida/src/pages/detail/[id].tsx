@@ -149,7 +149,7 @@ const detail = () => {
     cocktail_name_en: "Peach Crush",
     cocktail_img: "/assets/image/cocktailSample.png",
     cocktail_content:
-      "Vinious pineau des charentes and apricot notes shine in this fruity sour.Vinious pineau des charentes and apricot notes shine in this fruity sour.Vinious pineau des charentes and apricot notes shine in this fruity sour.Vinious pineau des charentes and apricot notes shine in this fruity sour.",
+      "Vinious pineau des charentes and apricot notes shine in this fruity sour.",
     cocktail_difficulty: "상",
     cocktail_rating: 3.5,
     cocktail_likes: 3212,

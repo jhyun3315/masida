@@ -1,5 +1,5 @@
 import style from "./Result.module.scss";
-import { Search_result_card } from "../UI/Card_ui";
+import { Search_result_card, My_bookmark_card, My_like_card } from "../UI/Card_ui";
 import { cocktailType } from "@/type/cocktailTypes";
 
 const DUMMY_COCKTAIL: cocktailType[] = [
@@ -128,7 +128,7 @@ const Result = () => {
         </div>
         <div className={style.result_card_list}>
           {DUMMY_COCKTAIL.map((key) => (
-            <Search_result_card {...key} />
+            <My_like_card {...key} />
           ))}
         </div>
       </div>

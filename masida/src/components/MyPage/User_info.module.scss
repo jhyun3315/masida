@@ -1,0 +1,22 @@
+.userInfo {
+  margin: 10%;
+  display: flex;
+
+  .userInfo_leftImg {
+    flex: 1;
+  }
+
+  .userInfo_rightDesc {
+    flex: 1;
+    margin-right: 40%;
+  }
+
+  .uesrInfo_setting {
+    flex: 1;
+
+    .button {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}
