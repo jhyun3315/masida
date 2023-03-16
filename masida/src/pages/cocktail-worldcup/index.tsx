@@ -4,7 +4,7 @@ const cocktail_worldcup = () => {
   return (
     <>
       <Header />
-      <h1>칵테일 월드컵 페이지야~</h1>
+      
     </>
   );
 };
