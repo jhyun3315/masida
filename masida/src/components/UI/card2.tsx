@@ -1,4 +1,4 @@
-import styles from "./Card_ui.module.scss";
+import styles from "./Card1_ui.module.scss";
 import { cocktailType } from "@/type/cocktailTypes";
 
 const World_cup_league_card: React.FC<cocktailType> = (
