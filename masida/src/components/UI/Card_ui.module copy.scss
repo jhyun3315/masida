@@ -1,11 +1,7 @@
 .detail_card {
   height: fit-content;
-<<<<<<< HEAD
   width: fit-content;
   
-=======
-
->>>>>>> 2fe70d9558e3d6d755ec9331dcd6c2635fc4629c
   //   border: 1px solid red;
   .detail_card_top {
     .detail_cocktailImg {
@@ -29,7 +25,6 @@
       align-items: center;
       text-align: center;
     }
-
     .detail_sub {
       width: fit-content;
       display: flex;
@@ -39,12 +34,10 @@
       gap: 5px;
       align-items: center;
       text-align: center;
-
       .detail_likeImg {
         width: 24px;
         height: 24px;
       }
-
       .detail_like {
         width: fit-content;
         height: 32px;
@@ -55,12 +48,10 @@
         font-size: 24px;
         line-height: 32px;
       }
-
       .detail_rateImg {
         width: 30px;
         height: 30px;
       }
-
       .detail_rate {
         width: fit-content;
         height: 32px;
@@ -81,21 +72,18 @@
   justify-content: center;
   text-align: center;
   position: relative;
-
   .result_card_img {
     width: 95%;
     border-radius: 3%;
     z-index: 1;
   }
-
-  .result_card_bookmark_icon {
+  .result_card_bookmark_icon{
     position: absolute;
-    right: 5%;
-    top: 0%;
+    right : 5%;
+    top : 0%;
     z-index: 2;
   }
-
-  .result_card_bookmark_icon:hover {
+  .result_card_bookmark_icon:hover{
     // border: 1px solid white;
     width: 15%;
     cursor: pointer;
@@ -112,23 +100,19 @@
     margin: 0 auto;
     padding-bottom: 1%;
   }
-
   .result_stat {
     display: flex;
     margin: 0 auto;
     justify-content: center;
     gap: 3%;
     padding-bottom: 1%;
-
     .result_like {
       display: flex;
-
       .result_likeImg {
         width: 40%;
         height: 80%;
         padding-right: 3%;
       }
-
       .result_like_count {
         font-family: "Inter";
         font-style: normal;
@@ -138,16 +122,13 @@
         align-items: center;
       }
     }
-
     .result_rating {
       display: flex;
-
       .result_rateImg {
         width: 40%;
         height: 80%;
         padding-right: 3%;
       }
-
       .result_rating_score {
         font-family: "Inter";
         font-style: normal;
@@ -159,13 +140,13 @@
     }
   }
 
-  .result_card_difficulty_div {}
+  .result_card_difficulty_div {
+  }
 }
 
 .analysisCard {
   width: 120px;
   height: 150px;
-
   //   border: 1px solid purple;
   .cocktailImg {
     width: 100px;
@@ -173,7 +154,6 @@
     margin: 0px auto;
     border-radius: 9%;
   }
-
   .cocktailName {
     height: 18px;
     margin: 0px auto;
@@ -195,7 +175,6 @@
 
   border: 0.592708px solid #253976;
   border-radius: 8.89062px;
-
   .cocktailImg {
     margin: 0 auto;
     margin-top: 4px;
@@ -203,10 +182,8 @@
     height: 122px;
     border-radius: 9px;
   }
-
   div {
     margin: 0 auto;
-
     .cocktailName {
       width: 90%;
       height: 20px;
@@ -220,17 +197,14 @@
       align-items: center;
       text-align: center;
     }
-
     .sub {
       gap: 0px;
       display: flex;
       margin: 0 auto;
-
       .likeImg {
         width: 22px;
         height: 22px;
       }
-
       .like {
         width: fit-content;
         height: 15px;
@@ -241,12 +215,10 @@
         font-size: 12px;
         line-height: 22px;
       }
-
       .rateImg {
         width: 22px;
         height: 18px;
       }
-
       .rate {
         width: fit-content;
         height: 15px;
@@ -261,89 +233,15 @@
   }
 }
 
-.result_card {
-  margin-bottom: 3%;
-  width: 100%;
-  justify-content: center;
-  text-align: center;
-  position: relative;
+.world_cup_card{
+  .world_cup_top{
+    .world_cup_cocktailImg{
 
-  .result_card_img {
-    width: 75%;
-    border-radius: 3%;
-    z-index: 1;
-  }
-
-  .result_card_bookmark_icon {
-    position: absolute;
-    right: 20%;
-    top: 0%;
-    z-index: 2;
-  }
-
-  .result_card_bookmark_icon:hover {
-    // border: 1px solid white;
-    width: 15%;
-    cursor: pointer;
-  }
-
-  .result_card_title {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 2px;
-    align-items: center;
-    text-align: center;
-    margin: 0 auto;
-    padding: 5% 0;
-  }
-
-  .result_stat {
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
-    gap: 3%;
-    padding-bottom: 1%;
-
-    .result_like {
-      display: flex;
-
-      .result_likeImg {
-        width: 30%;
-        height: 65%;
-        padding: 5%;
-      }
-
-      .result_like_count {
-        font-family: "Inter";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 29px;
-        align-items: center;
-      }
-    }
-
-    .result_rating {
-      display: flex;
-
-      .result_rateImg {
-        width: 30%;
-        height: 70%;
-        padding: 3%;
-      }
-
-      .result_rating_score {
-        font-family: "Inter";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 22px;
-        line-height: 29px;
-        align-items: center;
-      }
     }
   }
-
-  .result_card_difficulty_div {}
+  .world_cup_bottom{
+    .world_cup_cocktailName{
+      
+    }
+  }
 }

@@ -1,0 +1,11 @@
+.mypage {
+  display: flex;
+
+  .mypage_left {
+    flex: 1;
+  }
+
+  .mypage_right {
+    flex: 1;
+  }
+}

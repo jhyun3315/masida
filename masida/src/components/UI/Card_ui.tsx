@@ -101,7 +101,7 @@ const test = () => {
 };
 const My_bookmark_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
   return (
-    <>
+    <div>
       <div className={styles.result_card}>
         <Link href={`/detail/${cocktail.cocktail_id}`}>
           <img
@@ -141,7 +141,7 @@ const My_bookmark_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
