@@ -1,6 +1,21 @@
+import {useEffect, useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
+import { setSelectBase } from '../../../store/category/baseSlice';
+
 import style from "./Base.module.scss";
 
 const Base = () => {
+  const [base, setBase] = useState<string>("");
+  const dispatch = useDispatch();
+  const selectBase = useSelector((state : RootState) => state.baseselect.base)
+  
+  //base를 지정해주어야함.
+  useEffect(() => {
+
+  }, [base])
+  
+
   return (
     <>
       <div>
