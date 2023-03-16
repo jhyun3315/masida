@@ -65,11 +65,13 @@
 }
 
 .result_card {
+  margin-bottom: 3%;
   width: 100%;
   justify-content: center;
   text-align: center;
   .result_card_img {
     width: 95%;
+    border-radius: 3%;
   }
 
   .result_card_title {
