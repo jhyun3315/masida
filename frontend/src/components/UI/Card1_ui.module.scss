@@ -1,0 +1,45 @@
+.world_cup_card {
+  border: 1px solid red;
+  padding-top: 2%;
+  margin-top: 5%;
+  height: 70vh;
+  .world_cup_top {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    .world_cup_cocktailImg {
+      width: 94%;
+      height: 60vh;
+    }
+  }
+  .world_cup_bottom {
+    .world_cup_cocktail_name_ko {
+      margin: 0 auto;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 42px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+
+      color: #253976;
+    }
+    .world_cup_cocktail_name_en {
+      margin: 0 auto;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 34px;
+      line-height: 42px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+
+      color: #253976;
+    }
+  }
+}
