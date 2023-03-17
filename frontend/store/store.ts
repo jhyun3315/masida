@@ -1,6 +1,9 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import counterSlice from "./counter/counterSlice";
 import baseSlice from "./category/baseSlice";
+import colorSlice from "./category/colorSlice";
+import difficultySlice from './category/difficultySlice';
+import ingredientSlice from './category/ingredientSlice';
 
 import persistReducer from 'redux-persist/lib/persistReducer';
 
@@ -39,18 +42,23 @@ import {
 
 const reducers = combineReducers({
   counter: counterSlice,
-  baseselect : baseSlice,
+  baseSelect : baseSlice,
+  colorSelect : colorSlice,
+  difficultySelect : difficultySlice,
+  ingredientSelect : ingredientSlice,
 })
 
+//새로고침시 안없어 지는 것을 whitelist에 저장.
 const persistConfig = {
   key: "root",
   storage: local,
   whitelist: ["counter"],
 };
 
-
+//redux-persist를 사용하기위해 Reducer합치는 단계
 const persistedReducer = persistReducer(persistConfig, reducers);
 
+//긁어온 거
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>

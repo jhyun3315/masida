@@ -12,15 +12,15 @@
     justify-content: center;
     align-items: center;
     font-size: 22px;
-    .difficulty_selector_btn {
-      opacity: 0;
-    }
-    input:checked + label {
-      font-size: 30px;
-      color: black;
-    }
     .difficulty_selector_lev {
       margin-right: 1rem;
+    }
+      input:checked + label {
+        font-size: 30px;
+        color: black;
+      }
+    .difficulty_selector_btn {
+      opacity: 0;
     }
   }
 }

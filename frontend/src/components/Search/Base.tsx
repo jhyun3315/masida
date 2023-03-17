@@ -6,14 +6,23 @@ import { setSelectBase } from '../../../store/category/baseSlice';
 import style from "./Base.module.scss";
 
 const Base = () => {
-  const [base, setBase] = useState<string>("");
   const dispatch = useDispatch();
-  const selectBase = useSelector((state : RootState) => state.baseselect.base)
+  const [checkBase, setCheckBase] = useState<string>("");
+  const selectBase = useSelector((state : RootState) => state.baseSelect.base)
   
-  //base를 지정해주어야함.
+  
+  console.log(selectBase);
+  
+  const clickBase = (e : React.MouseEvent<HTMLElement>) => {
+    const target = e.target as HTMLInputElement;
+    //base의 이름을 내가 선택한 것으로 변경해줌.
+    setCheckBase(target.value); 
+  }
+  
+  //base가 바뀔때마다 redux의 base에 저장해줍니다.
   useEffect(() => {
-
-  }, [base])
+    dispatch(setSelectBase(checkBase));
+  }, [checkBase])
   
 
   return (
@@ -22,22 +31,22 @@ const Base = () => {
         <h3 className={style.base_title}>베이스</h3>
         <div className={style.base_checkbox}>
           <label className={style.base_value}>
-            <input type="radio" name="color" value="vodka" /> 보드카
+            <input type="radio" name="base" value="보드카" onClick={clickBase}/> 보드카
           </label>
           <label className={style.base_value}>
-            <input type="radio" name="color" value="rum" /> 럼
+            <input type="radio" name="base" value="럼" onClick={clickBase}/> 럼
           </label>
           <label className={style.base_value}>
-            <input type="radio" name="color" value="jin" /> 진
+            <input type="radio" name="base" value="진" onClick={clickBase}/> 진
           </label>
           <label className={style.base_value}>
-            <input type="radio" name="color" value="tequila" /> 데킬라
+            <input type="radio" name="base" value="데킬라" onClick={clickBase}/> 데킬라
           </label>
           <label className={style.base_value}>
-            <input type="radio" name="color" value="whiskey" /> 위스키
+            <input type="radio" name="base" value="위스키" onClick={clickBase}/> 위스키
           </label>
           <label className={style.base_value}>
-            <input type="radio" name="color" value="Cognac" /> 꼬냑
+            <input type="radio" name="base" value="꼬냑" onClick={clickBase}/> 꼬냑
           </label>
         </div>
       </div>
