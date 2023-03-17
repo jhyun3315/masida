@@ -2,10 +2,18 @@
   background-color: #253976;
   display: flex;
   justify-content: space-between;
+  height: 48px;
 }
 
 .main_left {
   display: flex;
+  line-height: 36px;
+  a{
+  }
+  .main_logo{
+    height: 48px;
+    // vertical-align: middle;
+  }
 }
 
 .main_right {
@@ -13,7 +21,7 @@
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 24px;
+  font-size: 18px;
 
   a {
     color: white;
