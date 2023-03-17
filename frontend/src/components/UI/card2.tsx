@@ -5,8 +5,7 @@ import { detail_props } from "@/type/cocktailTypes";
 const World_cup_league_card: React.FC<detail_props> = (
   cocktail: detail_props
 ) => {
-
-  console.log(cocktail)
+  // console.log(cocktail);
   return (
     <div className={style.flip}>
       <div className={style.world_cup_card}>
@@ -38,20 +37,28 @@ const World_cup_league_card: React.FC<detail_props> = (
             </div>
           </div>
           <div className={style.ingredient_list}>
-            <img src="/assets/icons/ingredient_legendIMG.png" alt="" />
+            <img
+              className={style.ingredient_legendIMG}
+              src="/assets/icons/ingredient_legendIMG.png"
+              alt=""
+            />
             {cocktail.recipe.map((key) => (
-              <div>{key.recipe_num} {key.recipe_content}</div>
+              <div className={style.ingredient_list_element}>
+                {key.recipe_num}. {key.recipe_content}
+              </div>
             ))}
           </div>
-          <div>
-            <div>소개</div>
-            {cocktail.recipe.map((key) => (
+          <div className={style.recipe_content_textarea}>
+            {/* 소개 or 레시피 */}
+            <div className={style.recipe_content_title}>소개</div>
+            {/* {cocktail.recipe.map((key) => (
               <div>{key.recipe_content}</div>
-            ))}
+            ))} */}
+            {cocktail.cocktail_content}
           </div>
         </div>
       </div>
-      </div>
+    </div>
   );
 };
 
