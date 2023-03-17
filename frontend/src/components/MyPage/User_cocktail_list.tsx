@@ -1,17 +1,9 @@
 import { useState,useEffect } from 'react';
 import style from './User_cocktail_list.module.scss';
 import Link from 'next/link';
-import { My_bookmark_card, My_like_card } from '../UI/Card_ui';
-import { cocktailType } from '@/type/cocktailTypes';
+import { My_bookmark_card, My_like_card,My_comment_card } from '../UI/Card_ui';
+import { cocktailType, mypageCommentType } from '@/type/cocktailTypes';
 
-
-export type bookmarkList = {
-  data: cocktailType[];
-}
-  
-export type likeList = {
-  data: cocktailType[];
-}
   
 const User_cocktail_list = () => {
 
@@ -20,15 +12,35 @@ const User_cocktail_list = () => {
   const [comment, commentState] = useState(false);  
 
   const BookMarkHandler = () => {
+    if (like) {
+      likeState(!like);
+    } else if (comment) {
+      commentState(!comment);
+    }
+
     bookmarkState(!bookmark);
   };
     
   const LikeHandler = () => {
+    if (bookmark) {
+      bookmarkState(!bookmark);
+    } else if (comment) {
+      commentState(!comment);
+    }
+
     likeState(!like);
   };
   const commentHandler = () => {
-      commentState(!comment);
+     if (bookmark) {
+      bookmarkState(!bookmark);
+    } else if (like) {
+      likeState(!like);
+    }
+    
+    commentState(!comment);
   };
+
+
 
   const bookmarkList_props: cocktailType[] = [
     {
@@ -198,6 +210,55 @@ const User_cocktail_list = () => {
   },
   ]
 
+  const commentList_props: mypageCommentType[] = [
+    {
+      cocktail_id: 1,
+	    cocktail_name_ko: "오렌지 블라섬",
+	    cocktail_img: "/assets/image/cocktail.png",
+			cocktail_difficulty_user : "상",
+			comment_content : "존맛탱구리",
+			comment_rating : 3.9,
+      comment_date: "2023-05-05"
+    },
+    {
+      cocktail_id: 2,
+	    cocktail_name_ko: "오렌지 블라섬",
+	    cocktail_img: "/assets/image/cocktail.png",
+			cocktail_difficulty_user : "상",
+			comment_content : "존맛탱구리",
+			comment_rating : 3.9,
+      comment_date: "2023-05-05"
+    },
+    {
+      cocktail_id: 3,
+	    cocktail_name_ko: "오렌지 블라섬",
+	    cocktail_img: "/assets/image/cocktail.png",
+			cocktail_difficulty_user : "상",
+			comment_content : "존맛탱구리",
+			comment_rating : 3.9,
+      comment_date: "2023-05-05"
+    },
+    {
+      cocktail_id: 4,
+	    cocktail_name_ko: "오렌지 블라섬",
+	    cocktail_img: "/assets/image/cocktail.png",
+			cocktail_difficulty_user : "상",
+			comment_content : "존맛탱구리",
+			comment_rating : 3.9,
+      comment_date: "2023-05-05"
+    },
+    {
+      cocktail_id: 5,
+	    cocktail_name_ko: "오렌지 블라섬",
+	    cocktail_img: "/assets/image/cocktail.png",
+			cocktail_difficulty_user : "상",
+			comment_content : "존맛탱구리",
+			comment_rating : 3.9,
+      comment_date: "2023-05-05"
+    },
+
+  ]
+
   
   return (
     <div className={ style.userCocktailList}>
@@ -212,7 +273,10 @@ const User_cocktail_list = () => {
         )}
         {like && likeList_props.map((key) => 
           <My_like_card {...key}/>
-        ) }
+        )}
+        {comment && commentList_props.map((key) => 
+          <My_comment_card {...key}/>
+        )}
       </div>
     </div>
   )

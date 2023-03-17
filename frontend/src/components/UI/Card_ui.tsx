@@ -1,5 +1,5 @@
 import styles from "./Card_ui.module.scss";
-import { cocktailType } from "@/type/cocktailTypes";
+import { cocktailType,mypageCommentType } from "@/type/cocktailTypes";
 import Link from "next/link";
 
 const Detail_recommend_card: React.FC<cocktailType> = (
@@ -184,6 +184,32 @@ const My_like_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
   );
 };
 
+const My_comment_card: React.FC<mypageCommentType> = (cocktail:mypageCommentType) => {
+  return (
+    <>
+     <div>
+        <div>
+          <Link href={`detail/${cocktail.cocktail_id}`}>
+            <img src={ cocktail.cocktail_img}></img>
+          </Link>
+        </div>
+        <div>
+          <div>{ cocktail.comment_date}</div>
+          <div>{ cocktail.cocktail_name_ko}</div>
+        </div>
+        <div>
+          <img></img>
+          <span>{ cocktail.cocktail_difficulty_user}</span>
+          <img></img>
+        </div>
+        <div>
+          { cocktail.comment_content}
+        </div>
+     </div>
+    </>
+  );
+};
+
 // const AnalysisCardComponent: React.FC<AnalysisProps> = ({
 //   analysisCard,
 // }: AnalysisProps) => {
@@ -202,4 +228,5 @@ export {
   Search_result_card,
   My_bookmark_card,
   My_like_card,
+  My_comment_card
 };
