@@ -1,0 +1,95 @@
+.color_title {
+  font-size: 25px;
+}
+.color {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  input:checked {
+    border: 4px solid grey;
+  }
+  .color_red {
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    appearance: none;
+  }
+  .color_orange {
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    background-color: orange;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    appearance: none;
+  }
+
+  .color_yellow {
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    background-color: yellow;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    appearance: none;
+  }
+
+  .color_green {
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    background-color: green;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    appearance: none;
+  }
+
+  .color_blue {
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    appearance: none;
+  }
+  .color_purple {
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    background-color: purple;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    appearance: none;
+  }
+
+  .color_white {
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    appearance: none;
+  }
+
+  .color_black {
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    appearance: none;
+  }
+  .color_errmsg {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}

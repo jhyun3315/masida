@@ -1,0 +1,344 @@
+.detail_card {
+  height: fit-content;
+
+  //   border: 1px solid red;
+  .detail_card_top {
+    .detail_cocktailImg {
+      margin: 0 auto;
+      border-radius: 9%;
+      width: 50%;
+    }
+  }
+
+  .detail_card_bottom {
+    .detail_cocktailName {
+      margin: 0 auto;
+
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .detail_sub {
+      width: fit-content;
+      display: flex;
+      margin: 0 auto;
+      justify-content: center;
+      justify-content: space-between;
+      gap: 5px;
+      align-items: center;
+      text-align: center;
+
+      .detail_likeImg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .detail_like {
+        width: fit-content;
+        height: 32px;
+
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 32px;
+      }
+
+      .detail_rateImg {
+        width: 30px;
+        height: 30px;
+      }
+
+      .detail_rate {
+        width: fit-content;
+        height: 32px;
+
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 32px;
+      }
+    }
+  }
+}
+
+.result_card {
+  margin-bottom: 3%;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+
+  .result_card_img {
+    width: 95%;
+    border-radius: 3%;
+    z-index: 1;
+  }
+
+  .result_card_bookmark_icon {
+    position: absolute;
+    right: 5%;
+    top: 0%;
+    z-index: 2;
+  }
+
+  .result_card_bookmark_icon:hover {
+    // border: 1px solid white;
+    width: 15%;
+    cursor: pointer;
+  }
+
+  .result_card_title {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 28px;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 1%;
+  }
+
+  .result_stat {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 3%;
+    padding-bottom: 1%;
+
+    .result_like {
+      display: flex;
+
+      .result_likeImg {
+        width: 40%;
+        height: 80%;
+        padding-right: 3%;
+      }
+
+      .result_like_count {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 29px;
+        line-height: 29px;
+        align-items: center;
+      }
+    }
+
+    .result_rating {
+      display: flex;
+
+      .result_rateImg {
+        width: 40%;
+        height: 80%;
+        padding-right: 3%;
+      }
+
+      .result_rating_score {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 29px;
+        line-height: 29px;
+        align-items: center;
+      }
+    }
+  }
+
+  .result_card_difficulty_div {}
+}
+
+.analysisCard {
+  width: 120px;
+  height: 150px;
+
+  //   border: 1px solid purple;
+  .cocktailImg {
+    width: 100px;
+    height: 110px;
+    margin: 0px auto;
+    border-radius: 9%;
+  }
+
+  .cocktailName {
+    height: 18px;
+    margin: 0px auto;
+
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.myCard {
+  margin-bottom: 5px;
+  width: 152.92px;
+  height: fit-content;
+
+  border: 0.592708px solid #253976;
+  border-radius: 8.89062px;
+
+  .cocktailImg {
+    margin: 0 auto;
+    margin-top: 4px;
+    width: 144px;
+    height: 122px;
+    border-radius: 9px;
+  }
+
+  div {
+    margin: 0 auto;
+
+    .cocktailName {
+      width: 90%;
+      height: 20px;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 17px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .sub {
+      gap: 0px;
+      display: flex;
+      margin: 0 auto;
+
+      .likeImg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .like {
+        width: fit-content;
+        height: 15px;
+
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 22px;
+      }
+
+      .rateImg {
+        width: 22px;
+        height: 18px;
+      }
+
+      .rate {
+        width: fit-content;
+        height: 15px;
+
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 22px;
+      }
+    }
+  }
+}
+
+.result_card {
+  margin-bottom: 3%;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+
+  .result_card_img {
+    width: 75%;
+    border-radius: 3%;
+    z-index: 1;
+  }
+
+  .result_card_bookmark_icon {
+    position: absolute;
+    right: 20%;
+    top: 0%;
+    z-index: 2;
+  }
+
+  .result_card_bookmark_icon:hover {
+    // border: 1px solid white;
+    width: 15%;
+    cursor: pointer;
+  }
+
+  .result_card_title {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 2px;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 5% 0;
+  }
+
+  .result_stat {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 3%;
+    padding-bottom: 1%;
+
+    .result_like {
+      display: flex;
+
+      .result_likeImg {
+        width: 30%;
+        height: 65%;
+        padding: 5%;
+      }
+
+      .result_like_count {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 29px;
+        align-items: center;
+      }
+    }
+
+    .result_rating {
+      display: flex;
+
+      .result_rateImg {
+        width: 30%;
+        height: 70%;
+        padding: 3%;
+      }
+
+      .result_rating_score {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 29px;
+        align-items: center;
+      }
+    }
+  }
+
+  .result_card_difficulty_div {}
+}

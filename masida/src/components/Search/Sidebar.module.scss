@@ -1,0 +1,22 @@
+.sidebar {
+  margin: 16px;
+  .search {
+    display: flex;
+    .search_form {
+      width: 75%;
+      height: 30px;
+      margin-right: 8px;
+      border-radius: 5px;
+      border-width: 1px;
+      font-size: 18px;
+    }
+    .search_btn {
+      width: 18%;
+      height: auto;
+      background-color: white;
+      border-radius: 5px;
+      border-width: 1px;
+      word-break: break-all;
+    }
+  }
+}

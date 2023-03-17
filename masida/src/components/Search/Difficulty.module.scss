@@ -1,0 +1,26 @@
+.difficulty {
+  display: flex;
+  width: 100%;
+  color: #9b9292;
+  font-weight: bold;
+  .difficulty_title {
+    color: black;
+    font-size: 25px;
+  }
+  .difficulty_selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    .difficulty_selector_btn {
+      opacity: 0;
+    }
+    input:checked + label {
+      font-size: 30px;
+      color: black;
+    }
+    .difficulty_selector_lev {
+      margin-right: 1rem;
+    }
+  }
+}

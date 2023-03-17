@@ -1,0 +1,11 @@
+.random_cocktail_selector{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    // padding: ;
+    .random_cocktail_card{
+        width: 30%;
+    }
+}

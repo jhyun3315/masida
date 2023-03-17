@@ -1,0 +1,31 @@
+.mainSearch {
+  background-color: #253976;
+  display: flex;
+  margin: 1%;
+
+  .searchText {
+    flex: 1;
+    line-height: 0.3;
+    color: white;
+    margin: 2% 0 5% 10%;
+
+    h3 {
+      font-size: 1.7rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
+
+  .searchBox {
+    flex: 1;
+    margin-top: 3%;
+
+    input {
+      width: 50%;
+      height: 35%;
+      border-radius: 2%;
+    }
+  }
+}

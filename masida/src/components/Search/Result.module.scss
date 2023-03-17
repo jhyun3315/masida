@@ -1,0 +1,36 @@
+.result {
+  height: 10vh;
+  flex-direction: column;
+  margin: 30px;
+  .result_header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    .result_sort {
+      .result_sort_btn {
+        opacity: 0;
+      }
+      .result_sort_label {
+        margin-right: 1rem;
+        color: #9b9292;
+      }
+      input:checked + label {
+        font-size: 25px;
+        color: black;
+        font-weight: bold;
+      }
+    }
+  }
+  .result_card_list {
+    margin-top: 1%;
+    height: 82vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    justify-content: center;
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 1%;
+  }
+}

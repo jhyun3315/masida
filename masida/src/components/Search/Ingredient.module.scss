@@ -1,0 +1,42 @@
+.ingredient {
+  .ingredient_form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .ingredient_form_input {
+    border-radius: 5px;
+    width: 70%;
+    margin-left: 1rem;
+    height: 35px;
+    border-width: 1px;
+    font-size: 16px;
+  }
+  .ingredient_search_result_key {
+    display: inline-block;
+  }
+  .ingredient_search_result_list {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 95%;
+    .ingredient_search_result_item {
+      border: 1px solid black;
+      border-radius: 5px;
+      box-sizing: border-box;
+      width: max-content;
+      margin: 8px;
+      padding: 4px;
+    }
+  }
+  .ingredient_search_added_list {
+    width: 95%;
+    .ingredient_search_added_item {
+      border: 1px solid black;
+      border-radius: 5px;
+      box-sizing: border-box;
+      width: max-content;
+      margin: 8px;
+      padding: 4px;
+    }
+  }
+}

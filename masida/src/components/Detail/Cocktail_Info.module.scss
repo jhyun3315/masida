@@ -1,0 +1,199 @@
+.detail_cocktail_info {
+  position: relative;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+
+  // border: 1px solid blue;
+  // 이미지 영역
+  div {
+    // padding-right: 2%;
+  }
+  .detail_cocktail_img_div {
+    flex: 1;
+    width: 30vw;
+    line-height: 85vh;
+    .detail_cocktail_img {
+      width: 100%;
+      height: 80vh;
+      vertical-align: middle;
+      border-radius: 1%;
+    }
+  }
+  .detail_cocktail_info_text {
+    flex: 1;
+    width: 98%;
+    padding-left: 3%;
+    vertical-align: middle;
+
+    // 헤더 영역
+    .detail_cocktail_info_header {
+      display: inline-block;
+      flex-direction: row;
+      width: fit-content;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+      .detail_cocktail_info_header_top {
+        flex-direction: row;
+        width: 100%;
+        .detail_cocktail_title {
+          margin: 0 auto;
+          width: 100%;
+          height: fit-content;
+
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 36px;
+          line-height: 36px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          .detail_cocktail_title_layout {
+            width: 100%;
+            margin: 0 auto;
+          }
+        }
+        .detail_cocktail_likebtn {
+          padding-top: 1%;
+          padding-left: 3%;
+          padding-right: 3%;
+          width: 36px;
+          height: 36px;
+        }
+        .detail_cocktail_bookmark {
+          padding-top: 4px;
+          width: 36px;
+          height: 36px;
+        }
+      }
+      .detail_cocktail_info_header_bottom {
+        margin: 3px;
+        padding: 3px;
+
+        display: flex;
+        flex-direction: row;
+        gap: 4%;
+        padding-top: 3%;
+        .detail_cocktail_header_element {
+          display: flex;
+          width: fit-content;
+          height: 46px;
+          .detail_cocktail_header_element_count {
+            width: fit-content;
+            padding-left: 3px;
+            height: 27px;
+
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 27px;
+            line-height: 27px;
+
+            display: flex;
+            align-items: center;
+          }
+        }
+        .detail_comment_difficulty {
+          width: 134px;
+          height: 36px;
+        }
+      }
+    }
+  }
+
+  // 재료 리스트 영역
+  .detail_cocktail_ingredient {
+    padding-bottom: 1%;
+    .detail_cocktail_ingredient_title_div {
+      padding: 5px;
+    }
+    .detail_cocktail_ingredient_glass {
+      width: 100%;
+      height: 28px;
+      left: 0px;
+      top: 47px;
+
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 30px;
+    }
+    .detail_cocktail_ingredient_element {
+      padding-bottom: 1%;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 35px;
+    }
+  }
+
+  // 레시피 영역
+  .detail_cocktail_recipe_textarea {
+    padding-bottom: 4%;
+    .detail_cocktail_recipe_title {
+      padding-bottom: 1%;
+      width: fit-content;
+      height: 40px;
+      left: calc(50% - 78px / 2 - 187px);
+      top: calc(50% - 29px / 2 - 64.5px);
+
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+
+      color: #6d8843;
+    }
+    .detail_cocktail_recipe_message {
+      padding-left: 1%;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 29px;
+
+      overflow: scroll;
+      overflow-x: hidden;
+    }
+  }
+
+  // 소개 영역
+  .detail_cocktail_recipe_content_textarea {
+    .detail_cocktail_recipe_content_title {
+      padding-bottom: 1%;
+      width: fit-content;
+      height: 40px;
+      left: calc(50% - 55px / 2 - 195.5px);
+      top: calc(50% - 30px / 2 - 33.5px);
+
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 40px;
+      display: flex;
+      align-items: center;
+
+      color: #6d8843;
+    }
+    .detail_cocktail_recipe_content_message {
+      padding-left: 1%;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 28px;
+      display: flex;
+      align-items: center;
+      overflow: scroll;
+      overflow-x: hidden;
+    }
+  }
+}

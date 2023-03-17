@@ -1,0 +1,18 @@
+.userCocktailList {
+  margin: 5%;
+
+  .userCocktailList_header {
+    span {
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin-right: 3%;
+    }
+  }
+
+  .userCocktailList_content {
+    margin-top: 7%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1%;
+  }
+}

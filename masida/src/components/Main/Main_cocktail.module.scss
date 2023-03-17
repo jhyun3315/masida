@@ -1,0 +1,64 @@
+.mainCocktail {
+  margin: 1%;
+  margin: 3% 5%;
+
+  .mainCocktail_header {
+    margin-bottom: 5%;
+    font-size: 2rem;
+  }
+
+  .mainCocktail_content {
+    display: flex;
+
+    .mainCocktail_recommend {
+      display: flex;
+      flex: 1;
+      border: 1px solid black;
+      padding: 1%;
+      margin-right: 3%;
+
+      .mainCocktail_recommend_img {}
+
+      .mainCocktail_recommend_detail {
+        margin: 2% 0 0 5%;
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        p {
+          margin-top: 10%;
+
+        }
+      }
+    }
+
+    .mainCocktail_topLike {
+      width: 30%;
+      flex: 1;
+
+      a {
+        color: black;
+        text-decoration-line: none;
+        margin-left: 70%;
+      }
+
+      .cocktailTopLike {
+        display: flex;
+        // flex-direction: column;
+
+        .cocktailTopLike_Img {
+          flex: 1;
+        }
+
+        .cocktailTopLike_desc {
+          flex: 1;
+
+          p {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}
