@@ -15,15 +15,16 @@ const World_cup_league_card: React.FC<cocktailType> = (
           />
         </div>
         <div className={styles.world_cup_bottom}>
-          <div className={styles.world_cup_cocktailName}>
+          <div className={styles.world_cup_cocktail_name_ko}>
             {cocktail.cocktail_name_ko}
+          </div>
+          <div className={styles.world_cup_cocktail_name_en}>
+            {cocktail.cocktail_name_en}
           </div>
         </div>
       </div>
     </>
   );
 };
-
-
 
 export { World_cup_league_card };
