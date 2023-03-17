@@ -908,7 +908,8 @@ const World_cup_league = () => {
   const [cocktails, setCocktails] = useState<detail_props[]>([]);
   const [displays, setDisplays] = useState<detail_props[]>([]);
   const [winners, setWinners] = useState<detail_props[]>([]);
-  const [rounds, setRounds] = useState<number>(1);
+  const [times, setTimes] = useState<number>(1);
+  const [rounds, setRounds] = useState<number>(items.length);
 
   useEffect(() => {
     items.sort(() => Math.random() - 0.5);
@@ -920,36 +921,41 @@ const World_cup_league = () => {
   }, []);
 
   const clickHandler = (cocktail: detail_props) => (e: React.MouseEvent) => {
-    if (rounds < 15) setRounds(rounds + 1);
-
-    if (cocktails.length <= 2) {
-      if (winners.length === 0) {
-        // 우승자가 나온 상황
-        // 화면 다시 렌더링하자
-        setDisplays([cocktail]);
-      } else {
-        let updatedCocktail: detail_props[] = [...winners, cocktail];
-        setCocktails(updatedCocktail);
-        setDisplays([updatedCocktail[0], updatedCocktail[1]]);
-        setWinners([]);
+    console.log(cocktails.length);
+    if (rounds > 1) {
+      if (times < rounds) setTimes(times + 1);
+      if (times === rounds / 2 && rounds >= 2) {
+        setRounds(rounds / 2);
+        setTimes(1);
       }
-    } else if (cocktails.length > 2) {
-      setWinners([...winners, cocktail]);
-      setDisplays([cocktails[2], cocktails[3]]);
-      setCocktails(cocktails.slice(2));
+      if (!(cocktails.length > 2)) {
+        if (rounds === 2) {
+          // 우승자가 나온 상황
+          // 화면 다시 렌더링하자
+          setDisplays([cocktail]);
+        } else {
+          let updatedCocktail: detail_props[] = [...winners, cocktail];
+          setCocktails(updatedCocktail);
+          setDisplays([updatedCocktail[0], updatedCocktail[1]]);
+          setWinners([]);
+        }
+      } else {
+        setWinners([...winners, cocktail]);
+        setDisplays([cocktails[2], cocktails[3]]);
+        setCocktails(cocktails.slice(2));
+      }
     }
   };
   return (
     <>
-      {/* {displays.map((key) => (
-        <div onClick={clickHandler(key)}>{key.cocktail_id}</div>
-      ))} */}
-      <div>
-        {/* <img
-          className={styles.go_back_btn}
-          src="/assets/icons/go_back_btn.png"
-          alt=""
-        /> */}
+      <div className={styles.cocktail_worldcup_textarea}>
+        <div className={styles.cocktail_worldcup_title}>칵테일 월드컵</div>
+        <div className={styles.cocktail_worldcup_title_sub}>
+          좋아하는 칵테일을 골라주세요.
+        </div>
+        <div className={styles.cocktail_worldcup_current_order}>
+          {rounds}강 {times} / {rounds / 2}
+        </div>
       </div>
       <div className={styles.random_cocktail_selector}>
         {displays.map((key) => (
