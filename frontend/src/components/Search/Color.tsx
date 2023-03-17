@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./Color.module.scss";
+import { setSelectColor } from "../../../store/category/colorSlice";
+import { useDispatch } from "react-redux";
 
 const Color = () => {
   const [checked, isChecked] = useState<number>(0);
   const [errorMsg, isErrorMsg] = useState<boolean>(false);
+  const [checkColor, setCheckColor] = useState<string[]>([]);
+  
+  const dispatch = useDispatch();
 
   //색상은 2개이상 선택할수 없게 만들어주게 하려함.
-  const checkedColor = (event: React.MouseEvent<HTMLElement>) => {
-    const target = event.target as HTMLInputElement;
+  const checkedColor = (e: React.MouseEvent<HTMLElement>) => {
+    const target = e.target as HTMLInputElement;
     if (checked > 1 && target.checked === true) {
       //만약 2개가 선택되었다면?
       if (target.checked === true) {
@@ -19,13 +24,19 @@ const Color = () => {
     } else {
       if (target.checked === true) {
         isChecked(checked + 1);
+        setCheckColor(checkColor => [...checkColor, target.value]);
       } else {
         isChecked(checked - 1);
+        setCheckColor(checkColor.filter(color => color !== target.value))
       }
       isErrorMsg(false);
     }
     console.log(checked);
   };
+
+  useEffect(() => {
+    dispatch(setSelectColor(checkColor));
+  }, [checkColor])
 
   return (
     <>

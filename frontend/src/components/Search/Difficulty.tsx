@@ -1,11 +1,28 @@
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setSelectDifficulty } from "../../../store/category/difficultySlice";
 import style from "./Difficulty.module.scss";
 
 const Difficulty = () => {
+  const [checkDifficulty, setCheckDifficulty] = useState<string[]>([]);
+  const dispatch =  useDispatch();
 
-  const click = (event: React.MouseEvent<HTMLElement>) => {
+  useEffect(() => {
+    dispatch(setSelectDifficulty(checkDifficulty));
+  },[checkDifficulty])
+
+
+  const checkedDifficulty = (event: React.MouseEvent<HTMLElement>) => {
     const target = event.target as HTMLInputElement;
-    console.log(target.checked);
+    console.log(target.value);
+    
+    if (target.checked === true) {
+        setCheckDifficulty(checkDifficulty => [...checkDifficulty, target.value]);
+      } else {
+        setCheckDifficulty(checkDifficulty.filter(difficulty => difficulty !== target.value))
+      }
   };
+  
   return (
     <>
       <div>
@@ -17,7 +34,8 @@ const Difficulty = () => {
               id="high"
               className={style.difficulty_selector_btn}
               name="level"
-              onClick={click}
+              value="상"
+              onClick={checkedDifficulty}
             />
             <label htmlFor="high" className={style.difficulty_selector_lev}>
               상
@@ -28,6 +46,8 @@ const Difficulty = () => {
               id="medium"
               className={style.difficulty_selector_btn}
               name="level"
+              value="중"
+              onClick={checkedDifficulty}
             />
             <label htmlFor="medium" className={style.difficulty_selector_lev}>
               중
@@ -38,6 +58,8 @@ const Difficulty = () => {
               id="low"
               className={style.difficulty_selector_btn}
               name="level"
+              value="하"
+              onClick={checkedDifficulty}
             />
             <label htmlFor="low" className={style.difficulty_selector_lev}>
               하

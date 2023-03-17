@@ -1,12 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { searchedIngredientType, searchIngredientType } from "../../type/ingredientTypes";
+import { RootState } from "../../../store/store";
+import { setSelectIngredient } from "../../../store/category/ingredientSlice";
 import style from "./Ingredient.module.scss";
-import { searchedIngredient, searchIngredient } from "../Search/Category";
 
-const Ingredient = (props: searchedIngredient) => {
+const Ingredient = (props: searchedIngredientType) => {
+  const dispatch = useDispatch();
+  const selectIngredient = useSelector((state : RootState) => state.ingredientSelect.ingredient);
   const { ingredient } = props;
   let [inputvalue, setInputValue] = useState<string>("");
-  let [addedIngredient, setAddedIngredient] = useState<searchIngredient[]>([]);
-  let [listIngredient, setListIngredient] = useState<searchIngredient[]>([]);
+  let [addedIngredient, setAddedIngredient] = useState<searchIngredientType[]>([]);
+  let [listIngredient, setListIngredient] = useState<searchIngredientType[]>([]);
+
+  console.log(selectIngredient);
+  
+
+  useEffect(() => {
+    dispatch(setSelectIngredient(listIngredient));
+  },[listIngredient])
 
   //재료검색
   const searchIngredient = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,14 +36,16 @@ const Ingredient = (props: searchedIngredient) => {
     setInputValue(target.value);
   };
 
-  //재료추가
-  const addIngredient = (e: searchIngredient) => {
+  //재료추가(그냥 추가하면 e.ingredient_add를 변경하면 read_only라 변경이 불가능하다며 에러를 띄웁니다.)
+  const addIngredient = (e: searchIngredientType) => {
+    console.log(e);
+    
     console.log(e.ingredient_add);
     e.ingredient_add = true;
     setAddedIngredient((prevInfo) => [...prevInfo, e]);
   };
 
-  const removeIngredient = (e: searchIngredient) => {
+  const removeIngredient = (e: searchIngredientType) => {
     console.log(e.ingredient_add);
     e.ingredient_add = false;
     console.log(addedIngredient);
