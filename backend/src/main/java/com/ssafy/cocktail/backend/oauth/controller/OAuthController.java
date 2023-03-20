@@ -27,7 +27,8 @@ public class OAuthController {
         // 카카오 로그인 콜백
         // 로그인 완료
         UserInfo userInfo = customOAuth2UserService.loginUser(code);
-//        Cookie cookie = new Cookie("refreshToken", userInfo.getRefreshToken());
+        Cookie cookie = new Cookie("refreshToken", userInfo.getRefreshToken());
+//        cookie.se
 //        cookie.setMaxAge();
         return ResponseEntity.ok(UserLoginRes.of(200, "Sucess", userInfo.getAccessToken(), userInfo.getUserName()));
     }
