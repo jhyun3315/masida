@@ -1,0 +1,43 @@
+.winner_comment_list {
+  height: 25vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  .comment_layout {
+    display: flex;
+    flex-direction: row;
+    .winner_comment_left {
+      display: flex;
+      .user_comment_profile {
+        flex: 1;
+        .user_profile_img {
+          height: 50px;
+          width: 50px;
+          // width: 10%;
+          // height: 10vh;
+        }
+      }
+      .user_comment_textarea {
+        flex: 6;
+        display: flex;
+        flex-direction: column;
+        .user_comment_name_date {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          font-size: 10px;
+          .user_comment_name {
+          }
+          .user_comment_date {
+          }
+        }
+        .user_comment_content {
+          font-size: 12px;
+          text-align: left;
+        }
+      }
+    }
+    .winner_comment_right {
+      
+    }
+  }
+}
