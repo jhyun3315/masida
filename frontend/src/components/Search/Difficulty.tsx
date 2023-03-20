@@ -14,7 +14,6 @@ const Difficulty = () => {
 
   const checkedDifficulty = (event: React.MouseEvent<HTMLElement>) => {
     const target = event.target as HTMLInputElement;
-    console.log(target.value);
     
     if (target.checked === true) {
         setCheckDifficulty(checkDifficulty => [...checkDifficulty, target.value]);

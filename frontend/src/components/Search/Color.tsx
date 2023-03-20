@@ -31,7 +31,6 @@ const Color = () => {
       }
       isErrorMsg(false);
     }
-    console.log(checked);
   };
 
   useEffect(() => {

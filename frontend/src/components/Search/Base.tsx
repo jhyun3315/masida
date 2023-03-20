@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../store/store';
 import { setSelectBase } from '../../../store/category/baseSlice';
 
 import style from "./Base.module.scss";
@@ -8,10 +7,6 @@ import style from "./Base.module.scss";
 const Base = () => {
   const dispatch = useDispatch();
   const [checkBase, setCheckBase] = useState<string>("");
-  const selectBase = useSelector((state : RootState) => state.baseSelect.base)
-  
-  
-  console.log(selectBase);
   
   const clickBase = (e : React.MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLInputElement;
