@@ -1,5 +1,5 @@
 import style from "./Cocktail_info.module.scss";
-import { detail_props } from "../../pages/detail/[id]";
+import { detail_props } from "@/type/cocktailTypes";
 
 const Cocktail_info = (props: detail_props) => {
   const {

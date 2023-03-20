@@ -1,5 +1,6 @@
 import styles from "./Card_ui.module.scss";
-import { cocktailType,mypageCommentType } from "@/type/cocktailTypes";
+import { cocktailType } from "@/type/cocktailTypes";
+import { mypageCommentType } from "@/type/commentTypes";
 import Link from "next/link";
 
 const Detail_recommend_card: React.FC<cocktailType> = (

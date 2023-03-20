@@ -1,0 +1,94 @@
+import style from "./World_cup_league.module.scss";
+import { detail_props } from "@/type/cocktailTypes";
+import React, { useState, useEffect } from "react";
+import { World_cup_league_card } from "../UI/card2";
+
+const World_cup_league_result = (props: detail_props) => {
+  let difficulty = "";
+  switch (props.cocktail_difficulty) {
+    case "하":
+      difficulty = "/assets/icons/difficulty_LOW.png";
+      break;
+    case "중":
+      difficulty = "/assets/icons/difficulty_MID.png";
+      break;
+    case "상":
+      difficulty = "/assets/icons/difficulty_HIGH.png";
+      break;
+  }
+  return (
+    <>
+      <div className={style.world_cup_winner}>
+        <div className={style.world_cup_winner_card}>
+          <World_cup_league_card {...props} />
+        </div>
+
+        <div className={style.world_cup_winner_info}>
+          <div className={style.world_cup_winner_name_ko}>
+            {props.cocktail_name_ko}
+          </div>
+          <div className={style.world_cup_winner_name_en}>
+            {props.cocktail_name_en}
+          </div>
+
+          <div className={style.info_body_layout}>
+            <div className={style.info_list}>
+              <img
+                className={style.difficulty_legendIMG}
+                src={difficulty}
+                alt=""
+              />
+              <div className={style.info_list_element}>
+                <img src="/assets/icons/ratingICON.png" alt="rating" />
+                <div className={style.element_count}>
+                  {props.cocktail_rating}
+                </div>
+              </div>
+
+              <div className={style.info_list_element}>
+                <img src="/assets/icons/LikeCheckedICON.png" alt="" />
+                <div className={style.element_count}>
+                  {props.cocktail_likes}
+                </div>
+              </div>
+
+              <div className={style.info_list_element}>
+                <img src="/assets/icons/CommentICON.png" alt="" />
+                <div className={style.element_count}>
+                  {props.cocktail_comments}
+                </div>
+              </div>
+            </div>
+            <div className={style.info_btn_div}>
+              {/* 다시하기 버튼 */}
+              <div className={style.cocktail_worldcup_retry_btn}>
+                <div className={style.cocktail_worldcup_retry_btn_text}>
+                  다시하기 &nbsp;
+                  <img
+                    src="/assets/icons/cocktail_worldcup_retry_btn_img.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <div>&nbsp;</div>
+
+              {/* 자세히 보기 버튼 */}
+              <div className={style.cocktail_worldcup_detail_btn}>
+                <div className={style.cocktail_worldcup_detail_btn_text}>
+                  자세히보기{" "}
+                  <img
+                    src="/assets/icons/cocktail_worldcup_detail_btn_img.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default World_cup_league_result;

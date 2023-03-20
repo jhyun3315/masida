@@ -3,25 +3,23 @@
   text-align: center;
   justify-content: space-evenly;
   .cocktail_worldcup_title {
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
     font-family: "Inter";
-    font-style: normal;
     font-weight: 600;
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 30px;
   }
   .cocktail_worldcup_title_sub {
     font-family: "Inter";
-    font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    line-height: 25px;
+    line-height: 22px;
   }
   .cocktail_worldcup_current_order {
     font-family: "Inter";
-    font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    line-height: 30px;
+    line-height: 26px;
   }
 }
 
@@ -34,5 +32,96 @@
   // padding: ;
   .random_cocktail_card {
     width: 25%;
+  }
+  .world_cup_winner {
+    display: flex;
+    .world_cup_winner_card {
+      flex: 1;
+    }
+    .world_cup_winner_info {
+      margin-top: 3%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      vertical-align: middle;
+      .world_cup_winner_name_ko {
+        font-family: "Roboto";
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 40px;
+        align-items: start;
+      }
+      .world_cup_winner_name_en {
+        font-family: "Roboto";
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 40px;
+        align-items: start;
+      }
+      .info_body_layout {
+        display: flex;
+        padding-top: 5%;
+        .info_list {
+          flex: 1;
+          padding-left: 5%;
+          text-align: left;
+          .difficulty_legendIMG {
+            width: 50%;
+            padding-bottom: 3%;
+            // border: 1px solid black;
+          }
+          .info_list_element {
+            padding-bottom: 3%;
+            display: flex;
+            flex-direction: row;
+            img {
+              display: block;
+              padding-right: 3%;
+            }
+            .element_count {
+              font-size: 24px;
+              line-height: 24px;
+            }
+          }
+        }
+        .info_btn_div {
+          flex: 1;
+          .cocktail_worldcup_retry_btn {
+            background: #253976;
+            border-radius: 15px;
+            display: flex;
+            .cocktail_worldcup_retry_btn_text {
+              margin: 0 auto;
+              font-family: "Roboto";
+              font-style: normal;
+              font-weight: 600;
+              font-size: 20px;
+              line-height: 45px;
+              display: flex;
+              align-items: center;
+              text-align: center;
+
+              color: #ffffff;
+            }
+          }
+          .cocktail_worldcup_detail_btn {
+            background: #253976;
+            border-radius: 15px;
+            display: flex;
+            .cocktail_worldcup_detail_btn_text {
+              margin: 0 auto;
+              font-family: "Roboto";
+              font-style: normal;
+              font-weight: 600;
+              font-size: 20px;
+              line-height: 45px;
+              display: flex;
+
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
   }
 }
