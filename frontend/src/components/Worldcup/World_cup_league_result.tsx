@@ -4,7 +4,7 @@ import style from "./World_cup_league.module.scss";
 
 import { detail_props } from "@/type/cocktailTypes";
 
-import { World_cup_league_card } from "../UI/card2";
+import { World_cup_league_card } from "../UI/Card_ui";
 import World_cup_winner_comments_list from "./World_cup_winner_comment_list";
 import { difficulty_img_url_converter } from "@/pages/api/utility/difficulty_img_url_converter";
 

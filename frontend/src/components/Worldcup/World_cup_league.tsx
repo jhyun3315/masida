@@ -1,7 +1,7 @@
 import style from "./World_cup_league.module.scss";
 import { detail_props } from "@/type/cocktailTypes";
 import React, { useState, useEffect } from "react";
-import { World_cup_league_card } from "../UI/card2";
+import { World_cup_league_card } from "../UI/Card_ui";
 // 최종 결과를 보여줄 컴포넌트
 import World_cup_league_result from "./World_cup_league_result";
 
@@ -908,6 +908,7 @@ const World_cup_league = () => {
   ];
 
   const [isFinal, setIsFinal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [cocktails, setCocktails] = useState<detail_props[]>([]);
   const [displays, setDisplays] = useState<detail_props[]>([]);
   const [winners, setWinners] = useState<detail_props[]>([]);
@@ -924,6 +925,7 @@ const World_cup_league = () => {
 
   useEffect(() => {
     setDisplays([items[0], items[1]]);
+    setIsLoading(true);
   }, []);
 
   const clickHandler = (cocktail: detail_props) => (e: React.MouseEvent) => {
@@ -968,29 +970,32 @@ const World_cup_league = () => {
       칵테일 월드컵 우승자입니다.
     </div>
   );
-
-  return (
-    <>
-      <div className={style.cocktail_worldcup_textarea}>
-        {isFinal ? finalTitle : onGameTitle}
-        <div className={style.cocktail_worldcup_current_order}>
-          {isFinal ? "" : `${rounds}강 ${times} / ${rounds / 2}`}
+  if (isLoading) {
+    return (
+      <>
+        <div className={style.cocktail_worldcup_textarea}>
+          {isFinal ? finalTitle : onGameTitle}
+          <div className={style.cocktail_worldcup_current_order}>
+            {isFinal ? "" : `${rounds}강 ${times} / ${rounds / 2}`}
+          </div>
         </div>
-      </div>
-      <div className={style.random_cocktail_selector}>
-        {isFinal
-          ? <World_cup_league_result {...cocktails[0]} />
-          : displays.map((key) => (
+        <div className={style.random_cocktail_selector}>
+          {!isFinal ? (
+            <World_cup_league_result {...cocktails[0]} />
+          ) : (
+            displays.map((key) => (
               <div
                 onClick={clickHandler(key)}
                 className={style.random_cocktail_card}
               >
                 <World_cup_league_card {...key} />
               </div>
-            ))}
-      </div>
-    </>
-  );
+            ))
+          )}
+        </div>
+      </>
+    );
+  }
 };
 
 export default World_cup_league;
