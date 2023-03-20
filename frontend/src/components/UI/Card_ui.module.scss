@@ -342,3 +342,49 @@
 
   .result_card_difficulty_div {}
 }
+
+.mypageComment {
+  display: flex;
+  margin-top: 3%;
+
+  .mypageComment_img {
+    flex: 1;
+
+    img {
+      width: 15vh;
+    }
+  }
+
+  .mypageComment_title {
+    padding: 5%;
+    flex: 1.7;
+
+    .mypageComment_title_date {}
+
+    .mypageComment_title_name {
+      padding-top: 2%;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+  }
+
+  .mypageComment_rate {
+    flex: 1;
+    margin-top: 7%;
+
+    img {
+      width: 25%;
+      margin-right: 3.5%;
+    }
+
+    span {
+      font-size: 1.2rem;
+      margin-right: 3.5%;
+    }
+  }
+
+  .mypageComment_content {
+    padding: 5.5%;
+    flex: 2.5;
+  }
+}

@@ -14,5 +14,11 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 1%;
+
+  }
+
+  .active {
+    margin-top: 7%;
+    padding: 1%;
   }
 }

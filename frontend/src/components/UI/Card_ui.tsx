@@ -1,4 +1,4 @@
-import styles from "./Card_ui.module.scss";
+import style from "./Card_ui.module.scss";
 import { cocktailType,mypageCommentType } from "@/type/cocktailTypes";
 import Link from "next/link";
 
@@ -7,29 +7,29 @@ const Detail_recommend_card: React.FC<cocktailType> = (
 ) => {
   return (
     <>
-      <div className={styles.detail_card}>
-        <div className={styles.detail_card_top}>
+      <div className={style.detail_card}>
+        <div className={style.detail_card_top}>
           <img
-            className={styles.detail_cocktailImg}
+            className={style.detail_cocktailImg}
             src={cocktail.cocktail_img}
             alt=""
           />
         </div>
-        <div className={styles.detail_card_bottom}>
-          <div className={styles.detail_cocktailName}>
+        <div className={style.detail_card_bottom}>
+          <div className={style.detail_cocktailName}>
             {cocktail.cocktail_name_ko}
           </div>
-          <div className={styles.detail_sub}>
+          <div className={style.detail_sub}>
             <img
-              className={styles.detail_likeImg}
+              className={style.detail_likeImg}
               src="/assets/icons/LikeCheckedICON.png"
             ></img>
-            <div className={styles.detail_like}>{cocktail.cocktail_likes}</div>
+            <div className={style.detail_like}>{cocktail.cocktail_likes}</div>
             <img
-              className={styles.detail_rateImg}
+              className={style.detail_rateImg}
               src="/assets/icons/ratingICON.png"
             ></img>
-            <div className={styles.detail_rate}>{cocktail.cocktail_rating}</div>
+            <div className={style.detail_rate}>{cocktail.cocktail_rating}</div>
           </div>
         </div>
       </div>
@@ -56,37 +56,37 @@ const Search_result_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
   return (
     <>
       <Link href={`/detail/${cocktail.cocktail_id}`}>
-        <div className={styles.result_card}>
+        <div className={style.result_card}>
           <img
-            className={styles.result_card_img}
+            className={style.result_card_img}
             src={cocktail.cocktail_img}
             alt=""
           />
-          <div className={styles.result_card_title}>
+          <div className={style.result_card_title}>
             {cocktail.cocktail_name_ko}
           </div>
-          <div className={styles.result_stat}>
-            <div className={styles.result_like}>
+          <div className={style.result_stat}>
+            <div className={style.result_like}>
               <img
-                className={styles.result_likeImg}
+                className={style.result_likeImg}
                 src="/assets/icons/LikeCheckedICON.png"
               ></img>
-              <div className={styles.result_like_count}>
+              <div className={style.result_like_count}>
                 {cocktail.cocktail_likes}
               </div>
             </div>
-            <div className={styles.result_rating}>
+            <div className={style.result_rating}>
               <img
-                className={styles.result_rateImg}
+                className={style.result_rateImg}
                 src="/assets/icons/ratingICON.png"
               ></img>
-              <div className={styles.result_rating_score}>
+              <div className={style.result_rating_score}>
                 {cocktail.cocktail_rating}
               </div>
             </div>
           </div>
           <img
-            className={styles.result_card_difficulty_div}
+            className={style.result_card_difficulty_div}
             src={cocktail_difficulty_img_src}
           ></img>
         </div>
@@ -102,40 +102,40 @@ const test = () => {
 const My_bookmark_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
   return (
     <div>
-      <div className={styles.result_card}>
+      <div className={style.result_card}>
         <Link href={`/detail/${cocktail.cocktail_id}`}>
           <img
-            className={styles.result_card_img}
+            className={style.result_card_img}
             src={cocktail.cocktail_img}
             alt=""
           />
         </Link>
 
         <img
-          className={styles.result_card_bookmark_icon}
+          className={style.result_card_bookmark_icon}
           src="/assets/icons/BookmarkCheckedIMG.png"
           alt=""
           onClick={test}
         />
-        <div className={styles.result_card_title}>
+        <div className={style.result_card_title}>
           {cocktail.cocktail_name_ko}
         </div>
-        <div className={styles.result_stat}>
-          <div className={styles.result_like}>
+        <div className={style.result_stat}>
+          <div className={style.result_like}>
             <img
-              className={styles.result_likeImg}
+              className={style.result_likeImg}
               src="/assets/icons/LikeCheckedICON.png"
             ></img>
-            <div className={styles.result_like_count}>
+            <div className={style.result_like_count}>
               {cocktail.cocktail_likes}
             </div>
           </div>
-          <div className={styles.result_rating}>
+          <div className={style.result_rating}>
             <img
-              className={styles.result_rateImg}
+              className={style.result_rateImg}
               src="/assets/icons/ratingICON.png"
             ></img>
-            <div className={styles.result_rating_score}>
+            <div className={style.result_rating_score}>
               {cocktail.cocktail_rating}
             </div>
           </div>
@@ -148,33 +148,33 @@ const My_bookmark_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
 const My_like_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
   return (
     <>
-      <div className={styles.result_card}>
+      <div className={style.result_card}>
         <Link href={`/detail/${cocktail.cocktail_id}`}>
           <img
-            className={styles.result_card_img}
+            className={style.result_card_img}
             src={cocktail.cocktail_img}
             alt=""
           />
         </Link>
-        <div className={styles.result_card_title}>
+        <div className={style.result_card_title}>
           {cocktail.cocktail_name_ko}
         </div>
-        <div className={styles.result_stat}>
-          <div className={styles.result_like}>
+        <div className={style.result_stat}>
+          <div className={style.result_like}>
             <img
-              className={styles.result_likeImg}
+              className={style.result_likeImg}
               src="/assets/icons/LikeCheckedICON.png"
             ></img>
-            <div className={styles.result_like_count}>
+            <div className={style.result_like_count}>
               {cocktail.cocktail_likes}
             </div>
           </div>
-          <div className={styles.result_rating}>
+          <div className={style.result_rating}>
             <img
-              className={styles.result_rateImg}
+              className={style.result_rateImg}
               src="/assets/icons/ratingICON.png"
             ></img>
-            <div className={styles.result_rating_score}>
+            <div className={style.result_rating_score}>
               {cocktail.cocktail_rating}
             </div>
           </div>
@@ -184,28 +184,41 @@ const My_like_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
   );
 };
 
-const My_comment_card: React.FC<mypageCommentType> = (cocktail:mypageCommentType) => {
+const My_comment_card: React.FC<mypageCommentType> = (cocktail: mypageCommentType) => {
+  let cocktail_difficulty_img_src = "";
+  switch (cocktail.cocktail_difficulty_user) {
+     case "상":
+      cocktail_difficulty_img_src = "/assets/icons/difficulty_HIGH_MINI.png";
+      break;
+    case "중":
+      cocktail_difficulty_img_src = "/assets/icons/difficulty_MID_MINI.png";
+      break;
+    default:
+      cocktail_difficulty_img_src = "/assets/icons/difficulty_LOW_MINI.png";
+      break;
+  }
   return (
     <>
-     <div>
-        <div>
+      <div className={ style.mypageComment}>
+        <div className={ style.mypageComment_img}>
           <Link href={`detail/${cocktail.cocktail_id}`}>
             <img src={ cocktail.cocktail_img}></img>
           </Link>
         </div>
-        <div>
-          <div>{ cocktail.comment_date}</div>
-          <div>{ cocktail.cocktail_name_ko}</div>
+        <div className={ style.mypageComment_title}>
+          <div className={style.mypageComment_title_date}>{ cocktail.comment_date}</div>
+          <div className={ style.mypageComment_title_name}>{cocktail.cocktail_name_ko}</div>
         </div>
-        <div>
-          <img></img>
-          <span>{ cocktail.cocktail_difficulty_user}</span>
-          <img></img>
+        <div className={ style.mypageComment_rate}>
+          <img src="/assets/icons/ratingICON.png"/>
+          <span>{ cocktail.comment_rating}</span>
+          <img src={ cocktail_difficulty_img_src}/>
         </div>
-        <div>
+        <div className={ style.mypageComment_content}>
           { cocktail.comment_content}
         </div>
-     </div>
+      </div>
+     <hr/>
     </>
   );
 };
@@ -215,9 +228,9 @@ const My_comment_card: React.FC<mypageCommentType> = (cocktail:mypageCommentType
 // }: AnalysisProps) => {
 //   return (
 //     <>
-//       <div className={styles.analysisCard}>
-//         <div className={styles.cocktailImg}></div>
-//         <div className={styles.cocktailName}>{analysisCard.name}</div>
+//       <div className={style.analysisCard}>
+//         <div className={style.cocktailImg}></div>
+//         <div className={style.cocktailName}>{analysisCard.name}</div>
 //       </div>
 //     </>
 //   );

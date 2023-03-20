@@ -30,6 +30,7 @@ const User_cocktail_list = () => {
 
     likeState(!like);
   };
+
   const commentHandler = () => {
      if (bookmark) {
       bookmarkState(!bookmark);
@@ -216,7 +217,7 @@ const User_cocktail_list = () => {
 	    cocktail_name_ko: "오렌지 블라섬",
 	    cocktail_img: "/assets/image/cocktail.png",
 			cocktail_difficulty_user : "상",
-			comment_content : "존맛탱구리",
+			comment_content : "존맛탱구리 뭘 적어야 잘 적었다고 소문이 날려나 나는 심심하다 지금은 발표 중",
 			comment_rating : 3.9,
       comment_date: "2023-05-05"
     },
@@ -224,7 +225,7 @@ const User_cocktail_list = () => {
       cocktail_id: 2,
 	    cocktail_name_ko: "오렌지 블라섬",
 	    cocktail_img: "/assets/image/cocktail.png",
-			cocktail_difficulty_user : "상",
+			cocktail_difficulty_user : "중",
 			comment_content : "존맛탱구리",
 			comment_rating : 3.9,
       comment_date: "2023-05-05"
@@ -233,7 +234,7 @@ const User_cocktail_list = () => {
       cocktail_id: 3,
 	    cocktail_name_ko: "오렌지 블라섬",
 	    cocktail_img: "/assets/image/cocktail.png",
-			cocktail_difficulty_user : "상",
+			cocktail_difficulty_user : "하",
 			comment_content : "존맛탱구리",
 			comment_rating : 3.9,
       comment_date: "2023-05-05"
@@ -264,10 +265,10 @@ const User_cocktail_list = () => {
     <div className={ style.userCocktailList}>
       <div className={ style.userCocktailList_header}>
         <span onClick={BookMarkHandler}>BOOKMARK</span>
-        <span onClick={ LikeHandler}>Like</span>
-        <span onClick={commentHandler }>Comment</span>
+        <span onClick={ LikeHandler}>LIKE</span>
+        <span onClick={commentHandler }>COMMENT</span>
       </div>
-      <div className={style.userCocktailList_content}>
+      <div className={`${comment? style.active:style.userCocktailList_content}`}>
         {bookmark&&bookmarkList_props.map((key) => 
           <My_bookmark_card {...key} />
         )}
