@@ -11,22 +11,22 @@ const Category = () => {
   const props: searchedIngredientType = {
     ingredient: [
       {
-        ingredient_id: 1,
+        ingredient_id: 0,
         ingredient_name: "바나나",
         ingredient_add: false,
       },
       {
-        ingredient_id: 2,
+        ingredient_id: 1,
         ingredient_name: "바지락",
         ingredient_add: false,
       },
       {
-        ingredient_id: 3,
+        ingredient_id: 2,
         ingredient_name: "콜라",
         ingredient_add: false,
       },
       {
-        ingredient_id: 4,
+        ingredient_id: 3,
         ingredient_name: "피냐콜라닥!",
         ingredient_add: false,
       },

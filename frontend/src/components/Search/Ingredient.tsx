@@ -6,12 +6,13 @@ import {
 } from "../../type/ingredientTypes";
 import { RootState } from "../../../store/store";
 import { setSelectIngredient } from "../../../store/category/ingredientSlice";
+import { changeSelectIngredient } from "../../../store/category/ingredientSlice";
 import style from "./Ingredient.module.scss";
 
 const Ingredient = (props: searchedIngredientType) => {
   const dispatch = useDispatch();
   const selectIngredient = useSelector(
-    (state: RootState) => state.ingredientSelect.ingredient
+    (state: RootState) => state.ingredientSelect
   );
   const { ingredient } = props;
   let [inputvalue, setInputValue] = useState<string>("");
@@ -21,28 +22,18 @@ const Ingredient = (props: searchedIngredientType) => {
   let [listIngredient, setListIngredient] = useState<searchIngredientType[]>(
     []
   );
-
-  console.log(selectIngredient);
-  let copy: searchIngredientType[] = Object.assign([], addedIngredient);
-  console.log(copy);
-
+  
+  //페이지 처음 시작할 때 모든 재료목록을 redux에 저장해줍니다.
   useEffect(() => {
-    copy = Object.assign([], addedIngredient);
-    console.log(copy);
-  }, [addedIngredient]);
-
-  // 재료 추가, 삭제될때마다 redux에 재료 저장.(동작함)
-  useEffect(() => {
-    dispatch(setSelectIngredient(copy));
-  }, [addedIngredient]);
+    dispatch(setSelectIngredient(ingredient));
+  },[]);
 
   //재료검색
   const searchIngredient = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
 
     setListIngredient(() => {
-      console.log(target.value);
-      return ingredient.filter((ingre) =>
+      return selectIngredient.ingredient.filter((ingre) =>
         ingre.ingredient_name.includes(target.value)
       );
     });
@@ -52,13 +43,25 @@ const Ingredient = (props: searchedIngredientType) => {
     }
     //ingre.ingredient_name 이 target.value를 포함하고 있다면 그 요소들만 보여주기.
     setInputValue(target.value);
-  };
+  }; 
+  
 
   //재료추가
   const addIngredient = (e: searchIngredientType) => {
-    console.log(e.ingredient_add);
-    e.ingredient_add = true;
-    setAddedIngredient((prevInfo) => [...prevInfo, e]);
+    dispatch(changeSelectIngredient(e));
+
+    //추가시킬 것 등록.
+    const addi : searchIngredientType = {ingredient_id : selectIngredient.ingredient[e.ingredient_id].ingredient_id,
+    ingredient_name : selectIngredient.ingredient[e.ingredient_id].ingredient_name,
+    ingredient_add : !selectIngredient.ingredient[e.ingredient_id].ingredient_add}
+
+    //추가 시켰으니 리스트에서는 빼주기.
+    setListIngredient(
+      listIngredient.filter((remove) => remove.ingredient_id !== e.ingredient_id)
+    )
+    
+    //추가시킨 것 addList에 추가 시켜주기.
+    setAddedIngredient((prevInfo) => [...prevInfo, addi]);
   };
 
   //재료삭제(그냥 삭제하면 e.ingredient_add를 변경하면 read_only라 변경이 불가능하다며 에러를 띄웁니다.)
@@ -66,20 +69,22 @@ const Ingredient = (props: searchedIngredientType) => {
   //...인 스프레드 연산자는 얕은 복사입니다.
   //깊은 복사 Object.assign 실패
   const removeIngredient = (e: searchIngredientType) => {
-    // console.log(e.ingredient_add);
-    let findIndex = addedIngredient.findIndex(
-      (ingre) => ingre.ingredient_id === e.ingredient_id
-    );
-    let copyAddedIngredient: searchIngredientType[] = Object.assign(
-      [],
-      addedIngredient
-    );
-    //애초에 리덕스에 저장된것을 복사해와서 안되는 건가?..
-    copyAddedIngredient[findIndex].ingredient_add = false;
-    // e.ingredient_add = false;
+
+    //dispatch시켜주어 현재 선택한 것의 add를 반대로 저장해줍니다.
+    dispatch(changeSelectIngredient(e));
+
+    //추가재료 리스트에서 누른 재료의 id에 해당하는 것 삭제해서 안보여지게 함.
     setAddedIngredient(
-      copyAddedIngredient.filter((add) => add.ingredient_id !== e.ingredient_id)
+      addedIngredient.filter((add) => add.ingredient_id !== e.ingredient_id)
     );
+
+    //리스트 상시 업데이트.
+    const addi : searchIngredientType = {ingredient_id : selectIngredient.ingredient[e.ingredient_id].ingredient_id,
+    ingredient_name : selectIngredient.ingredient[e.ingredient_id].ingredient_name,
+    ingredient_add : !selectIngredient.ingredient[e.ingredient_id].ingredient_add}
+
+    setListIngredient((previnfo) => [...previnfo, addi]);
+
   };
 
   return (
