@@ -31,7 +31,7 @@
 29,15.0,ml,Fresh orange juice,General,0,1135,3 Dots and a Dash,https://recipe.awesomedrinks.com/recipe/3-dots-and-a-dash/
 30,15.0,ml,Honey Syrup / Mix,General,0,1135,3 Dots and a Dash,https://recipe.awesomedrinks.com/recipe/3-dots-and-a-dash/
 31,7.5,ml,Falernum Syrup,General,0,1135,3 Dots and a Dash,https://recipe.awesomedrinks.com/recipe/3-dots-and-a-dash/
-32,7.5,ml,Allspice dram / liqueur,Liqueur,10,1135,3 Dots and a Dash,https://recipe.awesomedrinks.com/recipe/3-dots-and-a-dash/
+32,7.5,ml,Allspice Dram,Liqueur,10,1135,3 Dots and a Dash,https://recipe.awesomedrinks.com/recipe/3-dots-and-a-dash/
 33,3.0,,Luxardo Maraschino Cherry,General,0,1135,3 Dots and a Dash,https://recipe.awesomedrinks.com/recipe/3-dots-and-a-dash/
 34,,,Three Maraschino Cherries,Garnish,11,1135,3 Dots and a Dash,https://recipe.awesomedrinks.com/recipe/3-dots-and-a-dash/
 35,,,a Pineapple Spear,Garnish,11,1135,3 Dots and a Dash,https://recipe.awesomedrinks.com/recipe/3-dots-and-a-dash/
@@ -46,12 +46,12 @@
 44,22.5,ml,Fresh lime juice,General,0,1137,Ancient Mariner,https://recipe.awesomedrinks.com/recipe/ancient-mariner/
 45,15.0,ml,Fresh grapefruit juice,General,0,1137,Ancient Mariner,https://recipe.awesomedrinks.com/recipe/ancient-mariner/
 46,15.0,ml,Demerara Simple Syrup,General,0,1137,Ancient Mariner,https://recipe.awesomedrinks.com/recipe/ancient-mariner/
-47,2.0,dashes,Allspice dram / liqueur,Liqueur,10,1137,Ancient Mariner,https://recipe.awesomedrinks.com/recipe/ancient-mariner/
+47,2.0,dashes,Allspice Dram,Liqueur,10,1137,Ancient Mariner,https://recipe.awesomedrinks.com/recipe/ancient-mariner/
 48,,,Lime wedge,Garnish,11,1137,Ancient Mariner,https://recipe.awesomedrinks.com/recipe/ancient-mariner/
 49,,,mint sprig,Garnish,11,1137,Ancient Mariner,https://recipe.awesomedrinks.com/recipe/ancient-mariner/
 50,30.0,ml,Vodka,Vodka,3,1138,Aruba Ariba,https://recipe.awesomedrinks.com/recipe/aruba-ariba/
 51,30.0,ml,Light Rum,Rum,2,1138,Aruba Ariba,https://recipe.awesomedrinks.com/recipe/aruba-ariba/
-52,15.0,ml,Banana liqueur,Liqueur,10,1138,Aruba Ariba,https://recipe.awesomedrinks.com/recipe/aruba-ariba/
+52,15.0,ml,Banana Liqueur,Liqueur,10,1138,Aruba Ariba,https://recipe.awesomedrinks.com/recipe/aruba-ariba/
 53,15.0,ml,Coconut Rum,Rum,2,1138,Aruba Ariba,https://recipe.awesomedrinks.com/recipe/aruba-ariba/
 54,150.0,ml,Fruit Punch,General,0,1138,Aruba Ariba,https://recipe.awesomedrinks.com/recipe/aruba-ariba/
 55,,,Maraschino Cherry,Garnish,11,1138,Aruba Ariba,https://recipe.awesomedrinks.com/recipe/aruba-ariba/
@@ -72,13 +72,13 @@
 70,120.0,ml,Ice,General,0,1140,Banana Daiquiri,https://recipe.awesomedrinks.com/recipe/banana-daiquiri/
 71,0.5,,Banana,General,0,1140,Banana Daiquiri,https://recipe.awesomedrinks.com/recipe/banana-daiquiri/
 72,60.0,ml,Puerto Rican Rum,Rum,2,1141,Barrel o' Rum,https://recipe.awesomedrinks.com/recipe/mai-kais-barrel-of-rum/
-73,60.0,ml,Dark Rum,Rum,2,1141,Barrel o' Rum,https://recipe.awesomedrinks.com/recipe/mai-kais-barrel-of-rum/
+73,60.0,ml,Dark rum,Rum,2,1141,Barrel o' Rum,https://recipe.awesomedrinks.com/recipe/mai-kais-barrel-of-rum/
 74,60.0,ml,Passion fruit syrup,General,0,1141,Barrel o' Rum,https://recipe.awesomedrinks.com/recipe/mai-kais-barrel-of-rum/
 75,60.0,ml,Fresh lime juice,General,0,1141,Barrel o' Rum,https://recipe.awesomedrinks.com/recipe/mai-kais-barrel-of-rum/
 76,60.0,ml,Fresh orange juice,General,0,1141,Barrel o' Rum,https://recipe.awesomedrinks.com/recipe/mai-kais-barrel-of-rum/
 77,60.0,ml,Fresh grapefruit juice,General,0,1141,Barrel o' Rum,https://recipe.awesomedrinks.com/recipe/mai-kais-barrel-of-rum/
 78,1.0,barspoon,Honey Syrup / Mix,General,0,1141,Barrel o' Rum,https://recipe.awesomedrinks.com/recipe/mai-kais-barrel-of-rum/
-79,6.0,dashes,Angostura bitters,General,0,1141,Barrel o' Rum,https://recipe.awesomedrinks.com/recipe/mai-kais-barrel-of-rum/
+79,6.0,dashes,Angostura Bitters,General,0,1141,Barrel o' Rum,https://recipe.awesomedrinks.com/recipe/mai-kais-barrel-of-rum/
 80,15.0,ml,Club Soda,General,0,1141,Barrel o' Rum,https://recipe.awesomedrinks.com/recipe/mai-kais-barrel-of-rum/
 81,45.0,ml,Demerara Rum,Rum,2,1142,Beachcomber's Punch,https://recipe.awesomedrinks.com/recipe/beachcombers-punch/
 82,15.0,ml,Apricot Brandy,Brandy,5,1142,Beachcomber's Punch,https://recipe.awesomedrinks.com/recipe/beachcombers-punch/
@@ -86,7 +86,7 @@
 84,15.0,ml,Simple syrup,General,0,1142,Beachcomber's Punch,https://recipe.awesomedrinks.com/recipe/beachcombers-punch/
 85,15.0,ml,Fresh grapefruit juice,General,0,1142,Beachcomber's Punch,https://recipe.awesomedrinks.com/recipe/beachcombers-punch/
 86,1.0,dash,Pernod / Absinthe,Spirits,21,1142,Beachcomber's Punch,https://recipe.awesomedrinks.com/recipe/beachcombers-punch/
-87,1.0,dash,Angostura bitters,General,0,1142,Beachcomber's Punch,https://recipe.awesomedrinks.com/recipe/beachcombers-punch/
+87,1.0,dash,Angostura Bitters,General,0,1142,Beachcomber's Punch,https://recipe.awesomedrinks.com/recipe/beachcombers-punch/
 88,,,Mint Sprig,Garnish,11,1142,Beachcomber's Punch,https://recipe.awesomedrinks.com/recipe/beachcombers-punch/
 89,22.5,ml,Light Rum,Rum,2,1143,Blue Hawaii,https://recipe.awesomedrinks.com/recipe/blue-hawaii/
 90,22.5,ml,Vodka,Vodka,3,1143,Blue Hawaii,https://recipe.awesomedrinks.com/recipe/blue-hawaii/
@@ -107,7 +107,7 @@
 105,22.5,ml,Simple syrup,General,0,1145,Blueberry Mezcal Margarita,https://recipe.awesomedrinks.com/recipe/blueberry-mezcal-margarita/
 106,15.0,ml,Fresh lime juice,General,0,1145,Blueberry Mezcal Margarita,https://recipe.awesomedrinks.com/recipe/blueberry-mezcal-margarita/
 107,2.0,dashes,Orange Bitters,General,0,1145,Blueberry Mezcal Margarita,https://recipe.awesomedrinks.com/recipe/blueberry-mezcal-margarita/
-108,10.0,,Blueberries,General,0,1145,Blueberry Mezcal Margarita,https://recipe.awesomedrinks.com/recipe/blueberry-mezcal-margarita/
+108,10.0,,Blueberry,General,0,1145,Blueberry Mezcal Margarita,https://recipe.awesomedrinks.com/recipe/blueberry-mezcal-margarita/
 109,60.0,ml,Vodka,Vodka,3,1146,Bocce Ball,https://recipe.awesomedrinks.com/recipe/bocce-ball/
 110,30.0,ml,Amaretto,Liqueur,10,1146,Bocce Ball,https://recipe.awesomedrinks.com/recipe/bocce-ball/
 111,135.0,ml,Fresh orange juice,General,0,1146,Bocce Ball,https://recipe.awesomedrinks.com/recipe/bocce-ball/
@@ -146,7 +146,7 @@
 144,8.0,,Mint Leaves,General,0,1152,Gin Gin Mule,https://recipe.awesomedrinks.com/recipe/gin-gin-mule/
 145,,,Mint Sprig,Garnish,11,1152,Gin Gin Mule,https://recipe.awesomedrinks.com/recipe/gin-gin-mule/
 146,30.0,ml,Overproof Rum / 151,Rum,2,1153,Hawaiian Slammer,https://recipe.awesomedrinks.com/recipe/hawaiian-slammer/
-147,30.0,ml,Banana liqueur,Liqueur,10,1153,Hawaiian Slammer,https://recipe.awesomedrinks.com/recipe/hawaiian-slammer/
+147,30.0,ml,Banana Liqueur,Liqueur,10,1153,Hawaiian Slammer,https://recipe.awesomedrinks.com/recipe/hawaiian-slammer/
 148,30.0,ml,Coconut Rum,Rum,2,1153,Hawaiian Slammer,https://recipe.awesomedrinks.com/recipe/hawaiian-slammer/
 149,90.0,ml,Fresh orange juice,General,0,1153,Hawaiian Slammer,https://recipe.awesomedrinks.com/recipe/hawaiian-slammer/
 150,90.0,ml,Pineapple Juice,General,0,1153,Hawaiian Slammer,https://recipe.awesomedrinks.com/recipe/hawaiian-slammer/
@@ -162,25 +162,24 @@
 160,15.0,ml,Raspberry Syrup,General,0,1155,Knickerbocker,https://recipe.awesomedrinks.com/recipe/knickerbocker/
 161,15.0,ml,Fresh lime juice,General,0,1155,Knickerbocker,https://recipe.awesomedrinks.com/recipe/knickerbocker/
 162,,,Lime Wedge and a Raspberry (,Garnish,11,1155,Knickerbocker,https://recipe.awesomedrinks.com/recipe/knickerbocker/
-163,,,3),Garnish,11,1155,Knickerbocker,https://recipe.awesomedrinks.com/recipe/knickerbocker/
 164,,,Lime Wedge,Garnish,11,1155,Knickerbocker,https://recipe.awesomedrinks.com/recipe/knickerbocker/
 165,,,a Raspberry (or 3),Garnish,11,1155,Knickerbocker,https://recipe.awesomedrinks.com/recipe/knickerbocker/
 166,45.0,ml,Aged Rum,Rum,2,1156,Krakatoa,https://recipe.awesomedrinks.com/recipe/krakatoa/
-167,45.0,ml,Dark Rum,Rum,2,1156,Krakatoa,https://recipe.awesomedrinks.com/recipe/krakatoa/
+167,45.0,ml,Dark rum,Rum,2,1156,Krakatoa,https://recipe.awesomedrinks.com/recipe/krakatoa/
 168,30.0,ml,Apricot Brandy,Brandy,5,1156,Krakatoa,https://recipe.awesomedrinks.com/recipe/krakatoa/
 169,60.0,ml,Coffee Liqueur,Liqueur,10,1156,Krakatoa,https://recipe.awesomedrinks.com/recipe/krakatoa/
 170,15.0,ml,Falernum Syrup,General,0,1156,Krakatoa,https://recipe.awesomedrinks.com/recipe/krakatoa/
 171,30.0,ml,Fresh orange juice,General,0,1156,Krakatoa,https://recipe.awesomedrinks.com/recipe/krakatoa/
 172,30.0,ml,Fresh grapefruit juice,General,0,1156,Krakatoa,https://recipe.awesomedrinks.com/recipe/krakatoa/
 173,45.0,ml,Fresh lime juice,General,0,1156,Krakatoa,https://recipe.awesomedrinks.com/recipe/krakatoa/
-174,1.0,dash,Angostura bitters,General,0,1156,Krakatoa,https://recipe.awesomedrinks.com/recipe/krakatoa/
+174,1.0,dash,Angostura Bitters,General,0,1156,Krakatoa,https://recipe.awesomedrinks.com/recipe/krakatoa/
 175,22.5,ml,Light Rum,Rum,2,1157,Luau,https://recipe.awesomedrinks.com/recipe/luau/
 176,22.5,ml,Aged Rum,Rum,2,1157,Luau,https://recipe.awesomedrinks.com/recipe/luau/
 177,22.5,ml,Overproof Rum / 151,Rum,2,1157,Luau,https://recipe.awesomedrinks.com/recipe/luau/
 178,15.0,ml,Fresh lime juice,General,0,1157,Luau,https://recipe.awesomedrinks.com/recipe/luau/
 179,22.5,ml,Passion fruit syrup,General,0,1157,Luau,https://recipe.awesomedrinks.com/recipe/luau/
 180,7.5,ml,Orgeat / Almond syrup,General,0,1157,Luau,https://recipe.awesomedrinks.com/recipe/luau/
-181,1.0,dash,Angostura bitters,General,0,1157,Luau,https://recipe.awesomedrinks.com/recipe/luau/
+181,1.0,dash,Angostura Bitters,General,0,1157,Luau,https://recipe.awesomedrinks.com/recipe/luau/
 182,45.0,ml,Tequila,Tequila,6,1158,Matador,https://recipe.awesomedrinks.com/recipe/matador/
 183,120.0,ml,Pineapple Juice,General,0,1158,Matador,https://recipe.awesomedrinks.com/recipe/matador/
 184,15.0,ml,Fresh lime juice,General,0,1158,Matador,https://recipe.awesomedrinks.com/recipe/matador/
@@ -196,7 +195,7 @@
 194,15.0,ml,Fresh lemon juice,General,0,1160,Mezcal Mai Tai,https://recipe.awesomedrinks.com/recipe/mezcal-mai-tai/
 195,30.0,ml,Pineapple Juice,General,0,1160,Mezcal Mai Tai,https://recipe.awesomedrinks.com/recipe/mezcal-mai-tai/
 196,22.5,ml,Orgeat / Almond syrup,General,0,1160,Mezcal Mai Tai,https://recipe.awesomedrinks.com/recipe/mezcal-mai-tai/
-197,2.0,,Angostura bitters,General,0,1160,Mezcal Mai Tai,https://recipe.awesomedrinks.com/recipe/mezcal-mai-tai/
+197,2.0,,Angostura Bitters,General,0,1160,Mezcal Mai Tai,https://recipe.awesomedrinks.com/recipe/mezcal-mai-tai/
 198,,,Spent Lime,Garnish,11,1160,Mezcal Mai Tai,https://recipe.awesomedrinks.com/recipe/mezcal-mai-tai/
 199,45.0,ml,Light Rum,Rum,2,1161,Nacional Daiquiri,https://recipe.awesomedrinks.com/recipe/nacional-daiquiri/
 200,22.5,ml,Apricot Brandy,Brandy,5,1161,Nacional Daiquiri,https://recipe.awesomedrinks.com/recipe/nacional-daiquiri/
@@ -229,7 +228,7 @@
 227,15.0,ml,Fresh orange juice,General,0,1166,Pearl Diver,https://recipe.awesomedrinks.com/recipe/pearl-diver/
 228,15.0,ml,Fresh lime juice,General,0,1166,Pearl Diver,https://recipe.awesomedrinks.com/recipe/pearl-diver/
 229,15.0,ml,Gardenia Mix,General,0,1166,Pearl Diver,https://recipe.awesomedrinks.com/recipe/pearl-diver/
-230,1.0,dash,Angostura bitters,General,0,1166,Pearl Diver,https://recipe.awesomedrinks.com/recipe/pearl-diver/
+230,1.0,dash,Angostura Bitters,General,0,1166,Pearl Diver,https://recipe.awesomedrinks.com/recipe/pearl-diver/
 231,,,Orchid,Garnish,11,1166,Pearl Diver,https://recipe.awesomedrinks.com/recipe/pearl-diver/
 232,,,Pineapple Frond,Garnish,11,1166,Pearl Diver,https://recipe.awesomedrinks.com/recipe/pearl-diver/
 233,60.0,ml,Light Rum,Rum,2,1167,Pina Colada,https://recipe.awesomedrinks.com/recipe/pina-colada/
@@ -252,14 +251,14 @@
 250,22.5,ml,Orgeat / Almond syrup,General,0,1170,Rye Tai,https://recipe.awesomedrinks.com/recipe/rye-tai/
 251,22.5,ml,Fresh lemon juice,General,0,1170,Rye Tai,https://recipe.awesomedrinks.com/recipe/rye-tai/
 252,22.5,ml,Pineapple Juice,General,0,1170,Rye Tai,https://recipe.awesomedrinks.com/recipe/rye-tai/
-253,10.0,dashes,Angostura bitters,General,0,1170,Rye Tai,https://recipe.awesomedrinks.com/recipe/rye-tai/
+253,10.0,dashes,Angostura Bitters,General,0,1170,Rye Tai,https://recipe.awesomedrinks.com/recipe/rye-tai/
 254,60.0,ml,Gin,Gin,1,1171,Social Season,https://recipe.awesomedrinks.com/recipe/social-season/
 255,22.5,ml,Aperol,Liqueur,10,1171,Social Season,https://recipe.awesomedrinks.com/recipe/social-season/
 256,7.5,ml,Yellow Chartreuse,Liqueur,10,1171,Social Season,https://recipe.awesomedrinks.com/recipe/social-season/
 257,15.0,ml,Passion fruit syrup,General,0,1171,Social Season,https://recipe.awesomedrinks.com/recipe/social-season/
 258,45.0,ml,Pineapple Juice,General,0,1171,Social Season,https://recipe.awesomedrinks.com/recipe/social-season/
 259,15.0,ml,Fresh lime juice,General,0,1171,Social Season,https://recipe.awesomedrinks.com/recipe/social-season/
-260,1.0,dash,Angostura bitters,General,0,1171,Social Season,https://recipe.awesomedrinks.com/recipe/social-season/
+260,1.0,dash,Angostura Bitters,General,0,1171,Social Season,https://recipe.awesomedrinks.com/recipe/social-season/
 261,22.5,ml,Fresh lime juice,General,0,1172,Steve's Rum Barrel,https://recipe.awesomedrinks.com/recipe/steves-rum-barrel/
 262,22.5,ml,Fresh orange juice,General,0,1172,Steve's Rum Barrel,https://recipe.awesomedrinks.com/recipe/steves-rum-barrel/
 263,22.5,ml,Fresh grapefruit juice,General,0,1172,Steve's Rum Barrel,https://recipe.awesomedrinks.com/recipe/steves-rum-barrel/
@@ -269,7 +268,7 @@
 267,60.0,ml,Dark Jamaican rum,Rum,2,1172,Steve's Rum Barrel,https://recipe.awesomedrinks.com/recipe/steves-rum-barrel/
 268,60.0,ml,Light Puerto Rican Rum,Rum,2,1172,Steve's Rum Barrel,https://recipe.awesomedrinks.com/recipe/steves-rum-barrel/
 269,1.0,dash,Pernod / Absinthe,Spirits,21,1172,Steve's Rum Barrel,https://recipe.awesomedrinks.com/recipe/steves-rum-barrel/
-270,1.0,dash,Angostura bitters,General,0,1172,Steve's Rum Barrel,https://recipe.awesomedrinks.com/recipe/steves-rum-barrel/
+270,1.0,dash,Angostura Bitters,General,0,1172,Steve's Rum Barrel,https://recipe.awesomedrinks.com/recipe/steves-rum-barrel/
 271,1.0,dash,Almond Extract,General,0,1172,Steve's Rum Barrel,https://recipe.awesomedrinks.com/recipe/steves-rum-barrel/
 272,45.0,ml,Rum,Rum,2,1173,Strawberry Daiquiri,https://recipe.awesomedrinks.com/recipe/strawberry-daiquiri/
 273,22.5,ml,Fresh lime juice,General,0,1173,Strawberry Daiquiri,https://recipe.awesomedrinks.com/recipe/strawberry-daiquiri/
@@ -280,7 +279,7 @@
 278,30.0,ml,Brandy / Cognac,Brandy,5,1174,Suffering Bastard,https://recipe.awesomedrinks.com/recipe/suffering-bastard/
 279,15.0,ml,Fresh lime juice,General,0,1174,Suffering Bastard,https://recipe.awesomedrinks.com/recipe/suffering-bastard/
 280,120.0,ml,Ginger Beer,General,0,1174,Suffering Bastard,https://recipe.awesomedrinks.com/recipe/suffering-bastard/
-281,2.0,dashes,Angostura bitters,General,0,1174,Suffering Bastard,https://recipe.awesomedrinks.com/recipe/suffering-bastard/
+281,2.0,dashes,Angostura Bitters,General,0,1174,Suffering Bastard,https://recipe.awesomedrinks.com/recipe/suffering-bastard/
 282,,,Mint Sprig,Garnish,11,1174,Suffering Bastard,https://recipe.awesomedrinks.com/recipe/suffering-bastard/
 283,,,Orange Wheel,Garnish,11,1174,Suffering Bastard,https://recipe.awesomedrinks.com/recipe/suffering-bastard/
 284,45.0,ml,Dark Jamaican rum,Rum,2,1175,Test Pilot,https://recipe.awesomedrinks.com/recipe/test-pilot/
@@ -288,7 +287,7 @@
 286,15.0,ml,Fresh lime juice,General,0,1175,Test Pilot,https://recipe.awesomedrinks.com/recipe/test-pilot/
 287,15.0,ml,Falernum Syrup,General,0,1175,Test Pilot,https://recipe.awesomedrinks.com/recipe/test-pilot/
 288,15.0,ml,Cointreau,Liqueur,10,1175,Test Pilot,https://recipe.awesomedrinks.com/recipe/test-pilot/
-289,1.0,dash,Angostura bitters,General,0,1175,Test Pilot,https://recipe.awesomedrinks.com/recipe/test-pilot/
+289,1.0,dash,Angostura Bitters,General,0,1175,Test Pilot,https://recipe.awesomedrinks.com/recipe/test-pilot/
 290,1.0,dash,Pernod / Absinthe,Spirits,21,1175,Test Pilot,https://recipe.awesomedrinks.com/recipe/test-pilot/
 291,,,Maraschino Cherry,Garnish,11,1175,Test Pilot,https://recipe.awesomedrinks.com/recipe/test-pilot/
 292,60.0,ml,Tequila,Tequila,6,1176,The Batanga,https://recipe.awesomedrinks.com/recipe/the-batanga/
@@ -319,7 +318,7 @@
 317,45.0,ml,Pineapple Juice,General,0,1180,What The Dickens?,https://recipe.awesomedrinks.com/recipe/what-the-dickens/
 318,22.5,ml,Simple syrup,General,0,1180,What The Dickens?,https://recipe.awesomedrinks.com/recipe/what-the-dickens/
 319,3.0,dashes,Peychaud's Bitters,General,0,1180,What The Dickens?,https://recipe.awesomedrinks.com/recipe/what-the-dickens/
-320,1.0,dash,Angostura bitters,General,0,1180,What The Dickens?,https://recipe.awesomedrinks.com/recipe/what-the-dickens/
+320,1.0,dash,Angostura Bitters,General,0,1180,What The Dickens?,https://recipe.awesomedrinks.com/recipe/what-the-dickens/
 321,,,Lime Wheel,Garnish,11,1180,What The Dickens?,https://recipe.awesomedrinks.com/recipe/what-the-dickens/
 322,60.0,ml,Bourbon Whiskey,Whisky,4,1181,Whiskey Smash,https://recipe.awesomedrinks.com/recipe/whiskey-smash/
 323,22.5,ml,Simple syrup,General,0,1181,Whiskey Smash,https://recipe.awesomedrinks.com/recipe/whiskey-smash/
@@ -329,8 +328,8 @@
 327,15.0,ml,Fresh lime juice,General,0,1182,Michelada,https://recipe.awesomedrinks.com/recipe/michelada/
 328,2.0,dashes,Hot sauce,General,0,1182,Michelada,https://recipe.awesomedrinks.com/recipe/michelada/
 329,2.0,dashes,Worcestershire sauce,General,0,1182,Michelada,https://recipe.awesomedrinks.com/recipe/michelada/
-330,1.0,pinch,Black pepper,General,0,1182,Michelada,https://recipe.awesomedrinks.com/recipe/michelada/
-331,1.0,pinch,Celery salt,General,0,1182,Michelada,https://recipe.awesomedrinks.com/recipe/michelada/
+330,1.0,pinch,Black Pepper,General,0,1182,Michelada,https://recipe.awesomedrinks.com/recipe/michelada/
+331,1.0,pinch,Celery Salt,General,0,1182,Michelada,https://recipe.awesomedrinks.com/recipe/michelada/
 332,480.0,ml,Mexican Lager,Beer,7,1182,Michelada,https://recipe.awesomedrinks.com/recipe/michelada/
 333,,,cayenne pepper / salt rim,Garnish,11,1182,Michelada,https://recipe.awesomedrinks.com/recipe/michelada/
 334,,,lime wedge,Garnish,11,1182,Michelada,https://recipe.awesomedrinks.com/recipe/michelada/
@@ -353,11 +352,11 @@
 351,22.5,ml,Orange Curaçao,Liqueur,10,1186,Apple Jack Cocktail,https://recipe.awesomedrinks.com/recipe/apple-jack-cocktail/
 352,15.0,ml,Fresh lime juice,General,0,1186,Apple Jack Cocktail,https://recipe.awesomedrinks.com/recipe/apple-jack-cocktail/
 353,2.0,dashes,Orange Bitters,General,0,1186,Apple Jack Cocktail,https://recipe.awesomedrinks.com/recipe/apple-jack-cocktail/
-354,30.0,ml,Dark Rum,Rum,2,1187,Bamboo Screwdriver,https://recipe.awesomedrinks.com/recipe/bamboo-screwdriver/
+354,30.0,ml,Dark rum,Rum,2,1187,Bamboo Screwdriver,https://recipe.awesomedrinks.com/recipe/bamboo-screwdriver/
 355,30.0,ml,Fresh orange juice,General,0,1187,Bamboo Screwdriver,https://recipe.awesomedrinks.com/recipe/bamboo-screwdriver/
 356,30.0,ml,Orange Liqueur,Liqueur,10,1187,Bamboo Screwdriver,https://recipe.awesomedrinks.com/recipe/bamboo-screwdriver/
 357,7.5,ml,Fresh lime juice,General,0,1187,Bamboo Screwdriver,https://recipe.awesomedrinks.com/recipe/bamboo-screwdriver/
-358,4.0,dashes,Angostura bitters,General,0,1187,Bamboo Screwdriver,https://recipe.awesomedrinks.com/recipe/bamboo-screwdriver/
+358,4.0,dashes,Angostura Bitters,General,0,1187,Bamboo Screwdriver,https://recipe.awesomedrinks.com/recipe/bamboo-screwdriver/
 359,90.0,ml,Rye Whiskey,Whisky,4,1188,Bashful Canadian,https://recipe.awesomedrinks.com/recipe/bashful-canadian/
 360,30.0,ml,Aperol,Liqueur,10,1188,Bashful Canadian,https://recipe.awesomedrinks.com/recipe/bashful-canadian/
 361,15.0,ml,Fresh lemon juice,General,0,1188,Bashful Canadian,https://recipe.awesomedrinks.com/recipe/bashful-canadian/
@@ -373,7 +372,7 @@
 371,2.0,dashes,Fee Brothers Old Fashioned Bitters,General,0,1190,Civil War,https://recipe.awesomedrinks.com/recipe/civil-war/
 372,1.0,,Luxardo Maraschino Cherry,General,0,1190,Civil War,https://recipe.awesomedrinks.com/recipe/civil-war/
 373,,,Maraschino Cherry,Garnish,11,1190,Civil War,https://recipe.awesomedrinks.com/recipe/civil-war/
-374,30.0,ml,Canadian Whiskey,Whisky,4,1191,Cynar Flip,https://recipe.awesomedrinks.com/recipe/cynar-flip/
+374,30.0,ml,Canadian whisky,Whisky,4,1191,Cynar Flip,https://recipe.awesomedrinks.com/recipe/cynar-flip/
 375,30.0,ml,Cynar,Liqueur,10,1191,Cynar Flip,https://recipe.awesomedrinks.com/recipe/cynar-flip/
 376,15.0,ml,Cointreau,Liqueur,10,1191,Cynar Flip,https://recipe.awesomedrinks.com/recipe/cynar-flip/
 377,7.5,ml,Clove Simple Syrup,General,0,1191,Cynar Flip,https://recipe.awesomedrinks.com/recipe/cynar-flip/
@@ -401,7 +400,7 @@
 399,30.0,ml,Mezcal,Mezcal,20,1196,Flawless Victory,https://recipe.awesomedrinks.com/recipe/flawless-victory/
 400,30.0,ml,Cynar,Liqueur,10,1196,Flawless Victory,https://recipe.awesomedrinks.com/recipe/flawless-victory/
 401,22.5,ml,Fresh lemon juice,General,0,1196,Flawless Victory,https://recipe.awesomedrinks.com/recipe/flawless-victory/
-402,22.5,ml,Agave nectar,General,0,1196,Flawless Victory,https://recipe.awesomedrinks.com/recipe/flawless-victory/
+402,22.5,ml,Agave Nectar,General,0,1196,Flawless Victory,https://recipe.awesomedrinks.com/recipe/flawless-victory/
 403,3.0,dashes,Orange Bitters,General,0,1196,Flawless Victory,https://recipe.awesomedrinks.com/recipe/flawless-victory/
 404,,,lemon wedge,Garnish,11,1196,Flawless Victory,https://recipe.awesomedrinks.com/recipe/flawless-victory/
 405,45.0,ml,Gin,Gin,1,1197,Gin Campari Sour,https://recipe.awesomedrinks.com/recipe/gin-campari-sour/
@@ -418,7 +417,7 @@
 416,22.5,ml,Fresh lime juice,General,0,1198,Jeez Louis,https://recipe.awesomedrinks.com/recipe/jeez-louis/
 417,,,Soda Water,General,0,1198,Jeez Louis,https://recipe.awesomedrinks.com/recipe/jeez-louis/
 418,,,Orange Wheel,Garnish,11,1198,Jeez Louis,https://recipe.awesomedrinks.com/recipe/jeez-louis/
-419,45.0,ml,Dark Rum,Rum,2,1199,Jungle Bird,https://recipe.awesomedrinks.com/recipe/jungle-bird/
+419,45.0,ml,Dark rum,Rum,2,1199,Jungle Bird,https://recipe.awesomedrinks.com/recipe/jungle-bird/
 420,22.5,ml,Campari,Liqueur,10,1199,Jungle Bird,https://recipe.awesomedrinks.com/recipe/jungle-bird/
 421,120.0,ml,Pineapple Juice,General,0,1199,Jungle Bird,https://recipe.awesomedrinks.com/recipe/jungle-bird/
 422,15.0,ml,Fresh lime juice,General,0,1199,Jungle Bird,https://recipe.awesomedrinks.com/recipe/jungle-bird/
@@ -453,7 +452,7 @@
 451,60.0,ml,Tequila,Tequila,6,1205,Tequiliano,https://recipe.awesomedrinks.com/recipe/tequiliano/
 452,30.0,ml,Campari,Liqueur,10,1205,Tequiliano,https://recipe.awesomedrinks.com/recipe/tequiliano/
 453,30.0,ml,Sweet Vermouth,Wine,8,1205,Tequiliano,https://recipe.awesomedrinks.com/recipe/tequiliano/
-454,15.0,ml,Agave nectar,General,0,1205,Tequiliano,https://recipe.awesomedrinks.com/recipe/tequiliano/
+454,15.0,ml,Agave Nectar,General,0,1205,Tequiliano,https://recipe.awesomedrinks.com/recipe/tequiliano/
 455,,,Orange Slice,Garnish,11,1205,Tequiliano,https://recipe.awesomedrinks.com/recipe/tequiliano/
 456,30.0,ml,Cynar,Liqueur,10,1206,The Long Goodbye,https://recipe.awesomedrinks.com/recipe/the-long-goodbye/
 457,15.0,ml,Mezcal,Mezcal,20,1206,The Long Goodbye,https://recipe.awesomedrinks.com/recipe/the-long-goodbye/
@@ -468,7 +467,7 @@
 466,22.5,ml,Fresh lime juice,General,0,1207,The Siesta,https://recipe.awesomedrinks.com/recipe/the-siesta/
 467,22.5,ml,Simple syrup,General,0,1207,The Siesta,https://recipe.awesomedrinks.com/recipe/the-siesta/
 468,,,Grapefruit Twist,Garnish,11,1207,The Siesta,https://recipe.awesomedrinks.com/recipe/the-siesta/
-469,30.0,ml,Angostura bitters,General,0,1208,Trinidad Sour,https://recipe.awesomedrinks.com/recipe/trinidad-sour/
+469,30.0,ml,Angostura Bitters,General,0,1208,Trinidad Sour,https://recipe.awesomedrinks.com/recipe/trinidad-sour/
 470,30.0,ml,Orgeat / Almond syrup,General,0,1208,Trinidad Sour,https://recipe.awesomedrinks.com/recipe/trinidad-sour/
 471,22.5,ml,Fresh lemon juice,General,0,1208,Trinidad Sour,https://recipe.awesomedrinks.com/recipe/trinidad-sour/
 472,15.0,ml,Rye Whiskey,Whisky,4,1208,Trinidad Sour,https://recipe.awesomedrinks.com/recipe/trinidad-sour/
@@ -487,7 +486,7 @@
 485,2.0,dashes,Worcestershire sauce,General,0,1211,Bloody Mary,https://recipe.awesomedrinks.com/recipe/bloody-mary/
 486,4.0,dashes,Tabasco sauce,General,0,1211,Bloody Mary,https://recipe.awesomedrinks.com/recipe/bloody-mary/
 487,1.0,pinch,Salt,General,0,1211,Bloody Mary,https://recipe.awesomedrinks.com/recipe/bloody-mary/
-488,1.0,pinch,Black pepper,General,0,1211,Bloody Mary,https://recipe.awesomedrinks.com/recipe/bloody-mary/
+488,1.0,pinch,Black Pepper,General,0,1211,Bloody Mary,https://recipe.awesomedrinks.com/recipe/bloody-mary/
 489,1.0,dash,Scrappy's Firewater Tincture,General,0,1211,Bloody Mary,https://recipe.awesomedrinks.com/recipe/bloody-mary/
 490,1.0,dash,Celery bitters,General,0,1211,Bloody Mary,https://recipe.awesomedrinks.com/recipe/bloody-mary/
 491,,,Celery Stick,Garnish,11,1211,Bloody Mary,https://recipe.awesomedrinks.com/recipe/bloody-mary/
@@ -500,7 +499,7 @@
 498,1.0,barspoon,Grand Marnier,Liqueur,10,1213,Mimosa,https://recipe.awesomedrinks.com/recipe/mimosa/
 499,1.0,dash,Orange Bitters,General,0,1213,Mimosa,https://recipe.awesomedrinks.com/recipe/mimosa/
 500,,,Quarter Orange Slice,Garnish,11,1213,Mimosa,https://recipe.awesomedrinks.com/recipe/mimosa/
-501,30.0,ml,Dark Rum,Rum,2,1214,Spiked Eggnog,https://recipe.awesomedrinks.com/recipe/spiked-eggnog/
+501,30.0,ml,Dark rum,Rum,2,1214,Spiked Eggnog,https://recipe.awesomedrinks.com/recipe/spiked-eggnog/
 502,15.0,ml,Brandy / Cognac,Brandy,5,1214,Spiked Eggnog,https://recipe.awesomedrinks.com/recipe/spiked-eggnog/
 503,60.0,ml,Heavy Cream,General,0,1214,Spiked Eggnog,https://recipe.awesomedrinks.com/recipe/spiked-eggnog/
 504,22.5,ml,Honey Syrup / Mix,General,0,1214,Spiked Eggnog,https://recipe.awesomedrinks.com/recipe/spiked-eggnog/
@@ -514,7 +513,7 @@
 512,15.0,ml,Grenadine,General,0,1215,Vampiro,https://recipe.awesomedrinks.com/recipe/vampiro/
 513,7.0,dashes,Hot sauce,General,0,1215,Vampiro,https://recipe.awesomedrinks.com/recipe/vampiro/
 514,1.0,pinch,Salt,General,0,1215,Vampiro,https://recipe.awesomedrinks.com/recipe/vampiro/
-515,1.0,pinch,Black pepper,General,0,1215,Vampiro,https://recipe.awesomedrinks.com/recipe/vampiro/
+515,1.0,pinch,Black Pepper,General,0,1215,Vampiro,https://recipe.awesomedrinks.com/recipe/vampiro/
 516,,,Lime Wedge,Garnish,11,1215,Vampiro,https://recipe.awesomedrinks.com/recipe/vampiro/
 517,45.0,ml,Light Rum,Rum,2,1216,Air Mail,https://recipe.awesomedrinks.com/recipe/air-mail/
 518,15.0,ml,Honey Syrup / Mix,General,0,1216,Air Mail,https://recipe.awesomedrinks.com/recipe/air-mail/
@@ -522,14 +521,14 @@
 520,,,Champagne / Sparkling Wine,Wine,8,1216,Air Mail,https://recipe.awesomedrinks.com/recipe/air-mail/
 521,,,Postage Stamp,Garnish,11,1216,Air Mail,https://recipe.awesomedrinks.com/recipe/air-mail/
 522,180.0,ml,Champagne / Sparkling Wine,Wine,8,1217,Champagne Cocktail,https://recipe.awesomedrinks.com/recipe/champagne-cocktail/
-523,3.0,dashes,Angostura bitters,General,0,1217,Champagne Cocktail,https://recipe.awesomedrinks.com/recipe/champagne-cocktail/
+523,3.0,dashes,Angostura Bitters,General,0,1217,Champagne Cocktail,https://recipe.awesomedrinks.com/recipe/champagne-cocktail/
 524,1.0,,Sugar Cube,General,0,1217,Champagne Cocktail,https://recipe.awesomedrinks.com/recipe/champagne-cocktail/
 525,,,Lemon Twist,Garnish,11,1217,Champagne Cocktail,https://recipe.awesomedrinks.com/recipe/champagne-cocktail/
 526,45.0,ml,Disaronno Originale Amaretto,Liqueur,10,1218,Disaronno Wears Cavalli Sour,https://recipe.awesomedrinks.com/recipe/disaronno-wears-cavalli-sour/
 527,30.0,ml,Fresh lemon juice,General,0,1218,Disaronno Wears Cavalli Sour,https://recipe.awesomedrinks.com/recipe/disaronno-wears-cavalli-sour/
 528,15.0,ml,Simple syrup,General,0,1218,Disaronno Wears Cavalli Sour,https://recipe.awesomedrinks.com/recipe/disaronno-wears-cavalli-sour/
 529,45.0,ml,Prosecco,Wine,8,1218,Disaronno Wears Cavalli Sour,https://recipe.awesomedrinks.com/recipe/disaronno-wears-cavalli-sour/
-530,10.0,dashes,Angostura bitters,General,0,1218,Disaronno Wears Cavalli Sour,https://recipe.awesomedrinks.com/recipe/disaronno-wears-cavalli-sour/
+530,10.0,dashes,Angostura Bitters,General,0,1218,Disaronno Wears Cavalli Sour,https://recipe.awesomedrinks.com/recipe/disaronno-wears-cavalli-sour/
 531,,,Orange Slice,Garnish,11,1218,Disaronno Wears Cavalli Sour,https://recipe.awesomedrinks.com/recipe/disaronno-wears-cavalli-sour/
 532,30.0,ml,London Dry Gin,Gin,1,1219,French 75,https://recipe.awesomedrinks.com/recipe/french-75/
 533,15.0,ml,Simple syrup,General,0,1219,French 75,https://recipe.awesomedrinks.com/recipe/french-75/
@@ -563,7 +562,7 @@
 561,60.0,ml,Cognac / Brandy,Brandy,5,1225,Betsy Ross Cocktail,https://recipe.awesomedrinks.com/recipe/betsy-ross-cocktail/
 562,22.5,ml,Ruby Port,Wine,8,1225,Betsy Ross Cocktail,https://recipe.awesomedrinks.com/recipe/betsy-ross-cocktail/
 563,15.0,ml,Orange Liqueur,Liqueur,10,1225,Betsy Ross Cocktail,https://recipe.awesomedrinks.com/recipe/betsy-ross-cocktail/
-564,2.0,dashes,Angostura bitters,General,0,1225,Betsy Ross Cocktail,https://recipe.awesomedrinks.com/recipe/betsy-ross-cocktail/
+564,2.0,dashes,Angostura Bitters,General,0,1225,Betsy Ross Cocktail,https://recipe.awesomedrinks.com/recipe/betsy-ross-cocktail/
 565,,,Nutmeg,Garnish,11,1225,Betsy Ross Cocktail,https://recipe.awesomedrinks.com/recipe/betsy-ross-cocktail/
 566,30.0,ml,Gin,Gin,1,1226,Bijou Cocktail,https://recipe.awesomedrinks.com/recipe/bijou-cocktail/
 567,30.0,ml,Green Chartreuse,Liqueur,10,1226,Bijou Cocktail,https://recipe.awesomedrinks.com/recipe/bijou-cocktail/
@@ -595,7 +594,7 @@
 593,45.0,ml,London Dry Gin,Gin,1,1233,Chicago South Side,https://recipe.awesomedrinks.com/recipe/chicago-south-side/
 594,22.5,ml,Fresh lime juice,General,0,1233,Chicago South Side,https://recipe.awesomedrinks.com/recipe/chicago-south-side/
 595,22.5,ml,Simple syrup,General,0,1233,Chicago South Side,https://recipe.awesomedrinks.com/recipe/chicago-south-side/
-596,7.0,dashes,Angostura bitters,General,0,1233,Chicago South Side,https://recipe.awesomedrinks.com/recipe/chicago-south-side/
+596,7.0,dashes,Angostura Bitters,General,0,1233,Chicago South Side,https://recipe.awesomedrinks.com/recipe/chicago-south-side/
 597,10.0,,Mint Leaves,General,0,1233,Chicago South Side,https://recipe.awesomedrinks.com/recipe/chicago-south-side/
 598,,,Mint Leaf,Garnish,11,1233,Chicago South Side,https://recipe.awesomedrinks.com/recipe/chicago-south-side/
 599,60.0,ml,Dry Vermouth,Wine,8,1234,Chrysanthemum,https://recipe.awesomedrinks.com/recipe/chrysanthemum/
@@ -665,10 +664,10 @@
 663,,,Studded Lemon Peel,Garnish,11,1248,Hot Toddy,https://recipe.awesomedrinks.com/recipe/hot-toddy/
 664,,,Cinnamon Stick,Garnish,11,1248,Hot Toddy,https://recipe.awesomedrinks.com/recipe/hot-toddy/
 665,60.0,ml,Bourbon Whiskey,Whisky,4,1249,Lion's Tail,https://recipe.awesomedrinks.com/recipe/lions-tail/
-666,15.0,ml,Allspice dram / liqueur,Liqueur,10,1249,Lion's Tail,https://recipe.awesomedrinks.com/recipe/lions-tail/
+666,15.0,ml,Allspice Dram,Liqueur,10,1249,Lion's Tail,https://recipe.awesomedrinks.com/recipe/lions-tail/
 667,15.0,ml,Fresh lime juice,General,0,1249,Lion's Tail,https://recipe.awesomedrinks.com/recipe/lions-tail/
 668,1.0,barspoon,Simple syrup,General,0,1249,Lion's Tail,https://recipe.awesomedrinks.com/recipe/lions-tail/
-669,2.0,dashes,Angostura bitters,General,0,1249,Lion's Tail,https://recipe.awesomedrinks.com/recipe/lions-tail/
+669,2.0,dashes,Angostura Bitters,General,0,1249,Lion's Tail,https://recipe.awesomedrinks.com/recipe/lions-tail/
 670,,,Citrus Peel/Slice,Garnish,11,1249,Lion's Tail,https://recipe.awesomedrinks.com/recipe/lions-tail/
 671,45.0,ml,Vodka,Vodka,3,1250,Madras,https://recipe.awesomedrinks.com/recipe/madras/
 672,120.0,ml,Fresh orange juice,General,0,1250,Madras,https://recipe.awesomedrinks.com/recipe/madras/
@@ -676,13 +675,13 @@
 674,,,Orange Wheel,Garnish,11,1250,Madras,https://recipe.awesomedrinks.com/recipe/madras/
 675,60.0,ml,Rye Whiskey,Whisky,4,1251,Manhattan,https://recipe.awesomedrinks.com/recipe/manhattan/
 676,30.0,ml,Sweet Vermouth,Wine,8,1251,Manhattan,https://recipe.awesomedrinks.com/recipe/manhattan/
-677,2.0,dashes,Angostura bitters,General,0,1251,Manhattan,https://recipe.awesomedrinks.com/recipe/manhattan/
+677,2.0,dashes,Angostura Bitters,General,0,1251,Manhattan,https://recipe.awesomedrinks.com/recipe/manhattan/
 678,1.0,dash,Orange Bitters,General,0,1251,Manhattan,https://recipe.awesomedrinks.com/recipe/manhattan/
 679,,,Bourbon Cherry,Garnish,11,1251,Manhattan,https://recipe.awesomedrinks.com/recipe/manhattan/
 680,,,Maraschino Cherry,Garnish,11,1251,Manhattan,https://recipe.awesomedrinks.com/recipe/manhattan/
 681,60.0,ml,Tequila,Tequila,6,1252,Margarita,https://recipe.awesomedrinks.com/recipe/margarita/
 682,30.0,ml,Fresh lime juice,General,0,1252,Margarita,https://recipe.awesomedrinks.com/recipe/margarita/
-683,22.5,ml,Agave nectar,General,0,1252,Margarita,https://recipe.awesomedrinks.com/recipe/margarita/
+683,22.5,ml,Agave Nectar,General,0,1252,Margarita,https://recipe.awesomedrinks.com/recipe/margarita/
 684,22.5,ml,Orange Liqueur,Liqueur,10,1252,Margarita,https://recipe.awesomedrinks.com/recipe/margarita/
 685,,,Lime Wheel,Garnish,11,1252,Margarita,https://recipe.awesomedrinks.com/recipe/margarita/
 686,45.0,ml,Old Tom Gin,Gin,1,1253,Martinez,https://recipe.awesomedrinks.com/recipe/martinez/
@@ -692,7 +691,7 @@
 690,,,Orange Twist,Garnish,11,1253,Martinez,https://recipe.awesomedrinks.com/recipe/martinez/
 691,60.0,ml,Rye Whiskey,Whisky,4,1254,Monte Carlo,https://recipe.awesomedrinks.com/recipe/monte-carlo/
 692,15.0,ml,Benedictine,Liqueur,10,1254,Monte Carlo,https://recipe.awesomedrinks.com/recipe/monte-carlo/
-693,1.0,dash,Angostura bitters,General,0,1254,Monte Carlo,https://recipe.awesomedrinks.com/recipe/monte-carlo/
+693,1.0,dash,Angostura Bitters,General,0,1254,Monte Carlo,https://recipe.awesomedrinks.com/recipe/monte-carlo/
 694,45.0,ml,Vodka,Vodka,3,1255,Moscow Mule,https://recipe.awesomedrinks.com/recipe/moscow-mule/
 695,120.0,ml,Ginger Beer,General,0,1255,Moscow Mule,https://recipe.awesomedrinks.com/recipe/moscow-mule/
 696,7.5,ml,Fresh lime juice,General,0,1255,Moscow Mule,https://recipe.awesomedrinks.com/recipe/moscow-mule/
@@ -703,18 +702,18 @@
 701,15.0,ml,Egg White,General,0,1256,New York Sour,https://recipe.awesomedrinks.com/recipe/new-york-sour/
 702,30.0,ml,Red Wine,Wine,8,1256,New York Sour,https://recipe.awesomedrinks.com/recipe/new-york-sour/
 703,1.0,,Sugar Cube,General,0,1257,Old Fashioned,https://recipe.awesomedrinks.com/recipe/old-fashioned/
-704,4.0,dashes,Angostura bitters,General,0,1257,Old Fashioned,https://recipe.awesomedrinks.com/recipe/old-fashioned/
+704,4.0,dashes,Angostura Bitters,General,0,1257,Old Fashioned,https://recipe.awesomedrinks.com/recipe/old-fashioned/
 705,60.0,ml,Rye Whiskey,Whisky,4,1257,Old Fashioned,https://recipe.awesomedrinks.com/recipe/old-fashioned/
 706,1.0,,Luxardo Maraschino Cherry,General,0,1257,Old Fashioned,https://recipe.awesomedrinks.com/recipe/old-fashioned/
 707,,,Orange Wheel,Garnish,11,1257,Old Fashioned,https://recipe.awesomedrinks.com/recipe/old-fashioned/
 708,,,Maraschino Cherry,Garnish,11,1257,Old Fashioned,https://recipe.awesomedrinks.com/recipe/old-fashioned/
-709,45.0,ml,Dark Rum,Rum,2,1258,Planter's Punch,https://recipe.awesomedrinks.com/recipe/planters-punch/
+709,45.0,ml,Dark rum,Rum,2,1258,Planter's Punch,https://recipe.awesomedrinks.com/recipe/planters-punch/
 710,30.0,ml,Fresh orange juice,General,0,1258,Planter's Punch,https://recipe.awesomedrinks.com/recipe/planters-punch/
 711,30.0,ml,Pineapple Juice,General,0,1258,Planter's Punch,https://recipe.awesomedrinks.com/recipe/planters-punch/
 712,22.5,ml,Fresh lemon juice,General,0,1258,Planter's Punch,https://recipe.awesomedrinks.com/recipe/planters-punch/
 713,30.0,ml,Grenadine,General,0,1258,Planter's Punch,https://recipe.awesomedrinks.com/recipe/planters-punch/
 714,30.0,ml,Simple syrup,General,0,1258,Planter's Punch,https://recipe.awesomedrinks.com/recipe/planters-punch/
-715,4.0,dashes,Angostura bitters,General,0,1258,Planter's Punch,https://recipe.awesomedrinks.com/recipe/planters-punch/
+715,4.0,dashes,Angostura Bitters,General,0,1258,Planter's Punch,https://recipe.awesomedrinks.com/recipe/planters-punch/
 716,60.0,ml,Gin,Gin,1,1259,Ramos Gin Fizz,https://recipe.awesomedrinks.com/recipe/ramos-gin-fizz/
 717,22.5,ml,Simple syrup,General,0,1259,Ramos Gin Fizz,https://recipe.awesomedrinks.com/recipe/ramos-gin-fizz/
 718,15.0,ml,Heavy Cream,General,0,1259,Ramos Gin Fizz,https://recipe.awesomedrinks.com/recipe/ramos-gin-fizz/
@@ -725,14 +724,14 @@
 723,,,Club Soda,General,0,1259,Ramos Gin Fizz,https://recipe.awesomedrinks.com/recipe/ramos-gin-fizz/
 724,75.0,ml,Scotch,Whisky,4,1260,Rob Roy,https://recipe.awesomedrinks.com/recipe/rob-roy/
 725,30.0,ml,Sweet Vermouth,Wine,8,1260,Rob Roy,https://recipe.awesomedrinks.com/recipe/rob-roy/
-726,1.0,dash,Angostura bitters,General,0,1260,Rob Roy,https://recipe.awesomedrinks.com/recipe/rob-roy/
+726,1.0,dash,Angostura Bitters,General,0,1260,Rob Roy,https://recipe.awesomedrinks.com/recipe/rob-roy/
 727,1.0,,Luxardo Maraschino Cherry,General,0,1260,Rob Roy,https://recipe.awesomedrinks.com/recipe/rob-roy/
 728,,,Maraschino Cherry,Garnish,11,1260,Rob Roy,https://recipe.awesomedrinks.com/recipe/rob-roy/
 729,,,Lemon Twist,Garnish,11,1260,Rob Roy,https://recipe.awesomedrinks.com/recipe/rob-roy/
 730,30.0,ml,Pineapple Juice,General,0,1261,Rum Runner,https://recipe.awesomedrinks.com/recipe/rum-runner/
 731,30.0,ml,Fresh orange juice,General,0,1261,Rum Runner,https://recipe.awesomedrinks.com/recipe/rum-runner/
 732,30.0,ml,Chambord / Raspberry Liqueur,Liqueur,10,1261,Rum Runner,https://recipe.awesomedrinks.com/recipe/rum-runner/
-733,30.0,ml,Banana liqueur,Liqueur,10,1261,Rum Runner,https://recipe.awesomedrinks.com/recipe/rum-runner/
+733,30.0,ml,Banana Liqueur,Liqueur,10,1261,Rum Runner,https://recipe.awesomedrinks.com/recipe/rum-runner/
 734,30.0,ml,Light Rum,Rum,2,1261,Rum Runner,https://recipe.awesomedrinks.com/recipe/rum-runner/
 735,30.0,ml,Aged Rum,Rum,2,1261,Rum Runner,https://recipe.awesomedrinks.com/recipe/rum-runner/
 736,1.0,splash,Grenadine,General,0,1261,Rum Runner,https://recipe.awesomedrinks.com/recipe/rum-runner/
@@ -746,7 +745,7 @@
 744,,,Grapefruit Slice,Garnish,11,1263,Salty Dog,https://recipe.awesomedrinks.com/recipe/salty-dog/
 745,1.0,,Sugar Cube,General,0,1264,Sazerac,https://recipe.awesomedrinks.com/recipe/sazerac/
 746,3.0,dashes,Peychaud's Bitters,General,0,1264,Sazerac,https://recipe.awesomedrinks.com/recipe/sazerac/
-747,2.0,dashes,Angostura bitters,General,0,1264,Sazerac,https://recipe.awesomedrinks.com/recipe/sazerac/
+747,2.0,dashes,Angostura Bitters,General,0,1264,Sazerac,https://recipe.awesomedrinks.com/recipe/sazerac/
 748,60.0,ml,Rye Whiskey,Whisky,4,1264,Sazerac,https://recipe.awesomedrinks.com/recipe/sazerac/
 749,1.0,barspoon,Pernod / Absinthe,Spirits,21,1264,Sazerac,https://recipe.awesomedrinks.com/recipe/sazerac/
 750,45.0,ml,Vodka,Vodka,3,1265,Screwdriver,https://recipe.awesomedrinks.com/recipe/screwdriver/
@@ -773,7 +772,7 @@
 771,45.0,ml,Reposado Tequila,Tequila,6,1270,Tequila Sour,https://recipe.awesomedrinks.com/recipe/tequila-sour/
 772,22.5,ml,Fresh lemon juice,General,0,1270,Tequila Sour,https://recipe.awesomedrinks.com/recipe/tequila-sour/
 773,7.5,ml,Fresh lime juice,General,0,1270,Tequila Sour,https://recipe.awesomedrinks.com/recipe/tequila-sour/
-774,22.5,ml,Agave nectar,General,0,1270,Tequila Sour,https://recipe.awesomedrinks.com/recipe/tequila-sour/
+774,22.5,ml,Agave Nectar,General,0,1270,Tequila Sour,https://recipe.awesomedrinks.com/recipe/tequila-sour/
 775,3.0,dashes,Bittercube Chipotle Cacao Bitters,General,0,1270,Tequila Sour,https://recipe.awesomedrinks.com/recipe/tequila-sour/
 776,1.0,,Egg White,General,0,1270,Tequila Sour,https://recipe.awesomedrinks.com/recipe/tequila-sour/
 777,30.0,ml,London Dry Gin,Gin,1,1271,The Dorchester,https://recipe.awesomedrinks.com/recipe/the-dorchester/
@@ -812,7 +811,7 @@
 810,15.0,ml,Egg White,General,0,1277,White Lady,https://recipe.awesomedrinks.com/recipe/white-lady/
 811,60.0,ml,Vodka,Vodka,3,1278,White Russian,https://recipe.awesomedrinks.com/recipe/white-russian/
 812,30.0,ml,Kahlua Coffee Liqueur,Liqueur,10,1278,White Russian,https://recipe.awesomedrinks.com/recipe/white-russian/
-813,30.0,ml,Half and Half / Cream,General,0,1278,White Russian,https://recipe.awesomedrinks.com/recipe/white-russian/
+813,30.0,ml,Half and Half,General,0,1278,White Russian,https://recipe.awesomedrinks.com/recipe/white-russian/
 814,,,Nutmeg (optional),Garnish,11,1278,White Russian,https://recipe.awesomedrinks.com/recipe/white-russian/
 815,30.0,ml,Vodka,Vodka,3,1279,Woo Woo,https://recipe.awesomedrinks.com/recipe/woo-woo/
 816,15.0,ml,Peach Schnapps,Spirits,21,1279,Woo Woo,https://recipe.awesomedrinks.com/recipe/woo-woo/
@@ -851,7 +850,7 @@
 849,,,Fresh Grated Nutmeg,Garnish,11,1284,Uncle Angelo's Eggnog,https://recipe.awesomedrinks.com/recipe/uncle-angelos-eggnog/
 850,15.0,ml,Coffee Liqueur,Liqueur,10,1285,Alaskan Duck Fart,https://recipe.awesomedrinks.com/recipe/alaskan-duck-fart/
 851,15.0,ml,Irish Cream,General,0,1285,Alaskan Duck Fart,https://recipe.awesomedrinks.com/recipe/alaskan-duck-fart/
-852,15.0,ml,Canadian Whiskey,Whisky,4,1285,Alaskan Duck Fart,https://recipe.awesomedrinks.com/recipe/alaskan-duck-fart/
+852,15.0,ml,Canadian whisky,Whisky,4,1285,Alaskan Duck Fart,https://recipe.awesomedrinks.com/recipe/alaskan-duck-fart/
 853,60.0,ml,Vodka,Vodka,3,1286,Espresso Vodka Martini,https://recipe.awesomedrinks.com/recipe/espresso-vodka-martini/
 854,15.0,ml,Simple syrup,General,0,1286,Espresso Vodka Martini,https://recipe.awesomedrinks.com/recipe/espresso-vodka-martini/
 855,15.0,ml,Coffee Liqueur,Liqueur,10,1286,Espresso Vodka Martini,https://recipe.awesomedrinks.com/recipe/espresso-vodka-martini/
@@ -870,7 +869,7 @@
 868,45.0,ml,Gosling's Black Seal Rum,Rum,2,1289,Third Rail,https://recipe.awesomedrinks.com/recipe/third-rail/
 869,90.0,ml,Black Coffee,General,0,1289,Third Rail,https://recipe.awesomedrinks.com/recipe/third-rail/
 870,22.5,ml,Fresh lime juice,General,0,1289,Third Rail,https://recipe.awesomedrinks.com/recipe/third-rail/
-871,15.0,ml,Agave nectar,General,0,1289,Third Rail,https://recipe.awesomedrinks.com/recipe/third-rail/
+871,15.0,ml,Agave Nectar,General,0,1289,Third Rail,https://recipe.awesomedrinks.com/recipe/third-rail/
 872,6.0,,Ginger Pieces,General,0,1289,Third Rail,https://recipe.awesomedrinks.com/recipe/third-rail/
 873,45.0,ml,London Dry Gin,Gin,1,1290,East India Gimlet,https://recipe.awesomedrinks.com/recipe/east-india-gimlet/
 874,22.5,ml,Fresh lime juice,General,0,1290,East India Gimlet,https://recipe.awesomedrinks.com/recipe/east-india-gimlet/
@@ -896,7 +895,7 @@
 894,37.5,ml,Coconut Rum,Rum,2,1294,Easy Pina Colada,https://recipe.awesomedrinks.com/recipe/easy-pina-colada/
 895,15.0,ml,Vanilla Rum,Rum,2,1294,Easy Pina Colada,https://recipe.awesomedrinks.com/recipe/easy-pina-colada/
 896,60.0,ml,Anejo Tequila,Tequila,6,1295,Añejo Old Fashioned,https://recipe.awesomedrinks.com/recipe/anejo-old-fashioned/
-897,7.5,ml,Agave nectar,General,0,1295,Añejo Old Fashioned,https://recipe.awesomedrinks.com/recipe/anejo-old-fashioned/
+897,7.5,ml,Agave Nectar,General,0,1295,Añejo Old Fashioned,https://recipe.awesomedrinks.com/recipe/anejo-old-fashioned/
 898,1.0,,Orange peel,General,0,1295,Añejo Old Fashioned,https://recipe.awesomedrinks.com/recipe/anejo-old-fashioned/
 899,1.0,,Luxardo Maraschino Cherry,General,0,1295,Añejo Old Fashioned,https://recipe.awesomedrinks.com/recipe/anejo-old-fashioned/
 900,1.0,dash,Bittercube Chipotle Cacao Bitters,General,0,1295,Añejo Old Fashioned,https://recipe.awesomedrinks.com/recipe/anejo-old-fashioned/
@@ -938,7 +937,7 @@
 936,,,Sugared Lemon Wheel,Garnish,11,1302,Passion Fruit Drop,https://recipe.awesomedrinks.com/recipe/passion-fruit-drop/
 937,30.0,ml,Bourbon Whiskey,Whisky,4,1303,Bourbon Alexander,https://recipe.awesomedrinks.com/recipe/bourbon-alexander/
 938,30.0,ml,Creme de Cacao,Liqueur,10,1303,Bourbon Alexander,https://recipe.awesomedrinks.com/recipe/bourbon-alexander/
-939,30.0,ml,Half and Half / Cream,General,0,1303,Bourbon Alexander,https://recipe.awesomedrinks.com/recipe/bourbon-alexander/
+939,30.0,ml,Half and Half,General,0,1303,Bourbon Alexander,https://recipe.awesomedrinks.com/recipe/bourbon-alexander/
 940,1.0,dash,Simple syrup,General,0,1303,Bourbon Alexander,https://recipe.awesomedrinks.com/recipe/bourbon-alexander/
 941,1.0,dash,Salt,General,0,1303,Bourbon Alexander,https://recipe.awesomedrinks.com/recipe/bourbon-alexander/
 942,,,Nutmeg,Garnish,11,1303,Bourbon Alexander,https://recipe.awesomedrinks.com/recipe/bourbon-alexander/
@@ -949,7 +948,7 @@
 947,60.0,ml,Rye Whiskey,Whisky,4,1305,Greenpoint,https://recipe.awesomedrinks.com/recipe/greenpoint/
 948,15.0,ml,Yellow Chartreuse,Liqueur,10,1305,Greenpoint,https://recipe.awesomedrinks.com/recipe/greenpoint/
 949,15.0,ml,Sweet Vermouth,Wine,8,1305,Greenpoint,https://recipe.awesomedrinks.com/recipe/greenpoint/
-950,1.0,dash,Angostura bitters,General,0,1305,Greenpoint,https://recipe.awesomedrinks.com/recipe/greenpoint/
+950,1.0,dash,Angostura Bitters,General,0,1305,Greenpoint,https://recipe.awesomedrinks.com/recipe/greenpoint/
 951,1.0,dash,Orange Bitters,General,0,1305,Greenpoint,https://recipe.awesomedrinks.com/recipe/greenpoint/
 952,,,Lemon Twist,Garnish,11,1305,Greenpoint,https://recipe.awesomedrinks.com/recipe/greenpoint/
 953,60.0,ml,Bourbon Whiskey,Whisky,4,1306,Nor'Easter,https://recipe.awesomedrinks.com/recipe/noreaster/
@@ -979,27 +978,27 @@
 977,37.5,ml,Ginger Liqueur,Liqueur,10,1311,Ginger's Lost Island,https://recipe.awesomedrinks.com/recipe/gingers-lost-island/
 978,15.0,ml,Fresh lime juice,General,0,1311,Ginger's Lost Island,https://recipe.awesomedrinks.com/recipe/gingers-lost-island/
 979,15.0,ml,Apple Juice,General,0,1311,Ginger's Lost Island,https://recipe.awesomedrinks.com/recipe/gingers-lost-island/
-980,7.5,ml,Agave nectar,General,0,1311,Ginger's Lost Island,https://recipe.awesomedrinks.com/recipe/gingers-lost-island/
+980,7.5,ml,Agave Nectar,General,0,1311,Ginger's Lost Island,https://recipe.awesomedrinks.com/recipe/gingers-lost-island/
 981,2.0,,Cardamom Pods,General,0,1311,Ginger's Lost Island,https://recipe.awesomedrinks.com/recipe/gingers-lost-island/
 982,1.0,,Cinnamon,General,0,1311,Ginger's Lost Island,https://recipe.awesomedrinks.com/recipe/gingers-lost-island/
 983,,,Apple,Garnish,11,1311,Ginger's Lost Island,https://recipe.awesomedrinks.com/recipe/gingers-lost-island/
 984,60.0,ml,Jagermeister,Whisky,4,1312,Jagerita,https://recipe.awesomedrinks.com/recipe/jagerita/
 985,30.0,ml,Fresh lime juice,General,0,1312,Jagerita,https://recipe.awesomedrinks.com/recipe/jagerita/
-986,15.0,ml,Agave nectar,General,0,1312,Jagerita,https://recipe.awesomedrinks.com/recipe/jagerita/
+986,15.0,ml,Agave Nectar,General,0,1312,Jagerita,https://recipe.awesomedrinks.com/recipe/jagerita/
 987,22.5,ml,Orange Liqueur,Liqueur,10,1312,Jagerita,https://recipe.awesomedrinks.com/recipe/jagerita/
 988,22.5,ml,Mezcal,Mezcal,20,1313,Last of the Oaxacans,https://recipe.awesomedrinks.com/recipe/last-of-the-oaxacans/
 989,22.5,ml,Green Chartreuse,Liqueur,10,1313,Last of the Oaxacans,https://recipe.awesomedrinks.com/recipe/last-of-the-oaxacans/
 990,22.5,ml,Maraschino Liqueur,Liqueur,10,1313,Last of the Oaxacans,https://recipe.awesomedrinks.com/recipe/last-of-the-oaxacans/
 991,22.5,ml,Fresh lime juice,General,0,1313,Last of the Oaxacans,https://recipe.awesomedrinks.com/recipe/last-of-the-oaxacans/
 992,,,Maraschino Cherry,Garnish,11,1313,Last of the Oaxacans,https://recipe.awesomedrinks.com/recipe/last-of-the-oaxacans/
-993,30.0,ml,Aquavit,Liqueur,10,1314,Norwegian Wood,https://recipe.awesomedrinks.com/recipe/norwegian-wood/
+993,30.0,ml,Aquavit,Spirits,21,1314,Norwegian Wood,https://recipe.awesomedrinks.com/recipe/norwegian-wood/
 994,30.0,ml,Apple Brandy,Brandy,5,1314,Norwegian Wood,https://recipe.awesomedrinks.com/recipe/norwegian-wood/
 995,22.5,ml,Sweet Vermouth,Wine,8,1314,Norwegian Wood,https://recipe.awesomedrinks.com/recipe/norwegian-wood/
 996,7.5,ml,Yellow Chartreuse,Liqueur,10,1314,Norwegian Wood,https://recipe.awesomedrinks.com/recipe/norwegian-wood/
-997,30.0,ml,Angostura bitters,General,0,1314,Norwegian Wood,https://recipe.awesomedrinks.com/recipe/norwegian-wood/
+997,30.0,ml,Angostura Bitters,General,0,1314,Norwegian Wood,https://recipe.awesomedrinks.com/recipe/norwegian-wood/
 998,,,Lemon Peel,Garnish,11,1314,Norwegian Wood,https://recipe.awesomedrinks.com/recipe/norwegian-wood/
-999,37.5,ml,Dark Creme de Cacao,Liqueur,10,1315,Hot Peppermint Patty,https://recipe.awesomedrinks.com/recipe/hot-peppermint-patty/
-1000,37.5,ml,Green Creme de Menthe,Liqueur,10,1315,Hot Peppermint Patty,https://recipe.awesomedrinks.com/recipe/hot-peppermint-patty/
+999,37.5,ml,Dark Crème de Cacao,Liqueur,10,1315,Hot Peppermint Patty,https://recipe.awesomedrinks.com/recipe/hot-peppermint-patty/
+1000,37.5,ml,Green Crème de Menthe,Liqueur,10,1315,Hot Peppermint Patty,https://recipe.awesomedrinks.com/recipe/hot-peppermint-patty/
 1001,37.5,ml,Peppermint schnapps,Liqueur,10,1315,Hot Peppermint Patty,https://recipe.awesomedrinks.com/recipe/hot-peppermint-patty/
 1002,150.0,ml,Hot Chocolate,General,0,1315,Hot Peppermint Patty,https://recipe.awesomedrinks.com/recipe/hot-peppermint-patty/
 1003,,,Whipped Cream,Garnish,11,1315,Hot Peppermint Patty,https://recipe.awesomedrinks.com/recipe/hot-peppermint-patty/
@@ -1014,13 +1013,13 @@
 1012,60.0,ml,Bourbon Whiskey,Whisky,4,1317,Amaro Manhattan,https://recipe.awesomedrinks.com/recipe/amaro-manhattan/
 1013,15.0,ml,Bully Boy Amaro,Liqueur,10,1317,Amaro Manhattan,https://recipe.awesomedrinks.com/recipe/amaro-manhattan/
 1014,2.0,dashes,Orange Bitters,General,0,1317,Amaro Manhattan,https://recipe.awesomedrinks.com/recipe/amaro-manhattan/
-1015,1.0,dash,Angostura bitters,General,0,1317,Amaro Manhattan,https://recipe.awesomedrinks.com/recipe/amaro-manhattan/
+1015,1.0,dash,Angostura Bitters,General,0,1317,Amaro Manhattan,https://recipe.awesomedrinks.com/recipe/amaro-manhattan/
 1016,1.0,barspoon,Luxardo Maraschino Cherry Syrup,General,0,1317,Amaro Manhattan,https://recipe.awesomedrinks.com/recipe/amaro-manhattan/
 1017,,,Luxardo Maraschino Cherry,Garnish,11,1317,Amaro Manhattan,https://recipe.awesomedrinks.com/recipe/amaro-manhattan/
 1018,60.0,ml,Rye Whiskey,Whisky,4,1318,Perfect Manhattan,https://recipe.awesomedrinks.com/recipe/perfect-manhattan/
 1019,15.0,ml,Sweet Vermouth,Wine,8,1318,Perfect Manhattan,https://recipe.awesomedrinks.com/recipe/perfect-manhattan/
 1020,15.0,ml,Dry Vermouth,Wine,8,1318,Perfect Manhattan,https://recipe.awesomedrinks.com/recipe/perfect-manhattan/
-1021,2.0,dashes,Angostura bitters,General,0,1318,Perfect Manhattan,https://recipe.awesomedrinks.com/recipe/perfect-manhattan/
+1021,2.0,dashes,Angostura Bitters,General,0,1318,Perfect Manhattan,https://recipe.awesomedrinks.com/recipe/perfect-manhattan/
 1022,1.0,,Luxardo Maraschino Cherry,General,0,1318,Perfect Manhattan,https://recipe.awesomedrinks.com/recipe/perfect-manhattan/
 1023,,,Maraschino Cherry,Garnish,11,1318,Perfect Manhattan,https://recipe.awesomedrinks.com/recipe/perfect-manhattan/
 1024,,,Lemon/Orange Twist,Garnish,11,1318,Perfect Manhattan,https://recipe.awesomedrinks.com/recipe/perfect-manhattan/
@@ -1032,7 +1031,7 @@
 1030,,,Maraschino Cherry,Garnish,11,1319,Remember the Maine,https://recipe.awesomedrinks.com/recipe/remember-the-maine/
 1031,45.0,ml,Tequila,Tequila,6,1320,Grapefruit & Chilli Margarita,https://recipe.awesomedrinks.com/recipe/grapefruit-chilli-margarita/
 1032,30.0,ml,Fresh grapefruit juice,General,0,1320,Grapefruit & Chilli Margarita,https://recipe.awesomedrinks.com/recipe/grapefruit-chilli-margarita/
-1033,15.0,ml,Chili simple syrup,General,0,1320,Grapefruit & Chilli Margarita,https://recipe.awesomedrinks.com/recipe/grapefruit-chilli-margarita/
+1033,15.0,ml,Chili Syrup,General,0,1320,Grapefruit & Chilli Margarita,https://recipe.awesomedrinks.com/recipe/grapefruit-chilli-margarita/
 1034,7.5,ml,Fresh lime juice,General,0,1320,Grapefruit & Chilli Margarita,https://recipe.awesomedrinks.com/recipe/grapefruit-chilli-margarita/
 1035,45.0,ml,Mezcal,Mezcal,20,1321,Pomegranate Mezcal Margarita,https://recipe.awesomedrinks.com/recipe/pomegranate-mezcal-margarita/
 1036,30.0,ml,Blanco Tequila,Tequila,6,1321,Pomegranate Mezcal Margarita,https://recipe.awesomedrinks.com/recipe/pomegranate-mezcal-margarita/
@@ -1087,10 +1086,10 @@
 1085,15.0,ml,Fresh lime juice,General,0,1329,Barmuda Triangle,https://recipe.awesomedrinks.com/recipe/barmuda-triangle/
 1086,7.5,ml,Simple syrup,General,0,1329,Barmuda Triangle,https://recipe.awesomedrinks.com/recipe/barmuda-triangle/
 1087,1.0,barspoon,Amaretto,Liqueur,10,1329,Barmuda Triangle,https://recipe.awesomedrinks.com/recipe/barmuda-triangle/
-1088,1.0,dash,Angostura bitters,General,0,1329,Barmuda Triangle,https://recipe.awesomedrinks.com/recipe/barmuda-triangle/
+1088,1.0,dash,Angostura Bitters,General,0,1329,Barmuda Triangle,https://recipe.awesomedrinks.com/recipe/barmuda-triangle/
 1089,60.0,ml,Aged Rum,Rum,2,1330,Drunken Pimento,https://recipe.awesomedrinks.com/recipe/drunken-pimento/
 1090,30.0,ml,Spiced Rum,Rum,2,1330,Drunken Pimento,https://recipe.awesomedrinks.com/recipe/drunken-pimento/
-1091,22.5,ml,Don's Spice #2,General,0,1330,Drunken Pimento,https://recipe.awesomedrinks.com/recipe/drunken-pimento/
+1091,22.5,ml,Donn's Spices #2,General,0,1330,Drunken Pimento,https://recipe.awesomedrinks.com/recipe/drunken-pimento/
 1092,15.0,ml,Fresh lime juice,General,0,1330,Drunken Pimento,https://recipe.awesomedrinks.com/recipe/drunken-pimento/
 1093,60.0,ml,Ginger Ale,General,0,1330,Drunken Pimento,https://recipe.awesomedrinks.com/recipe/drunken-pimento/
 1094,,,Lime Wheel,Garnish,11,1330,Drunken Pimento,https://recipe.awesomedrinks.com/recipe/drunken-pimento/
@@ -1115,7 +1114,7 @@
 1113,90.0,ml,Sour mix,General,0,1334,Kraken Hattan,https://recipe.awesomedrinks.com/recipe/kraken-hattan/
 1114,1.0,barspoon,Luxardo Maraschino Cherry Syrup,General,0,1334,Kraken Hattan,https://recipe.awesomedrinks.com/recipe/kraken-hattan/
 1115,,,Luxardo Maraschino Cherry,Garnish,11,1334,Kraken Hattan,https://recipe.awesomedrinks.com/recipe/kraken-hattan/
-1116,30.0,ml,Dark Rum,Rum,2,1335,Mai Tai,https://recipe.awesomedrinks.com/recipe/mai-tai/
+1116,30.0,ml,Dark rum,Rum,2,1335,Mai Tai,https://recipe.awesomedrinks.com/recipe/mai-tai/
 1117,30.0,ml,Martinique Rhum / Rum,Rum,2,1335,Mai Tai,https://recipe.awesomedrinks.com/recipe/mai-tai/
 1118,30.0,ml,Fresh lime juice,General,0,1335,Mai Tai,https://recipe.awesomedrinks.com/recipe/mai-tai/
 1119,7.5,ml,Orgeat / Almond syrup,General,0,1335,Mai Tai,https://recipe.awesomedrinks.com/recipe/mai-tai/
@@ -1129,7 +1128,7 @@
 1127,15.0,ml,Cinnamon syrup,General,0,1336,Oaxacan Dead,https://recipe.awesomedrinks.com/recipe/oaxacan-dead/
 1128,1.0,barspoon,Chambord / Raspberry Liqueur,Liqueur,10,1336,Oaxacan Dead,https://recipe.awesomedrinks.com/recipe/oaxacan-dead/
 1129,1.0,dash,Pernod / Absinthe,Spirits,21,1336,Oaxacan Dead,https://recipe.awesomedrinks.com/recipe/oaxacan-dead/
-1130,1.0,dash,Angostura bitters,General,0,1336,Oaxacan Dead,https://recipe.awesomedrinks.com/recipe/oaxacan-dead/
+1130,1.0,dash,Angostura Bitters,General,0,1336,Oaxacan Dead,https://recipe.awesomedrinks.com/recipe/oaxacan-dead/
 1131,22.5,ml,Fresh lime juice,General,0,1336,Oaxacan Dead,https://recipe.awesomedrinks.com/recipe/oaxacan-dead/
 1132,,,Cherry,Garnish,11,1336,Oaxacan Dead,https://recipe.awesomedrinks.com/recipe/oaxacan-dead/
 1133,,,Lime Wheel,Garnish,11,1336,Oaxacan Dead,https://recipe.awesomedrinks.com/recipe/oaxacan-dead/
@@ -1184,7 +1183,7 @@
 1182,22.5,ml,Fresh lime juice,General,0,1344,Zombie (1934),https://recipe.awesomedrinks.com/recipe/zombie-1934/
 1183,1.0,barspoon,Grenadine,General,0,1344,Zombie (1934),https://recipe.awesomedrinks.com/recipe/zombie-1934/
 1184,6.0,dashes,Pernod / Absinthe,Spirits,21,1344,Zombie (1934),https://recipe.awesomedrinks.com/recipe/zombie-1934/
-1185,1.0,dash,Angostura bitters,General,0,1344,Zombie (1934),https://recipe.awesomedrinks.com/recipe/zombie-1934/
+1185,1.0,dash,Angostura Bitters,General,0,1344,Zombie (1934),https://recipe.awesomedrinks.com/recipe/zombie-1934/
 1186,,,Mint Sprig,Garnish,11,1344,Zombie (1934),https://recipe.awesomedrinks.com/recipe/zombie-1934/
 1187,45.0,ml,Old Tom Gin,Gin,1,1345,Decepticon,https://recipe.awesomedrinks.com/recipe/decepticon/
 1188,15.0,ml,Mezcal,Mezcal,20,1345,Decepticon,https://recipe.awesomedrinks.com/recipe/decepticon/
@@ -1213,7 +1212,7 @@
 1211,45.0,ml,Mezcal,Mezcal,20,1349,Rising Sun,https://recipe.awesomedrinks.com/recipe/rising-sun/
 1212,15.0,ml,Maraschino Liqueur,Liqueur,10,1349,Rising Sun,https://recipe.awesomedrinks.com/recipe/rising-sun/
 1213,22.5,ml,Fresh grapefruit juice,General,0,1349,Rising Sun,https://recipe.awesomedrinks.com/recipe/rising-sun/
-1214,7.5,ml,Agave nectar,General,0,1349,Rising Sun,https://recipe.awesomedrinks.com/recipe/rising-sun/
+1214,7.5,ml,Agave Nectar,General,0,1349,Rising Sun,https://recipe.awesomedrinks.com/recipe/rising-sun/
 1215,1.0,pinch,Salt,General,0,1349,Rising Sun,https://recipe.awesomedrinks.com/recipe/rising-sun/
 1216,15.0,ml,Fresh lime juice,General,0,1349,Rising Sun,https://recipe.awesomedrinks.com/recipe/rising-sun/
 1217,,,Lime Wheel,Garnish,11,1349,Rising Sun,https://recipe.awesomedrinks.com/recipe/rising-sun/
@@ -1239,7 +1238,7 @@
 1237,15.0,ml,Light Rum,Rum,2,1353,Dead Bastard,https://recipe.awesomedrinks.com/recipe/dead-bastard/
 1238,15.0,ml,Fresh lime juice,General,0,1353,Dead Bastard,https://recipe.awesomedrinks.com/recipe/dead-bastard/
 1239,120.0,ml,Ginger Ale,General,0,1353,Dead Bastard,https://recipe.awesomedrinks.com/recipe/dead-bastard/
-1240,2.0,dashes,Angostura bitters,General,0,1353,Dead Bastard,https://recipe.awesomedrinks.com/recipe/dead-bastard/
+1240,2.0,dashes,Angostura Bitters,General,0,1353,Dead Bastard,https://recipe.awesomedrinks.com/recipe/dead-bastard/
 1241,,,Mint,Garnish,11,1353,Dead Bastard,https://recipe.awesomedrinks.com/recipe/dead-bastard/
 1242,,,Orange Slice,Garnish,11,1353,Dead Bastard,https://recipe.awesomedrinks.com/recipe/dead-bastard/
 1243,15.0,ml,Gin,Gin,1,1354,Dying Bastard,https://recipe.awesomedrinks.com/recipe/dying-bastard/
@@ -1247,15 +1246,15 @@
 1245,15.0,ml,Bourbon Whiskey,Whisky,4,1354,Dying Bastard,https://recipe.awesomedrinks.com/recipe/dying-bastard/
 1246,15.0,ml,Fresh lime juice,General,0,1354,Dying Bastard,https://recipe.awesomedrinks.com/recipe/dying-bastard/
 1247,120.0,ml,Ginger Beer,General,0,1354,Dying Bastard,https://recipe.awesomedrinks.com/recipe/dying-bastard/
-1248,2.0,dashes,Angostura bitters,General,0,1354,Dying Bastard,https://recipe.awesomedrinks.com/recipe/dying-bastard/
+1248,2.0,dashes,Angostura Bitters,General,0,1354,Dying Bastard,https://recipe.awesomedrinks.com/recipe/dying-bastard/
 1249,,,Mint,Garnish,11,1354,Dying Bastard,https://recipe.awesomedrinks.com/recipe/dying-bastard/
 1250,,,Orange Slice,Garnish,11,1354,Dying Bastard,https://recipe.awesomedrinks.com/recipe/dying-bastard/
-1251,30.0,ml,Green Creme de Menthe,Liqueur,10,1355,Grasshopper,https://recipe.awesomedrinks.com/recipe/grasshopper/
+1251,30.0,ml,Green Crème de Menthe,Liqueur,10,1355,Grasshopper,https://recipe.awesomedrinks.com/recipe/grasshopper/
 1252,30.0,ml,White Creme de Cacao,Liqueur,10,1355,Grasshopper,https://recipe.awesomedrinks.com/recipe/grasshopper/
 1253,60.0,ml,Heavy Cream,General,0,1355,Grasshopper,https://recipe.awesomedrinks.com/recipe/grasshopper/
 1254,,,Fresh nutmeg (optional),Garnish,11,1355,Grasshopper,https://recipe.awesomedrinks.com/recipe/grasshopper/
 1255,7.5,ml,Coffee Liqueur,Liqueur,10,1356,Bahama Mama,https://recipe.awesomedrinks.com/recipe/bahama-mama/
-1256,15.0,ml,Dark Rum,Rum,2,1356,Bahama Mama,https://recipe.awesomedrinks.com/recipe/bahama-mama/
+1256,15.0,ml,Dark rum,Rum,2,1356,Bahama Mama,https://recipe.awesomedrinks.com/recipe/bahama-mama/
 1257,15.0,ml,Coconut Rum,Rum,2,1356,Bahama Mama,https://recipe.awesomedrinks.com/recipe/bahama-mama/
 1258,7.5,ml,Overproof Rum / 151,Rum,2,1356,Bahama Mama,https://recipe.awesomedrinks.com/recipe/bahama-mama/
 1259,15.0,ml,Fresh lemon juice,General,0,1356,Bahama Mama,https://recipe.awesomedrinks.com/recipe/bahama-mama/
@@ -1266,7 +1265,7 @@
 1264,30.0,ml,Fresh lime juice,General,0,1357,Boars Tooth,https://recipe.awesomedrinks.com/recipe/boars-tooth/
 1265,7.5,ml,Orgeat / Almond syrup,General,0,1357,Boars Tooth,https://recipe.awesomedrinks.com/recipe/boars-tooth/
 1266,22.5,ml,Coco Lopez - Cream of Coconut,General,0,1357,Boars Tooth,https://recipe.awesomedrinks.com/recipe/boars-tooth/
-1267,2.0,dashes,Angostura bitters,General,0,1357,Boars Tooth,https://recipe.awesomedrinks.com/recipe/boars-tooth/
+1267,2.0,dashes,Angostura Bitters,General,0,1357,Boars Tooth,https://recipe.awesomedrinks.com/recipe/boars-tooth/
 1268,1.0,splash,Grenadine,General,0,1357,Boars Tooth,https://recipe.awesomedrinks.com/recipe/boars-tooth/
 1269,1.0,,Luxardo Maraschino Cherry,General,0,1357,Boars Tooth,https://recipe.awesomedrinks.com/recipe/boars-tooth/
 1270,,,Lime wedge,Garnish,11,1357,Boars Tooth,https://recipe.awesomedrinks.com/recipe/boars-tooth/
@@ -1286,10 +1285,10 @@
 1284,22.5,ml,Soda Water,General,0,1359,Navy Grog,https://recipe.awesomedrinks.com/recipe/navy-grog/
 1285,,,Ice Cone,Garnish,11,1359,Navy Grog,https://recipe.awesomedrinks.com/recipe/navy-grog/
 1286,60.0,ml,Aged Rum,Rum,2,1360,Nui Nui,https://recipe.awesomedrinks.com/recipe/nui-nui/
-1287,7.5,ml,Allspice dram / liqueur,Liqueur,10,1360,Nui Nui,https://recipe.awesomedrinks.com/recipe/nui-nui/
+1287,7.5,ml,Allspice Dram,Liqueur,10,1360,Nui Nui,https://recipe.awesomedrinks.com/recipe/nui-nui/
 1288,7.5,ml,Vanilla syrup,General,0,1360,Nui Nui,https://recipe.awesomedrinks.com/recipe/nui-nui/
 1289,7.5,ml,Cinnamon syrup,General,0,1360,Nui Nui,https://recipe.awesomedrinks.com/recipe/nui-nui/
 1290,22.5,ml,Fresh orange juice,General,0,1360,Nui Nui,https://recipe.awesomedrinks.com/recipe/nui-nui/
 1291,22.5,ml,Fresh lime juice,General,0,1360,Nui Nui,https://recipe.awesomedrinks.com/recipe/nui-nui/
-1292,1.0,dash,Angostura bitters,General,0,1360,Nui Nui,https://recipe.awesomedrinks.com/recipe/nui-nui/
+1292,1.0,dash,Angostura Bitters,General,0,1360,Nui Nui,https://recipe.awesomedrinks.com/recipe/nui-nui/
 1293,,,Spiral-cut orange peel,Garnish,11,1360,Nui Nui,https://recipe.awesomedrinks.com/recipe/nui-nui/
