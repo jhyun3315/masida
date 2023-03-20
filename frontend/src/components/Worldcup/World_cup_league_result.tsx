@@ -1,28 +1,23 @@
+import { useRouter } from "next/router";
+
 import style from "./World_cup_league.module.scss";
+
 import { detail_props } from "@/type/cocktailTypes";
-import React, { useState, useEffect } from "react";
+
 import { World_cup_league_card } from "../UI/card2";
+import World_cup_winner_comments_list from "./World_cup_winner_comment_list";
+import { difficulty_img_url_converter } from "@/pages/api/utility/difficulty_img_url_converter";
 
 const World_cup_league_result = (props: detail_props) => {
-  let difficulty = "";
-  switch (props.cocktail_difficulty) {
-    case "하":
-      difficulty = "/assets/icons/difficulty_LOW.png";
-      break;
-    case "중":
-      difficulty = "/assets/icons/difficulty_MID.png";
-      break;
-    case "상":
-      difficulty = "/assets/icons/difficulty_HIGH.png";
-      break;
-  }
+  const router = useRouter();
+  let difficulty = difficulty_img_url_converter(props.cocktail_difficulty);
+
   return (
     <>
       <div className={style.world_cup_winner}>
         <div className={style.world_cup_winner_card}>
           <World_cup_league_card {...props} />
         </div>
-
         <div className={style.world_cup_winner_info}>
           <div className={style.world_cup_winner_name_ko}>
             {props.cocktail_name_ko}
@@ -30,7 +25,6 @@ const World_cup_league_result = (props: detail_props) => {
           <div className={style.world_cup_winner_name_en}>
             {props.cocktail_name_en}
           </div>
-
           <div className={style.info_body_layout}>
             <div className={style.info_list}>
               <img
@@ -44,14 +38,12 @@ const World_cup_league_result = (props: detail_props) => {
                   {props.cocktail_rating}
                 </div>
               </div>
-
               <div className={style.info_list_element}>
                 <img src="/assets/icons/LikeCheckedICON.png" alt="" />
                 <div className={style.element_count}>
                   {props.cocktail_likes}
                 </div>
               </div>
-
               <div className={style.info_list_element}>
                 <img src="/assets/icons/CommentICON.png" alt="" />
                 <div className={style.element_count}>
@@ -61,7 +53,10 @@ const World_cup_league_result = (props: detail_props) => {
             </div>
             <div className={style.info_btn_div}>
               {/* 다시하기 버튼 */}
-              <div className={style.cocktail_worldcup_retry_btn}>
+              <div
+                className={style.cocktail_worldcup_retry_btn}
+                onClick={() => router.reload()}
+              >
                 <div className={style.cocktail_worldcup_retry_btn_text}>
                   다시하기 &nbsp;
                   <img
@@ -70,9 +65,7 @@ const World_cup_league_result = (props: detail_props) => {
                   />
                 </div>
               </div>
-
               <div>&nbsp;</div>
-
               {/* 자세히 보기 버튼 */}
               <div className={style.cocktail_worldcup_detail_btn}>
                 <div className={style.cocktail_worldcup_detail_btn_text}>
@@ -84,6 +77,9 @@ const World_cup_league_result = (props: detail_props) => {
                 </div>
               </div>
             </div>
+          </div>
+          <div>
+            <World_cup_winner_comments_list {...props} />
           </div>
         </div>
       </div>

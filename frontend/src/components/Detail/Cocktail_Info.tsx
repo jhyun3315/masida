@@ -1,6 +1,6 @@
 import style from "./Cocktail_info.module.scss";
 import { detail_props } from "@/type/cocktailTypes";
-
+import { difficulty_img_url_converter } from "@/pages/api/utility/difficulty_img_url_converter";
 const Cocktail_info = (props: detail_props) => {
   const {
     cocktail_id,
@@ -19,15 +19,8 @@ const Cocktail_info = (props: detail_props) => {
     ingredient,
   } = props;
 
-  let difficultyImg = "";
-  if (cocktail_difficulty === "상") {
-    difficultyImg = "/assets/icons/difficulty_HIGH.png";
-  } else if (cocktail_difficulty === "중") {
-    difficultyImg = "/assets/icons/difficulty_MID.png";
-  } else {
-    difficultyImg = "/assets/icons/difficulty_LOW.png";
-  }
-
+  let difficultyImg = difficulty_img_url_converter(cocktail_difficulty);
+  
   return (
     <div className={style.detail_cocktail_info}>
       <div className={style.detail_cocktail_img_div}>
