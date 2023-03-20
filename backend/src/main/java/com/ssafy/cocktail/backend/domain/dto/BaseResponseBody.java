@@ -1,4 +1,4 @@
-package com.ssafy.cocktail.backend.domain;
+package com.ssafy.cocktail.backend.domain.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;

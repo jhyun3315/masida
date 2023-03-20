@@ -1,14 +1,13 @@
 package com.ssafy.cocktail.backend.oauth.service;
 
 import com.google.gson.JsonObject;
-import com.ssafy.cocktail.backend.domain.User;
-import com.ssafy.cocktail.backend.domain.UserRepository;
+import com.ssafy.cocktail.backend.domain.entity.User;
+import com.ssafy.cocktail.backend.domain.repository.UserRepository;
 import com.ssafy.cocktail.backend.oauth.dto.UserInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Value;
 
-import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.io.*;
 import java.net.HttpURLConnection;

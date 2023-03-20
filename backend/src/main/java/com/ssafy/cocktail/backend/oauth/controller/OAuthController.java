@@ -4,6 +4,8 @@ import com.ssafy.cocktail.backend.oauth.dto.UserInfo;
 import com.ssafy.cocktail.backend.oauth.dto.UserLoginRes;
 import com.ssafy.cocktail.backend.oauth.service.CustomOAuth2UserService;
 import com.ssafy.cocktail.backend.oauth.util.JwtTokenUtil;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +25,9 @@ public class OAuthController {
      */
     @ResponseBody
     @GetMapping("/kakao/callback")
+    @ApiResponses({
+            @ApiResponse()
+    })
     public ResponseEntity<UserLoginRes> kakaoCallback(@RequestParam String code, HttpServletResponse response) throws IOException {
         // 카카오 로그인 콜백
         // 로그인 완료
