@@ -1,7 +1,9 @@
-import styles from "./World_cup_league.module.scss";
+import style from "./World_cup_league.module.scss";
 import { detail_props } from "@/type/cocktailTypes";
 import React, { useState, useEffect } from "react";
 import { World_cup_league_card } from "../UI/card2";
+// 최종 결과를 보여줄 컴포넌트
+import World_cup_league_result from "./World_cup_league_result";
 
 // https://velog.io/@pyo-sh/React-Project-%EC%9D%B4%EC%83%81%ED%98%95-%EC%9B%94%EB%93%9C%EC%BB%B5
 
@@ -905,10 +907,14 @@ const World_cup_league = () => {
     },
   ];
 
+  const [isFinal, setIsFinal] = useState(false);
   const [cocktails, setCocktails] = useState<detail_props[]>([]);
   const [displays, setDisplays] = useState<detail_props[]>([]);
   const [winners, setWinners] = useState<detail_props[]>([]);
+
+  // 횟수
   const [times, setTimes] = useState<number>(1);
+  // 강
   const [rounds, setRounds] = useState<number>(items.length);
 
   useEffect(() => {
@@ -921,18 +927,18 @@ const World_cup_league = () => {
   }, []);
 
   const clickHandler = (cocktail: detail_props) => (e: React.MouseEvent) => {
-    console.log(cocktails.length);
+    // console.log(cocktails.length);
     if (rounds > 1) {
       if (times < rounds) setTimes(times + 1);
       if (times === rounds / 2 && rounds >= 2) {
         setRounds(rounds / 2);
         setTimes(1);
       }
-      if (!(cocktails.length > 2)) {
+      if (cocktails.length <= 2) {
         if (rounds === 2) {
           // 우승자가 나온 상황
-          // 화면 다시 렌더링하자
           setDisplays([cocktail]);
+          setIsFinal(true);
         } else {
           let updatedCocktail: detail_props[] = [...winners, cocktail];
           setCocktails(updatedCocktail);
@@ -946,26 +952,42 @@ const World_cup_league = () => {
       }
     }
   };
+
+  // 상단 문구 : 리그 진행 중
+  const onGameTitle = (
+    <>
+      <div className={style.cocktail_worldcup_title}>칵테일 월드컵</div>
+      <div className={style.cocktail_worldcup_title_sub}>
+        좋아하는 칵테일을 골라주세요.
+      </div>
+    </>
+  );
+  // 상단 문구 : 결과 나왔을 때
+  const finalTitle = (
+    <div className={style.cocktail_worldcup_title}>
+      칵테일 월드컵 우승자입니다.
+    </div>
+  );
+
   return (
     <>
-      <div className={styles.cocktail_worldcup_textarea}>
-        <div className={styles.cocktail_worldcup_title}>칵테일 월드컵</div>
-        <div className={styles.cocktail_worldcup_title_sub}>
-          좋아하는 칵테일을 골라주세요.
-        </div>
-        <div className={styles.cocktail_worldcup_current_order}>
-          {rounds}강 {times} / {rounds / 2}
+      <div className={style.cocktail_worldcup_textarea}>
+        {isFinal ? finalTitle : onGameTitle}
+        <div className={style.cocktail_worldcup_current_order}>
+          {isFinal ? "" : `${rounds}강 ${times} / ${rounds / 2}`}
         </div>
       </div>
-      <div className={styles.random_cocktail_selector}>
-        {displays.map((key) => (
-          <div
-            onClick={clickHandler(key)}
-            className={styles.random_cocktail_card}
-          >
-            <World_cup_league_card {...key} />
-          </div>
-        ))}
+      <div className={style.random_cocktail_selector}>
+        {isFinal
+          ? <World_cup_league_result {...cocktails[0]} />
+          : displays.map((key) => (
+              <div
+                onClick={clickHandler(key)}
+                className={style.random_cocktail_card}
+              >
+                <World_cup_league_card {...key} />
+              </div>
+            ))}
       </div>
     </>
   );
