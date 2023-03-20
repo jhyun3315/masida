@@ -14,7 +14,7 @@ const Header = () => {
           </Link>
         </div>
         <div className={style.main_right}>
-          <Link href="/cocktail_worldcup">칵테일 월드컵</Link>
+          <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
           <Link href="/search">칵테일 검색</Link>
           <Link href="/mypage">종효님 환영합니다!!</Link>
         </div>
