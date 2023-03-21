@@ -1,8 +1,6 @@
 package com.ssafy.cocktail.backend.domain.entity;
 
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -24,4 +22,8 @@ public class CocktailIngredient {
     @ManyToOne
     @JoinColumn(name="cocktail_id")
     private Cocktail cocktail;
+
+    @ManyToOne
+    @JoinColumn(name="ingredient_id")
+    private Ingredient ingredient;
 }
