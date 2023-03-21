@@ -3,38 +3,30 @@ import style from "./Category.module.scss";
 import Color from "./Color";
 import Difficulty from "./Difficulty";
 import Ingredient from "./Ingredient";
-
+import { searchedIngredientType } from "@/type/ingredientTypes";
 //재료들 타입 지정.
-export type searchIngredient = {
-  ingredient_id: number;
-  ingredient_name: string;
-  ingredient_add: boolean; //현재 검색 추가된 재료인지 확인하게 해주는 props.
-};
 
-export type searchedIngredient = {
-  ingredient: searchIngredient[];
-};
 
 const Category = () => {
-  const props: searchedIngredient = {
+  const props: searchedIngredientType = {
     ingredient: [
       {
-        ingredient_id: 1,
+        ingredient_id: 0,
         ingredient_name: "바나나",
         ingredient_add: false,
       },
       {
-        ingredient_id: 2,
+        ingredient_id: 1,
         ingredient_name: "바지락",
         ingredient_add: false,
       },
       {
-        ingredient_id: 3,
+        ingredient_id: 2,
         ingredient_name: "콜라",
         ingredient_add: false,
       },
       {
-        ingredient_id: 4,
+        ingredient_id: 3,
         ingredient_name: "피냐콜라닥!",
         ingredient_add: false,
       },

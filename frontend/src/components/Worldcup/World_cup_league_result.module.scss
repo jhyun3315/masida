@@ -1,0 +1,38 @@
+.cocktail_worldcup_textarea {
+  margin: 0 auto;
+  text-align: center;
+  justify-content: space-evenly;
+  .cocktail_worldcup_title {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 38px;
+  }
+  .cocktail_worldcup_title_sub {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+  }
+  .cocktail_worldcup_current_order {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+
+.random_cocktail_selector {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: space-evenly;
+  // padding: ;
+  .random_cocktail_card {
+    width: 25%;
+  }
+}

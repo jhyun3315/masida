@@ -5,38 +5,11 @@ import Header from "../../components/Header/Header";
 import Cocktail_Info from "@/components/Detail/Cocktail_Info";
 import Cocktail_recommend from "@/components/Detail/Cocktail_recommend";
 
-import { cocktailType } from "@/type/cocktailTypes";
+import { cocktailType,recipeType,ingredientType,detail_props  } from "@/type/cocktailTypes";
 import { GetStaticPaths, GetStaticPathsContext, GetStaticProps, GetStaticPropsContext } from "next";
 
 // 1. 칵테일 상세 조회
-export type recipeType = {
-  recipe_num: number;
-  recipe_content: string;
-};
-
-export type ingredientType = {
-  ingredient_name: string;
-  ingredient_amount: string;
-  ingredient_unit: string;
-};
-
 // 화면 단에서 axios 호출을 하여 결과 값을 컴포넌트에 props로 넘겨준다.
-export type detail_props = {
-  cocktail_id: string;
-  cocktail_name_ko: string;
-  cocktail_name_en: string;
-  cocktail_img: string;
-  cocktail_content: string;
-  cocktail_difficulty: string;
-  cocktail_rating: number;
-  cocktail_likes: number;
-  cocktail_comments: number;
-  likes_checker: boolean;
-  bookmark_checker: boolean;
-  glass: string;
-  recipe: recipeType[];
-  ingredient: ingredientType[];
-};
 
 // 2. 특정 칵테일의 재료와 유사한 칵테일 상위 5개 추천 (컨텐츠 기반)
 
@@ -143,8 +116,7 @@ const detail = () => {
   const x: string = router.query.id as string;
 
   const detail_props: detail_props = {
-    // cocktail_id: parseInt(x, 10),
-    cocktail_id: x,
+    cocktail_id: parseInt(x, 10),
     cocktail_name_ko: "피치 크러쉬",
     cocktail_name_en: "Peach Crush",
     cocktail_img: "/assets/image/cocktailSample.png",

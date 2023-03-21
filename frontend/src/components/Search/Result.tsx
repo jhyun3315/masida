@@ -128,7 +128,7 @@ const Result = () => {
         </div>
         <div className={style.result_card_list}>
           {DUMMY_COCKTAIL.map((key) => (
-            <My_like_card {...key} />
+            <Search_result_card {...key} />
           ))}
         </div>
       </div>
