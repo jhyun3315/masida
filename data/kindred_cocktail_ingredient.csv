@@ -5,13 +5,13 @@
 3,1⁄2,,Lime (Quartered),General,0,0,The Missionary
 4,29.5735,ml,"Light rum, Flor de Caña Dry 4",Rum,2,1,Missionary's Downfall (Don the Beachcomber)
 5,14.78675,ml,"Peach liqueur, Rothman & Winter",Liqueur,10,1,Missionary's Downfall (Don the Beachcomber)
-6,29.5735,ml,Honey syrup (Equal parts honey and hot water),General,0,1,Missionary's Downfall (Don the Beachcomber)
+6,29.5735,ml,Honey syrup (1:1),General,0,1,Missionary's Downfall (Don the Beachcomber)
 7,14.78675,ml,Lime juice,General,0,1,Missionary's Downfall (Don the Beachcomber)
 8,59.147,ml,"Pineapple (diced fresh fruit, will be pureed)",General,0,1,Missionary's Downfall (Don the Beachcomber)
 9,59.147,ml,"Mint (by volume, packed, will be pureed)",General,0,1,Missionary's Downfall (Don the Beachcomber)
 10,177.441,ml,Crushed ice,General,0,1,Missionary's Downfall (Don the Beachcomber)
 11,1,spg,Mint,Garnish,11,1,Missionary's Downfall (Don the Beachcomber)
-12,59.147,ml,Cognac (VSOP),Brandy,5,2,Mode Pour les Jeunes
+12,59.147,ml,Cognac VSOP,Brandy,5,2,Mode Pour les Jeunes
 13,1⁄2,T,Simple syrup,General,0,2,Mode Pour les Jeunes
 14,7,dr,"Bitters, Bittermens 'Elemakule Tiki",General,0,2,Mode Pour les Jeunes
 15,1,pn,Cinnamon,Garnish,11,2,Mode Pour les Jeunes
@@ -42,7 +42,7 @@
 40,14.78675,ml,Amaro Montenegro,Liqueur,10,7,A Monkey In Winter
 41,14.78675,ml,Lemon juice,General,0,7,A Monkey In Winter
 42,7.393375,ml,"Crème de Cacao, Tempus Fugit",Liqueur,10,7,A Monkey In Winter
-43,7.393375,ml,Maple syrup,General,0,7,A Monkey In Winter
+43,7.393375,ml,Maple Syrup,General,0,7,A Monkey In Winter
 44,1,bsp,"Allspice Dram, St. Elizabeth",Liqueur,10,7,A Monkey In Winter
 45,59.147,ml,Ginger beer,General,0,7,A Monkey In Winter
 46,6,ds,Peychaud's Bitters,General,0,8,Montauk (NoMad)
@@ -53,7 +53,7 @@
 51,1,twst,Lemon peel,General,0,8,Montauk (NoMad)
 52,44.36025,ml,Amaro Montenegro,Liqueur,10,9,The Monte Press
 53,73.93375,ml,Soda water,General,0,9,The Monte Press
-54,73.93375,ml,"Lemon-lime soda, Sprite (Mexican)",General,0,9,The Monte Press
+54,73.93375,ml,Lemon-Lime Soda,General,0,9,The Monte Press
 55,2,ds,"Bitters, Bitter Truth Celery",General,0,9,The Monte Press
 56,22.180125,ml,"Gin, Rutte",Gin,1,10,Montreal Cocktail
 57,22.180125,ml,Canadian whisky,Whisky,4,10,Montreal Cocktail
@@ -70,7 +70,7 @@
 68,40.6635625,ml,Cynar 70,Liqueur,10,12,More Amaro
 69,2,ds,"Bitters, Bitter Truth Orange",General,0,12,More Amaro
 70,2,t,Lemon juice,General,0,12,More Amaro
-71,44.36025,ml,Irish whiskey (Tullamore Dew),Whisky,4,13,Morning Darling
+71,44.36025,ml,Irish whiskey (Tullamore DEW),Whisky,4,13,Morning Darling
 72,22.180125,ml,Simple syrup,General,0,13,Morning Darling
 73,14.78675,ml,Lemon juice,General,0,13,Morning Darling
 74,14.78675,ml,Lime juice,General,0,13,Morning Darling
@@ -106,21 +106,21 @@
 104,44.36025,ml,"Bourbon, Bulleit",Whisky,4,18,Mustache Ride
 105,14.78675,ml,Cynar,Liqueur,10,18,Mustache Ride
 106,22.180125,ml,Lemon juice,General,0,18,Mustache Ride
-107,14.78675,ml,Grade B maple syrup (in a 2:1 syrup),General,0,18,Mustache Ride
+107,14.78675,ml,Grade B maple syrup,General,0,18,Mustache Ride
 108,14.78675,ml,"Allspice Dram, St. Elizabeth",Liqueur,10,18,Mustache Ride
 109,1,twst,Lemon peel,Garnish,11,18,Mustache Ride
 110,1,,Cherry,Garnish,11,18,Mustache Ride
-111,29.5735,ml,Blanco tequila (*),Tequila,6,19,Nacho Sour
+111,29.5735,ml,Blanco Tequila,Tequila,6,19,Nacho Sour
 112,29.5735,ml,Licor 43,Liqueur,10,19,Nacho Sour
 113,14.78675,ml,Lime juice,General,0,19,Nacho Sour
 114,14.78675,ml,Lemon juice,General,0,19,Nacho Sour
 115,14.78675,ml,Egg white (whisked),General,0,19,Nacho Sour
 116,1,rinse,"Mezcal, Del Maguey Vida",Mezcal,20,19,Nacho Sour
 117,1,t,Rich simple syrup 2:1,General,0,19,Nacho Sour
-118,1,dr,Bitters (** full dropper),General,0,19,Nacho Sour
+118,1,dr,Bitters,General,0,19,Nacho Sour
 119,1,twst,Lime peel,General,0,19,Nacho Sour
 120,59.147,ml,"Gin, Tanqueray Rangpur",Gin,1,20,Nandakhal
-121,14.78675,ml,Lime juice (*),General,0,20,Nandakhal
+121,14.78675,ml,Lime juice,General,0,20,Nandakhal
 122,7.393375,ml,"Blue Curaçao, Bols",Liqueur,10,20,Nandakhal
 123,2,dr,"Cardamom bitters, Scrappy's",General,0,20,Nandakhal
 124,2,dr,"Lemon Tree Bitters, Bittercube",General,0,20,Nandakhal
@@ -131,7 +131,7 @@
 129,1,spl,Ginger beer,General,0,21,The Narcissist
 130,1,spl,Crème de Violette,Liqueur,10,21,The Narcissist
 131,1,lf,Shiso (muddled),General,0,21,The Narcissist
-132,29.5735,ml,Apple brandy,Brandy,5,22,Nassau Street Cocktail
+132,29.5735,ml,Apple Brandy,Brandy,5,22,Nassau Street Cocktail
 133,29.5735,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,22,Nassau Street Cocktail
 134,29.5735,ml,Cynar,Liqueur,10,22,Nassau Street Cocktail
 135,2,ds,Peychaud's Bitters,General,0,22,Nassau Street Cocktail
@@ -152,7 +152,7 @@
 150,1,ds,Gin,Gin,1,25,Necromancer
 151,44.36025,ml,Añejo tequila (Pueblo Viejo),Tequila,6,26,Nectar o(ld) f(ashioned) The Gods
 152,14.78675,ml,"Mezcal, Del Maguey",Mezcal,20,26,Nectar o(ld) f(ashioned) The Gods
-153,7.393375,ml,Agave syrup,General,0,26,Nectar o(ld) f(ashioned) The Gods
+153,7.393375,ml,Agave Syrup,General,0,26,Nectar o(ld) f(ashioned) The Gods
 154,2,ds,Grapefruit bitters (Bittermen's Hopped Grapefruit),General,0,26,Nectar o(ld) f(ashioned) The Gods
 155,1,ds,"Bitters, Angostura",General,0,26,Nectar o(ld) f(ashioned) The Gods
 156,44.36025,ml,Gin (Extra credit if navy proof (57%)),Gin,1,27,NeGrogni
@@ -162,7 +162,7 @@
 160,29.5735,ml,Lime juice,General,0,27,NeGrogni
 161,29.5735,ml,Ginger syrup,General,0,27,NeGrogni
 162,36.966875,ml,Byrrh,Wine,8,28,Negroadie
-163,36.966875,ml,Blanco tequila,Tequila,6,28,Negroadie
+163,36.966875,ml,Blanco Tequila,Tequila,6,28,Negroadie
 164,36.966875,ml,Campari,Liqueur,10,28,Negroadie
 165,44.36025,ml,Gin,Gin,1,29,Negroni Club
 166,22.180125,ml,Lemon juice,General,0,29,Negroni Club
@@ -195,7 +195,7 @@
 193,7.393375,ml,Lime juice,General,0,32,Negroni Sans
 194,44.36025,ml,Scotch,Whisky,4,33,New Nails
 195,14.78675,ml,"Jamaican rum, Smith & Cross",Rum,2,33,New Nails
-196,14.78675,ml,Drambuie,Whisky,4,33,New Nails
+196,14.78675,ml,Drambuie,Liqueur,10,33,New Nails
 197,14.78675,ml,Swedish Punsch,Liqueur,10,33,New Nails
 198,2,ds,"Bitters, Angostura",General,0,33,New Nails
 199,2,ds,Absinthe,Spirits,21,33,New Nails
@@ -205,7 +205,7 @@
 203,7.393375,ml,Orange juice,General,0,34,New York Stone Sour
 204,1,t,Sugar,General,0,34,New York Stone Sour
 205,14.78675,ml,Red wine (as float),Wine,8,34,New York Stone Sour
-206,1,t,Brown sugar (dark),General,0,35,Newton's Law (apple butter variation)
+206,1,t,Brown Sugar,General,0,35,Newton's Law (apple butter variation)
 207,1,t,Water (hot),General,0,35,Newton's Law (apple butter variation)
 208,44.36025,ml,Bourbon,Whisky,4,35,Newton's Law (apple butter variation)
 209,14.78675,ml,Lemon juice,General,0,35,Newton's Law (apple butter variation)
@@ -220,7 +220,7 @@
 218,29.5735,ml,Gin (London or Holland dry),Gin,1,37,Nicole Bettinger
 219,29.5735,ml,Bianco Vermouth,Wine,8,37,Nicole Bettinger
 220,22.180125,ml,Kirschwasser,Brandy,5,37,Nicole Bettinger
-221,22.180125,ml,Drambuie,Whisky,4,37,Nicole Bettinger
+221,22.180125,ml,Drambuie,Liqueur,10,37,Nicole Bettinger
 222,51.753625,ml,Bourbon,Whisky,4,38,Night Tripper
 223,22.180125,ml,Averna,Liqueur,10,38,Night Tripper
 224,7.393375,ml,Strega,Liqueur,10,38,Night Tripper
@@ -251,12 +251,12 @@
 249,7.393375,ml,Raspberry syrup,General,0,43,North of Sunset
 250,1,bsp,Maraschino Liqueur,Liqueur,10,43,North of Sunset
 251,1,twst,Lemon peel,Garnish,11,43,North of Sunset
-252,39.43133333333333,ml,"Aquavit, Linie",Liqueur,10,44,Norwegian Plum
+252,39.43133333333333,ml,"Aquavit, Linie",Spirits,21,44,Norwegian Plum
 253,14.78675,ml,"Bitters, Fee Brothers Plum",General,0,44,Norwegian Plum
 254,22.180125,ml,Lemon juice,General,0,44,Norwegian Plum
 255,14.78675,ml,Simple syrup (1:1),General,0,44,Norwegian Plum
 256,36.966875,ml,Gin,Gin,1,45,Not Even the Rain
-257,36.966875,ml,Fino sherry (Or Manzanilla),Wine,8,45,Not Even the Rain
+257,36.966875,ml,Fino sherry (or Manzanilla),Wine,8,45,Not Even the Rain
 258,7.393375,ml,Bénédictine,General,0,45,Not Even the Rain
 259,7.393375,ml,Apricot liqueur,Liqueur,10,45,Not Even the Rain
 260,1,ds,Orange bitters,General,0,45,Not Even the Rain
@@ -295,7 +295,7 @@
 293,14.78675,ml,"Bitters, Angostura",General,0,52,Nutty Frenchman
 294,22.180125,ml,"Orange liqueur, Grand Marnier",Liqueur,10,52,Nutty Frenchman
 295,7.393375,ml,"Amaretto, Disaronno",Liqueur,10,52,Nutty Frenchman
-296,29.5735,ml,Heavy cream,General,0,52,Nutty Frenchman
+296,29.5735,ml,Heavy Cream,General,0,52,Nutty Frenchman
 297,1,sli,Orange peel,General,0,52,Nutty Frenchman
 298,44.36025,ml,Mezcal (Smoky),Mezcal,20,53,Oaxaca Forever
 299,22.180125,ml,"Coffee liqueur, Bittermens New Orleans Coffee",Liqueur,10,53,Oaxaca Forever
@@ -313,7 +313,7 @@
 311,1,twst,Grapefruit peel,Garnish,11,55,Oaxacan Dream
 312,44.36025,ml,Tequila,Tequila,6,56,Oaxacan Smash
 313,14.78675,ml,Mezcal,Mezcal,20,56,Oaxacan Smash
-314,14.78675,ml,Agave syrup (1:1 Simple syrup will also work),General,0,56,Oaxacan Smash
+314,14.78675,ml,Agave Syrup,General,0,56,Oaxacan Smash
 315,3,wdg,Lime (Half of a medium-sized lime),General,0,56,Oaxacan Smash
 316,2,lf,Sage,General,0,56,Oaxacan Smash
 317,1,spg,Sage,Garnish,11,56,Oaxacan Smash
@@ -335,15 +335,15 @@
 333,2,ds,"Celery bitters, Bitter Truth Celery",General,0,59,Off The Vine
 334,59.147,ml,Bourbon,Whisky,4,60,Old Dutchman
 335,4,dr,"Blackstrap Bitters, Bittercube",General,0,60,Old Dutchman
-336,2,t,Maple syrup,General,0,60,Old Dutchman
+336,2,t,Maple Syrup,General,0,60,Old Dutchman
 337,29.5735,ml,Red Birch Beer (*),Beer,7,60,Old Dutchman
-338,1,spg,Cinnamon stick,General,0,60,Old Dutchman
+338,1,spg,Cinnamon Stick,General,0,60,Old Dutchman
 339,1,?,Brandied cherry,General,0,60,Old Dutchman
 340,44.36025,ml,Light rum (Overproof),Rum,2,61,Old Painless is Waiting
 341,29.5735,ml,Coconut Water,General,0,61,Old Painless is Waiting
 342,22.180125,ml,Lime juice,General,0,61,Old Painless is Waiting
 343,14.78675,ml,Pineapple syrup,General,0,61,Old Painless is Waiting
-344,7.393375,ml,Curaçao (Pierre Ferrand Dry),Liqueur,10,61,Old Painless is Waiting
+344,7.393375,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,61,Old Painless is Waiting
 345,6,dr,Absinthe,Spirits,21,61,Old Painless is Waiting
 346,1,pn,Nutmeg,Garnish,11,61,Old Painless is Waiting
 347,29.5735,ml,Apple brandy (Aged),Brandy,5,62,Old Number One
@@ -354,7 +354,7 @@
 352,59.147,ml,Cachaça,Rum,2,63,Old Sao Paolo
 353,14.78675,ml,Elisir M. P. Roux (or Green Chartreuse),Liqueur,10,63,Old Sao Paolo
 354,1⁄2,,Lime (muddled),General,0,63,Old Sao Paolo
-355,2,,Kumquat (muddled),General,0,63,Old Sao Paolo
+355,2,,Kumquat,General,0,63,Old Sao Paolo
 356,1⁄2,t,Simple syrup (if needed),General,0,63,Old Sao Paolo
 357,4,ds,"Bitters, Fee Brothers Whiskey Barrel Aged",Whisky,4,63,Old Sao Paolo
 358,1,,Orange peel,Garnish,11,63,Old Sao Paolo
@@ -365,14 +365,14 @@
 363,44.36025,ml,"Virgin Islands Rum, Cruzan Blackstrap",Rum,2,65,Onyx
 364,29.5735,ml,"Amer Picon, Amer Boudreau",Liqueur,10,65,Onyx
 365,14.78675,ml,Balsamic Vinegar,General,0,65,Onyx
-366,7.393375,ml,Cherry syrup (syrup from brandied cherries),General,0,65,Onyx
+366,7.393375,ml,Cherry Syrup,General,0,65,Onyx
 367,22.180125,ml,Batavia Arrack,Rum,2,66,Opium
 368,22.180125,ml,"Cognac, Pierre Ferrand 1840",Brandy,5,66,Opium
 369,22.180125,ml,Sake,General,0,66,Opium
 370,22.180125,ml,Bénédictine,General,0,66,Opium
 371,1,ds,"Bitters, Angostura",General,0,66,Opium
 372,22.180125,ml,Mezcal (Monte Alban),Mezcal,20,67,The Option Clause
-373,22.180125,ml,Cynar (Cynar 70 is better if you have it),Liqueur,10,67,The Option Clause
+373,22.180125,ml,Cynar 70,Liqueur,10,67,The Option Clause
 374,22.180125,ml,Lime juice,General,0,67,The Option Clause
 375,14.78675,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,67,The Option Clause
 376,14.78675,ml,"Grapefruit liqueur, Combier Pamplemousse Rose",Liqueur,10,67,The Option Clause
@@ -382,7 +382,7 @@
 380,44.36025,ml,Bourbon,Whisky,4,68,Orange Sunset
 381,14.78675,ml,"Mezcal, Ilegal Reposado",Mezcal,20,68,Orange Sunset
 382,14.78675,ml,Aperol,Liqueur,10,68,Orange Sunset
-383,59.147,ml,"Apple brandy, Lairds Bonded",Brandy,5,69,Orchard Street
+383,59.147,ml,"Apple brandy, Laird's Bonded",Brandy,5,69,Orchard Street
 384,14.78675,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,69,Orchard Street
 385,14.78675,ml,Amaro Nardini,Liqueur,10,69,Orchard Street
 386,7.393375,ml,Oloroso sherry (Or Amontillado),General,0,69,Orchard Street
@@ -422,7 +422,7 @@
 420,7.393375,ml,"Orange chocolate liqueur, Distillerie de Biercée Orangine",Liqueur,10,76,Ovid's First Century Myth
 421,2,ds,Bitters (Five Watt Coriander Bitters),General,0,76,Ovid's First Century Myth
 422,59.147,ml,"Añejo tequila, Don Julio Añejo",Tequila,6,77,P'al Don
-423,14.78675,ml,Ancho Reyes chile liqueur,Liqueur,10,77,P'al Don
+423,14.78675,ml,Ancho Reyes Verde chile liqueur,Liqueur,10,77,P'al Don
 424,14.78675,ml,Honey syrup,General,0,77,P'al Don
 425,2,ds,"Bitters, Angostura",General,0,77,P'al Don
 426,1,twst,Orange peel,Garnish,11,77,P'al Don
@@ -434,7 +434,7 @@
 432,44.36025,ml,"Blanco tequila, Milagro Silver",Tequila,6,79,Pamalagro Crusta
 433,29.5735,ml,"Pomegranate Liqueur, Pama",Liqueur,10,79,Pamalagro Crusta
 434,14.78675,ml,Lime juice,General,0,79,Pamalagro Crusta
-435,1,bsp,"Allspice Dram, St Elizabeth",Liqueur,10,79,Pamalagro Crusta
+435,1,bsp,"Allspice Dram, St. Elizabeth",Liqueur,10,79,Pamalagro Crusta
 436,1,twst,Pomegranate peel,Garnish,11,79,Pamalagro Crusta
 437,1,?,Sugar,Garnish,11,79,Pamalagro Crusta
 438,44.36025,ml,"Brandy, Copper & Kings",Brandy,5,80,Pantry Raid
@@ -468,7 +468,7 @@
 466,1,twst,Orange peel,Garnish,11,84,Patois
 467,73.93375,ml,"Reposado Tequila, Roca Patrón",Tequila,6,85,The Pastry War Cocktail
 468,14.78675,ml,"Sweet vermouth, Dolin",Wine,8,85,The Pastry War Cocktail
-469,14.78675,ml,Honey syrup (Acacia if possible),General,0,85,The Pastry War Cocktail
+469,14.78675,ml,Honey syrup (Acacia),General,0,85,The Pastry War Cocktail
 470,14.78675,ml,Lemon juice,General,0,85,The Pastry War Cocktail
 471,8,dr,"Bitters, Bittermens Xocolatl Mole",General,0,85,The Pastry War Cocktail
 472,1,ds,Mace tincture (with arnica flower-wormwood),General,0,85,The Pastry War Cocktail
@@ -492,7 +492,7 @@
 490,59.147,ml,"Bourbon, Wild Turkey 101",Whisky,4,89,Pecan Pie
 491,14.78675,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,89,Pecan Pie
 492,14.78675,ml,Amaro Montenegro,Liqueur,10,89,Pecan Pie
-493,7.393375,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,89,Pecan Pie
+493,7.393375,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,89,Pecan Pie
 494,2,ds,"Bitters, Fee Brothers Black Walnut",General,0,89,Pecan Pie
 495,1,twst,Lemon peel,Garnish,11,89,Pecan Pie
 496,44.36025,ml,"Light rum, Plantation 3 Star",Rum,2,90,Pêcher du Soleil
@@ -557,7 +557,7 @@
 555,2,ds,"Grapefruit bitters, Bitter Truth Grapefruit",General,0,100,Petticoat Junction
 556,1,ds,"Cherry Bitters, Fee Brothers Cherry",General,0,100,Petticoat Junction
 557,1,twst,Lemon peel,General,0,100,Petticoat Junction
-558,29.5735,ml,Blanco tequila,Tequila,6,101,Phantastic Voyage
+558,29.5735,ml,Blanco Tequila,Tequila,6,101,Phantastic Voyage
 559,29.5735,ml,Sotol,Spirits,21,101,Phantastic Voyage
 560,14.78675,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,101,Phantastic Voyage
 561,14.78675,ml,Crème de Cacao,Liqueur,10,101,Phantastic Voyage
@@ -595,7 +595,7 @@
 593,7.393375,ml,Allspice Dram,Liqueur,10,106,Pickwick Club
 594,2,ds,"Bitters, Angostura",General,0,106,Pickwick Club
 595,2,ds,"Bitters, Bittermens Xocolatl Mole",General,0,106,Pickwick Club
-596,1,ds,Absinthe (I used 10 drops),Spirits,21,106,Pickwick Club
+596,1,ds,Absinthe,Spirits,21,106,Pickwick Club
 597,1,twst,Orange peel,Garnish,11,106,Pickwick Club
 598,29.5735,ml,Gin,Gin,1,107,Piglet's Lament
 599,14.78675,ml,Campari,Liqueur,10,107,Piglet's Lament
@@ -617,8 +617,8 @@
 615,1,twst,Lemon peel,Garnish,11,109,Piggly Quigley
 616,59.147,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,110,Pillars of Society
 617,22.180125,ml,Cynar,Liqueur,10,110,Pillars of Society
-618,7.393375,ml,Curaçao (Such as Pierre Ferrand),Liqueur,10,110,Pillars of Society
-619,2,ds,Absinthe (I used 1/2 bsp Kübler),Spirits,21,110,Pillars of Society
+618,7.393375,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,110,Pillars of Society
+619,2,ds,Absinthe,Spirits,21,110,Pillars of Society
 620,1,twst,Lemon peel,Garnish,11,110,Pillars of Society
 621,44.36025,ml,Gin,Gin,1,111,Pimm's Sour
 622,44.36025,ml,Pimm's No. 1 Cup,Liqueur,10,111,Pimm's Sour
@@ -630,9 +630,9 @@
 628,22.180125,ml,Pineapple syrup,General,0,112,Pimm's Plantation
 629,59.147,ml,"Grapefruit soda, Izze",General,0,112,Pimm's Plantation
 630,22.180125,ml,Lime juice,General,0,112,Pimm's Plantation
-631,59.147,ml,Dark rum,Rum,2,113,Piña Colada
+631,59.147,ml,Dark Rum,Rum,2,113,Piña Colada
 632,59.147,ml,Pineapple juice,General,0,113,Piña Colada
-633,44.36025,ml,"Coconut cream, Coco López",General,0,113,Piña Colada
+633,44.36025,ml,"Coconut Cream, Coco López",General,0,113,Piña Colada
 634,1,,Maraschino cherry,Garnish,11,113,Piña Colada
 635,1,cube,Pineapple,Garnish,11,113,Piña Colada
 636,44.36025,ml,Rye,Whisky,4,114,Pinball Racket
@@ -642,7 +642,7 @@
 640,2,ds,"Bitters, Bittermens Xocolatl Mole",General,0,114,Pinball Racket
 641,1,,Cherry,Garnish,11,114,Pinball Racket
 642,59.147,ml,Mezcal,Mezcal,20,115,Pineapple Death Squad
-643,22.180125,ml,Falernum (house-made),Liqueur,10,115,Pineapple Death Squad
+643,22.180125,ml,Falernum,Liqueur,10,115,Pineapple Death Squad
 644,14.78675,ml,Pineapple Gum Syrup,General,0,115,Pineapple Death Squad
 645,14.78675,ml,Lime juice,General,0,115,Pineapple Death Squad
 646,1,sli,Pineapple,Garnish,11,115,Pineapple Death Squad
@@ -650,7 +650,7 @@
 648,29.5735,ml,Lemon juice,General,0,116,Pineapple Express (Ryan Stevens)
 649,14.78675,ml,"Elderflower liqueur, St. Germain",Liqueur,10,116,Pineapple Express (Ryan Stevens)
 650,14.78675,ml,"Triple sec, Combier L'Original Liqueur D'Orange",Liqueur,10,116,Pineapple Express (Ryan Stevens)
-651,14.78675,ml,Ginger syrup (3:1:1 water/sugar/ginger simple syrup),General,0,116,Pineapple Express (Ryan Stevens)
+651,14.78675,ml,Ginger syrup,General,0,116,Pineapple Express (Ryan Stevens)
 652,4,cube,"Pineapple (approx 1"" chunks)",General,0,116,Pineapple Express (Ryan Stevens)
 653,3,ds,Peychaud's Bitters,General,0,116,Pineapple Express (Ryan Stevens)
 654,22.180125,ml,"Gin, Beefeater",Gin,1,117,Pining for the Fjords
@@ -664,8 +664,8 @@
 662,22.180125,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,118,Pink Eye
 663,7.393375,ml,Campari,Liqueur,10,118,Pink Eye
 664,7.393375,ml,Amère Sauvage,Liqueur,10,118,Pink Eye
-665,14.78675,ml,Cherry shrub,General,0,118,Pink Eye
-666,14.78675,ml,Half-and-half,General,0,118,Pink Eye
+665,14.78675,ml,Cherry Syrup,General,0,118,Pink Eye
+666,14.78675,ml,Half and Half,General,0,118,Pink Eye
 667,2,ds,Peychaud's Bitters,Garnish,11,118,Pink Eye
 668,22.180125,ml,Gin,Gin,1,119,Pink Sprig
 669,22.180125,ml,Aquavit,Spirits,21,119,Pink Sprig
@@ -695,7 +695,7 @@
 693,3,ds,Peychaud's Bitters,General,0,122,Pirate's Alley
 694,1,rinse,Absinthe,Spirits,21,122,Pirate's Alley
 695,1,twst,Lemon peel,Garnish,11,122,Pirate's Alley
-696,36.966875,ml,Blanco tequila,Tequila,6,123,Pirueta
+696,36.966875,ml,Blanco Tequila,Tequila,6,123,Pirueta
 697,36.966875,ml,Sotol,Spirits,21,123,Pirueta
 698,14.78675,ml,Ancho Reyes Verde chile liqueur,Liqueur,10,123,Pirueta
 699,7.393375,ml,Grenadine,General,0,123,Pirueta
@@ -706,11 +706,11 @@
 704,14.78675,ml,Lime juice,General,0,124,Pisco Patio
 705,3,ds,"Grapefruit bitters, Fee Brothers",General,0,124,Pisco Patio
 706,118.294,ml,Tonic water,General,0,124,Pisco Patio
-707,1,twst,Lime peel (the peel of an entire lime),General,0,124,Pisco Patio
+707,1,twst,Lime peel,General,0,124,Pisco Patio
 708,29.5735,ml,"Mezcal, Del Maguey Vida",Mezcal,20,125,Piso Mojado
 709,29.5735,ml,"Blanco tequila, El Tesoro Platinum",Tequila,6,125,Piso Mojado
 710,22.180125,ml,"Strawberry shrub (With basil, kiwi, & black peppercorns)",General,0,125,Piso Mojado
-711,7.393375,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,125,Piso Mojado
+711,7.393375,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,125,Piso Mojado
 712,7.393375,ml,Lime juice,General,0,125,Piso Mojado
 713,3,ds,"Bitters, Bittermens Burlesque",General,0,125,Piso Mojado
 714,44.36025,ml,"Martinique Rum, Clément (Blanc Première canne)",Rum,2,126,Pisse Tafia
@@ -720,7 +720,7 @@
 718,14.78675,ml,Cane syrup,General,0,126,Pisse Tafia
 719,3,ds,"Bitters, Dale DeGroff's Pimento Bitters",General,0,126,Pisse Tafia
 720,59.147,ml,"Gin, The Botanist",Gin,1,127,Pixie Fingers
-721,19.715666666666664,ml,"Agave syrup (Herb-Infused, see note)",General,0,127,Pixie Fingers
+721,19.715666666666664,ml,Agave syrup (Herb-Infused),General,0,127,Pixie Fingers
 722,29.5735,ml,Lemon juice,General,0,127,Pixie Fingers
 723,22.180125,ml,Lime juice,General,0,127,Pixie Fingers
 724,99.8105625,ml,"Tonic water, Fever Tree elderflower tonic (to top)",General,0,127,Pixie Fingers
@@ -745,17 +745,17 @@
 743,2,ds,"Orange bitters, Regans' orange bitters",General,0,130,Plenaire
 744,59.147,ml,"Gin, Hendrick's",Gin,1,131,Poinsettia Punch (JMW's)
 745,14.78675,ml,Chambord,Liqueur,10,131,Poinsettia Punch (JMW's)
-746,1,t,"Allspice Dram, St Elizabeth",Liqueur,10,131,Poinsettia Punch (JMW's)
+746,1,t,"Allspice Dram, St. Elizabeth",Liqueur,10,131,Poinsettia Punch (JMW's)
 747,22.180125,ml,Lemon juice,General,0,131,Poinsettia Punch (JMW's)
-748,7.393375,ml,"Cinnamon syrup (homemade, see note)",General,0,131,Poinsettia Punch (JMW's)
+748,7.393375,ml,Cinnamon Syrup,General,0,131,Poinsettia Punch (JMW's)
 749,3,dr,"Cherry Bark Vanilla Bitters, Bittercube",General,0,131,Poinsettia Punch (JMW's)
 750,2,dr,"Cardamom bitters, Scrappy's",General,0,131,Poinsettia Punch (JMW's)
 751,2,ds,"Bitters, Angostura",General,0,131,Poinsettia Punch (JMW's)
-752,1,sli,Lemon peel (Flamed),General,0,131,Poinsettia Punch (JMW's)
+752,1,sli,Lemon peel,General,0,131,Poinsettia Punch (JMW's)
 753,59.147,ml,"Gin, Nolet's",Gin,1,132,Pointsetta Punch
 754,14.78675,ml,Lemon juice,General,0,132,Pointsetta Punch
 755,14.78675,ml,Allspice Dram,Liqueur,10,132,Pointsetta Punch
-756,14.78675,ml,Cinnamon syrup (simple syrup infused with 1/2 t. cinnamon),General,0,132,Pointsetta Punch
+756,14.78675,ml,Cinnamon Syrup,General,0,132,Pointsetta Punch
 757,14.78675,ml,Grenadine,General,0,132,Pointsetta Punch
 758,2,ds,"Bitters, Angostura",General,0,132,Pointsetta Punch
 759,29.5735,ml,"Tea (Black works best, make it nice & strong)",General,0,132,Pointsetta Punch
@@ -774,7 +774,7 @@
 772,1,twst,Orange peel,Garnish,11,134,Pompelmo
 773,44.36025,ml,Bourbon,Whisky,4,135,The Pontchartrain
 774,29.5735,ml,Tawny port (10 years),Wine,8,135,The Pontchartrain
-775,14.78675,ml,Grenadine (Homemade),General,0,135,The Pontchartrain
+775,14.78675,ml,Grenadine,General,0,135,The Pontchartrain
 776,1,bsp,Lemon juice,General,0,135,The Pontchartrain
 777,2,ds,Peychaud's Bitters,General,0,135,The Pontchartrain
 778,1,rinse,Absinthe,Spirits,21,135,The Pontchartrain
@@ -801,7 +801,7 @@
 799,9.857833333333332,ml,Simple syrup,General,0,138,Post Road Punch
 800,9.857833333333332,ml,Lemon juice,General,0,138,Post Road Punch
 801,9.857833333333332,ml,Lime juice,General,0,138,Post Road Punch
-802,22.180125,ml,Cinnamon syrup,General,0,138,Post Road Punch
+802,22.180125,ml,Cinnamon Syrup,General,0,138,Post Road Punch
 803,1,ds,"Bitters, Angostura",General,0,138,Post Road Punch
 804,59.147,ml,"Ginger beer, Fentimans",General,0,138,Post Road Punch
 805,44.36025,ml,Highland Scotch,Whisky,4,139,Powers of Peat
@@ -835,7 +835,7 @@
 833,7.393375,ml,Ginger syrup,General,0,143,Pressgang Swizzle
 834,6,ds,"Bitters, Angostura",General,0,143,Pressgang Swizzle
 835,6,ds,Peychaud's Bitters,General,0,143,Pressgang Swizzle
-836,44.36025,ml,Gin (Preferably a London Dry),Gin,1,144,The Preston-Baker
+836,44.36025,ml,Gin (London Dry),Gin,1,144,The Preston-Baker
 837,14.78675,ml,Rhum Agricole (Blanc),Rum,2,144,The Preston-Baker
 838,22.180125,ml,Bianco Vermouth,Wine,8,144,The Preston-Baker
 839,7.393375,ml,Crème de Banane,Liqueur,10,144,The Preston-Baker
@@ -877,7 +877,7 @@
 875,1,sli,Pineapple,Garnish,11,149,Puka Punch
 876,1,sli,Orange,Garnish,11,149,Puka Punch
 877,59.147,ml,Old Tom Gin (Gin Lane 1751),Gin,1,150,Purification
-878,14.78675,ml,"Absinthe, Copper & Kings Absinthe Superiore (Blanche)",Spirits,21,150,Purification
+878,14.78675,ml,"Absinthe, Copper & Kings Absinthe Superiore",Spirits,21,150,Purification
 879,14.78675,ml,White Crème de Menthe,Liqueur,10,150,Purification
 880,14.78675,ml,Lime juice,General,0,150,Purification
 881,5,,Blackberry,General,0,151,Purple Mammoth
@@ -906,7 +906,7 @@
 904,1,sli,Lemon peel,General,0,154,Quartermaster
 905,44.36025,ml,Rye,Whisky,4,155,The Quick Brown Fox
 906,44.36025,ml,Mezcal (joven),Mezcal,20,155,The Quick Brown Fox
-907,1,ds,"Bitters, Bittermens Xocolatl Mole (heavy dash)",General,0,155,The Quick Brown Fox
+907,1,ds,"Bitters, Bittermens Xocolatl Mole",General,0,155,The Quick Brown Fox
 908,1,ds,Orange bitters (heavy dash),General,0,155,The Quick Brown Fox
 909,29.5735,ml,Rhum Agricole (Blanc),Rum,2,156,Quimbois
 910,29.5735,ml,Fino sherry,Wine,8,156,Quimbois
@@ -923,7 +923,7 @@
 921,29.5735,ml,Ramazzotti,Liqueur,10,158,Ragtime
 922,29.5735,ml,Aperol,Liqueur,10,158,Ragtime
 923,2,ds,Peychaud's Bitters,General,0,158,Ragtime
-924,1,dr,Absinthe (to coat the mixing glass - see comments),Spirits,21,158,Ragtime
+924,1,dr,Absinthe,Spirits,21,158,Ragtime
 925,1,twst,Orange peel,Garnish,11,158,Ragtime
 926,22.180125,ml,Jägermeister,Liqueur,10,159,Ragnarök
 927,22.180125,ml,"Aquavit, Aalborg",Spirits,21,159,Ragnarök
@@ -934,14 +934,14 @@
 932,6,,"Lemon (Large, Peeled - or 12 small)",General,0,160,Raspberry Punch
 933,1419.528,ml,Sugar (Divided),General,0,160,Raspberry Punch
 934,709.764,ml,Water (Hot),General,0,160,Raspberry Punch
-935,709.764,ml,Lemon juice (from Lemons above),General,0,160,Raspberry Punch
+935,709.764,ml,Lemon juice,General,0,160,Raspberry Punch
 936,709.764,ml,Raspberry syrup,General,0,160,Raspberry Punch
-937,29.5735,ml,"Lactart (to correct acidity, to taste)",General,0,160,Raspberry Punch
+937,29.5735,ml,Lactart,General,0,160,Raspberry Punch
 938,59.147,ml,"Canadian whisky, Crown Royal",Whisky,4,161,RCM
 939,14.78675,ml,Orange juice,General,0,161,RCM
 940,14.78675,ml,Lemon juice,General,0,161,RCM
 941,7.393375,ml,"Bacon syrup, Torani",General,0,161,RCM
-942,7.393375,ml,Maple syrup,General,0,161,RCM
+942,7.393375,ml,Maple Syrup,General,0,161,RCM
 943,44.36025,ml,"Light rum, Plantation 3 Star",Rum,2,162,Reality Bomb
 944,14.78675,ml,Campari,Liqueur,10,162,Reality Bomb
 945,22.180125,ml,"Ginger liqueur, Domaine de Canton",Liqueur,10,162,Reality Bomb
@@ -993,7 +993,7 @@
 991,29.5735,ml,Lime juice,General,0,172,The Reiley Ridge
 992,14.78675,ml,Lemon juice,General,0,172,The Reiley Ridge
 993,7,dr,"Bitters, Brooklyn Hemispherical Bitters Rhubarb",General,0,172,The Reiley Ridge
-994,1,spl,Club soda (heavy),General,0,172,The Reiley Ridge
+994,1,spl,Club Soda,General,0,172,The Reiley Ridge
 995,1,wdg,Lemon,General,0,172,The Reiley Ridge
 996,44.36025,ml,"Islay Scotch, Bowmore (Legend)",Whisky,4,173,Requiem for an Old Friend
 997,14.78675,ml,Zirbenz Stone Pine Liqueur,Liqueur,10,173,Requiem for an Old Friend
@@ -1009,10 +1009,10 @@
 1007,14.78675,ml,"Herbal liqueur, Yellow Chartreuse",Liqueur,10,175,Resting Point
 1008,14.78675,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,175,Resting Point
 1009,14.78675,ml,Lemon juice,General,0,175,Resting Point
-1010,14.78675,ml,Agave syrup,General,0,175,Resting Point
+1010,14.78675,ml,Agave Syrup,General,0,175,Resting Point
 1011,2,?,Strawberry,Garnish,11,175,Resting Point
 1012,44.36025,ml,Gin,Gin,1,176,Revenge of the Lawn
-1013,14.78675,ml,Green tea syrup,General,0,176,Revenge of the Lawn
+1013,14.78675,ml,Green Tea Syrup,General,0,176,Revenge of the Lawn
 1014,14.78675,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,176,Revenge of the Lawn
 1015,14.78675,ml,Lemon juice,General,0,176,Revenge of the Lawn
 1016,1,ds,"Bitters, Angostura",General,0,176,Revenge of the Lawn
@@ -1038,7 +1038,7 @@
 1036,5.9147,ml,Lime juice,General,0,180,Rhuld-Fashioned
 1037,11.8294,ml,Lemon juice,General,0,180,Rhuld-Fashioned
 1038,11.8294,ml,Simple syrup,General,0,180,Rhuld-Fashioned
-1039,1,spl,Club soda,General,0,180,Rhuld-Fashioned
+1039,1,spl,Club Soda,General,0,180,Rhuld-Fashioned
 1040,44.36025,ml,"Light rum, Plantation 3 Star",Rum,2,181,Rhymer Reason
 1041,29.5735,ml,"Raspberry Limoncello, CelloVia",Liqueur,10,181,Rhymer Reason
 1042,7.393375,ml,"Ginger liqueur, Domaine de Canton",Liqueur,10,181,Rhymer Reason
@@ -1074,7 +1074,7 @@
 1072,14.78675,ml,Crème de Cacao,Liqueur,10,186,Roca Alexander
 1073,7.393375,ml,Crème de Noyaux,Liqueur,10,186,Roca Alexander
 1074,7.393375,ml,Vanilla liqueur,Liqueur,10,186,Roca Alexander
-1075,29.5735,ml,Heavy cream,General,0,186,Roca Alexander
+1075,29.5735,ml,Heavy Cream,General,0,186,Roca Alexander
 1076,3,pn,Salt (Heavy pinches),General,0,186,Roca Alexander
 1077,29.5735,ml,Scotch,Whisky,4,187,Romancing the Stone
 1078,22.180125,ml,Cardamaro,Wine,8,187,Romancing the Stone
@@ -1110,7 +1110,7 @@
 1108,29.5735,ml,Blended Scotch,Whisky,4,193,Roysty Nail
 1109,29.5735,ml,Islay Scotch,Whisky,4,193,Roysty Nail
 1110,14.78675,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,193,Roysty Nail
-1111,14.78675,ml,Drambuie,Whisky,4,193,Roysty Nail
+1111,14.78675,ml,Drambuie,Liqueur,10,193,Roysty Nail
 1112,2,ds,"Bitters, Angostura",General,0,193,Roysty Nail
 1113,1,twst,Lemon peel,Garnish,11,193,Roysty Nail
 1114,1,,Brandied cherry,Garnish,11,193,Roysty Nail
@@ -1121,7 +1121,7 @@
 1119,29.5735,ml,"Jamaican rum, Appleton (Signature Estate Rum)",Rum,2,195,Rum Balans
 1120,22.180125,ml,Maraschino Liqueur,Liqueur,10,195,Rum Balans
 1121,14.78675,ml,Allspice Dram,Liqueur,10,195,Rum Balans
-1122,7.393375,ml,Coconut rum (Used Koloa Kaua),Rum,2,195,Rum Balans
+1122,7.393375,ml,Coconut Rum (Kaola rum),Rum,2,195,Rum Balans
 1123,1,twst,Orange peel,General,0,195,Rum Balans
 1124,1,pn,Nutmeg (freshly ground),General,0,195,Rum Balans
 1125,19.715666666666664,ml,"Ginger Wine, Stone's",Wine,8,196,"Run, Run, As Fast As You Can"
@@ -1130,7 +1130,7 @@
 1128,1,ds,"Bitters, Bittermens Xocolatl Mole",General,0,196,"Run, Run, As Fast As You Can"
 1129,1,twst,Lemon zest,General,0,196,"Run, Run, As Fast As You Can"
 1130,2,t,Mezcal (Float),Mezcal,20,196,"Run, Run, As Fast As You Can"
-1131,29.5735,ml,Apple brandy (Aged like Laird's Bonded or Calvados),Brandy,5,197,Runaway Horses
+1131,29.5735,ml,Apple Brandy,Brandy,5,197,Runaway Horses
 1132,29.5735,ml,Cardamaro,Wine,8,197,Runaway Horses
 1133,29.5735,ml,"Amaro, Cappelletti Sfumato Rabarbaro (Sfumato or Zucca)",Liqueur,10,197,Runaway Horses
 1134,1,twst,Grapefruit peel,Garnish,11,197,Runaway Horses
@@ -1148,7 +1148,7 @@
 1146,2,ds,Peychaud's Bitters,General,0,200,Rusty James
 1147,1,twst,Lemon peel,General,0,200,Rusty James
 1148,29.5735,ml,"Rye, Rittenhouse 100",Whisky,4,201,Sabotta Dusk
-1149,29.5735,ml,Cognac (VSOP),Brandy,5,201,Sabotta Dusk
+1149,29.5735,ml,Cognac VSOP,Brandy,5,201,Sabotta Dusk
 1150,29.5735,ml,Sweet vermouth,Wine,8,201,Sabotta Dusk
 1151,14.78675,ml,Averna,Liqueur,10,201,Sabotta Dusk
 1152,2,ds,"Bitters, Bittermens Xocolatl Mole",General,0,201,Sabotta Dusk
@@ -1171,14 +1171,14 @@
 1169,44.36025,ml,Gin,Gin,1,205,Saffron Finch
 1170,22.180125,ml,Blended Scotch,Whisky,4,205,Saffron Finch
 1171,14.78675,ml,Strega,Liqueur,10,205,Saffron Finch
-1172,14.78675,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,205,Saffron Finch
+1172,14.78675,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,205,Saffron Finch
 1173,1,twst,Lemon peel,Garnish,11,205,Saffron Finch
 1174,1,,Strawberry,General,0,206,Le Saint Esprit (The Holy Spirit)
 1175,29.5735,ml,"Rum, Mount Gay (Eclipse)",Rum,2,206,Le Saint Esprit (The Holy Spirit)
 1176,29.5735,ml,"Reposado Tequila, Espolon Reposado",Tequila,6,206,Le Saint Esprit (The Holy Spirit)
 1177,22.180125,ml,Bénédictine,General,0,206,Le Saint Esprit (The Holy Spirit)
 1178,22.180125,ml,Lemon juice,General,0,206,Le Saint Esprit (The Holy Spirit)
-1179,2,bsp,Honey syrup (2:1 Buckwheat honey),General,0,206,Le Saint Esprit (The Holy Spirit)
+1179,2,bsp,Honey syrup (2:1),General,0,206,Le Saint Esprit (The Holy Spirit)
 1180,1,ds,"Bitters, Angostura",General,0,206,Le Saint Esprit (The Holy Spirit)
 1181,44.36025,ml,Cognac,Brandy,5,207,Saidoka
 1182,14.78675,ml,Orgeat,General,0,207,Saidoka
@@ -1187,7 +1187,7 @@
 1185,2,ds,"Bitters, Angostura",General,0,207,Saidoka
 1186,1,twst,Lemon peel,Garnish,11,207,Saidoka
 1187,1,part,Sugar (For rimming the glass),General,0,207,Saidoka
-1188,44.36025,ml,Light rum,Rum,2,208,Saint Valentine
+1188,44.36025,ml,Light Rum,Rum,2,208,Saint Valentine
 1189,14.78675,ml,Ruby Port,Wine,8,208,Saint Valentine
 1190,14.78675,ml,"Orange liqueur, Grand Marnier",Liqueur,10,208,Saint Valentine
 1191,14.78675,ml,Lime juice,General,0,208,Saint Valentine
@@ -1214,22 +1214,22 @@
 1212,7.393375,ml,"Aromatized wine, Cocchi Vermouth di Torino",Wine,8,212,SAMCRO
 1213,3,ds,Peychaud's Bitters,General,0,212,SAMCRO
 1214,1,,Maraschino cherry (muddled),General,0,212,SAMCRO
-1215,1,spl,Club soda (light),General,0,212,SAMCRO
+1215,1,spl,Club Soda,General,0,212,SAMCRO
 1216,59.147,ml,"Bourbon, Buffalo Trace",Whisky,4,213,Santa's Little Helper
 1217,22.180125,ml,Averna,Liqueur,10,213,Santa's Little Helper
 1218,14.78675,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,213,Santa's Little Helper
 1219,14.78675,ml,Nutmeg Simple Syrup,General,0,213,Santa's Little Helper
-1220,7.393375,ml,Heavy cream,General,0,213,Santa's Little Helper
+1220,7.393375,ml,Heavy Cream,General,0,213,Santa's Little Helper
 1221,1,ds,"Bitters, Angostura",General,0,213,Santa's Little Helper
 1222,29.5735,ml,"Light rum, Bacardi",Rum,2,214,SATAMA PUNCH
-1223,19.715666666666664,ml,Dark rum,Rum,2,214,SATAMA PUNCH
+1223,19.715666666666664,ml,Dark Rum,Rum,2,214,SATAMA PUNCH
 1224,19.715666666666664,ml,Apricot liqueur,Liqueur,10,214,SATAMA PUNCH
 1225,19.715666666666664,ml,Lemon juice,General,0,214,SATAMA PUNCH
 1226,19.715666666666664,ml,"Passion fruit syrup, Monin",General,0,214,SATAMA PUNCH
 1227,40.6635625,ml,"Kombucha (Cranberry, as top)",General,0,214,SATAMA PUNCH
-1228,1,ds,"Absinthe, Absente 55%",Spirits,21,214,SATAMA PUNCH
-1229,59.147,ml,Light rum,Rum,2,215,Savage Swizzle
-1230,29.5735,ml,Coconut rum,Rum,2,215,Savage Swizzle
+1228,1,ds,"Absinthe, Absente",Spirits,21,214,SATAMA PUNCH
+1229,59.147,ml,Light Rum,Rum,2,215,Savage Swizzle
+1230,29.5735,ml,Coconut Rum,Rum,2,215,Savage Swizzle
 1231,44.36025,ml,Lime juice,General,0,215,Savage Swizzle
 1232,29.5735,ml,Orange juice,General,0,215,Savage Swizzle
 1233,29.5735,ml,Raspberry syrup,General,0,215,Savage Swizzle
@@ -1247,7 +1247,7 @@
 1245,7.393375,ml,Lemon juice,General,0,217,Saveur Kiss
 1246,2,bsp,"Herbal liqueur, Pernod",Liqueur,10,217,Saveur Kiss
 1247,1,bsp,"Ginger liqueur, Domaine de Canton",Liqueur,10,217,Saveur Kiss
-1248,2,?,Bing Cherry (*),General,0,217,Saveur Kiss
+1248,2,,Bing Cherry,General,0,217,Saveur Kiss
 1249,1,pn,Smoked Salt (Yakima Applewood),General,0,217,Saveur Kiss
 1250,29.5735,ml,Rhum Agricole,Rum,2,218,Schrage Muzik
 1251,14.78675,ml,Mezcal,Mezcal,20,218,Schrage Muzik
@@ -1265,7 +1265,7 @@
 1263,1,wdg,Orange,General,0,219,Scorpion
 1264,44.36025,ml,"Speyside Scotch, Glenfiddich 18",Whisky,4,220,Scotch Flirting
 1265,14.78675,ml,Raspberry liqueur,Liqueur,10,220,Scotch Flirting
-1266,2,t,Maple syrup,General,0,220,Scotch Flirting
+1266,2,t,Maple Syrup,General,0,220,Scotch Flirting
 1267,59.147,ml,"Japanese Whisky, Suntory Toki blended",Whisky,4,221,Scotch Violet
 1268,22.180125,ml,Lemon juice,General,0,221,Scotch Violet
 1269,22.180125,ml,Crème Yvette,Liqueur,10,221,Scotch Violet
@@ -1276,13 +1276,13 @@
 1274,1,t,"Allspice Dram, St. Elizabeth",Liqueur,10,222,A Scotsman In Paradise
 1275,22.180125,ml,Lime juice,General,0,222,A Scotsman In Paradise
 1276,22.180125,ml,Pineapple juice,General,0,222,A Scotsman In Paradise
-1277,1,T,"Coconut cream, Coco López",General,0,222,A Scotsman In Paradise
+1277,1,T,"Coconut Cream, Coco López",General,0,222,A Scotsman In Paradise
 1278,29.5735,ml,"Gin, Citadelle (fresno chili infused)",Gin,1,223,Selinon Soother (OG Version)
-1279,22.180125,ml,"Bianco Vermouth, Dolin (*)",Wine,8,223,Selinon Soother (OG Version)
+1279,22.180125,ml,"Bianco Vermouth, Dolin",Wine,8,223,Selinon Soother (OG Version)
 1280,22.180125,ml,Lemon juice,General,0,223,Selinon Soother (OG Version)
 1281,14.78675,ml,Celery syrup,General,0,223,Selinon Soother (OG Version)
 1282,7.393375,ml,Simple syrup,General,0,223,Selinon Soother (OG Version)
-1283,1,dr,"Jamaican #1 bitters, Bittercube (full dropper)",General,0,223,Selinon Soother (OG Version)
+1283,1,dr,"Jamaican #1 bitters, Bittercube",General,0,223,Selinon Soother (OG Version)
 1284,59.147,ml,Seltzer water,General,0,223,Selinon Soother (OG Version)
 1285,1,sli,Lemon peel,General,0,223,Selinon Soother (OG Version)
 1286,44.36025,ml,"Scotch, Monkey Shoulder",Whisky,4,224,The Selkie's Tears
@@ -1293,11 +1293,11 @@
 1291,22.180125,ml,"Root liqueur, Art in the Age",Liqueur,10,225,Señor Staypuff
 1292,14.78675,ml,"Demerara Rum, Lemon Hart 151",Rum,2,225,Señor Staypuff
 1293,1,t,"Allspice Dram, Bitter Truth",Liqueur,10,225,Señor Staypuff
-1294,1,T,Coffee syrup (see note),General,0,225,Señor Staypuff
-1295,29.5735,ml,Half-and-half,General,0,225,Señor Staypuff
+1294,1,T,Coffee syrup,General,0,225,Señor Staypuff
+1295,29.5735,ml,Half and Half,General,0,225,Señor Staypuff
 1296,4,ds,"Bitters, Bittercube Jamaican #1",General,0,225,Señor Staypuff
-1297,2,ds,"Bitters, Bittercube Cherry Bark Vanilla (to top)",General,0,225,Señor Staypuff
-1298,1,spl,Club soda (to top),General,0,225,Señor Staypuff
+1297,2,ds,"Bitters, Bittercube Cherry Bark Vanilla",General,0,225,Señor Staypuff
+1298,1,spl,Club Soda,General,0,225,Señor Staypuff
 1299,3,,Marshmallow,Garnish,11,225,Señor Staypuff
 1300,59.147,ml,"Rye, Redemption",Whisky,4,226,Sentimental Fool
 1301,59.147,ml,Salers Gentiane,Liqueur,10,226,Sentimental Fool
@@ -1330,14 +1330,14 @@
 1328,7.393375,ml,"Hazelnut liqueur, Frangelico",Liqueur,10,231,Shark
 1329,7.393375,ml,"Blue Curaçao, Senior Curaçao",Liqueur,10,231,Shark
 1330,7.393375,ml,Cane syrup,General,0,231,Shark
-1331,7.393375,ml,Heavy cream,General,0,231,Shark
+1331,7.393375,ml,Heavy Cream,General,0,231,Shark
 1332,1⁄4,T,"Bitters, Bittermens 'Elemakule Tiki",General,0,231,Shark
 1333,29.5735,ml,"Irish whiskey, Jameson",Whisky,4,232,The Shark Lady
-1334,29.5735,ml,Coconut rum (Kaola rum),Rum,2,232,The Shark Lady
+1334,29.5735,ml,Coconut Rum (Kaola rum),Rum,2,232,The Shark Lady
 1335,14.78675,ml,"Rum, Pusser's (Gunpowder)",Rum,2,232,The Shark Lady
 1336,14.78675,ml,Vanilla liqueur (Nassau Royale),Liqueur,10,232,The Shark Lady
 1337,22.180125,ml,Lime juice,General,0,232,The Shark Lady
-1338,36.966875,ml,Guava juice,General,0,232,The Shark Lady
+1338,36.966875,ml,Guava Juice,General,0,232,The Shark Lady
 1339,14.78675,ml,Hibiscus syrup,General,0,232,The Shark Lady
 1340,3,ds,Peychaud's Bitters,General,0,232,The Shark Lady
 1341,2,ds,"Pimento bitters, Dale De Groff",General,0,232,The Shark Lady
@@ -1345,14 +1345,14 @@
 1343,14.78675,ml,"Mezcal, Ilegal Joven",Mezcal,20,233,Shattered Dreams
 1344,14.78675,ml,"Dry vermouth, Noilly Prat",Wine,8,233,Shattered Dreams
 1345,22.180125,ml,"Sweet vermouth, Carpano Antica Formula",Wine,8,233,Shattered Dreams
-1346,14.78675,ml,"Aquavit, Linie",Liqueur,10,233,Shattered Dreams
+1346,14.78675,ml,"Aquavit, Linie",Spirits,21,233,Shattered Dreams
 1347,1,t,"Pear liqueur, St. George (Spiced)",Liqueur,10,233,Shattered Dreams
 1348,2,t,Bénédictine (D.O.M.),Liqueur,10,233,Shattered Dreams
 1349,2,ds,"Bitters, Bittermens Xocolatl Mole",General,0,233,Shattered Dreams
 1350,44.36025,ml,Cognac,Brandy,5,234,Sheltering Sky
 1351,14.78675,ml,Swedish Punsch,Liqueur,10,234,Sheltering Sky
 1352,14.78675,ml,Bénédictine,General,0,234,Sheltering Sky
-1353,14.78675,ml,Amontillado Sherry (Or Oloroso),Wine,8,234,Sheltering Sky
+1353,14.78675,ml,Amontillado Sherry (or Oloroso),Wine,8,234,Sheltering Sky
 1354,1,ds,"Bitters, Angostura",General,0,234,Sheltering Sky
 1355,1,twst,Orange peel,Garnish,11,234,Sheltering Sky
 1356,44.36025,ml,"Blended Scotch, Sheep's Dip",Whisky,4,235,Shepherd's Secret
@@ -1367,12 +1367,12 @@
 1365,44.36025,ml,Reposado Tequila,Tequila,6,237,Sherrita Bonita
 1366,44.36025,ml,Fino sherry,Wine,8,237,Sherrita Bonita
 1367,22.180125,ml,Lime juice,General,0,237,Sherrita Bonita
-1368,9.857833333333332,ml,Agave syrup,General,0,237,Sherrita Bonita
+1368,9.857833333333332,ml,Agave Syrup,General,0,237,Sherrita Bonita
 1369,1,ds,Orange bitters,General,0,237,Sherrita Bonita
 1370,44.36025,ml,Shochu (iichiko special barley shochu),General,0,238,Shochu sour
 1371,19.715666666666664,ml,Yuzu juice,General,0,238,Shochu sour
 1372,7.393375,ml,Orgeat,General,0,238,Shochu sour
-1373,7.393375,ml,Agave syrup,General,0,238,Shochu sour
+1373,7.393375,ml,Agave Syrup,General,0,238,Shochu sour
 1374,1,,Egg white,General,0,238,Shochu sour
 1375,59.147,ml,"Corn Whiskey, Mellow Corn",Whisky,4,239,Short Sharp Choc
 1376,14.78675,ml,"Crème de Cacao, Tempus Fugit",Liqueur,10,239,Short Sharp Choc
@@ -1396,7 +1396,7 @@
 1394,1,,Egg white,General,0,243,Silver Lining
 1395,22.180125,ml,Lemon juice,General,0,243,Silver Lining
 1396,22.180125,ml,Licor 43,Liqueur,10,243,Silver Lining
-1397,177.441,ml,Club soda,General,0,243,Silver Lining
+1397,177.441,ml,Club Soda,General,0,243,Silver Lining
 1398,29.5735,ml,Gin (Barrel aged),Gin,1,244,Silvio's Algorithm
 1399,29.5735,ml,Bourbon,Whisky,4,244,Silvio's Algorithm
 1400,29.5735,ml,Amaro Meletti,Liqueur,10,244,Silvio's Algorithm
@@ -1436,7 +1436,7 @@
 1434,59.147,ml,Añejo rum (Barbados preferably),Rum,2,251,A Six for a Nine
 1435,14.78675,ml,Falernum,Liqueur,10,251,A Six for a Nine
 1436,7.393375,ml,Bénédictine,General,0,251,A Six for a Nine
-1437,7.393375,ml,Amer Picon (a bitter citrus-forward amaro),Liqueur,10,251,A Six for a Nine
+1437,7.393375,ml,Amer Picon,Liqueur,10,251,A Six for a Nine
 1438,2,ds,"Bitters, Angostura",General,0,251,A Six for a Nine
 1439,1,twst,Orange peel,Garnish,11,251,A Six for a Nine
 1440,44.36025,ml,Aquavit,Spirits,21,252,Ski Mask #1
@@ -1486,7 +1486,7 @@
 1484,22.180125,ml,Lemon juice,General,0,260,Smoked Jack Rabbit
 1485,14.78675,ml,Grade B maple syrup,General,0,260,Smoked Jack Rabbit
 1486,6,dr,"Orange cream citrate, Bittermens",General,0,260,Smoked Jack Rabbit
-1487,1,pn,Kosher Salt (Garnish),General,0,260,Smoked Jack Rabbit
+1487,1,pn,Kosher Salt,Garnish,11,260,Smoked Jack Rabbit
 1488,59.147,ml,"Cherry Liqueur, Cherry Heering",Liqueur,10,261,Smoked Cherry Sling
 1489,22.180125,ml,"Cachaça, Leblon",Rum,2,261,Smoked Cherry Sling
 1490,22.180125,ml,"Sloe gin, Plymouth",Gin,1,261,Smoked Cherry Sling
@@ -1504,23 +1504,23 @@
 1502,44.36025,ml,"Mezcal, Del Maguey Vida",Mezcal,20,263,Smokeshow
 1503,22.180125,ml,"Amaro, Cappelletti Sfumato Rabarbaro",Liqueur,10,263,Smokeshow
 1504,2,ds,"Bitters, Bittermens Xocolatl Mole",General,0,263,Smokeshow
-1505,22.180125,ml,"Apple brandy, Lairds Bonded",Brandy,5,264,Smokey's Tangle
-1506,22.180125,ml,Bison grass vodka,Vodka,3,264,Smokey's Tangle
+1505,22.180125,ml,"Apple brandy, Laird's Bonded",Brandy,5,264,Smokey's Tangle
+1506,22.180125,ml,Bison Grass Vodka,Vodka,3,264,Smokey's Tangle
 1507,22.180125,ml,"Chinato, Cocchi Barolo Chinato",Wine,8,264,Smokey's Tangle
 1508,22.180125,ml,Averna,Liqueur,10,264,Smokey's Tangle
 1509,2,ds,Grapefruit bitters,General,0,264,Smokey's Tangle
 1510,29.5735,ml,Ruby Port,Wine,8,265,Smoking Cap
 1511,19.715666666666664,ml,"Gin (Lighthouse, Hawthorn Edition)",Gin,1,265,Smoking Cap
 1512,2,t,"Gunpowder Rum, Smoke 'n Oakum's",Rum,2,265,Smoking Cap
-1513,2,t,Falernum (Preferably home-made),Liqueur,10,265,Smoking Cap
+1513,2,t,Falernum,Liqueur,10,265,Smoking Cap
 1514,1,ds,Orange bitters,General,0,265,Smoking Cap
-1515,59.147,ml,"Islay Scotch, Laphroaig (10-year)",Whisky,4,266,The Smoking Gun
+1515,59.147,ml,"Islay Scotch, Laphroaig 10",Whisky,4,266,The Smoking Gun
 1516,3⁄4,t,Fernet Branca,Spirits,21,266,The Smoking Gun
 1517,1⁄2,t,Brown sugar cordial (see instructions),General,0,266,The Smoking Gun
 1518,2,ds,"Bitters, Fee Brothers Whiskey Barrel Aged",Whisky,4,266,The Smoking Gun
 1519,1,lf,Mint,Garnish,11,266,The Smoking Gun
 1520,59.147,ml,"Islay Scotch, Laphroaig 10",Whisky,4,267,Smoky Nail
-1521,29.5735,ml,Drambuie,Whisky,4,267,Smoky Nail
+1521,29.5735,ml,Drambuie,Liqueur,10,267,Smoky Nail
 1522,2,ds,"Bitters, Fee Brothers Lemon",General,0,267,Smoky Nail
 1523,59.147,ml,Bourbon,Whisky,4,268,Social Animal
 1524,14.78675,ml,"Crème de Banane, Tempus Fugit",Liqueur,10,268,Social Animal
@@ -1530,7 +1530,7 @@
 1528,44.36025,ml,Mezcal,Mezcal,20,269,The Solipsist
 1529,14.78675,ml,"Orange liqueur, Grand Marnier",Liqueur,10,269,The Solipsist
 1530,29.5735,ml,Lemon juice,General,0,269,The Solipsist
-1531,14.78675,ml,Honey syrup (3:1 honey to water),General,0,269,The Solipsist
+1531,14.78675,ml,Honey syrup (3:1),General,0,269,The Solipsist
 1532,59.147,ml,"Rye, Rittenhouse 100",Whisky,4,270,Solstice
 1533,22.180125,ml,"Triple sec, Cointreau",Liqueur,10,270,Solstice
 1534,1,t,"Allspice Dram, St. Elizabeth",Liqueur,10,270,Solstice
@@ -1569,7 +1569,7 @@
 1567,3,,"Cherry, Luxardo",General,0,275,South Park Sling
 1568,6,sli,Red Bell Pepper (Diced),General,0,276,Southern Bell
 1569,59.147,ml,"Pisco, Barsol",Brandy,5,276,Southern Bell
-1570,14.78675,ml,Honey syrup (3:1 Honey to Water),General,0,276,Southern Bell
+1570,14.78675,ml,Honey syrup (3:1),General,0,276,Southern Bell
 1571,14.78675,ml,Lime juice,General,0,276,Southern Bell
 1572,14.78675,ml,"Apricot liqueur, Rothman & Winter Orchard Apricot",Liqueur,10,276,Southern Bell
 1573,59.147,ml,"Ginger beer, Barritt's",General,0,276,Southern Bell
@@ -1604,7 +1604,7 @@
 1602,14.78675,ml,Don's Mix,General,0,281,Spanish Conquistador
 1603,12,dr,"Bitters, Bittermens 'Elemakule Tiki",General,0,281,Spanish Conquistador
 1604,2,ds,Nutmeg (Garnish),General,0,281,Spanish Conquistador
-1605,1,wdg,Lime (Garnish),General,0,281,Spanish Conquistador
+1605,1,wdg,Lime,Garnish,11,281,Spanish Conquistador
 1606,22.180125,ml,Rye,Whisky,4,282,The Spice Channel
 1607,22.180125,ml,Campari,Liqueur,10,282,The Spice Channel
 1608,22.180125,ml,Aperol,Liqueur,10,282,The Spice Channel
@@ -1612,7 +1612,7 @@
 1610,22.180125,ml,Becherovka,Liqueur,10,282,The Spice Channel
 1611,22.180125,ml,"Tea (blood orange, strong)",General,0,282,The Spice Channel
 1612,29.5735,ml,Reposado Tequila,Tequila,6,283,Spicy Bison / Bisonte Picante
-1613,29.5735,ml,Bison grass vodka,Vodka,3,283,Spicy Bison / Bisonte Picante
+1613,29.5735,ml,Bison Grass Vodka,Vodka,3,283,Spicy Bison / Bisonte Picante
 1614,22.180125,ml,"Ginger liqueur, Canton",Liqueur,10,283,Spicy Bison / Bisonte Picante
 1615,22.180125,ml,Grapefruit juice,General,0,283,Spicy Bison / Bisonte Picante
 1616,59.147,ml,Soda water,General,0,283,Spicy Bison / Bisonte Picante
@@ -1620,7 +1620,7 @@
 1618,59.147,ml,Vodka,Vodka,3,284,Spicy Bacon Martini
 1619,7.393375,ml,"Dry vermouth, Noilly Prat",Wine,8,284,Spicy Bacon Martini
 1620,1,t,"Bacon syrup, Torani",General,0,284,Spicy Bacon Martini
-1621,1,ds,"Hot sauce, Tabasco",General,0,284,Spicy Bacon Martini
+1621,1,ds,Hot sauce,General,0,284,Spicy Bacon Martini
 1622,88.7205,ml,"Gin, Nolet's",Gin,1,285,Sping is Here Pimms Cup
 1623,44.36025,ml,Pimm's No. 1 Cup,Liqueur,10,285,Sping is Here Pimms Cup
 1624,29.5735,ml,Tonic water syrup,General,0,285,Sping is Here Pimms Cup
@@ -1637,9 +1637,9 @@
 1635,118.294,ml,"Ginger beer, Fentimans",General,0,287,St. Barths Buck
 1636,59.147,ml,"Dry Rosé of Sangiovese, Alexander Valley Vineyards",Wine,8,288,(The St-Germain) Flamingo-tail
 1637,44.36025,ml,"Elderflower liqueur, St. Germain",Liqueur,10,288,(The St-Germain) Flamingo-tail
-1638,59.147,ml,Club soda,General,0,288,(The St-Germain) Flamingo-tail
+1638,59.147,ml,Club Soda,General,0,288,(The St-Germain) Flamingo-tail
 1639,1,ds,"Rhubarb bitters, Fee Brothers",General,0,288,(The St-Germain) Flamingo-tail
-1640,1,twst,Lemon peel (half a lemon's worth),General,0,288,(The St-Germain) Flamingo-tail
+1640,1,twst,Lemon peel,General,0,288,(The St-Germain) Flamingo-tail
 1641,59.147,ml,"Bourbon, Buffalo Trace",Whisky,4,289,St Louis Park
 1642,22.180125,ml,Cardamaro,Wine,8,289,St Louis Park
 1643,14.78675,ml,Ruby Port,Wine,8,289,St Louis Park
@@ -1712,12 +1712,12 @@
 1710,2,ds,"Bitters, Bittermens Xocolatl Mole",General,0,301,Stranger Than Kindness
 1711,59.147,ml,"Añejo tequila, Pura Vida",Tequila,6,302,Strawberry Confusa
 1712,14.78675,ml,Lemon juice,General,0,302,Strawberry Confusa
-1713,22.180125,ml,Agave syrup,General,0,302,Strawberry Confusa
+1713,22.180125,ml,Agave Syrup,General,0,302,Strawberry Confusa
 1714,1,spl,Soda water,General,0,302,Strawberry Confusa
 1715,2,,Strawberry,General,0,302,Strawberry Confusa
 1716,2,lf,Basil,General,0,302,Strawberry Confusa
 1717,29.5735,ml,"Corn liqueur, Nixta",Liqueur,10,303,Street Corn Cocktail
-1718,14.78675,ml,Ancho Reyes chile liqueur,Liqueur,10,303,Street Corn Cocktail
+1718,14.78675,ml,Ancho Reyes Verde chile liqueur,Liqueur,10,303,Street Corn Cocktail
 1719,22.180125,ml,Raicilla,Spirits,21,303,Street Corn Cocktail
 1720,22.180125,ml,Lime juice,General,0,303,Street Corn Cocktail
 1721,4,spg,Cilantro,General,0,303,Street Corn Cocktail
@@ -1764,7 +1764,7 @@
 1762,22.180125,ml,"Falernum, Velvet Falernum",Liqueur,10,312,Summer's Rathbone
 1763,22.180125,ml,Lemon juice,General,0,312,Summer's Rathbone
 1764,1,sli,Cucumber,Garnish,11,312,Summer's Rathbone
-1765,29.5735,ml,Bison grass vodka,Vodka,3,313,Summertime Clothes
+1765,29.5735,ml,Bison Grass Vodka,Vodka,3,313,Summertime Clothes
 1766,29.5735,ml,Reposado Tequila,Tequila,6,313,Summertime Clothes
 1767,22.180125,ml,Lime juice,General,0,313,Summertime Clothes
 1768,22.180125,ml,Ginger syrup,General,0,313,Summertime Clothes
@@ -1774,15 +1774,15 @@
 1772,73.93375,ml,Lemon juice (Fresh Squeezed),General,0,314,Sumo Cucumber Collins
 1773,44.36025,ml,Simple syrup,General,0,314,Sumo Cucumber Collins
 1774,88.7205,ml,"Gin, Hendrick's",Gin,1,314,Sumo Cucumber Collins
-1775,88.7205,ml,Club soda,General,0,314,Sumo Cucumber Collins
+1775,88.7205,ml,Club Soda,General,0,314,Sumo Cucumber Collins
 1776,1,spg,Mint,Garnish,11,314,Sumo Cucumber Collins
-1777,1,,Chili pepper (Chiltepin),General,0,315,The Sun Goes Down
+1777,1,,Chili Pepper,General,0,315,The Sun Goes Down
 1778,59.147,ml,Reposado Tequila,Tequila,6,315,The Sun Goes Down
 1779,29.5735,ml,Orange juice,General,0,315,The Sun Goes Down
 1780,14.78675,ml,Lime juice,General,0,315,The Sun Goes Down
 1781,14.78675,ml,Grenadine,General,0,315,The Sun Goes Down
 1782,44.36025,ml,"Bourbon, Buffalo Trace",Whisky,4,316,The Summit
-1783,14.78675,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,316,The Summit
+1783,14.78675,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,316,The Summit
 1784,22.180125,ml,"Aromatized wine, Lillet Rose",Wine,8,316,The Summit
 1785,22.180125,ml,"Elderflower liqueur, St. Elder",Liqueur,10,316,The Summit
 1786,22.180125,ml,Grapefruit juice,General,0,316,The Summit
@@ -1800,7 +1800,7 @@
 1798,2,ds,"Peach bitters, Fee Brothers Peach",General,0,318,Surfer Rosa Obscura
 1799,4,dr,"Rose water, Fee Brothers",General,0,318,Surfer Rosa Obscura
 1800,44.36025,ml,Cachaça,Rum,2,319,Swamp Zombie
-1801,44.36025,ml,Light rum,Rum,2,319,Swamp Zombie
+1801,44.36025,ml,Light Rum,Rum,2,319,Swamp Zombie
 1802,22.180125,ml,"Melon liqueur, Midori",Liqueur,10,319,Swamp Zombie
 1803,9.857833333333332,ml,Simple syrup,General,0,319,Swamp Zombie
 1804,14.78675,ml,Falernum,Liqueur,10,319,Swamp Zombie
@@ -1815,7 +1815,7 @@
 1813,1,ds,"Bitters, Bittermens Xocolatl Mole",General,0,320,Sweatpants & Vodka
 1814,2,ds,"Bitters, Angostura",General,0,320,Sweatpants & Vodka
 1815,3,spg,Mint,General,0,320,Sweatpants & Vodka
-1816,22.180125,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,321,Swee' Pea
+1816,22.180125,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,321,Swee' Pea
 1817,22.180125,ml,"Apricot liqueur, Rothman & Winter Orchard Apricot",Liqueur,10,321,Swee' Pea
 1818,22.180125,ml,"Rye, Knob Creek",Whisky,4,321,Swee' Pea
 1819,11.0900625,ml,"Maraschino Liqueur, Luxardo",Liqueur,10,321,Swee' Pea
@@ -1832,7 +1832,7 @@
 1830,22.180125,ml,Lemon juice,General,0,323,Sword at your Ex-Girlfriend's Wedding
 1831,14.78675,ml,"Parfait Amour, Marie Brizard",Liqueur,10,323,Sword at your Ex-Girlfriend's Wedding
 1832,7.393375,ml,"Peach liqueur, Giffard",Liqueur,10,323,Sword at your Ex-Girlfriend's Wedding
-1833,1,bsp,Cinnamon syrup (1-1),General,0,323,Sword at your Ex-Girlfriend's Wedding
+1833,1,bsp,Cinnamon Syrup,General,0,323,Sword at your Ex-Girlfriend's Wedding
 1834,1,sli,Orange peel,General,0,323,Sword at your Ex-Girlfriend's Wedding
 1835,29.5735,ml,Campari (Coffee Infused**),Liqueur,10,324,Tainted Love
 1836,29.5735,ml,Crème Yvette,Liqueur,10,324,Tainted Love
@@ -1860,7 +1860,7 @@
 1858,1,twst,Blood orange peel,General,0,327,Tallahassee
 1859,44.36025,ml,Highland Scotch (Edradour 10 year),Whisky,4,328,Tartan Cocktail
 1860,22.180125,ml,"Aromatized wine, Cocchi Vermouth di Torino",Wine,8,328,Tartan Cocktail
-1861,7.393375,ml,Drambuie,Whisky,4,328,Tartan Cocktail
+1861,7.393375,ml,Drambuie,Liqueur,10,328,Tartan Cocktail
 1862,7.393375,ml,Ramazzotti,Liqueur,10,328,Tartan Cocktail
 1863,2,ds,"Bitters, Angostura",General,0,328,Tartan Cocktail
 1864,1,twst,Orange peel,Garnish,11,328,Tartan Cocktail
@@ -1881,7 +1881,7 @@
 1879,59.147,ml,Averna,Liqueur,10,331,Tazza di Vita
 1880,14.78675,ml,"Gin, Death's Door",Gin,1,331,Tazza di Vita
 1881,7.393375,ml,Lime juice,General,0,331,Tazza di Vita
-1882,88.7205,ml,Club soda,General,0,331,Tazza di Vita
+1882,88.7205,ml,Club Soda,General,0,331,Tazza di Vita
 1883,1,spg,Mint,Garnish,11,331,Tazza di Vita
 1884,1,sli,Cucumber,Garnish,11,331,Tazza di Vita
 1885,59.147,ml,"Jamaican rum, Coruba",Rum,2,332,Teeth of the Puma
@@ -1892,7 +1892,7 @@
 1890,59.147,ml,Campari,Liqueur,10,333,Ten Month Anniversary
 1891,29.5735,ml,"Rye, Bulleit",Whisky,4,333,Ten Month Anniversary
 1892,19.715666666666664,ml,Lime juice,General,0,333,Ten Month Anniversary
-1893,29.5735,ml,Blanco tequila,Tequila,6,334,Tequila Sunrise (Shelter)
+1893,29.5735,ml,Blanco Tequila,Tequila,6,334,Tequila Sunrise (Shelter)
 1894,29.5735,ml,Orange juice,General,0,334,Tequila Sunrise (Shelter)
 1895,29.5735,ml,"Falernum, Velvet Falernum",Liqueur,10,334,Tequila Sunrise (Shelter)
 1896,29.5735,ml,Lemon juice,General,0,334,Tequila Sunrise (Shelter)
@@ -1900,7 +1900,7 @@
 1898,1,spl,Soda water,General,0,334,Tequila Sunrise (Shelter)
 1899,29.5735,ml,"Gin, Bluecoat",Gin,1,335,Thanksgiving Apéro
 1900,29.5735,ml,"Aromatized wine, Lillet Blanc",Wine,8,335,Thanksgiving Apéro
-1901,7.393375,ml,Cranberry shrub (Homemade using demarara & cider vinegar.),General,0,335,Thanksgiving Apéro
+1901,7.393375,ml,Cranberry shrub,General,0,335,Thanksgiving Apéro
 1902,1,spl,"Prosecco (Or cava, should be dry, fill flute.)",Wine,8,335,Thanksgiving Apéro
 1903,59.147,ml,"Scotch, Famous Grouse",Whisky,4,336,That'll Take the Edge Off
 1904,22.180125,ml,Sweet vermouth,Wine,8,336,That'll Take the Edge Off
@@ -1914,13 +1914,13 @@
 1912,22.180125,ml,Lemon juice,General,0,337,There's a Road-Snake On Your Hammie
 1913,2,t,Honey,General,0,337,There's a Road-Snake On Your Hammie
 1914,1⁄8,t,Nutmeg,General,0,337,There's a Road-Snake On Your Hammie
-1915,1,?,Cinnamon stick,General,0,337,There's a Road-Snake On Your Hammie
+1915,1,?,Cinnamon Stick,General,0,337,There's a Road-Snake On Your Hammie
 1916,1,sli,Lemon,General,0,337,There's a Road-Snake On Your Hammie
 1917,44.36025,ml,"Old Tom Gin, Tanqueray Old Tom",Gin,1,338,Thom Collins
 1918,29.5735,ml,Grapefruit liqueur (Edmond Briottet),Liqueur,10,338,Thom Collins
 1919,7.393375,ml,Aperol,Liqueur,10,338,Thom Collins
 1920,14.78675,ml,Lemon juice,General,0,338,Thom Collins
-1921,118.294,ml,India Pale Ale (Burning Bros. Grapefruit IPA),Beer,7,338,Thom Collins
+1921,118.294,ml,India Pale Ale,Beer,7,338,Thom Collins
 1922,1,twst,Lemon peel,General,0,338,Thom Collins
 1923,44.36025,ml,"Gin, Fords",Gin,1,339,The Thunderball
 1924,14.78675,ml,Lemon juice,General,0,339,The Thunderball
@@ -1937,15 +1937,15 @@
 1935,1,,"Maraschino cherry, Luxardo",Garnish,11,340,Thursday's Child
 1936,59.147,ml,"White whiskey, Bully Boy",Whisky,4,341,Thunder Shirt
 1937,14.78675,ml,"Jamaican rum, Smith & Cross",Rum,2,341,Thunder Shirt
-1938,22.180125,ml,"Ginger syrup, Ginger People",General,0,341,Thunder Shirt
+1938,22.180125,ml,Ginger syrup,General,0,341,Thunder Shirt
 1939,22.180125,ml,Lime juice,General,0,341,Thunder Shirt
 1940,2,ds,"Pimento bitters, Dale De Groff",General,0,341,Thunder Shirt
 1941,2,ds,"Bitters, Angostura",General,0,342,The Thunderdome
-1942,7.393375,ml,Maple syrup,General,0,342,The Thunderdome
+1942,7.393375,ml,Maple Syrup,General,0,342,The Thunderdome
 1943,29.5735,ml,Fernet Branca,Spirits,21,342,The Thunderdome
 1944,29.5735,ml,"Rye, Rittenhouse 100",Whisky,4,342,The Thunderdome
 1945,44.36025,ml,Pear eau de vie,Brandy,5,343,Thyme Cocktail
-1946,14.78675,ml,Cinnamon syrup,General,0,343,Thyme Cocktail
+1946,14.78675,ml,Cinnamon Syrup,General,0,343,Thyme Cocktail
 1947,7.393375,ml,Lemon juice,General,0,343,Thyme Cocktail
 1948,3,spg,Thyme,General,0,343,Thyme Cocktail
 1949,59.147,ml,"Gin, Tanqueray 10",Gin,1,344,Thyme and Thyme Again
@@ -1972,7 +1972,7 @@
 1970,44.36025,ml,Aquavit,Spirits,21,348,Tigrebyn
 1971,14.78675,ml,Lime juice,General,0,348,Tigrebyn
 1972,14.78675,ml,Triple sec,Liqueur,10,348,Tigrebyn
-1973,14.78675,ml,Cranberry juice,General,0,348,Tigrebyn
+1973,14.78675,ml,Cranberry Juice,General,0,348,Tigrebyn
 1974,29.5735,ml,"Jamaican rum, Smith & Cross",Rum,2,349,Tiki Diki
 1975,14.78675,ml,Licor 43,Liqueur,10,349,Tiki Diki
 1976,14.78675,ml,"Ginger liqueur, Domaine de Canton",Liqueur,10,349,Tiki Diki
@@ -2002,7 +2002,7 @@
 2000,22.180125,ml,Lime juice,General,0,353,Tongue Thai'd
 2001,22.180125,ml,Guava juice (Puree is better),General,0,353,Tongue Thai'd
 2002,7.393375,ml,Orgeat,General,0,353,Tongue Thai'd
-2003,2,lf,Basil (1 for Garnish),General,0,353,Tongue Thai'd
+2003,2,lf,Basil,Garnish,11,353,Tongue Thai'd
 2004,14.78675,ml,Simple syrup,General,0,353,Tongue Thai'd
 2005,44.36025,ml,Añejo rum,Rum,2,354,Tonic Cubano
 2006,1,sli,Lime,General,0,354,Tonic Cubano
@@ -2016,28 +2016,28 @@
 2014,1,twst,Orange peel,Garnish,11,355,Tony Chestnut
 2015,1,,Candied chestnut,Garnish,11,355,Tony Chestnut
 2016,59.147,ml,"Speyside Scotch, Macallan 12",Whisky,4,356,Tooth & Nail
-2017,14.78675,ml,Drambuie,Whisky,4,356,Tooth & Nail
+2017,14.78675,ml,Drambuie,Liqueur,10,356,Tooth & Nail
 2018,14.78675,ml,Cynar,Liqueur,10,356,Tooth & Nail
 2019,1 1⁄2,bsp,Amer Picon,Liqueur,10,356,Tooth & Nail
 2020,2,ds,"Bitters, Fee Brothers Peach",General,0,356,Tooth & Nail
 2021,29.5735,ml,"Old Tom Gin, Tanqueray Old Tom",Gin,1,357,Tortuga Truth Serum
-2022,29.5735,ml,"Apple brandy, Lairds Bonded",Brandy,5,357,Tortuga Truth Serum
+2022,29.5735,ml,"Apple brandy, Laird's Bonded",Brandy,5,357,Tortuga Truth Serum
 2023,14.78675,ml,"Demerara Rum, Lemon Hart 151",Rum,2,357,Tortuga Truth Serum
 2024,14.78675,ml,"Orange liqueur, Grand Marnier",Liqueur,10,357,Tortuga Truth Serum
 2025,29.5735,ml,Pineapple juice,General,0,357,Tortuga Truth Serum
 2026,14.78675,ml,Lime juice,General,0,357,Tortuga Truth Serum
 2027,7.393375,ml,Orange juice,General,0,357,Tortuga Truth Serum
-2028,14.78675,ml,Cinnamon syrup (*peppercorn & juinper infused),General,0,357,Tortuga Truth Serum
-2029,1,bsp,"Allspice Dram, St Elizabeth",Liqueur,10,357,Tortuga Truth Serum
+2028,14.78675,ml,Cinnamon Syrup,General,0,357,Tortuga Truth Serum
+2029,1,bsp,"Allspice Dram, St. Elizabeth",Liqueur,10,357,Tortuga Truth Serum
 2030,2,ds,Bitters (*Five Watt Sweet Fennel Bitters),General,0,357,Tortuga Truth Serum
 2031,59.147,ml,Pisco,Brandy,5,358,Torres del Paine
 2032,14.78675,ml,Gran Classico,General,0,358,Torres del Paine
 2033,14.78675,ml,Cynar,Liqueur,10,358,Torres del Paine
 2034,14.78675,ml,Lemon juice,General,0,358,Torres del Paine
-2035,1,twst,"Lemon peel (swath, muddled)",General,0,358,Torres del Paine
+2035,1,twst,Lemon peel,General,0,358,Torres del Paine
 2036,1,twst,"Orange peel (swath, muddled)",General,0,358,Torres del Paine
 2037,29.5735,ml,Calvados (Or other aged apple brandy),Brandy,5,359,Town Crier
-2038,29.5735,ml,Añejo rum (I used Barbancourt 8 Year),Rum,2,359,Town Crier
+2038,29.5735,ml,Añejo rum (Barbancourt 8 Year),Rum,2,359,Town Crier
 2039,14.78675,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,359,Town Crier
 2040,14.78675,ml,Bénédictine,General,0,359,Town Crier
 2041,2,ds,Peychaud's Bitters,General,0,359,Town Crier
@@ -2047,8 +2047,8 @@
 2045,14.78675,ml,Aperol,Liqueur,10,360,Traidor
 2046,1,sli,Orange peel,General,0,360,Traidor
 2047,3,ds,"Bitters, 5 by 5 Aromatic",General,0,360,Traidor
-2048,29.5735,ml,Dark rum,Rum,2,361,Towsey Typhoon
-2049,22.180125,ml,Light rum,Rum,2,361,Towsey Typhoon
+2048,29.5735,ml,Dark Rum,Rum,2,361,Towsey Typhoon
+2049,22.180125,ml,Light Rum,Rum,2,361,Towsey Typhoon
 2050,14.78675,ml,Curaçao,Liqueur,10,361,Towsey Typhoon
 2051,29.5735,ml,Lime juice,General,0,361,Towsey Typhoon
 2052,22.180125,ml,Ginger syrup,General,0,361,Towsey Typhoon
@@ -2082,11 +2082,11 @@
 2080,88.7205,ml,Sparkling white wine,Wine,8,365,Treble Green
 2081,4,sli,Cucumber,Garnish,11,365,Treble Green
 2082,22.180125,ml,Averna,Liqueur,10,366,Tre Amari Fizz
-2083,22.180125,ml,Fernet Branca,General,0,366,Tre Amari Fizz
-2084,22.180125,ml,Cynar (See note above.),Liqueur,10,366,Tre Amari Fizz
+2083,22.180125,ml,Fernet Branca,Spirits,21,366,Tre Amari Fizz
+2084,22.180125,ml,Cynar,Liqueur,10,366,Tre Amari Fizz
 2085,7.393375,ml,Demerara syrup,General,0,366,Tre Amari Fizz
 2086,14.78675,ml,Lemon juice,General,0,366,Tre Amari Fizz
-2087,59.147,ml,Heavy cream,General,0,366,Tre Amari Fizz
+2087,59.147,ml,Heavy Cream,General,0,366,Tre Amari Fizz
 2088,1,,Egg white,General,0,366,Tre Amari Fizz
 2089,4,dr,Orange flower water,General,0,366,Tre Amari Fizz
 2090,59.147,ml,"Ginger beer (In glass, not in shake.)",General,0,366,Tre Amari Fizz
@@ -2100,7 +2100,7 @@
 2098,1⁄2,,Lime,General,0,368,Tropical Caipirinha
 2099,14.78675,ml,Simple syrup,General,0,368,Tropical Caipirinha
 2100,44.36025,ml,Cachaça,Rum,2,368,Tropical Caipirinha
-2101,14.78675,ml,Coconut rum,Rum,2,368,Tropical Caipirinha
+2101,14.78675,ml,Coconut Rum,Rum,2,368,Tropical Caipirinha
 2102,22.180125,ml,Pineapple juice,General,0,368,Tropical Caipirinha
 2103,44.36025,ml,"Rye, Bulleit",Whisky,4,369,True Syrum
 2104,22.180125,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,369,True Syrum
@@ -2178,11 +2178,11 @@
 2176,14.78675,ml,"Orange liqueur, Grand Marnier",Liqueur,10,382,The Undertaker
 2177,7.393375,ml,Cynar,Liqueur,10,382,The Undertaker
 2178,14.78675,ml,Grapefruit juice,General,0,382,The Undertaker
-2179,36.966875,ml,Light rum,Rum,2,383,"Uno, Dos, Cuarenta y Tres"
+2179,36.966875,ml,Light Rum,Rum,2,383,"Uno, Dos, Cuarenta y Tres"
 2180,14.78675,ml,"Spiced Rum, Sailor Jerry",Rum,2,383,"Uno, Dos, Cuarenta y Tres"
 2181,14.78675,ml,"Jamaican rum, Smith & Cross",Rum,2,383,"Uno, Dos, Cuarenta y Tres"
 2182,14.78675,ml,Licor 43,Liqueur,10,383,"Uno, Dos, Cuarenta y Tres"
-2183,14.78675,ml,Lime juice (heavy),General,0,383,"Uno, Dos, Cuarenta y Tres"
+2183,14.78675,ml,Lime juice,General,0,383,"Uno, Dos, Cuarenta y Tres"
 2184,5,dr,"Bolivar Bitters, Bittercube",General,0,383,"Uno, Dos, Cuarenta y Tres"
 2185,22.180125,ml,Mezcal (Verde),Mezcal,20,384,Unusual sour
 2186,14.78675,ml,"Rye, Rittenhouse 100",Whisky,4,384,Unusual sour
@@ -2219,7 +2219,7 @@
 2217,29.5735,ml,Gin (Barrel aged),Gin,1,390,Vegetal Vector
 2218,14.78675,ml,Applejack,Brandy,5,390,Vegetal Vector
 2219,22.180125,ml,Cynar,Liqueur,10,390,Vegetal Vector
-2220,14.78675,ml,Ancho Reyes chile liqueur,Liqueur,10,390,Vegetal Vector
+2220,14.78675,ml,Ancho Reyes Verde chile liqueur,Liqueur,10,390,Vegetal Vector
 2221,14.78675,ml,Fernet,Spirits,21,390,Vegetal Vector
 2222,14.78675,ml,Beet syrup,General,0,390,Vegetal Vector
 2223,1,lf,Cilantro,Garnish,11,390,Vegetal Vector
@@ -2234,7 +2234,7 @@
 2232,14.78675,ml,Aperol,Liqueur,10,392,Veneto Negroni
 2233,29.5735,ml,Sweet vermouth,Wine,8,392,Veneto Negroni
 2234,1,twst,Grapefruit peel,Garnish,11,392,Veneto Negroni
-2235,88.7205,ml,"Aquavit, Linie",Liqueur,10,393,Veronitini
+2235,88.7205,ml,"Aquavit, Linie",Spirits,21,393,Veronitini
 2236,14.78675,ml,Dry vermouth,Wine,8,393,Veronitini
 2237,14.78675,ml,"Cherry Liqueur, Cherry Heering",Liqueur,10,393,Veronitini
 2238,1⁄2,t,Absinthe,Spirits,21,393,Veronitini
@@ -2242,7 +2242,7 @@
 2240,14.78675,ml,Vodka,Vodka,3,394,Vesper
 2241,7.393375,ml,"Aromatized wine, Lillet Blanc (or Cocchi Americano)",Wine,8,394,Vesper
 2242,1,twst,Lemon zest,Garnish,11,394,Vesper
-2243,44.36025,ml,Blanco tequila,Tequila,6,395,Victor Victoria
+2243,44.36025,ml,Blanco Tequila,Tequila,6,395,Victor Victoria
 2244,22.180125,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,395,Victor Victoria
 2245,22.180125,ml,"Elderflower liqueur, St. Germain",Liqueur,10,395,Victor Victoria
 2246,22.180125,ml,Lime juice,General,0,395,Victor Victoria
@@ -2281,7 +2281,7 @@
 2279,29.5735,ml,Lemon juice,General,0,402,Ward 8 Tiki
 2280,29.5735,ml,"Orange Curaçao, Bols",Liqueur,10,402,Ward 8 Tiki
 2281,29.5735,ml,"Apricot liqueur, Rothman & Winter Orchard Apricot",Liqueur,10,402,Ward 8 Tiki
-2282,1,spl,Grenadine (to taste),General,0,402,Ward 8 Tiki
+2282,1,spl,Grenadine,General,0,402,Ward 8 Tiki
 2283,2,dr,"Bitters, Stirrings Blood Orange",General,0,402,Ward 8 Tiki
 2284,2,sli,Orange,Garnish,11,402,Ward 8 Tiki
 2285,2,,Cherry,Garnish,11,402,Ward 8 Tiki
@@ -2324,10 +2324,10 @@
 2322,2,ds,"Bitters, Fee Brothers Orange",General,0,410,Windy City Lights
 2323,44.36025,ml,"Oloroso sherry, Lustau",Wine,8,411,Window to the Flor
 2324,44.36025,ml,"Aromatized wine, Lillet Blanc (or Cocchi Americano)",Wine,8,411,Window to the Flor
-2325,7.393375,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,411,Window to the Flor
+2325,7.393375,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,411,Window to the Flor
 2326,2,ds,"Orange bitters, Regans' orange bitters",General,0,411,Window to the Flor
 2327,59.147,ml,Bonal Gentiane Quina,Wine,8,412,Winter Cap
-2328,29.5735,ml,Calvados,Spirits,21,412,Winter Cap
+2328,29.5735,ml,Calvados,Brandy,5,412,Winter Cap
 2329,14.78675,ml,"Demerara Rum, Hamilton Demerara 151",Rum,2,412,Winter Cap
 2330,1,rinse,Becherovka,Liqueur,10,412,Winter Cap
 2331,1,twst,Orange peel,General,0,412,Winter Cap
@@ -2342,7 +2342,7 @@
 2340,59.147,ml,Gin (11 Wells - Ecgberht Gin),Gin,1,415,Wintery Mix
 2341,22.180125,ml,"Orange chocolate liqueur, Distillerie de Biercée Orangine",Liqueur,10,415,Wintery Mix
 2342,1⁄2,bsp,Absinthe,Spirits,21,415,Wintery Mix
-2343,2,ds,Bitters (Five Watt - Gin Bitters),Gin,1,415,Wintery Mix
+2343,2,ds,Bitters (Five Watt - Gin Bitters),General,0,415,Wintery Mix
 2344,29.5735,ml,"Apple brandy, Lairds",Brandy,5,416,Winterfall
 2345,29.5735,ml,Galliano,Liqueur,10,416,Winterfall
 2346,3,ds,Peychaud's Bitters,General,0,416,Winterfall
@@ -2354,14 +2354,14 @@
 2352,44.36025,ml,"Gin, Broker's",Gin,1,418,Witches Jelly
 2353,22.180125,ml,Amaro Montenegro,Liqueur,10,418,Witches Jelly
 2354,22.180125,ml,White grapefruit juice,General,0,418,Witches Jelly
-2355,7.393375,ml,Cinnamon syrup (To taste. 2:1 cinnamon syrup.),General,0,418,Witches Jelly
+2355,7.393375,ml,Cinnamon Syrup,General,0,418,Witches Jelly
 2356,29.5735,ml,"Scotch, Monkey Shoulder",Whisky,4,419,Witches' Blood
 2357,14.78675,ml,Cherry Liqueur,Liqueur,10,419,Witches' Blood
 2358,22.180125,ml,"Sweet vermouth, Dolin",Wine,8,419,Witches' Blood
 2359,22.180125,ml,Strega,Liqueur,10,419,Witches' Blood
 2360,1,ds,Blood Orange Bitters,General,0,419,Witches' Blood
 2361,22.180125,ml,Genever,Liqueur,10,420,Wooden Shoe
-2362,22.180125,ml,Apple brandy,Brandy,5,420,Wooden Shoe
+2362,22.180125,ml,Apple Brandy,Brandy,5,420,Wooden Shoe
 2363,29.5735,ml,Cardamaro,Wine,8,420,Wooden Shoe
 2364,7.393375,ml,Bénédictine,General,0,420,Wooden Shoe
 2365,7.393375,ml,"Herbal liqueur, Yellow Chartreuse",Liqueur,10,420,Wooden Shoe
@@ -2384,7 +2384,7 @@
 2382,1,twst,Orange peel,Garnish,11,422,Working in a Coal Mine
 2383,59.147,ml,Gin,Gin,1,423,Wytches' Brew
 2384,22.180125,ml,Limoncello,Vodka,3,423,Wytches' Brew
-2385,7.393375,ml,Calvados,Spirits,21,423,Wytches' Brew
+2385,7.393375,ml,Calvados,Brandy,5,423,Wytches' Brew
 2386,2,ds,Fernet Branca,Spirits,21,423,Wytches' Brew
 2387,1,ds,"Absinthe, Pernod",Spirits,21,423,Wytches' Brew
 2388,19.715666666666664,ml,"Gin, Barr Hill Tom Cat",Gin,1,424,Wrong Week
@@ -2394,12 +2394,12 @@
 2392,1,t,"Orange liqueur, Grand Marnier",Liqueur,10,424,Wrong Week
 2393,1,ds,Orange bitters,General,0,424,Wrong Week
 2394,44.36025,ml,"Blended Scotch, Dewar's",Whisky,4,425,Xocolatl Talisman
-2395,14.78675,ml,Drambuie,Whisky,4,425,Xocolatl Talisman
-2396,22.180125,ml,Agave syrup,General,0,425,Xocolatl Talisman
-2397,29.5735,ml,Espresso (a freshly brewed shot),General,0,425,Xocolatl Talisman
-2398,1,pn,Cayenne pepper,General,0,425,Xocolatl Talisman
+2395,14.78675,ml,Drambuie,Liqueur,10,425,Xocolatl Talisman
+2396,22.180125,ml,Agave Syrup,General,0,425,Xocolatl Talisman
+2397,29.5735,ml,Espresso,General,0,425,Xocolatl Talisman
+2398,1,pn,Cayenne Pepper,General,0,425,Xocolatl Talisman
 2399,2,ds,"Bitters, Bittermens Xocolatl Mole",General,0,425,Xocolatl Talisman
-2400,3,,Coffee bean,Garnish,11,425,Xocolatl Talisman
+2400,3,,Coffee Bean,Garnish,11,425,Xocolatl Talisman
 2401,44.36025,ml,Amaro Montenegro,Liqueur,10,426,Xocula
 2402,29.5735,ml,"Amontillado Sherry, Lustau Dry Amontillado",Wine,8,426,Xocula
 2403,14.78675,ml,"Mezcal, Del Maguey Vida",Mezcal,20,426,Xocula
@@ -2415,10 +2415,10 @@
 2413,22.180125,ml,"Crème de Banane, Giffard",Liqueur,10,428,Years Of Worry
 2414,7.393375,ml,"Aromatized wine, Cocchi Americano",Wine,8,428,Years Of Worry
 2415,1,ds,Bitters (Xocolatl Mole),General,0,428,Years Of Worry
-2416,36.966875,ml,Blanco tequila,Tequila,6,429,Yellow Raj
+2416,36.966875,ml,Blanco Tequila,Tequila,6,429,Yellow Raj
 2417,22.180125,ml,"Herbal liqueur, Yellow Chartreuse",Liqueur,10,429,Yellow Raj
 2418,29.5735,ml,Lime juice,General,0,429,Yellow Raj
-2419,7.393375,ml,Agave syrup,General,0,429,Yellow Raj
+2419,7.393375,ml,Agave Syrup,General,0,429,Yellow Raj
 2420,22.180125,ml,Gin,Gin,1,430,The Yellow Cocktail
 2421,22.180125,ml,"Herbal liqueur, Yellow Chartreuse",Liqueur,10,430,The Yellow Cocktail
 2422,22.180125,ml,Suze,Liqueur,10,430,The Yellow Cocktail
@@ -2441,7 +2441,7 @@
 2439,14.78675,ml,Orange juice,General,0,433,You're a Fine Girl
 2440,7.393375,ml,Falernum,Liqueur,10,433,You're a Fine Girl
 2441,7.393375,ml,Orgeat,General,0,433,You're a Fine Girl
-2442,7.393375,ml,Maple syrup,General,0,433,You're a Fine Girl
+2442,7.393375,ml,Maple Syrup,General,0,433,You're a Fine Girl
 2443,3,ds,"Bitters, Angostura",General,0,433,You're a Fine Girl
 2444,1,pn,Nutmeg,Garnish,11,433,You're a Fine Girl
 2445,1,sli,Lemon,Garnish,11,433,You're a Fine Girl
@@ -2449,12 +2449,12 @@
 2447,59.147,ml,Gold rum,Rum,2,434,You'll Shoot Your Eye Out
 2448,14.78675,ml,Becherovka,Liqueur,10,434,You'll Shoot Your Eye Out
 2449,14.78675,ml,Bénédictine,General,0,434,You'll Shoot Your Eye Out
-2450,7.393375,ml,Cinnamon syrup,General,0,434,You'll Shoot Your Eye Out
+2450,7.393375,ml,Cinnamon Syrup,General,0,434,You'll Shoot Your Eye Out
 2451,3,ds,"Orange bitters, Angostura orange",General,0,434,You'll Shoot Your Eye Out
 2452,1,twst,Orange peel,Garnish,11,434,You'll Shoot Your Eye Out
 2453,29.5735,ml,"Apple liqueur, Du Nord",Liqueur,10,435,Yukon Cornelious
 2454,22.180125,ml,Blended Scotch (Cutty Sark),Whisky,4,435,Yukon Cornelious
-2455,14.78675,ml,Honey syrup (1-1),General,0,435,Yukon Cornelious
+2455,14.78675,ml,Honey syrup (1:1),General,0,435,Yukon Cornelious
 2456,14.78675,ml,Lemon juice,General,0,435,Yukon Cornelious
 2457,2,ds,Bitters (Dashfire Allspice),General,0,435,Yukon Cornelious
 2458,1,twst,Lemon peel,Garnish,11,436,Yunnan Old Fashioned
@@ -2471,7 +2471,7 @@
 2469,29.5735,ml,"Demerara Rum, Lemon Hart 151",Rum,2,438,Zombie
 2470,22.180125,ml,Lime juice,General,0,438,Zombie
 2471,2,t,Grapefruit juice,General,0,438,Zombie
-2472,1,t,Cinnamon syrup,General,0,438,Zombie
+2472,1,t,Cinnamon Syrup,General,0,438,Zombie
 2473,1,t,Grenadine,General,0,438,Zombie
 2474,14.78675,ml,"Falernum, Velvet Falernum",Liqueur,10,438,Zombie
 2475,1⁄8,t,"Pastis, Pernod",Spirits,21,438,Zombie
@@ -2498,8 +2498,8 @@
 2496,1,ds,"Orange bitters, Regans' orange bitters",General,0,442,2 to 2
 2497,1,twst,Orange peel,Garnish,11,442,2 to 2
 2498,22.180125,ml,Scotch (I used Compass Box's Great King Street),Whisky,4,443,3:20 in the Morning
-2499,22.180125,ml,Apple brandy (Laird's Bonded),Brandy,5,443,3:20 in the Morning
-2500,22.180125,ml,Drambuie,Whisky,4,443,3:20 in the Morning
+2499,22.180125,ml,"Apple brandy, Laird's Bonded",Brandy,5,443,3:20 in the Morning
+2500,22.180125,ml,Drambuie,Liqueur,10,443,3:20 in the Morning
 2501,22.180125,ml,Cynar,Liqueur,10,443,3:20 in the Morning
 2502,22.180125,ml,Lemon juice,General,0,443,3:20 in the Morning
 2503,7.393375,ml,Honey syrup (1:1),General,0,443,3:20 in the Morning
@@ -2508,19 +2508,19 @@
 2506,29.5735,ml,Lime juice,General,0,444,3 o'clock
 2507,29.5735,ml,Egg white,General,0,444,3 o'clock
 2508,14.78675,ml,"Framboise, Mathilde",Liqueur,10,444,3 o'clock
-2509,14.78675,ml,Agave syrup,General,0,444,3 o'clock
+2509,14.78675,ml,Agave Syrup,General,0,444,3 o'clock
 2510,6,dr,"Bitters, Bittercube Corazon",Garnish,11,444,3 o'clock
 2511,29.5735,ml,"Gin, Hendrick's",Gin,1,445,4th and Clyde
 2512,29.5735,ml,"Bourbon, Maker's Mark",Whisky,4,445,4th and Clyde
 2513,29.5735,ml,"Elderflower liqueur, St. Germain",Liqueur,10,445,4th and Clyde
 2514,1,bsp,Honey,General,0,445,4th and Clyde
-2515,1,pn,Chili pepper (flakes),General,0,445,4th and Clyde
+2515,1,pn,Chili Pepper,General,0,445,4th and Clyde
 2516,73.93375,ml,"Gin, Tanqueray 10 (*masala chai infused)",Gin,1,446,5 O'Clock Tea
 2517,22.180125,ml,Heavy whipping cream,General,0,446,5 O'Clock Tea
 2518,2,dr,"Jamaican #1 bitters, Bittercube",General,0,446,5 O'Clock Tea
-2519,2,t,Brown sugar (packed),General,0,446,5 O'Clock Tea
+2519,2,t,Brown Sugar,General,0,446,5 O'Clock Tea
 2520,59.147,ml,"Martinique Rum, La Favorite",Rum,2,447,5 Spot
-2521,11.0900625,ml,Maple syrup,General,0,447,5 Spot
+2521,11.0900625,ml,Maple Syrup,General,0,447,5 Spot
 2522,11.0900625,ml,Water,General,0,447,5 Spot
 2523,22.180125,ml,Lime juice,General,0,447,5 Spot
 2524,7.393375,ml,Ginger syrup,General,0,447,5 Spot
@@ -2540,7 +2540,7 @@
 2538,14.78675,ml,"Ginger liqueur, Domaine de Canton",Liqueur,10,450,10 Penny Mule
 2539,14.78675,ml,Lemon juice,General,0,450,10 Penny Mule
 2540,6,lf,Mint,General,0,450,10 Penny Mule
-2541,118.294,ml,"Ginger beer, Fentimans (or another spicy ginger beer)",General,0,450,10 Penny Mule
+2541,118.294,ml,"Ginger beer, Fentimans",General,0,450,10 Penny Mule
 2542,1,spg,Mint,General,0,450,10 Penny Mule
 2543,1,sli,Lemon,General,0,450,10 Penny Mule
 2544,59.147,ml,"Gin, Beefeater",Gin,1,451,The 40th Lady
@@ -2554,9 +2554,9 @@
 2552,14.78675,ml,Simple syrup,General,0,452,151 Swizzle
 2553,6,dr,Absinthe,Spirits,21,452,151 Swizzle
 2554,1,ds,"Bitters, Angostura",General,0,452,151 Swizzle
-2555,236.588,ml,Ice (crushed),General,0,452,151 Swizzle
+2555,236.588,ml,Ice,General,0,452,151 Swizzle
 2556,1,pn,"Nutmeg (grated, on top)",General,0,452,151 Swizzle
-2557,1,,Cinnamon stick,General,0,452,151 Swizzle
+2557,1,,Cinnamon Stick,General,0,452,151 Swizzle
 2558,22.180125,ml,"Jamaican rum (Aged, preferably Smith & Cross)",Rum,2,453,1790
 2559,22.180125,ml,Cognac,Brandy,5,453,1790
 2560,29.5735,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,453,1790
@@ -2614,20 +2614,20 @@
 2612,44.36025,ml,Rye (jefferson 10 yr),Whisky,4,463,Agnostic Monk
 2613,22.180125,ml,Bénédictine,General,0,463,Agnostic Monk
 2614,7.393375,ml,"Falernum, Velvet Falernum",Liqueur,10,463,Agnostic Monk
-2615,7.393375,ml,"Islay Scotch, Laphroaig 10 (or less)",Whisky,4,463,Agnostic Monk
+2615,7.393375,ml,"Islay Scotch, Laphroaig 10",Whisky,4,463,Agnostic Monk
 2616,2,ds,Lactart,General,0,463,Agnostic Monk
 2617,59.147,ml,Pisco,Brandy,5,464,Algarrobina
 2618,59.147,ml,Milk (evaporated),General,0,464,Algarrobina
 2619,1,T,Sugar,General,0,464,Algarrobina
 2620,1,,Egg yolk,General,0,464,Algarrobina
-2621,1,T,Carob Syrup (Algarrobina (peruvian: dark carob syrup)),General,0,464,Algarrobina
+2621,1,T,Carob Syrup,General,0,464,Algarrobina
 2622,1,c,Ice,General,0,464,Algarrobina
 2623,1,pn,Cinnamon,Garnish,11,464,Algarrobina
 2624,59.147,ml,"Speyside Scotch, Macallan 12 (Double Cask)",Whisky,4,465,All American Autumn
 2625,118.294,ml,Apple cider,General,0,465,All American Autumn
-2626,7.393375,ml,Maple syrup,General,0,465,All American Autumn
+2626,7.393375,ml,Maple Syrup,General,0,465,All American Autumn
 2627,7.393375,ml,Lemon juice,General,0,465,All American Autumn
-2628,1,ds,"Allspice Dram, St Elizabeth",Liqueur,10,465,All American Autumn
+2628,1,ds,"Allspice Dram, St. Elizabeth",Liqueur,10,465,All American Autumn
 2629,22.180125,ml,Mezcal,Mezcal,20,466,All of Freud's Beautiful Women
 2630,22.180125,ml,Rhum Agricole,Rum,2,466,All of Freud's Beautiful Women
 2631,14.78675,ml,Amaro Montenegro,Liqueur,10,466,All of Freud's Beautiful Women
@@ -2703,9 +2703,9 @@
 2701,1,twst,Orange peel,General,0,478,...and Antarctica
 2702,59.147,ml,"Light rum, Probitas",Rum,2,479,Anne Bonny's Last Call
 2703,14.78675,ml,"Orange liqueur, Clément Créole Shrubb",Liqueur,10,479,Anne Bonny's Last Call
-2704,1,bsp,"Coconut liqueur, Clément Mahina Coco",Liqueur,10,479,Anne Bonny's Last Call
+2704,1,bsp,Coconut Liqueur (Clément Mahina Coco),Liqueur,10,479,Anne Bonny's Last Call
 2705,14.78675,ml,Pineapple syrup (Green Pineapple Cordial),General,0,479,Anne Bonny's Last Call
-2706,22.180125,ml,Lime juice (I use Super juice),General,0,479,Anne Bonny's Last Call
+2706,22.180125,ml,Lime juice,General,0,479,Anne Bonny's Last Call
 2707,1,lf,Pineapple,Garnish,11,479,Anne Bonny's Last Call
 2708,1,spg,Basil,Garnish,11,479,Anne Bonny's Last Call
 2709,1,sli,Lime,Garnish,11,479,Anne Bonny's Last Call
@@ -2771,12 +2771,12 @@
 2769,1,,Orange peel,Garnish,11,489,As The Seasons Grey
 2770,59.147,ml,Byrrh,Wine,8,490,Ask the Dust
 2771,44.36025,ml,Mezcal,Mezcal,20,490,Ask the Dust
-2772,14.78675,ml,Crème de Cacao (I used Tempus Fugit.),Liqueur,10,490,Ask the Dust
+2772,14.78675,ml,Crème de Cacao (Tempus Fugit),Liqueur,10,490,Ask the Dust
 2773,2,ds,"Bitters, Angostura",General,0,490,Ask the Dust
-2774,1,bsp,Absinthe,General,0,490,Ask the Dust
+2774,1,bsp,Absinthe,Spirits,21,490,Ask the Dust
 2775,4,cube,Pineapple,General,0,491,Aske Not
 2776,44.36025,ml,"Gin, Citadelle",Gin,1,491,Aske Not
-2777,14.78675,ml,Maple syrup,General,0,491,Aske Not
+2777,14.78675,ml,Maple Syrup,General,0,491,Aske Not
 2778,1,ds,"Orange bitters, Regans' orange bitters",General,0,491,Aske Not
 2779,1,ds,Peychaud's Bitters,General,0,491,Aske Not
 2780,59.147,ml,Old Tom Gin,Gin,1,492,Astroturf
@@ -2795,17 +2795,17 @@
 2793,7.393375,ml,Lime juice,General,0,494,Aul Man
 2794,1,t,Ginger-Honey Syrup,General,0,494,Aul Man
 2795,1,twst,Lime peel,Garnish,11,494,Aul Man
-2796,2,?,Candied ginger,General,0,494,Aul Man
-2797,51.753625,ml,Apple brandy,Brandy,5,495,Autumn Sour
+2796,2,?,Candied Ginger,General,0,494,Aul Man
+2797,51.753625,ml,Apple Brandy,Brandy,5,495,Autumn Sour
 2798,22.180125,ml,Lemon juice,General,0,495,Autumn Sour
-2799,22.180125,ml,Maple syrup,General,0,495,Autumn Sour
+2799,22.180125,ml,Maple Syrup,General,0,495,Autumn Sour
 2800,7.393375,ml,Allspice Dram,Liqueur,10,495,Autumn Sour
 2801,6,ds,"Bitters, Angostura",General,0,495,Autumn Sour
 2802,1,,Egg white,General,0,495,Autumn Sour
 2803,59.147,ml,Corn Whiskey (Twin Valley Single Barrel),Whisky,4,496,Autumn Sunset
 2804,29.5735,ml,"Applejack, Lairds",Brandy,5,496,Autumn Sunset
 2805,29.5735,ml,Cranberry liqueur,Liqueur,10,496,Autumn Sunset
-2806,14.78675,ml,Cinnamon syrup,General,0,496,Autumn Sunset
+2806,14.78675,ml,Cinnamon Syrup,General,0,496,Autumn Sunset
 2807,1,ds,"Orange bitters, Bitter Truth Orange",General,0,496,Autumn Sunset
 2808,44.36025,ml,Averna,Liqueur,10,497,Averna Sour
 2809,29.5735,ml,Lemon juice,General,0,497,Averna Sour
@@ -2822,7 +2822,7 @@
 2820,1,T,Roe (Tobiko),General,0,499,The Aves
 2821,2,,Quail egg (Whole and Raw),General,0,499,The Aves
 2822,1,,Green Onion,General,0,499,The Aves
-2823,1,wdg,Lemon (Garnish),General,0,499,The Aves
+2823,1,wdg,Lemon,Garnish,11,499,The Aves
 2824,22.180125,ml,"Tequila, Espolon Reposado",Tequila,6,500,Avioncito
 2825,22.180125,ml,Cynar,Liqueur,10,500,Avioncito
 2826,22.180125,ml,Zucca,Liqueur,10,500,Avioncito
@@ -2845,7 +2845,7 @@
 2843,1,ds,"Bitters, Plum Bitters",General,0,504,B.C.M.
 2844,1,?,"Maraschino cherry, Luxardo (Garnish)",General,0,504,B.C.M.
 2845,1,?,Blackberry (For muddling),General,0,504,B.C.M.
-2846,22.180125,ml,"Aquavit, Linie",Liqueur,10,505,Bad Seed
+2846,22.180125,ml,"Aquavit, Linie",Spirits,21,505,Bad Seed
 2847,22.180125,ml,"Amaro Abano, Luxardo",Liqueur,10,505,Bad Seed
 2848,22.180125,ml,Cynar,Liqueur,10,505,Bad Seed
 2849,22.180125,ml,Lemon juice,General,0,505,Bad Seed
@@ -2853,7 +2853,7 @@
 2851,7.393375,ml,"Overproof rum, Lemon Hart 151",Rum,2,506,Bahama Mama A Moi
 2852,9.857833333333332,ml,"Coffee liqueur, Kahlua",Liqueur,10,506,Bahama Mama A Moi
 2853,7.393375,ml,Vanilla liqueur (Nassau Royale),Liqueur,10,506,Bahama Mama A Moi
-2854,9.857833333333332,ml,Coconut liqueur (Clément Mahina),Liqueur,10,506,Bahama Mama A Moi
+2854,9.857833333333332,ml,Coconut Liqueur (Clément Mahina),Liqueur,10,506,Bahama Mama A Moi
 2855,88.7205,ml,Pineapple juice,General,0,506,Bahama Mama A Moi
 2856,22.180125,ml,Lemon juice,General,0,506,Bahama Mama A Moi
 2857,1,spl,Grenadine,General,0,506,Bahama Mama A Moi
@@ -2873,8 +2873,8 @@
 2871,14.78675,ml,"Triple sec, Combier L'Original Liqueur D'Orange",Liqueur,10,509,Bangarang
 2872,22.180125,ml,Lemon juice,General,0,509,Bangarang
 2873,14.78675,ml,Demerara syrup,General,0,509,Bangarang
-2874,5,?,Bing Cherry,Garnish,11,509,Bangarang
-2875,59.147,ml,Blanco tequila,Tequila,6,510,Barcelonnette
+2874,5,,Bing Cherry,Garnish,11,509,Bangarang
+2875,59.147,ml,Blanco Tequila,Tequila,6,510,Barcelonnette
 2876,22.180125,ml,Dry vermouth,Wine,8,510,Barcelonnette
 2877,7.393375,ml,Amère Sauvage,Liqueur,10,510,Barcelonnette
 2878,7.393375,ml,Honey syrup,General,0,510,Barcelonnette
@@ -2884,9 +2884,9 @@
 2882,14.78675,ml,"Rye, Rittenhouse",Whisky,4,511,Bark at the Moon
 2883,7.393375,ml,Averna,Liqueur,10,511,Bark at the Moon
 2884,7.393375,ml,Pedro Ximénez Sherry,Wine,8,511,Bark at the Moon
-2885,1,t,Cinnamon syrup,General,0,511,Bark at the Moon
+2885,1,t,Cinnamon Syrup,General,0,511,Bark at the Moon
 2886,2,ds,"Bitters, Bitter Truth",General,0,511,Bark at the Moon
-2887,59.147,ml,Apple brandy,Brandy,5,512,Barrittster
+2887,59.147,ml,Apple Brandy,Brandy,5,512,Barrittster
 2888,14.78675,ml,Campari,Liqueur,10,512,Barrittster
 2889,14.78675,ml,Aperol,Liqueur,10,512,Barrittster
 2890,22.180125,ml,Lemon juice,General,0,512,Barrittster
@@ -2928,17 +2928,17 @@
 2926,29.5735,ml,Lemon juice,General,0,518,Beekeeper's Apprentice
 2927,29.5735,ml,Honey syrup,General,0,518,Beekeeper's Apprentice
 2928,59.147,ml,"Tequila, Ocho Blanco",Tequila,6,519,Beetox Margarita
-2929,29.5735,ml,Beet Puree (Homemade),General,0,519,Beetox Margarita
-2930,14.78675,ml,Agave syrup,General,0,519,Beetox Margarita
+2929,29.5735,ml,Beet Puree,General,0,519,Beetox Margarita
+2930,14.78675,ml,Agave Syrup,General,0,519,Beetox Margarita
 2931,25.8768125,ml,Lime juice,General,0,519,Beetox Margarita
 2932,3,sli,Beet,Garnish,11,519,Beetox Margarita
 2933,1,spg,Mint,Garnish,11,519,Beetox Margarita
 2934,14.78675,ml,Suze,Liqueur,10,520,Bel-ami
-2935,14.78675,ml,"Herbal liqueur, Yellow Chartreuse (MOF* 45%)",Liqueur,10,520,Bel-ami
+2935,14.78675,ml,"Herbal liqueur, Yellow Chartreuse",Liqueur,10,520,Bel-ami
 2936,44.36025,ml,Dry apricot brandy (Apricot eau de vie),Brandy,5,520,Bel-ami
 2937,29.5735,ml,Vodka,Vodka,3,521,Bell Weather
 2938,14.78675,ml,Lemon juice,General,0,521,Bell Weather
-2939,22.180125,ml,Blueberry shrub,General,0,521,Bell Weather
+2939,22.180125,ml,Blueberry Syrup,General,0,521,Bell Weather
 2940,22.180125,ml,Almond syrup,General,0,521,Bell Weather
 2941,59.147,ml,Prosecco,Wine,8,521,Bell Weather
 2942,44.36025,ml,Islay Scotch,Whisky,4,522,Bend Sinister
@@ -2946,7 +2946,7 @@
 2944,29.5735,ml,Maurin Quina,General,0,522,Bend Sinister
 2945,3,ds,Bitters,General,0,522,Bend Sinister
 2946,1,rinse,Absinthe,Spirits,21,522,Bend Sinister
-2947,1,twst,Lemon peel (discarded),General,0,522,Bend Sinister
+2947,1,twst,Lemon peel,General,0,522,Bend Sinister
 2948,1,,"Cherry, Luxardo",Garnish,11,522,Bend Sinister
 2949,59.147,ml,Añejo rum,Rum,2,523,Benjamin Barker Daiquiri
 2950,14.78675,ml,Campari,Liqueur,10,523,Benjamin Barker Daiquiri
@@ -2964,7 +2964,7 @@
 2962,14.78675,ml,"Walnut Liqueur, Nux Alpina",Liqueur,10,525,Bennett Park
 2963,1,twst,Orange peel,General,0,525,Bennett Park
 2964,29.5735,ml,"Vodka, Hangar One (Spiced Pear)",Vodka,3,526,The Berkeleyside Cocktail
-2965,29.5735,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,526,The Berkeleyside Cocktail
+2965,29.5735,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,526,The Berkeleyside Cocktail
 2966,14.78675,ml,Gran Classico,General,0,526,The Berkeleyside Cocktail
 2967,14.78675,ml,Lime juice,General,0,526,The Berkeleyside Cocktail
 2968,44.36025,ml,Bourbon,Whisky,4,527,Berry Wall
@@ -3006,7 +3006,7 @@
 3004,1,twst,Grapefruit peel,General,0,534,The Big City
 3005,29.5735,ml,Cognac,Brandy,5,535,Big Spender
 3006,29.5735,ml,Pineapple rum,Rum,2,535,Big Spender
-3007,14.78675,ml,Drambuie,Whisky,4,535,Big Spender
+3007,14.78675,ml,Drambuie,Liqueur,10,535,Big Spender
 3008,14.78675,ml,Fernet Branca,Spirits,21,535,Big Spender
 3009,1,twst,Orange peel,Garnish,11,535,Big Spender
 3010,44.36025,ml,"Gin, Hendrick's",Gin,1,536,Bijou Bohème
@@ -3020,7 +3020,7 @@
 3018,14.78675,ml,Honey syrup (1:1),General,0,537,Birds & Bees
 3019,14.78675,ml,Lemon juice,General,0,537,Birds & Bees
 3020,7.393375,ml,Fernet Branca,Spirits,21,537,Birds & Bees
-3021,44.36025,ml,Bison grass vodka,Vodka,3,538,Bison Drop
+3021,44.36025,ml,Bison Grass Vodka,Vodka,3,538,Bison Drop
 3022,14.78675,ml,"Elderflower liqueur, St. Germain",Liqueur,10,538,Bison Drop
 3023,14.78675,ml,Lemon juice,General,0,538,Bison Drop
 3024,14.78675,ml,Honey syrup,General,0,538,Bison Drop
@@ -3037,11 +3037,11 @@
 3035,29.5735,ml,"Coffee liqueur, Mr. Black",Liqueur,10,540,Bitter Irishman
 3036,14.78675,ml,Averna,Liqueur,10,540,Bitter Irishman
 3037,2,ds,"Orange bitters, Regans' orange bitters",General,0,540,Bitter Irishman
-3038,44.36025,ml,Heavy cream (as float),General,0,540,Bitter Irishman
+3038,44.36025,ml,Heavy Cream,General,0,540,Bitter Irishman
 3039,59.147,ml,"Gin, Caorunn",Gin,1,541,Bitter Marty
 3040,22.180125,ml,"Dry vermouth, Carpano",Wine,8,541,Bitter Marty
 3041,14.78675,ml,Salers Gentiane,Liqueur,10,541,Bitter Marty
-3042,7.393375,ml,"Absinthe, Absente",General,0,541,Bitter Marty
+3042,7.393375,ml,"Absinthe, Absente",Spirits,21,541,Bitter Marty
 3043,2,ds,Cardamom bitters,General,0,541,Bitter Marty
 3044,1,twst,Lemon peel,General,0,541,Bitter Marty
 3045,22.180125,ml,"Rye, Rittenhouse 100",Whisky,4,542,Bitter Raisin
@@ -3054,7 +3054,7 @@
 3052,59.147,ml,"Maple Canadian whisky, SAP56",Whisky,4,543,Bitter Sweet Poison
 3053,14.78675,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,543,Bitter Sweet Poison
 3054,22.180125,ml,Lime juice,General,0,543,Bitter Sweet Poison
-3055,14.78675,ml,Maple syrup,General,0,543,Bitter Sweet Poison
+3055,14.78675,ml,Maple Syrup,General,0,543,Bitter Sweet Poison
 3056,59.147,ml,"Bitter lemon soda, Great Jamaican (to top)",General,0,543,Bitter Sweet Poison
 3057,4,dr,"Bitters, Angostura",Garnish,11,543,Bitter Sweet Poison
 3058,1,spg,Thyme,Garnish,11,543,Bitter Sweet Poison
@@ -3064,19 +3064,19 @@
 3062,22.180125,ml,Orange juice,General,0,544,Bitter Union
 3063,22.180125,ml,Lime juice,General,0,544,Bitter Union
 3064,44.36025,ml,"Calvados, Chateau du Breuil",General,0,545,Bitter Winter Night
-3065,22.180125,ml,Drambuie,Whisky,4,545,Bitter Winter Night
+3065,22.180125,ml,Drambuie,Liqueur,10,545,Bitter Winter Night
 3066,14.78675,ml,Lemon juice,General,0,545,Bitter Winter Night
 3067,1,T,Fernet Branca,Spirits,21,545,Bitter Winter Night
 3068,29.5735,ml,Egg white,General,0,545,Bitter Winter Night
 3069,44.36025,ml,Jägermeister,Liqueur,10,546,Black Apple Old Fashioned
-3070,29.5735,ml,Apple brandy,Brandy,5,546,Black Apple Old Fashioned
+3070,29.5735,ml,Apple Brandy,Brandy,5,546,Black Apple Old Fashioned
 3071,2,ds,Apple bitters,General,0,546,Black Apple Old Fashioned
 3072,1,twst,Orange peel,General,0,546,Black Apple Old Fashioned
 3073,44.36025,ml,Gin,Gin,1,547,Black Bowtie Gimlet
 3074,22.180125,ml,Lime juice,General,0,547,Black Bowtie Gimlet
 3075,22.180125,ml,Simple syrup,General,0,547,Black Bowtie Gimlet
 3076,1,ds,"Bitters, Angostura",General,0,547,Black Bowtie Gimlet
-3077,1,ds,Bitters (Five Watt Gin Bitters),Gin,1,547,Black Bowtie Gimlet
+3077,1,Bitters (Five Watt - Gin Bitters),Bitters (Five Watt - Gin Bitters),General,0,547,Black Bowtie Gimlet
 3078,4,dr,Squid ink,General,0,547,Black Bowtie Gimlet
 3079,2,,Salt Solution (atomized),General,0,547,Black Bowtie Gimlet
 3080,29.5735,ml,Sweet vermouth,Wine,8,548,Black Cherry
@@ -3115,14 +3115,14 @@
 3113,29.5735,ml,"Rye, Redemption",Whisky,4,554,Black Rye
 3114,7.393375,ml,Maple syrup (pure),General,0,554,Black Rye
 3115,6,dr,"Bitters, Bittercube Blackstrap",General,0,554,Black Rye
-3116,88.7205,ml,Club soda,General,0,554,Black Rye
-3117,1,spg,Cinnamon stick,General,0,554,Black Rye
+3116,88.7205,ml,Club Soda,General,0,554,Black Rye
+3117,1,spg,Cinnamon Stick,General,0,554,Black Rye
 3118,59.147,ml,"Scotch, Auchentoshan 3 Wood",Whisky,4,555,Black Scott
 3119,36.966875,ml,"Root liqueur, Art in the Age",Liqueur,10,555,Black Scott
 3120,1⁄2,bsp,Grade A dark amber maple syrup,General,0,555,Black Scott
 3121,2,ds,"Blackstrap Bitters, Bittercube (full dropper)",General,0,555,Black Scott
-3122,29.5735,ml,Club soda,General,0,555,Black Scott
-3123,1,spg,Cinnamon stick,General,0,555,Black Scott
+3122,29.5735,ml,Club Soda,General,0,555,Black Scott
+3123,1,spg,Cinnamon Stick,General,0,555,Black Scott
 3124,29.5735,ml,"Bermuda rum, Gosling's Black Seal",Rum,2,556,Black Stacia
 3125,14.78675,ml,"Virgin Islands Rum, Cruzan Blackstrap",Rum,2,556,Black Stacia
 3126,14.78675,ml,Averna,Liqueur,10,556,Black Stacia
@@ -3150,21 +3150,21 @@
 3148,1,pt,Blackberry,General,0,561,Blackberry-Mint Julep
 3149,6,T,Sugar,General,0,561,Blackberry-Mint Julep
 3150,1⁄2,c,Bourbon,Whisky,4,561,Blackberry-Mint Julep
-3151,4,c,Ice cubes (small),General,0,561,Blackberry-Mint Julep
+3151,4,c,Ice,General,0,561,Blackberry-Mint Julep
 3152,4,spg,Mint,General,0,561,Blackberry-Mint Julep
 3153,59.147,ml,Rye,Whisky,4,562,Black Tea Crusta In The Rye
 3154,14.78675,ml,Orange Curaçao,Liqueur,10,562,Black Tea Crusta In The Rye
 3155,14.78675,ml,Lemon juice,General,0,562,Black Tea Crusta In The Rye
 3156,14.78675,ml,Simple syrup (black tea infused simple syrup),General,0,562,Black Tea Crusta In The Rye
 3157,2,ds,Orange bitters (used 1ds Fee & 1ds Regans),General,0,562,Black Tea Crusta In The Rye
-3158,44.36025,ml,Light rum,Rum,2,563,Blackberry Daiquiri
+3158,44.36025,ml,Light Rum,Rum,2,563,Blackberry Daiquiri
 3159,29.5735,ml,Lime juice,General,0,563,Blackberry Daiquiri
 3160,14.78675,ml,"Elderflower liqueur, St. Germain",Liqueur,10,563,Blackberry Daiquiri
 3161,7.393375,ml,Simple syrup,General,0,563,Blackberry Daiquiri
 3162,4,,Blackberry,Garnish,11,563,Blackberry Daiquiri
-3163,1,ds,Bitters (Grapefruit bitters recommended),General,0,563,Blackberry Daiquiri
+3163,1,ds,Grapefruit Bitters,General,0,563,Blackberry Daiquiri
 3164,59.147,ml,"Demerara Rum, El Dorado 8",Rum,2,564,Blackcurrant Knickerbocker
-3165,29.5735,ml,Lemon juice (or lemon/lime juice mix),General,0,564,Blackcurrant Knickerbocker
+3165,29.5735,ml,Lemon juice,General,0,564,Blackcurrant Knickerbocker
 3166,14.78675,ml,"Triple sec, Cointreau",Liqueur,10,564,Blackcurrant Knickerbocker
 3167,7.393375,ml,Cassis,General,0,564,Blackcurrant Knickerbocker
 3168,7.393375,ml,Blackcurrant preserves,General,0,564,Blackcurrant Knickerbocker
@@ -3179,14 +3179,14 @@
 3177,1,sli,Blood orange,Garnish,11,566,Bloody American
 3178,59.147,ml,"Gin, Art in the Age Sage",Gin,1,567,Bloody Nocturne
 3179,14.78675,ml,Pickle brine (Ideally salty dutch spear),General,0,567,Bloody Nocturne
-3180,14.78675,ml,Ancho Reyes chile liqueur,Liqueur,10,567,Bloody Nocturne
+3180,14.78675,ml,Ancho Reyes Verde chile liqueur,Liqueur,10,567,Bloody Nocturne
 3181,2,ds,Bitters (FIlthy Dirty Cocktail Spice),General,0,567,Bloody Nocturne
 3182,3,pn,Salt,General,0,567,Bloody Nocturne
 3183,44.36025,ml,Lemon vodka (Charbay Meyer Lemon),Vodka,3,568,Blue Monday
 3184,14.78675,ml,Gran Classico,General,0,568,Blue Monday
 3185,29.5735,ml,"Simple syrup (Blueberry Wine Syrup, Recipe Below)",Wine,8,568,Blue Monday
 3186,14.78675,ml,Lemon juice,General,0,568,Blue Monday
-3187,3,,Blueberry (Garnish),General,0,568,Blue Monday
+3187,3,,Blueberry,Garnish,11,568,Blue Monday
 3188,59.147,ml,"Gin, Bombay Sapphire",Gin,1,569,Blue Pegu
 3189,22.180125,ml,Blue Curaçao,Liqueur,10,569,Blue Pegu
 3190,14.78675,ml,Lime juice,General,0,569,Blue Pegu
@@ -3210,13 +3210,13 @@
 3208,29.5735,ml,Campari,Liqueur,10,572,Body Shop
 3209,14.78675,ml,Ginger-Honey Syrup,General,0,572,Body Shop
 3210,14.78675,ml,Lemon juice,General,0,572,Body Shop
-3211,3.6966875,ml,Islay Scotch (As float),Whisky,4,572,Body Shop
+3211,3.6966875,ml,Islay Scotch,Whisky,4,572,Body Shop
 3212,29.5735,ml,Cynar,Liqueur,10,573,Bodhicitta
-3213,44.36025,ml,"Coconut rum, Malibu",Rum,2,573,Bodhicitta
+3213,44.36025,ml,"Coconut Rum, Malibu",Rum,2,573,Bodhicitta
 3214,1,,Egg white,General,0,573,Bodhicitta
 3215,14.78675,ml,Ginger syrup,General,0,573,Bodhicitta
 3216,14.78675,ml,Lime juice,General,0,573,Bodhicitta
-3217,1,pn,Cayenne pepper,Garnish,11,573,Bodhicitta
+3217,1,pn,Cayenne Pepper,Garnish,11,573,Bodhicitta
 3218,1,sli,Ginger,Garnish,11,573,Bodhicitta
 3219,59.147,ml,"Gin, Hendrick's",Gin,1,574,The Bonal Cabal
 3220,29.5735,ml,Bonal Gentiane Quina,Wine,8,574,The Bonal Cabal
@@ -3230,7 +3230,7 @@
 3228,1,lf,Mint,Garnish,11,575,Bonbon Amer
 3229,44.36025,ml,"Gin, Sipsmith (VJOP)",Gin,1,576,Bonjour Farrokh
 3230,22.180125,ml,"Triple sec, Cointreau",Liqueur,10,576,Bonjour Farrokh
-3231,22.180125,ml,Lemon juice (clarified),General,0,576,Bonjour Farrokh
+3231,22.180125,ml,Lemon juice,General,0,576,Bonjour Farrokh
 3232,7.393375,ml,"Grapefruit liqueur, Combier Pamplemousse Rose",Liqueur,10,576,Bonjour Farrokh
 3233,1,bsp,Simple syrup (*dhansak masala infused),General,0,576,Bonjour Farrokh
 3234,4,ds,"Parfait Amour, Marie Brizard",Liqueur,10,576,Bonjour Farrokh
@@ -3239,7 +3239,7 @@
 3237,29.5735,ml,Campari,Liqueur,10,577,The Book Deal
 3238,22.180125,ml,Cynar,Liqueur,10,577,The Book Deal
 3239,7.393375,ml,Fernet Branca,Spirits,21,577,The Book Deal
-3240,1,bsp,"Cherry syrup, Luxardo",General,0,577,The Book Deal
+3240,1,bsp,"Cherry Syrup, Luxardo",General,0,577,The Book Deal
 3241,2,ds,"Bitters, Bitter Truth Chocolate (Spiced Chocolate)",General,0,577,The Book Deal
 3242,3,,"Cherry, Luxardo",Garnish,11,577,The Book Deal
 3243,29.5735,ml,Fernet Vallet,Liqueur,10,578,Border Patrol
@@ -3269,14 +3269,14 @@
 3267,29.5735,ml,Carrot juice,General,0,583,Br'er Rabbit
 3268,4,ds,"Bitters, Bitter Truth Celery",General,0,583,Br'er Rabbit
 3269,59.147,ml,Rye,Whisky,4,584,The Bowery
-3270,14.78675,ml,Amontillado Sherry,General,0,584,The Bowery
+3270,14.78675,ml,Amontillado Sherry,Wine,8,584,The Bowery
 3271,7.393375,ml,Ramazzotti,Liqueur,10,584,The Bowery
 3272,7.393375,ml,Apricot liqueur,Liqueur,10,584,The Bowery
 3273,1,rinse,Absinthe,Spirits,21,584,The Bowery
 3274,1,twst,Orange peel,General,0,584,The Bowery
 3275,44.36025,ml,Singani (can substitute Pisco),Brandy,5,585,Brandy & Bubbles (Shoofly)
 3276,7.393375,ml,Floc de Gascogne (or white pineau des charentes),General,0,585,Brandy & Bubbles (Shoofly)
-3277,59.147,ml,Champagne (brut or drier),Champagne,9,585,Brandy & Bubbles (Shoofly)
+3277,59.147,ml,Champagne (brut or drier),Wine,8,585,Brandy & Bubbles (Shoofly)
 3278,14.78675,ml,Honey syrup (1:1),General,0,585,Brandy & Bubbles (Shoofly)
 3279,7.393375,ml,Ginger syrup,General,0,585,Brandy & Bubbles (Shoofly)
 3280,2,ds,Acid phosphate,General,0,585,Brandy & Bubbles (Shoofly)
@@ -3286,10 +3286,10 @@
 3284,14.78675,ml,Plum eau-de-vie,General,0,586,Bramble Bee
 3285,19.715666666666664,ml,Lemon juice,General,0,586,Bramble Bee
 3286,9.857833333333332,ml,Honey syrup (2:1),General,0,586,Bramble Bee
-3287,3,,Blueberry (3-4),General,0,586,Bramble Bee
+3287,3,,Blueberry,General,0,586,Bramble Bee
 3288,59.147,ml,Cognac,Brandy,5,587,Brandy Alexander
 3289,29.5735,ml,Crème de Cacao (brown),Liqueur,10,587,Brandy Alexander
-3290,29.5735,ml,Half-and-half,General,0,587,Brandy Alexander
+3290,29.5735,ml,Half and Half,General,0,587,Brandy Alexander
 3291,1,pn,Nutmeg (fresh grated),General,0,587,Brandy Alexander
 3292,59.147,ml,Cognac,Brandy,5,588,Brandy Crusta
 3293,1,bsp,Curaçao,Liqueur,10,588,Brandy Crusta
@@ -3312,7 +3312,7 @@
 3310,14.78675,ml,Mezcal,Mezcal,20,591,Broadway Nights
 3311,14.78675,ml,Sweet vermouth,Wine,8,591,Broadway Nights
 3312,7.393375,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,591,Broadway Nights
-3313,7.393375,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,591,Broadway Nights
+3313,7.393375,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,591,Broadway Nights
 3314,1,ds,"Bitters, Bittermens Xocolatl Mole",General,0,591,Broadway Nights
 3315,1,twst,Orange peel,Garnish,11,591,Broadway Nights
 3316,59.147,ml,"Bourbon, Woodford Reserve",Whisky,4,592,Brown Billycock
@@ -3325,7 +3325,7 @@
 3323,14.78675,ml,"Pear liqueur, Marie Brizard",Liqueur,10,593,Brown Mountain Lights
 3324,29.5735,ml,Lemon juice,General,0,593,Brown Mountain Lights
 3325,29.5735,ml,Egg white,General,0,593,Brown Mountain Lights
-3326,22.180125,ml,Maple syrup,General,0,593,Brown Mountain Lights
+3326,22.180125,ml,Maple Syrup,General,0,593,Brown Mountain Lights
 3327,2,ds,"Bitters, Fee Brothers Old Fashion",General,0,593,Brown Mountain Lights
 3328,59.147,ml,Speyside Scotch (Glen Moray Port Cask Finished),Whisky,4,594,Bruceland Sour
 3329,29.5735,ml,Meyer lemon juice,General,0,594,Bruceland Sour
@@ -3388,7 +3388,7 @@
 3386,10,?,Lemon,General,0,603,Caesarea Cocktail
 3387,22.180125,ml,"Rye, Rittenhouse",Whisky,4,604,Calexico
 3388,22.180125,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,604,Calexico
-3389,29.5735,ml,"Aquavit, Linie",Liqueur,10,604,Calexico
+3389,29.5735,ml,"Aquavit, Linie",Spirits,21,604,Calexico
 3390,14.78675,ml,Ancho Reyes Verde chile liqueur,Liqueur,10,604,Calexico
 3391,2,ds,"Bitters, Bittermens Xocolatl Mole",General,0,604,Calexico
 3392,1,twst,Lemon peel,Garnish,11,604,Calexico
@@ -3404,7 +3404,7 @@
 3402,1,twst,Lemon peel,Garnish,11,606,El Camino
 3403,44.36025,ml,Campari,Liqueur,10,607,Campari Sour
 3404,22.180125,ml,Lime juice,General,0,607,Campari Sour
-3405,14.78675,ml,Elderflower syrup,General,0,607,Campari Sour
+3405,14.78675,ml,Elderflower Syrup,General,0,607,Campari Sour
 3406,44.36025,ml,Rye (Rittenhouse Bonded preferably),Whisky,4,608,Campo Viejo
 3407,14.78675,ml,Mezcal,Mezcal,20,608,Campo Viejo
 3408,14.78675,ml,Fernet Branca,Spirits,21,608,Campo Viejo
@@ -3432,8 +3432,8 @@
 3430,22.180125,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,612,Canton Daisy
 3431,7.393375,ml,Simple syrup,General,0,612,Canton Daisy
 3432,8,dr,"Bitters, Brooklyn Hemispherical Bitters Rhubarb",General,0,612,Canton Daisy
-3433,1,cube,Candied ginger,General,0,612,Canton Daisy
-3434,1,spl,"Club soda, Q",General,0,612,Canton Daisy
+3433,1,cube,Candied Ginger,General,0,612,Canton Daisy
+3434,1,spl,Club Soda,General,0,612,Canton Daisy
 3435,44.36025,ml,Fernet Branca,Spirits,21,613,Cantina Band
 3436,14.78675,ml,Gin,Gin,1,613,Cantina Band
 3437,29.5735,ml,Lime juice,General,0,613,Cantina Band
@@ -3455,7 +3455,7 @@
 3453,14.78675,ml,Swedish Punsch,Liqueur,10,616,Captains' Mile
 3454,14.78675,ml,Lime juice,General,0,616,Captains' Mile
 3455,29.5735,ml,Bourbon,Whisky,4,617,Caramel By The Sea
-3456,29.5735,ml,"Apple brandy, Lairds (bonded)",Brandy,5,617,Caramel By The Sea
+3456,29.5735,ml,"Apple brandy, Laird's Bonded",Brandy,5,617,Caramel By The Sea
 3457,29.5735,ml,Averna,Liqueur,10,617,Caramel By The Sea
 3458,1⁄2,t,Allspice Dram,Liqueur,10,617,Caramel By The Sea
 3459,14.78675,ml,Sea salt caramel syrup (Sonoma Syrup Co.),General,0,617,Caramel By The Sea
@@ -3466,12 +3466,12 @@
 3464,1,pn,Salt,General,0,618,Caraway Daiquiri
 3465,5,lf,Mint,General,0,618,Caraway Daiquiri
 3466,51.753625,ml,Añejo rum (Kirk & Sweeney 12 Year),Rum,2,619,Caribbean Coffee Crush
-3467,14.78675,ml,Falernum (Homemade),Liqueur,10,619,Caribbean Coffee Crush
+3467,14.78675,ml,Falernum,Liqueur,10,619,Caribbean Coffee Crush
 3468,2,ds,Fernet Branca,Spirits,21,619,Caribbean Coffee Crush
 3469,29.5735,ml,Simple syrup,General,0,619,Caribbean Coffee Crush
 3470,3,wdg,Pineapple,General,0,619,Caribbean Coffee Crush
 3471,14.78675,ml,Lime juice,General,0,619,Caribbean Coffee Crush
-3472,29.5735,ml,Apple brandy,Brandy,5,620,Carmen Miranda
+3472,29.5735,ml,Apple Brandy,Brandy,5,620,Carmen Miranda
 3473,29.5735,ml,"Rum, Plantation Stiggins' Fancy",Rum,2,620,Carmen Miranda
 3474,14.78675,ml,Pear eau de vie,Brandy,5,620,Carmen Miranda
 3475,2,ds,"Orange bitters, Regans' orange bitters",General,0,620,Carmen Miranda
@@ -3485,7 +3485,7 @@
 3483,59.147,ml,"Irish whiskey, Bushmill's",Whisky,4,622,The Carrauntouhill
 3484,29.5735,ml,Averna,Liqueur,10,622,The Carrauntouhill
 3485,14.78675,ml,"Coffee liqueur, Kahlua",Liqueur,10,622,The Carrauntouhill
-3486,7.393375,ml,Heavy cream,General,0,622,The Carrauntouhill
+3486,7.393375,ml,Heavy Cream,General,0,622,The Carrauntouhill
 3487,1,,Egg white,General,0,622,The Carrauntouhill
 3488,2,ds,"Chocolate bitters, Bittermens Xocolatl Mole",General,0,622,The Carrauntouhill
 3489,44.36025,ml,"Rye, Dad's Hat",Whisky,4,623,Carrie's Book Club
@@ -3510,7 +3510,7 @@
 3508,22.180125,ml,"Sweet vermouth, Cinzano Bianco",Wine,8,626,Casa Arancione
 3509,3,ds,"Orange flower water, Fee Brothers",General,0,626,Casa Arancione
 3510,1,wdg,Lemon,General,0,626,Casa Arancione
-3511,59.147,ml,"Añejo rum, Barbancourt 8",Rum,2,627,Castaway
+3511,59.147,ml,Añejo rum (Barbancourt 8 Year),Rum,2,627,Castaway
 3512,22.180125,ml,"Falernum, Velvet Falernum",Liqueur,10,627,Castaway
 3513,44.36025,ml,Coconut Water,General,0,627,Castaway
 3514,29.5735,ml,Pink guava puree (Or nectar),General,0,627,Castaway
@@ -3535,10 +3535,10 @@
 3533,14.78675,ml,"Triple sec, Cointreau Noir",Liqueur,10,630,Chac Mool
 3534,14.78675,ml,Lime juice,General,0,630,Chac Mool
 3535,14.78675,ml,Grapefruit juice,General,0,630,Chac Mool
-3536,1,bsp,Agave syrup,General,0,630,Chac Mool
+3536,1,bsp,Agave Syrup,General,0,630,Chac Mool
 3537,2,ds,"Bitters, Bittermens Xocolatl Mole",General,0,630,Chac Mool
 3538,59.147,ml,"Bourbon, Maker's Mark (Chai Infused)",Whisky,4,631,Chai-Town Brown
-3539,1,bsp,Allspice Dram (home made),Liqueur,10,631,Chai-Town Brown
+3539,1,bsp,Allspice Dram,Liqueur,10,631,Chai-Town Brown
 3540,1,bsp,"Grade B maple syrup, Deep Mountain",General,0,631,Chai-Town Brown
 3541,3,ds,"Bitters, Fee Brothers Black Walnut",General,0,631,Chai-Town Brown
 3542,22.180125,ml,Grapefruit juice (white),General,0,632,Champagne Year
@@ -3546,7 +3546,7 @@
 3544,14.78675,ml,Amaro Nonino,Liqueur,10,632,Champagne Year
 3545,1,t,Marmalade,General,0,632,Champagne Year
 3546,2,ds,Peychaud's Bitters,General,0,632,Champagne Year
-3547,118.294,ml,Champagne,Champagne,9,632,Champagne Year
+3547,118.294,ml,Champagne,Wine,8,632,Champagne Year
 3548,1,ds,Rose water,Garnish,11,632,Champagne Year
 3549,59.147,ml,"Gin, Hendrick's",Gin,1,633,Charlie Tango
 3550,14.78675,ml,"Elderflower liqueur, Chase",Liqueur,10,633,Charlie Tango
@@ -3597,7 +3597,7 @@
 3595,14.78675,ml,Genepy,Liqueur,10,642,Christmas in France
 3596,14.78675,ml,Suze,Liqueur,10,642,Christmas in France
 3597,6,ds,Bitters (Vera's Maine Pine Bitters),General,0,642,Christmas in France
-3598,59.147,ml,"Coconut cream, Coco López",General,0,643,Christmas Island
+3598,59.147,ml,"Coconut Cream, Coco López",General,0,643,Christmas Island
 3599,29.5735,ml,"Don's Mix, B.G. Reynolds",General,0,643,Christmas Island
 3600,29.5735,ml,Falernum,Liqueur,10,643,Christmas Island
 3601,59.147,ml,"Jamaican rum, Coruba",Rum,2,643,Christmas Island
@@ -3614,22 +3614,22 @@
 3612,14.78675,ml,Crème de Fraise,Liqueur,10,645,CINCO DE MAYO
 3613,14.78675,ml,"Aromatized wine, Dubonnet Rouge",Wine,8,645,CINCO DE MAYO
 3614,14.78675,ml,Lemon juice,General,0,645,CINCO DE MAYO
-3615,1,bsp,Agave syrup,General,0,645,CINCO DE MAYO
+3615,1,bsp,Agave Syrup,General,0,645,CINCO DE MAYO
 3616,1⁄4,,Red Bell Pepper,General,0,645,CINCO DE MAYO
 3617,5,,Raspberry,General,0,645,CINCO DE MAYO
 3618,1,bsp,"Mezcal, Del Maguey Vida",Mezcal,20,645,CINCO DE MAYO
 3619,44.36025,ml,Gin,Gin,1,646,Circles and Seasons
 3620,29.5735,ml,Grapefruit juice,General,0,646,Circles and Seasons
-3621,14.78675,ml,Maple syrup,General,0,646,Circles and Seasons
+3621,14.78675,ml,Maple Syrup,General,0,646,Circles and Seasons
 3622,2,ds,"Bitters, Angostura",General,0,646,Circles and Seasons
 3623,1,twst,Grapefruit peel,Garnish,11,646,Circles and Seasons
-3624,59.147,ml,Blanco tequila,Tequila,6,647,Ciquita Picante
+3624,59.147,ml,Blanco Tequila,Tequila,6,647,Ciquita Picante
 3625,2,,Strawberry (small to medium),General,0,647,Ciquita Picante
 3626,1,sli,Jalapeño (about 1/2 inch slice),General,0,647,Ciquita Picante
 3627,22.180125,ml,Lime juice,General,0,647,Ciquita Picante
 3628,22.180125,ml,"Cherry Liqueur, Cherry Heering",Liqueur,10,647,Ciquita Picante
 3629,2,ds,Orange bitters,General,0,647,Ciquita Picante
-3630,2,bsp,Agave syrup,General,0,647,Ciquita Picante
+3630,2,bsp,Agave Syrup,General,0,647,Ciquita Picante
 3631,59.147,ml,Ginger beer,General,0,647,Ciquita Picante
 3632,29.5735,ml,"Spiced Rum, Kraken",Rum,2,648,Citrus Fever
 3633,29.5735,ml,"Light rum, Plantation 3 Star",Rum,2,648,Citrus Fever
@@ -3653,12 +3653,12 @@
 3651,14.78675,ml,Gran Classico,General,0,651,Clock Water and Smoke
 3652,9.857833333333332,ml,Crème Yvette,Liqueur,10,651,Clock Water and Smoke
 3653,22.180125,ml,Lime juice,General,0,651,Clock Water and Smoke
-3654,9.857833333333332,ml,Agave syrup,General,0,651,Clock Water and Smoke
+3654,9.857833333333332,ml,Agave Syrup,General,0,651,Clock Water and Smoke
 3655,1⁄2,t,"Mezcal, Del Maguey",Mezcal,20,651,Clock Water and Smoke
 3656,12,dr,Hellfire Habanero Shrub,General,0,651,Clock Water and Smoke
 3657,1,,Blackberry,Garnish,11,651,Clock Water and Smoke
 3658,59.147,ml,Gin,Gin,1,652,Close Enough For Jazz
-3659,22.180125,ml,Fino sherry (Or Manzanilla),Wine,8,652,Close Enough For Jazz
+3659,22.180125,ml,Fino sherry (or Manzanilla),Wine,8,652,Close Enough For Jazz
 3660,7.393375,ml,Honey syrup (1:1),General,0,652,Close Enough For Jazz
 3661,1,rinse,Absinthe,Spirits,21,652,Close Enough For Jazz
 3662,1,twst,Lemon peel,Garnish,11,652,Close Enough For Jazz
@@ -3722,7 +3722,7 @@
 3720,22.180125,ml,Sweet vermouth,Wine,8,665,Continuum
 3721,14.78675,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,665,Continuum
 3722,14.78675,ml,Cynar,Liqueur,10,665,Continuum
-3723,7.393375,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,665,Continuum
+3723,7.393375,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,665,Continuum
 3724,1,twst,Orange peel,Garnish,11,665,Continuum
 3725,44.36025,ml,Pisco,Brandy,5,666,Contrapposto
 3726,44.36025,ml,Mastika,Liqueur,10,666,Contrapposto
@@ -3735,14 +3735,14 @@
 3733,1,twst,Lemon peel,General,0,667,Constable Hook
 3734,29.5735,ml,Gin (Preferably a juniper-forward London Dry),Gin,1,668,Copper Pagoda
 3735,29.5735,ml,Cardamaro,Wine,8,668,Copper Pagoda
-3736,14.78675,ml,Curaçao (Such as Pierre Ferrand),Liqueur,10,668,Copper Pagoda
+3736,14.78675,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,668,Copper Pagoda
 3737,14.78675,ml,Lemon juice,General,0,668,Copper Pagoda
 3738,2,ds,"Bitters, Angostura",General,0,668,Copper Pagoda
 3739,29.5735,ml,Rum (Whiskey Barrel aged),Rum,2,669,"Cordial Magnitude, officially."
 3740,29.5735,ml,Cynar 70,Liqueur,10,669,"Cordial Magnitude, officially."
 3741,14.78675,ml,Strega,Liqueur,10,669,"Cordial Magnitude, officially."
 3742,7.393375,ml,"Fernet, Letherbee",Spirits,21,669,"Cordial Magnitude, officially."
-3743,7.393375,ml,Agave syrup,General,0,669,"Cordial Magnitude, officially."
+3743,7.393375,ml,Agave Syrup,General,0,669,"Cordial Magnitude, officially."
 3744,7.393375,ml,Lime juice,General,0,669,"Cordial Magnitude, officially."
 3745,7.393375,ml,Black truffle oil,General,0,669,"Cordial Magnitude, officially."
 3746,3,spg,Mint,General,0,669,"Cordial Magnitude, officially."
@@ -3759,7 +3759,7 @@
 3757,6,lf,Mint,General,0,671,Cornerman
 3758,1,pn,Salt,General,0,671,Cornerman
 3759,29.5735,ml,Cognac,Brandy,5,672,Corpse Hand
-3760,14.78675,ml,Apple brandy,Brandy,5,672,Corpse Hand
+3760,14.78675,ml,Apple Brandy,Brandy,5,672,Corpse Hand
 3761,22.180125,ml,Sweet vermouth,Wine,8,672,Corpse Hand
 3762,22.180125,ml,Campari,Liqueur,10,672,Corpse Hand
 3763,3,ds,"Bitters, Bittermens Xocolatl Mole",General,0,672,Corpse Hand
@@ -3802,10 +3802,10 @@
 3800,14.78675,ml,Nocino (Nux Alpina Walnut Liqueur),Liqueur,10,679,Creme de No Swizzle
 3801,14.78675,ml,"Crème de Noyaux, Tempus Fugit",Liqueur,10,679,Creme de No Swizzle
 3802,14.78675,ml,Crème de Cacao (Tuthilltown Cacao liqueur),Liqueur,10,679,Creme de No Swizzle
-3803,7.393375,ml,"Crème de Violette, Rothman & Winter (float)",Liqueur,10,679,Creme de No Swizzle
-3804,2,ds,"Bitters, Plum Bitters (Fee Bros)",General,0,679,Creme de No Swizzle
+3803,7.393375,ml,"Crème de Violette, Rothman & Winter",Liqueur,10,679,Creme de No Swizzle
+3804,2,ds,"Bitters, Plum Bitters (Fee Brothers)",General,0,679,Creme de No Swizzle
 3805,1,twst,Lemon peel,General,0,679,Creme de No Swizzle
-3806,44.36025,ml,Añejo rum (I used Barbancourt 8 Year),Rum,2,680,Creolita
+3806,44.36025,ml,Añejo rum (Barbancourt 8 Year),Rum,2,680,Creolita
 3807,14.78675,ml,Sweet vermouth,Wine,8,680,Creolita
 3808,14.78675,ml,Lime juice,General,0,680,Creolita
 3809,7.393375,ml,Bénédictine,General,0,680,Creolita
@@ -3827,7 +3827,7 @@
 3825,7.393375,ml,"Coffee liqueur, Kahlua",Liqueur,10,683,Cthuhlua
 3826,7.393375,ml,Jägermeister,Liqueur,10,683,Cthuhlua
 3827,2,ds,"Bitters, Angostura",General,0,683,Cthuhlua
-3828,1,pn,Black pepper,General,0,683,Cthuhlua
+3828,1,pn,Black Pepper,General,0,683,Cthuhlua
 3829,1,sli,Starfruit,Garnish,11,683,Cthuhlua
 3830,29.5735,ml,Añejo tequila,Tequila,6,684,Cuatro Naranjas
 3831,19.715666666666664,ml,Aperol,Liqueur,10,684,Cuatro Naranjas
@@ -3863,7 +3863,7 @@
 3861,14.78675,ml,"Pomegranate Liqueur, Pama",Liqueur,10,688,Cupid's Revenge Cocktail
 3862,14.78675,ml,"Maraschino Liqueur, Luxardo",Liqueur,10,688,Cupid's Revenge Cocktail
 3863,14.78675,ml,Lemon juice,General,0,688,Cupid's Revenge Cocktail
-3864,29.5735,ml,Champagne,Champagne,9,688,Cupid's Revenge Cocktail
+3864,29.5735,ml,Champagne,Wine,8,688,Cupid's Revenge Cocktail
 3865,1,,Maraschino cherry,General,0,688,Cupid's Revenge Cocktail
 3866,29.5735,ml,"Rum, Cruzan Aged Dark",Rum,2,689,Cure for Eric
 3867,29.5735,ml,"Virgin Islands Rum, Cruzan Blackstrap",Rum,2,689,Cure for Eric
@@ -3871,17 +3871,17 @@
 3869,29.5735,ml,Pineapple juice,General,0,689,Cure for Eric
 3870,29.5735,ml,Orange juice,General,0,689,Cure for Eric
 3871,7.393375,ml,Lemon juice,General,0,689,Cure for Eric
-3872,1,t,Honey (raw unfiltered),General,0,689,Cure for Eric
+3872,1,t,Honey,General,0,689,Cure for Eric
 3873,1,t,Grade B maple syrup,General,0,689,Cure for Eric
 3874,118.294,ml,Water,General,0,689,Cure for Eric
 3875,1,ds,Vanilla extract,General,0,689,Cure for Eric
-3876,1,,Cinnamon stick,General,0,689,Cure for Eric
+3876,1,,Cinnamon Stick,General,0,689,Cure for Eric
 3877,3,,Cloves,General,0,689,Cure for Eric
 3878,2,ds,"Bitters, Angostura",General,0,689,Cure for Eric
 3879,1,T,Butter,General,0,689,Cure for Eric
 3880,1,pn,Nutmeg,General,0,689,Cure for Eric
 3881,1,pn,Cinnamon,General,0,689,Cure for Eric
-3882,1,pn,Cayenne pepper,General,0,689,Cure for Eric
+3882,1,pn,Cayenne Pepper,General,0,689,Cure for Eric
 3883,1⁄2,t,Lemon zest,General,0,689,Cure for Eric
 3884,36.966875,ml,"Rye, Rittenhouse",Whisky,4,690,Curried Away
 3885,14.78675,ml,Batavia Arrack,Rum,2,690,Curried Away
@@ -3892,9 +3892,9 @@
 3890,1,lf,Mint,Garnish,11,690,Curried Away
 3891,29.5735,ml,"Barbados Rum, Mount Gay Black Barrel",Rum,2,691,Cuttlefish
 3892,22.180125,ml,Pisco,Brandy,5,691,Cuttlefish
-3893,22.180125,ml,"Aquavit, Linie",Liqueur,10,691,Cuttlefish
+3893,22.180125,ml,"Aquavit, Linie",Spirits,21,691,Cuttlefish
 3894,14.78675,ml,"Corn Whiskey, Mellow Corn",Whisky,4,691,Cuttlefish
-3895,7.393375,ml,Ancho Reyes chile liqueur,Liqueur,10,691,Cuttlefish
+3895,7.393375,ml,Ancho Reyes Verde chile liqueur,Liqueur,10,691,Cuttlefish
 3896,7.393375,ml,Simple syrup,General,0,691,Cuttlefish
 3897,5,ds,Peychaud's Bitters,General,0,691,Cuttlefish
 3898,1,rinse,"Pastis, Herbsaint",Spirits,21,691,Cuttlefish
@@ -3902,7 +3902,7 @@
 3900,59.147,ml,Cynar,Liqueur,10,692,Cynar Sour
 3901,7.393375,ml,"Maraschino Liqueur, Luxardo",Liqueur,10,692,Cynar Sour
 3902,29.5735,ml,Lemon juice,General,0,692,Cynar Sour
-3903,7.393375,ml,Agave syrup,General,0,692,Cynar Sour
+3903,7.393375,ml,Agave Syrup,General,0,692,Cynar Sour
 3904,1⁄2,?,Egg white (optional),General,0,692,Cynar Sour
 3905,2,sli,Cucumber,Garnish,11,692,Cynar Sour
 3906,1,twst,Orange peel,Garnish,11,692,Cynar Sour
@@ -3912,34 +3912,34 @@
 3910,7.393375,ml,"Peach liqueur, Edmond Briottet",Liqueur,10,693,Czech Your Head
 3911,1,dr,"Blackstrap Bitters, Bittercube (full dropper)",General,0,693,Czech Your Head
 3912,1,twst,Orange peel,General,0,693,Czech Your Head
-3913,44.36025,ml,Dark rum,Rum,2,694,Czechers in Paradise
+3913,44.36025,ml,Dark Rum,Rum,2,694,Czechers in Paradise
 3914,44.36025,ml,Becherovka,Liqueur,10,694,Czechers in Paradise
 3915,22.180125,ml,Lime juice,General,0,694,Czechers in Paradise
 3916,14.78675,ml,Licor 43,Liqueur,10,694,Czechers in Paradise
 3917,44.36025,ml,"Bourbon, Wild Turkey 101",Whisky,4,695,Czechattan
 3918,14.78675,ml,Becherovka,Liqueur,10,695,Czechattan
 3919,14.78675,ml,"Herbal liqueur, Yellow Chartreuse",Liqueur,10,695,Czechattan
-3920,14.78675,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,695,Czechattan
+3920,14.78675,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,695,Czechattan
 3921,2,ds,"Bitters, Bitter Truth Orange",General,0,695,Czechattan
 3922,59.147,ml,Cognac,Brandy,5,696,d'Essart
 3923,2,t,Ginger syrup,General,0,696,d'Essart
-3924,1⁄2,t,Cinnamon syrup,General,0,696,d'Essart
+3924,1⁄2,t,Cinnamon Syrup,General,0,696,d'Essart
 3925,2,t,"Islay Scotch, Lagavulin 16",Whisky,4,696,d'Essart
 3926,59.147,ml,"Rum, Privateer",Rum,2,697,Daiquiri-73
 3927,22.180125,ml,Lime juice,General,0,697,Daiquiri-73
-3928,14.78675,ml,Agave syrup (1:1 ratio),General,0,697,Daiquiri-73
-3929,7.393375,ml,Honey syrup (1:1 ratio),General,0,697,Daiquiri-73
+3928,14.78675,ml,Agave Syrup,General,0,697,Daiquiri-73
+3929,7.393375,ml,Honey syrup (1:1),General,0,697,Daiquiri-73
 3930,1,,Egg white,General,0,697,Daiquiri-73
 3931,3,dr,"Bitters, Bitter Truth Creole",General,0,697,Daiquiri-73
 3932,1,sli,Lime,Garnish,11,697,Daiquiri-73
 3933,59.147,ml,"Bourbon, Four Roses Small Batch",Whisky,4,698,Daisy Duke
 3934,29.5735,ml,Lemon juice,General,0,698,Daisy Duke
 3935,14.78675,ml,Passion fruit syrup,General,0,698,Daisy Duke
-3936,14.78675,ml,Honey syrup (3:1 honey to water),General,0,698,Daisy Duke
+3936,14.78675,ml,Honey syrup (3:1),General,0,698,Daisy Duke
 3937,29.5735,ml,Soda water,General,0,698,Daisy Duke
 3938,44.36025,ml,Rhum Agricole (Rhum JM Blanc),Rum,2,699,Dakkar Grotto
 3939,14.78675,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,699,Dakkar Grotto
-3940,14.78675,ml,Green tea syrup,General,0,699,Dakkar Grotto
+3940,14.78675,ml,Green Tea Syrup,General,0,699,Dakkar Grotto
 3941,14.78675,ml,Lime juice,General,0,699,Dakkar Grotto
 3942,1,twst,Grapefruit peel,Garnish,11,699,Dakkar Grotto
 3943,44.36025,ml,Blanco tequila (Gran Centenario),Tequila,6,700,"Dammit, Jen!"
@@ -3956,7 +3956,7 @@
 3954,1,ds,Balsamic Vinegar,General,0,702,Dandara
 3955,4,ds,Orange bitters,General,0,702,Dandara
 3956,1,twst,Orange peel,General,0,702,Dandara
-3957,44.36025,ml,Blanco tequila,Tequila,6,703,Dank Back
+3957,44.36025,ml,Blanco Tequila,Tequila,6,703,Dank Back
 3958,22.180125,ml,Aperol,Liqueur,10,703,Dank Back
 3959,7.393375,ml,"Falernum, Velvet Falernum",Liqueur,10,703,Dank Back
 3960,59.147,ml,Rye,Whisky,4,704,Dark Day
@@ -3986,10 +3986,10 @@
 3984,4,ds,"Bitters, Fee Brothers Black Walnut",General,0,709,Darwin's Hopes
 3985,44.36025,ml,Bourbon,Whisky,4,710,De Rigueur 2
 3986,29.5735,ml,Grapefruit juice,General,0,710,De Rigueur 2
-3987,14.78675,ml,"Honey syrup (1:1 honey and water, boil and reduce)",General,0,710,De Rigueur 2
+3987,14.78675,ml,Honey syrup (1:1),General,0,710,De Rigueur 2
 3988,1⁄2,bsp,"Scotch, Lagavulin 16",Whisky,4,710,De Rigueur 2
 3989,1⁄2,bsp,"Scotch, Balvenie 12 Doublewood",Whisky,4,710,De Rigueur 2
-3990,118.294,ml,Champagne,Champagne,9,711,Dead Man's Hand
+3990,118.294,ml,Champagne,Wine,8,711,Dead Man's Hand
 3991,14.78675,ml,"Cognac, Courvoisier",Brandy,5,711,Dead Man's Hand
 3992,1,t,"Absinthe, Lucid",Spirits,21,711,Dead Man's Hand
 3993,2,ds,"Lemon bitters, Fee Brothers Lemon",General,0,711,Dead Man's Hand
@@ -4027,7 +4027,7 @@
 4025,44.36025,ml,Rhum Agricole (blanc),Rum,2,718,DeGrassi
 4026,44.36025,ml,Mezcal (joven),Mezcal,20,718,DeGrassi
 4027,14.78675,ml,"Amaro, Cappelletti Sfumato Rabarbaro",Liqueur,10,718,DeGrassi
-4028,1,bsp,Agave syrup,General,0,718,DeGrassi
+4028,1,bsp,Agave Syrup,General,0,718,DeGrassi
 4029,44.36025,ml,Amaro Montenegro,Liqueur,10,719,The Delicious Cobbler
 4030,14.78675,ml,Amontillado Sherry,Wine,8,719,The Delicious Cobbler
 4031,14.78675,ml,Ramazzotti,Liqueur,10,719,The Delicious Cobbler
@@ -4037,7 +4037,7 @@
 4035,2,wdg,Orange,General,0,719,The Delicious Cobbler
 4036,44.36025,ml,"Gin, Caorunn",Gin,1,720,Delivery Day
 4037,29.5735,ml,"Sweet vermouth, Carpano",Wine,8,720,Delivery Day
-4038,14.78675,ml,Ancho Reyes chile liqueur,Liqueur,10,720,Delivery Day
+4038,14.78675,ml,Ancho Reyes Verde chile liqueur,Liqueur,10,720,Delivery Day
 4039,1,ds,"Orange bitters, Regans' orange bitters",General,0,720,Delivery Day
 4040,29.5735,ml,"Gin, Death's Door",Gin,1,721,Depression Glass
 4041,29.5735,ml,"Light rum, Plantation 3 Star",Rum,2,721,Depression Glass
@@ -4075,7 +4075,7 @@
 4073,1,twst,Lemon peel,Garnish,11,725,Devil's Highway
 4074,5,lf,Mint,General,0,726,Devil's Garden
 4075,22.180125,ml,Lime juice,General,0,726,Devil's Garden
-4076,22.180125,ml,Agave syrup,General,0,726,Devil's Garden
+4076,22.180125,ml,Agave Syrup,General,0,726,Devil's Garden
 4077,14.78675,ml,Cynar,Liqueur,10,726,Devil's Garden
 4078,14.78675,ml,Mezcal,Mezcal,20,726,Devil's Garden
 4079,44.36025,ml,Reposado Tequila,Tequila,6,726,Devil's Garden
@@ -4132,7 +4132,7 @@
 4130,14.78675,ml,Campari,Liqueur,10,736,Don't Talk to Strangers
 4131,14.78675,ml,Swedish Punsch,Liqueur,10,736,Don't Talk to Strangers
 4132,14.78675,ml,Lime juice,General,0,736,Don't Talk to Strangers
-4133,3.6966875,ml,Cinnamon syrup,General,0,736,Don't Talk to Strangers
+4133,3.6966875,ml,Cinnamon Syrup,General,0,736,Don't Talk to Strangers
 4134,1,,Egg white,General,0,736,Don't Talk to Strangers
 4135,3,dr,"Bitters, Angostura",Garnish,11,736,Don't Talk to Strangers
 4136,59.147,ml,"Scotch, Monkey Shoulder",Whisky,4,737,Double Haggis
@@ -4152,7 +4152,7 @@
 4150,29.5735,ml,Lime juice,General,0,739,Dr. Fünke
 4151,29.5735,ml,Orgeat,General,0,739,Dr. Fünke
 4152,14.78675,ml,"Blue Curaçao, Senior Curaçao",Liqueur,10,739,Dr. Fünke
-4153,14.78675,ml,"Jamaican rum, Wray & Nephew Overproof (as float)",Rum,2,739,Dr. Fünke
+4153,14.78675,ml,"Jamaican rum, Wray & Nephew Overproof",Rum,2,739,Dr. Fünke
 4154,44.36025,ml,Cynar,Liqueur,10,740,The Drink of Insignificance
 4155,14.78675,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,740,The Drink of Insignificance
 4156,19.715666666666664,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,740,The Drink of Insignificance
@@ -4161,7 +4161,7 @@
 4159,1,,Cherry,Garnish,11,740,The Drink of Insignificance
 4160,44.36025,ml,"Overproof rum, Plantation",Rum,2,741,Drunken Helmsman
 4161,29.5735,ml,Lime juice,General,0,741,Drunken Helmsman
-4162,14.78675,ml,Maple syrup,General,0,741,Drunken Helmsman
+4162,14.78675,ml,Maple Syrup,General,0,741,Drunken Helmsman
 4163,14.78675,ml,Falernum,Liqueur,10,741,Drunken Helmsman
 4164,14.78675,ml,Amaro Meletti,Liqueur,10,741,Drunken Helmsman
 4165,1,spg,Mint,Garnish,11,741,Drunken Helmsman
@@ -4173,7 +4173,7 @@
 4171,44.36025,ml,Añejo tequila,Tequila,6,743,Dubois Margarita
 4172,22.180125,ml,Cynar,Liqueur,10,743,Dubois Margarita
 4173,22.180125,ml,Lime juice,General,0,743,Dubois Margarita
-4174,14.78675,ml,Agave syrup,General,0,743,Dubois Margarita
+4174,14.78675,ml,Agave Syrup,General,0,743,Dubois Margarita
 4175,1,ds,Celery bitters,General,0,743,Dubois Margarita
 4176,22.180125,ml,Genever,Liqueur,10,744,Dutch Hand
 4177,22.180125,ml,Batavia Arrack,Rum,2,744,Dutch Hand
@@ -4199,7 +4199,7 @@
 4197,3,ds,"Chocolate bitters, Bittermens Xocolatl Mole",General,0,748,Easy Speak
 4198,1,ds,Bitters,General,0,748,Easy Speak
 4199,1,twst,Lemon peel,Garnish,11,748,Easy Speak
-4200,59.147,ml,"Citrus vodka, St. George",Vodka,3,749,Ectoplasm Cooler
+4200,59.147,ml,"Citrus Vodka, St. George",Vodka,3,749,Ectoplasm Cooler
 4201,29.5735,ml,Lemon juice,General,0,749,Ectoplasm Cooler
 4202,29.5735,ml,Simple syrup,General,0,749,Ectoplasm Cooler
 4203,1⁄4,wdg,Kiwi,General,0,749,Ectoplasm Cooler
@@ -4208,10 +4208,10 @@
 4206,9.857833333333332,ml,"Maraschino Liqueur, Luxardo",Liqueur,10,750,Ed Mort
 4207,2,ds,"Bitters, Regans' orange bitters",General,0,750,Ed Mort
 4208,1,twst,Orange peel,General,0,750,Ed Mort
-4209,40.6635625,ml,Dark rum,Rum,2,751,Edward Teach
+4209,40.6635625,ml,Dark Rum,Rum,2,751,Edward Teach
 4210,2 1⁄2,t,"Triple sec, Cointreau",Liqueur,10,751,Edward Teach
 4211,19.715666666666664,ml,"Coffee liqueur, Caffé Borghetti espresso liqueur",Liqueur,10,751,Edward Teach
-4212,1,ds,"Hot sauce, Tabasco Sauce",General,0,751,Edward Teach
+4212,1,ds,Hot sauce,General,0,751,Edward Teach
 4213,44.36025,ml,"Rye, Rittenhouse",Whisky,4,752,Edith Bunker
 4214,29.5735,ml,"Aromatized wine, Lillet Blanc",Wine,8,752,Edith Bunker
 4215,14.78675,ml,"Maraschino Liqueur, Luxardo",Liqueur,10,752,Edith Bunker
@@ -4228,7 +4228,7 @@
 4226,14.78675,ml,"Orange liqueur, Grand Marnier",Liqueur,10,754,The Elegant Fizz
 4227,14.78675,ml,"Dry vermouth, Martini & Rossi",Wine,8,754,The Elegant Fizz
 4228,7.393375,ml,Lime juice,General,0,754,The Elegant Fizz
-4229,44.36025,ml,Club soda,General,0,754,The Elegant Fizz
+4229,44.36025,ml,Club Soda,General,0,754,The Elegant Fizz
 4230,2,ds,"Cardamom bitters, Scrappy's",General,0,754,The Elegant Fizz
 4231,1,sli,Lime,General,0,754,The Elegant Fizz
 4232,22.180125,ml,Scotch,Whisky,4,755,The Elephant in the Room
@@ -4241,7 +4241,7 @@
 4239,36.966875,ml,Amaro Montenegro,Liqueur,10,756,Ellen's Fancy
 4240,14.78675,ml,"Triple sec, Cointreau",Liqueur,10,756,Ellen's Fancy
 4241,14.78675,ml,Lime juice,General,0,756,Ellen's Fancy
-4242,1⁄2,t,Agave syrup,General,0,756,Ellen's Fancy
+4242,1⁄2,t,Agave Syrup,General,0,756,Ellen's Fancy
 4243,3,dr,Orange flower water,General,0,756,Ellen's Fancy
 4244,44.36025,ml,"Gin, St. George Terroir",Gin,1,757,Ellen's Folly
 4245,22.180125,ml,"Bianco Vermouth, Dolin",Wine,8,757,Ellen's Folly
@@ -4260,7 +4260,7 @@
 4258,14.78675,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,759,Emperor Norton
 4259,22.180125,ml,Ginger syrup (spicy),General,0,759,Emperor Norton
 4260,22.180125,ml,Lime juice,General,0,759,Emperor Norton
-4261,14.78675,ml,"Demerara Rum, Lemon Hart 151 (as float)",Rum,2,759,Emperor Norton
+4261,14.78675,ml,"Demerara Rum, Lemon Hart 151",Rum,2,759,Emperor Norton
 4262,22.180125,ml,"Bourbon, Elijah Craig (Small Batch)",Whisky,4,760,Emotional Tailspin
 4263,22.180125,ml,"Amaro, Cappelletti Sfumato Rabarbaro",Liqueur,10,760,Emotional Tailspin
 4264,22.180125,ml,"Cassis, Combier",Liqueur,10,760,Emotional Tailspin
@@ -4282,10 +4282,10 @@
 4280,2,ds,Grapefruit bitters (optional),General,0,763,Enrico Pallazzo
 4281,1,twst,Grapefruit peel,Garnish,11,763,Enrico Pallazzo
 4282,44.36025,ml,Gin,Gin,1,764,Enjoy the Silence
-4283,14.78675,ml,Apple brandy,Brandy,5,764,Enjoy the Silence
+4283,14.78675,ml,Apple Brandy,Brandy,5,764,Enjoy the Silence
 4284,22.180125,ml,Dry vermouth,Wine,8,764,Enjoy the Silence
 4285,3.6966875,ml,Apricot liqueur,Liqueur,10,764,Enjoy the Silence
-4286,3.6966875,ml,Cinnamon syrup,General,0,764,Enjoy the Silence
+4286,3.6966875,ml,Cinnamon Syrup,General,0,764,Enjoy the Silence
 4287,2,ds,Orange bitters,General,0,764,Enjoy the Silence
 4288,44.36025,ml,Gin,Gin,1,765,Erasmus
 4289,14.78675,ml,Ginger syrup,General,0,765,Erasmus
@@ -4301,7 +4301,7 @@
 4299,29.5735,ml,Cynar,Liqueur,10,767,Espaguetis Occidental
 4300,14.78675,ml,Sweet vermouth,Wine,8,767,Espaguetis Occidental
 4301,7.393375,ml,Averna,Liqueur,10,767,Espaguetis Occidental
-4302,7.393375,ml,Ancho Reyes chile liqueur (Verde),Liqueur,10,767,Espaguetis Occidental
+4302,7.393375,ml,Ancho Reyes Verde chile liqueur,Liqueur,10,767,Espaguetis Occidental
 4303,1,ds,Orange bitters,General,0,767,Espaguetis Occidental
 4304,1,twst,Lemon peel,Garnish,11,767,Espaguetis Occidental
 4305,49.28916666666666,ml,"Gin, Tanqueray",Gin,1,768,Eucalyptus Martini
@@ -4312,19 +4312,19 @@
 4310,59.147,ml,Genever,Liqueur,10,769,European Witch
 4311,14.78675,ml,"Elderflower liqueur, St. Germain",Liqueur,10,769,European Witch
 4312,14.78675,ml,Strega,Liqueur,10,769,European Witch
-4313,59.147,ml,"Apple brandy, Lairds Bonded",Brandy,5,770,Eve's Temptation
+4313,59.147,ml,"Apple brandy, Laird's Bonded",Brandy,5,770,Eve's Temptation
 4314,22.180125,ml,"Sweet vermouth, Carpano Antica Formula",Wine,8,770,Eve's Temptation
 4315,7.393375,ml,Eau de vie of Douglas Fir,Brandy,5,770,Eve's Temptation
 4316,1,t,Averna,Liqueur,10,770,Eve's Temptation
 4317,1,twst,Lemon peel,Garnish,11,770,Eve's Temptation
 4318,44.36025,ml,Bourbon,Whisky,4,771,Evening in a Sugar Orchard
 4319,29.5735,ml,Añejo rum,Rum,2,771,Evening in a Sugar Orchard
-4320,7.393375,ml,Maple syrup,General,0,771,Evening in a Sugar Orchard
-4321,7.393375,ml,Cinnamon syrup,General,0,771,Evening in a Sugar Orchard
+4320,7.393375,ml,Maple Syrup,General,0,771,Evening in a Sugar Orchard
+4321,7.393375,ml,Cinnamon Syrup,General,0,771,Evening in a Sugar Orchard
 4322,2,ds,"Bitters, Angostura",General,0,771,Evening in a Sugar Orchard
 4323,1,twst,Orange peel,Garnish,11,771,Evening in a Sugar Orchard
 4324,44.36025,ml,Gin,Gin,1,772,Exit Club Cocktail
-4325,14.78675,ml,"Aromatized wine, Lillet Blanc (Or Cocchi Americano)",Wine,8,772,Exit Club Cocktail
+4325,14.78675,ml,"Aromatized wine, Lillet Blanc (or Cocchi Americano)",Wine,8,772,Exit Club Cocktail
 4326,14.78675,ml,Bianco Vermouth,Wine,8,772,Exit Club Cocktail
 4327,14.78675,ml,"Herbal liqueur, Jeppson's Malort",Liqueur,10,772,Exit Club Cocktail
 4328,2,ds,Orange bitters,General,0,772,Exit Club Cocktail
@@ -4349,7 +4349,7 @@
 4347,29.5735,ml,Calvados (or applejack),Spirits,21,776,Fake Empire
 4348,29.5735,ml,Lemon juice,General,0,776,Fake Empire
 4349,29.5735,ml,Apple cider (cloudy),General,0,776,Fake Empire
-4350,22.180125,ml,Cinnamon syrup,General,0,776,Fake Empire
+4350,22.180125,ml,Cinnamon Syrup,General,0,776,Fake Empire
 4351,22.180125,ml,Averna,Liqueur,10,777,Fall Into Italy
 4352,22.180125,ml,Cognac,Brandy,5,777,Fall Into Italy
 4353,22.180125,ml,Jamaican rum,Rum,2,777,Fall Into Italy
@@ -4363,7 +4363,7 @@
 4361,7.393375,ml,Zirbenz Stone Pine Liqueur,Liqueur,10,778,Fall Manhattan
 4362,2,ds,Bitters,General,0,778,Fall Manhattan
 4363,3,?,Brandied cherry,General,0,778,Fall Manhattan
-4364,51.753625,ml,Apple brandy,Brandy,5,779,Fannee Doolee
+4364,51.753625,ml,Apple Brandy,Brandy,5,779,Fannee Doolee
 4365,22.180125,ml,Cappelletti Aperitivo,Liqueur,10,779,Fannee Doolee
 4366,7.393375,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,779,Fannee Doolee
 4367,7.393375,ml,Kirschwasser,Brandy,5,779,Fannee Doolee
@@ -4377,9 +4377,9 @@
 4375,1,pn,Sugar (half rim),General,0,780,Farmer's Armagnac
 4376,44.36025,ml,"Barbados Rum, Mount Gay",Rum,2,781,(Fear is the) Mindkiller
 4377,29.5735,ml,Pineapple juice,General,0,781,(Fear is the) Mindkiller
-4378,14.78675,ml,"Coconut cream, Coco López",General,0,781,(Fear is the) Mindkiller
+4378,14.78675,ml,"Coconut Cream, Coco López",General,0,781,(Fear is the) Mindkiller
 4379,14.78675,ml,"Apricot liqueur, Rothman & Winter Orchard Apricot",Liqueur,10,781,(Fear is the) Mindkiller
-4380,14.78675,ml,Ginger Simple syrup,General,0,781,(Fear is the) Mindkiller
+4380,14.78675,ml,Ginger Syrup,General,0,781,(Fear is the) Mindkiller
 4381,29.5735,ml,"Dark rum, Gosling's Black Seal",Rum,2,782,Felix Swizzle
 4382,29.5735,ml,"Gold rum, Appleton Special",Rum,2,782,Felix Swizzle
 4383,14.78675,ml,Falernum,Liqueur,10,782,Felix Swizzle
@@ -4410,7 +4410,7 @@
 4408,44.36025,ml,Fernet Branca,Spirits,21,786,FernChata
 4409,44.36025,ml,"Rum Cream, RumChata",Rum,2,786,FernChata
 4410,29.5735,ml,Fernet Branca,Spirits,21,787,Fernet Me Not
-4411,29.5735,ml,Light rum,Rum,2,787,Fernet Me Not
+4411,29.5735,ml,Light Rum,Rum,2,787,Fernet Me Not
 4412,14.78675,ml,"Maraschino Liqueur, Luxardo",Liqueur,10,787,Fernet Me Not
 4413,14.78675,ml,Lime juice,General,0,787,Fernet Me Not
 4414,1,spl,Cola,General,0,787,Fernet Me Not
@@ -4426,7 +4426,7 @@
 4424,44.36025,ml,Dry vermouth,Wine,8,789,"""Figure 8"""
 4425,29.5735,ml,Bianco Vermouth,Wine,8,789,"""Figure 8"""
 4426,14.78675,ml,Dry apricot brandy,Brandy,5,789,"""Figure 8"""
-4427,7.393375,ml,Blanco tequila,Tequila,6,789,"""Figure 8"""
+4427,7.393375,ml,Blanco Tequila,Tequila,6,789,"""Figure 8"""
 4428,1,bsp,Orange flower syrup,General,0,789,"""Figure 8"""
 4429,2,ds,Orange bitters,General,0,789,"""Figure 8"""
 4430,1,twst,Orange peel,General,0,789,"""Figure 8"""
@@ -4457,7 +4457,7 @@
 4455,14.78675,ml,"Amer Picon, Amer Boudreau",Liqueur,10,794,Fire and Blood
 4456,1,t,"Cherry Liqueur, Sangue Morlacco",Liqueur,10,794,Fire and Blood
 4457,1,spl,Blood Orange Juice,General,0,794,Fire and Blood
-4458,1,twst,Blood orange peel (flamed),General,0,794,Fire and Blood
+4458,1,twst,Blood orange peel,General,0,794,Fire and Blood
 4459,1,,"Cherry, Luxardo",General,0,794,Fire and Blood
 4460,2,dr,Cayenne tincture,General,0,794,Fire and Blood
 4461,44.36025,ml,Rye,Whisky,4,795,Firpo's Balloon Cocktail
@@ -4489,20 +4489,20 @@
 4487,1,?,Egg white,General,0,799,Fizz de Provence
 4488,2,spg,Rosemary,General,0,799,Fizz de Provence
 4489,2,spg,Thyme,General,0,799,Fizz de Provence
-4490,59.147,ml,Club soda,General,0,799,Fizz de Provence
-4491,88.7205,ml,Light rum,Rum,2,800,Flanders' Planter's Punch
+4490,59.147,ml,Club Soda,General,0,799,Fizz de Provence
+4491,88.7205,ml,Light Rum,Rum,2,800,Flanders' Planter's Punch
 4492,44.36025,ml,Bourbon,Whisky,4,800,Flanders' Planter's Punch
 4493,14.78675,ml,Cassis,General,0,800,Flanders' Planter's Punch
 4494,29.5735,ml,Simple syrup,General,0,800,Flanders' Planter's Punch
 4495,29.5735,ml,Lemon juice,General,0,800,Flanders' Planter's Punch
 4496,14.78675,ml,Lime juice,General,0,800,Flanders' Planter's Punch
-4497,88.7205,ml,Club soda,General,0,800,Flanders' Planter's Punch
+4497,88.7205,ml,Club Soda,General,0,800,Flanders' Planter's Punch
 4498,44.36025,ml,Blended Scotch,Whisky,4,801,Fleming Fizz
 4499,22.180125,ml,Lemon juice,General,0,801,Fleming Fizz
 4500,11.0900625,ml,Honey syrup,General,0,801,Fleming Fizz
 4501,11.0900625,ml,Ginger syrup,General,0,801,Fleming Fizz
 4502,59.147,ml,Sparkling white wine,Wine,8,801,Fleming Fizz
-4503,3.6966875,ml,"Islay Scotch, Laphroaig 10 (As a float)",Whisky,4,801,Fleming Fizz
+4503,3.6966875,ml,"Islay Scotch, Laphroaig 10",Whisky,4,801,Fleming Fizz
 4504,1,twst,Lemon peel,Garnish,11,801,Fleming Fizz
 4505,44.36025,ml,Rye (Preferably 100° or higher),Whisky,4,802,Fleur Carré
 4506,22.180125,ml,Bénédictine,General,0,802,Fleur Carré
@@ -4537,11 +4537,11 @@
 4535,1,twst,Lemon peel,Garnish,11,806,Flower Tart
 4536,25.8768125,ml,Zhuyeqing Liquor,General,0,807,Flowing With The Tea
 4537,25.8768125,ml,Sake,General,0,807,Flowing With The Tea
-4538,8,,Juniper berry,General,0,807,Flowing With The Tea
+4538,8,,Juniper Berry,General,0,807,Flowing With The Tea
 4539,1,bsp,Jasmine Green Loose Leaf Tea,General,0,807,Flowing With The Tea
 4540,2,pn,Lemon zest,General,0,807,Flowing With The Tea
-4541,22.180125,ml,"Apple brandy, Lairds (bonded)",Brandy,5,808,Flu Cure Toddy
-4542,22.180125,ml,Dark rum,Rum,2,808,Flu Cure Toddy
+4541,22.180125,ml,"Apple brandy, Laird's Bonded",Brandy,5,808,Flu Cure Toddy
+4542,22.180125,ml,Dark Rum,Rum,2,808,Flu Cure Toddy
 4543,14.78675,ml,Jägermeister,Liqueur,10,808,Flu Cure Toddy
 4544,29.5735,ml,Lemon juice,General,0,808,Flu Cure Toddy
 4545,19.715666666666664,ml,Honey syrup (ginger-infused),General,0,808,Flu Cure Toddy
@@ -4594,7 +4594,7 @@
 4592,29.5735,ml,Falernum,Liqueur,10,817,Fourteen
 4593,22.180125,ml,Lemon juice,General,0,817,Fourteen
 4594,2,ds,"Bitters, Angostura",General,0,817,Fourteen
-4595,29.5735,ml,Club soda (to top),General,0,817,Fourteen
+4595,29.5735,ml,Club Soda,General,0,817,Fourteen
 4596,1,twst,Lemon peel,Garnish,11,817,Fourteen
 4597,1,,Maraschino cherry,Garnish,11,817,Fourteen
 4598,44.36025,ml,"Aromatized wine, Cocchi Americano",Wine,8,818,Fragola Rock
@@ -4608,14 +4608,14 @@
 4606,29.5735,ml,"Bianco Vermouth, Dolin",Wine,8,819,Freeside
 4607,2,ds,"Caramelized Ramp Bitters, Bitters Old Men",General,0,819,Freeside
 4608,1,spg,Dill (Muddle),General,0,819,Freeside
-4609,2,sli,Cucumber (Muddle),General,0,819,Freeside
-4610,1,twst,Lemon peel (Muddle),General,0,819,Freeside
+4609,2,sli,Cucumber (Muddled),General,0,819,Freeside
+4610,1,twst,Lemon peel,General,0,819,Freeside
 4611,1,spg,Dill,Garnish,11,819,Freeside
 4612,44.36025,ml,Rye,Whisky,4,820,Frank of America
 4613,22.180125,ml,Ramazzotti,Liqueur,10,820,Frank of America
 4614,22.180125,ml,Byrrh,Wine,8,820,Frank of America
 4615,2,ds,"Bitters, Angostura",General,0,820,Frank of America
-4616,1,t,Maple syrup,General,0,820,Frank of America
+4616,1,t,Maple Syrup,General,0,820,Frank of America
 4617,1,twst,Orange peel,Garnish,11,820,Frank of America
 4618,44.36025,ml,Averna,Liqueur,10,821,French Cola
 4619,29.5735,ml,"Pastis, Pernod",Spirits,21,821,French Cola
@@ -4623,14 +4623,14 @@
 4621,29.5735,ml,Soda water,General,0,821,French Cola
 4622,1,twst,Lemon peel,Garnish,11,821,French Cola
 4623,29.5735,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,822,French Cooler
-4624,14.78675,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,822,French Cooler
+4624,14.78675,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,822,French Cooler
 4625,14.78675,ml,"Aromatized wine, Lillet Blanc",Wine,8,822,French Cooler
 4626,44.36025,ml,Soda water,General,0,822,French Cooler
 4627,22.180125,ml,Pineapple juice,General,0,822,French Cooler
 4628,22.180125,ml,Lime juice,General,0,822,French Cooler
 4629,1,t,Orgeat,General,0,822,French Cooler
 4630,44.36025,ml,Armagnac,Brandy,5,823,Freshnet
-4631,22.180125,ml,Cynar (Fat),Liqueur,10,823,Freshnet
+4631,22.180125,ml,Cynar,Liqueur,10,823,Freshnet
 4632,7.393375,ml,Fernet (Gagliardo),Spirits,21,823,Freshnet
 4633,7.393375,ml,Green Crème de Menthe,Liqueur,10,823,Freshnet
 4634,4,ds,"Bitters, Angostura",General,0,823,Freshnet
@@ -4640,7 +4640,7 @@
 4638,1,ds,Rhubarb bitters,General,0,824,Frézier
 4639,1,ds,Absinthe (for rinse),Spirits,21,824,Frézier
 4640,22.180125,ml,Rye,Whisky,4,825,Frisco Rose
-4641,22.180125,ml,Apple brandy,Brandy,5,825,Frisco Rose
+4641,22.180125,ml,Apple Brandy,Brandy,5,825,Frisco Rose
 4642,14.78675,ml,Bénédictine,General,0,825,Frisco Rose
 4643,14.78675,ml,Grenadine,General,0,825,Frisco Rose
 4644,14.78675,ml,Lemon juice,General,0,825,Frisco Rose
@@ -4682,7 +4682,7 @@
 4680,7.393375,ml,Lime juice,General,0,832,G'Vine Blush
 4681,44.36025,ml,"Gin, G'Vine Floraison",Gin,1,832,G'Vine Blush
 4682,7.393375,ml,PInk grapefruit juice,General,0,832,G'Vine Blush
-4683,44.36025,ml,Brut Champagne (to top),Champagne,9,832,G'Vine Blush
+4683,44.36025,ml,Brut Champagne,Champagne,9,832,G'Vine Blush
 4684,1⁄2,,Strawberry,General,0,833,Gabriella
 4685,22.180125,ml,Lemon juice,General,0,833,Gabriella
 4686,22.180125,ml,Simple syrup,General,0,833,Gabriella
@@ -4692,7 +4692,7 @@
 4690,29.5735,ml,"Navy strength rum, Pusser's",Rum,2,834,Gaboon Viper
 4691,29.5735,ml,"Amaro, Lazzaroni",Liqueur,10,834,Gaboon Viper
 4692,14.78675,ml,Grade A dark amber maple syrup,General,0,834,Gaboon Viper
-4693,14.78675,ml,Lemon juice (clarified),General,0,834,Gaboon Viper
+4693,14.78675,ml,Lemon juice,General,0,834,Gaboon Viper
 4694,14.78675,ml,Orange juice,General,0,834,Gaboon Viper
 4695,2,ds,"Orange bitters, Regans' orange bitters",General,0,834,Gaboon Viper
 4696,29.5735,ml,Egg white,General,0,834,Gaboon Viper
@@ -4700,7 +4700,7 @@
 4698,29.5735,ml,Aperol,Liqueur,10,835,Galileo
 4699,29.5735,ml,Lemon juice,General,0,835,Galileo
 4700,22.180125,ml,Elderflower liqueur (Fiorente),Liqueur,10,835,Galileo
-4701,59.147,ml,"Gin, St. George Botanivore (Originally Castle & Key .)",Gin,1,836,Gallflower
+4701,59.147,ml,"Gin, St. George Botanivore",Gin,1,836,Gallflower
 4702,22.180125,ml,"Bruto Americano, St. George",Liqueur,10,836,Gallflower
 4703,3.6966875,ml,"Herbal liqueur, Jeppson's Malort",Liqueur,10,836,Gallflower
 4704,3.6966875,ml,Underberg bitters,General,0,836,Gallflower
@@ -4730,9 +4730,9 @@
 4728,7.393375,ml,Simple syrup,General,0,841,The Gateway
 4729,2,sli,Cucumber,Garnish,11,841,The Gateway
 4730,1,ds,"Bitters, Dutch's Colonial",General,0,841,The Gateway
-4731,59.147,ml,Champagne,Champagne,9,841,The Gateway
+4731,59.147,ml,Champagne,Wine,8,841,The Gateway
 4732,1,spg,Mint,Garnish,11,841,The Gateway
-4733,1,ds,"Herbal liqueur, Green Chartreuse",Garnish,11,841,The Gateway
+4733,1,ds,"Herbal liqueur, Green Chartreuse",Liqueur,10,841,The Gateway
 4734,29.5735,ml,Gin,Gin,1,842,Gender Diverse
 4735,14.78675,ml,Strega,Liqueur,10,842,Gender Diverse
 4736,14.78675,ml,Contratto Aperitif,Liqueur,10,842,Gender Diverse
@@ -4741,9 +4741,9 @@
 4739,2,ds,Peychaud's Bitters,General,0,842,Gender Diverse
 4740,22.180125,ml,"Oude genever, Bols",Spirits,21,843,Genever Convention
 4741,22.180125,ml,Sloe gin (Hayman's),Gin,1,843,Genever Convention
-4742,22.180125,ml,"Aquavit, Linie",Liqueur,10,843,Genever Convention
-4743,22.180125,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,843,Genever Convention
-4744,1,bsp,Gomme syrup,General,0,843,Genever Convention
+4742,22.180125,ml,"Aquavit, Linie",Spirits,21,843,Genever Convention
+4743,22.180125,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,843,Genever Convention
+4744,1,bsp,Gomme Syrup,General,0,843,Genever Convention
 4745,1,ds,"Bitters, Bar Keep Chinese Bitters",General,0,843,Genever Convention
 4746,2,,Brandied cherry (on a toothpick),General,0,843,Genever Convention
 4747,59.147,ml,Mezcal (Sieta Misterios),Mezcal,20,844,The Geometry of Shadows
@@ -4774,7 +4774,7 @@
 4772,29.5735,ml,Grapefruit juice,General,0,849,Gilded Paloma
 4773,29.5735,ml,Pineapple juice,General,0,849,Gilded Paloma
 4774,14.78675,ml,Lime juice,General,0,849,Gilded Paloma
-4775,14.78675,ml,Cinnamon syrup,General,0,849,Gilded Paloma
+4775,14.78675,ml,Cinnamon Syrup,General,0,849,Gilded Paloma
 4776,59.147,ml,Soda water,General,0,849,Gilded Paloma
 4777,1,twst,Grapefruit peel,Garnish,11,849,Gilded Paloma
 4778,29.5735,ml,"Gin, Tanqueray Rangpur",Gin,1,850,Gin-Cel-Ray
@@ -4800,8 +4800,8 @@
 4798,22.180125,ml,Dry vermouth,Wine,8,853,Ginger Lindsay
 4799,22.180125,ml,"Ginger liqueur, Domaine de Canton",Liqueur,10,853,Ginger Lindsay
 4800,14.78675,ml,Lime juice,General,0,853,Ginger Lindsay
-4801,22.180125,ml,Light rum,Rum,2,854,Ginger Pear Thing
-4802,22.180125,ml,Dark rum,Rum,2,854,Ginger Pear Thing
+4801,22.180125,ml,Light Rum,Rum,2,854,Ginger Pear Thing
+4802,22.180125,ml,Dark Rum,Rum,2,854,Ginger Pear Thing
 4803,14.78675,ml,Pear liqueur,Liqueur,10,854,Ginger Pear Thing
 4804,14.78675,ml,"Ginger liqueur, King's Ginger",Liqueur,10,854,Ginger Pear Thing
 4805,44.36025,ml,Seltzer water,General,0,854,Ginger Pear Thing
@@ -4830,15 +4830,15 @@
 4828,4,twst,Lemon peel,Garnish,11,858,Giuseppe's Ferrari
 4829,1,pn,Salt,Garnish,11,858,Giuseppe's Ferrari
 4830,44.36025,ml,"Rye, Rittenhouse",Whisky,4,859,Gladstone
-4831,1,T,"Aquavit, Aalborg (or kümmel)",General,0,859,Gladstone
+4831,1,T,"Aquavit, Aalborg (or kümmel)",Spirits,21,859,Gladstone
 4832,1,t,"Maraschino Liqueur, Luxardo",Liqueur,10,859,Gladstone
-4833,1,t,Gomme syrup,General,0,859,Gladstone
+4833,1,t,Gomme Syrup,General,0,859,Gladstone
 4834,2,ds,Absinthe,Spirits,21,859,Gladstone
 4835,1,ds,"Jamaican rum, Appleton V/X",Rum,2,859,Gladstone
 4836,1,ds,"Bitters, Boker's (or Angostura)",General,0,859,Gladstone
 4837,44.36025,ml,"Pisco, Capel",Brandy,5,860,Glowing Green
 4838,29.5735,ml,Suze,Liqueur,10,860,Glowing Green
-4839,22.180125,ml,Ancho Reyes chile liqueur,Liqueur,10,860,Glowing Green
+4839,22.180125,ml,Ancho Reyes Verde chile liqueur,Liqueur,10,860,Glowing Green
 4840,22.180125,ml,Blue Curaçao,Liqueur,10,860,Glowing Green
 4841,2,ds,Orange bitters,General,0,860,Glowing Green
 4842,44.36025,ml,Genever,Liqueur,10,861,The Goblins Turn to Stone
@@ -4872,7 +4872,7 @@
 4870,22.180125,ml,Simple syrup (wakame leaves),General,0,867,Gomá
 4871,1,dr,Sesame oil,General,0,867,Gomá
 4872,29.5735,ml,Gin (barrel aged),Gin,1,868,The Gong of Brown Wisdom
-4873,14.78675,ml,Dark rum,Rum,2,868,The Gong of Brown Wisdom
+4873,14.78675,ml,Dark Rum,Rum,2,868,The Gong of Brown Wisdom
 4874,14.78675,ml,Allspice Dram,Liqueur,10,868,The Gong of Brown Wisdom
 4875,14.78675,ml,"Amaro, Cappelletti Sfumato Rabarbaro",Liqueur,10,868,The Gong of Brown Wisdom
 4876,22.180125,ml,Amaro Abano,Liqueur,10,868,The Gong of Brown Wisdom
@@ -4897,10 +4897,10 @@
 4895,14.78675,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,871,Gramercy
 4896,14.78675,ml,Bénédictine,General,0,871,Gramercy
 4897,29.5735,ml,"Rum, Smith & Cross",Rum,2,872,Grand Funk Railroad
-4898,29.5735,ml,Cognac (VSOP),Brandy,5,872,Grand Funk Railroad
+4898,29.5735,ml,Cognac VSOP,Brandy,5,872,Grand Funk Railroad
 4899,29.5735,ml,Bonal Gentiane Quina,Wine,8,872,Grand Funk Railroad
 4900,7.393375,ml,"Peach liqueur, Mathilde",Liqueur,10,872,Grand Funk Railroad
-4901,6,dr,"Bitters, Bittermens (Burlesque)",General,0,872,Grand Funk Railroad
+4901,6,dr,"Bitters, Bittermens Burlesque",General,0,872,Grand Funk Railroad
 4902,59.147,ml,Aquavit,Spirits,21,873,Grand Marais
 4903,29.5735,ml,"Herbal liqueur, Yellow Chartreuse",Liqueur,10,873,Grand Marais
 4904,2,ds,"Celery bitters, Fee Brothers",General,0,873,Grand Marais
@@ -4922,7 +4922,7 @@
 4920,2,ds,"Orange bitters, Regans' orange bitters",General,0,876,Grande Classico
 4921,1⁄2,,Lime,General,0,876,Grande Classico
 4922,59.147,ml,Brandy (unaged Frisco California brandy),Brandy,5,877,Grapes of Wrath
-4923,14.78675,ml,"Apricot liqueur, Luxardo apricot liqueur",Liqueur,10,877,Grapes of Wrath
+4923,14.78675,ml,"Apricot liqueur, Luxardo",Liqueur,10,877,Grapes of Wrath
 4924,14.78675,ml,Lemon juice,General,0,877,Grapes of Wrath
 4925,14.78675,ml,Lime juice,General,0,877,Grapes of Wrath
 4926,14.78675,ml,"Orgeat, Small Hand Foods",General,0,877,Grapes of Wrath
@@ -4932,12 +4932,12 @@
 4930,14.78675,ml,"Sweet vermouth, Cocchi",Wine,8,878,Great Scott
 4931,14.78675,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,878,Great Scott
 4932,2,ds,"Bitters, Fee Brothers Whiskey Barrel Aged",Whisky,4,878,Great Scott
-4933,22.180125,ml,Blanco tequila,Tequila,6,879,Green Like a Fox
+4933,22.180125,ml,Blanco Tequila,Tequila,6,879,Green Like a Fox
 4934,22.180125,ml,Pisco,Brandy,5,879,Green Like a Fox
 4935,14.78675,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,879,Green Like a Fox
 4936,7.393375,ml,Maraschino Liqueur,Liqueur,10,879,Green Like a Fox
 4937,22.180125,ml,Lime juice,General,0,879,Green Like a Fox
-4938,14.78675,ml,Agave syrup,General,0,879,Green Like a Fox
+4938,14.78675,ml,Agave Syrup,General,0,879,Green Like a Fox
 4939,44.36025,ml,"Pomegranate Liqueur, Pama",Liqueur,10,880,Grenados Sour
 4940,22.180125,ml,Bourbon (high proof),Whisky,4,880,Grenados Sour
 4941,29.5735,ml,Lemon juice,General,0,880,Grenados Sour
@@ -4959,7 +4959,7 @@
 4957,29.5735,ml,Pimm's No. 1 Cup,Liqueur,10,883,Grumpy Brit #2
 4958,29.5735,ml,Grapefruit juice,General,0,883,Grumpy Brit #2
 4959,22.180125,ml,Mezcal,Mezcal,20,884,Guns of Brixton
-4960,22.180125,ml,Apple brandy,Brandy,5,884,Guns of Brixton
+4960,22.180125,ml,Apple Brandy,Brandy,5,884,Guns of Brixton
 4961,29.5735,ml,Bonal Gentiane Quina,Wine,8,884,Guns of Brixton
 4962,7.393375,ml,Sloe gin,Gin,1,884,Guns of Brixton
 4963,7.393375,ml,Cynar,Liqueur,10,884,Guns of Brixton
@@ -4972,15 +4972,15 @@
 4970,51.753625,ml,Scotch,Whisky,4,886,Guy Tugwell
 4971,7.393375,ml,Pear eau de vie,Brandy,5,886,Guy Tugwell
 4972,22.180125,ml,Lemon juice,General,0,886,Guy Tugwell
-4973,22.180125,ml,Cinnamon syrup,General,0,886,Guy Tugwell
+4973,22.180125,ml,Cinnamon Syrup,General,0,886,Guy Tugwell
 4974,29.5735,ml,Soda water,General,0,886,Guy Tugwell
 4975,44.36025,ml,Gin,Gin,1,887,Gypsy Rose
-4976,14.78675,ml,Apple brandy (Such as Laird's Bonded),Brandy,5,887,Gypsy Rose
+4976,14.78675,ml,"Apple brandy, Laird's Bonded",Brandy,5,887,Gypsy Rose
 4977,22.180125,ml,Dry vermouth,Wine,8,887,Gypsy Rose
 4978,7.393375,ml,Raspberry syrup,General,0,887,Gypsy Rose
 4979,1,ds,Peychaud's Bitters,General,0,887,Gypsy Rose
 4980,1,twst,Lemon peel,General,0,887,Gypsy Rose
-4981,44.36025,ml,Light rum,Rum,2,888,The Haigh
+4981,44.36025,ml,Light Rum,Rum,2,888,The Haigh
 4982,22.180125,ml,"Curaçao, Senior Curaçao",Liqueur,10,888,The Haigh
 4983,7.393375,ml,"Maraschino Liqueur, Luxardo",Liqueur,10,888,The Haigh
 4984,44.36025,ml,Pineapple juice,General,0,888,The Haigh
@@ -5027,7 +5027,7 @@
 5025,1,?,Cherry,General,0,894,Hannah Marina Cocktail
 5026,44.36025,ml,"Gin, St. George Dry Rye",Whisky,4,895,Hardshell Case
 5027,22.180125,ml,Averna,Liqueur,10,895,Hardshell Case
-5028,7.393375,ml,"Allspice Dram, St Elizabeth",Liqueur,10,895,Hardshell Case
+5028,7.393375,ml,"Allspice Dram, St. Elizabeth",Liqueur,10,895,Hardshell Case
 5029,22.180125,ml,Lemon juice,General,0,895,Hardshell Case
 5030,5,dr,"Lemon Tree Bitters, Bittercube",General,0,895,Hardshell Case
 5031,1,sli,Lemon peel,General,0,895,Hardshell Case
@@ -5039,7 +5039,7 @@
 5037,29.5735,ml,Shochu,General,0,897,Haru High Booru
 5038,2,ds,Peychaud's Bitters,General,0,897,Haru High Booru
 5039,2,ds,"Bitters, Angostura orange",General,0,897,Haru High Booru
-5040,59.147,ml,Club soda,General,0,897,Haru High Booru
+5040,59.147,ml,Club Soda,General,0,897,Haru High Booru
 5041,51.753625,ml,"Applejack, Lairds",Brandy,5,898,Harvard Dropout
 5042,22.180125,ml,"Pomegranate Liqueur, Pama",Liqueur,10,898,Harvard Dropout
 5043,14.78675,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,898,Harvard Dropout
@@ -5052,7 +5052,7 @@
 5050,88.7205,ml,"Weissbier, Dennison's",Beer,7,899,Harvey Weissbanger
 5051,29.5735,ml,Orange juice,General,0,899,Harvey Weissbanger
 5052,14.78675,ml,Lemon juice,General,0,899,Harvey Weissbanger
-5053,14.78675,ml,Clove Syrup (Homemade),General,0,899,Harvey Weissbanger
+5053,14.78675,ml,Clove Simple Syrup,General,0,899,Harvey Weissbanger
 5054,1,,Egg white,General,0,899,Harvey Weissbanger
 5055,1,ds,"Bitters, Angostura",General,0,899,Harvey Weissbanger
 5056,1,twst,Orange peel,Garnish,11,899,Harvey Weissbanger
@@ -5123,15 +5123,15 @@
 5121,29.5735,ml,"Haitian Rum, Barbancourt 8",Rum,2,912,Hephaestus' Three Hour Tour
 5122,14.78675,ml,Peach liqueur,Liqueur,10,912,Hephaestus' Three Hour Tour
 5123,7.393375,ml,"Mezcal, Del Maguey Vida",Mezcal,20,912,Hephaestus' Three Hour Tour
-5124,1,dr,"Jamaican #2 bitters, Bittercube (full dropper)",General,0,912,Hephaestus' Three Hour Tour
+5124,1,dr,"Jamaican #2 bitters, Bittercube",General,0,912,Hephaestus' Three Hour Tour
 5125,88.7205,ml,Coffee,General,0,912,Hephaestus' Three Hour Tour
 5126,7.393375,ml,Orange juice,General,0,912,Hephaestus' Three Hour Tour
 5127,7.393375,ml,Pineapple juice,General,0,912,Hephaestus' Three Hour Tour
-5128,1,bsp,Agave syrup,General,0,912,Hephaestus' Three Hour Tour
+5128,1,bsp,Agave Syrup,General,0,912,Hephaestus' Three Hour Tour
 5129,1,twst,Orange peel,General,0,912,Hephaestus' Three Hour Tour
-5130,44.36025,ml,Blanco tequila,Tequila,6,913,Herb Tarlek
+5130,44.36025,ml,Blanco Tequila,Tequila,6,913,Herb Tarlek
 5131,29.5735,ml,Cynar,Liqueur,10,913,Herb Tarlek
-5132,7.393375,ml,Drambuie,Whisky,4,913,Herb Tarlek
+5132,7.393375,ml,Drambuie,Liqueur,10,913,Herb Tarlek
 5133,1,rinse,"Herbal liqueur, Green Chartreuse",Liqueur,10,913,Herb Tarlek
 5134,3,sli,Cucumber,Garnish,11,913,Herb Tarlek
 5135,1,twst,Lemon peel,General,0,913,Herb Tarlek
@@ -5160,16 +5160,16 @@
 5158,14.78675,ml,Lemon juice,General,0,918,High Brow Board Walk
 5159,1,sli,Lemon,Garnish,11,918,High Brow Board Walk
 5160,44.36025,ml,"Martinique Rum, Rhum JM Blanc",Rum,2,919,Hikihoho
-5161,14.78675,ml,Blanco tequila,Tequila,6,919,Hikihoho
+5161,14.78675,ml,Blanco Tequila,Tequila,6,919,Hikihoho
 5162,14.78675,ml,Triple sec,Liqueur,10,919,Hikihoho
-5163,14.78675,ml,Coconut liqueur,Liqueur,10,919,Hikihoho
+5163,14.78675,ml,Coconut Liqueur,Liqueur,10,919,Hikihoho
 5164,14.78675,ml,Orgeat,General,0,919,Hikihoho
 5165,29.5735,ml,Lime juice,General,0,919,Hikihoho
 5166,29.5735,ml,Pineapple juice (Unsweetened),General,0,919,Hikihoho
 5167,14.78675,ml,Parfait Amour,Liqueur,10,919,Hikihoho
 5168,5,dr,Vanilla extract (Optional),General,0,919,Hikihoho
 5169,44.36025,ml,"Scotch, Johnnie Walker Black Label",Whisky,4,920,Hitch-22
-5170,44.36025,ml,Drambuie,Whisky,4,920,Hitch-22
+5170,44.36025,ml,Drambuie,Liqueur,10,920,Hitch-22
 5171,22.180125,ml,"Elderflower liqueur, St. Germain",Liqueur,10,920,Hitch-22
 5172,22.180125,ml,Lemon juice,General,0,920,Hitch-22
 5173,1,t,Orgeat,General,0,920,Hitch-22
@@ -5222,7 +5222,7 @@
 5220,22.180125,ml,Honey syrup,General,0,930,Honey Fitz
 5221,22.180125,ml,Grapefruit juice,General,0,930,Honey Fitz
 5222,2,ds,Peychaud's Bitters,General,0,930,Honey Fitz
-5223,44.36025,ml,Drambuie,Whisky,4,931,Honeypot
+5223,44.36025,ml,Drambuie,Liqueur,10,931,Honeypot
 5224,22.180125,ml,Scotch,Whisky,4,931,Honeypot
 5225,22.180125,ml,Lemon juice,General,0,931,Honeypot
 5226,1,ds,Bitters,General,0,931,Honeypot
@@ -5254,7 +5254,7 @@
 5252,22.180125,ml,Falernum,Liqueur,10,936,Hop Over
 5253,29.5735,ml,Genever,Liqueur,10,936,Hop Over
 5254,2,ds,Orange flower water,General,0,936,Hop Over
-5255,59.147,ml,India Pale Ale (to top),Beer,7,936,Hop Over
+5255,59.147,ml,India Pale Ale,Beer,7,936,Hop Over
 5256,1,sli,Lemon,Garnish,11,936,Hop Over
 5257,44.36025,ml,Bourbon,Whisky,4,937,Hope Cocktail
 5258,14.78675,ml,Cognac,Brandy,5,937,Hope Cocktail
@@ -5266,9 +5266,9 @@
 5264,7.393375,ml,"Elderflower liqueur, St. Germain",Liqueur,10,938,Hoppy Father-in-Law
 5265,29.5735,ml,Lemon juice,General,0,938,Hoppy Father-in-Law
 5266,29.5735,ml,Lime juice,General,0,938,Hoppy Father-in-Law
-5267,1,dr,"Door County Hop Bitters, Bittercube (1 full droper)",General,0,938,Hoppy Father-in-Law
+5267,1,dr,"Door County Hop Bitters, Bittercube",General,0,938,Hoppy Father-in-Law
 5268,29.5735,ml,Mezcal,Mezcal,20,939,Horror Hotel
-5269,14.78675,ml,Apple brandy,Brandy,5,939,Horror Hotel
+5269,14.78675,ml,Apple Brandy,Brandy,5,939,Horror Hotel
 5270,14.78675,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,939,Horror Hotel
 5271,14.78675,ml,Apricot liqueur,Liqueur,10,939,Horror Hotel
 5272,14.78675,ml,Cynar,Liqueur,10,939,Horror Hotel
@@ -5278,15 +5278,15 @@
 5276,51.753625,ml,Red wine (Sweet),Wine,8,940,Hot Frenchman
 5277,59.147,ml,Water (Hot),General,0,940,Hot Frenchman
 5278,1,bsp,Honey,General,0,940,Hot Frenchman
-5279,1,bsp,Brown sugar,General,0,940,Hot Frenchman
+5279,1,bsp,Brown Sugar,General,0,940,Hot Frenchman
 5280,14.78675,ml,Lime juice,General,0,940,Hot Frenchman
 5281,1,ds,Cinnamon,General,0,940,Hot Frenchman
 5282,1,spg,Cilantro,General,0,940,Hot Frenchman
-5283,22.180125,ml,Calvados,Spirits,21,941,Hotty Toddy
+5283,22.180125,ml,Calvados,Brandy,5,941,Hotty Toddy
 5284,22.180125,ml,"Ginger liqueur, King's Ginger",Liqueur,10,941,Hotty Toddy
 5285,14.78675,ml,Cranberry liqueur,Liqueur,10,941,Hotty Toddy
 5286,22.180125,ml,Lemon juice,General,0,941,Hotty Toddy
-5287,1,t,Cinnamon syrup,General,0,941,Hotty Toddy
+5287,1,t,Cinnamon Syrup,General,0,941,Hotty Toddy
 5288,44.36025,ml,"Bourbon, Woodford Reserve",Whisky,4,942,How Many Pecks in a Bushel
 5289,14.78675,ml,"Spiced Rum, Sailor Jerry",Rum,2,942,How Many Pecks in a Bushel
 5290,29.5735,ml,Apple Shrub,General,0,942,How Many Pecks in a Bushel
@@ -5318,15 +5318,15 @@
 5316,22.180125,ml,Lime juice,General,0,947,Hurricane Sterba
 5317,44.36025,ml,Bourbon,Whisky,4,948,I'll Have Another
 5318,29.5735,ml,Grapefruit juice (white),General,0,948,I'll Have Another
-5319,14.78675,ml,Cinnamon syrup,General,0,948,I'll Have Another
-5320,29.5735,ml,Champagne,Champagne,9,948,I'll Have Another
+5319,14.78675,ml,Cinnamon Syrup,General,0,948,I'll Have Another
+5320,29.5735,ml,Champagne,Wine,8,948,I'll Have Another
 5321,1,sli,Grapefruit,Garnish,11,948,I'll Have Another
 5322,44.36025,ml,Gin,Gin,1,949,Icelandish
 5323,22.180125,ml,"Dry vermouth, Dolin",Wine,8,949,Icelandish
 5324,22.180125,ml,"Kummel, Combier",Liqueur,10,949,Icelandish
 5325,2,ds,Grapefruit bitters,General,0,949,Icelandish
 5326,1,twst,Lemon peel,Garnish,11,949,Icelandish
-5327,59.147,ml,Blanco tequila,Tequila,6,950,An Icy Wasatch Rohde
+5327,59.147,ml,Blanco Tequila,Tequila,6,950,An Icy Wasatch Rohde
 5328,22.180125,ml,Crème de mure,Liqueur,10,950,An Icy Wasatch Rohde
 5329,7.393375,ml,Campari,Liqueur,10,950,An Icy Wasatch Rohde
 5330,14.78675,ml,Lemon juice,General,0,950,An Icy Wasatch Rohde
@@ -5352,7 +5352,7 @@
 5350,1,twst,Orange peel,Garnish,11,953,Improved Bamboo
 5351,29.5735,ml,"Dry apricot brandy, Blume Marillen",Brandy,5,954,In Blume
 5352,29.5735,ml,"Bianco Vermouth, Dolin",Wine,8,954,In Blume
-5353,14.78675,ml,Lemon juice (or lime juice),General,0,954,In Blume
+5353,14.78675,ml,Lemon juice,General,0,954,In Blume
 5354,7.393375,ml,Simple syrup (2:1),General,0,954,In Blume
 5355,1,,Egg white,General,0,954,In Blume
 5356,1,pn,Salt,General,0,954,In Blume
@@ -5360,13 +5360,13 @@
 5358,1,t,Maraschino Liqueur,Liqueur,10,955,Improved Tequila Cocktail
 5359,2,ds,"Bitters, Bittermens Xocolatl Mole",General,0,955,Improved Tequila Cocktail
 5360,1,ds,"Bitters, Angostura",General,0,955,Improved Tequila Cocktail
-5361,1,t,Agave syrup,General,0,955,Improved Tequila Cocktail
+5361,1,t,Agave Syrup,General,0,955,Improved Tequila Cocktail
 5362,1,twst,Lemon peel,Garnish,11,955,Improved Tequila Cocktail
 5363,44.36025,ml,"Gin, Aviation",Gin,1,956,In-Flight-Cookie
 5364,29.5735,ml,"Ginger liqueur, Domaine de Canton",Liqueur,10,956,In-Flight-Cookie
-5365,29.5735,ml,Half-and-half,General,0,956,In-Flight-Cookie
+5365,29.5735,ml,Half and Half,General,0,956,In-Flight-Cookie
 5366,1,T,"Cookie, Speculoos (*)",General,0,956,In-Flight-Cookie
-5367,1⁄4,t,Maple syrup,General,0,956,In-Flight-Cookie
+5367,1⁄4,t,Maple Syrup,General,0,956,In-Flight-Cookie
 5368,3,ds,"Aztec Chocolate bitters, Fee Brothers",General,0,956,In-Flight-Cookie
 5369,4,dr,"Cardamom bitters, Scrappy's",General,0,956,In-Flight-Cookie
 5370,1,ds,Nutmeg,General,0,956,In-Flight-Cookie
@@ -5377,7 +5377,7 @@
 5375,2,ds,"Bitters, Angostura",General,0,957,In the Stacks
 5376,2,ds,"Bitters, Bittermens Xocolatl Mole",General,0,957,In the Stacks
 5377,1,twst,Orange peel,Garnish,11,957,In the Stacks
-5378,22.180125,ml,Blanco tequila,Tequila,6,958,Incan Envy
+5378,22.180125,ml,Blanco Tequila,Tequila,6,958,Incan Envy
 5379,22.180125,ml,Pisco,Brandy,5,958,Incan Envy
 5380,22.180125,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,958,Incan Envy
 5381,22.180125,ml,Lime juice,General,0,958,Incan Envy
@@ -5421,7 +5421,7 @@
 5419,14.78675,ml,"Orange liqueur, Grand Marnier",Liqueur,10,964,The International Orange
 5420,1,twst,Orange peel,General,0,964,The International Orange
 5421,29.5735,ml,"Irish whiskey, Jameson",Whisky,4,965,Irish Albidum
-5422,14.78675,ml,Allspice Dram (homemade),Liqueur,10,965,Irish Albidum
+5422,14.78675,ml,Allspice Dram,Liqueur,10,965,Irish Albidum
 5423,7.393375,ml,Maraschino Liqueur,Liqueur,10,965,Irish Albidum
 5424,7.393375,ml,Coffee liqueur (Don Ciccio & Figli),Liqueur,10,965,Irish Albidum
 5425,3,ds,Black pepper tincture,General,0,965,Irish Albidum
@@ -5436,19 +5436,19 @@
 5434,1,,"Cherry, Luxardo",Garnish,11,966,Invitation to a Beheading
 5435,73.93375,ml,Irish whiskey,Whisky,4,967,Irish Ginger Flip with Teeth
 5436,29.5735,ml,"Elderflower liqueur, St. Germain",Liqueur,10,967,Irish Ginger Flip with Teeth
-5437,1,T,"Ginger (about 1"" grated)",General,0,967,Irish Ginger Flip with Teeth
+5437,1,T,Ginger,General,0,967,Irish Ginger Flip with Teeth
 5438,14.78675,ml,Honey syrup,General,0,967,Irish Ginger Flip with Teeth
 5439,1,,Egg white,General,0,967,Irish Ginger Flip with Teeth
 5440,1,twst,Lemon peel,General,0,967,Irish Ginger Flip with Teeth
 5441,1,pn,Nutmeg,Garnish,11,967,Irish Ginger Flip with Teeth
 5442,29.5735,ml,"Gin, Tanqueray 10",Gin,1,968,Island Dream
 5443,29.5735,ml,"Aromatized wine, Lillet Blanc",Wine,8,968,Island Dream
-5444,9.857833333333332,ml,"Bianco Vermouth, Martini & Rossi (Riserva Especiale Ambrato)",Wine,8,968,Island Dream
+5444,9.857833333333332,ml,"Bianco Vermouth, Martini & Rossi",Wine,8,968,Island Dream
 5445,19.715666666666664,ml,Dry vermouth,Wine,8,968,Island Dream
 5446,1,ds,"Orange bitters, Angostura",General,0,968,Island Dream
 5447,3,dr,Salt Solution,General,0,968,Island Dream
 5448,1,twst,Lemon peel,General,0,968,Island Dream
-5449,44.36025,ml,Gin (radish-infused; see Notes),Gin,1,969,"It's a Rad, Rad, Rad, Rad World"
+5449,44.36025,ml,Gin (radish-infused),Gin,1,969,"It's a Rad, Rad, Rad, Rad World"
 5450,22.180125,ml,Bénédictine,General,0,969,"It's a Rad, Rad, Rad, Rad World"
 5451,22.180125,ml,Lemon juice,General,0,969,"It's a Rad, Rad, Rad, Rad World"
 5452,1,twst,Lemon peel,Garnish,11,969,"It's a Rad, Rad, Rad, Rad World"
@@ -5485,7 +5485,7 @@
 5483,59.147,ml,"Soda water (In glass, not in shake)",General,0,975,Italian Stallion
 5484,1,twst,Orange peel,Garnish,11,975,Italian Stallion
 5485,29.5735,ml,Cachaça,Rum,2,976,Ja Mon
-5486,29.5735,ml,Dark rum,Rum,2,976,Ja Mon
+5486,29.5735,ml,Dark Rum,Rum,2,976,Ja Mon
 5487,14.78675,ml,Añejo rum,Rum,2,976,Ja Mon
 5488,1,t,"Walnut Liqueur, Nux Alpina",Liqueur,10,976,Ja Mon
 5489,22.180125,ml,Grapefruit juice,General,0,976,Ja Mon
@@ -5495,7 +5495,7 @@
 5493,44.36025,ml,"Spiced Rum, Sailor Jerry",Rum,2,977,Jack White's Girlfriend
 5494,14.78675,ml,Campari,Liqueur,10,977,Jack White's Girlfriend
 5495,7.393375,ml,"Ginger liqueur, Domaine de Canton",Liqueur,10,977,Jack White's Girlfriend
-5496,29.5735,ml,Ginger shrub,General,0,977,Jack White's Girlfriend
+5496,29.5735,ml,Ginger syrup,General,0,977,Jack White's Girlfriend
 5497,14.78675,ml,Orange juice,General,0,977,Jack White's Girlfriend
 5498,5,dr,"Bitters, Bittermens Burlesque",General,0,977,Jack White's Girlfriend
 5499,1,sli,Orange peel,General,0,977,Jack White's Girlfriend
@@ -5506,7 +5506,7 @@
 5504,1,part,Egg white,General,0,978,Jacqueline
 5505,7.393375,ml,Syrup of roses,General,0,978,Jacqueline
 5506,1,sli,Cucumber,General,0,978,Jacqueline
-5507,44.36025,ml,Gin (matcha-infused (see below)),Gin,1,979,Jade Tree Sour
+5507,44.36025,ml,Gin (matcha-infused),Gin,1,979,Jade Tree Sour
 5508,22.180125,ml,Lime juice,General,0,979,Jade Tree Sour
 5509,22.180125,ml,Pineapple juice,General,0,979,Jade Tree Sour
 5510,14.78675,ml,Coconut syrup,General,0,979,Jade Tree Sour
@@ -5515,13 +5515,13 @@
 5513,29.5735,ml,"Batavia Arrack, Van Oosten",General,0,980,Jakarta Mai Tai
 5514,29.5735,ml,"Rhum Agricole, Clément VSOP",Rum,2,980,Jakarta Mai Tai
 5515,22.180125,ml,Lime juice,General,0,980,Jakarta Mai Tai
-5516,14.78675,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,980,Jakarta Mai Tai
+5516,14.78675,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,980,Jakarta Mai Tai
 5517,14.78675,ml,Simple syrup (curry-leaf infused),General,0,980,Jakarta Mai Tai
 5518,1,pn,Salt,General,0,980,Jakarta Mai Tai
 5519,1,,Curry leaf,Garnish,11,980,Jakarta Mai Tai
 5520,1,twst,Lime peel,Garnish,11,980,Jakarta Mai Tai
 5521,22.180125,ml,Reposado Tequila,Tequila,6,981,The JakeWalk
-5522,22.180125,ml,Light rum,Rum,2,981,The JakeWalk
+5522,22.180125,ml,Light Rum,Rum,2,981,The JakeWalk
 5523,22.180125,ml,"Elderflower liqueur, St. Germain",Liqueur,10,981,The JakeWalk
 5524,22.180125,ml,Lime juice,General,0,981,The JakeWalk
 5525,2,ds,Peychaud's Bitters,General,0,981,The JakeWalk
@@ -5537,16 +5537,16 @@
 5535,29.5735,ml,Lemon juice,General,0,984,Japanese reviver
 5536,14.78675,ml,"Bergamot liqueur, Italicus",Liqueur,10,984,Japanese reviver
 5537,9.857833333333332,ml,"Aromatized wine, Cocchi Americano",Wine,8,984,Japanese reviver
-5538,14.78675,ml,Agave syrup,General,0,984,Japanese reviver
+5538,14.78675,ml,Agave Syrup,General,0,984,Japanese reviver
 5539,73.93375,ml,"Jasmine Liqueur, Koval",Liqueur,10,985,Jasmine Teatotaler
 5540,36.966875,ml,Rhubarb Shrub,General,0,985,Jasmine Teatotaler
 5541,5,ds,"Orange bitters, Angostura orange",General,0,985,Jasmine Teatotaler
-5542,177.441,ml,Club soda,General,0,985,Jasmine Teatotaler
+5542,177.441,ml,Club Soda,General,0,985,Jasmine Teatotaler
 5543,1,wdg,Lemon,Garnish,11,985,Jasmine Teatotaler
 5544,44.36025,ml,"Rum, El Dorado 12",Rum,2,986,Jaunty Angle
 5545,22.180125,ml,Rye,Whisky,4,986,Jaunty Angle
 5546,1,t,"Herbal liqueur, Green Chartreuse",Liqueur,10,986,Jaunty Angle
-5547,1,t,Gomme syrup,General,0,986,Jaunty Angle
+5547,1,t,Gomme Syrup,General,0,986,Jaunty Angle
 5548,2,ds,"Bitters, Angostura",General,0,986,Jaunty Angle
 5549,1,ds,"Orange bitters, Angostura orange",General,0,986,Jaunty Angle
 5550,22.180125,ml,Gin,Gin,1,987,Jennifer's Lair
@@ -5557,10 +5557,10 @@
 5555,19.715666666666664,ml,Lime juice,General,0,987,Jennifer's Lair
 5556,29.5735,ml,"Apple brandy, Lairds",Brandy,5,988,Jersey Garden
 5557,14.78675,ml,Suze,Liqueur,10,988,Jersey Garden
-5558,7.393375,ml,Grenadine (Homemade),General,0,988,Jersey Garden
+5558,7.393375,ml,Grenadine,General,0,988,Jersey Garden
 5559,5,dr,Lemon juice,General,0,988,Jersey Garden
 5560,1,spl,Soda water,General,0,988,Jersey Garden
-5561,44.36025,ml,Apple brandy,Brandy,5,989,Jet Pack
+5561,44.36025,ml,Apple Brandy,Brandy,5,989,Jet Pack
 5562,14.78675,ml,Swedish Punsch,Liqueur,10,989,Jet Pack
 5563,14.78675,ml,"Aromatized wine, Cocchi Americano",Wine,8,989,Jet Pack
 5564,7.393375,ml,Mezcal,Mezcal,20,989,Jet Pack
@@ -5573,11 +5573,11 @@
 5571,2,ds,"Orange bitters, Angostura",General,0,990,Jeu d'Esprit
 5572,2,ds,"Bitters, Fee Brothers Orange",General,0,990,Jeu d'Esprit
 5573,3,dr,"Orange bitters, Bittercube",General,0,990,Jeu d'Esprit
-5574,118.294,ml,Club soda,General,0,990,Jeu d'Esprit
+5574,118.294,ml,Club Soda,General,0,990,Jeu d'Esprit
 5575,1,sli,Orange,General,0,990,Jeu d'Esprit
 5576,44.36025,ml,"Ginger liqueur, Domaine de Canton",Liqueur,10,991,Jinjer King
 5577,29.5735,ml,"Irish whiskey, Jameson",Whisky,4,991,Jinjer King
-5578,29.5735,ml,Ginger shrub,General,0,991,Jinjer King
+5578,29.5735,ml,Ginger syrup,General,0,991,Jinjer King
 5579,1,part,Egg white,General,0,991,Jinjer King
 5580,44.36025,ml,Tonic water,General,0,991,Jinjer King
 5581,44.36025,ml,Rye,Whisky,4,992,Job Well Done
@@ -5616,7 +5616,7 @@
 5614,1,rinse,"Absinthe Rouge, Amerique 1912",Spirits,21,998,Keep Shaking that Bush
 5615,59.147,ml,"Bourbon, Bulleit (Vanilla and Orange Infused)",Whisky,4,999,Kentucky Masala
 5616,14.78675,ml,Ginger liqueur,Liqueur,10,999,Kentucky Masala
-5617,14.78675,ml,Gomme syrup,General,0,999,Kentucky Masala
+5617,14.78675,ml,Gomme Syrup,General,0,999,Kentucky Masala
 5618,2,ds,"Bitters, Fee Brothers Old Fashion",General,0,999,Kentucky Masala
 5619,2,ds,"Cardamom bitters, Scrappy's Cardamon",General,0,999,Kentucky Masala
 5620,44.36025,ml,"Rye, Bulleit",Whisky,4,1000,Kentucky Mule
@@ -5663,7 +5663,7 @@
 5661,14.78675,ml,Lemon juice,General,0,1007,Koi Pond Punch
 5662,7.393375,ml,Mango juice,General,0,1007,Koi Pond Punch
 5663,29.5735,ml,"Apple liqueur, Du Nord",Liqueur,10,1008,Kořeněné Jablko (Spicy Apple)
-5664,29.5735,ml,"Kinnickinnic Whiskey, Great Lakes Distillery (*black tea infused)",Whisky,4,1008,Kořeněné Jablko (Spicy Apple)
+5664,29.5735,ml,"Kinnickinnic Whiskey, Great Lakes Distillery",Whisky,4,1008,Kořeněné Jablko (Spicy Apple)
 5665,22.180125,ml,Lemon juice,General,0,1008,Kořeněné Jablko (Spicy Apple)
 5666,14.78675,ml,Becherovka,Liqueur,10,1008,Kořeněné Jablko (Spicy Apple)
 5667,14.78675,ml,Honey syrup,General,0,1008,Kořeněné Jablko (Spicy Apple)
@@ -5676,22 +5676,22 @@
 5674,44.36025,ml,"Ginger liqueur, Domaine de Canton",Liqueur,10,1010,L'Amour de L'Or
 5675,29.5735,ml,"Bourbon, Maker's Mark 46",Whisky,4,1010,L'Amour de L'Or
 5676,14.78675,ml,Lemon juice,General,0,1010,L'Amour de L'Or
-5677,88.7205,ml,Champagne (Blanc de Blancs),Champagne,9,1010,L'Amour de L'Or
+5677,88.7205,ml,Champagne (Blanc de Blancs),Wine,8,1010,L'Amour de L'Or
 5678,1,twst,Lemon peel,General,0,1010,L'Amour de L'Or
 5679,29.5735,ml,Amaro Montenegro,Liqueur,10,1011,L'amer est doux au coeur
 5680,29.5735,ml,Bonal Gentiane Quina,Wine,8,1011,L'amer est doux au coeur
 5681,22.180125,ml,"Rum, Barbancourt 8",Rum,2,1011,L'amer est doux au coeur
-5682,29.5735,ml,Guava juice,General,0,1011,L'amer est doux au coeur
+5682,29.5735,ml,Guava Juice,General,0,1011,L'amer est doux au coeur
 5683,2,ds,"Bitters, Bittermens 'Elemakule Tiki",General,0,1011,L'amer est doux au coeur
 5684,73.93375,ml,Dry vermouth,Wine,8,1012,L'Orangerie
 5685,14.78675,ml,"Triple sec, Cointreau",Liqueur,10,1012,L'Orangerie
 5686,2,dr,"Bitters, Angostura",General,0,1012,L'Orangerie
-5687,22.180125,ml,"Aquavit, Linie",Liqueur,10,1013,Lackadaisy
+5687,22.180125,ml,"Aquavit, Linie",Spirits,21,1013,Lackadaisy
 5688,22.180125,ml,Reposado Tequila,Tequila,6,1013,Lackadaisy
 5689,22.180125,ml,Lime juice,General,0,1013,Lackadaisy
 5690,14.78675,ml,"Herbal liqueur, Yellow Chartreuse",Liqueur,10,1013,Lackadaisy
 5691,7.393375,ml,"Triple sec, Combier L'Original Liqueur D'Orange",Liqueur,10,1013,Lackadaisy
-5692,1⁄2,t,Agave syrup,General,0,1013,Lackadaisy
+5692,1⁄2,t,Agave Syrup,General,0,1013,Lackadaisy
 5693,1,lf,Mint,Garnish,11,1013,Lackadaisy
 5694,44.36025,ml,Bourbon,Whisky,4,1014,Lady Jake
 5695,29.5735,ml,"Ginger liqueur, Domaine de Canton",Liqueur,10,1014,Lady Jake
@@ -5710,7 +5710,7 @@
 5708,29.5735,ml,Blood Orange Juice,General,0,1016,Laetare Fizz
 5709,14.78675,ml,Passion fruit puree,General,0,1016,Laetare Fizz
 5710,14.78675,ml,Cassis,General,0,1016,Laetare Fizz
-5711,14.78675,ml,Heavy cream,General,0,1016,Laetare Fizz
+5711,14.78675,ml,Heavy Cream,General,0,1016,Laetare Fizz
 5712,7.393375,ml,Lemon juice,General,0,1016,Laetare Fizz
 5713,1,,Egg white,General,0,1016,Laetare Fizz
 5714,5,dr,Peychaud's Bitters,Garnish,11,1016,Laetare Fizz
@@ -5737,17 +5737,17 @@
 5735,29.5735,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,1020,Las Meninas
 5736,2,ds,"Bitters, Abbott's",General,0,1020,Las Meninas
 5737,14.78675,ml,Gin,Gin,1,1021,Language is a Virus
-5738,14.78675,ml,Apple brandy (Such as Laird's Bonded),Brandy,5,1021,Language is a Virus
+5738,14.78675,ml,"Apple brandy, Laird's Bonded",Brandy,5,1021,Language is a Virus
 5739,29.5735,ml,Dry vermouth,Wine,8,1021,Language is a Virus
 5740,14.78675,ml,Campari,Liqueur,10,1021,Language is a Virus
 5741,14.78675,ml,Bénédictine,General,0,1021,Language is a Virus
 5742,1,twst,Orange peel,Garnish,11,1021,Language is a Virus
-5743,44.36025,ml,Drambuie,Whisky,4,1022,The Last Gentleman
+5743,44.36025,ml,Drambuie,Liqueur,10,1022,The Last Gentleman
 5744,29.5735,ml,"Speyside Scotch, Glenfiddich",Whisky,4,1022,The Last Gentleman
 5745,14.78675,ml,Licor 43,Liqueur,10,1022,The Last Gentleman
 5746,29.5735,ml,Lemon juice,General,0,1022,The Last Gentleman
 5747,44.36025,ml,Honey syrup,General,0,1022,The Last Gentleman
-5748,29.5735,ml,Gin (London dry),Gin,1,1023,Last Colony
+5748,29.5735,ml,Gin (London Dry),Gin,1,1023,Last Colony
 5749,29.5735,ml,PInk grapefruit juice,General,0,1023,Last Colony
 5750,14.78675,ml,"Herbal liqueur, Yellow Chartreuse",Liqueur,10,1023,Last Colony
 5751,7.393375,ml,"Maraschino Liqueur, Luxardo",Liqueur,10,1023,Last Colony
@@ -5811,7 +5811,7 @@
 5809,7.393375,ml,Orgeat,General,0,1033,The Leaf Puller
 5810,2,ds,"Bitters, Fee Brothers Whiskey Barrel Aged",Whisky,4,1033,The Leaf Puller
 5811,29.5735,ml,"Islay Scotch, Laphroaig",Whisky,4,1034,Leaf Fall
-5812,29.5735,ml,Apple brandy (Laird's Bonded),Brandy,5,1034,Leaf Fall
+5812,29.5735,ml,"Apple brandy, Laird's Bonded",Brandy,5,1034,Leaf Fall
 5813,14.78675,ml,Bénédictine,General,0,1034,Leaf Fall
 5814,14.78675,ml,"Amaro, Cappelletti Sfumato Rabarbaro",Liqueur,10,1034,Leaf Fall
 5815,1,ds,"Bitters, Angostura",General,0,1034,Leaf Fall
@@ -5819,7 +5819,7 @@
 5817,1,twst,Orange peel,Garnish,11,1034,Leaf Fall
 5818,59.147,ml,"Tennessee whiskey, George Dickel",Whisky,4,1035,Leap Day
 5819,29.5735,ml,"Pear liqueur, Rothman & Winter",Liqueur,10,1035,Leap Day
-5820,7.393375,ml,Cinnamon syrup,General,0,1035,Leap Day
+5820,7.393375,ml,Cinnamon Syrup,General,0,1035,Leap Day
 5821,2,ds,"Bitters, Angostura",General,0,1035,Leap Day
 5822,1,,"Maraschino cherry, Luxardo",Garnish,11,1035,Leap Day
 5823,59.147,ml,"Gin, Plymouth",Gin,1,1036,Leapfrog
@@ -5829,7 +5829,7 @@
 5827,6,lf,Mint,General,0,1036,Leapfrog
 5828,2,ds,Orange bitters,General,0,1036,Leapfrog
 5829,44.36025,ml,"Aquavit, Aalborg",Spirits,21,1037,Lee-Stumper
-5830,14.78675,ml,Lemon juice (clarified),General,0,1037,Lee-Stumper
+5830,14.78675,ml,Lemon juice,General,0,1037,Lee-Stumper
 5831,14.78675,ml,Grapefruit juice (clarified),General,0,1037,Lee-Stumper
 5832,14.78675,ml,Rich simple syrup 2:1,General,0,1037,Lee-Stumper
 5833,44.36025,ml,Mezcal,Mezcal,20,1038,The Legend of the Five Suns
@@ -5838,7 +5838,7 @@
 5836,14.78675,ml,Apricot liqueur,Liqueur,10,1038,The Legend of the Five Suns
 5837,2,ds,"Bitters, Bittermens Xocolatl Mole",General,0,1038,The Legend of the Five Suns
 5838,1,twst,Grapefruit peel,Garnish,11,1038,The Legend of the Five Suns
-5839,29.5735,ml,Bison grass vodka,Vodka,3,1039,Leiya Unchained
+5839,29.5735,ml,Bison Grass Vodka,Vodka,3,1039,Leiya Unchained
 5840,14.78675,ml,"Mezcal, Del Maguey Vida",Mezcal,20,1039,Leiya Unchained
 5841,7.393375,ml,Campari,Liqueur,10,1039,Leiya Unchained
 5842,22.180125,ml,Lemon juice,General,0,1039,Leiya Unchained
@@ -5848,7 +5848,7 @@
 5846,29.5735,ml,Galliano,Liqueur,10,1040,The Lemony Pabla
 5847,29.5735,ml,Aperol,Liqueur,10,1040,The Lemony Pabla
 5848,14.78675,ml,Lemon juice,General,0,1040,The Lemony Pabla
-5849,29.5735,ml,"Apple brandy, Lairds Bonded",Brandy,5,1041,Level Up
+5849,29.5735,ml,"Apple brandy, Laird's Bonded",Brandy,5,1041,Level Up
 5850,29.5735,ml,Islay Scotch,Whisky,4,1041,Level Up
 5851,22.180125,ml,"Sweet vermouth, Cocchi Vermouth di Torino",Wine,8,1041,Level Up
 5852,7.393375,ml,Nocino,Liqueur,10,1041,Level Up
@@ -5856,7 +5856,7 @@
 5854,2,ds,"Chocolate bitters, Scrappy's Chocolate",General,0,1041,Level Up
 5855,1,twst,Orange peel,Garnish,11,1041,Level Up
 5856,22.180125,ml,Scotch (I used Cutty Sark Prohibition (hint of smoke)),Whisky,4,1042,Letter to a Younger Self
-5857,22.180125,ml,Apple brandy (Laird's Bonded),Brandy,5,1042,Letter to a Younger Self
+5857,22.180125,ml,"Apple brandy, Laird's Bonded",Brandy,5,1042,Letter to a Younger Self
 5858,22.180125,ml,"Aromatized wine, Cocchi Americano",Wine,8,1042,Letter to a Younger Self
 5859,14.78675,ml,Orange liqueur (PF Dry Curaçao),Liqueur,10,1042,Letter to a Younger Self
 5860,7.393375,ml,Fernet Branca,Spirits,21,1042,Letter to a Younger Self
@@ -5870,7 +5870,7 @@
 5868,29.5735,ml,Light rum (Privateer),Rum,2,1044,Life's Not a Paragraph
 5869,22.180125,ml,Dry vermouth,Wine,8,1044,Life's Not a Paragraph
 5870,7.393375,ml,Falernum,Liqueur,10,1044,Life's Not a Paragraph
-5871,1,rinse,Apricot liqueur (See instructions),Liqueur,10,1044,Life's Not a Paragraph
+5871,1,rinse,Apricot liqueur,Liqueur,10,1044,Life's Not a Paragraph
 5872,1,twst,Orange peel,Garnish,11,1044,Life's Not a Paragraph
 5873,29.5735,ml,Gin,Gin,1,1045,Life on Mars
 5874,29.5735,ml,"Aromatized wine, Lillet Blanc",Wine,8,1045,Life on Mars
@@ -5893,7 +5893,7 @@
 5891,1,bsp,"Elderflower liqueur, St. Germain",Liqueur,10,1048,Lime Blossom
 5892,4,ds,"Orange flower water, Fee Brothers",General,0,1048,Lime Blossom
 5893,1,twst,Lime peel,General,0,1048,Lime Blossom
-5894,29.5735,ml,"Aquavit, Linie",Liqueur,10,1049,Linie in the Wild
+5894,29.5735,ml,"Aquavit, Linie",Spirits,21,1049,Linie in the Wild
 5895,29.5735,ml,"Rye, Wild Turkey 101",Whisky,4,1049,Linie in the Wild
 5896,29.5735,ml,Lime juice,General,0,1049,Linie in the Wild
 5897,22.180125,ml,Orgeat,General,0,1049,Linie in the Wild
@@ -5920,14 +5920,14 @@
 5918,14.78675,ml,Cynar,Liqueur,10,1052,Lips Like Sugar
 5919,14.78675,ml,Lime juice,General,0,1052,Lips Like Sugar
 5920,14.78675,ml,Simple syrup,General,0,1052,Lips Like Sugar
-5921,44.36025,ml,Apple brandy (Such as Laird's Bonded),Brandy,5,1053,The Listening Room
+5921,44.36025,ml,"Apple brandy, Laird's Bonded",Brandy,5,1053,The Listening Room
 5922,14.78675,ml,Cardamaro,Wine,8,1053,The Listening Room
 5923,14.78675,ml,"Sweet vermouth, Carpano Punt e Mes",Wine,8,1053,The Listening Room
 5924,14.78675,ml,Amontillado Sherry,Wine,8,1053,The Listening Room
 5925,7.393375,ml,Apricot liqueur,Liqueur,10,1053,The Listening Room
 5926,1,twst,Orange peel,Garnish,11,1053,The Listening Room
 5927,1,,Cherry,Garnish,11,1053,The Listening Room
-5928,44.36025,ml,"Aquavit, Linie",Liqueur,10,1054,Litigious Rock
+5928,44.36025,ml,"Aquavit, Linie",Spirits,21,1054,Litigious Rock
 5929,14.78675,ml,"Herbal liqueur, Yellow Chartreuse",Liqueur,10,1054,Litigious Rock
 5930,14.78675,ml,Aperol,Liqueur,10,1054,Litigious Rock
 5931,22.180125,ml,Lime juice,General,0,1054,Litigious Rock
@@ -5943,13 +5943,13 @@
 5941,25.8768125,ml,Lime juice,General,0,1056,Lithuanian Daiquiri
 5942,2,bsp,Sugar,General,0,1056,Lithuanian Daiquiri
 5943,1,,Raspberry,General,0,1056,Lithuanian Daiquiri
-5944,7,?,Lemongrass (grams),General,0,1056,Lithuanian Daiquiri
+5944,7,grams,Lemongrass,General,0,1056,Lithuanian Daiquiri
 5945,1,spg,Basil,General,0,1056,Lithuanian Daiquiri
 5946,44.36025,ml,"Orange liqueur, Clément Créole Shrubb",Liqueur,10,1057,The Little Miss
 5947,14.78675,ml,White chocolate liqueur,Liqueur,10,1057,The Little Miss
 5948,14.78675,ml,Licor 43,Liqueur,10,1057,The Little Miss
 5949,1,ds,"Orange bitters, Bitter Truth Orange",General,0,1057,The Little Miss
-5950,14.78675,ml,Lime juice (Fresh),General,0,1057,The Little Miss
+5950,14.78675,ml,Lime juice,General,0,1057,The Little Miss
 5951,29.5735,ml,"Rye, Rittenhouse 100",Whisky,4,1058,Lloyd 100
 5952,29.5735,ml,"Bourbon, Wild Turkey 101",Whisky,4,1058,Lloyd 100
 5953,29.5735,ml,Sweet vermouth,Wine,8,1058,Lloyd 100
@@ -5965,10 +5965,10 @@
 5963,14.78675,ml,Bonal Gentiane Quina,Wine,8,1060,The Long Journey
 5964,2,ds,"Bitters, Bitter Truth Celery",General,0,1060,The Long Journey
 5965,1,twst,Lemon peel,Garnish,11,1060,The Long Journey
-5966,59.147,ml,Light rum,Rum,2,1061,Long Peninsula Iced Tea
+5966,59.147,ml,Light Rum,Rum,2,1061,Long Peninsula Iced Tea
 5967,22.180125,ml,Lime juice,General,0,1061,Long Peninsula Iced Tea
 5968,22.180125,ml,Simple syrup,General,0,1061,Long Peninsula Iced Tea
-5969,22.180125,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,1061,Long Peninsula Iced Tea
+5969,22.180125,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,1061,Long Peninsula Iced Tea
 5970,22.180125,ml,Brewed Tea (Earl Grey),General,0,1061,Long Peninsula Iced Tea
 5971,29.5735,ml,Cola,General,0,1061,Long Peninsula Iced Tea
 5972,44.36025,ml,Gin,Gin,1,1062,Lord Byron
@@ -6017,13 +6017,13 @@
 6015,14.78675,ml,Blue Curaçao,Liqueur,10,1070,Luke's Punch
 6016,22.180125,ml,Lime juice,General,0,1070,Luke's Punch
 6017,44.36025,ml,Pineapple juice,General,0,1070,Luke's Punch
-6018,29.5735,ml,Club soda,General,0,1070,Luke's Punch
+6018,29.5735,ml,Club Soda,General,0,1070,Luke's Punch
 6019,1,twst,Lime peel,General,0,1070,Luke's Punch
 6020,14.78675,ml,Scotch,Whisky,4,1071,Lumberjack Negroni
-6021,14.78675,ml,Apple brandy,Brandy,5,1071,Lumberjack Negroni
+6021,14.78675,ml,Apple Brandy,Brandy,5,1071,Lumberjack Negroni
 6022,29.5735,ml,Campari,Liqueur,10,1071,Lumberjack Negroni
 6023,22.180125,ml,Dry vermouth,Wine,8,1071,Lumberjack Negroni
-6024,7.393375,ml,Maple syrup,General,0,1071,Lumberjack Negroni
+6024,7.393375,ml,Maple Syrup,General,0,1071,Lumberjack Negroni
 6025,1,twst,Orange peel,Garnish,11,1071,Lumberjack Negroni
 6026,29.5735,ml,"Maraschino Liqueur, Luxardo",Liqueur,10,1072,Lux Peccato
 6027,7.393375,ml,"Absinthe, Mata Hari",Spirits,21,1072,Lux Peccato
@@ -6040,7 +6040,7 @@
 6038,14.78675,ml,"Maraschino Liqueur, Luxardo",Liqueur,10,1074,M5 Raspberry Punch
 6039,14.78675,ml,Honey syrup,General,0,1074,M5 Raspberry Punch
 6040,22.180125,ml,Scotch,Whisky,4,1075,Machine Gun Etiquette
-6041,22.180125,ml,Apple brandy,Brandy,5,1075,Machine Gun Etiquette
+6041,22.180125,ml,Apple Brandy,Brandy,5,1075,Machine Gun Etiquette
 6042,22.180125,ml,Fino sherry,Wine,8,1075,Machine Gun Etiquette
 6043,22.180125,ml,Cynar,Liqueur,10,1075,Machine Gun Etiquette
 6044,1,ds,Peychaud's Bitters,General,0,1075,Machine Gun Etiquette
@@ -6051,7 +6051,7 @@
 6049,22.180125,ml,Lime juice,General,0,1076,Macunaíma
 6050,7.393375,ml,Fernet Branca,Spirits,21,1076,Macunaíma
 6051,44.36025,ml,Rhum Agricole,Rum,2,1077,Madame Mustache
-6052,29.5735,ml,Drambuie,Whisky,4,1077,Madame Mustache
+6052,29.5735,ml,Drambuie,Liqueur,10,1077,Madame Mustache
 6053,14.78675,ml,Cynar,Liqueur,10,1077,Madame Mustache
 6054,1,ds,"Bitters, Angostura",General,0,1077,Madame Mustache
 6055,1,twst,Grapefruit peel,Garnish,11,1077,Madame Mustache
@@ -6071,7 +6071,7 @@
 6069,7.393375,ml,Orgeat,General,0,1080,Mai Tai (Trader Vic's)
 6070,7.393375,ml,Simple syrup,General,0,1080,Mai Tai (Trader Vic's)
 6071,1,spg,Mint,Garnish,11,1080,Mai Tai (Trader Vic's)
-6072,44.36025,ml,Light rum,Rum,2,1081,Mama Marlowe
+6072,44.36025,ml,Light Rum,Rum,2,1081,Mama Marlowe
 6073,7.393375,ml,Maraschino Liqueur,Liqueur,10,1081,Mama Marlowe
 6074,22.180125,ml,Lime juice,General,0,1081,Mama Marlowe
 6075,14.78675,ml,Orange juice,General,0,1081,Mama Marlowe
@@ -6083,7 +6083,7 @@
 6081,1,ds,"Bitters, Scrappy's Lavender",General,0,1082,Malicious Mischief
 6082,1,twst,Grapefruit peel,Garnish,11,1082,Malicious Mischief
 6083,59.147,ml,"Madeira, Blandy's Malmsey 5 Year",Wine,8,1083,Malmsey Flip
-6084,14.78675,ml,Maple syrup,General,0,1083,Malmsey Flip
+6084,14.78675,ml,Maple Syrup,General,0,1083,Malmsey Flip
 6085,14.78675,ml,"Bitters, Angostura",General,0,1083,Malmsey Flip
 6086,1,,Whole egg,General,0,1083,Malmsey Flip
 6087,59.147,ml,Blended Scotch,Whisky,4,1084,Mamie Taylor Cocktail
@@ -6121,7 +6121,7 @@
 6119,29.5735,ml,Pineapple juice,General,0,1090,The Mangus
 6120,14.78675,ml,Lime juice,General,0,1090,The Mangus
 6121,2,ds,"Bitters, Angostura",General,0,1090,The Mangus
-6122,59.147,ml,Calvados,Spirits,21,1091,Marais
+6122,59.147,ml,Calvados,Brandy,5,1091,Marais
 6123,14.78675,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,1091,Marais
 6124,14.78675,ml,Amer Picon,Liqueur,10,1091,Marais
 6125,44.36025,ml,"Light rum, Plantation 3 Star",Rum,2,1092,Marc Coucke
@@ -6129,7 +6129,7 @@
 6127,14.78675,ml,"Apricot liqueur, Bitter Truth",Liqueur,10,1092,Marc Coucke
 6128,14.78675,ml,Raspberry liqueur,Liqueur,10,1092,Marc Coucke
 6129,14.78675,ml,Lime juice,General,0,1092,Marc Coucke
-6130,7.393375,ml,Grenadine (Homemade),General,0,1092,Marc Coucke
+6130,7.393375,ml,Grenadine,General,0,1092,Marc Coucke
 6131,44.36025,ml,Añejo tequila (Jose Cuervo Black),Tequila,6,1093,Margarilla
 6132,14.78675,ml,Licor 43,Liqueur,10,1093,Margarilla
 6133,14.78675,ml,"Triple sec, Combier L'Original Liqueur D'Orange",Liqueur,10,1093,Margarilla
@@ -6168,7 +6168,7 @@
 6166,14.78675,ml,Amère Sauvage,Liqueur,10,1100,Maurice
 6167,7.393375,ml,"Sweet vermouth, Carpano Antica Formula",Wine,8,1100,Maurice
 6168,29.5735,ml,"Gin, Tanqueray",Gin,1,1101,May Fair
-6169,14.78675,ml,"Aquavit, Linie",Liqueur,10,1101,May Fair
+6169,14.78675,ml,"Aquavit, Linie",Spirits,21,1101,May Fair
 6170,14.78675,ml,"Aquavit, Krogstad",Spirits,21,1101,May Fair
 6171,29.5735,ml,Sweet vermouth,Wine,8,1101,May Fair
 6172,7.393375,ml,Bénédictine,General,0,1101,May Fair
@@ -6182,7 +6182,7 @@
 6180,2,ds,"Bitters, Angostura",General,0,1102,Mayan Mountain Mystic
 6181,1,twst,Orange peel,Garnish,11,1102,Mayan Mountain Mystic
 6182,36.966875,ml,Old Tom Gin,Gin,1,1103,Mayfly Cocktail
-6183,14.78675,ml,Calvados,Spirits,21,1103,Mayfly Cocktail
+6183,14.78675,ml,Calvados,Brandy,5,1103,Mayfly Cocktail
 6184,14.78675,ml,Lemon juice,General,0,1103,Mayfly Cocktail
 6185,7.393375,ml,"Elderflower liqueur, St. Germain",Liqueur,10,1103,Mayfly Cocktail
 6186,1,bsp,"Herbal liqueur, Yellow Chartreuse",Liqueur,10,1103,Mayfly Cocktail
@@ -6200,7 +6200,7 @@
 6198,22.180125,ml,"Elderflower liqueur, St. Germain",Liqueur,10,1106,Me & My Calvins
 6199,14.78675,ml,Crème Yvette,Liqueur,10,1106,Me & My Calvins
 6200,14.78675,ml,Lime juice,General,0,1106,Me & My Calvins
-6201,44.36025,ml,Club soda,General,0,1106,Me & My Calvins
+6201,44.36025,ml,Club Soda,General,0,1106,Me & My Calvins
 6202,1,spl,Blue Curaçao,Liqueur,10,1106,Me & My Calvins
 6203,59.147,ml,"Pisco, Campo de Encanto",Brandy,5,1107,The Mediation
 6204,29.5735,ml,Lime juice,General,0,1107,The Mediation
@@ -6236,7 +6236,7 @@
 6234,29.5735,ml,Lime juice,General,0,1113,Mexican Razor Blade
 6235,22.180125,ml,Simple syrup,General,0,1113,Mexican Razor Blade
 6236,1,sli,Cucumber,Garnish,11,1113,Mexican Razor Blade
-6237,1,pn,Cayenne pepper,Garnish,11,1113,Mexican Razor Blade
+6237,1,pn,Cayenne Pepper,Garnish,11,1113,Mexican Razor Blade
 6238,29.5735,ml,"Mezcal, Scorpion Silver",Mezcal,20,1114,Mezcal Cafe su Da
 6239,29.5735,ml,Sweetened condensed milk,General,0,1114,Mezcal Cafe su Da
 6240,118.294,ml,Coffee (not hot),General,0,1114,Mezcal Cafe su Da
@@ -6244,7 +6244,7 @@
 6242,44.36025,ml,Amaro Montenegro,Liqueur,10,1115,Mezcal Me Maybe
 6243,1,twst,Grapefruit peel,Garnish,11,1115,Mezcal Me Maybe
 6244,59.147,ml,"Mezcal, Del Maguey (Vida)",Mezcal,20,1116,Mezcallion Wooden Nickel
-6245,7.393375,ml,Lavender syrup (Monin),General,0,1116,Mezcallion Wooden Nickel
+6245,7.393375,ml,Lavender syrup,General,0,1116,Mezcallion Wooden Nickel
 6246,7.393375,ml,Simple syrup,General,0,1116,Mezcallion Wooden Nickel
 6247,1,ds,"Orange bitters, Fee Brothers Orange (Gin Barrel Aged)",Gin,1,1116,Mezcallion Wooden Nickel
 6248,1,ds,"Chocolate bitters, Fee Brothers Aztec Chocolate",General,0,1116,Mezcallion Wooden Nickel
@@ -6270,7 +6270,7 @@
 6268,44.36025,ml,Rye,Whisky,4,1120,Midnight Stroll
 6269,22.180125,ml,Campari,Liqueur,10,1120,Midnight Stroll
 6270,14.78675,ml,Ramazzotti,Liqueur,10,1120,Midnight Stroll
-6271,7.393375,ml,"Curaçao, Pierre Ferrand Dry Curaçao",Liqueur,10,1120,Midnight Stroll
+6271,7.393375,ml,"Curaçao, Pierre Ferrand Dry",Liqueur,10,1120,Midnight Stroll
 6272,1,ds,Peychaud's Bitters,General,0,1120,Midnight Stroll
 6273,1,twst,Orange peel,Garnish,11,1120,Midnight Stroll
 6274,22.180125,ml,Genever,Liqueur,10,1121,Midnight to Midnight
@@ -6291,14 +6291,14 @@
 6289,29.5735,ml,"Gin, Beefeater",Gin,1,1123,Mignon
 6290,29.5735,ml,"Rye, Rittenhouse",Whisky,4,1123,Mignon
 6291,22.180125,ml,Cassis,General,0,1123,Mignon
-6292,7.393375,ml,Ancho Reyes chile liqueur,Liqueur,10,1123,Mignon
+6292,7.393375,ml,Ancho Reyes Verde chile liqueur,Liqueur,10,1123,Mignon
 6293,2,ds,"Orange bitters, Regans' orange bitters",General,0,1123,Mignon
 6294,1,rinse,"Islay Scotch, Laphroaig",Whisky,4,1123,Mignon
 6295,1,sli,Orange,Garnish,11,1123,Mignon
 6296,29.5735,ml,Bourbon,Whisky,4,1124,Miles to Go Before I Sleep
-6297,29.5735,ml,Apple brandy,Brandy,5,1124,Miles to Go Before I Sleep
+6297,29.5735,ml,Apple Brandy,Brandy,5,1124,Miles to Go Before I Sleep
 6298,22.180125,ml,Cardamaro,Wine,8,1124,Miles to Go Before I Sleep
-6299,3.6966875,ml,Maple syrup,General,0,1124,Miles to Go Before I Sleep
+6299,3.6966875,ml,Maple Syrup,General,0,1124,Miles to Go Before I Sleep
 6300,3.6966875,ml,"Herbal liqueur, Green Chartreuse",Liqueur,10,1124,Miles to Go Before I Sleep
 6301,2,ds,"Bitters, Bittermens Xocolatl Mole",General,0,1124,Miles to Go Before I Sleep
 6302,1,twst,Orange peel,Garnish,11,1124,Miles to Go Before I Sleep
@@ -6315,7 +6315,7 @@
 6313,1,ds,Pastis (optional),General,0,1126,Minnehaha Cocktail
 6314,44.36025,ml,Rhum Agricole,Rum,2,1127,Miracles Take Longer
 6315,14.78675,ml,Mezcal,Mezcal,20,1127,Miracles Take Longer
-6316,14.78675,ml,Maple syrup,General,0,1127,Miracles Take Longer
+6316,14.78675,ml,Maple Syrup,General,0,1127,Miracles Take Longer
 6317,14.78675,ml,Lime juice,General,0,1127,Miracles Take Longer
 6318,1,ds,"Bitters, Angostura",General,0,1127,Miracles Take Longer
 6319,59.147,ml,"Rum, Havana Club 7",Rum,2,1128,Miramar
