@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import style from './User_cocktail_list.module.scss';
 import Link from 'next/link';
 import { My_bookmark_card, My_like_card,My_comment_card } from '../UI/Card_ui';
