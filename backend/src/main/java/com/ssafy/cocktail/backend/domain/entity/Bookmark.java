@@ -1,9 +1,6 @@
 package com.ssafy.cocktail.backend.domain.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -28,6 +25,15 @@ public class Bookmark {
     @LastModifiedDate
     @Column(nullable = false)
     private LocalDateTime bookmarkUpdateDate;
+    @Builder
+    public Bookmark(Long id, String bookmarkDeleted, LocalDateTime bookmarkCreatedDate, LocalDateTime bookmarkUpdateDate, User user, Cocktail cocktail) {
+        this.id = id;
+        this.bookmarkDeleted = bookmarkDeleted;
+        this.bookmarkCreatedDate = bookmarkCreatedDate;
+        this.bookmarkUpdateDate = bookmarkUpdateDate;
+        this.user = user;
+        this.cocktail = cocktail;
+    }
 
     @ManyToOne
     @JoinColumn(name="user_id")

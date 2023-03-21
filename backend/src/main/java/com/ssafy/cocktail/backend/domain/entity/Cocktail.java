@@ -30,5 +30,5 @@ public class Cocktail {
     Double cocktailRating;
     Double cocktailDifficulty;
     String cocktailDeleted;
-    
+
 }

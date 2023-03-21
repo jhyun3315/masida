@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor(access= AccessLevel.PUBLIC)
+@Table(name="likes")
 public class Like {
     @Id
     @GeneratedValue
@@ -20,12 +21,11 @@ public class Like {
     private String likeDeleted;
 
     @CreatedDate
-    @Column(updatable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime likeCreatedDate;
     @LastModifiedDate
     @Column(nullable = false)
     private LocalDateTime likeUpdateDate;
-
     @Builder
     public Like(Long id, String likeDeleted, LocalDateTime likeCreatedDate, LocalDateTime likeUpdateDate, User user, Cocktail cocktail) {
         this.id = id;
@@ -38,9 +38,9 @@ public class Like {
 
     @ManyToOne
     @JoinColumn(name="user_id")
-    User user;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name="cocktail_id")
-    Cocktail cocktail;
+    private Cocktail cocktail;
 }
