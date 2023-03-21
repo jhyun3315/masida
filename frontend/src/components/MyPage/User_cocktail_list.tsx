@@ -2,7 +2,8 @@ import { useState,useEffect } from 'react';
 import style from './User_cocktail_list.module.scss';
 import Link from 'next/link';
 import { My_bookmark_card, My_like_card,My_comment_card } from '../UI/Card_ui';
-import { cocktailType, mypageCommentType } from '@/type/cocktailTypes';
+import { cocktailType } from '@/type/cocktailTypes';
+import { mypageCommentType } from '@/type/commentTypes';
 
   
 const User_cocktail_list = () => {
