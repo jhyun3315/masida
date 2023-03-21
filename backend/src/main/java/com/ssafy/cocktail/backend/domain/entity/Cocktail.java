@@ -13,7 +13,6 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor(access= AccessLevel.PUBLIC)
 public class Cocktail {
     @Id
     @GeneratedValue
