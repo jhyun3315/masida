@@ -1,0 +1,30 @@
+.themeContainer {
+    margin : 8px;
+    display: flex;
+    flex-direction: column;
+    .themeTitle {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+        .themeHashTag{
+            color: #5D60EF;
+        }
+    }
+    .themeRecommendCocktail {
+        display: flex;
+        justify-content: center;
+        .themeRecommendCocktail_description_right {
+            display: flex;
+            width: 50%;
+            text-align: end;
+            align-items: center;
+        }
+        .themeRecommendCocktail_description_left {
+            display: flex;
+            width: 50%;
+            text-align: start;
+            align-items: center;
+        }
+    }
+}
