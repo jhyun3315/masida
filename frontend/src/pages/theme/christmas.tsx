@@ -1,5 +1,5 @@
 import Header from "@/components/Header/Header";
-import Christmas from "@/components/Thema/Christmas";
+import Christmas from "@/components/Theme/Christmas";
 
 const christmas = () => {
     return (
