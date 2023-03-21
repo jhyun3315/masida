@@ -150,6 +150,7 @@ export default function Home(): JSX.Element{
       ]
     } 
   }
+
   return (
     <>
       <Main_banner />
