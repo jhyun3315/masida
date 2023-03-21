@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter @Setter
 @NoArgsConstructor(access= AccessLevel.PUBLIC)
+@Table(name="Users")
 public class User {
     @Id @GeneratedValue
     @Column(name = "user_id")
@@ -24,7 +25,7 @@ public class User {
     private String userDeleted;
 
     @CreatedBy
-    @Column(updatable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime userCreatedDate;
     @LastModifiedDate
     @Column(nullable = false)

@@ -131,6 +131,7 @@ public class CustomOAuth2UserService {
 			JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
 			JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
 
+			String user_id = element.getAsJsonObject().get("id").getAsString();
 			String nickname = properties.getAsJsonObject().get("nickname").getAsString();
 			String profile_image = properties.getAsJsonObject().get("profile_image").getAsString();
 			String thumbnail_image = properties.getAsJsonObject().get("thumbnail_image").getAsString();
@@ -140,6 +141,7 @@ public class CustomOAuth2UserService {
 			String gender = kakao_account.getAsJsonObject().get("gender").getAsString();
 
 			System.out.println("------------------------------------------------------");
+			System.out.println("user_id: " + user_id);
 			System.out.println("nickname: " + nickname);
 			System.out.println("email: " + email);
 			System.out.println("profile_image: " + profile_image);
@@ -151,6 +153,7 @@ public class CustomOAuth2UserService {
 			if (userRepository.findOneByUserEmail(email) == null) {
 				userRepository.save(User.builder()
 						.userName(nickname)
+						.userKey(user_id)
 						.userEmail(email)
 						.userProfile(thumbnail_image)
 						.userGender(gender)
