@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-public class cocktailIngredient {
+public class CocktailIngredient {
     @Id
     @GeneratedValue
     @Column(name = "cocktail_ingredient_id")
