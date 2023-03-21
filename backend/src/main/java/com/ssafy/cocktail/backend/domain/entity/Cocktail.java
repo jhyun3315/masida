@@ -23,12 +23,12 @@ public class Cocktail {
     String cocktailNameEn;
     String cocktailImg;
     String cocktailContent;
-    double cocktailRating;
     String cocktailColor1;
     String cocktailColor2;
     String cocktailBase;
     String cocktailGlass;
-    double cocktailDifficulty;
+    Double cocktailRating;
+    Double cocktailDifficulty;
     String cocktailDeleted;
-
+    
 }
