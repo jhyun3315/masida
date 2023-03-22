@@ -1,5 +1,6 @@
 package com.ssafy.cocktail.backend.cocktails.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,15 +12,18 @@ import lombok.ToString;
 @ToString
 public class IngredientSearch {
     @Schema(description = "재료 id", example = "0")
-    private Long ingredient_id;
+    @JsonProperty("ingredient_id")
+    private Long ingredientId;
     @Schema(description = "재료 이름", example = "럼")
-    private String ingredient_name;
+    @JsonProperty("ingredient_name")
+    private String ingredientName;
     @Schema(description = "재료 추가", example = "false")
-    private boolean ingredient_add;
+    @JsonProperty("ingredient_add")
+    private boolean ingredientAdd;
 
-    public IngredientSearch(Long ingredient_id, String ingredient_name) {
-        this.ingredient_id = ingredient_id;
-        this.ingredient_name = ingredient_name;
-        this.ingredient_add = false;
+    public IngredientSearch(Long ingredientId, String ingredientName) {
+        this.ingredientId = ingredientId;
+        this.ingredientName = ingredientName;
+        this.ingredientAdd = false;
     }
 }
