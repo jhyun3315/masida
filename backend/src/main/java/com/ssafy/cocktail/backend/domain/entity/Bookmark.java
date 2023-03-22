@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor(access= AccessLevel.PUBLIC)
+@Table(name="bookmarks")
 public class Bookmark {
     @Id
     @GeneratedValue

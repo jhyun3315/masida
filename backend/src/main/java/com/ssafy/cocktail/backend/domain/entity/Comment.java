@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor(access= AccessLevel.PUBLIC)
+@Table(name="comments")
 public class Comment {
     @Id
     @GeneratedValue
