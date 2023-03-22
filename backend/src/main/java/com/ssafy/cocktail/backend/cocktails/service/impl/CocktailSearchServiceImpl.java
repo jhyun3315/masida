@@ -22,7 +22,7 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
         List<Ingredient> ingredients = ingredientRepository.findAll(); // 모든 재료 목록 가져오기
         ArrayList<IngredientSearch> ingredientSearchList  = new ArrayList<>(); // 모든 재료 리스트
         for (Ingredient ingredient: ingredients) { // 재료
-            ingredientSearchList.add(new IngredientSearch(ingredient.getId(), ingredient.getIngredientName())); // 재료 리스트에 추가
+            ingredientSearchList.add(new IngredientSearch(ingredient.getId(), ingredient.getIngredientName())); // 칵테일 재료 리스트에 추가
         }
         return ingredientSearchList;
     }
