@@ -1,29 +1,23 @@
 .detail_separator {
   box-sizing: border-box;
-  // padding-top: 3%;
-  height: 90vh;
+  height: 98vh;
   width: 95%;
   border-left: 0.3px solid #000000;
   padding-left: 2%;
   .detail_cocktail_recommend {
     .detail_cocktail_recommend_by_ingredient {
-      // height: 50vh;
       .detail_cocktail_recommend_ingredient_title {
         text-align: center;
-        // padding-bottom: 1%;
         margin-bottom: 3%;
         font-family: "Inter";
         font-style: normal;
         font-weight: 600;
-        font-size: 32px;
-        line-height: 32px;
+        font-size: 20px;
+        line-height: 26px;
       }
       // 카드
       .carousel {
-        // height: 38vh;
-        // margin-right: 20%;
-        // margin-left: -10%;
-        margin-bottom: 2%;
+        margin-left: 15px;
       }
     }
 
@@ -34,20 +28,14 @@
         font-family: "Inter";
         font-style: normal;
         font-weight: 600;
-        font-size: 32px;
-        line-height: 32px;
+        font-size: 20px;
+        line-height: 26px;
         // 카드
       }
       .carousel {
+        margin-left: 15px;
+
       }
-    }
-    
-    .detail_comment_btn {
-      position: absolute;
-      right: 0;
-      top : 45%;
-      width: 32px;
-      height: 104px;
     }
   }
 }

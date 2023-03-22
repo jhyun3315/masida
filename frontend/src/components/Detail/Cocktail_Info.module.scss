@@ -3,70 +3,58 @@
   width: fit-content;
   display: flex;
   flex-direction: row;
-
-  // border: 1px solid blue;
-  // 이미지 영역
-  div {
-    // padding-right: 2%;
-  }
+  margin-left: 1%;
   .detail_cocktail_img_div {
-    flex: 1;
-    width: 30vw;
+    flex: 2;
+    width: 40vw;
     line-height: 85vh;
     .detail_cocktail_img {
       width: 100%;
-      height: 80vh;
+      height: 85vh;
       vertical-align: middle;
       border-radius: 1%;
     }
   }
-  .detail_cocktail_info_text {
-    flex: 1;
-    width: 98%;
+  .detail_cocktail_info_div {
+    flex: 2;
+    width: 95%;
     padding-left: 3%;
     vertical-align: middle;
+    margin-right: 1%;
 
     // 헤더 영역
     .detail_cocktail_info_header {
       display: inline-block;
       flex-direction: row;
-      width: fit-content;
-      img {
-        width: 30px;
-        height: 30px;
-      }
+      width: 100%;
       .detail_cocktail_info_header_top {
         flex-direction: row;
         width: 100%;
         .detail_cocktail_title {
+          display: flex;
           margin: 0 auto;
-          width: 100%;
-          height: fit-content;
+          align-items: center;
+          text-align: center;
 
+          width: 100%;
           font-family: "Inter";
           font-style: normal;
           font-weight: 600;
-          font-size: 36px;
-          line-height: 36px;
-          display: flex;
-          align-items: center;
-          text-align: center;
-          .detail_cocktail_title_layout {
-            width: 100%;
-            margin: 0 auto;
-          }
+          font-size: 24px;
+          line-height: 24px;
         }
         .detail_cocktail_likebtn {
-          padding-top: 1%;
+          padding-top: 2%;
+
           padding-left: 3%;
           padding-right: 3%;
-          width: 36px;
-          height: 36px;
+          width: 24px;
+          height: 24px;
         }
         .detail_cocktail_bookmark {
-          padding-top: 4px;
-          width: 36px;
-          height: 36px;
+          padding-top: 2%;
+          width: 20px;
+          height: 24px;
         }
       }
       .detail_cocktail_info_header_bottom {
@@ -76,11 +64,10 @@
         display: flex;
         flex-direction: row;
         gap: 4%;
-        padding-top: 3%;
         .detail_cocktail_header_element {
           display: flex;
           width: fit-content;
-          height: 46px;
+          height: 23px;
           .detail_cocktail_header_element_count {
             width: fit-content;
             padding-left: 3px;
@@ -89,111 +76,195 @@
             font-family: "Inter";
             font-style: normal;
             font-weight: 400;
-            font-size: 27px;
-            line-height: 27px;
+            font-size: 18px;
+            line-height: 20px;
 
             display: flex;
             align-items: center;
           }
         }
         .detail_comment_difficulty {
-          width: 134px;
-          height: 36px;
+          width: 80px;
+          height: 20px;
         }
       }
     }
-  }
-
-  // 재료 리스트 영역
-  .detail_cocktail_ingredient {
-    padding-bottom: 1%;
-    .detail_cocktail_ingredient_title_div {
-      padding: 5px;
-    }
-    .detail_cocktail_ingredient_glass {
-      width: 100%;
-      height: 28px;
-      left: 0px;
-      top: 47px;
-
-      font-family: "Inter";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 25px;
-      line-height: 30px;
-    }
-    .detail_cocktail_ingredient_element {
+    //가니쉬랑 베이스 영역
+    .detail_cocktail_garnish {
       padding-bottom: 1%;
-      font-family: "Inter";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 25px;
-      line-height: 35px;
-    }
-  }
+      .detail_cocktail_garnish_title_div {
+        padding: 5px;
+        display: flex;
+        gap: 2%;
+        flex-direction: row;
+        .detail_cocktail_garnish_title {
+          height: 23px;
+          line-height: 21px;
+          // border: 1px solid gray;
+          width: 80px;
+          border-radius: 15px;
+          color: white;
+          background-color: #5F0080;
+          display: flex;
+          text-align: center;
+          justify-content: center;
+        }
+        .detail_cocktail_garnish_element {
+          display: flex;
+          width: fit-content;
+          height: inherit;
 
-  // 레시피 영역
-  .detail_cocktail_recipe_textarea {
-    padding-bottom: 4%;
-    .detail_cocktail_recipe_title {
+          vertical-align: middle;
+          align-items: center;
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+
+          color: gray;
+        }
+      }
+    }
+    // 재료 리스트 영역
+    .detail_cocktail_ingredient {
       padding-bottom: 1%;
-      width: fit-content;
-      height: 40px;
-      left: calc(50% - 78px / 2 - 187px);
-      top: calc(50% - 29px / 2 - 64.5px);
+      .detail_cocktail_ingredient_title_div {
+        padding: 5px;
+        display: flex;
+        gap: 2%;
+        flex-direction: row;
+        .detail_cocktail_ingredient_title_img {
+          height: 23px;
+        }
+        .detail_cocktail_ingredient_glass {
+          display: flex;
+          width: fit-content;
+          height: inherit;
 
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 28px;
-      display: flex;
-      align-items: center;
+          vertical-align: middle;
+          align-items: center;
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
 
-      color: #6d8843;
+          border: 1px solid gray;
+          border-radius: 15px;
+          color: gray;
+        }
+        .detail_cocktail_ingredient_base {
+          display: flex;
+          width: fit-content;
+          height: inherit;
+
+          vertical-align: middle;
+          align-items: center;
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+
+          border: 1px solid #ffcd1d;
+          border-radius: 15px;
+          color: #ffcd1d;
+        }
+      }
+
+      .detail_cocktail_ingredient_element {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+      }
     }
-    .detail_cocktail_recipe_message {
-      padding-left: 1%;
-      font-family: "Inter";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 29px;
+    // 레시피 영역
+    .detail_cocktail_recipe_textarea {
+      padding-bottom: 2%;
+      .detail_cocktail_recipe_title {
+        width: fit-content;
+        height: 40px;
+        left: calc(50% - 78px / 2 - 187px);
+        top: calc(50% - 29px / 2 - 64.5px);
 
-      overflow: scroll;
-      overflow-x: hidden;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+
+        color: #6d8843;
+      }
+      .detail_cocktail_recipe_message {
+        height: 15vh;
+        padding-left: 1%;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+
+        overflow: scroll;
+        overflow-x: hidden;
+      }
+      .detail_cocktail_recipe_message::-webkit-scrollbar {
+        width: 8px;  /* 스크롤바의 너비 */
+      }
+      
+      .detail_cocktail_recipe_message::-webkit-scrollbar-thumb {
+        height: 30%; /* 스크롤바의 길이 */
+        background: #253976;/* 스크롤바의 색상 */
+        
+        border-radius: 10px;
+      }
+      
+      .detail_cocktail_recipe_message::-webkit-scrollbar-track {
+        background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+      }
     }
-  }
+    // 소개 영역
+    .detail_cocktail_recipe_content_textarea {
+      .detail_cocktail_recipe_content_title {
+        width: fit-content;
+        height: 40px;
 
-  // 소개 영역
-  .detail_cocktail_recipe_content_textarea {
-    .detail_cocktail_recipe_content_title {
-      padding-bottom: 1%;
-      width: fit-content;
-      height: 40px;
-      left: calc(50% - 55px / 2 - 195.5px);
-      top: calc(50% - 30px / 2 - 33.5px);
+        font-family: "Roboto";
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 40px;
+        display: flex;
+        align-items: center;
 
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 28px;
-      line-height: 40px;
-      display: flex;
-      align-items: center;
-
-      color: #6d8843;
-    }
-    .detail_cocktail_recipe_content_message {
-      padding-left: 1%;
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 28px;
-      display: flex;
-      align-items: center;
-      overflow: scroll;
-      overflow-x: hidden;
+        color: #6d8843;
+      }
+      .detail_cocktail_recipe_content_message {
+        padding-left: 1%;
+        // padding-top: 1%;
+        height: 15vh;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        overflow: scroll;
+        overflow-x: hidden;
+      }
+      .detail_cocktail_recipe_content_message::-webkit-scrollbar {
+        width: 8px;  /* 스크롤바의 너비 */
+      }
+      
+      .detail_cocktail_recipe_content_message::-webkit-scrollbar-thumb {
+        height: 30%; /* 스크롤바의 길이 */
+        background: #253976;/* 스크롤바의 색상 */
+        
+        border-radius: 10px;
+      }
+      
+      .detail_cocktail_recipe_content_message::-webkit-scrollbar-track {
+        background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+      }
     }
   }
 }
