@@ -10,20 +10,22 @@ const Piechart = () => {
         legendClick: (data: any) => {
             console.log(data);
         },
-    };
+  };
+  
+  const D=[
+       { id: 'cola', value: 324 },
+       { id: 'cidar', value: 88 },
+       { id: 'fan', value: 221 },
+       { id: 'dfdfd', value: 90 },
+       {id:'something', value:23}
+      ]
 
     return (
         // chart height이 100%이기 때문이 chart를 덮는 마크업 요소에 height 설정
-        <div style={{ width: '400px', height: '300px', margin: '0 auto' }}>
+        <div style={{ width: '100%', height: '400px', margin: '0' }}>
             <ResponsivePie
-                /**
-                 * chart에 사용될 데이터
-                 */
-                data={[
-                    { id: 'cola', value: 324 },
-                    { id: 'cidar', value: 88 },
-                    { id: 'fanta', value: 221 },
-                ]}
+                //chart에 사용될 데이터
+                data={D}
                 /**
                  * chart margin
                  */
@@ -43,7 +45,7 @@ const Piechart = () => {
                 /**
                  * chart 색상
                  */
-                colors={['olive', 'brown', 'orange']} // 커스터하여 사용할 때
+                colors={['#F4E77E', '#F79D8E', '#E8A93B','#E8C1A0','#61CDBB']} // 커스터하여 사용할 때
                 // colors={{ scheme: 'nivo' }} // nivo에서 제공해주는 색상 조합 사용할 때
                 /**
                  * pad border 두께 설정
