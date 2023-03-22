@@ -1,12 +1,12 @@
 .detail_card {
-  height: fit-content;
+  // height: 10%;
 
-  //   border: 1px solid red;
   .detail_card_top {
     .detail_cocktailImg {
       margin: 0 auto;
       border-radius: 9%;
-      width: 50%;
+      width: 65%;
+      height: 30vh;
     }
   }
 
@@ -17,8 +17,8 @@
       font-family: "Roboto";
       font-style: normal;
       font-weight: 700;
-      font-size: 24px;
-      line-height: 28px;
+      font-size: 18px;
+      line-height: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -29,15 +29,14 @@
       width: fit-content;
       display: flex;
       margin: 0 auto;
-      justify-content: center;
       justify-content: space-between;
       gap: 5px;
       align-items: center;
       text-align: center;
 
       .detail_likeImg {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
       }
 
       .detail_like {
@@ -47,13 +46,13 @@
         font-family: "Inter";
         font-style: normal;
         font-weight: 400;
-        font-size: 24px;
-        line-height: 32px;
+        font-size: 16px;
+        line-height: 30px;
       }
 
       .detail_rateImg {
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
       }
 
       .detail_rate {
@@ -63,8 +62,8 @@
         font-family: "Inter";
         font-style: normal;
         font-weight: 400;
-        font-size: 22px;
-        line-height: 32px;
+        font-size: 16px;
+        line-height: 30px;
       }
     }
   }
@@ -154,7 +153,8 @@
     }
   }
 
-  .result_card_difficulty_div {}
+  .result_card_difficulty_div {
+  }
 }
 
 .commentCard {
@@ -205,7 +205,6 @@
     margin: 3%;
   }
 }
-
 
 .analysisCard {
   width: 120px;
@@ -390,7 +389,8 @@
     }
   }
 
-  .result_card_difficulty_div {}
+  .result_card_difficulty_div {
+  }
 }
 
 .flip {

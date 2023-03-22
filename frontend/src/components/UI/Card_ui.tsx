@@ -9,7 +9,7 @@ const Detail_recommend_card: React.FC<cocktailType> = (
   cocktail: cocktailType
 ) => {
   return (
-    <>
+    <Link href={`/detail/${cocktail.cocktail_id}`}>
       <div className={style.detail_card}>
         <div className={style.detail_card_top}>
           <img
@@ -36,7 +36,7 @@ const Detail_recommend_card: React.FC<cocktailType> = (
           </div>
         </div>
       </div>
-    </>
+    </Link>
   );
 };
 
