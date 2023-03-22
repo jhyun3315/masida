@@ -2,9 +2,13 @@ package com.ssafy.cocktail.backend.cocktails.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 
+@Setter
+@Getter
 public class CocktailDetail {
     @Schema(description = "칵테일 id", example = "0")
     @JsonProperty("cocktail_id")
@@ -14,7 +18,7 @@ public class CocktailDetail {
     private String cocktailNameKo;
     @Schema(description = "칵테일 영어 이름", example = "cocktail")
     @JsonProperty("cocktail_name_en")
-    private String cocktailEn;
+    private String cocktailNameEn;
     @Schema(description = "칵테일 이미지", example = "/image")
     @JsonProperty("cocktail_img")
     private String cocktailImg;
@@ -26,7 +30,7 @@ public class CocktailDetail {
     private String cocktailDifficulty;
     @Schema(description = "칵테일 평점", example = "4.9")
     @JsonProperty("cocktail_rating")
-    private double cocktailRating;
+    private String cocktailRating;
     @Schema(description = "칵테일 좋아요 수", example = "1")
     @JsonProperty("cocktail_likes")
     private int cocktailLikes;

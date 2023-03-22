@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class CustomOAuthUserServiceImpl implements CustomOAuth2UserService {
+public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
     private final UserRepository userRepository;
     private UserInfo userInfo;
 
