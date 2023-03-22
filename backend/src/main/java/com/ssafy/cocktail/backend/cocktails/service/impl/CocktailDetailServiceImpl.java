@@ -3,11 +3,13 @@ package com.ssafy.cocktail.backend.cocktails.service.impl;
 import com.ssafy.cocktail.backend.cocktails.dto.CocktailDetail;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailDetailService;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
+import com.ssafy.cocktail.backend.domain.entity.Like;
 import com.ssafy.cocktail.backend.domain.repository.*;
 import com.ssafy.cocktail.backend.oauth.service.impl.CustomOAuth2UserServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -42,7 +44,9 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
                 cocktailDetail.setCocktailDifficulty("상"); // '상' 난이도 삽입
                 break;
         }
-        
+        List<Like> likes = likeRepository.findAllByCocktail(cocktail.get());
+        cocktailDetail.setCocktailLikes(likes.size());
+
         return null;
     }
 }
