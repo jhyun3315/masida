@@ -1,43 +1,106 @@
 .winner_comment_list {
-  height: 25vh;
+  height: 41vh;
   overflow: scroll;
   overflow-x: hidden;
-  .comment_layout {
+  border: 1px solid rgba(0, 0, 255, 0.27);
+  border-radius: 2%;
+  width: 95%;
+  .winner_comment {
     display: flex;
-    flex-direction: row;
-    .winner_comment_left {
+    width: 100%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    border-bottom: 1px solid black;
+    .comment_layout {
       display: flex;
-      .user_comment_profile {
-        flex: 1;
-        .user_profile_img {
-          height: 50px;
-          width: 50px;
-          // width: 10%;
-          // height: 10vh;
+      width: 100%;
+      flex-direction: row;
+      .winner_comment_left {
+        display: flex;
+        .user_comment_profile {
+          .user_profile_img {
+            height: 50px;
+            width: 50px;
+          }
+        }
+        .user_comment_textarea {
+          margin-right: 10px;
+          // width: 30%;
+          // display: flex;
+          // flex-wrap: wrap;
+          width: 300px;
+
+          .user_comment_name_date {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            font-size: 10px;
+            font-weight: bold;
+            .user_comment_name {
+            }
+            .user_comment_date {
+            }
+          }
+          .user_comment_content {
+            // 글이 늘어나면 아래로 늘어날 수 있도록 한다.
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 12px;
+            text-align: left;
+          }
         }
       }
-      .user_comment_textarea {
-        flex: 6;
+      .winner_comment_right {
         display: flex;
         flex-direction: column;
-        .user_comment_name_date {
+        justify-content: space-between;
+        // width: 100px;
+        .winner_comment_difficulty_user_rating {
           display: flex;
           flex-direction: row;
-          gap: 10px;
-          font-size: 10px;
-          .user_comment_name {
+          .comment_difficulty {
+            flex: 1;
+            .comment_difficulty_img {
+              width: 100%;
+            }
           }
-          .user_comment_date {
+          .comment_rating {
+            flex: 3;
+            display: flex;
+            flex-direction: rows;
+            .comment_rating_img {
+              width: 60%;
+            }
           }
         }
-        .user_comment_content {
-          font-size: 12px;
-          text-align: left;
+        .winner_cocktail_comment_edit {
+          display: flex;
+          flex-direction: row;
+          .comment_modify {
+            font-size: 10px;
+            font-weight: bold;
+            .comment_modify_img {
+              width: 40%;
+              height: 17px;
+            }
+          }
         }
       }
     }
-    .winner_comment_right {
-      
-    }
   }
+}
+
+.winner_comment_list::-webkit-scrollbar {
+  width: 8px;  /* 스크롤바의 너비 */
+}
+
+.winner_comment_list::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #253976;/* 스크롤바의 색상 */
+  
+  border-radius: 10px;
+}
+
+.winner_comment_list::-webkit-scrollbar-track {
+  background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
 }
