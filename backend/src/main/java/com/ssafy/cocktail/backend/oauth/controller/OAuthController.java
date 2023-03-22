@@ -25,10 +25,7 @@ public class OAuthController {
      */
     @ResponseBody
     @GetMapping("/kakao/callback")
-    @ApiResponses({
-            @ApiResponse()
-    })
-    public ResponseEntity<UserLoginRes> kakaoCallback(@RequestParam String code, HttpServletResponse response) throws IOException {
+    public ResponseEntity<UserLoginRes> kakaoCallback(@RequestParam String code, HttpServletResponse response) throws Exception {
         // 카카오 로그인 콜백
         // 로그인 완료
         UserInfo userInfo = customOAuth2UserService.loginUser(code);
