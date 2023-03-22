@@ -49,6 +49,7 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         cocktailDetail.setCocktailLikes(likes.size()); // 칵테일 좋아요 개수 삽입
         List<Comment> cocktails = commentRepository.findAllByCocktail(cocktail.get()); // 칵테일 댓글 가져오기
         cocktailDetail.setCocktailComments(cocktails.size()); // 칵테일 댓글 개수 삽입
+
         return null;
     }
 }
