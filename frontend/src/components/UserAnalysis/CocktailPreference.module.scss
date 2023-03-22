@@ -1,0 +1,100 @@
+.cocktailPreference {
+  margin: 7% 3% 3% 3%;
+
+  .baseTitle {
+    font-size: 1.45rem;
+  }
+
+  .cocktailPreference_content {
+    display: flex;
+
+
+    .cocktailPreference_analysis {
+      flex: 1.75;
+
+      .cocktailPreference_analysis_upper {
+        margin-top: 7%;
+        display: flex;
+
+        .cocktailPreference_analysis_upper_left {
+          flex: 1.5;
+        }
+
+        .cocktailPreference_analysis_upper_right {
+          flex: 1;
+        }
+
+      }
+
+      .cocktailPreference_analysis_lower {
+        .cocktailPreference_analysis_lower_content {
+          display: flex;
+
+          .cocktailPreference_analysis_lower_content_left {
+            flex: 1.75;
+          }
+
+          .cocktailPreference_analysis_lower_content_right {
+            flex: 1;
+            display: flex;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20%;
+
+            .cocktailPreference_analysis_lower_content_right_star {
+              flex: 1;
+              margin-right: 3%;
+
+              .cocktail_star {
+                color: #848484;
+                margin-bottom: 10%;
+              }
+
+              div {
+                img {
+                  width: 3vh;
+                  margin-right: 2%;
+                }
+              }
+            }
+
+            .cocktailPreference_analysis_lower_content_right_start_count {
+              flex: 1;
+              margin-right: 3%;
+
+              .cocktail_star {
+                color: #848484;
+                margin-bottom: 10%;
+              }
+            }
+
+            .cocktailPreference_analysis_lower_content_right_star_max {
+              flex: 1;
+
+              .cocktail_star {
+                color: #848484;
+                margin-bottom: 10%;
+              }
+
+              img {
+                width: 3vh;
+                margin-right: 2%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .cocktailPreference_list {
+      flex: 1;
+      margin: 3%;
+    }
+  }
+
+  hr {
+    width: 0.1px;
+    height: 800px;
+    margin-left: 3%;
+  }
+}

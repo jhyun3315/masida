@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import style from './Analysis_thumbnail.module.scss'; 
-import Piechart from './Piechart';
+import Piechart from '../UI/PieChart';
 
 const Analysis_thumbnail = () => {
   return (
@@ -9,7 +9,7 @@ const Analysis_thumbnail = () => {
       <div className={style.analysisThumbnail_detail}>
         <Piechart/>
       <div>
-          <Link href="">나의 취향 상세보기</Link></div>
+          <Link href="/user-analysis">나의 취향 상세보기</Link></div>
       </div>
     </div>
   )
