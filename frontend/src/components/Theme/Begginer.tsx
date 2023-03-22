@@ -6,17 +6,17 @@ import { useEffect } from 'react';
 const Begginer = () => {
     useEffect(() => {
         AOS.init();
-    }, [])
+    }, []);
     return (
         <>
             <div className={style.themeContainer}>
                 <div className={style.themeTitle}>
-                <h1>[칵테일 초보자를 위한] 입문용 칵테일 3가지 추천</h1>
+                <div className={style.themeIntro}>[칵테일 초보자를 위한] 입문용 칵테일 3가지 추천</div>
                 <div className={style.themeHashTag}>#칵테일 초보자  #입문용 칵테일  #초보자 칵테일 추천</div>
                 </div>
                 <div>
-                <div className={style.themeRecommendCocktail} data-aos-once="false">
-                    <div className={style.themeRecommendCocktail_description_right} data-aos="fade-left" data-aos-delay="50">
+                <div className={style.themeRecommendCocktail} data-aos="fade-left" data-aos-once="false">
+                    <div className={style.themeRecommendCocktail_description_right}>
                         <div>
                         <span className={style.themeRecommendCocktail_name}>
                         진 토닉
@@ -34,7 +34,7 @@ const Begginer = () => {
                         </div>
                     </div>
                 </div>
-                <div className={style.themeRecommendCocktail}  data-aos="fade-right" data-aos-delay="50">
+                <div className={style.themeRecommendCocktail}  data-aos="fade-right" data-aos-once="false">
                     <div className={style.themeRecommendCocktail_img}>
                         <img src="/assets/image/magarita.png" alt='magarita' className={style.cocktail_img}/>                           
                     <div>
@@ -53,7 +53,7 @@ const Begginer = () => {
                         </div>
                     </div>
                 </div>
-                <div className={style.themeRecommendCocktail} data-aos="fade-left" data-aos-delay="50">
+                <div className={style.themeRecommendCocktail} data-aos="fade-left" data-aos-once="false">
                     <div className={style.themeRecommendCocktail_description_right}>
                         <div>
                         <span className={style.themeRecommendCocktail_name}>
