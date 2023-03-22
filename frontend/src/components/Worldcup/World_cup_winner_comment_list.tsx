@@ -7,10 +7,11 @@ const World_cup_winner_comments_list = (props: detail_props) => {
   const comments: commentType[] = [
     {
       comment_id: 1,
-      comment_content: "comment_content1comment_content1",
+      comment_content:
+        "comment_content2comment_content2comment_content2comment_content2comment_content2comment_content2comment_content2comment_content2comment_content2",
       comment_rating: 1,
       comment_create_date: "comment_create_date1",
-      comment_difficulty: "/assets/icons/difficulty_HIGH.png",
+      comment_difficulty: "/assets/icons/difficulty_HIGH_MINI.png",
       user_name: "user_name1",
       user_profile: "/assets/image/user_profile_img.png",
       writer_checker: true,
@@ -20,7 +21,7 @@ const World_cup_winner_comments_list = (props: detail_props) => {
       comment_content: "comment_content2",
       comment_rating: 2,
       comment_create_date: "comment_create_date2",
-      comment_difficulty: "/assets/icons/difficulty_LOW.png",
+      comment_difficulty: "/assets/icons/difficulty_LOW_MINI.png",
       user_name: "user_name2",
       user_profile: "/assets/image/user_profile_img.png",
       writer_checker: true,
@@ -30,7 +31,37 @@ const World_cup_winner_comments_list = (props: detail_props) => {
       comment_content: "comment_content3",
       comment_rating: 3,
       comment_create_date: "comment_create_date3",
-      comment_difficulty: "/assets/icons/difficulty_MID.png",
+      comment_difficulty: "/assets/icons/difficulty_MID_MINI.png",
+      user_name: "user_name3",
+      user_profile: "/assets/image/user_profile_img.png",
+      writer_checker: true,
+    },
+    {
+      comment_id: 3,
+      comment_content: "comment_content3",
+      comment_rating: 3,
+      comment_create_date: "comment_create_date3",
+      comment_difficulty: "/assets/icons/difficulty_MID_MINI.png",
+      user_name: "user_name3",
+      user_profile: "/assets/image/user_profile_img.png",
+      writer_checker: true,
+    },
+    {
+      comment_id: 3,
+      comment_content: "comment_content3",
+      comment_rating: 3,
+      comment_create_date: "comment_create_date3",
+      comment_difficulty: "/assets/icons/difficulty_MID_MINI.png",
+      user_name: "user_name3",
+      user_profile: "/assets/image/user_profile_img.png",
+      writer_checker: true,
+    },
+    {
+      comment_id: 3,
+      comment_content: "comment_content3",
+      comment_rating: 3,
+      comment_create_date: "comment_create_date3",
+      comment_difficulty: "/assets/icons/difficulty_MID_MINI.png",
       user_name: "user_name3",
       user_profile: "/assets/image/user_profile_img.png",
       writer_checker: true,
@@ -68,28 +99,43 @@ const World_cup_winner_comments_list = (props: detail_props) => {
               <div className={style.winner_comment_right}>
                 <div className={style.winner_comment_difficulty_user_rating}>
                   <div className={style.comment_difficulty}>
-                    <img src={key.comment_difficulty} alt="" />
-                  </div>
-                  <div className={style.comment_rating_img}>
-                    <img src="/assets/icons/ratingICON.png" alt="" />
-                  </div>
-                  <div className={style.comment_rating_count}></div>
-                </div>
-                <div className={style.winner_cocktail_comment_edit}>
-                  <div className={style.comment_modify_img}>
                     <img
+                      className={style.comment_difficulty_img}
+                      src={key.comment_difficulty}
+                      alt=""
+                    />
+                  </div>
+                  <div className={style.comment_rating}>
+                    <div>
+                      <img
+                        className={style.comment_rating_img}
+                        src="/assets/icons/ratingICON.png"
+                        alt=""
+                      />
+                    </div>
+                    <div className={style.comment_rating_count}>
+                      {key.comment_rating}
+                    </div>
+                  </div>
+                </div>
+
+                <div className={style.winner_cocktail_comment_edit}>
+                  <div className={style.comment_modify}>
+                    <img
+                      className={style.comment_modify_img}
                       src="/assets/icons/detail_cocktailcomment_modify.png"
                       alt=""
                     />
+                    수정
                   </div>
-                  <div className={style.comment_modify_count}></div>
-                  <div className={style.comment_delete_img}>
+                  <div className={style.comment_modify}>
                     <img
+                      className={style.comment_modify_img}
                       src="/assets/icons/detail_cocktailcomment_delete.png"
                       alt=""
                     />
+                    삭제
                   </div>
-                  <div className={style.comment_delete_count}></div>
                 </div>
               </div>
             </div>

@@ -962,25 +962,27 @@ const World_cup_league = () => {
       <div className={style.cocktail_worldcup_title_sub}>
         좋아하는 칵테일을 골라주세요.
       </div>
+      <div className={style.cocktail_worldcup_current_order}>
+        {isFinal ? "" : `${rounds}강 ${times} / ${rounds / 2}`}
+      </div>
     </>
   );
+  
   // 상단 문구 : 결과 나왔을 때
   const finalTitle = (
     <div className={style.cocktail_worldcup_title}>
       칵테일 월드컵 우승자입니다.
     </div>
   );
+
   if (isLoading) {
     return (
       <>
         <div className={style.cocktail_worldcup_textarea}>
           {isFinal ? finalTitle : onGameTitle}
-          <div className={style.cocktail_worldcup_current_order}>
-            {isFinal ? "" : `${rounds}강 ${times} / ${rounds / 2}`}
-          </div>
         </div>
         <div className={style.random_cocktail_selector}>
-          {!isFinal ? (
+          {isFinal ? (
             <World_cup_league_result {...cocktails[0]} />
           ) : (
             displays.map((key) => (

@@ -171,6 +171,9 @@ const detail = () => {
     ],
   };
 
+
+  // 서버에서 정보 받아올 때 우리 칵테일 수보다 router에 뒤에 params값이 더 크면 안되도록 하자
+  // 왜냐면 GetStaticPropsContext으로 했더니 너무 느림
   return (
     <>
       <Header />
@@ -189,44 +192,44 @@ const detail = () => {
 export default detail;
 
 //{ params }: GetStaticPropsContext<{ cocktail_id: string }>
-export const getStaticProps = async () => {
-  return {
-    props: {
-      cocktails: recommend_props,
-    }    
-  }
-}
+// export const getStaticProps = async () => {
+//   return {
+//     props: {
+//       cocktails: recommend_props,
+//     }    
+//   }
+// }
 
 
-export const getStaticPaths: GetStaticPaths = async () => {
+// export const getStaticPaths: GetStaticPaths = async () => {
   
 
-  //받아온 데이터들을 map으로 돌려 해당하는 id를 객체로 담아준 후 return안에 설정시 해당id만 접근가능함.
+//   //받아온 데이터들을 map으로 돌려 해당하는 id를 객체로 담아준 후 return안에 설정시 해당id만 접근가능함.
 
-  return {
-    fallback: false,
+//   return {
+//     fallback: false,
     
-    paths: [
-      {
-        params: {
-          id : '1',
-        },
-      },
-      {
-        params: {
-          id : '2',
-        },
-      },
-      {
-        params: {
-          id : '3',
-        },
-      }
-      ,{
-        params: {
-          id : '4',
-        },
-      }
-    ]
-  }
-}
+//     paths: [
+//       {
+//         params: {
+//           id : '1',
+//         },
+//       },
+//       {
+//         params: {
+//           id : '2',
+//         },
+//       },
+//       {
+//         params: {
+//           id : '3',
+//         },
+//       }
+//       ,{
+//         params: {
+//           id : '4',
+//         },
+//       }
+//     ]
+//   }
+// }
