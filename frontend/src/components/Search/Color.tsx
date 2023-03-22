@@ -79,14 +79,23 @@ const Color = () => {
               onClick={checkedColor}
             />
           </label>
-          </div>
-          <div className={style.color_down}>
           <label>
             <input
               type="checkbox"
               name="color"
               value="blue"
               className={style.color_blue}
+              onClick={checkedColor}
+            />
+          </label>
+          </div>
+          <div className={style.color_down}>
+            <label>
+            <input
+              type="checkbox"
+              name="color"
+              value="indigo"
+              className={style.color_indigo}
               onClick={checkedColor}
             />
           </label>
@@ -103,8 +112,8 @@ const Color = () => {
             <input
               type="checkbox"
               name="color"
-              value="white"
-              className={style.color_white}
+              value="brown"
+              className={style.color_brown}
               onClick={checkedColor}
             />
           </label>
@@ -112,8 +121,17 @@ const Color = () => {
             <input
               type="checkbox"
               name="color"
-              value="black"
-              className={style.color_black}
+              value="pink"
+              className={style.color_pink}
+              onClick={checkedColor}
+            />
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="color"
+              value="white"
+              className={style.color_white}
               onClick={checkedColor}
             />
           </label>

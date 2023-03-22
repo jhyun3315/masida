@@ -3,8 +3,8 @@ import style from './Spring.module.scss';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import Lottie from "react-lottie-player";
-import lJson from "../../../public/assets/lotties/enjoy-beach-vacation.json";
-import lJson1 from "../../../public/assets/lotties/cherry-blossom.json";
+import lJson from "../../../public/assets/lotties/a-botanical-wreath-loading.json";
+import lJson1 from "../../../public/assets/lotties/cherry-flowers.json";
 
  const lottie_style = {
     height: 500,
@@ -13,13 +13,16 @@ import lJson1 from "../../../public/assets/lotties/cherry-blossom.json";
   };
   const bottom_lottie_style = {
     height: 300,
-    innerWidth : 1200,
-    // outerWidth : 1200,
+    // innerWidth : 1200,
+    width : 300,
   };
 
 const Spring = () => {
     useEffect(() => {
         AOS.init();
+         document
+        .querySelectorAll("img")
+      .forEach((img) => img.addEventListener("load", () => AOS.refresh()));
     }, [])
     return (
         <>
@@ -106,7 +109,7 @@ const Spring = () => {
                         </div>
                     </div>
                 </div>
-                <Lottie loop play animationData={lJson1} style={bottom_lottie_style} />
+                {/* <Lottie loop play animationData={lJson1} style={bottom_lottie_style} /> */}
             </div>
         </>
     )
