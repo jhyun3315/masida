@@ -15,4 +15,10 @@ public class IngredientDetail {
     private String ingredient_amount;
     @Schema(description = "재료 단위", example = "oz")
     private String ingredient_unit;
+
+    public IngredientDetail(String ingredient_name) {
+        this.ingredient_name = ingredient_name;
+        this.ingredient_amount = "null";
+        this.ingredient_unit = "null";
+    }
 }
