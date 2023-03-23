@@ -5,9 +5,11 @@ import colorSlice from "./category/colorSlice";
 import difficultySlice from './category/difficultySlice';
 import ingredientSlice from './category/ingredientSlice';
 
-import persistReducer from 'redux-persist/lib/persistReducer';
+import userSlice from './user/userSlice';
 
+import persistReducer from 'redux-persist/lib/persistReducer';
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
+
 
 //로컬 스토리지에 persist 적용시키는 것.
 const createNoopStorage = () => {
@@ -45,7 +47,8 @@ const reducers = combineReducers({
   baseSelect : baseSlice,
   colorSelect : colorSlice,
   difficultySelect : difficultySlice,
-  ingredientSelect : ingredientSlice,
+  ingredientSelect: ingredientSlice,
+  user:userSlice,
 })
 
 //새로고침시 안없어 지는 것을 whitelist에 저장.
