@@ -12,13 +12,13 @@ import lombok.ToString;
 public class UserInfoRes extends BaseResponseBody {
     @Schema(description = "사용자 정보", example = "이름, 이메일, 프로필, 성별, 연령대")
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
-    UserInfo userInfo;
+    UserInfo data;
 
-    public static UserInfoRes of(Integer statusCode, String message, UserInfo userInfo) {
+    public static UserInfoRes of(Integer statusCode, String message, UserInfo data) {
         UserInfoRes res = new UserInfoRes();
         res.setStatusCode(statusCode);
         res.setMessage(message);
-        res.setUserInfo(userInfo);
+        res.setData(data);
 
         return res;
     }
