@@ -1,6 +1,6 @@
-import Header from "@/components/Header/Header";
+import Header from "../../components/Header/Header";
 import Begginer from "../../components/Theme/Begginer";
-import Footer from "@/components/Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 
 const begginer = () => {
     return (

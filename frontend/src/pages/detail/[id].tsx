@@ -1,22 +1,23 @@
-import { useRouter } from "next/router";
 import style from "./index.module.scss";
+import { useRouter } from "next/router";
 
 import Header from "../../components/Header/Header";
-import Cocktail_Info from "@/components/Detail/Cocktail_Info";
-import Cocktail_recommend from "@/components/Detail/Cocktail_recommend";
+import Cocktail_Info from "../../components/Detail/Cocktail_Info";
+import Cocktail_recommend from "../../components/Detail/Cocktail_recommend";
 
 import {
   cocktailType,
   recipeType,
   ingredientType,
   detail_props,
-} from "@/type/cocktailTypes";
-import {
-  GetStaticPaths,
-  GetStaticPathsContext,
-  GetStaticProps,
-  GetStaticPropsContext,
-} from "next";
+} from "../../type/cocktailTypes";
+
+// import {
+//   GetStaticPaths,
+//   GetStaticPathsContext,
+//   GetStaticProps,
+//   GetStaticPropsContext,
+// } from "next";
 
 // 1. 칵테일 상세 조회
 // 화면 단에서 axios 호출을 하여 결과 값을 컴포넌트에 props로 넘겨준다.
