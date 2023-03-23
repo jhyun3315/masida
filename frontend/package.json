@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "webpack --mode=production --node-env=production",
     "start": "next start",
     "lint": "next lint",
     "build:dev": "webpack --mode=development",
