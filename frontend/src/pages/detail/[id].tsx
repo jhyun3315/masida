@@ -2,15 +2,16 @@ import style from "./index.module.scss";
 import { useRouter } from "next/router";
 
 import Header from "../../components/Header/Header";
-import Cocktail_Info from "@/components/Detail/Cocktail_Info";
-import Cocktail_recommend from "@/components/Detail/Cocktail_recommend";
+import Cocktail_Info from "../../components/Detail/Cocktail_Info";
+import Cocktail_recommend from "../../components/Detail/Cocktail_recommend";
 
 import {
   cocktailType,
   recipeType,
   ingredientType,
   detail_props,
-} from "@/type/cocktailTypes";
+} from "../../type/cocktailTypes";
+
 // import {
 //   GetStaticPaths,
 //   GetStaticPathsContext,
