@@ -1,1 +1,5 @@
-console.log("test")
+export default function index():JSX.Element {
+    return(
+        <></>
+    )
+}
