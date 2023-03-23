@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter @Setter
 @NoArgsConstructor(access= AccessLevel.PUBLIC)
+@ToString
 @Table(name="Users")
 public class User {
     @Id @GeneratedValue

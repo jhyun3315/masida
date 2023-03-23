@@ -179,7 +179,9 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
     }
 
     @Override
-    public boolean isVaildAccessToken(String access_Token, String id) {
+    public User getUser(String accessToken) {
+        System.out.println("--------------------------------------------");
+        System.out.println("getUser: ");
         //    요청하는 클라이언트마다 가진 정보가 다를 수 있기에 HashMap타입으로 선언
 //		HashMap<String, Object> userInfo = new HashMap<>();
         String reqURL = "https://kapi.kakao.com/v1/user/access_token_info";
@@ -189,7 +191,7 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
             conn.setRequestMethod("GET");
 
             //    요청에 필요한 Header에 포함될 내용
-            conn.setRequestProperty("Authorization", "Bearer " + access_Token);
+            conn.setRequestProperty("Authorization", "Bearer " + accessToken);
 
             int responseCode = conn.getResponseCode();
             System.out.println("responseCode : " + responseCode);
@@ -204,16 +206,18 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
             }
             System.out.println("response body : " + result);
 
-//            JsonParser parser = new JsonParser();
-//            JsonElement element = parser.parse(result);
+            JsonParser parser = new JsonParser();
+            JsonElement element = parser.parse(result);
 
-//            JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
-//            JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
-
+            String userId = element.getAsJsonObject().get("id").getAsString();
+            User user = userRepository.findOneByUserKey(userId);
+            System.out.println("User 정보: ");
+            System.out.println(user.toString());
+            return user;
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return false;
+        return null;
     }
 }
