@@ -1,5 +1,5 @@
-import { useRouter } from "next/router";
 import style from "./index.module.scss";
+import { useRouter } from "next/router";
 
 import Header from "../../components/Header/Header";
 import Cocktail_Info from "@/components/Detail/Cocktail_Info";
