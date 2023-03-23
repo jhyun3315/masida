@@ -3,7 +3,8 @@ import style from "./Sidebar.module.scss";
 import { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
-import { searchIngredientType } from "@/type/ingredientTypes";
+
+import { searchIngredientType } from "../../type/ingredientTypes";
 
 const Sidebar = () => {
 

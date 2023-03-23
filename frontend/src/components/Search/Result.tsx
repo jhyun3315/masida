@@ -1,6 +1,6 @@
 import style from "./Result.module.scss";
 import { Search_result_card, My_bookmark_card, My_like_card } from "../UI/Card_ui";
-import { cocktailType } from "@/type/cocktailTypes";
+import { cocktailType } from "../../type/cocktailTypes";
 
 const DUMMY_COCKTAIL: cocktailType[] = [
   {
