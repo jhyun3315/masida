@@ -15,14 +15,17 @@ const Cocktail_info = (props: detail_props) => {
     likes_checker,
     bookmark_checker,
     glass,
+    base,
+    garnish,
     recipe,
     ingredient,
   } = props;
 
   let difficultyImg = difficulty_img_url_converter(cocktail_difficulty);
-  
+
   return (
     <div className={style.detail_cocktail_info}>
+      {/* 칵테일 이미지 영역 */}
       <div className={style.detail_cocktail_img_div}>
         <img
           className={style.detail_cocktail_img}
@@ -30,14 +33,13 @@ const Cocktail_info = (props: detail_props) => {
           alt="image"
         />
       </div>
-      <div className={style.detail_cocktail_info_text}>
+      {/* 칵테일 정보 영역 */}
+      <div className={style.detail_cocktail_info_div}>
+        {/* 헤더 영역*/}
         <div className={style.detail_cocktail_info_header}>
           <div className={style.detail_cocktail_info_header_top}>
             <div className={style.detail_cocktail_title}>
-              <div className={style.detail_cocktail_title_layout}>
-                <div>{cocktail_name_ko}</div>
-                <div>({cocktail_name_en})</div>
-              </div>
+              {cocktail_name_ko}({cocktail_name_en})
               {likes_checker ? (
                 <img
                   className={style.detail_cocktail_likebtn}
@@ -65,9 +67,6 @@ const Cocktail_info = (props: detail_props) => {
                 />
               )}
             </div>
-            {/* <div className={style.detail_cocktail_title}>
-              ({cocktail_name_en}){" "}
-            </div> */}
           </div>
           <div className={style.detail_cocktail_info_header_bottom}>
             <div className={style.detail_cocktail_header_element}>
@@ -97,16 +96,31 @@ const Cocktail_info = (props: detail_props) => {
             />
           </div>
         </div>
-
+        {/* 가니쉬랑 베이스 영역 */}
+        <div className={style.detail_cocktail_garnish}>
+          <div className={style.detail_cocktail_garnish_title_div}>
+            <div className={style.detail_cocktail_garnish_title}>
+              Garnish
+              </div>
+            {garnish.map((v) => (
+              <div className={style.detail_cocktail_garnish_element}>#{v.garnish_name}</div>
+            ))}
+          </div>
+        </div>
+        {/* 재료 리스트 영역  */}
         <div className={style.detail_cocktail_ingredient}>
-          <img
-            className={style.detail_cocktail_ingredient_title_div}
-            src="/assets/icons/ingredient_legendIMG.png"
-            alt=""
-          />
-
-          <div className={style.detail_cocktail_ingredient_glass}>
-            - {glass}
+          <div className={style.detail_cocktail_ingredient_title_div}>
+            <img
+              className={style.detail_cocktail_ingredient_title_img}
+              src="/assets/icons/ingredient_legendIMG.png"
+              alt=""
+            />
+            <div className={style.detail_cocktail_ingredient_glass}>
+              &nbsp;{glass}&nbsp;
+            </div>
+            <div className={style.detail_cocktail_ingredient_base}>
+              &nbsp; {base} &nbsp;
+            </div>
           </div>
           <div className={style.detail_cocktail_ingredient_element}>
             {ingredient.map((key) => (
@@ -117,7 +131,7 @@ const Cocktail_info = (props: detail_props) => {
             ))}
           </div>
         </div>
-
+        {/* 레시피 영역  */}
         <div className={style.detail_cocktail_recipe_textarea}>
           <div className={style.detail_cocktail_recipe_title}>레시피</div>
           <div className={style.detail_cocktail_recipe_message}>
@@ -128,7 +142,7 @@ const Cocktail_info = (props: detail_props) => {
             ))}
           </div>
         </div>
-
+        {/* 소개 영역*/}
         <div className={style.detail_cocktail_recipe_content_textarea}>
           <div className={style.detail_cocktail_recipe_content_title}>소개</div>
           <div className={style.detail_cocktail_recipe_content_message}>

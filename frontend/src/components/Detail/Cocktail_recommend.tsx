@@ -16,12 +16,12 @@ const Cocktail_recommend = (props: recommend_props) => {
   const settings = {
     accessibility: false,
     adaptiveHeight: true,
-    arrows : false,
+    // arrows : true,
     // dots: true,
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: false,
     speed: 500,
     autoplaySpeed: 3000,
     cssEase: "linear",
@@ -61,12 +61,6 @@ const Cocktail_recommend = (props: recommend_props) => {
           </div>
         </div>
 
-        {/* 댓글 호버 펼치는 버튼 */}
-        <img
-          className={style.detail_comment_btn}
-          src="/assets/icons/detail_comment_btn.png"
-          alt=""
-        />
       </div>
     </div>
   );

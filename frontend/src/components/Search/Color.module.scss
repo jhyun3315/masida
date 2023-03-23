@@ -12,7 +12,7 @@
   .color_red {
     margin-left: 0.8rem;
     margin-right: 0.8rem;
-    background-color: red;
+    background-color: rgb(255, 0, 0);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -21,7 +21,7 @@
   .color_orange {
     margin-left: 0.8rem;
     margin-right: 0.8rem;
-    background-color: orange;
+    background-color: rgb(255, 150, 0);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -31,7 +31,7 @@
   .color_yellow {
     margin-left: 0.8rem;
     margin-right: 0.8rem;
-    background-color: yellow;
+    background-color: rgb(255, 255, 0);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -41,7 +41,7 @@
   .color_green {
     margin-left: 0.8rem;
     margin-right: 0.8rem;
-    background-color: green;
+    background-color: rgb(0, 255, 0);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -51,7 +51,16 @@
   .color_blue {
     margin-left: 0.8rem;
     margin-right: 0.8rem;
-    background-color: blue;
+    background-color: rgb(0, 0, 255);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    appearance: none;
+  }
+  .color_indigo {
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    background-color: rgb(75, 0, 130);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -60,7 +69,7 @@
   .color_purple {
     margin-left: 0.8rem;
     margin-right: 0.8rem;
-    background-color: purple;
+    background-color: rgb(200, 0, 255);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -70,7 +79,7 @@
   .color_white {
     margin-left: 0.8rem;
     margin-right: 0.8rem;
-    background-color: white;
+    background-color:rgb(255, 255, 255);
     width: 40px;
     height: 40px;
     border: 1px solid black;
@@ -78,10 +87,10 @@
     appearance: none;
   }
 
-  .color_black {
+  .color_pink {
     margin-left: 0.8rem;
     margin-right: 0.8rem;
-    background-color: black;
+    background-color: rgb(255, 153, 204);
     width: 40px;
     height: 40px;
     border-radius: 50%;

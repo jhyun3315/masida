@@ -22,6 +22,10 @@ export type ingredientType = {
   ingredient_unit: string;
 };
 
+export type garnishType = {
+  garnish_name : string;
+}
+
 // 칵테일 상세 정보 props
 export type detail_props = {
   cocktail_id: number;
@@ -36,6 +40,8 @@ export type detail_props = {
   likes_checker: boolean;
   bookmark_checker: boolean;
   glass: string;
+  base : string;
+  garnish : garnishType[];
   recipe: recipeType[];
   ingredient: ingredientType[];
 };
