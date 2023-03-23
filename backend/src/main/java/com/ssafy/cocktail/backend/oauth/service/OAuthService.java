@@ -1,6 +1,7 @@
 package com.ssafy.cocktail.backend.oauth.service;
 
 import com.ssafy.cocktail.backend.domain.entity.User;
+import com.ssafy.cocktail.backend.oauth.dto.UserInfo;
 import com.ssafy.cocktail.backend.oauth.dto.UserLoginInfo;
 
 import java.io.IOException;
@@ -11,6 +12,6 @@ public interface OAuthService {
 	// public boolean isVaildAccessToken(String accessToken, String id);
 	public User getUser(String accessToken);
 	public boolean logoutUser(String accessToken, boolean isdeleted);
-	public boolean updateUser(String accessToken, String userGender, String userAgeRange);
+	public UserInfo updateUser(String accessToken, String userGender, String userAgeRange);
 
 }

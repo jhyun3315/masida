@@ -4,6 +4,7 @@ import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
 import com.ssafy.cocktail.backend.domain.entity.User;
 import com.ssafy.cocktail.backend.oauth.dto.UserInfo;
 import com.ssafy.cocktail.backend.oauth.dto.UserLoginInfo;
+import com.ssafy.cocktail.backend.oauth.dto.request.UserInfoReq;
 import com.ssafy.cocktail.backend.oauth.dto.response.UserInfoRes;
 import com.ssafy.cocktail.backend.oauth.dto.response.UserLoginRes;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
@@ -65,5 +66,14 @@ public class OAuthController {
         User user = oAuthService.getUser(accessToken);
         UserInfo userInfo = new UserInfo(user.getUserName(), user.getUserEmail(), user.getUserProfile(), user.getUserGender(), user.getUserAgeRange());
         return ResponseEntity.ok(UserInfoRes.of(200, "Success", userInfo));
+    }
+
+    @PutMapping("users")
+    public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("authorization") String accessToken, UserInfoReq req) {
+        UserInfo userInfo = oAuthService.updateUser(accessToken, req.getUserGender(), req.getUserAgeRange()); // 사용자 정보 업데이트 후 사용자 정보 가져오기
+        if(userInfo != null) { // 사용자 정보 수정에 성공했으면
+            return ResponseEntity.status(200).body(UserInfoRes.of(200, "Success", userInfo));
+        }
+        return ResponseEntity.status(200).body(UserInfoRes.of(200, "Fail", null));
     }
 }

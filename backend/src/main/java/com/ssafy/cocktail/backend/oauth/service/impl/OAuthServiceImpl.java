@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.ssafy.cocktail.backend.domain.entity.User;
 import com.ssafy.cocktail.backend.domain.repository.UserRepository;
+import com.ssafy.cocktail.backend.oauth.dto.UserInfo;
 import com.ssafy.cocktail.backend.oauth.dto.UserLoginInfo;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import lombok.RequiredArgsConstructor;
@@ -276,13 +277,15 @@ public class OAuthServiceImpl implements OAuthService {
     }
 
     @Override
-    public boolean updateUser(String accessToken, String userGender, String userAgeRange) {
+    public UserInfo updateUser(String accessToken, String userGender, String userAgeRange) {
+        // 사용자 성별, 연령대를 업데이트하고 사용자 정보 리턴
         User user = getUser(accessToken); // 엑세스 토큰으로 사용자 가져오기
-        if (user == null) return false; // 사용자가 없으면
+        if (user == null) return null; // 사용자가 없으면
         user.setUserGender(userGender); // 사용자 성별 삽입
         user.setUserAgeRange(userAgeRange); // 사용자 연령대 삽입
         userRepository.save(user); // 사용자 정보 업데이트
-        return true;
+        UserInfo userInfo = new UserInfo(user.getUserName(), user.getUserEmail(), user.getUserProfile(), user.getUserGender(), user.getUserAgeRange()); // 사용자 정보 객체 생성
+        return userInfo;
     }
-    
+
 }
