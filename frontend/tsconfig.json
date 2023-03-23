@@ -13,7 +13,7 @@
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
+    "noEmit": false,
     "incremental": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
@@ -22,7 +22,7 @@
     "jsx": "preserve"
   },
   "files": [
-    "src/index.tsx"
+    "src/index.ts"
   ],
   "include": [
     "next-env.d.ts",
