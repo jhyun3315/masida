@@ -8,6 +8,7 @@ import Shop_item from "./Shop/Shop_item";
 // import "slick-carousel/slick/slick-theme.css";
 
 export type itemProps = {
+  product_img: string;
   product_name: string;
   product_price: number;
   product_url: string;
@@ -23,11 +24,72 @@ const settings = {
   autoplaySpeed: 3000,
 };
 
-const items: itemProps = {
-  product_name: "수저",
-  product_price: 2333,
-  product_url: "https://www.naver.com/",
-};
+const items: itemProps[] = [
+  {
+    product_name: "칵테일 쉐이커",
+    product_price: 8500,
+    product_url:
+      "https://search.shopping.naver.com/catalog/33357849843?query=%EC%B9%B5%ED%85%8C%EC%9D%BC%20%EC%89%90%EC%9D%B4%EC%BB%A4&NaPm=ct%3Dlfkkora8%7Cci%3Db700a0d6f98a93498882155ded6003f6150a454a%7Ctr%3Dslsl%7Csn%3D95694%7Chk%3Ddec0854da7c47e3df1d49e266fdb14c87b94eb64",
+    product_img:
+      "https://shopping-phinf.pstatic.net/main_3335784/33357849843.20221102044951.jpg?type=f640",
+  },
+  {
+    product_name: "칵테일 머들러",
+    product_price: 4250,
+    product_url:
+      "https://search.shopping.naver.com/catalog/32517363269?query=%EB%A8%B8%EB%93%A4%EB%9F%AC&NaPm=ct%3Dlfklu2xs%7Cci%3D5c07d9f5cd2625dcf93a0b771b8987d391e6f2cd%7Ctr%3Dslsl%7Csn%3D95694%7Chk%3Dd353607e414363e23e34ed90b26e4f47844e3d22",
+    product_img:
+      "https://shopping-phinf.pstatic.net/main_3251736/32517363269.20220818072908.jpg?type=f640",
+  },
+  {
+    product_name: "",
+    product_price: 0,
+    product_url:
+      "",
+    product_img:
+      "",
+  },
+  {
+    product_name: "",
+    product_price: 0,
+    product_url:
+      "",
+    product_img:
+      "",
+  },
+  {
+    product_name: "",
+    product_price: 0,
+    product_url:
+      "",
+    product_img:
+      "",
+  },
+  {
+    product_name: "",
+    product_price: 0,
+    product_url:
+      "",
+    product_img:
+      "",
+  },
+  {
+    product_name: "",
+    product_price: 0,
+    product_url:
+      "",
+    product_img:
+      "",
+  },
+  {
+    product_name: "",
+    product_price: 0,
+    product_url:
+      "",
+    product_img:
+      "",
+  },
+];
 
 const Main_manual = () => {
   return (
@@ -65,12 +127,10 @@ const Main_manual = () => {
                 집에서 나만의 칵테일을 만들어보세요!
               </div>
               <div className={style.manual_content_shop_carousel}>
-                <Slider {...settings}>
-                  <div>
-                    <Shop_item {...items} />
-                  </div>
-                  <div>2</div>
-                  <div>3</div>
+                <Slider>
+                  {items.map((key) => (
+                    <Shop_item {...key} />
+                  ))}
                 </Slider>
               </div>
             </div>
