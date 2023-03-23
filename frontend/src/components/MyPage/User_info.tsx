@@ -3,7 +3,7 @@ import Modal_portal from '../Modal/Modal_portal';
 import style from './User_info.module.scss';
 import Image from 'next/image';
 import UserSettingModal from '../Modal/UserSettingModal';
-import { userType } from '@/pages/mypage';
+import { userType } from '../../pages/mypage';
 
 const User_info = (user_props: userType) => {
   const user_info = user_props;
