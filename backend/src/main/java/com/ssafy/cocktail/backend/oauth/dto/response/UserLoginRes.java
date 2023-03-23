@@ -1,4 +1,4 @@
-package com.ssafy.cocktail.backend.oauth.dto;
+package com.ssafy.cocktail.backend.oauth.dto.response;
 
 import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
 import io.swagger.v3.oas.annotations.media.Schema;

@@ -1,12 +1,11 @@
 package com.ssafy.cocktail.backend.oauth.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class UserInfo {
+public class UserLoginInfo {
     String accessToken;
     String refreshToken;
     String userName;

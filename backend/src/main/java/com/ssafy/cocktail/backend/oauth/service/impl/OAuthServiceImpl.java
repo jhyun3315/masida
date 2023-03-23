@@ -5,7 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.ssafy.cocktail.backend.domain.entity.User;
 import com.ssafy.cocktail.backend.domain.repository.UserRepository;
-import com.ssafy.cocktail.backend.oauth.dto.UserInfo;
+import com.ssafy.cocktail.backend.oauth.dto.UserLoginInfo;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class OAuthServiceImpl implements OAuthService {
     private final UserRepository userRepository;
-    private UserInfo userInfo;
+    private UserLoginInfo userLoginInfo;
 
     @Value("${spring.security.oauth2.client.registration.kakao.client-id}")
     private String clientId;
@@ -39,12 +39,12 @@ public class OAuthServiceImpl implements OAuthService {
         return uri;
     }
 
-    public UserInfo loginUser(String authorize_code) throws IOException {
-        userInfo = new UserInfo();
+    public UserLoginInfo loginUser(String authorize_code) throws IOException {
+        userLoginInfo = new UserLoginInfo();
         String accessToken = getKakaoAccessToken(authorize_code); // accessToken 가져오기
-        userInfo.setAccessToken(accessToken);
+        userLoginInfo.setAccessToken(accessToken);
         saveOrUpdate(accessToken);
-        return userInfo;
+        return userLoginInfo;
     }
 
     public String getKakaoAccessToken(String authorize_code) {
@@ -101,8 +101,8 @@ public class OAuthServiceImpl implements OAuthService {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        userInfo.setAccessToken(access_Token);
-        userInfo.setRefreshToken(refresh_Token);
+        userLoginInfo.setAccessToken(access_Token);
+        userLoginInfo.setRefreshToken(refresh_Token);
         return access_Token;
 
     }
@@ -177,14 +177,14 @@ public class OAuthServiceImpl implements OAuthService {
                 user.setUserUpdateDate(LocalDateTime.now());
                 userRepository.save(user);
             }
-            userInfo.setUserName(nickname);
+            userLoginInfo.setUserName(nickname);
 
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        userInfo.setUserName("null");
+        userLoginInfo.setUserName("null");
     }
 
     @Override
