@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { cocktailBase } from '@/type/cocktailPreference';
 import { ResponsivePie } from '@nivo/pie';
 
 const Piechart = () => {
@@ -12,17 +13,47 @@ const Piechart = () => {
         },
   };
   
+  const cocktail_props: cocktailBase[] = [
+    {
+      base_name: "진",
+			base_count : 23,
+	    base_ratio: 56
+    },
+    {
+      base_name: "럼",
+			base_count : 12,
+	    base_ratio: 23
+    },
+    {
+      base_name: "보드카",
+      base_count: 6,
+      base_ratio: 12,
+    },
+    {
+      base_name: "데킬라",
+			base_count : 3,
+	    base_ratio: 6
+    },
+    {
+      base_name: "꼬냑",
+			base_count : 1,
+	    base_ratio: 3
+    }
+  ]
+
   const D=[
        { id: 'cola', value: 324 },
        { id: 'cidar', value: 88 },
        { id: 'fan', value: 221 },
        { id: 'dfdfd', value: 90 },
        {id:'something', value:23}
-      ]
+  ]
+
+  console.log(cocktail_props[0].base_name);
 
     return (
         // chart height이 100%이기 때문이 chart를 덮는 마크업 요소에 height 설정
-        <div style={{ width: '100%', height: '400px', margin: '0' }}>
+        <div style={{ width: '100%', height: '400px', margin: '' }}>
             <ResponsivePie
                 //chart에 사용될 데이터
                 data={D}
