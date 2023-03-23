@@ -274,4 +274,11 @@ public class OAuthServiceImpl implements OAuthService {
         }
         return false;
     }
+
+    @Override
+    public boolean updateUser(String accessToken, String userGender, String userAgeRange) {
+        return false;
+    }
+
+
 }

@@ -11,5 +11,6 @@ public interface OAuthService {
 	// public boolean isVaildAccessToken(String accessToken, String id);
 	public User getUser(String accessToken);
 	public boolean logoutUser(String accessToken, boolean isdeleted);
+	public boolean updateUser(String accessToken, String userGender, String userAgeRange);
 
 }
