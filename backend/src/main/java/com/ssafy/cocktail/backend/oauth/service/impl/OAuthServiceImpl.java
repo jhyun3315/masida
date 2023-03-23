@@ -227,7 +227,7 @@ public class OAuthServiceImpl implements OAuthService {
     }
 
     @Override
-    public boolean logoutUser(String accessToken) {
+    public boolean logoutUser(String accessToken, boolean isdeleted) {
         String reqURL = "https://kapi.kakao.com/v1/user/logout"; // 요청 url
         try {
             URL url = new URL(reqURL); // 요청 url 삽입
@@ -263,9 +263,10 @@ public class OAuthServiceImpl implements OAuthService {
 
             JsonParser parser = new JsonParser(); // JsonParser 설정
             JsonElement element = parser.parse(result); // Json 파싱
-
-            user.setUserDeleted("Y"); // 삭제 상태 삭제로 변경
-            userRepository.save(user); // 회원 정보 수정
+            if (isdeleted) {
+                user.setUserDeleted("Y"); // 삭제 상태 삭제로 변경
+                userRepository.save(user); // 회원 정보 수정
+            }
             return true;
         } catch (IOException e) {
             // TODO Auto-generated catch block

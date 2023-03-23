@@ -43,7 +43,16 @@ public class OAuthController {
     @GetMapping("/kakao/logout")
     public ResponseEntity<?> kakaoLogout(@RequestHeader("authorization") String accessToken) {
 //        String accessToken = data.get("authorization");
-        if (oAuthService.logoutUser(accessToken)) { // 로그아웃 요청
+        if (oAuthService.logoutUser(accessToken, false)) { // 로그아웃 요청
+            return ResponseEntity.ok(BaseResponseBody.of(200, "Success"));
+        }
+        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
+    }
+
+    @DeleteMapping("/kakao/delete")
+    public ResponseEntity<?> kakaoDelete(@RequestHeader("authorization") String accessToken) {
+//        String accessToken = data.get("authorization");
+        if (oAuthService.logoutUser(accessToken, true)) { // 회원 탈퇴 요청
             return ResponseEntity.ok(BaseResponseBody.of(200, "Success"));
         }
         return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
