@@ -13,3 +13,7 @@ module.exports = {
     ignoreDuringBuilds: true,
   },
 };
+
+module.exports = {
+  swcMinify: true,
+};
