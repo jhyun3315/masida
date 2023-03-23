@@ -1,5 +1,5 @@
 .color_title {
-  font-size: 25px;
+  font-size: 23px;
 }
 .color {
   display: flex;
@@ -13,8 +13,8 @@
     margin-left: 0.8rem;
     margin-right: 0.8rem;
     background-color: rgb(255, 0, 0);
-    width: 40px;
-    height: 40px;
+    width: 27px;
+    height: 27px;
     border-radius: 50%;
     appearance: none;
   }
@@ -22,8 +22,8 @@
     margin-left: 0.8rem;
     margin-right: 0.8rem;
     background-color: rgb(255, 150, 0);
-    width: 40px;
-    height: 40px;
+    width: 27px;
+    height: 27px;
     border-radius: 50%;
     appearance: none;
   }
@@ -32,8 +32,8 @@
     margin-left: 0.8rem;
     margin-right: 0.8rem;
     background-color: rgb(255, 255, 0);
-    width: 40px;
-    height: 40px;
+    width: 27px;
+    height: 27px;
     border-radius: 50%;
     appearance: none;
   }
@@ -42,8 +42,8 @@
     margin-left: 0.8rem;
     margin-right: 0.8rem;
     background-color: rgb(0, 255, 0);
-    width: 40px;
-    height: 40px;
+    width: 27px;
+    height: 27px;
     border-radius: 50%;
     appearance: none;
   }
@@ -52,8 +52,8 @@
     margin-left: 0.8rem;
     margin-right: 0.8rem;
     background-color: rgb(0, 0, 255);
-    width: 40px;
-    height: 40px;
+    width: 27px;
+    height: 27px;
     border-radius: 50%;
     appearance: none;
   }
@@ -61,8 +61,8 @@
     margin-left: 0.8rem;
     margin-right: 0.8rem;
     background-color: rgb(75, 0, 130);
-    width: 40px;
-    height: 40px;
+    width: 27px;
+    height: 27px;
     border-radius: 50%;
     appearance: none;
   }
@@ -70,8 +70,8 @@
     margin-left: 0.8rem;
     margin-right: 0.8rem;
     background-color: rgb(200, 0, 255);
-    width: 40px;
-    height: 40px;
+    width: 27px;
+    height: 27px;
     border-radius: 50%;
     appearance: none;
   }
@@ -80,9 +80,19 @@
     margin-left: 0.8rem;
     margin-right: 0.8rem;
     background-color:rgb(255, 255, 255);
-    width: 40px;
-    height: 40px;
+    width: 27px;
+    height: 27px;
     border: 1px solid black;
+    border-radius: 50%;
+    appearance: none;
+  }
+
+  .color_brown {
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    background-color: rgb(150, 75, 0);
+    width: 27px;
+    height: 27px;
     border-radius: 50%;
     appearance: none;
   }
@@ -91,8 +101,8 @@
     margin-left: 0.8rem;
     margin-right: 0.8rem;
     background-color: rgb(255, 153, 204);
-    width: 40px;
-    height: 40px;
+    width: 27px;
+    height: 27px;
     border-radius: 50%;
     appearance: none;
   }
