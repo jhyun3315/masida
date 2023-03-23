@@ -155,7 +155,7 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
                         .userProfile(thumbnail_image)
                         .userGender(gender)
                         .userAgeRange(age_range)
-                        .userDeleted("false")
+                        .userDeleted("N")
                         .userCreatedDate(LocalDateTime.now())
                         .userUpdateDate(LocalDateTime.now())
                         .build());
