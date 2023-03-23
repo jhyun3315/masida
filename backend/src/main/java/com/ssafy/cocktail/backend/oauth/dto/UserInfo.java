@@ -2,7 +2,9 @@ package com.ssafy.cocktail.backend.oauth.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
 public class UserInfo {
     @Schema(description = "사용자 이름", example = "이싸피")
     @JsonProperty("user_name")

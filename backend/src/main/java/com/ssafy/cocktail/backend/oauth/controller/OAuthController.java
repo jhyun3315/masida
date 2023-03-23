@@ -1,7 +1,10 @@
 package com.ssafy.cocktail.backend.oauth.controller;
 
 import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
+import com.ssafy.cocktail.backend.domain.entity.User;
+import com.ssafy.cocktail.backend.oauth.dto.UserInfo;
 import com.ssafy.cocktail.backend.oauth.dto.UserLoginInfo;
+import com.ssafy.cocktail.backend.oauth.dto.response.UserInfoRes;
 import com.ssafy.cocktail.backend.oauth.dto.response.UserLoginRes;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import com.ssafy.cocktail.backend.oauth.util.JwtTokenUtil;
@@ -56,5 +59,12 @@ public class OAuthController {
             return ResponseEntity.ok(BaseResponseBody.of(200, "Success"));
         }
         return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
+    }
+
+    @GetMapping("users")
+    public ResponseEntity<UserInfoRes> mypageUserinfo(@RequestHeader("authorization") String accessToken) {
+        User user = oAuthService.getUser(accessToken);
+        UserInfo userInfo = new UserInfo(user.getUserName(), user.getUserEmail(), user.getUserProfile(), user.getUserGender(), user.getUserAgeRange());
+        return ResponseEntity.ok(UserInfoRes.of(200, "Success", userInfo));
     }
 }
