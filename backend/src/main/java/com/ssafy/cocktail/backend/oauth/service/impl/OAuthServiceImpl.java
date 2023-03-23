@@ -33,12 +33,13 @@ public class OAuthServiceImpl implements OAuthService {
     @Value("${kakao.admin}")
     private String adminKey;
 
-
+    @Override
     public String loginPage() {
         String uri = "https://kauth.kakao.com/oauth/authorize?client_id="+restApiKey+"&redirect_uri="+redirctURI+"&response_type=code";
         return uri;
     }
 
+    @Override
     public UserLoginInfo loginUser(String authorize_code) throws IOException {
         userLoginInfo = new UserLoginInfo();
         String accessToken = getKakaoAccessToken(authorize_code); // accessToken 가져오기
@@ -47,7 +48,7 @@ public class OAuthServiceImpl implements OAuthService {
         return userLoginInfo;
     }
 
-    public String getKakaoAccessToken(String authorize_code) {
+    private String getKakaoAccessToken(String authorize_code) {
         String access_Token = "";
         String refresh_Token = "";
         String reqURL = "https://kauth.kakao.com/oauth/token";
@@ -107,7 +108,7 @@ public class OAuthServiceImpl implements OAuthService {
 
     }
 
-    public void saveOrUpdate(String access_Token) throws IOException {
+    private void saveOrUpdate(String access_Token) throws IOException {
         String reqURL = "https://kapi.kakao.com/v2/user/me";
         try {
             URL url = new URL(reqURL);
@@ -178,8 +179,7 @@ public class OAuthServiceImpl implements OAuthService {
                 userRepository.save(user);
             }
             userLoginInfo.setUserName(nickname);
-
-
+            return;
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

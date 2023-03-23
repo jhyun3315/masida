@@ -39,7 +39,6 @@ public class OAuthController {
         cookie.setSecure(true); // 클라이언트가 HTTPS가 아닌 통신에서는 해당 쿠키를 전송하지 않도록 하는 설정
         cookie.setHttpOnly(true); // 브라우저에서 쿠키에 접근할 수 없도록 하는 설정 (XSS 공격 방지)
         cookie.setPath("/");
-        oAuthService.getUser(userLoginInfo.getAccessToken());
         return ResponseEntity.ok(UserLoginRes.of(200, "Success", userLoginInfo.getAccessToken(), userLoginInfo.getUserName()));
     }
 
