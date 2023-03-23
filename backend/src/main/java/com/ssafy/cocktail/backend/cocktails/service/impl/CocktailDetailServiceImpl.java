@@ -11,6 +11,7 @@ import com.ssafy.cocktail.backend.oauth.service.impl.CustomOAuth2UserServiceImpl
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,6 +62,9 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         cocktailDetail.setGlass(cocktail.get().getCocktailGlass()); // 칵테일의 글라스 삽입
         cocktailDetail.setBase(cocktail.get().getCocktailBase()); // 칵테일의 베이스 삽입
         List<CocktailIngredient> cocktailIngredients = cocktailIngredientRepository.findByCocktail(cocktail.get()); // 칵테일 재료 가져오기
+        cocktailDetail.setGarnish(new ArrayList<>()); // 가니쉬 리스트 생성
+        cocktailDetail.setIngredient(new ArrayList<>()); // 재료 리스트 생성
+        cocktailDetail.setRecipe(new ArrayList<>()); // 레시피 리스트 생성
         for (CocktailIngredient ingredient: cocktailIngredients) { // 재료
             if (ingredient.getIngredientType().equals("가니쉬")) { // 재료가 가니쉬 이면
                 cocktailDetail.getGarnish().add(new GarnishDetail(ingredient.getIngredientName())); // 가니쉬 추가

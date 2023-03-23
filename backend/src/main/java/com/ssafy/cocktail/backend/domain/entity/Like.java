@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor(access= AccessLevel.PUBLIC)
 @Table(name="likes")
 public class Like {

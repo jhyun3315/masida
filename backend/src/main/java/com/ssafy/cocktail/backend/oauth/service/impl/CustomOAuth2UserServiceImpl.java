@@ -178,8 +178,6 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
 
     @Override
     public User getUser(String accessToken) {
-        System.out.println("--------------------------------------------");
-        System.out.println("getUser: ");
         String reqURL = "https://kapi.kakao.com/v1/user/access_token_info";
         try {
             URL url = new URL(reqURL);
@@ -190,7 +188,7 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
             conn.setRequestProperty("Authorization", "Bearer " + accessToken);
 
             int responseCode = conn.getResponseCode();
-            System.out.println("responseCode : " + responseCode);
+            // System.out.println("responseCode : " + responseCode);
 
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
@@ -200,7 +198,7 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
             while ((line = br.readLine()) != null) {
                 result += line;
             }
-            System.out.println("response body : " + result);
+//            System.out.println("response body : " + result);
 
             JsonParser parser = new JsonParser();
             JsonElement element = parser.parse(result);
