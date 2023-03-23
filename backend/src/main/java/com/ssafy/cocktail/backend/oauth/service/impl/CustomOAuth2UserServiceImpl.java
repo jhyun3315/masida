@@ -99,8 +99,6 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
     }
 
     public void saveOrUpdate(String access_Token) throws IOException {
-        //    요청하는 클라이언트마다 가진 정보가 다를 수 있기에 HashMap타입으로 선언
-//		HashMap<String, Object> userInfo = new HashMap<>();
         String reqURL = "https://kapi.kakao.com/v2/user/me";
         try {
             URL url = new URL(reqURL);
@@ -182,8 +180,6 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
     public User getUser(String accessToken) {
         System.out.println("--------------------------------------------");
         System.out.println("getUser: ");
-        //    요청하는 클라이언트마다 가진 정보가 다를 수 있기에 HashMap타입으로 선언
-//		HashMap<String, Object> userInfo = new HashMap<>();
         String reqURL = "https://kapi.kakao.com/v1/user/access_token_info";
         try {
             URL url = new URL(reqURL);
