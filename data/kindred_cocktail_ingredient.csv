@@ -368,7 +368,7 @@
 366,7.393375,ml,Cherry Syrup,General,0,65,Onyx
 367,22.180125,ml,Batavia Arrack,Rum,2,66,Opium
 368,22.180125,ml,"Cognac, Pierre Ferrand 1840",Brandy,5,66,Opium
-369,22.180125,ml,Sake,General,0,66,Opium
+369,22.180125,ml,Sake,Spirits,21,66,Opium
 370,22.180125,ml,Bénédictine,General,0,66,Opium
 371,1,ds,"Bitters, Angostura",General,0,66,Opium
 372,22.180125,ml,Mezcal (Monte Alban),Mezcal,20,67,The Option Clause
@@ -1369,7 +1369,7 @@
 1367,22.180125,ml,Lime juice,General,0,237,Sherrita Bonita
 1368,9.857833333333332,ml,Agave Syrup,General,0,237,Sherrita Bonita
 1369,1,ds,Orange bitters,General,0,237,Sherrita Bonita
-1370,44.36025,ml,Shochu (iichiko special barley shochu),General,0,238,Shochu sour
+1370,44.36025,ml,"Shochu, iichiko",Spirits,21,238,Shochu sour
 1371,19.715666666666664,ml,Yuzu juice,General,0,238,Shochu sour
 1372,7.393375,ml,Orgeat,General,0,238,Shochu sour
 1373,7.393375,ml,Agave Syrup,General,0,238,Shochu sour
@@ -3135,7 +3135,7 @@
 3133,29.5735,ml,"Virgin Islands Rum, Cruzan Blackstrap",Rum,2,557,The Black Stallion Sets Sail
 3134,3,dr,Salt Solution (1:4),General,0,557,The Black Stallion Sets Sail
 3135,1,twst,Orange peel,Garnish,11,557,The Black Stallion Sets Sail
-3136,73.93375,ml,Sake,General,0,558,Black Sakura
+3136,73.93375,ml,Sake,Spirits,21,558,Black Sakura
 3137,29.5735,ml,"Cherry Liqueur, Cherry Heering",Liqueur,10,558,Black Sakura
 3138,14.78675,ml,Lemon juice,General,0,558,Black Sakura
 3139,2,ds,"Bitters, Fee Brothers Black Walnut",General,0,558,Black Sakura
@@ -4535,8 +4535,8 @@
 4533,2,ds,"Rhubarb bitters, Fee Brothers",General,0,806,Flower Tart
 4534,2,dr,Rose water,General,0,806,Flower Tart
 4535,1,twst,Lemon peel,Garnish,11,806,Flower Tart
-4536,25.8768125,ml,Zhuyeqing Liquor,General,0,807,Flowing With The Tea
-4537,25.8768125,ml,Sake,General,0,807,Flowing With The Tea
+4536,25.8768125,ml,Zhuyeqing Liquor,Spirits,21,807,Flowing With The Tea
+4537,25.8768125,ml,Sake,Spirits,21,807,Flowing With The Tea
 4538,8,,Juniper Berry,General,0,807,Flowing With The Tea
 4539,1,bsp,Jasmine Green Loose Leaf Tea,General,0,807,Flowing With The Tea
 4540,2,pn,Lemon zest,General,0,807,Flowing With The Tea
@@ -4682,7 +4682,7 @@
 4680,7.393375,ml,Lime juice,General,0,832,G'Vine Blush
 4681,44.36025,ml,"Gin, G'Vine Floraison",Gin,1,832,G'Vine Blush
 4682,7.393375,ml,Pink grapefruit juice,General,0,832,G'Vine Blush
-4683,44.36025,ml,Brut Champagne,Champagne,9,832,G'Vine Blush
+4683,44.36025,ml,Brut Champagne,Wine,9,832,G'Vine Blush
 4684,1⁄2,,Strawberry,General,0,833,Gabriella
 4685,22.180125,ml,Lemon juice,General,0,833,Gabriella
 4686,22.180125,ml,Simple syrup,General,0,833,Gabriella

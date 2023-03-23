@@ -473,7 +473,7 @@
 471,7.5,ml,Water (chilled),General,0,3075,Absinthe Daiquiri,https://www.diffordsguide.com/cocktails/recipe/14932/absinthe-daiquiri
 472,2,drop,Saline solution,General,0,3075,Absinthe Daiquiri,https://www.diffordsguide.com/cocktails/recipe/14932/absinthe-daiquiri
 473,,,Lime wedge on rim,Garnish,11,3075,Absinthe Daiquiri,https://www.diffordsguide.com/cocktails/recipe/14932/absinthe-daiquiri
-474,80,ml,Akashi-Tai Daiginjo Genshu sake,General,0,3076,Sake Sour,https://www.diffordsguide.com/cocktails/recipe/13234/sake-sour
+474,80,ml,Akashi-Tai Daiginjo Genshu sake,Spirits,21,3076,Sake Sour,https://www.diffordsguide.com/cocktails/recipe/13234/sake-sour
 475,7.5,ml,Lime juice,General,0,3076,Sake Sour,https://www.diffordsguide.com/cocktails/recipe/13234/sake-sour
 476,5,ml,Lemon juice,General,0,3076,Sake Sour,https://www.diffordsguide.com/cocktails/recipe/13234/sake-sour
 477,10,ml,Sugar syrup (rich),General,0,3076,Sake Sour,https://www.diffordsguide.com/cocktails/recipe/13234/sake-sour
@@ -548,7 +548,7 @@
 546,120,ml,Brut champagne or sparkling wine (chilled),Wine,8,3087,Mule-mosa,https://www.diffordsguide.com/cocktails/recipe/14976/mule-mosa
 547,,,Thin orange wedge in rim,Garnish,11,3087,Mule-mosa,https://www.diffordsguide.com/cocktails/recipe/14976/mule-mosa
 548,45,ml,Bourbon whiskey,Whisky,4,3088,Manhattan Goes Tokyo,https://www.diffordsguide.com/cocktails/recipe/14977/manhattan-goes-tokyo
-549,30,ml,Akashi-Tai Daiginjo Genshu sake,General,0,3088,Manhattan Goes Tokyo,https://www.diffordsguide.com/cocktails/recipe/14977/manhattan-goes-tokyo
+549,30,ml,Akashi-Tai Daiginjo Genshu sake,Spirits,21,3088,Manhattan Goes Tokyo,https://www.diffordsguide.com/cocktails/recipe/14977/manhattan-goes-tokyo
 550,15,ml,Ginger liqueur,Liqueur,10,3088,Manhattan Goes Tokyo,https://www.diffordsguide.com/cocktails/recipe/14977/manhattan-goes-tokyo
 551,4,drop,Bob's Ginger Bitters,General,0,3088,Manhattan Goes Tokyo,https://www.diffordsguide.com/cocktails/recipe/14977/manhattan-goes-tokyo
 552,,,Orange zest twist discarded,Garnish,11,3088,Manhattan Goes Tokyo,https://www.diffordsguide.com/cocktails/recipe/14977/manhattan-goes-tokyo
@@ -1023,7 +1023,7 @@
 1021,15,ml,Sour apple liqueur,Liqueur,10,3165,Washington Apple Shot,https://www.diffordsguide.com/cocktails/recipe/15760/washington-apple-shot
 1022,20,ml,Cranberry juice,General,0,3165,Washington Apple Shot,https://www.diffordsguide.com/cocktails/recipe/15760/washington-apple-shot
 1023,10,ml,Thomas Henry Soda Water,General,0,3165,Washington Apple Shot,https://www.diffordsguide.com/cocktails/recipe/15760/washington-apple-shot
-1024,45,ml,Akashi-Tai Daiginjo Genshu sake,General,0,3166,Appease the Cheese,https://www.diffordsguide.com/cocktails/recipe/13233/appease-the-cheese
+1024,45,ml,Akashi-Tai Daiginjo Genshu sake,Spirits,21,3166,Appease the Cheese,https://www.diffordsguide.com/cocktails/recipe/13233/appease-the-cheese
 1025,30,ml,Rutte Old Simon Genever,Liqueur,10,3166,Appease the Cheese,https://www.diffordsguide.com/cocktails/recipe/13233/appease-the-cheese
 1026,15,ml,Italicus liqueur,Liqueur,10,3166,Appease the Cheese,https://www.diffordsguide.com/cocktails/recipe/13233/appease-the-cheese
 1027,5,ml,Abasolo Mexican Corn Whisky,Whisky,4,3166,Appease the Cheese,https://www.diffordsguide.com/cocktails/recipe/13233/appease-the-cheese
@@ -1594,7 +1594,7 @@
 1592,5,ml,Hayman's Sloe Gin,Gin,1,3259,Mulled Negroni,https://www.diffordsguide.com/cocktails/recipe/10627/mulled-negroni
 1593,,,Orange wedge,Garnish,11,3259,Mulled Negroni,https://www.diffordsguide.com/cocktails/recipe/10627/mulled-negroni
 1594,30,ml,Rutte Dry Gin,Gin,1,3260,Pinky Negroni,https://www.diffordsguide.com/cocktails/recipe/10626/pinky-negroni
-1595,20,ml,Savoia Americano Rosso,General,8,3260,Pinky Negroni,https://www.diffordsguide.com/cocktails/recipe/10626/pinky-negroni
+1595,20,ml,Savoia Americano Rosso,Wine,8,3260,Pinky Negroni,https://www.diffordsguide.com/cocktails/recipe/10626/pinky-negroni
 1596,20,ml,Martini Riserva Speciale Ambrato,Wine,8,3260,Pinky Negroni,https://www.diffordsguide.com/cocktails/recipe/10626/pinky-negroni
 1597,5,ml,Rose petal liqueur,Liqueur,10,3260,Pinky Negroni,https://www.diffordsguide.com/cocktails/recipe/10626/pinky-negroni
 1598,5,ml,Fino sherry,Wine,8,3260,Pinky Negroni,https://www.diffordsguide.com/cocktails/recipe/10626/pinky-negroni
@@ -1901,7 +1901,7 @@
 1899,30,ml,Hayman's Sloe Gin,Gin,1,3311,Blackthorn No.2 (Savoy's),https://www.diffordsguide.com/cocktails/recipe/10063/blackthorn-no2-savoys
 1900,15,ml,Rosso/rouge (sweet) vermouth,Wine,8,3311,Blackthorn No.2 (Savoy's),https://www.diffordsguide.com/cocktails/recipe/10063/blackthorn-no2-savoys
 1901,,,blueberry,Garnish,11,3311,Blackthorn No.2 (Savoy's),https://www.diffordsguide.com/cocktails/recipe/10063/blackthorn-no2-savoys
-1902,25,ml,Savoia Americano Rosso,General,8,3312,S 'n' Emm,https://www.diffordsguide.com/cocktails/recipe/9898/s-n-emm
+1902,25,ml,Savoia Americano Rosso,Wine,8,3312,S 'n' Emm,https://www.diffordsguide.com/cocktails/recipe/9898/s-n-emm
 1903,25,ml,Del Maguey Vida Clásico mezcal,Mezcal,20,3312,S 'n' Emm,https://www.diffordsguide.com/cocktails/recipe/9898/s-n-emm
 1904,15,ml,Amaro Montenegro,Liqueur,10,3312,S 'n' Emm,https://www.diffordsguide.com/cocktails/recipe/9898/s-n-emm
 1905,,,Orange zest twist,Garnish,11,3312,S 'n' Emm,https://www.diffordsguide.com/cocktails/recipe/9898/s-n-emm
@@ -1987,7 +1987,7 @@
 1985,,,,Garnish,11,3325,Tunnel Negroni,https://www.diffordsguide.com/cocktails/recipe/9897/tunnel-negroni
 1986,,,orange wedge,Garnish,11,3325,Tunnel Negroni,https://www.diffordsguide.com/cocktails/recipe/9897/tunnel-negroni
 1987,30,ml,Del Maguey Vida Clásico mezcal,Mezcal,20,3326,Mission Bell,https://www.diffordsguide.com/cocktails/recipe/9894/mission-bell
-1988,20,ml,Savoia Americano Rosso,General,8,3326,Mission Bell,https://www.diffordsguide.com/cocktails/recipe/9894/mission-bell
+1988,20,ml,Savoia Americano Rosso,Wine,8,3326,Mission Bell,https://www.diffordsguide.com/cocktails/recipe/9894/mission-bell
 1989,15,ml,Giffard Pamplemousse liqueur,Liqueur,10,3326,Mission Bell,https://www.diffordsguide.com/cocktails/recipe/9894/mission-bell
 1990,15,ml,Cranberry juice,General,0,3326,Mission Bell,https://www.diffordsguide.com/cocktails/recipe/9894/mission-bell
 1991,7.5,ml,Honey syrup (3:1),General,0,3326,Mission Bell,https://www.diffordsguide.com/cocktails/recipe/9894/mission-bell
@@ -2185,7 +2185,7 @@
 2183,15,ml,Crème de violette liqueur,Liqueur,10,3358,Rosina Ferrario No. 203,https://www.diffordsguide.com/cocktails/recipe/8744/rosina-ferrario-no-203
 2184,15,ml,Lemon juice,General,0,3358,Rosina Ferrario No. 203,https://www.diffordsguide.com/cocktails/recipe/8744/rosina-ferrario-no-203
 2185,,,Lemon zest twist,Garnish,11,3358,Rosina Ferrario No. 203,https://www.diffordsguide.com/cocktails/recipe/8744/rosina-ferrario-no-203
-2186,50,ml,Savoia Americano Rosso,General,8,3359,D&B Shakerato,https://www.diffordsguide.com/cocktails/recipe/10623/dandb-shakerato
+2186,50,ml,Savoia Americano Rosso,Wine,8,3359,D&B Shakerato,https://www.diffordsguide.com/cocktails/recipe/10623/dandb-shakerato
 2187,20,ml,Pink grapefruit juice,General,0,3359,D&B Shakerato,https://www.diffordsguide.com/cocktails/recipe/10623/dandb-shakerato
 2188,10,ml,Honey syrup (3:1),General,0,3359,D&B Shakerato,https://www.diffordsguide.com/cocktails/recipe/10623/dandb-shakerato
 2189,2,drop,Saline solution,General,0,3359,D&B Shakerato,https://www.diffordsguide.com/cocktails/recipe/10623/dandb-shakerato
@@ -2263,7 +2263,7 @@
 2261,20,ml,Rutte Dry Gin,Gin,1,3373,Rosé 75,https://www.diffordsguide.com/cocktails/recipe/7545/rose-75
 2262,10,ml,Raspberry syrup,General,0,3373,Rosé 75,https://www.diffordsguide.com/cocktails/recipe/7545/rose-75
 2263,15,ml,Lemon juice,General,0,3373,Rosé 75,https://www.diffordsguide.com/cocktails/recipe/7545/rose-75
-2264,105,ml,Rosé champagne,Champagne,9,3373,Rosé 75,https://www.diffordsguide.com/cocktails/recipe/7545/rose-75
+2264,105,ml,Rosé champagne,Wine,9,3373,Rosé 75,https://www.diffordsguide.com/cocktails/recipe/7545/rose-75
 2265,,,Lemon zest twist,Garnish,11,3373,Rosé 75,https://www.diffordsguide.com/cocktails/recipe/7545/rose-75
 2266,30,ml,Calvados & straight applejacks,Brandy,5,3374,Saucy Sue,https://www.diffordsguide.com/cocktails/recipe/7612/saucy-sue
 2267,30,ml,Rémy Martin 1738 Cognac,Brandy,5,3374,Saucy Sue,https://www.diffordsguide.com/cocktails/recipe/7612/saucy-sue
@@ -3034,7 +3034,7 @@
 3032,6,whole,Roasted coffee beans,General,0,3504,Back To Black,https://www.diffordsguide.com/cocktails/recipe/5053/back-to-black
 3033,,,Orange,Garnish,11,3504,Back To Black,https://www.diffordsguide.com/cocktails/recipe/5053/back-to-black
 3034,,,lime zest twist,Garnish,11,3504,Back To Black,https://www.diffordsguide.com/cocktails/recipe/5053/back-to-black
-3035,55ml,ml,Martini Riserva Speciale Ambrato,Wine,8,3505,Pedaling Diplomat,https://www.diffordsguide.com/cocktails/recipe/5052/pedaling-diplomat
+3035,55,ml,Martini Riserva Speciale Ambrato,Wine,8,3505,Pedaling Diplomat,https://www.diffordsguide.com/cocktails/recipe/5052/pedaling-diplomat
 3036,40,ml,Dry vermouth,Wine,8,3505,Pedaling Diplomat,https://www.diffordsguide.com/cocktails/recipe/5052/pedaling-diplomat
 3037,10,ml,Muyu Jasmine Verte liqueur,Liqueur,10,3505,Pedaling Diplomat,https://www.diffordsguide.com/cocktails/recipe/5052/pedaling-diplomat
 3038,,,Lemon zest twist,Garnish,11,3505,Pedaling Diplomat,https://www.diffordsguide.com/cocktails/recipe/5052/pedaling-diplomat
@@ -3286,7 +3286,7 @@
 3284,2,spoon,Powdered panela sugar,General,0,3551,Sinnerman,https://www.diffordsguide.com/cocktails/recipe/4946/sinnerman
 3285,1,Splash,Thomas Henry Soda Water,General,0,3551,Sinnerman,https://www.diffordsguide.com/cocktails/recipe/4946/sinnerman
 3286,10,ml,Martini Riserva Speciale Ambrato,Wine,8,3551,Sinnerman,https://www.diffordsguide.com/cocktails/recipe/4946/sinnerman
-3287,55ml,ml,Cacao & coffee spiced rum,Rum,2,3551,Sinnerman,https://www.diffordsguide.com/cocktails/recipe/4946/sinnerman
+3287,55,ml,Cacao & coffee spiced rum,Rum,2,3551,Sinnerman,https://www.diffordsguide.com/cocktails/recipe/4946/sinnerman
 3288,2,dash,Bob's Chocolate bitters,General,0,3551,Sinnerman,https://www.diffordsguide.com/cocktails/recipe/4946/sinnerman
 3289,,,Mint,Garnish,11,3551,Sinnerman,https://www.diffordsguide.com/cocktails/recipe/4946/sinnerman
 3290,,,chocolate,Garnish,11,3551,Sinnerman,https://www.diffordsguide.com/cocktails/recipe/4946/sinnerman
@@ -3584,7 +3584,7 @@
 3582,10,ml,Fiorente Elderflower liqueur,Liqueur,10,3601,Suffragette,https://www.diffordsguide.com/cocktails/recipe/4813/suffragette
 3583,,,dill,Garnish,11,3601,Suffragette,https://www.diffordsguide.com/cocktails/recipe/4813/suffragette
 3584,,,"edible flowers, purple and white",Garnish,11,3601,Suffragette,https://www.diffordsguide.com/cocktails/recipe/4813/suffragette
-3585,55ml,ml,Cacao & coffee spiced rum,Rum,2,3602,El Patron,https://www.diffordsguide.com/cocktails/recipe/4870/el-patron
+3585,55,ml,Cacao & coffee spiced rum,Rum,2,3602,El Patron,https://www.diffordsguide.com/cocktails/recipe/4870/el-patron
 3586,12.5,ml,Vermouth di Torino,Wine,8,3602,El Patron,https://www.diffordsguide.com/cocktails/recipe/4870/el-patron
 3587,10,ml,De Kuyper Brown Crème de Cacao,Liqueur,10,3602,El Patron,https://www.diffordsguide.com/cocktails/recipe/4870/el-patron
 3588,1,pinch,Salt,General,0,3602,El Patron,https://www.diffordsguide.com/cocktails/recipe/4870/el-patron
