@@ -277,8 +277,12 @@ public class OAuthServiceImpl implements OAuthService {
 
     @Override
     public boolean updateUser(String accessToken, String userGender, String userAgeRange) {
-        return false;
+        User user = getUser(accessToken); // 엑세스 토큰으로 사용자 가져오기
+        if (user == null) return false; // 사용자가 없으면
+        user.setUserGender(userGender); // 사용자 성별 삽입
+        user.setUserAgeRange(userAgeRange); // 사용자 연령대 삽입
+        userRepository.save(user); // 사용자 정보 업데이트
+        return true;
     }
-
-
+    
 }
