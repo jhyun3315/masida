@@ -6,7 +6,7 @@ import UserSettingModal from '../Modal/UserSettingModal';
 import { userType } from '@/pages/mypage';
 
 const User_info = (user_props: userType) => {
-  const user_info = user_props.user_props;
+  const user_info = user_props;
   console.log(user_info);
 
   const [visible,setVisible] = useState(false);

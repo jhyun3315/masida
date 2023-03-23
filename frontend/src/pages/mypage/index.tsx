@@ -29,7 +29,7 @@ const mypage = () => {
       <Header />
       <div className={ style.mypage}>
         <div className={ style.mypage_left}>
-          <User_info user_props={user_props} />
+          <User_info {...user_props} />
           <Analysis_thumbnail/>
         </div>
         <div className={ style.mypage_right}>
