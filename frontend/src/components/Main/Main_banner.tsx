@@ -65,7 +65,7 @@ const Main_banner = () => {
             </div>
           </div>
           <div className={style.mainBanner_white}>
-            <Image src="/assets/image/banner_spring_1.png"
+            <Image src="/assets/image/banner_spring.png"
                   alt="image"
                   layout="fill"
                   objectFit="cover"
