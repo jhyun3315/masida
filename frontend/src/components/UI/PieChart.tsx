@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { cocktailBase, dataType } from '@/type/cocktailPreference';
+import { cocktailBase, dataType } from '../../type/cocktailPreference';
 import { ResponsivePie } from '@nivo/pie';
-import { cocktail_props } from '@/pages';
+import { cocktail_props } from '../../pages';
 
 
 const Piechart= (props: cocktailBase[]) => {

@@ -3,7 +3,7 @@ import style from "./Category.module.scss";
 import Color from "./Color";
 import Difficulty from "./Difficulty";
 import Ingredient from "./Ingredient";
-import { searchedIngredientType } from "@/type/ingredientTypes";
+import { searchedIngredientType } from "../../type/ingredientTypes";
 //재료들 타입 지정.
 
 

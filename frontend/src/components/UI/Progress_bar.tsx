@@ -1,4 +1,4 @@
-import { cocktailBase } from '@/type/cocktailPreference';
+import { cocktailBase } from '../../type/cocktailPreference';
 import style from './Progress_bar.module.scss';
 
 const Progress_bar = (props:cocktailBase[]) => {

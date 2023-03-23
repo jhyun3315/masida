@@ -1,7 +1,7 @@
 import style from "./Card_ui.module.scss";
-import { cocktailType, detail_props } from "@/type/cocktailTypes";
-import { difficulty_img_url_converter } from "@/pages/api/utility/difficulty_img_url_converter";
-import { mypageCommentType } from "@/type/commentTypes";
+import { cocktailType, detail_props } from "../../type/cocktailTypes";
+import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty_img_url_converter";
+import { mypageCommentType } from "../../type/commentTypes";
 
 import Link from "next/link";
 
