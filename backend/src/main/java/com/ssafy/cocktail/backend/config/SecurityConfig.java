@@ -24,9 +24,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest() // 다른 요청들은
                 .authenticated() // 인증이 되어야 접속할 수 있다
                 .and()
-                    .oauth2Login()
-                .and()
-                    .logout()
-                        .logoutSuccessUrl("/");
+                    .oauth2Login();
+//                .and()
+//                    .logout()
+//                        .logoutSuccessUrl("/");
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 @RestController
 @AllArgsConstructor
@@ -40,6 +41,7 @@ public class OAuthController {
 
     @GetMapping("/kakao/logout")
     public ResponseEntity<?> kakaoLogout(@RequestHeader("authorization") String accessToken) {
+//        String accessToken = data.get("authorization");
         if (customOAuth2UserService.logoutUser(accessToken)) {
             return ResponseEntity.ok(BaseResponseBody.of(200, "Success"));
         }

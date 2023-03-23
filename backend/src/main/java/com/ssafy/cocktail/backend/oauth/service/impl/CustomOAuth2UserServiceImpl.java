@@ -28,6 +28,8 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
     private String clientId;
     @Value("${spring.security.oauth2.client.registration.kakao.redirect-uri}")
     private String redirctURI;
+    @Value("${kakao.admin}")
+    private String adminKey;
 
 
     public UserInfo loginUser(String authorize_code) throws IOException {
@@ -164,6 +166,7 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
                 user.setUserProfile(thumbnail_image);
                 user.setUserGender(gender);
                 user.setUserAgeRange(age_range);
+                user.setUserDeleted("N");
                 user.setUserUpdateDate(LocalDateTime.now());
                 userRepository.save(user);
             }
@@ -226,7 +229,16 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
             conn.setDoOutput(true); // post 요청시 필요
 
             // 요청에 필요한 Header에 포함될 내용
-            conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+            conn.setRequestProperty("Authorization", "KakaoAK " + adminKey);
+
+            //    POST 요청에 필요로 요구하는 파라미터 스트림을 통해 전송
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
+            StringBuilder sb = new StringBuilder();
+            sb.append("target_id_type=user_id");
+            User user = getUser(accessToken); // 유저 가져오기
+            sb.append("&target_id=").append(user.getUserKey());
+            bw.write(sb.toString());
+            bw.flush();
 
             int responseCode = conn.getResponseCode(); // 응답 코드
             // System.out.println("responseCode : " + responseCode);
@@ -245,10 +257,6 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
             JsonParser parser = new JsonParser(); // JsonParser 설정
             JsonElement element = parser.parse(result); // Json 파싱
 
-            String userId = element.getAsJsonObject().get("id").getAsString(); // 유저 id 가져오기
-            User user = userRepository.findOneByUserKey(userId); // 유저 가져오기
-            System.out.println("User 정보: ");
-            System.out.println(user.toString());
             user.setUserDeleted("Y"); // 삭제 상태 삭제로 변경
             userRepository.save(user); // 회원 정보 수정
             return true;
