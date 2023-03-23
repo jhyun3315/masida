@@ -12,5 +12,6 @@ public interface CustomOAuth2UserService {
 	// public boolean isVaildAccessToken(String accessToken, String id);
 
 	public User getUser(String accessToken);
+	public boolean logoutUser(String accessToken);
 
 }
