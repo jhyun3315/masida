@@ -10,9 +10,7 @@ import "aos/dist/aos.css";
 //여기서 Provider로 감싸주어 store에 연결시켜줍니다.
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    AOS.init({
-      once: false,
-    });
+    AOS.init();
   }, []);
   return (
     <>
