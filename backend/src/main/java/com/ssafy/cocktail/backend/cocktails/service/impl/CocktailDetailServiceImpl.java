@@ -3,6 +3,7 @@ package com.ssafy.cocktail.backend.cocktails.service.impl;
 import com.ssafy.cocktail.backend.cocktails.dto.CocktailDetail;
 import com.ssafy.cocktail.backend.cocktails.dto.GarnishDetail;
 import com.ssafy.cocktail.backend.cocktails.dto.IngredientDetail;
+import com.ssafy.cocktail.backend.cocktails.dto.RecipeDetail;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailDetailService;
 import com.ssafy.cocktail.backend.domain.entity.*;
 import com.ssafy.cocktail.backend.domain.repository.*;
@@ -23,6 +24,8 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
     private LikeRepository likeRepository;
     private BookmarkRepository bookmarkRepository;
     private CustomOAuth2UserServiceImpl customOAuth2UserService;
+    private RecipeRepository recipeRepository;
+
     @Override
     public CocktailDetail getCocktailDetail(String cocktailId, String accessToken) {
         // 칵테일 상세 정보를 리턴한다
@@ -65,6 +68,10 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
                 cocktailDetail.getIngredient().add(new IngredientDetail(ingredient.getIngredientName(), ingredient.getIngredientAmount(), ingredient.getIngredientUnit())); // 가니쉬가 아닌 재료 추가
             }
         }
-        return null;
+        List<Recipe> recipes = recipeRepository.findAllByCocktail(cocktail.get()); // 칵테일 제조법 가져오기
+        for (Recipe recipe: recipes) { // 제조법
+            cocktailDetail.getRecipe().add(new RecipeDetail(recipe.getRecipeNum(), recipe.getRecipeContent())); // 제조법 삽입
+        }
+        return cocktailDetail;
     }
 }
