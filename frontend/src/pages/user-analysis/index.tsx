@@ -1,8 +1,8 @@
-import Header from "@/components/Header/Header";
-import CocktailPreference from "@/components/UserAnalysis/CocktailPreference";
-import ColorPreference from "@/components/UserAnalysis/ColorPreference";
-import IngredientPreference from "@/components/UserAnalysis/IngredientPreference";
-import UserPreference from "@/components/UserAnalysis/UserPreference";
+import Header from "../../components/Header/Header";
+import CocktailPreference from "../../components/UserAnalysis/CocktailPreference";
+import ColorPreference from "../../components/UserAnalysis/ColorPreference";
+import IngredientPreference from "../../components/UserAnalysis/IngredientPreference";
+import UserPreference from "../../components/UserAnalysis/UserPreference";
 import style from './index.module.scss';
 import { cocktailBase } from "@/type/cocktailPreference";
 

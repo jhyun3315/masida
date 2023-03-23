@@ -2,8 +2,7 @@ import style from './CocktailPreference.module.scss';
 import Piechart from '../UI/PieChart';
 import Progress_bar from '../UI/Progress_bar';
 import Barchart from '../UI/BarChart';
-import { cocktailBase } from '@/type/cocktailPreference';
-import { cocktail_props } from '@/pages';
+import { cocktailBase } from '../../type/cocktailPreference';
 
 const CocktailPreference = (props: cocktailBase[]) => {
  

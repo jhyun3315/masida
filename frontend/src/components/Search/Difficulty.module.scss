@@ -5,19 +5,19 @@
   font-weight: bold;
   .difficulty_title {
     color: black;
-    font-size: 25px;
+    font-size: 23px;
   }
   .difficulty_selector {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 22px;
+    font-size: 20px;
     .difficulty_selector_lev {
       margin-right: 1rem;
     }
       input:checked + label {
-        font-size: 30px;
-        color: black;
+        font-size: 24px;
+        color: red;
       }
     .difficulty_selector_btn {
       opacity: 0;

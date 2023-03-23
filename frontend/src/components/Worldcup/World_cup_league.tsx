@@ -1,5 +1,5 @@
 import style from "./World_cup_league.module.scss";
-import { detail_props } from "@/type/cocktailTypes";
+import { detail_props } from "../../type/cocktailTypes";
 import React, { useState, useEffect } from "react";
 import { World_cup_league_card } from "../UI/Card_ui";
 // 최종 결과를 보여줄 컴포넌트

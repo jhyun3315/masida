@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import style from "./index.module.scss";
-import User_info from "@/components/MyPage/User_info";
-import Analysis_thumbnail from "@/components/MyPage/Analysis_thumbnail";
-import User_cocktail_list from "@/components/MyPage/User_cocktail_list";
+import User_info from "../../components/MyPage/User_info";
+import Analysis_thumbnail from "../../components/MyPage/Analysis_thumbnail";
+import User_cocktail_list from "../../components/MyPage/User_cocktail_list";
 
 export type userType = {
   user_name: string,

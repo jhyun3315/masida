@@ -1,5 +1,5 @@
-import Header from "@/components/Header/Header";
-import SearchPage from "@/components/Search/SearchPage";
+import Header from "../../components/Header/Header";
+import SearchPage from "../../components/Search/SearchPage";
 
 const search = () => {
   return (

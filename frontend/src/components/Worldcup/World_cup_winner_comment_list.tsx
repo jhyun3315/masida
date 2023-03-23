@@ -1,6 +1,6 @@
 import style from "./World_cup_winner_comment_list.module.scss";
-import { commentType } from "@/type/commentTypes";
-import { detail_props } from "@/type/cocktailTypes";
+import { commentType } from "../../type/commentTypes";
+import { detail_props } from "../../type/cocktailTypes";
 
 const World_cup_winner_comments_list = (props: detail_props) => {
   // id를 기준으로 댓글을 가져온다. (props.cocktail_id)
