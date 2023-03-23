@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { cocktailBase, dataType } from '@/type/cocktailPreference';
 import { ResponsivePie } from '@nivo/pie';
-import { cocktail_props } from '@/pages';
 
-
-const Piechart= (props: cocktailBase[]) => {
+const Piechart = (props: cocktailBase[]) => {
+  console.log(props);
     const handle = {
         padClick: (data: any) => {
             console.log(data);
