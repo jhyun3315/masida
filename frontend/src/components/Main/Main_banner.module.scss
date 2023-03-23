@@ -1,14 +1,12 @@
-.mainBanner {
+.mainBanner_black {
   position: relative;
   min-height: 700px;
-
   .mainHeader {
     margin-top: 2%;
     text-align: left;
     position: absolute;
     margin-left: 70%;
     width: 100%;
-
     a {
       text-decoration-line: none;
       color: black;
@@ -17,7 +15,33 @@
       font-size: 1.3rem;
     }
   }
+  .mainTitle {
+    position: absolute;
+    margin-top: 27%;
+    margin-left: 65%;
+    text-align: left;
+    font-size: 1.7rem;
+    color: white;
+  }
+}
 
+.mainBanner_white {
+  position: relative;
+  min-height: 700px;
+  .mainHeader {
+    margin-top: 2%;
+    text-align: left;
+    position: absolute;
+    margin-left: 70%;
+    width: 100%;
+    a {
+      text-decoration-line: none;
+      color: white;
+      margin-right: 1%;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+  }
   .mainTitle {
     position: absolute;
     margin-top: 27%;
