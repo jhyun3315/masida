@@ -1,7 +1,9 @@
 import { Inter } from "next/font/google";
+
 import Main_banner from "@/components/Main/Main_banner";
 import Main_cocktail from "@/components/Main/Main_cocktail";
 import Main_search from "@/components/Main/Main_search";
+import Main_manual from "@/components/Main/Main_manual";
 import Footer from "@/components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -153,6 +155,7 @@ export default function Home(): JSX.Element{
 
   return (
     <>
+      <Main_manual />
       <Main_banner />
       <Main_cocktail {...cocktail_props} />
       <Main_search />
