@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "webpack --mode=production --node-env=production",
+    "build_n" : "next build",
     "start": "next start",
     "lint": "next lint",
     "build:dev": "webpack --mode=development",
