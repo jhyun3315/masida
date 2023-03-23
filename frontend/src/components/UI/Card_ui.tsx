@@ -179,12 +179,12 @@ const My_like_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
 const My_comment_card: React.FC<mypageCommentType> = (
   cocktail: mypageCommentType
 ) => {
-  let ratingImg = '';
+  let ratingImg = "";
   switch (cocktail.cocktail_difficulty_user) {
-    case '상':
+    case "상":
       ratingImg = "/assets/icons/difficulty_HIGH_MINI.png";
       break;
-    case '중':
+    case "중":
       ratingImg = "/assets/icons/difficulty_MID_MINI.png";
       break;
     default:
@@ -193,24 +193,26 @@ const My_comment_card: React.FC<mypageCommentType> = (
   }
   return (
     <>
-      <div className={ style.commentCard}>
-        <div className={ style.commentCard_img}>
+      <div className={style.commentCard}>
+        <div className={style.commentCard_img}>
           <Link href={`detail/${cocktail.cocktail_id}`}>
             <img src={cocktail.cocktail_img}></img>
           </Link>
         </div>
         <div className={style.commentCard_date}>
           <div>{cocktail.comment_date}</div>
-          <div><h3>{cocktail.cocktail_name_ko}</h3>
-          <img src={ratingImg} alt="image"></img></div>
+          <div>
+            <h3>{cocktail.cocktail_name_ko}</h3>
+            <img src={ratingImg} alt="image"></img>
+          </div>
         </div>
-        <div className={ style.commentCard_rating}>
+        <div className={style.commentCard_rating}>
           <img src="/assets/icons/ratingICON.png"></img>
           <span>{cocktail.comment_rating}</span>
         </div>
-        <div className={style.commentCard_desc }>{cocktail.comment_content}</div>
+        <div className={style.commentCard_desc}>{cocktail.comment_content}</div>
       </div>
-      <hr/>
+      <hr />
     </>
   );
 };
@@ -254,11 +256,12 @@ const World_cup_league_card: React.FC<detail_props> = (
               src="/assets/icons/ingredient_legendIMG.png"
               alt=""
             />
-            {cocktail.recipe.map((key) => (
-              <div className={style.ingredient_list_element}>
-                {key.recipe_num}. {key.recipe_content}
-              </div>
-            ))}
+            {/* {cocktail ?
+              cocktail.recipe.map((key) => (
+                <div className={style.ingredient_list_element}>
+                  {key.recipe_num}. {key.recipe_content}
+                </div>
+              )) : ""} */}
           </div>
           <div className={style.recipe_content_textarea}>
             {/* 소개 or 레시피 */}
