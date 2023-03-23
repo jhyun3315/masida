@@ -6,7 +6,7 @@ import com.google.gson.JsonParser;
 import com.ssafy.cocktail.backend.domain.entity.User;
 import com.ssafy.cocktail.backend.domain.repository.UserRepository;
 import com.ssafy.cocktail.backend.oauth.dto.UserInfo;
-import com.ssafy.cocktail.backend.oauth.service.CustomOAuth2UserService;
+import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
+public class OAuthServiceImpl implements OAuthService {
     private final UserRepository userRepository;
     private UserInfo userInfo;
 

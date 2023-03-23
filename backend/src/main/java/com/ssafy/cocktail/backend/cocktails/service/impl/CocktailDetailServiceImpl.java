@@ -7,7 +7,7 @@ import com.ssafy.cocktail.backend.cocktails.dto.RecipeDetail;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailDetailService;
 import com.ssafy.cocktail.backend.domain.entity.*;
 import com.ssafy.cocktail.backend.domain.repository.*;
-import com.ssafy.cocktail.backend.oauth.service.impl.CustomOAuth2UserServiceImpl;
+import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +24,7 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
     private IngredientRepository ingredientRepository;
     private LikeRepository likeRepository;
     private BookmarkRepository bookmarkRepository;
-    private CustomOAuth2UserServiceImpl customOAuth2UserService;
+    private OAuthService oAuthService;
     private RecipeRepository recipeRepository;
 
     @Override
@@ -55,7 +55,7 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         List<Comment> cocktails = commentRepository.findAllByCocktail(cocktail.get()); // 칵테일 댓글 가져오기
         cocktailDetail.setCocktailComments(cocktails.size()); // 칵테일 댓글 개수 삽입
         if (accessToken != null) { // 로그인한 유저이면
-            User user = customOAuth2UserService.getUser(accessToken); // 유저 가져오기
+            User user = oAuthService.getUser(accessToken); // 유저 가져오기
             Like like = likeRepository.findByUserAndCocktail(user, cocktail.get()); // 칵테일의 유저 좋아요 가져오기
             cocktailDetail.setLikesChecker(like != null && like.getLikeDeleted().equals("N")); // 유저가 좋아요 여부 삽입
             Bookmark bookmark = bookmarkRepository.findByUserAndCocktail(user, cocktail.get()); // 칵테일의 유저 북마크 가져오기
