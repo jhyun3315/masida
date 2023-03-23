@@ -1,4 +1,4 @@
-import { userType } from '@/pages/mypage';
+import { userType } from '../../pages/mypage';
 import { Dispatch, SetStateAction } from 'react';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import style from './UserSettingModal.module.scss';
