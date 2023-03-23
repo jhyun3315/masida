@@ -4,7 +4,8 @@ import ColorPreference from "../../components/UserAnalysis/ColorPreference";
 import IngredientPreference from "../../components/UserAnalysis/IngredientPreference";
 import UserPreference from "../../components/UserAnalysis/UserPreference";
 import style from './index.module.scss';
-import { cocktailBase } from "@/type/cocktailPreference";
+// import { cocktailBase } from "@/type/cocktailPreference";
+import { cocktailBase } from "../../type/cocktailPreference";
 
 
 const userAnalisys = () => {
