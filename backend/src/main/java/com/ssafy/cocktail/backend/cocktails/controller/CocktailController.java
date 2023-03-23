@@ -34,8 +34,8 @@ public class CocktailController {
     }
 
     @GetMapping("{cocktail_id}")
-    public ResponseEntity<CocktailDetailRes> cocktailDetails(@RequestHeader("authorization") String accessToken, @PathVariable("cocktail_id") String id) {
-//        String accessToken = data.get("authorization"); // 엑세스 토큰 가져오기
+    public ResponseEntity<CocktailDetailRes> cocktailDetails(@RequestHeader Map<String, String> data, @PathVariable("cocktail_id") String id) {
+        String accessToken = data.get("authorization"); // 엑세스 토큰 가져오기
         CocktailDetail cocktailDetail = cocktailDetailService.getCocktailDetail(id, accessToken); // 칵테일 상세 정보 가져오기
         System.out.println(cocktailDetail.toString());
         return ResponseEntity.status(200).body(CocktailDetailRes.of(200, "Success", cocktailDetail));

@@ -54,11 +54,16 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         cocktailDetail.setCocktailLikes(likes.size()); // 칵테일 좋아요 개수 삽입
         List<Comment> cocktails = commentRepository.findAllByCocktail(cocktail.get()); // 칵테일 댓글 가져오기
         cocktailDetail.setCocktailComments(cocktails.size()); // 칵테일 댓글 개수 삽입
-        User user = customOAuth2UserService.getUser(accessToken); // 유저 가져오기
-        Like like = likeRepository.findByUserAndCocktail(user, cocktail.get()); // 칵테일의 유저 좋아요 가져오기
-        cocktailDetail.setLikesChecker(like != null && like.getLikeDeleted().equals("N")); // 유저가 좋아요 여부 삽입
-        Bookmark bookmark = bookmarkRepository.findByUserAndCocktail(user, cocktail.get()); // 칵테일의 유저 북마크 가져오기
-        cocktailDetail.setBookmarkCheckcker(bookmark != null && bookmark.getBookmarkDeleted().equals("N")); // 유저가 북마크 여부 삽입
+        if (accessToken != null) { // 로그인한 유저이면
+            User user = customOAuth2UserService.getUser(accessToken); // 유저 가져오기
+            Like like = likeRepository.findByUserAndCocktail(user, cocktail.get()); // 칵테일의 유저 좋아요 가져오기
+            cocktailDetail.setLikesChecker(like != null && like.getLikeDeleted().equals("N")); // 유저가 좋아요 여부 삽입
+            Bookmark bookmark = bookmarkRepository.findByUserAndCocktail(user, cocktail.get()); // 칵테일의 유저 북마크 가져오기
+            cocktailDetail.setBookmarkCheckcker(bookmark != null && bookmark.getBookmarkDeleted().equals("N")); // 유저가 북마크 여부 삽입
+        } else { // 로그인 하지 않은 유저이면
+            cocktailDetail.setLikesChecker(false); // 좋아요 여부 false 삽입
+            cocktailDetail.setBookmarkCheckcker(false); // 북마크 여부 false 삽입
+        }
         cocktailDetail.setGlass(cocktail.get().getCocktailGlass()); // 칵테일의 글라스 삽입
         cocktailDetail.setBase(cocktail.get().getCocktailBase()); // 칵테일의 베이스 삽입
         List<CocktailIngredient> cocktailIngredients = cocktailIngredientRepository.findByCocktail(cocktail.get()); // 칵테일 재료 가져오기
