@@ -43,6 +43,9 @@
   "devDependencies": {
     "@types/aos": "^3.0.4",
     "@types/redux-logger": "^3.0.9",
+    "@types/sass": "^1.45.0",
+    "@types/sass-loader": "^8.0.4",
+    "@types/webpack": "^5.28.0",
     "css-loader": "^6.7.3",
     "redux-logger": "^3.0.6",
     "sass": "^1.59.3",
