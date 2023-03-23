@@ -12,7 +12,9 @@ const Shop_item: React.FC<itemProps> = (item: itemProps) => {
         <div className={style.item_name}>{item.product_name}</div>
         <div className={style.item_price}>{item.product_price}원</div>
         <div className={style.item_link}>
-          <a href={item.product_url}>구매하러가기</a>
+          <a href={item.product_url} target="_blank">
+            구매하러가기
+          </a>
         </div>
       </div>
     </>

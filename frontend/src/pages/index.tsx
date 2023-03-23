@@ -155,10 +155,10 @@ export default function Home(): JSX.Element{
 
   return (
     <>
-      <Main_manual />
       <Main_banner />
       <Main_cocktail {...cocktail_props} />
       <Main_search />
+      <Main_manual />
       <Footer/>
     </>
   );
