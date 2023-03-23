@@ -11,12 +11,12 @@ import {
   ingredientType,
   detail_props,
 } from "@/type/cocktailTypes";
-import {
-  GetStaticPaths,
-  GetStaticPathsContext,
-  GetStaticProps,
-  GetStaticPropsContext,
-} from "next";
+// import {
+//   GetStaticPaths,
+//   GetStaticPathsContext,
+//   GetStaticProps,
+//   GetStaticPropsContext,
+// } from "next";
 
 // 1. 칵테일 상세 조회
 // 화면 단에서 axios 호출을 하여 결과 값을 컴포넌트에 props로 넘겨준다.
