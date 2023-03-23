@@ -1,6 +1,8 @@
 package com.ssafy.cocktail.backend.cocktails.service.impl;
 
 import com.ssafy.cocktail.backend.cocktails.dto.CocktailDetail;
+import com.ssafy.cocktail.backend.cocktails.dto.GarnishDetail;
+import com.ssafy.cocktail.backend.cocktails.dto.IngredientDetail;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailDetailService;
 import com.ssafy.cocktail.backend.domain.entity.*;
 import com.ssafy.cocktail.backend.domain.repository.*;
@@ -55,7 +57,14 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         cocktailDetail.setBookmarkCheckcker(bookmark != null && bookmark.getBookmarkDeleted().equals("N")); // 유저가 북마크 여부 삽입
         cocktailDetail.setGlass(cocktail.get().getCocktailGlass()); // 칵테일의 글라스 삽입
         cocktailDetail.setBase(cocktail.get().getCocktailBase()); // 칵테일의 베이스 삽입
-        
+        List<CocktailIngredient> cocktailIngredients = cocktailIngredientRepository.findByCocktail(cocktail.get()); // 칵테일 재료 가져오기
+        for (CocktailIngredient ingredient: cocktailIngredients) { // 재료
+            if (ingredient.getIngredientType().equals("가니쉬")) { // 재료가 가니쉬 이면
+                cocktailDetail.getGarnish().add(new GarnishDetail(ingredient.getIngredientName())); // 가니쉬 추가
+            } else { // 가니쉬가 아닌 재료이면
+                cocktailDetail.getIngredient().add(new IngredientDetail(ingredient.getIngredientName(), ingredient.getIngredientAmount(), ingredient.getIngredientUnit())); // 가니쉬가 아닌 재료 추가
+            }
+        }
         return null;
     }
 }
