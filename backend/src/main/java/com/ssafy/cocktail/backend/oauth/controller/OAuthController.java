@@ -1,5 +1,6 @@
 package com.ssafy.cocktail.backend.oauth.controller;
 
+import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
 import com.ssafy.cocktail.backend.oauth.dto.UserInfo;
 import com.ssafy.cocktail.backend.oauth.dto.UserLoginRes;
 import com.ssafy.cocktail.backend.oauth.service.CustomOAuth2UserService;
@@ -34,6 +35,14 @@ public class OAuthController {
         cookie.setHttpOnly(true); // 브라우저에서 쿠키에 접근할 수 없도록 하는 설정 (XSS 공격 방지)
         cookie.setPath("/");
         customOAuth2UserService.getUser(userInfo.getAccessToken());
-        return ResponseEntity.ok(UserLoginRes.of(200, "Sucess", userInfo.getAccessToken(), userInfo.getUserName()));
+        return ResponseEntity.ok(UserLoginRes.of(200, "Success", userInfo.getAccessToken(), userInfo.getUserName()));
+    }
+
+    @GetMapping("/kakao/logout")
+    public ResponseEntity<?> kakaoLogout(@RequestHeader("authorization") String accessToken) {
+        if (customOAuth2UserService.logoutUser(accessToken)) {
+            return ResponseEntity.ok(BaseResponseBody.of(200, "Success"));
+        }
+        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
     }
 }
