@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Map;
 
 @RestController
@@ -20,10 +21,13 @@ import java.util.Map;
 @RequestMapping("/api/oauth")
 public class OAuthController {
     private final CustomOAuth2UserService customOAuth2UserService;
-    /**
-     *  카카오 callback
-     *  [GET] /v3/api-docs/auth/kakao/callback
-     */
+
+    @GetMapping("kakao/login")
+    public void kakaoLogin(HttpServletResponse response) throws IOException {
+        String loginPageUri = customOAuth2UserService.loginPage(); // 로그인 페이지 가져오기
+        response.sendRedirect(loginPageUri); // 로그인 페이지로 이동
+    }
+
     @ResponseBody
     @GetMapping("/kakao/callback")
     public ResponseEntity<UserLoginRes> kakaoCallback(@RequestParam String code, HttpServletResponse response) throws Exception {
@@ -42,7 +46,7 @@ public class OAuthController {
     @GetMapping("/kakao/logout")
     public ResponseEntity<?> kakaoLogout(@RequestHeader("authorization") String accessToken) {
 //        String accessToken = data.get("authorization");
-        if (customOAuth2UserService.logoutUser(accessToken)) {
+        if (customOAuth2UserService.logoutUser(accessToken)) { // 로그아웃 요청
             return ResponseEntity.ok(BaseResponseBody.of(200, "Success"));
         }
         return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));

@@ -28,9 +28,16 @@ public class CustomOAuth2UserServiceImpl implements CustomOAuth2UserService {
     private String clientId;
     @Value("${spring.security.oauth2.client.registration.kakao.redirect-uri}")
     private String redirctURI;
+    @Value("${spring.security.oauth2.client.registration.kakao.client-id}")
+    private String restApiKey;
     @Value("${kakao.admin}")
     private String adminKey;
 
+
+    public String loginPage() {
+        String uri = "https://kauth.kakao.com/oauth/authorize?client_id="+restApiKey+"&redirect_uri="+redirctURI+"&response_type=code";
+        return uri;
+    }
 
     public UserInfo loginUser(String authorize_code) throws IOException {
         userInfo = new UserInfo();

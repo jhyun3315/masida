@@ -6,6 +6,7 @@ import com.ssafy.cocktail.backend.oauth.dto.UserInfo;
 import java.io.IOException;
 
 public interface CustomOAuth2UserService {
+	public String loginPage();
 	public UserInfo loginUser(String authorize_code) throws Exception;
 	public String getKakaoAccessToken(String authorize_code);
 	public void saveOrUpdate(String access_Token) throws IOException;
