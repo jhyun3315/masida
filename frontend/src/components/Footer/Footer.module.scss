@@ -3,19 +3,26 @@
   display: flex;
   justify-content: space-between;
   font-size: 24px;
-}
-
-.main_left {
-  margin-left: 3rem;
-
-  span {
-    margin-right: 0.5rem;
+  .main_left {
+    margin-top : 1rem;
+    margin-left: 3rem;
+    margin-bottom: 5rem;
+  
+    span {
+      margin-right: 0.5rem;
+    }
+    .main_left_descrption {
+      font-weight: bold;
+    }
   }
-  .main_left_descrption {
-    font-weight: bold;
+  .main_right {
+    margin-top : 1rem;
+    margin-right: 3rem;
+    margin-bottom : 5rem;
+    img {
+      margin : 4px;
+    }
   }
 }
 
-.main-right {
-  margin-right: 3rem;
-}
+

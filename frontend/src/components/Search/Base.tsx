@@ -26,22 +26,28 @@ const Base = () => {
         <h3 className={style.base_title}>베이스</h3>
         <div className={style.base_checkbox}>
           <label className={style.base_value}>
-            <input type="radio" name="base" value="보드카" onClick={clickBase}/> 보드카
+            <input type="radio" name="base" value="Gin" onClick={clickBase}/> 진
           </label>
           <label className={style.base_value}>
-            <input type="radio" name="base" value="럼" onClick={clickBase}/> 럼
+            <input type="radio" name="base" value="Rum" onClick={clickBase}/> 럼
           </label>
           <label className={style.base_value}>
-            <input type="radio" name="base" value="진" onClick={clickBase}/> 진
+            <input type="radio" name="base" value="Whisky" onClick={clickBase}/> 위스키
           </label>
           <label className={style.base_value}>
-            <input type="radio" name="base" value="데킬라" onClick={clickBase}/> 데킬라
+            <input type="radio" name="base" value="Liqueur" onClick={clickBase}/> 리큐르
           </label>
           <label className={style.base_value}>
-            <input type="radio" name="base" value="위스키" onClick={clickBase}/> 위스키
+            <input type="radio" name="base" value="Vodka" onClick={clickBase}/> 보드카
           </label>
           <label className={style.base_value}>
-            <input type="radio" name="base" value="꼬냑" onClick={clickBase}/> 꼬냑
+            <input type="radio" name="base" value="Brandy" onClick={clickBase}/> 브랜디
+          </label>
+          <label className={style.base_value}>
+            <input type="radio" name="base" value="Tequila" onClick={clickBase}/> 데킬라
+          </label>
+          <label className={style.base_value}>
+            <input type="radio" name="base" value="etc" onClick={clickBase}/> 기타
           </label>
         </div>
       </div>
