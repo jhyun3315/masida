@@ -3,36 +3,10 @@ import Piechart from '../UI/PieChart';
 import Progress_bar from '../UI/Progress_bar';
 import Barchart from '../UI/BarChart';
 import { cocktailBase } from '@/type/cocktailPreference';
+import { cocktail_props } from '@/pages';
 
-const CocktailPreference = () => {
-  
-  const cocktail_props: cocktailBase[] = [
-    {
-      base_name: "진",
-			base_count : 23,
-	    base_ratio: 56
-    },
-    {
-      base_name: "럼",
-			base_count : 12,
-	    base_ratio: 23
-    },
-    {
-      base_name: "보드카",
-      base_count: 6,
-      base_ratio: 12,
-    },
-    {
-      base_name: "데킬라",
-			base_count : 3,
-	    base_ratio: 6
-    },
-    {
-      base_name: "꼬냑",
-			base_count : 1,
-	    base_ratio: 3
-    }
-  ]
+const CocktailPreference = (props: cocktailBase[]) => {
+ 
   return (
     <div className={ style.cocktailPreference}>
       <p className={ style.baseTitle}><strong>종효</strong>님의 칵테일 베이스 선호도 분석 결과</p>
@@ -40,10 +14,10 @@ const CocktailPreference = () => {
         <div className={style.cocktailPreference_analysis}>
           <div className={style.cocktailPreference_analysis_upper}>
             <div className={ style.cocktailPreference_analysis_upper_left}>
-              <Piechart {...cocktail_props} />
+              <Piechart {...props} />
             </div>
             <div className={ style.cocktailPreference_analysis_upper_right}>
-              <Progress_bar {...cocktail_props} />
+              <Progress_bar {...props} />
             </div>
           </div>
           <div className={style.cocktailPreference_analysis_lower}>
