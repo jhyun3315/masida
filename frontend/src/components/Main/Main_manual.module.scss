@@ -1,0 +1,82 @@
+.manual {
+  padding-left: 5%;
+  width: 85%;
+  .manual_title {
+    padding-bottom: 5%;
+    .manual_title_main {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 60px;
+    }
+    .manual_title_sub {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 23px;
+      line-height: 40px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .manual_content {
+    height: inherit;
+    padding-bottom: 1%;
+    display: flex;
+    flex-direction: row;
+    .manual_content_youtube {
+      .manual_content_youtube_tag {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 42px;
+
+        color: #253976;
+      }
+      .manual_content_youtube_title {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30 px;
+        line-height: 50px;
+      }
+      .manual_content_youtube_video {
+        width: 100%;
+        height: 60vh;
+        border: 1px solid red;
+      }
+    }
+    .manual_content_shop {
+      display: table;
+      padding-left: 3%;
+      .manual_content_shop_layout {
+        display: table-cell;
+        vertical-align: middle;
+        .manual_content_shop_title {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 30px;
+          line-height: 40px;
+
+          color: #333333;
+        }
+        .manual_content_shop_sub {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 25px;
+          /* identical to box height */
+
+          color: #6d6d6d;
+        }
+        .manual_content_shop_carousel {
+        }
+      }
+    }
+  }
+}
