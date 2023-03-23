@@ -1,6 +1,7 @@
 .manual {
   padding-left: 5%;
   width: 85%;
+  padding-bottom: 5%;
   .manual_title {
     padding-bottom: 5%;
     .manual_title_main {
@@ -40,13 +41,24 @@
         font-family: "Inter";
         font-style: normal;
         font-weight: 700;
-        font-size: 30 px;
+        font-size: 30px;
         line-height: 50px;
       }
       .manual_content_youtube_video {
         width: 100%;
         height: 60vh;
-        border: 1px solid red;
+      }
+      .manual_content_youtube_video_legend {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 20px;
+        /* identical to box height */
+
+        text-align: right;
+
+        color: #000000;
       }
     }
     .manual_content_shop {
@@ -75,6 +87,9 @@
           color: #6d6d6d;
         }
         .manual_content_shop_carousel {
+          width: 350px;
+          // height: 10vh;
+          overflow: hidden;
         }
       }
     }

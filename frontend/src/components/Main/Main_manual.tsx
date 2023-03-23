@@ -1,4 +1,33 @@
 import style from "./Main_manual.module.scss";
+import YouTube from "react-youtube";
+import Slider from "react-slick";
+
+import Shop_item from "./Shop/Shop_item";
+
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+
+export type itemProps = {
+  product_name: string;
+  product_price: number;
+  product_url: string;
+};
+
+const videoId: string = "qYlzca11Tbc";
+
+const settings = {
+  // dots: true,
+  infinite: true,
+  speed: 1000,
+  autoplay: true,
+  autoplaySpeed: 3000,
+};
+
+const items: itemProps = {
+  product_name: "수저",
+  product_price: 2333,
+  product_url: "https://www.naver.com/",
+};
 
 const Main_manual = () => {
   return (
@@ -20,7 +49,12 @@ const Main_manual = () => {
             <div className={style.manual_content_youtube_title}>
               살면서 알아두면 좋을 74가지 칵테일 입문서
             </div>
-            <div className={style.manual_content_youtube_video}>유튜브</div>
+            <div className={style.manual_content_youtube_video}>
+              <YouTube videoId={videoId} />
+              <div className={style.manual_content_youtube_video_legend}>
+                출처 : 술덕후
+              </div>
+            </div>
           </div>
           <div className={style.manual_content_shop}>
             <div className={style.manual_content_shop_layout}>
@@ -28,9 +62,17 @@ const Main_manual = () => {
                 칵테일 용품 리스트
               </div>
               <div className={style.manual_content_shop_sub}>
-                집에서 나만의 칵테일을 만들어보세요
+                집에서 나만의 칵테일을 만들어보세요!
               </div>
-              <div className={style.manual_content_shop_carousel}>캐러셀</div>
+              <div className={style.manual_content_shop_carousel}>
+                <Slider {...settings}>
+                  <div>
+                    <Shop_item {...items} />
+                  </div>
+                  <div>2</div>
+                  <div>3</div>
+                </Slider>
+              </div>
             </div>
           </div>
         </div>
