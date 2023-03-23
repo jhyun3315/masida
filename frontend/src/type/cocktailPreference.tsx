@@ -11,3 +11,4 @@ export type dataType = {
   id: string,
   value: number
 }
+
