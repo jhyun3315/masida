@@ -6,7 +6,7 @@ export type cocktailBase = {
 }
 
 // 마이페이지 상세 -> 칵테일 베이스 선호도
-// 그래프애 전달할 값
+// 원형 그래프(Pie Chart)에 전달할 값
 export type dataType = {
   id: string,
   value: number
