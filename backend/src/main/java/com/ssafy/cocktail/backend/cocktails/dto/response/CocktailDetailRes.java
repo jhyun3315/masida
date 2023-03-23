@@ -11,13 +11,13 @@ import lombok.Setter;
 public class CocktailDetailRes extends BaseResponseBody {
     @Schema(name="칵테일 상세 정보", example = "칵테일 상세 정보")
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
-    CocktailDetail cocktailDetail;
+    CocktailDetail data;
 
     public static CocktailDetailRes of(Integer statusCode, String message, CocktailDetail cocktailDetail) {
         CocktailDetailRes res = new CocktailDetailRes();
         res.setStatusCode(statusCode);
         res.setMessage(message);
-        res.setCocktailDetail(cocktailDetail);
+        res.setData(cocktailDetail);
         return res;
     }
 }
