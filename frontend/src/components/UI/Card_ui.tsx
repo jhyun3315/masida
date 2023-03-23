@@ -256,12 +256,12 @@ const World_cup_league_card: React.FC<detail_props> = (
               src="/assets/icons/ingredient_legendIMG.png"
               alt=""
             />
-            {/* {cocktail ?
+            {cocktail ?
               cocktail.recipe.map((key) => (
                 <div className={style.ingredient_list_element}>
                   {key.recipe_num}. {key.recipe_content}
                 </div>
-              )) : ""} */}
+              )) : ""}
           </div>
           <div className={style.recipe_content_textarea}>
             {/* 소개 or 레시피 */}
