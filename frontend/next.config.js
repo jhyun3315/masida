@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: "imgix",
-    domain: "https://j8b208.p.ssafy.io/", // 이미지 도메인
+    // domain: "https://j8b208.p.ssafy.io/", // 이미지 도메인
   },
   api_domain: "https://j8b208.p.ssafy.io/",
 };
@@ -21,4 +21,19 @@ module.exports = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      "/": { page: "/" },
+      "/cocktail-worldcup": { page: "/worldcup" },
+      "/mypage": { page: "/mypage" },
+      "/search": { page: "/search" },
+      "/theme": { page: "/theme"},
+      "/user-analysis": { page: "/user-analysis"},
+      '/detail': { page: '/detail', query: { id: 'cocktail-id' } },
+    };
+  },
+  trailingSlash: true,
 };

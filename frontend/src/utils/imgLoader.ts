@@ -7,5 +7,6 @@ export const imgLoader = ({
     width: number;
     quality?: number;
   }): string => {
-    return `https://j8b208.p.ssafy.io/${src}?w=${width}&q=${quality || 75}`;
+    // return `https://j8b208.p.ssafy.io/${src}?w=${width}&q=${quality || 75}`;
+    return `${src}?w=${width}&q=${quality || 75}`;
   };
