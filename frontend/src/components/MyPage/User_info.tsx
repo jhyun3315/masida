@@ -3,7 +3,7 @@ import Modal_portal from '../Modal/Modal_portal';
 import style from './User_info.module.scss';
 import Image from 'next/image';
 import UserSettingModal from '../Modal/UserSettingModal';
-import { userType } from '../../pages/mypage';
+import { userType } from '../../type/userTypes';
 import { imgLoader } from '../../utils/imgLoader';
 import { ImageLoaderProps } from 'next/image';
 

@@ -61,9 +61,7 @@ const user = useSelector((state : RootState) => state.user);
           <div className={style.mainBanner_white}>
           <Image
             loader={({ src, width, quality }: ImageLoaderProps) => imgLoader({ src, width, quality })}
-            
                   src="/assets/image/banner_begginer.png"
-            
                   alt="image"
                   layout="fill"
                   objectFit="cover"

@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import Header from "../../components/Header/Header";
 import Cocktail_Info from "../../components/Detail/Cocktail_Info";
 import Cocktail_recommend from "../../components/Detail/Cocktail_recommend";
-
 import {
   cocktailType,
   recipeType,
@@ -13,7 +12,6 @@ import {
 } from "../../type/cocktailTypes";
 import { useState } from "react";
 import Modal_portal from "../../components/Modal/Modal_portal";
-import UserSettingModal from "../../components/Modal/UserSettingModal";
 import CommentModal from "../../components/Modal/CommentModal";
 
 // import {
@@ -244,7 +242,7 @@ const detail = () => {
         </div>
         {visible &&
         <Modal_portal>
-          {/* <CommentModal setVisible={setVisible} visible={visible} /> */}
+          <CommentModal setVisible={setVisible} visible={visible} />
         </Modal_portal>}
       </div>
     </>
