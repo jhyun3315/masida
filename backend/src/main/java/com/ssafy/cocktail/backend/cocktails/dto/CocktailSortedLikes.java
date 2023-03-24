@@ -3,7 +3,7 @@ package com.ssafy.cocktail.backend.cocktails.dto;
 import lombok.Getter;
 
 @Getter
-public class CoctailSortedLikes {
+public class CocktailSortedLikes {
     private int cocktailId;
     private String cocktailNameKo;
     private String cocktailNameEn;
