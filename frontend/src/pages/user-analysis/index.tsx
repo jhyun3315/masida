@@ -6,10 +6,12 @@ import UserPreference from "../../components/UserAnalysis/UserPreference";
 import style from './index.module.scss';
 import { cocktailBase } from "../../type/cocktailPreference";
 import { cocktailBase_props } from "../../type/cocktailRating";
+import { cocktailType, cocktail_recommend } from "../../type/cocktailTypes";
 
 export type cocktail_props_analysis = {
   cocktailList: cocktailBase[],
-  cocktailRating: cocktailBase_props
+  cocktailRating: cocktailBase_props,
+  cocktailRecordList: cocktail_recommend[],
 }
 
 
@@ -91,7 +93,54 @@ const userAnalisys = () => {
         base_rest: 1
       }
      ]
-    }
+    },
+    cocktailRecordList: [
+      {
+	        "cocktail_id":1,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":2,
+					"cocktail_name_ko": "킹렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":3,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":4,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":5,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":6,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":7,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":8,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":9,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+    ]
   }
 
   return (

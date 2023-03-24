@@ -89,12 +89,21 @@
     .cocktailPreference_list {
       flex: 1;
       margin: 3%;
+
+      h3 {
+        margin-bottom: 12%;
+      }
+
+      .cocktailPreference_list_content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   }
 
   hr {
     width: 0.1px;
-    height: 800px;
+    height: 120vh;
     margin-left: 3%;
   }
 }

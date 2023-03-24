@@ -153,7 +153,29 @@
     }
   }
 
-  .result_card_difficulty_div {
+  .result_card_difficulty_div {}
+}
+
+.recommendCard {
+  padding: 3%;
+
+  .recommendCard_content {
+    margin-left: 4%;
+
+    .recommendCard_content_img {
+
+      img {
+        width: 20vh;
+        height: 22vh;
+      }
+    }
+
+    .recommendCard_content_desc {
+      margin: 15% 0;
+      margin-bottom: 30%;
+      font-weight: bold;
+      text-align: center;
+    }
   }
 }
 
@@ -389,8 +411,7 @@
     }
   }
 
-  .result_card_difficulty_div {
-  }
+  .result_card_difficulty_div {}
 }
 
 .flip {

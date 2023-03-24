@@ -3,11 +3,13 @@ import Piechart from '../UI/PieChart';
 import Progress_bar from '../UI/Progress_bar';
 import Barchart from '../UI/BarChart';
 import { cocktail_props_analysis } from '../../pages/user-analysis';
+import { My_Analysis_card } from '../UI/Card_ui';
 
 const CocktailPreference = (props: cocktail_props_analysis) => {
 
   const cocktailBase = props.cocktailList;
   const cocktailRate = props.cocktailRating.data;
+  const cocktailRecordList = props.cocktailRecordList;
  
   return (
     <div className={ style.cocktailPreference}>
@@ -47,7 +49,12 @@ const CocktailPreference = (props: cocktail_props_analysis) => {
       </div>
       <hr />
       <div className={style.cocktailPreference_list}>
-        <h3>종효님과 취향(베이스)과 비슷한 칵테일 추천</h3>
+          <h3>종효님과 취향(베이스)과 비슷한 칵테일 추천</h3>
+          <div className={ style.cocktailPreference_list_content}>
+              {cocktailRecordList.map((key => (
+                <My_Analysis_card {...key}/>
+              )))}
+         </div>
       </div>
     </div>
   </div>
