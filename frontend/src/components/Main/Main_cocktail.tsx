@@ -5,6 +5,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { cocktail_props } from '../../pages';
+import { ImageLoaderProps } from 'next/image';
+import { imgLoader } from '../../utils/imgLoader';
 
 const Main_cocktail = (props: cocktail_props) => {
   
@@ -25,11 +27,11 @@ const Main_cocktail = (props: cocktail_props) => {
         <div className={ style.mainCocktail_content}>
           <div className={ style.mainCocktail_recommend}>
             <div className={ style.mainCocktail_recommend_img}>
-              <Image src={cocktailInfo.cocktail_img} alt="image" width={300} height={300} />
+              <Image loader={({ src, width, quality }: ImageLoaderProps) => imgLoader({ src, width, quality })} src={cocktailInfo.cocktail_img} alt="image" width={300} height={300} />
             </div>
             <div className={style.mainCocktail_recommend_detail }>
               <h2>{cocktailInfo.cocktail_name_ko}({cocktailInfo.cocktail_name_en})</h2>
-              <p>{cocktailInfo.cocktail_content} <br /> <Image src="/assets/icons/ratingICON.png" alt="image" width={10} height={10}></Image>{cocktailInfo.cocktail_rating}({cocktailInfo.cocktail_comments})</p>
+              <p>{cocktailInfo.cocktail_content} <br /> <Image loader={({ src, width, quality }: ImageLoaderProps) => imgLoader({ src, width, quality })} src="/assets/icons/ratingICON.png" alt="image" width={10} height={10}></Image>{cocktailInfo.cocktail_rating}({cocktailInfo.cocktail_comments})</p>
             </div> 
          </div>
           <div className={ style.mainCocktail_topLike}>
@@ -39,12 +41,12 @@ const Main_cocktail = (props: cocktail_props) => {
                 {cocktailList.map((key) => (
                   <div className={style.cocktailTopLike}>
                   <div className={style.cocktailTopLike_Img}>
-                      <Image src={key.cocktail_img} alt="image" width={200} height={200} />
+                      <Image loader={({ src, width, quality }: ImageLoaderProps) => imgLoader({ src, width, quality })} src={key.cocktail_img} alt="image" width={200} height={200} />
                   </div>
                   <div className={style.cocktailTopLike_desc}>
                       <p>{ key.cocktail_name_ko}</p>
                       <p>({ key.cocktail_name_en})</p>
-                      <p><Image src="/assets/icons/ratingICON.png" alt="image" width={10} height={10}></Image>{key.cocktail_rating}({key.cocktail_comments })</p>
+                      <p><Image  loader={({ src, width, quality }: ImageLoaderProps) => imgLoader({ src, width, quality })} src="/assets/icons/ratingICON.png" alt="image" width={10} height={10}></Image>{key.cocktail_rating}({key.cocktail_comments })</p>
                   </div>
                 </div>
                 ))}
