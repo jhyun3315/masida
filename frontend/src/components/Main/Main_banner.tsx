@@ -1,10 +1,14 @@
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 import style from './Main_banner.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { RootState } from '../../../store/store';
+import { ImageLoaderProps } from 'next/image';
+import { imgLoader } from '../../utils/imgLoader';
 
 const Main_banner = () => {
   const settings = {
@@ -27,11 +31,19 @@ const Main_banner = () => {
     router.push("/theme/summer");
   }
 
+  
+const user = useSelector((state : RootState) => state.user);
+  console.log(user.accessToken);
+  
+
+
   return (
     <div className='carousel'>
         <Slider {...settings}>
           <div className={style.mainBanner_black}>
-            <Image src="/assets/image/mainbanner.png"
+          <Image
+            loader={({ src, width, quality }: ImageLoaderProps) => imgLoader({ src, width, quality })}
+                  src="/assets/image/mainbanner.png"
                   alt="image"
                   layout="fill"
                   objectFit="cover"
@@ -47,7 +59,11 @@ const Main_banner = () => {
             </div>
           </div>
           <div className={style.mainBanner_white}>
-            <Image src="/assets/image/banner_begginer.png"
+          <Image
+            loader={({ src, width, quality }: ImageLoaderProps) => imgLoader({ src, width, quality })}
+            
+                  src="/assets/image/banner_begginer.png"
+            
                   alt="image"
                   layout="fill"
                   objectFit="cover"
@@ -65,7 +81,9 @@ const Main_banner = () => {
             </div>
           </div>
           <div className={style.mainBanner_white}>
-            <Image src="/assets/image/banner_spring.png"
+          <Image
+            loader={({ src, width, quality }: ImageLoaderProps) => imgLoader({ src, width, quality })}
+            src="/assets/image/banner_spring.png"
                   alt="image"
                   layout="fill"
                   objectFit="cover"
@@ -82,7 +100,9 @@ const Main_banner = () => {
             </div>
           </div>
           <div className={style.mainBanner_white}>
-            <Image src="/assets/image/banner_summer.png"
+          <Image
+            loader={({ src, width, quality }: ImageLoaderProps) => imgLoader({ src, width, quality })}
+            src="/assets/image/banner_summer.png"
                   alt="image"
                   layout="fill"
                   objectFit="cover"
