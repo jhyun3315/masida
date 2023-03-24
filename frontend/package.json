@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "export" : "next export",
     "build": "next build && next export",
     "build_w": "webpack --mode=production --node-env=production",
     "start": "next start",
