@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images : {
-    loader: "akamai",
-    path: "/",
+  images: {
+    loader: "imgix",
+    domain: "https://j8b208.p.ssafy.io/", // 이미지 도메인
   },
   api_domain: "https://j8b208.p.ssafy.io/",
 };
