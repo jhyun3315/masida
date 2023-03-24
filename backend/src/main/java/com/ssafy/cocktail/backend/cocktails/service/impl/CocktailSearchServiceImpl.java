@@ -1,6 +1,7 @@
 package com.ssafy.cocktail.backend.cocktails.service.impl;
 
 
+import com.ssafy.cocktail.backend.cocktails.dto.CocktailMain;
 import com.ssafy.cocktail.backend.cocktails.dto.IngredientSearch;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailSearchService;
 import com.ssafy.cocktail.backend.domain.entity.Ingredient;
@@ -25,5 +26,10 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
             ingredientSearchList.add(new IngredientSearch(ingredient.getId(), ingredient.getIngredientName())); // 칵테일 재료 리스트에 추가
         }
         return ingredientSearchList;
+    }
+
+    @Override
+    public ArrayList<CocktailMain> getCocktailMainList() {
+        return null;
     }
 }
