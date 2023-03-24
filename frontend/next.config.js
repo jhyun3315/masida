@@ -7,6 +7,7 @@ const nextConfig = {
     loader: 'akamai',
     path: '',
   },
+  unoptimized : true,
   api_domain: "https://j8b208.p.ssafy.io/",
 };
 
