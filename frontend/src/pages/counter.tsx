@@ -7,7 +7,6 @@ const counter: NextPage = () => {
   const { value: count } = useAppSelector((state) => state.counter);
   const dispatch = useAppDispatch();
 
-
   return (
     <div>
       <div>
