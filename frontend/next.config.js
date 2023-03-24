@@ -2,8 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    loader: "imgix",
+    // loader: "imgix",
     // domain: "https://j8b208.p.ssafy.io/", // 이미지 도메인
+    loader: 'akamai',
+    path: '',
   },
   api_domain: "https://j8b208.p.ssafy.io/",
 };
