@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images : {
+    loader: "akamai",
+    path: "/",
+  },
   api_domain: "https://j8b208.p.ssafy.io/",
 };
 
