@@ -13,6 +13,8 @@ const Main_banner = () => {
     autoplay: true,
     autoplaySpeed: 3000
   }
+
+  
   return (
     <div className='carousel'>
         <Slider {...settings}>
@@ -25,7 +27,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              <Link href="">로그인</Link>
+              <Link href="http://j8b208.p.ssafy.io:8080/api/oauth/kakao/login">로그인</Link>
             </div>
             <div className={style.mainTitle}>
               <h1>MASIDA,</h1>

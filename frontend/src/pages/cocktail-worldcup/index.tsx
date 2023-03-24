@@ -1,4 +1,4 @@
-import World_cup_league from "@/components/Worldcup/World_cup_league";
+import World_cup_league from "../../components/Worldcup/World_cup_league";
 import Header from "../../components/Header/Header";
 
 

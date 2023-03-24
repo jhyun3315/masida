@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { ResponsiveBar } from '@nivo/bar';
+import { cocktailBaseRating } from '../../type/cocktailRating';
 
-const Barchart = () => {
+const Barchart = (props: cocktailBaseRating[]) => {
+  console.log(props);
     const handle = {
         barClick: (data: any) => {
             console.log(data);
@@ -10,7 +12,21 @@ const Barchart = () => {
         legendClick: (data: any) => {
             console.log(data);
         },
-    };
+  };
+  
+  const data = [
+    // { rating: '365ml', cola: 1200, cidar: 10000, fanta: 1100, molla: 113, n: 99 },
+    // { rating: '500ml', cola: 2200, cidar: 2000, fanta: 2100 , molla:113, n:99},
+    // { rating: '1000ml', cola: 3200, cidar: 3000, fanta: 3100, molla: 113, n: 99 },
+    // { rating: '400ml', cola: 3200, cidar: 3000, fanta: 3100, molla: 113, n: 99 },
+    // { rating: '700ml', cola: 3200, cidar: 3000, fanta: 3100, molla:113, n:99 },
+  ];
+
+  for (let i = 0; i < 5; i++){
+    data.push({ rating: props[i].rating_score, jin: props[i].base_rest, rum: props[i].base_rum, vodka: props[i].base_vodka, whiskey:props[i].base_whiskey, rest: props[i].base_rest});
+  }
+  
+  const keys = [];
 
     return (
         // chart height이 100%이기 때문이 chart를 덮는 마크업 요소에 height 설정
@@ -19,22 +35,15 @@ const Barchart = () => {
                 /**
                  * chart에 사용될 데이터
                  */
-                data={[
-                    { bottle: '365ml', cola: 1200, cidar: 1000, fanta: 1100, molla:113, n:99 },
-                    { bottle: '500ml', cola: 2200, cidar: 2000, fanta: 2100 },
-                    { bottle: '1000ml', cola: 3200, cidar: 3000, fanta: 3100 },
-                    { bottle: '400ml', cola: 3200, cidar: 3000, fanta: 3100 },
-                    { bottle: '700ml', cola: 3200, cidar: 3000, fanta: 3100 },
-                
-                ]}
+                data={data}
                 /**
                  * chart에 보여질 데이터 key (측정되는 값)
                  */
-                keys={['cola', 'cidar', 'fanta']}
+                keys={['jin', 'rum', 'vodka','whiskey','rest']}
                 /**
                  * keys들을 그룹화하는 index key (분류하는 값)
                  */
-                indexBy="bottle"
+                indexBy="rating"
                 /**
                  * chart margin
                  */
@@ -46,7 +55,7 @@ const Barchart = () => {
                 /**
                  * chart 색상
                  */
-                colors={['olive', 'brown', 'orange']} // 커스터하여 사용할 때
+                colors={['#F4E77E', '#F79D8E', '#E8A93B','#E8C1A0','#61CDBB']} // 커스터하여 사용할 때
                 // colors={{ scheme: 'nivo' }} // nivo에서 제공해주는 색상 조합 사용할 때
                 /**
                  * color 적용 방식
