@@ -9,6 +9,7 @@ import com.ssafy.cocktail.backend.oauth.dto.response.UserInfoRes;
 import com.ssafy.cocktail.backend.oauth.dto.response.UserLoginRes;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import com.ssafy.cocktail.backend.oauth.util.JwtTokenUtil;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@Tag(name = "oauth", description = "사용자 API")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/oauth")
