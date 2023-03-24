@@ -7,7 +7,6 @@ const summer = () => {
     <>
         <Header />
         <Summer />
-        <hr />
         <Footer />
     </>  
   );

@@ -7,7 +7,6 @@ const spring = () => {
         <>
             <Header />
             <Spring />
-            <hr />
             <Footer />
         </>
     )
