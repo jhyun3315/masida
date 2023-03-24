@@ -2,9 +2,11 @@ package com.ssafy.cocktail.backend.cocktails.service.impl;
 
 
 import com.ssafy.cocktail.backend.cocktails.dto.CocktailMain;
+import com.ssafy.cocktail.backend.cocktails.dto.CocktailSortedLikes;
 import com.ssafy.cocktail.backend.cocktails.dto.IngredientSearch;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailSearchService;
 import com.ssafy.cocktail.backend.domain.entity.Ingredient;
+import com.ssafy.cocktail.backend.domain.repository.CocktailRepository;
 import com.ssafy.cocktail.backend.domain.repository.IngredientRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,7 @@ import java.util.List;
 public class CocktailSearchServiceImpl implements CocktailSearchService {
 
     private IngredientRepository ingredientRepository;
+    private CocktailRepository cocktailRepository;
     @Override
     public ArrayList<IngredientSearch> getIngredientSearchList() {
         // 재료 검색에 필요한 모든 재료 리스트 반환
@@ -30,6 +33,13 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
 
     @Override
     public ArrayList<CocktailMain> getCocktailMainList() {
-        return null;
+        // 칵테일을 좋아요 개수 최대 상위 10개 리턴
+        ArrayList<CocktailMain> cocktailMains = new ArrayList<>();
+        List<CocktailSortedLikes> cocktailSortedLikesList =  cocktailRepository.findCocktailByLikes();
+        for (CocktailSortedLikes cocktail: cocktailSortedLikesList) {
+            if (cocktailMains.size() == 10) break;
+            cocktailMains.add(new CocktailMain(cocktail.getCocktailId(), cocktail.getCocktailNameKo(), cocktail.getCocktailNameEn(), cocktail.getCocktailImg(), (double) Math.round(cocktail.getCocktailRating())));
+        }
+        return cocktailMains;
     }
 }

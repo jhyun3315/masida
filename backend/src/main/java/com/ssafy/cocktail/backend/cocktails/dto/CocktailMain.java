@@ -22,11 +22,19 @@ public class CocktailMain {
     private String cocktailImg;
     @Schema(description = "칵테일 평점", example = "4.9")
     @JsonProperty("cocktail_rating")
-    private String cocktailRating;
+    private Double cocktailRating;
     @Schema(description = "칵테일 난이도", example = "하")
     @JsonProperty("cocktail_difficulty")
     private String cocktailDifficulty = "하";
     @Schema(description = "칵테일 댓글 수", example = "1")
     @JsonProperty("cocktail_comments")
     private int cocktailComments = 0;
+
+    public CocktailMain(int cocktailId, String cocktailNameKo, String cocktailNameEn, String cocktailImg, Double cocktailRating) {
+        this.cocktailId = cocktailId;
+        this.cocktailNameKo = cocktailNameKo;
+        this.cocktailNameEn = cocktailNameEn;
+        this.cocktailImg = cocktailImg;
+        this.cocktailRating = cocktailRating;
+    }
 }
