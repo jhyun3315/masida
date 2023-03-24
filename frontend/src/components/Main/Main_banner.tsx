@@ -39,7 +39,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              <Link href="">로그인</Link>
+              <Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>
             </div>
             <div className={style.mainTitle}>
               <h1>MASIDA,</h1>

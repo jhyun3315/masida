@@ -2,9 +2,9 @@ import * as React from 'react';
 import { cocktailBase, dataType } from '../../type/cocktailPreference';
 import { ResponsivePie } from '@nivo/pie';
 import { cocktail_props } from '../../pages';
+import { cocktail_props_analysis } from '../../pages/user-analysis';
 
 const Piechart = (props: cocktailBase[]) => {
-  console.log(props);
     const handle = {
         padClick: (data: any) => {
             console.log(data);

@@ -1,5 +1,5 @@
 import style from "./Card_ui.module.scss";
-import { cocktailType, detail_props } from "../../type/cocktailTypes";
+import { cocktailType, detail_props,cocktail_recommend } from "../../type/cocktailTypes";
 import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty_img_url_converter";
 import { mypageCommentType } from "../../type/commentTypes";
 
@@ -176,6 +176,25 @@ const My_like_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
   );
 };
 
+const My_Analysis_card: React.FC<cocktail_recommend> = (cocktail: cocktail_recommend) => { 
+  return (
+    <>
+      <div className={style.recommendCard}>
+        <div className={ style.recommendCard_content}>
+          <div className={style.recommendCard_content_img}>
+            <Link href={`detail/${cocktail.cocktail_id}`}>
+              <img src={cocktail.cocktail_img}></img>
+            </Link>
+          </div>
+          <div className={style.recommendCard_content_desc}>
+            {cocktail.cocktail_name_ko}
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
 const My_comment_card: React.FC<mypageCommentType> = (
   cocktail: mypageCommentType
 ) => {
@@ -216,6 +235,7 @@ const My_comment_card: React.FC<mypageCommentType> = (
     </>
   );
 };
+
 const World_cup_league_card: React.FC<detail_props> = (
   cocktail: detail_props
 ) => {
@@ -295,5 +315,6 @@ export {
   My_bookmark_card,
   My_like_card,
   My_comment_card,
+  My_Analysis_card,
   World_cup_league_card,
 };

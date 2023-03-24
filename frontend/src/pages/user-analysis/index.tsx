@@ -4,16 +4,25 @@ import ColorPreference from "../../components/UserAnalysis/ColorPreference";
 import IngredientPreference from "../../components/UserAnalysis/IngredientPreference";
 import UserPreference from "../../components/UserAnalysis/UserPreference";
 import style from './index.module.scss';
-// import { cocktailBase } from "@/type/cocktailPreference";
 import { cocktailBase } from "../../type/cocktailPreference";
+import { cocktailBase_props } from "../../type/cocktailRating";
+import { cocktailType, cocktail_recommend } from "../../type/cocktailTypes";
+
+export type cocktail_props_analysis = {
+  cocktailList: cocktailBase[],
+  cocktailRating: cocktailBase_props,
+  cocktailRecordList: cocktail_recommend[],
+}
 
 
 const userAnalisys = () => {
-   const cocktail_props: cocktailBase[] = [
+
+  const cocktail_props: cocktail_props_analysis = {
+    cocktailList: [
     {
       base_name: "진",
-			base_count : 23,
-	    base_ratio: 56
+      base_count: 23,
+      base_ratio: 56
     },
     {
       base_name: "럼",
@@ -35,7 +44,104 @@ const userAnalisys = () => {
 			base_count : 1,
 	    base_ratio: 3
     }
-  ]
+    ],
+
+    cocktailRating: {
+      rating_average: 3,
+      rating_count: "79",
+      rating_max: 4,
+      rating_max_base: "진",
+      data: [
+      {
+        rating_score: 1,
+        base_jin: 4,
+        base_rum: 1,
+        base_vodka: 8,
+        base_whiskey: 19,
+        base_rest: 12
+        },
+        {
+        rating_score: 2,
+        base_jin: 11,
+        base_rum: 1,
+        base_vodka: 19,
+        base_whiskey: 1,
+        base_rest: 15
+        },
+        {
+        rating_score: 3,
+        base_jin: 5,
+        base_rum: 9,
+        base_vodka: 10,
+        base_whiskey: 4,
+        base_rest: 7
+        },
+        {
+        rating_score: 4,
+        base_jin: 10,
+        base_rum: 3,
+        base_vodka: 2,
+        base_whiskey: 1,
+        base_rest: 12
+        },
+        {
+        rating_score: 5,
+        base_jin: 2,
+        base_rum: 19,
+        base_vodka: 20,
+        base_whiskey: 4,
+        base_rest: 1
+      }
+     ]
+    },
+    cocktailRecordList: [
+      {
+	        "cocktail_id":1,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":2,
+					"cocktail_name_ko": "킹렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":3,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":4,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":5,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":6,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":7,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":8,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+      {
+	        "cocktail_id":9,
+					"cocktail_name_ko": "오렌지 블로썸",
+	        "cocktail_img": "/assets/image/cocktail.png",
+      },
+    ]
+  }
 
   return (
     <>
@@ -50,7 +156,7 @@ const userAnalisys = () => {
           <span>PDF로 내보내기</span>
         </div>
       </div>
-      <CocktailPreference {...cocktail_props} />
+      <CocktailPreference {...cocktail_props}/>
       <ColorPreference />
       <IngredientPreference />
       <UserPreference/>
