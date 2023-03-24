@@ -6,8 +6,7 @@ const begginer = () => {
     return (
         <>
         <Header />
-            <Begginer />
-            <hr />
+        <Begginer />
         <Footer />
         </>
     )

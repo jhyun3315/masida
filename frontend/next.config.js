@@ -13,3 +13,10 @@ module.exports = {
     ignoreDuringBuilds: true,
   },
 };
+
+//페이지 로딩될때 오른쪽 하단에 뜨던 NextJS 삼각형 돌아가는거 끄기.
+module.exports = {
+  devIndicators: {
+    buildActivity: false,
+  },
+};
