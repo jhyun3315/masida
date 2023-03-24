@@ -45,3 +45,10 @@ export type detail_props = {
   recipe: recipeType[];
   ingredient: ingredientType[];
 };
+
+// 마이페이지 칵테일 추천...
+export type cocktail_recommend = {
+  cocktail_id: number,
+  cocktail_name_ko: string,
+  cocktail_img: string,
+}
