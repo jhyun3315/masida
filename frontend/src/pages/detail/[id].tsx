@@ -11,6 +11,10 @@ import {
   ingredientType,
   detail_props,
 } from "../../type/cocktailTypes";
+import { useState } from "react";
+import Modal_portal from "../../components/Modal/Modal_portal";
+import UserSettingModal from "../../components/Modal/UserSettingModal";
+import CommentModal from "../../components/Modal/CommentModal";
 
 // import {
 //   GetStaticPaths,
@@ -123,9 +127,13 @@ const recommend_props: recommend_props = {
 };
 const detail = () => {
   const router = useRouter();
-
+  const [visible, setVisible] = useState<boolean>();
   // router.query.id가 undefined일 수 있기 때문에 as String을 붙혀줘서 해결한다.
   const x: string = router.query.id as string;
+
+  const toggleComment = () => {
+    setVisible(!visible);
+  }
 
   const detail_props: detail_props = {
     cocktail_id: parseInt(x, 10),
@@ -230,53 +238,17 @@ const detail = () => {
           <img
             className={style.detail_comment_btn}
             src="/assets/icons/detail_comment_btn.png"
-            alt=""
+            alt="btn"
+            onClick={toggleComment}
           />
         </div>
+        {visible &&
+        <Modal_portal>
+          {/* <CommentModal setVisible={setVisible} visible={visible} /> */}
+        </Modal_portal>}
       </div>
     </>
   );
 };
 
 export default detail;
-
-//{ params }: GetStaticPropsContext<{ cocktail_id: string }>
-// export const getStaticProps = async () => {
-//   return {
-//     props: {
-//       cocktails: recommend_props,
-//     }
-//   }
-// }
-
-// export const getStaticPaths: GetStaticPaths = async () => {
-
-//   //받아온 데이터들을 map으로 돌려 해당하는 id를 객체로 담아준 후 return안에 설정시 해당id만 접근가능함.
-
-//   return {
-//     fallback: false,
-
-//     paths: [
-//       {
-//         params: {
-//           id : '1',
-//         },
-//       },
-//       {
-//         params: {
-//           id : '2',
-//         },
-//       },
-//       {
-//         params: {
-//           id : '3',
-//         },
-//       }
-//       ,{
-//         params: {
-//           id : '4',
-//         },
-//       }
-//     ]
-//   }
-// }
