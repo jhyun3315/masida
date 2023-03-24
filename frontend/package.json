@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build" : "next build && next export",
+    "build": "next build && next export",
     "build_w": "webpack --mode=production --node-env=production",
     "start": "next start",
     "lint": "next lint",
@@ -46,12 +46,17 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.0",
     "@types/aos": "^3.0.4",
     "@types/redux-logger": "^3.0.9",
     "@types/sass": "^1.45.0",
     "@types/sass-loader": "^8.0.4",
     "@types/webpack": "^5.28.0",
     "@webpack-cli/generators": "^3.0.1",
+    "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.2",
