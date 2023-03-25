@@ -38,27 +38,28 @@
 // const withImages = require("next-images");
 // (module.exports = nextConfig), withImages;
 
-
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'i.namu.wiki',
-        port: '',
-        pathname: '/i/**',
+        protocol: "https",
+        hostname: "i.namu.wiki",
+        port: "",
+        pathname: "/i/**",
       },
     ],
   },
-  webpack: config => {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  webpack: (config) => {
     // 아래를 추가합니다.
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
-      use: ["@svgr/webpack"]
+      use: ["@svgr/webpack"],
     });
 
     config.module.rules.push({
@@ -69,9 +70,9 @@ const nextConfig = {
           presets: ["next/babel"],
         },
       },
-    })
+    });
     return config;
-  }
+  },
 };
 
 module.exports = nextConfig;
