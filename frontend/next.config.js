@@ -55,6 +55,20 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      "/": { page: "/" },
+      "/cocktail-worldcup": { page: "/worldcup" },
+      "/mypage": { page: "/mypage" },
+      "/search": { page: "/search" },
+      "/theme": { page: "/theme" },
+      "/user-analysis": { page: "/user-analysis" },
+      "/detail": { page: "/detail", query: { id: "cocktail-id" } },
+    };
+  },
   webpack: (config) => {
     // 아래를 추가합니다.
     config.module.rules.push({
