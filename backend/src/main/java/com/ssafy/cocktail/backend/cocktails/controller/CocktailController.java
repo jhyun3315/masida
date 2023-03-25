@@ -5,6 +5,7 @@ import com.ssafy.cocktail.backend.cocktails.dto.CocktailMain;
 import com.ssafy.cocktail.backend.cocktails.dto.IngredientSearch;
 import com.ssafy.cocktail.backend.cocktails.dto.response.CocktailDetailRes;
 import com.ssafy.cocktail.backend.cocktails.dto.response.CocktailMainLikesRes;
+import com.ssafy.cocktail.backend.cocktails.dto.response.CocktailMainRandomRes;
 import com.ssafy.cocktail.backend.cocktails.dto.response.IngredientSearchRes;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailDetailService;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailSearchService;
@@ -35,7 +36,7 @@ public class CocktailController {
         return ResponseEntity.status(200).body(IngredientSearchRes.of(200, "Success", ingredientSearchList));
     }
 
-    @GetMapping("{cocktail_id}")
+    @GetMapping("/{cocktail_id}")
     public ResponseEntity<CocktailDetailRes> cocktailDetails(@PathVariable("cocktail_id") String id, @RequestHeader Map<String, String> data) {
         String accessToken = data.get("authorization"); // 엑세스 토큰 가져오기
         CocktailDetail cocktailDetail = cocktailDetailService.getCocktailDetail(id, accessToken); // 칵테일 상세 정보 가져오기
@@ -43,7 +44,7 @@ public class CocktailController {
         return ResponseEntity.status(200).body(CocktailDetailRes.of(200, "Success", cocktailDetail));
     }
 
-    @GetMapping("likes-top")
+    @GetMapping("/likes-top")
     public ResponseEntity<CocktailMainLikesRes> cocktailMainLikesTopTen() {
         ArrayList<CocktailMain> cocktailMains = cocktailSearchService.getCocktailMainList(); // 상위 10개 좋아요 칵테일 가져오기
          if (cocktailMains.size() > 0) { // 칵테일을 찾았다면
@@ -52,4 +53,14 @@ public class CocktailController {
         return ResponseEntity.status(404).body(CocktailMainLikesRes.of(404, "Fail", null));
 
     }
+
+    @GetMapping("/random")
+    public ResponseEntity<CocktailMainRandomRes> cocktailMainRandomOne() {
+        CocktailMain cocktailMain = cocktailSearchService.getCocktailRandomOne(); // 칵테일 랜덤으로 1개 가져오기
+        if (cocktailMain != null) { // 칵테일이 있다면
+            return ResponseEntity.status(200).body(CocktailMainRandomRes.of(200, "Success", cocktailMain));
+        }
+        return ResponseEntity.status(404).body(CocktailMainRandomRes.of(404, "Fail", null));
+    }
+
 }
