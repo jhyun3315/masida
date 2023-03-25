@@ -13,4 +13,5 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
             "group by cocktail_id\n" +
             "order by 'cnt' desc", nativeQuery = true)
     List<CocktailSortedLikes> findCocktailByLikes();
+//    List<CocktailSortedLikes> findCocktailByLikes();
 }

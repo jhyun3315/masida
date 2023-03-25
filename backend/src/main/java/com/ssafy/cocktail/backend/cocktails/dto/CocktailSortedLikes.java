@@ -4,10 +4,10 @@ import lombok.Getter;
 
 @Getter
 public class CocktailSortedLikes {
-    private int cocktailId;
+    private Long cocktailId;
     private String cocktailNameKo;
     private String cocktailNameEn;
     private String cocktailImg;
     private Double cocktailRating;
-    private int cnt;
+    private Long cnt;
 }

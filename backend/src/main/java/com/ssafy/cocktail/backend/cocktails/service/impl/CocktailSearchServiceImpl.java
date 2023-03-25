@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -35,11 +36,13 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
     public ArrayList<CocktailMain> getCocktailMainList() {
         // 칵테일을 좋아요 개수 최대 상위 10개 리턴
         ArrayList<CocktailMain> cocktailMains = new ArrayList<>();
-        List<CocktailSortedLikes> cocktailSortedLikesList =  cocktailRepository.findCocktailByLikes();
-        for (CocktailSortedLikes cocktail: cocktailSortedLikesList) {
-            if (cocktailMains.size() == 10) break;
-            cocktailMains.add(new CocktailMain(cocktail.getCocktailId(), cocktail.getCocktailNameKo(), cocktail.getCocktailNameEn(), cocktail.getCocktailImg(), (double) Math.round(cocktail.getCocktailRating())));
-        }
+        List<CocktailSortedLikes> objects = cocktailRepository.findCocktailByLikes();
+        System.out.println("aaaaaa");
+//        List<CocktailSortedLikes> cocktailSortedLikesList =  cocktailRepository.findCocktailByLikes();
+//        for (CocktailSortedLikes cocktail: cocktailSortedLikesList) {
+//            if (cocktailMains.size() == 10) break;
+//            cocktailMains.add(new CocktailMain(cocktail.getCocktailId(), cocktail.getCocktailNameKo(), cocktail.getCocktailNameEn(), cocktail.getCocktailImg(), (double) Math.round(cocktail.getCocktailRating())));
+//        }
         return cocktailMains;
     }
 }
