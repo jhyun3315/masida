@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "export": "next export",
-    "build": "next build && next export",
+    "build": "next build",
     "build_w": "webpack --mode=production --node-env=production",
     "start": "next start",
     "lint": "next lint",
