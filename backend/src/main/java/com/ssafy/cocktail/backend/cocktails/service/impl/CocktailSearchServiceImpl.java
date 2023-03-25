@@ -46,6 +46,12 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
 
     @Override
     public CocktailMain getCocktailRandomOne() {
+        // 칵테일을 랜덤으로 1개 뽑아서 리턴
+        CocktailLikesInterface cocktail = cocktailRepository.getCocktailRandomOne(); // 칵테일 랜덤으로 1개 가져오기
+        if (cocktail != null) { // 칵테일이 있다면
+            CocktailMain cocktailMain = new CocktailMain(cocktail.getCocktailId(), cocktail.getCocktailNameKo(), cocktail.getCocktailNameEn(), cocktail.getCocktailImg(), (double) Math.round(cocktail.getCocktailRating())); // 랜덤 칵테일 1개 생성
+            return cocktailMain;
+        }
         return null;
     }
 }
