@@ -70,38 +70,38 @@ const nextConfig = {
       "/detail": { page: "/detail", query: { id: "cocktail-id" } },
     };
   },
-  webpack: (config) => {
-    // 아래를 추가합니다.
-    config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: ["@svgr/webpack"],
-    });
+  // webpack: (config) => {
+  //   // 아래를 추가합니다.
+  //   config.module.rules.push({
+  //     test: /\.svg$/i,
+  //     issuer: /\.[jt]sx?$/,
+  //     use: ["@svgr/webpack"],
+  //   });
 
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/i,
-      use: {
-        loader: "babel-loader",
-        options: {
-          presets: ["next/babel"],
-        },
-      },
-    });
+  //   config.module.rules.push({
+  //     test: /\.(ts|tsx)$/i,
+  //     use: {
+  //       loader: "babel-loader",
+  //       options: {
+  //         presets: ["next/babel"],
+  //       },
+  //     },
+  //   });
 
-    // // SCSS 로더 추가
-    // config.module.rules.push({
-    //   test: /\.scss$/,
-    //   use: [
-    //     "style-loader",
-    //     "css-loader",
-    //     {
-    //       loader: "sass-loader",
-    //     },
-    //   ],
-    // });
+  //   // // SCSS 로더 추가
+  //   // config.module.rules.push({
+  //   //   test: /\.scss$/,
+  //   //   use: [
+  //   //     "style-loader",
+  //   //     "css-loader",
+  //   //     {
+  //   //       loader: "sass-loader",
+  //   //     },
+  //   //   ],
+  //   // });
 
-    return config;
-  },
+  //   return config;
+  // },
 };
 
 module.exports = nextConfig;
