@@ -1,4 +1,4 @@
-FROM node:18.12.1 AS build
+FROM node:16.13.2-alpine
 
 # RUN mkdir -p /home/masida
 
