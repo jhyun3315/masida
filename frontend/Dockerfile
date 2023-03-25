@@ -5,8 +5,8 @@ RUN mkdir -p /home/masida
 WORKDIR /home/masida
 COPY . .
 RUN mkdir -p build
-# RUN npm install --force && npm run build
-RUN npm run build
+RUN npm install --force && npm run build
+# RUN npm run build
 
 # COPY package.json package-lock.json ./app/
 # RUN npm install
