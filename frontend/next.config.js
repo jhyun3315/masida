@@ -96,9 +96,6 @@ const nextConfig = {
         "css-loader",
         {
           loader: "sass-loader",
-          options: {
-            url: false, // 이 부분이 추가된 옵션입니다.
-          },
         },
       ],
     });
