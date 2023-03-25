@@ -42,7 +42,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized : true,
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -71,6 +71,12 @@ const nextConfig = {
           presets: ["next/babel"],
         },
       },
+    });
+
+    // SCSS 로더 추가
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: ["style-loader", "css-loader", "sass-loader"],
     });
     return config;
   },
