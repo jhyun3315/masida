@@ -39,6 +39,23 @@
 // (module.exports = nextConfig), withImages;
 
 /** @type {import('next').NextConfig} */
+const path = require("path");
+
+export const exportPathMap = async function (
+  defaultPathMap,
+  { dev, dir, outDir, distDir, buildId }
+) {
+  return {
+    "/": { page: "/" },
+    "/cocktail-worldcup": { page: "/worldcup" },
+    "/mypage": { page: "/mypage" },
+    "/search": { page: "/search" },
+    "/theme": { page: "/theme" },
+    "/user-analysis": { page: "/user-analysis" },
+    "/detail": { page: "/detail", query: { id: "12345" } },
+  };
+};
+
 const nextConfig = {
   reactStrictMode: true,
   images: {
