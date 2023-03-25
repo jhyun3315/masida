@@ -43,4 +43,9 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
         }
         return cocktailMains;
     }
+
+    @Override
+    public CocktailMain getCocktailRandomOne() {
+        return null;
+    }
 }
