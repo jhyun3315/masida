@@ -88,17 +88,17 @@ const nextConfig = {
       },
     });
 
-    // SCSS 로더 추가
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: [
-        "style-loader",
-        "css-loader",
-        {
-          loader: "sass-loader",
-        },
-      ],
-    });
+    // // SCSS 로더 추가
+    // config.module.rules.push({
+    //   test: /\.scss$/,
+    //   use: [
+    //     "style-loader",
+    //     "css-loader",
+    //     {
+    //       loader: "sass-loader",
+    //     },
+    //   ],
+    // });
 
     return config;
   },
