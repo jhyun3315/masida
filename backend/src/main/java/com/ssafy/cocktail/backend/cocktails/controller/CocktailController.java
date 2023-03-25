@@ -1,8 +1,10 @@
 package com.ssafy.cocktail.backend.cocktails.controller;
 
 import com.ssafy.cocktail.backend.cocktails.dto.CocktailDetail;
+import com.ssafy.cocktail.backend.cocktails.dto.CocktailMain;
 import com.ssafy.cocktail.backend.cocktails.dto.IngredientSearch;
 import com.ssafy.cocktail.backend.cocktails.dto.response.CocktailDetailRes;
+import com.ssafy.cocktail.backend.cocktails.dto.response.CocktailMainLikesRes;
 import com.ssafy.cocktail.backend.cocktails.dto.response.IngredientSearchRes;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailDetailService;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailSearchService;
@@ -39,5 +41,15 @@ public class CocktailController {
         CocktailDetail cocktailDetail = cocktailDetailService.getCocktailDetail(id, accessToken); // 칵테일 상세 정보 가져오기
         System.out.println(cocktailDetail.toString());
         return ResponseEntity.status(200).body(CocktailDetailRes.of(200, "Success", cocktailDetail));
+    }
+
+    @GetMapping("likes-top")
+    public ResponseEntity<CocktailMainLikesRes> cocktailMainLikesTopTen() {
+        ArrayList<CocktailMain> cocktailMains = cocktailSearchService.getCocktailMainList(); // 상위 10개 좋아요 칵테일 가져오기
+         if (cocktailMains.size() > 0) { // 칵테일을 찾았다면
+             return ResponseEntity.status(200).body(CocktailMainLikesRes.of(200, "Success", cocktailMains));
+         }
+        return ResponseEntity.status(404).body(CocktailMainLikesRes.of(404, "Fail", null));
+
     }
 }

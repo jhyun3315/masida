@@ -14,7 +14,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable() // csrf 토큰 비활성화
                 .authorizeRequests() // 요청이오면
-                .antMatchers("/swagger-ui/**", "/api/**", "/swagger-resources/**") // 해당 경로들은
+                .antMatchers("/swagger-ui/**", "/api/**", "/swagger-resources/**", "/**") // 해당 경로들은
                 .permitAll() // 접근 허용
                 .anyRequest() // 다른 요청들은
                 .authenticated(); // 인증이 되어야 접속할 수 있다

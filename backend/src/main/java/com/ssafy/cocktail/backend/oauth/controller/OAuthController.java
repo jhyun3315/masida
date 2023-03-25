@@ -36,13 +36,18 @@ public class OAuthController {
     public ResponseEntity<UserLoginRes> kakaoCallback(@RequestParam String code, HttpServletResponse response) throws Exception {
         // 카카오 로그인 콜백
         // 로그인 완료
-        UserLoginInfo userLoginInfo = oAuthService.loginUser(code);
-        Cookie cookie = new Cookie("refreshToken", userLoginInfo.getRefreshToken());
-        cookie.setMaxAge(JwtTokenUtil.refreshExpirationTime);
+        UserLoginInfo userLoginInfo = oAuthService.loginUser(code); // 회원 정보 저장
+        Cookie cookie = new Cookie("refreshToken", userLoginInfo.getRefreshToken()); // 쿠키에 refreshToeken 저장
+        cookie.setMaxAge(JwtTokenUtil.refreshExpirationTime); // JWT 만료 시간 설정
         cookie.setSecure(true); // 클라이언트가 HTTPS가 아닌 통신에서는 해당 쿠키를 전송하지 않도록 하는 설정
         cookie.setHttpOnly(true); // 브라우저에서 쿠키에 접근할 수 없도록 하는 설정 (XSS 공격 방지)
-        cookie.setPath("/");
-        String mainPageUri = "http://localhost:3000/"; // 매인 페이지 가져오기
+        cookie.setPath("http://localhost:3000/"); // 프론트 메인 페이지 설정
+        Cookie cookie2 = new Cookie("accessToken", userLoginInfo.getAccessToken());
+        cookie.setSecure(true); // 클라이언트가 HTTPS가 아닌 통신에서는 해당 쿠키를 전송하지 않도록 하는 설정
+        cookie.setPath("http://localhost:3000/"); // 프론트 메인 페이지 설정
+//        response.setHeader("accessToken", userLoginInfo.getAccessToken());
+//        String mainPageUri = "http://localhost:8080/"; // 매인 페이지 가져오기
+        String mainPageUri = "http://localhost:3000/";
         response.sendRedirect(mainPageUri); // 메인 페이지로 이동
         return ResponseEntity.ok(UserLoginRes.of(200, "Success", userLoginInfo.getAccessToken(), userLoginInfo.getUserName()));
     }
