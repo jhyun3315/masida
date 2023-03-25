@@ -19,4 +19,14 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
             "group by cocktailId " +
             "order by 'cnt' desc", nativeQuery = true)
     List<CocktailLikesInterface> findCocktailByLikes();
+
+    @Query(value = "select c.cocktail_id as cocktailId " +
+            ", c.cocktail_name_ko as cocktailNameKo " +
+            ", c.cocktail_name_en as cocktailNameEn " +
+            ", c.cocktail_img as cocktailImg " +
+            ", c.cocktail_rating as cocktailRating " +
+            " from cocktails" +
+            "order by rand() limit 1", nativeQuery = true)
+    CocktailLikesInterface getCocktailRandomOne();
+
 }
