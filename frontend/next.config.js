@@ -76,8 +76,31 @@ const nextConfig = {
     // SCSS 로더 추가
     config.module.rules.push({
       test: /\.scss$/,
-      use: ["style-loader", "css-loader", "sass-loader"],
+      use: [
+        "style-loader",
+        "css-loader",
+        {
+          loader: "sass-loader",
+          options: {
+            sassOptions: {
+              includePaths: [path.join(__dirname, "styles")],
+            },
+            additionalData: `
+            @import "variables";
+            @import "mixins";
+          `,
+            sourceMap: true,
+            implementation: require("sass"),
+            sassOptions: {
+              fiber: require("fibers"),
+            },
+            webpackImporter: false,
+            url: false, // 이 부분이 추가된 옵션입니다.
+          },
+        },
+      ],
     });
+
     return config;
   },
 };
