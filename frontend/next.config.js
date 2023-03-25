@@ -39,8 +39,6 @@
 // (module.exports = nextConfig), withImages;
 
 /** @type {import('next').NextConfig} */
-const path = require("path");
-
 
 const nextConfig = {
   reactStrictMode: true,
@@ -58,7 +56,10 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  async exportPathMap(defaultPathMap) {
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
     return {
       "/": { page: "/" },
       "/cocktail-worldcup": { page: "/worldcup" },
@@ -96,19 +97,6 @@ const nextConfig = {
         {
           loader: "sass-loader",
           options: {
-            sassOptions: {
-              includePaths: [path.join(__dirname, "styles")],
-            },
-            additionalData: `
-            @import "variables";
-            @import "mixins";
-          `,
-            sourceMap: true,
-            implementation: require("sass"),
-            sassOptions: {
-              fiber: require("fibers"),
-            },
-            webpackImporter: false,
             url: false, // 이 부분이 추가된 옵션입니다.
           },
         },
