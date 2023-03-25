@@ -43,8 +43,8 @@ public class OAuthController {
         cookie.setHttpOnly(true); // 브라우저에서 쿠키에 접근할 수 없도록 하는 설정 (XSS 공격 방지)
         cookie.setPath("http://localhost:3000/"); // 프론트 메인 페이지 설정
         Cookie cookie2 = new Cookie("accessToken", userLoginInfo.getAccessToken());
-        cookie.setSecure(true); // 클라이언트가 HTTPS가 아닌 통신에서는 해당 쿠키를 전송하지 않도록 하는 설정
-        cookie.setPath("http://localhost:3000/"); // 프론트 메인 페이지 설정
+        cookie2.setSecure(true); // 클라이언트가 HTTPS가 아닌 통신에서는 해당 쿠키를 전송하지 않도록 하는 설정
+        cookie2.setPath("http://localhost:3000/"); // 프론트 메인 페이지 설정
 //        response.setHeader("accessToken", userLoginInfo.getAccessToken());
 //        String mainPageUri = "http://localhost:8080/"; // 매인 페이지 가져오기
         String mainPageUri = "http://localhost:3000/";
