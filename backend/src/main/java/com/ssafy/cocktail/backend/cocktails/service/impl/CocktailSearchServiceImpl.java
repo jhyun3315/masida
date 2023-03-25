@@ -37,7 +37,7 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
         // 칵테일을 좋아요 개수 최대 상위 10개 리턴
         ArrayList<CocktailMain> cocktailMains = new ArrayList<>();
         List<CocktailSortedLikes> objects = cocktailRepository.findCocktailByLikes();
-        System.out.println("aaaaaa");
+        System.out.println("aaaaaaaaa");
 //        List<CocktailSortedLikes> cocktailSortedLikesList =  cocktailRepository.findCocktailByLikes();
 //        for (CocktailSortedLikes cocktail: cocktailSortedLikesList) {
 //            if (cocktailMains.size() == 10) break;
