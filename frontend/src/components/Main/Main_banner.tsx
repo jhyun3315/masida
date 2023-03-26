@@ -10,6 +10,7 @@ import { RootState } from '../../../store/store';
 import { ImageLoaderProps } from 'next/image';
 import { imgLoader } from '../../utils/imgLoader';
 import { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 
 
 const Main_banner = (request:NextRequest) => {
@@ -35,6 +36,9 @@ const Main_banner = (request:NextRequest) => {
 
   const allCookies = request.cookies.getAll()
   console.log(allCookies)
+
+  const response = NextResponse.next();
+  console.log(response);
 
   return (
     <div className='carousel'>
