@@ -13,7 +13,7 @@ import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { signIn, useSession, signOut } from "next-auth/react";
 
-const Main_banner = (request:NextRequest) => {
+const Main_banner = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -34,11 +34,11 @@ const Main_banner = (request:NextRequest) => {
     router.push("/theme/summer");
   }
 
-  const allCookies = request.cookies.getAll()
-  console.log(allCookies)
+  // const allCookies = request.cookies.getAll()
+  // console.log(allCookies)
 
-  const response = NextResponse.next();
-  console.log(response);
+  // const response = NextResponse.next();
+  // console.log(response);
 
   const { data: session } = useSession();
 
