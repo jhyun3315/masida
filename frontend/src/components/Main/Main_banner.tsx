@@ -34,7 +34,7 @@ const Main_banner = () => {
   const { query } = router;
 
   console.log(query);
-  console.log(query.acessToken);
+  console.log(query.accessToken);
 
   return (
     <div className='carousel'>
