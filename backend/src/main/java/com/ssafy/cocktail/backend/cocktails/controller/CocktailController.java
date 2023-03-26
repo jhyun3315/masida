@@ -3,12 +3,14 @@ package com.ssafy.cocktail.backend.cocktails.controller;
 import com.ssafy.cocktail.backend.cocktails.dto.CocktailDetail;
 import com.ssafy.cocktail.backend.cocktails.dto.CocktailMain;
 import com.ssafy.cocktail.backend.cocktails.dto.IngredientSearch;
+import com.ssafy.cocktail.backend.cocktails.dto.request.CocktailIDReq;
 import com.ssafy.cocktail.backend.cocktails.dto.response.CocktailDetailRes;
 import com.ssafy.cocktail.backend.cocktails.dto.response.CocktailMainLikesRes;
 import com.ssafy.cocktail.backend.cocktails.dto.response.CocktailMainRandomRes;
 import com.ssafy.cocktail.backend.cocktails.dto.response.IngredientSearchRes;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailDetailService;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailSearchService;
+import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -63,4 +65,9 @@ public class CocktailController {
         return ResponseEntity.status(404).body(CocktailMainRandomRes.of(404, "Fail", null));
     }
 
+    @PostMapping("/likes")
+    public ResponseEntity<?> cocktailLikes(@RequestHeader("authorization") String accessToken, @RequestBody CocktailIDReq req) {
+        cocktailDetailService.setCocktailLike(req.getCocktailId(), accessToken);
+        return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+    }
 }

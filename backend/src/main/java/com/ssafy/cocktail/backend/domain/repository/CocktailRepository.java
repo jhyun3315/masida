@@ -28,5 +28,6 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
             "from cocktails " +
             "order by rand() limit 1", nativeQuery = true)
     CocktailLikesInterface getCocktailRandomOne();
+    Cocktail findCocktailById(Long cocktailId);
 
 }
