@@ -33,6 +33,7 @@ const Main_banner = () => {
   const router2 = useRouter();
   const { query } = router;
 
+  console.log(query);
   console.log(query.acessToken);
 
   return (
