@@ -1,18 +1,12 @@
 import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
 import style from './Main_banner.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { RootState } from '../../../store/store';
 import { ImageLoaderProps } from 'next/image';
 import { imgLoader } from '../../utils/imgLoader';
-import { NextRequest } from 'next/server';
-import { NextResponse } from 'next/server';
-import { getSession } from 'next-auth/client';
-import { signIn, useSession, signOut } from "next-auth/react";
 
 const Main_banner = () => {
   const settings = {
@@ -35,10 +29,7 @@ const Main_banner = () => {
     router.push("/theme/summer");
   }
 
-  const [session,loading] = getSession();
-
-  if (session) console.log(session);
-  if (loading) console.log('ssss');
+  console.log('sssssss');
 
 
   return (
@@ -114,7 +105,6 @@ const Main_banner = () => {
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
             <Link href="">로그인</Link>
-            <button onClick={ ()=>signIn("kakao")}>로긴</button>
             </div>
             <div className={style.mainTitle} onClick = {goSummer}>
               <h1>여름 햇살 아래 즐기는 칵테일이 궁금하신가요?</h1>
