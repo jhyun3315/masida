@@ -39,7 +39,7 @@ const Main_banner = () => {
 
   const onClickHandler = () => { 
     useEffect(() => {
-      axios.get('/api/my-data', {
+      axios.get('/api/oauth/kakao/logout', {
         headers: {
           Authorization:query.accessToken,
         }
