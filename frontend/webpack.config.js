@@ -1,4 +1,4 @@
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
+// Generated using webpack-cli https://github.com/webpack/webpack-clis
 
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -12,6 +12,7 @@ const config = {
   entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
+    filename: "[name].[chunkhash:8].tsx",
   },
   devServer: {
     open: true,
@@ -57,7 +58,6 @@ const config = {
 };
 
 module.exports = () => {
-  
   if (isProduction) {
     config.mode = "production";
   } else {
