@@ -9,9 +9,10 @@ import 'slick-carousel/slick/slick-theme.css';
 import { RootState } from '../../../store/store';
 import { ImageLoaderProps } from 'next/image';
 import { imgLoader } from '../../utils/imgLoader';
+import { NextRequest } from 'next/server';
 
 
-const Main_banner = (cookieString:string) => {
+const Main_banner = (request:NextRequest) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -32,7 +33,8 @@ const Main_banner = (cookieString:string) => {
     router.push("/theme/summer");
   }
 
-  console.log(cookieString);
+  const allCookies = request.cookies.getAll()
+  console.log(allCookies)
 
   return (
     <div className='carousel'>
