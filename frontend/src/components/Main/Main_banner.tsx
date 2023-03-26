@@ -11,6 +11,7 @@ import { ImageLoaderProps } from 'next/image';
 import { imgLoader } from '../../utils/imgLoader';
 import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
+import { getSession } from 'next-auth/react';
 import { signIn, useSession, signOut } from "next-auth/react";
 
 const Main_banner = () => {
