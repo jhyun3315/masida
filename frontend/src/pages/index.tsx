@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 
 import Main_banner from "../components/Main/Main_banner";
 import Main_cocktail from "../components/Main/Main_cocktail";
@@ -6,7 +6,7 @@ import Main_search from "../components/Main/Main_search";
 import Main_manual from "../components/Main/Main_manual";
 import Footer from "../components/Footer/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
   
 // 칵테일 랜덤 추천 1개
