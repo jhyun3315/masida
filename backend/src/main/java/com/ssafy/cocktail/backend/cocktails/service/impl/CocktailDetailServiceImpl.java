@@ -51,9 +51,9 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
                 cocktailDetail.setCocktailDifficulty("상"); // '상' 난이도 삽입
                 break;
         }
-        List<Like> likes = likeRepository.findAllByCocktail(cocktail.get()); // 칵테일 좋아요 가져오기
+        List<Like> likes = likeRepository.findAllByCocktailAndLikeDeleted(cocktail.get(), "N"); // 칵테일 좋아요 가져오기
         cocktailDetail.setCocktailLikes(likes.size()); // 칵테일 좋아요 개수 삽입
-        List<Comment> cocktails = commentRepository.findAllByCocktail(cocktail.get()); // 칵테일 댓글 가져오기
+        List<Comment> cocktails = commentRepository.findAllByCocktailAndCommentDeleted(cocktail.get(), "N"); // 칵테일 댓글 가져오기
         cocktailDetail.setCocktailComments(cocktails.size()); // 칵테일 댓글 개수 삽입
         if (accessToken != null) { // 로그인한 유저이면
             User user = oAuthService.getUser(accessToken); // 유저 가져오기
