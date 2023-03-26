@@ -35,17 +35,11 @@ const Main_banner = () => {
     router.push("/theme/summer");
   }
 
-  // const allCookies = request.cookies.getAll()
-  // console.log(allCookies)
+  const [session,loading] = getSession();
 
-  // const response = NextResponse.next();
-  // console.log(response);
+  if (session) console.log(session);
+  if (loading) console.log('ssss');
 
-  const { data: session } = useSession();
-
-  if (session) {
-    console.log(session.user);
-  }
 
   return (
     <div className='carousel'>
