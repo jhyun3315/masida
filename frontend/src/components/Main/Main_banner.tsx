@@ -11,7 +11,7 @@ import { ImageLoaderProps } from 'next/image';
 import { imgLoader } from '../../utils/imgLoader';
 import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { getSession } from 'next-auth/react';
+import { getSession } from 'next-auth/client';
 import { signIn, useSession, signOut } from "next-auth/react";
 
 const Main_banner = () => {
@@ -19,7 +19,7 @@ const Main_banner = () => {
     dots: true,
     infinite: true,
     speed: 100,
-    // autoplay: true,
+    // autoplay: true,s
     autoplaySpeed: 3000
   }
   const router = useRouter();
