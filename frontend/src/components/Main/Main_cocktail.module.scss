@@ -4,7 +4,7 @@
 
   .mainCocktail_header {
     margin-bottom: 5%;
-    font-size: 2rem;
+    font-size: 4.75vh;
   }
 
   .mainCocktail_content {
@@ -14,13 +14,16 @@
       display: flex;
       flex: 1;
       border: 1px solid black;
-      padding: 1%;
+      padding: 0.75%;
+      // margin-top: 3%;
       margin-right: 3%;
 
-      .mainCocktail_recommend_img {}
+      .mainCocktail_recommend_img {
+        // margin-top: 7%;
+      }
 
       .mainCocktail_recommend_detail {
-        margin: 2% 0 0 5%;
+        margin: 7.5% 0 0 5%;
 
         h2 {
           font-size: 1.5rem;
@@ -29,6 +32,9 @@
         p {
           margin-top: 10%;
 
+          img {
+            margin-top: 5%;
+          }
         }
       }
     }
@@ -37,27 +43,29 @@
       width: 30%;
       flex: 1;
 
-      a {
-        color: black;
-        text-decoration-line: none;
-        margin-left: 70%;
-      }
-
       .cocktailTopLike {
         display: flex;
-        // flex-direction: column;
 
         .cocktailTopLike_Img {
           flex: 1;
         }
 
         .cocktailTopLike_desc {
+          text-align: center;
+          font-weight: 1.2rem;
           flex: 1;
 
           p {
             display: flex;
           }
         }
+      }
+
+      a {
+        color: black;
+        text-decoration-line: none;
+        margin-left: 70%;
+        margin-top: 30%;
       }
     }
   }

@@ -15,7 +15,7 @@ const Main_banner = () => {
     dots: true,
     infinite: true,
     speed: 100,
-    // autoplay: true,ss
+    autoplay: true,
     autoplaySpeed: 3000
   }
   const router = useRouter();
@@ -46,7 +46,7 @@ const Main_banner = () => {
   }
 
   return (
-    <div className='carousel'>
+    <div className={ style.mainBanner}>
         <Slider {...settings}>
           <div className={style.mainBanner_black}>
             <Image
@@ -120,8 +120,8 @@ const Main_banner = () => {
               <Link href="/search">칵테일 검색</Link>
             <Link href="">로그인</Link>
             </div>
-            <div className={style.mainTitle} onClick = {goSummer}>
-              <h1>여름 햇살 아래 즐기는 칵테일이 궁금하신가요?</h1>
+            <div className={style.mainTitle4} onClick = {goSummer}>
+              <h1>여름 햇살 아래 즐기는 칵테일, 궁금하신가요?</h1>
               <h3>여름에 어울리는 다양한 칵테일을 추천해드립니다.</h3>
             </div>
           </div>
