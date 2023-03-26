@@ -10,7 +10,7 @@ import lombok.Setter;
 public class CocktailMain {
     @Schema(description = "칵테일 id", example = "0")
     @JsonProperty("cocktail_id")
-    private int cocktailId;
+    private Long cocktailId;
     @Schema(description = "칵테일 한글 이름", example = "칵테일")
     @JsonProperty("cocktail_name_ko")
     private String cocktailNameKo;
@@ -30,7 +30,7 @@ public class CocktailMain {
     @JsonProperty("cocktail_comments")
     private int cocktailComments = 0;
 
-    public CocktailMain(int cocktailId, String cocktailNameKo, String cocktailNameEn, String cocktailImg, Double cocktailRating) {
+    public CocktailMain(Long cocktailId, String cocktailNameKo, String cocktailNameEn, String cocktailImg, Double cocktailRating) {
         this.cocktailId = cocktailId;
         this.cocktailNameKo = cocktailNameKo;
         this.cocktailNameEn = cocktailNameEn;

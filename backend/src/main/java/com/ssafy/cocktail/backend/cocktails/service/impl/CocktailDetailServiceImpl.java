@@ -11,6 +11,7 @@ import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -50,9 +51,9 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
                 cocktailDetail.setCocktailDifficulty("상"); // '상' 난이도 삽입
                 break;
         }
-        List<Like> likes = likeRepository.findAllByCocktail(cocktail.get()); // 칵테일 좋아요 가져오기
+        List<Like> likes = likeRepository.findAllByCocktailAndLikeDeleted(cocktail.get(), "N"); // 칵테일 좋아요 가져오기
         cocktailDetail.setCocktailLikes(likes.size()); // 칵테일 좋아요 개수 삽입
-        List<Comment> cocktails = commentRepository.findAllByCocktail(cocktail.get()); // 칵테일 댓글 가져오기
+        List<Comment> cocktails = commentRepository.findAllByCocktailAndCommentDeleted(cocktail.get(), "N"); // 칵테일 댓글 가져오기
         cocktailDetail.setCocktailComments(cocktails.size()); // 칵테일 댓글 개수 삽입
         if (accessToken != null) { // 로그인한 유저이면
             User user = oAuthService.getUser(accessToken); // 유저 가져오기
@@ -82,5 +83,27 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
             cocktailDetail.getRecipe().add(new RecipeDetail(recipe.getRecipeNum(), recipe.getRecipeContent())); // 제조법 삽입
         }
         return cocktailDetail;
+    }
+
+    @Override
+    public void setCocktailLike(Long cocktailId, String accessToken) {
+        // 좋아요 체크 상태이면 true, 좋아요 해제 상태이면 false 리턴
+        Cocktail cocktail = cocktailRepository.findCocktailById(cocktailId); // 칵테일 가져오기
+        User user = oAuthService.getUser(accessToken); // 사용자 가져오기
+        Like like = likeRepository.findByUserAndCocktail(user, cocktail); // 칵테일의 사용자 좋아요 가져오기
+        if (like == null) { // 사용자가 칵테을을 좋아요를 누른적이 없다면
+            likeRepository.save(
+                    Like.builder()
+                            .likeDeleted("N")
+                            .cocktail(cocktail)
+                            .user(user)
+                            .likeCreatedDate(LocalDateTime.now())
+                            .likeUpdateDate(LocalDateTime.now()).build()
+            ); // 좋아요 저장
+            return;
+        }
+        like.setLikeDeleted(like.getLikeDeleted().equals("N") ? "Y" : "N"); // 좋아요 상태 변환
+        like.setLikeUpdateDate(LocalDateTime.now()); // 업데이트 시간
+        likeRepository.save(like); // 좋아요 업데이트
     }
 }

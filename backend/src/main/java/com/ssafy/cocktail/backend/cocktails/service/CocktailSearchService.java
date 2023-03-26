@@ -8,4 +8,5 @@ import java.util.ArrayList;
 public interface CocktailSearchService {
     public ArrayList<IngredientSearch> getIngredientSearchList();
     public ArrayList<CocktailMain> getCocktailMainList();
+    public CocktailMain getCocktailRandomOne();
 }

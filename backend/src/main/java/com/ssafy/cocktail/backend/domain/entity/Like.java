@@ -28,8 +28,7 @@ public class Like {
     @Column(nullable = false)
     private LocalDateTime likeUpdateDate;
     @Builder
-    public Like(Long id, String likeDeleted, LocalDateTime likeCreatedDate, LocalDateTime likeUpdateDate, User user, Cocktail cocktail) {
-        this.id = id;
+    public Like(String likeDeleted, LocalDateTime likeCreatedDate, LocalDateTime likeUpdateDate, User user, Cocktail cocktail) {
         this.likeDeleted = likeDeleted;
         this.likeCreatedDate = likeCreatedDate;
         this.likeUpdateDate = likeUpdateDate;

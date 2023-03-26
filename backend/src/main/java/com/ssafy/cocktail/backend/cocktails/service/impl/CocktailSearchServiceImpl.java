@@ -1,8 +1,8 @@
 package com.ssafy.cocktail.backend.cocktails.service.impl;
 
 
+import com.ssafy.cocktail.backend.cocktails.dto.CocktailLikesInterface;
 import com.ssafy.cocktail.backend.cocktails.dto.CocktailMain;
-import com.ssafy.cocktail.backend.cocktails.dto.CocktailSortedLikes;
 import com.ssafy.cocktail.backend.cocktails.dto.IngredientSearch;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailSearchService;
 import com.ssafy.cocktail.backend.domain.entity.Ingredient;
@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -35,14 +34,23 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
     @Override
     public ArrayList<CocktailMain> getCocktailMainList() {
         // 칵테일을 좋아요 개수 최대 상위 10개 리턴
-        ArrayList<CocktailMain> cocktailMains = new ArrayList<>();
-        List<CocktailSortedLikes> objects = cocktailRepository.findCocktailByLikes();
-        System.out.println("aaaaaa");
-//        List<CocktailSortedLikes> cocktailSortedLikesList =  cocktailRepository.findCocktailByLikes();
-//        for (CocktailSortedLikes cocktail: cocktailSortedLikesList) {
-//            if (cocktailMains.size() == 10) break;
-//            cocktailMains.add(new CocktailMain(cocktail.getCocktailId(), cocktail.getCocktailNameKo(), cocktail.getCocktailNameEn(), cocktail.getCocktailImg(), (double) Math.round(cocktail.getCocktailRating())));
-//        }
+        ArrayList<CocktailMain> cocktailMains = new ArrayList<>(); // 좋아요 칵테일 정보
+        List<CocktailLikesInterface> cocktailLikesInterfaces = cocktailRepository.findCocktailByLikes(); // 좋아요 개수로 내림차순 정렬하여 칵테일 가져오기
+        for (CocktailLikesInterface cocktail: cocktailLikesInterfaces) { // 칵테일
+            if (cocktailMains.size() == 10) break; // 10개의 칵테일을 찾았으면
+            cocktailMains.add(new CocktailMain(cocktail.getCocktailId(), cocktail.getCocktailNameKo(), cocktail.getCocktailNameEn(), cocktail.getCocktailImg(), Math.round(cocktail.getCocktailRating()*10)/10.0)); // 좋아요 칵테알 추가
+        }
         return cocktailMains;
+    }
+
+    @Override
+    public CocktailMain getCocktailRandomOne() {
+        // 칵테일을 랜덤으로 1개 뽑아서 리턴
+        CocktailLikesInterface cocktail = cocktailRepository.getCocktailRandomOne(); // 칵테일 랜덤으로 1개 가져오기
+        if (cocktail != null) { // 칵테일이 있다면
+            CocktailMain cocktailMain = new CocktailMain(cocktail.getCocktailId(), cocktail.getCocktailNameKo(), cocktail.getCocktailNameEn(), cocktail.getCocktailImg(), Math.round(cocktail.getCocktailRating()*10)/10.0); // 랜덤 칵테일 1개 생성
+            return cocktailMain;
+        }
+        return null;
     }
 }
