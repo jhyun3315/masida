@@ -1,4 +1,4 @@
-import style from "./Cocktail_info.module.scss";
+import style from "./Cocktail_Info.module.scss";
 import { detail_props } from "../../type/cocktailTypes";
 import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty_img_url_converter";
 const Cocktail_info = (props: detail_props) => {
