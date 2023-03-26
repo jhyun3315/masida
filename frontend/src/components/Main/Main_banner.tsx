@@ -13,7 +13,7 @@ const Main_banner = () => {
     dots: true,
     infinite: true,
     speed: 100,
-    // autoplay: true,s
+    // autoplay: true,ss
     autoplaySpeed: 3000
   }
   const router = useRouter();
