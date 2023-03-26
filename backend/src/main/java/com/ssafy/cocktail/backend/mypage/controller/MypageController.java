@@ -1,14 +1,18 @@
 package com.ssafy.cocktail.backend.mypage.controller;
 
-import com.ssafy.cocktail.backend.cocktails.dto.request.CocktailIDReq;
 import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
+import com.ssafy.cocktail.backend.domain.entity.Cocktail;
+import com.ssafy.cocktail.backend.domain.entity.User;
 import com.ssafy.cocktail.backend.mypage.service.MypageBookmarkService;
 import com.ssafy.cocktail.backend.mypage.service.MypageCommentService;
 import com.ssafy.cocktail.backend.mypage.service.MypageLikeService;
+import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Tag(name = "mypage", description = "마이페이지 API")
 @RestController
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/mypage")
 public class MypageController {
 
+	private final OAuthService oAuthService;
 	private final MypageLikeService mypageLikeService;
 	private final MypageBookmarkService mypageBookmarkService;
 	private final MypageCommentService mypageCommentService;
@@ -28,7 +33,13 @@ public class MypageController {
 
 	@GetMapping("/likes")
 	public ResponseEntity<?> getLikeCocktailList(@RequestHeader("Authorization") String accessToken) {
+		// access token 유효한지는 검사 안해도 되나?
 
+		// 해당 사용자 가져오기
+		User user = oAuthService.getUser(accessToken);
+
+		// 해당 유저가 좋아요한 칵테일 리스트
+		List<Cocktail> likeCocktail =  mypageLikeService.getLikeCocktailList(user);
 		return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
 	}
 
