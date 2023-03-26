@@ -83,4 +83,9 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         }
         return cocktailDetail;
     }
+
+    @Override
+    public boolean setCocktailLike(Double cocktailId, String accessToken) {
+        return false;
+    }
 }
