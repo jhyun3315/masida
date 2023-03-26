@@ -28,8 +28,7 @@ public class Bookmark {
     @Column(nullable = false)
     private LocalDateTime bookmarkUpdateDate;
     @Builder
-    public Bookmark(Long id, String bookmarkDeleted, LocalDateTime bookmarkCreatedDate, LocalDateTime bookmarkUpdateDate, User user, Cocktail cocktail) {
-        this.id = id;
+    public Bookmark(String bookmarkDeleted, LocalDateTime bookmarkCreatedDate, LocalDateTime bookmarkUpdateDate, User user, Cocktail cocktail) {
         this.bookmarkDeleted = bookmarkDeleted;
         this.bookmarkCreatedDate = bookmarkCreatedDate;
         this.bookmarkUpdateDate = bookmarkUpdateDate;
