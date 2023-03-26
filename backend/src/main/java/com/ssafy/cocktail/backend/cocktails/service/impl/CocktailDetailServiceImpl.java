@@ -86,7 +86,7 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
     }
 
     @Override
-    public boolean setCocktailLike(Long cocktailId, String accessToken) {
+    public void setCocktailLike(Long cocktailId, String accessToken) {
         // 좋아요 체크 상태이면 true, 좋아요 해제 상태이면 false 리턴
         Cocktail cocktail = cocktailRepository.findCocktailById(cocktailId); // 칵테일 가져오기
         User user = oAuthService.getUser(accessToken); // 사용자 가져오기
@@ -100,11 +100,9 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
                             .likeCreatedDate(LocalDateTime.now())
                             .likeUpdateDate(LocalDateTime.now()).build()
             );
-            return true;
         }
         like.setLikeDeleted(like.getLikeDeleted().equals("N") ? "Y" : "N"); // 좋아요 상태 변환
         like.setLikeUpdateDate(LocalDateTime.now()); // 업데이트 시간
         likeRepository.save(like); // 좋아요 업데이트
-        return like.getLikeDeleted().equals("N");
     }
 }
