@@ -31,9 +31,9 @@ const Main_banner = () => {
 
   console.log('sssssss');
   const router2 = useRouter();
-  const x: string = router2.query.acesstoken as string;
+  const { query } = router;
 
-  console.log(x);
+  console.log(query);
 
   return (
     <div className='carousel'>
