@@ -13,6 +13,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -31,25 +33,37 @@ public class OAuthController {
         response.sendRedirect(loginPageUri); // 로그인 페이지로 이동
     }
 
+//    @ResponseBody
+//    @GetMapping("/kakao/callback")
+//    public ResponseEntity<UserLoginRes> kakaoCallback(@RequestParam String code, HttpServletResponse response) throws Exception {
+//        // 카카오 로그인 콜백
+//        // 로그인 완료
+//        UserLoginInfo userLoginInfo = oAuthService.loginUser(code); // 회원 정보 저장
+//        Cookie cookie = new Cookie("refreshToken", userLoginInfo.getRefreshToken()); // 쿠키에 refreshToeken 저장
+//        cookie.setMaxAge(JwtTokenUtil.refreshExpirationTime); // JWT 만료 시간 설정
+////        cookie.setSecure(true); // 클라이언트가 HTTPS가 아닌 통신에서는 해당 쿠키를 전송하지 않도록 하는 설정
+////        cookie.setHttpOnly(true); // 브라우저에서 쿠키에 접근할 수 없도록 하는 설정 (XSS 공격 방지)
+//        cookie.setPath("/"); // 프론트 메인 페이지 설정
+//        Cookie cookie2 = new Cookie("accessToken", userLoginInfo.getAccessToken());
+////        cookie2.setSecure(true); // 클라이언트가 HTTPS가 아닌 통신에서는 해당 쿠키를 전송하지 않도록 하는 설정
+//        cookie2.setPath("/"); // 프론트 메인 페이지 설정
+//
+////        response.setHeader("accessToken", userLoginInfo.getAccessToken());
+////        String mainPageUri = "http://localhost:8080/"; // 매인 페이지 가져오기
+//        String mainPageUri = "/";
+////        response.sendRedirect(mainPageUri); // 메인 페이지로 이동
+//        return ResponseEntity.ok(UserLoginRes.of(200, "Success", userLoginInfo.getAccessToken(), userLoginInfo.getUserName()));
+//    }
+
     @ResponseBody
     @GetMapping("/kakao/callback")
-    public ResponseEntity<UserLoginRes> kakaoCallback(@RequestParam String code, HttpServletResponse response) throws Exception {
+    public RedirectView kakaoCallback(@RequestParam String code, RedirectAttributes attributes) throws Exception {
         // 카카오 로그인 콜백
         // 로그인 완료
-        UserLoginInfo userLoginInfo = oAuthService.loginUser(code); // 회원 정보 저장
-        Cookie cookie = new Cookie("refreshToken", userLoginInfo.getRefreshToken()); // 쿠키에 refreshToeken 저장
-        cookie.setMaxAge(JwtTokenUtil.refreshExpirationTime); // JWT 만료 시간 설정
-        cookie.setSecure(true); // 클라이언트가 HTTPS가 아닌 통신에서는 해당 쿠키를 전송하지 않도록 하는 설정
-        cookie.setHttpOnly(true); // 브라우저에서 쿠키에 접근할 수 없도록 하는 설정 (XSS 공격 방지)
-        cookie.setPath("/"); // 프론트 메인 페이지 설정
-        Cookie cookie2 = new Cookie("accessToken", userLoginInfo.getAccessToken());
-        cookie2.setSecure(true); // 클라이언트가 HTTPS가 아닌 통신에서는 해당 쿠키를 전송하지 않도록 하는 설정
-        cookie2.setPath("/"); // 프론트 메인 페이지 설정
-//        response.setHeader("accessToken", userLoginInfo.getAccessToken());
-//        String mainPageUri = "http://localhost:8080/"; // 매인 페이지 가져오기
-        String mainPageUri = "/";
-//        response.sendRedirect(mainPageUri); // 메인 페이지로 이동
-        return ResponseEntity.ok(UserLoginRes.of(200, "Success", userLoginInfo.getAccessToken(), userLoginInfo.getUserName()));
+        UserLoginInfo userLoginInfo = oAuthService.loginUser(code); // 회원 정보 저장 및 가져오기
+        attributes.addFlashAttribute("refreshToken", userLoginInfo.getRefreshToken());
+        attributes.addFlashAttribute("accessToken", userLoginInfo.getAccessToken());
+        return new RedirectView("/");
     }
 
     @GetMapping("/kakao/logout")
