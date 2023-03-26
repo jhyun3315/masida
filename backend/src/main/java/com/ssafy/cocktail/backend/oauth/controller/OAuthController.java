@@ -61,8 +61,13 @@ public class OAuthController {
         // 카카오 로그인 콜백
         // 로그인 완료
         UserLoginInfo userLoginInfo = oAuthService.loginUser(code); // 회원 정보 저장 및 가져오기
+        System.out.println("--------------------------------");
+        System.out.println("로그인 완료");
+        System.out.println("refreshToken: "+ userLoginInfo.getRefreshToken());
+        System.out.println("accessToken: "+  userLoginInfo.getAccessToken());
         attributes.addFlashAttribute("refreshToken", userLoginInfo.getRefreshToken());
         attributes.addFlashAttribute("accessToken", userLoginInfo.getAccessToken());
+        attributes.addAttribute("accessToken", userLoginInfo.getAccessToken());
         response.setHeader("accessToken", userLoginInfo.getAccessToken());
         Cookie cookie = new Cookie("accessTokenCookie", userLoginInfo.getAccessToken());
         cookie.setHttpOnly(true);
