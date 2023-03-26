@@ -65,6 +65,7 @@ public class OAuthController {
         attributes.addFlashAttribute("accessToken", userLoginInfo.getAccessToken());
         response.setHeader("accessToken", userLoginInfo.getAccessToken());
         Cookie cookie = new Cookie("accessTokenCookie", userLoginInfo.getAccessToken());
+        cookie.setHttpOnly(true);
         response.addCookie(cookie);
         return new RedirectView("/");
     }
