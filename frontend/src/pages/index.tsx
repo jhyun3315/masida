@@ -61,7 +61,7 @@ export default function Home(): JSX.Element{
       data:[
         {
           cocktail_id: 1,
-          cocktail_name_ko: "오렌지 블라섬",
+          cocktail_name_ko: "오렌지 블라섬1",
           cocktail_name_en: "Orange Blossom",
           cocktail_img: "/assets/image/cocktail.png",
           cocktail_rating: 3.92,
@@ -69,8 +69,8 @@ export default function Home(): JSX.Element{
           cocktail_comments: 180,
         },
         {
-          cocktail_id: 1,
-          cocktail_name_ko: "핑크 블라섬",
+          cocktail_id: 2,
+          cocktail_name_ko: "기목티2",
           cocktail_name_en: "Pink Blossom",
           cocktail_img: "/assets/image/cocktail.png",
           cocktail_rating: 3.92,
@@ -78,8 +78,8 @@ export default function Home(): JSX.Element{
           cocktail_comments: 180,
         },
         {
-          cocktail_id: 1,
-          cocktail_name_ko: "핑크 블라섬",
+          cocktail_id: 3,
+          cocktail_name_ko: "핑크 블라섬3",
           cocktail_name_en: "Pink Blossom",
           cocktail_img: "/assets/image/cocktail.png",
           cocktail_rating: 3.92,
@@ -87,8 +87,8 @@ export default function Home(): JSX.Element{
           cocktail_comments: 180,
         },
         {
-          cocktail_id: 1,
-          cocktail_name_ko: "핑크 블라섬",
+          cocktail_id: 4,
+          cocktail_name_ko: "핑크 블라섬4",
           cocktail_name_en: "Pink Blossom",
           cocktail_img: "/assets/image/cocktail.png",
           cocktail_rating: 3.92,
@@ -96,8 +96,8 @@ export default function Home(): JSX.Element{
           cocktail_comments: 180,
         },
         {
-          cocktail_id: 1,
-          cocktail_name_ko: "핑크 블라섬",
+          cocktail_id: 5,
+          cocktail_name_ko: "핑크 블라섬5",
           cocktail_name_en: "Pink Blossom",
           cocktail_img: "/assets/image/cocktail.png",
           cocktail_rating: 3.92,
@@ -105,8 +105,8 @@ export default function Home(): JSX.Element{
           cocktail_comments: 180,
         },
         {
-          cocktail_id: 1,
-          cocktail_name_ko: "핑크 블라섬",
+          cocktail_id: 6,
+          cocktail_name_ko: "핑크 블라섬6",
           cocktail_name_en: "Pink Blossom",
           cocktail_img: "/assets/image/cocktail.png",
           cocktail_rating: 3.92,
@@ -114,8 +114,8 @@ export default function Home(): JSX.Element{
           cocktail_comments: 180,
         },
         {
-          cocktail_id: 1,
-          cocktail_name_ko: "핑크 블라섬",
+          cocktail_id: 7,
+          cocktail_name_ko: "핑크 블라섬7",
           cocktail_name_en: "Pink Blossom",
           cocktail_img: "/assets/image/cocktail.png",
           cocktail_rating: 3.92,
@@ -123,8 +123,8 @@ export default function Home(): JSX.Element{
           cocktail_comments: 180,
         },
         {
-          cocktail_id: 1,
-          cocktail_name_ko: "핑크 블라섬",
+          cocktail_id: 8,
+          cocktail_name_ko: "핑크 블라섬8",
           cocktail_name_en: "Pink Blossom",
           cocktail_img: "/assets/image/cocktail.png",
           cocktail_rating: 3.92,
@@ -132,8 +132,8 @@ export default function Home(): JSX.Element{
           cocktail_comments: 180,
         },
         {
-          cocktail_id: 1,
-          cocktail_name_ko: "핑크 블라섬",
+          cocktail_id: 9,
+          cocktail_name_ko: "핑크 블라섬9",
           cocktail_name_en: "Pink Blossom",
           cocktail_img: "/assets/image/cocktail.png",
           cocktail_rating: 3.92,
@@ -141,8 +141,8 @@ export default function Home(): JSX.Element{
           cocktail_comments: 180,
         },
         {
-          cocktail_id: 1,
-          cocktail_name_ko: "핑크 블라섬",
+          cocktail_id: 10,
+          cocktail_name_ko: "메론소다 노맛10",
           cocktail_name_en: "Pink Blossom",
           cocktail_img: "/assets/image/cocktail.png",
           cocktail_rating: 3.92,
