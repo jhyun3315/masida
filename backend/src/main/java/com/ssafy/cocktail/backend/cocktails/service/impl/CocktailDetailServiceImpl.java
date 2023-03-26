@@ -91,7 +91,7 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         Cocktail cocktail = cocktailRepository.findCocktailById(cocktailId); // 칵테일 가져오기
         User user = oAuthService.getUser(accessToken); // 사용자 가져오기
         Like like = likeRepository.findByUserAndCocktail(user, cocktail); // 칵테일의 사용자 좋아요 가져오기
-        if (like == null) { // 사용자가 칵테을을 좋아요를 누른적이 없다면
+        if (like == null) { // 사용자가 칵테일의 좋아요를 누른적이 없다면
             likeRepository.save(
                     Like.builder()
                             .likeDeleted("N")
@@ -103,7 +103,29 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
             return;
         }
         like.setLikeDeleted(like.getLikeDeleted().equals("N") ? "Y" : "N"); // 좋아요 상태 변환
-        like.setLikeUpdateDate(LocalDateTime.now()); // 업데이트 시간
+        like.setLikeUpdateDate(LocalDateTime.now()); // 업데이트 시간 수정
         likeRepository.save(like); // 좋아요 업데이트
+    }
+
+    @Override
+    public void setCocktailBookMark(Long cocktailId, String accessToken) {
+        Cocktail cocktail = cocktailRepository.findCocktailById(cocktailId); // 칵테일 가져오기
+        User user = oAuthService.getUser(accessToken); // 사용자 가져오기
+        Bookmark bookmark = bookmarkRepository.findByUserAndCocktail(user, cocktail);
+        if (bookmark == null) { // 사용자가 칵테일의 북마크를 누른적이 없다면
+            bookmarkRepository.save(
+                    Bookmark.builder()
+                            .bookmarkDeleted("N")
+                            .cocktail(cocktail)
+                            .user(user)
+                            .bookmarkCreatedDate(LocalDateTime.now())
+                            .bookmarkUpdateDate(LocalDateTime.now())
+                            .build()
+            ); // 북마크 저장
+            return;
+        }
+        bookmark.setBookmarkDeleted(bookmark.getBookmarkDeleted().equals("N") ? "Y" : "N"); // 북마크 상태 변환
+        bookmark.setBookmarkUpdateDate(LocalDateTime.now()); // 업데이트 시간 수정
+        bookmarkRepository.save(bookmark); // 북마크 업데이트
     }
 }

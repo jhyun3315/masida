@@ -70,4 +70,10 @@ public class CocktailController {
         cocktailDetailService.setCocktailLike(req.getCocktailId(), accessToken);
         return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
     }
+
+    @PostMapping("/bookmarks")
+    public ResponseEntity<?> cocktailBookmarks(@RequestHeader("authorization") String accessToken, @RequestBody CocktailIDReq req) {
+        cocktailDetailService.setCocktailBookMark(req.getCocktailId(), accessToken);
+        return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+    }
 }
