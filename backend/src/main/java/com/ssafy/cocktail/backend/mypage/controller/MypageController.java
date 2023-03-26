@@ -3,6 +3,8 @@ package com.ssafy.cocktail.backend.mypage.controller;
 import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.User;
+import com.ssafy.cocktail.backend.mypage.dto.LikeBookmarkCocktail;
+import com.ssafy.cocktail.backend.mypage.dto.response.LikeCocktailsRes;
 import com.ssafy.cocktail.backend.mypage.service.MypageBookmarkService;
 import com.ssafy.cocktail.backend.mypage.service.MypageCommentService;
 import com.ssafy.cocktail.backend.mypage.service.MypageLikeService;
@@ -13,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Tag(name = "mypage", description = "마이페이지 API")
 @RestController
@@ -39,8 +42,13 @@ public class MypageController {
 		User user = oAuthService.getUser(accessToken);
 
 		// 해당 유저가 좋아요한 칵테일 리스트
-		List<Cocktail> likeCocktail =  mypageLikeService.getLikeCocktailList(user);
-		return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+		List<Cocktail> likeCocktailList =  mypageLikeService.getLikeCocktailList(user);
+
+		List<LikeBookmarkCocktail> result = likeCocktailList.stream()
+				.map(c -> new LikeBookmarkCocktail(c))
+				.collect(Collectors.toList());
+
+		return ResponseEntity.status(200).body(LikeCocktailsRes.of(200, "Success", result));
 	}
 
 	@GetMapping("/bookmarks")
