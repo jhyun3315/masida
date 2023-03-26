@@ -106,4 +106,9 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         like.setLikeUpdateDate(LocalDateTime.now()); // 업데이트 시간
         likeRepository.save(like); // 좋아요 업데이트
     }
+
+    @Override
+    public void setCocktailBookMark(Long cocktailId, String accessToken) {
+        
+    }
 }
