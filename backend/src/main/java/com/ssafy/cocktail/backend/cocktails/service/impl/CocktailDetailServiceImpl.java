@@ -99,7 +99,8 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
                             .user(user)
                             .likeCreatedDate(LocalDateTime.now())
                             .likeUpdateDate(LocalDateTime.now()).build()
-            );
+            ); // 좋아요 저장
+            return;
         }
         like.setLikeDeleted(like.getLikeDeleted().equals("N") ? "Y" : "N"); // 좋아요 상태 변환
         like.setLikeUpdateDate(LocalDateTime.now()); // 업데이트 시간

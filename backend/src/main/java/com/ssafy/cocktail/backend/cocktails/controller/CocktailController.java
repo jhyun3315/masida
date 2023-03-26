@@ -66,7 +66,7 @@ public class CocktailController {
     }
 
     @PostMapping("/likes")
-    public ResponseEntity<?> cocktailLikes(@RequestHeader("authorization") String accessToken, CocktailIDReq req) {
+    public ResponseEntity<?> cocktailLikes(@RequestHeader("authorization") String accessToken, @RequestBody CocktailIDReq req) {
         cocktailDetailService.setCocktailLike(req.getCocktailId(), accessToken);
         return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
     }
