@@ -1,0 +1,224 @@
+.commentModal {
+  border: 1px solid black;
+  background-color: white;
+  position: fixed;
+  width: 39%;
+  height: 90%;
+  top: 8%;
+  right: 0.5%;
+  border: 1px solid black;
+  border-radius: 10px;
+  .comment_sort {
+    font-size: 24px;
+    margin: 10px 0px 10px 0px;
+    .comment_sort_btn {
+      opacity: 0;
+    }
+    .comment_sort_label {
+      margin-right: 1rem;
+      color: #9b9292;
+    }
+    input:checked + label {
+      font-size: 25px;
+      color: #253976;
+      font-weight: bold;
+    }
+  }
+  .comment_btn {
+    position: absolute;
+    left: 0;
+    top: 45%;
+    width: 20px;
+    height: 80px;
+  }
+
+  .comment_list {
+  }
+  .comment_write {
+    bottom: 0;
+    font-size: 18px;
+    width: 100%;
+    .comment_write_box {
+      display: flex;
+      justify-content: space-between;
+      .comment_write_box_left {
+        align-items: center;
+        font-size: 25px;
+      }
+      .comment_write_box_right {
+        .difficulty_selector {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 28px;
+          margin-top: 8px;
+          .difficulty_selector_lev {
+            margin-right: 1rem;
+          }
+          input:checked + label {
+            font-size: 28px;
+            background-color: #253976;
+            color: white;
+            border-radius: 5px;
+          }
+          .difficulty_selector_btn {
+            opacity: 0;
+          }
+        }
+      }
+    }
+    .write_commentarea {
+      border-radius: 5px;
+      width: 90%;
+      margin-left: 1.5rem;
+      height: auto;
+      border-width: 1px;
+      font-size: 20px;
+      margin-top: 1rem;
+      resize: none;
+    }
+    .write_btn_form {
+      display: flex;
+      justify-content: flex-end;
+      .write_btn {
+        margin: 1rem;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 56px;
+        height: 32px;
+        font-weight: bold;
+        margin-right: 24px;
+      }
+    }
+  }
+}
+
+.comment_list {
+  height: 65vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  border: 1px solid rgba(0, 0, 255, 0.27);
+  border-radius: 2%;
+  width: 100%;
+  .comment {
+    display: flex;
+    width: 100%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    border-bottom: 1px solid black;
+    
+    .comment_layout {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .comment_left {
+        display: flex;
+
+        .user_comment_profile {
+          .user_profile_img {
+            height: 50px;
+            width: 50px;
+          }
+        }
+
+        .user_comment_textarea {
+          margin-right: 10px;
+          // width: 30%;
+          // display: flex;
+          // flex-wrap: wrap;
+          width: 300px;
+
+          .user_comment_name_date {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            font-size: 10px;
+            font-weight: bold;
+
+            .user_comment_name {
+              font-size: 16px;
+            }
+
+            .user_comment_date {
+              font-size : 14px;
+            }
+          }
+
+          .user_comment_content {
+            // 글이 늘어나면 아래로 늘어날 수 있도록 한다.
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 14px;
+            text-align: left;
+          }
+        }
+      }
+
+      .comment_right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        // width: 100px;
+        .comment_difficulty_user_rating {
+          display: flex;
+          flex-direction: row;
+
+          .comment_difficulty {
+            flex: 1;
+
+            .comment_difficulty_img {
+              width: 100%;
+            }
+          }
+
+          .comment_rating {
+            flex: 3;
+            display: flex;
+            flex-direction: rows;
+
+            .comment_rating_img {
+              width: 60%;
+            }
+          }
+        }
+
+        .cocktail_comment_edit {
+          display: flex;
+          flex-direction: row;
+
+          .comment_modify {
+            font-size: 10px;
+            font-weight: bold;
+
+            .comment_modify_img {
+              width: 40%;
+              height: 17px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.comment_list::-webkit-scrollbar {
+  width: 8px;
+  /* 스크롤바의 너비 */
+}
+
+.comment_list::-webkit-scrollbar-thumb {
+  height: 30%;
+  /* 스크롤바의 길이 */
+  background: #253976;
+  /* 스크롤바의 색상 */
+
+  border-radius: 10px;
+}
+
+.comment_list::-webkit-scrollbar-track {
+  background: rgba(33, 122, 244, .1);
+  /*스크롤바 뒷 배경 색상*/
+}

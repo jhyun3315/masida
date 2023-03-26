@@ -4,16 +4,15 @@ import { useRouter } from "next/router";
 import Header from "../../components/Header/Header";
 import Cocktail_Info from "../../components/Detail/Cocktail_Info";
 import Cocktail_recommend from "../../components/Detail/Cocktail_recommend";
-
 import {
   cocktailType,
   recipeType,
   ingredientType,
   detail_props,
 } from "../../type/cocktailTypes";
+import { commentType } from "../../type/commentTypes";
 import { useState } from "react";
 import Modal_portal from "../../components/Modal/Modal_portal";
-import UserSettingModal from "../../components/Modal/UserSettingModal";
 import CommentModal from "../../components/Modal/CommentModal";
 
 // import {
@@ -37,10 +36,18 @@ export type colorRecommend = {
   data: cocktailType[];
 };
 
+export type commentList = {
+  data: commentType[];
+};
+
 // 4. 2,3을 자식 컴포넌트에 전달할 type
 export type recommend_props = {
   color_recommend: colorRecommend;
   ingredient_recommend: ingredientRecommend;
+};
+
+export type comment_props = {
+  user_comment: commentList;
 };
 
 const recommend_props: recommend_props = {
@@ -125,6 +132,24 @@ const recommend_props: recommend_props = {
     ],
   },
 };
+
+// const comment_props : comment_props {
+//   user_comment : {
+//     data : [
+//       {
+//         comment_id : 1,
+//         comment_content : "장떡 존맛탱구리",
+//         comment_rating : 4.9,
+//         comment_create_date : "2023-03-25",
+//         comment_difficulty : "상",
+//         user_name : "김영주",
+//         user_profile : /assets/image/cocktailSample.png",
+//         writer_checker: true,
+//       }
+//     ]
+//   }
+// }
+
 const detail = () => {
   const router = useRouter();
   const [visible, setVisible] = useState<boolean>();
@@ -133,7 +158,7 @@ const detail = () => {
 
   const toggleComment = () => {
     setVisible(!visible);
-  }
+  };
 
   const detail_props: detail_props = {
     cocktail_id: parseInt(x, 10),
@@ -174,25 +199,32 @@ const detail = () => {
       {
         recipe_num: 4,
         recipe_content: "끝입니다~",
-      },{
+      },
+      {
         recipe_num: 4,
         recipe_content: "끝입니다~",
-      },{
+      },
+      {
         recipe_num: 4,
         recipe_content: "끝입니다~",
-      },{
+      },
+      {
         recipe_num: 4,
         recipe_content: "끝입니다~",
-      },{
+      },
+      {
         recipe_num: 4,
         recipe_content: "끝입니다~",
-      },{
+      },
+      {
         recipe_num: 4,
         recipe_content: "끝입니다~",
-      },{
+      },
+      {
         recipe_num: 4,
         recipe_content: "끝입니다~",
-      },{
+      },
+      {
         recipe_num: 4,
         recipe_content: "끝입니다~",
       },
@@ -242,10 +274,11 @@ const detail = () => {
             onClick={toggleComment}
           />
         </div>
-        {visible &&
-        <Modal_portal>
-          {/* <CommentModal setVisible={setVisible} visible={visible} /> */}
-        </Modal_portal>}
+        {visible && (
+          <Modal_portal>
+            <CommentModal setVisible={setVisible} visible={visible} />
+          </Modal_portal>
+        )}
       </div>
     </>
   );
