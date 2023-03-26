@@ -6,6 +6,8 @@ import "../reset.scss";
 import {store, persistor} from '../../store/store';
 import { PersistGate } from "redux-persist/integration/react";
 import LoadingSpinner from "../pages/loadingSpinner";
+import { SessionProvider } from "next-auth/react";
+
 
 //여기서 Provider로 감싸주어 store에 연결시켜줍니다.
 export default function App({ Component, pageProps }: AppProps) {
@@ -32,14 +34,14 @@ export default function App({ Component, pageProps }: AppProps) {
         };
   }, [router.events]);
   return (
-    <>
+    <SessionProvider session={ pageProps.session}>
     {loading && <LoadingSpinner />}
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
       {!loading && <Component {...pageProps} />}
       </PersistGate>
     </Provider>
-    </>
+    </SessionProvider>
   )
   
 }

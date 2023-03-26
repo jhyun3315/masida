@@ -11,7 +11,7 @@ import { ImageLoaderProps } from 'next/image';
 import { imgLoader } from '../../utils/imgLoader';
 import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-
+import { signIn, useSession, signOut } from "next-auth/react";
 
 const Main_banner = (request:NextRequest) => {
   const settings = {
@@ -39,6 +39,12 @@ const Main_banner = (request:NextRequest) => {
 
   const response = NextResponse.next();
   console.log(response);
+
+  const { data: session } = useSession();
+
+  if (session) {
+    console.log(session.user);
+  }
 
   return (
     <div className='carousel'>
@@ -112,7 +118,8 @@ const Main_banner = (request:NextRequest) => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              <Link href="">로그인</Link>
+            <Link href="">로그인</Link>
+            <button onClick={ ()=>signIn("kakao")}>로긴</button>
             </div>
             <div className={style.mainTitle} onClick = {goSummer}>
               <h1>여름 햇살 아래 즐기는 칵테일이 궁금하신가요?</h1>
