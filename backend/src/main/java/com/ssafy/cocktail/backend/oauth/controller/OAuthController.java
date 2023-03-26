@@ -57,12 +57,15 @@ public class OAuthController {
 
     @ResponseBody
     @GetMapping("/kakao/callback")
-    public RedirectView kakaoCallback(@RequestParam String code, RedirectAttributes attributes) throws Exception {
+    public RedirectView kakaoCallback(@RequestParam String code, RedirectAttributes attributes, HttpServletResponse response) throws Exception {
         // 카카오 로그인 콜백
         // 로그인 완료
         UserLoginInfo userLoginInfo = oAuthService.loginUser(code); // 회원 정보 저장 및 가져오기
         attributes.addFlashAttribute("refreshToken", userLoginInfo.getRefreshToken());
         attributes.addFlashAttribute("accessToken", userLoginInfo.getAccessToken());
+        response.setHeader("accessToken", userLoginInfo.getAccessToken());
+        Cookie cookie = new Cookie("accessTokenCookie", userLoginInfo.getAccessToken());
+        response.addCookie(cookie);
         return new RedirectView("/");
     }
 
