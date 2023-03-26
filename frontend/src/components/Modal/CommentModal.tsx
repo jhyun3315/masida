@@ -166,7 +166,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
                       />
                     </div>
                     <div className={style.comment_rating_count}>
-                      {key.comment_rating}
+                      {key.comment_rating} / 5.0
                     </div>
                   </div>
                 </div>

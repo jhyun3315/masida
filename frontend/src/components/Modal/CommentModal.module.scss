@@ -33,6 +33,7 @@
   }
 
   .comment_list {
+
   }
   .comment_write {
     bottom: 0;
@@ -118,13 +119,14 @@
 
         .user_comment_profile {
           .user_profile_img {
+            margin : 4px 8px 0px 8px;
             height: 50px;
             width: 50px;
           }
         }
 
         .user_comment_textarea {
-          margin-right: 10px;
+          margin: 4px 10px 0px 0px;
           // width: 30%;
           // display: flex;
           // flex-wrap: wrap;
@@ -148,6 +150,7 @@
 
           .user_comment_content {
             // 글이 늘어나면 아래로 늘어날 수 있도록 한다.
+            margin-top : 4px;
             white-space: pre-wrap;
             word-wrap: break-word;
             font-size: 14px;
@@ -165,10 +168,11 @@
         .comment_difficulty_user_rating {
           display: flex;
           flex-direction: row;
-
+          align-items: center;
           .comment_difficulty {
+            display: flex;
             flex: 1;
-
+            margin-right: 8px;
             .comment_difficulty_img {
               width: 100%;
             }
@@ -178,9 +182,12 @@
             flex: 3;
             display: flex;
             flex-direction: rows;
-
+            align-items: center;
             .comment_rating_img {
               width: 60%;
+            }
+            .comment_rating_count {
+              font-size: 16px;
             }
           }
         }
@@ -188,14 +195,16 @@
         .cocktail_comment_edit {
           display: flex;
           flex-direction: row;
-
+          width: 100%;
           .comment_modify {
-            font-size: 10px;
+            margin-left: 4px;
+            width: 50%;
+            font-size: 12px;
             font-weight: bold;
 
             .comment_modify_img {
-              width: 40%;
-              height: 17px;
+              width: 30%;
+              height: 15px;
             }
           }
         }
