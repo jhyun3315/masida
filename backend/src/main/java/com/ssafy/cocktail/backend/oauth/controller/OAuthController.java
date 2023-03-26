@@ -48,7 +48,7 @@ public class OAuthController {
 //        response.setHeader("accessToken", userLoginInfo.getAccessToken());
 //        String mainPageUri = "http://localhost:8080/"; // 매인 페이지 가져오기
         String mainPageUri = "/";
-        response.sendRedirect(mainPageUri); // 메인 페이지로 이동
+//        response.sendRedirect(mainPageUri); // 메인 페이지로 이동
         return ResponseEntity.ok(UserLoginRes.of(200, "Success", userLoginInfo.getAccessToken(), userLoginInfo.getUserName()));
     }
 
