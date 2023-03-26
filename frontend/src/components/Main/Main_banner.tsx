@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import style from './Main_banner.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { ImageLoaderProps } from 'next/image';
 import { imgLoader } from '../../utils/imgLoader';
+import axios from 'axios';
 
 const Main_banner = () => {
   const settings = {
@@ -33,8 +35,18 @@ const Main_banner = () => {
   const router2 = useRouter();
   const { query } = router;
 
-  console.log(query);
   console.log(query.accessToken);
+
+  const onClickHandler = () => { 
+    useEffect(() => {
+      axios.get('/api/my-data', {
+        headers: {
+          Authorization:query.accessToken,
+        }
+      })
+        
+    }, []);
+  }
 
   return (
     <div className='carousel'>
@@ -50,7 +62,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              <Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>
+            <Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>
             </div>
             <div className={style.mainTitle}>
               <h1>MASIDA,</h1>
@@ -70,7 +82,8 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              <Link href="/api/oauth/kakao/login">로그인</Link>
+            <Link href="/api/oauth/kakao/login">로그인</Link>
+            <button onClick={ onClickHandler}>로그아웃</button>
             </div>
             <div className={style.mainTitle2} onClick={goBegginer}>
               <h1><strong>맛과 향, </strong>모두 즐기는 칵테일의 <br/>매력을 느껴보세요.</h1>
