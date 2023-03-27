@@ -23,7 +23,7 @@ import java.util.stream.DoubleStream;
 @Tag(name = "cocktail", description = "칵테일 API")
 @RestController
 @AllArgsConstructor
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("api/cocktails")
 public class CocktailController {
     private final CocktailSearchService cocktailSearchService;
