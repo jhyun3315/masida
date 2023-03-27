@@ -5,6 +5,7 @@ import { commentType } from "../../type/commentTypes";
 import { imgLoader } from "../../utils/imgLoader";
 import { ImageLoaderProps } from "next/image";
 import style from "./CommentModal.module.scss";
+import Star from "./Star";
 
 
 const comments: commentType[] = [
@@ -70,29 +71,48 @@ const comments: commentType[] = [
       writer_checker: true,
     },
   ];
-
-
-interface propsType {
-  setVisible: Dispatch<SetStateAction<boolean>>;
-  visible: boolean;
-}
-
-const CommentModal: React.FunctionComponent<propsType> = ({
-  setVisible,
-  visible,
+  
+  
+  interface propsType {
+    setVisible: Dispatch<SetStateAction<boolean>>;
+    visible: boolean;
+  }
+  
+  
+  const CommentModal: React.FunctionComponent<propsType> = ({
+    setVisible,
+    visible,
 }) => {
-  let [inputValue, setInputValue] = useState<string>("");
+  let [inputValue, setInputValue] = useState<string>(""); //댓글
+  let [difficulty, setDifficulty] = useState<string>(""); //난이도
+  let [scope, setScope] = useState<string>(""); //별점
+  
+  
+  //난이도 선택하는 함수입니다.
+  const selectDifficulty = (e: React.MouseEvent<HTMLElement>) => {
+    const target = e.target as HTMLInputElement;
+    setDifficulty(target.value);
+  };
 
-  const selectDifficulty = () => {};
-
+  //모달창에서 댓글쓰는 부분.
   const writeComment = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const target = e.target as HTMLTextAreaElement;
     setInputValue(target.value);
   };
 
+  //댓글 모달창 열고닫기 함수.
   const toggleComment = () => {
     setVisible(!visible);
   };
+
+  //댓글 등록 함수
+  const registComment = () => {
+    //여기서 axios 시작.
+    console.log(scope);
+    console.log(inputValue);
+    console.log(difficulty);
+  }
+
 
   return (
     <div className={style.commentModal}>
@@ -113,7 +133,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
           className={style.comment_sort_btn}
         />
         <label htmlFor="rank" className={style.comment_sort_label}>
-          Like
+          Memo
         </label>
       </div>
       <img
@@ -199,6 +219,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
         <hr />
         <div className={style.comment_write_box}>
           <div className={style.comment_write_box_left}>
+            <div className={style.comment_check_img}>
             <Image
               src="/assets/icons/check.png"
               loader={({ src, width, quality }: ImageLoaderProps) =>
@@ -208,7 +229,11 @@ const CommentModal: React.FunctionComponent<propsType> = ({
               width={32}
               height={32}
             />
-            댓글 쓰기
+            <div>
+              댓글 쓰기
+            </div>
+            </div>
+            <Star setScope={setScope}/>
           </div>
           <div className={style.comment_write_box_right}>
             <div className={style.difficulty_selector}>
@@ -259,7 +284,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
           ></textarea>
         </div>
         <div className={style.write_btn_form}>
-          <button className={style.write_btn}>등록</button>
+          <button className={style.write_btn} onClick={registComment}>등록</button>
         </div>
       </div>
     </div>
