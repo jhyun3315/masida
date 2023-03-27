@@ -28,22 +28,22 @@ export type garnishType = {
 
 // 칵테일 상세 정보 props
 export type detail_props = {
-  cocktail_id: number;
-  cocktail_name_ko: string;
-  cocktail_name_en: string;
-  cocktail_img: string;
-  cocktail_content: string;
-  cocktail_difficulty: string;
-  cocktail_rating: number;
-  cocktail_likes: number;
-  cocktail_comments: number;
-  likes_checker: boolean;
-  bookmark_checker: boolean;
-  glass: string;
-  base : string;
-  garnish : garnishType[];
-  recipe: recipeType[];
-  ingredient: ingredientType[];
+  cocktail_id?: number;
+  cocktail_name_ko?: string;
+  cocktail_name_en?: string;
+  cocktail_img?: string;
+  cocktail_content?: string;
+  cocktail_difficulty?: string;
+  cocktail_rating?: number;
+  cocktail_likes?: number;
+  cocktail_comments?: number;
+  likes_checker?: boolean;
+  bookmark_checker?: boolean;
+  glass?: string;
+  base ?: string;
+  garnish ?: garnishType[];
+  recipe?: recipeType[];
+  ingredient?: ingredientType[];
 };
 
 // 마이페이지 칵테일 추천...
@@ -52,3 +52,24 @@ export type cocktail_recommend = {
   cocktail_name_ko: string,
   cocktail_img: string,
 }
+
+// 칵테일 랜덤 추천 1개
+export type randomType = {
+  cocktail_id: number;
+  cocktail_name_ko: string;
+  cocktail_name_en: string;
+  cocktail_img: string;
+  cocktail_content: string;
+  cocktail_rating: number;
+  cocktail_comments: number;
+};
+
+// 칵테일 좋아요 상위 10개
+export type likeType = {
+  cocktail_id: number;
+  cocktail_name_ko: string;
+  cocktail_name_en: string;
+  cocktail_img: string;
+  cocktail_rating: number;
+  cocktail_comments: number;
+};
