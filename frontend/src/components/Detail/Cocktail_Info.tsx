@@ -6,7 +6,9 @@ import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty
 const Cocktail_info = (props: detail_props) => {
   const [isLiked, setIsLiked] = useState<boolean>(props.likes_checker);
   const [isBookmarked, setIsBookmarked] = useState<boolean>(props.bookmark_checker);
-
+  console.log("isLiked : ", isLiked);
+  console.log("isBookmarked : ", isBookmarked)
+  
   let difficultyImg = difficulty_img_url_converter(props.cocktail_difficulty);
 
   return (
