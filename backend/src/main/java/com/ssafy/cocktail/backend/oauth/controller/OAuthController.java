@@ -24,6 +24,7 @@ import java.io.IOException;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/oauth")
+@CrossOrigin("*")
 public class OAuthController {
     private final OAuthService oAuthService;
 

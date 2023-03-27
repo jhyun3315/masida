@@ -49,6 +49,8 @@ public class CocktailController {
         System.out.println("authorization: " + data.get("authorization"));
         String accessToken = data.get("authorization"); // 엑세스 토큰 가져오기
         CocktailDetail cocktailDetail = cocktailDetailService.getCocktailDetail(id, accessToken); // 칵테일 상세 정보 가져오기
+        System.out.println("칵테일 상세보기 데이저 가져오기 완료");
+        System.out.println("칵테일 상세보기 데이저 가져오기 완료");
         System.out.println(cocktailDetail.toString());
         return ResponseEntity.status(200).body(CocktailDetailRes.of(200, "Success", cocktailDetail));
     }
