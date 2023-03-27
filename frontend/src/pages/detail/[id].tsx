@@ -12,7 +12,7 @@ import Modal_portal from "../../components/Modal/Modal_portal";
 import CommentModal from "../../components/Modal/CommentModal";
 
 import { GetServerSideProps } from "next";
-
+import {get_cocktails_detail}from "../api/cocktails/cocktail_api"
 // 1. 칵테일 상세 조회
 // 화면 단에서 axios 호출을 하여 결과 값을 컴포넌트에 props로 넘겨준다.
 
@@ -128,6 +128,9 @@ interface CocktailProps {
   detail: detail_props;
 }
 
+console.log("마트로슈카");
+get_cocktails_detail(1);
+
 const detail = ({ detail }: CocktailProps) => {
   const [isloading, setIsLoading] = useState(false);
   const [visible, setVisible] = useState<boolean>();
@@ -194,7 +197,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
         },
       }
     );
-    const data = response.data.data;
+    const data = response.data;
+    // const data = response.data.data;
     console.log("call : " ,data);
     return {
       props: {
