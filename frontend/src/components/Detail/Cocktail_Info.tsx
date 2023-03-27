@@ -1,28 +1,13 @@
 import style from "./Cocktail_Info.module.scss";
 
 import { detail_props } from "../../type/cocktailTypes";
+import { useState, useEffect } from "react";
 import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty_img_url_converter";
 const Cocktail_info = (props: detail_props) => {
-  const {
-    cocktail_id,
-    cocktail_name_ko,
-    cocktail_name_en,
-    cocktail_img,
-    cocktail_content,
-    cocktail_difficulty,
-    cocktail_rating,
-    cocktail_likes,
-    cocktail_comments,
-    likes_checker,
-    bookmark_checker,
-    glass,
-    base,
-    garnish,
-    recipe,
-    ingredient,
-  } = props;
+  const [isLiked, setIsLiked] = useState<boolean>(props.likes_checker);
+  const [isBookmarked, setIsBookmarked] = useState<boolean>(props.bookmark_checker);
 
-  let difficultyImg = difficulty_img_url_converter(cocktail_difficulty);
+  let difficultyImg = difficulty_img_url_converter(props.cocktail_difficulty);
 
   return (
     // <></>
@@ -31,7 +16,7 @@ const Cocktail_info = (props: detail_props) => {
       <div className={style.detail_cocktail_img_div}>
         <img
           className={style.detail_cocktail_img}
-          src={cocktail_img}
+          src={props.cocktail_img}
           alt="image"
         />
       </div>
@@ -41,8 +26,9 @@ const Cocktail_info = (props: detail_props) => {
         <div className={style.detail_cocktail_info_header}>
           <div className={style.detail_cocktail_info_header_top}>
             <div className={style.detail_cocktail_title}>
-              {cocktail_name_ko}({cocktail_name_en})
-              {likes_checker ? (
+              {props.cocktail_name_ko}
+              <br />({props.cocktail_name_en})
+              {props.likes_checker ? (
                 <img
                   className={style.detail_cocktail_likebtn}
                   src="/assets/icons/LikeCheckedIMG.png"
@@ -55,7 +41,7 @@ const Cocktail_info = (props: detail_props) => {
                   alt=""
                 />
               )}
-              {bookmark_checker ? (
+              {props.bookmark_checker ? (
                 <img
                   className={style.detail_cocktail_bookmark}
                   src="/assets/icons/BookmarkCheckedIMG.png"
@@ -74,21 +60,21 @@ const Cocktail_info = (props: detail_props) => {
             <div className={style.detail_cocktail_header_element}>
               <img src="/assets/icons/ratingICON.png" alt="rating" />
               <div className={style.detail_cocktail_header_element_count}>
-                {cocktail_rating}
+                {props.cocktail_rating}
               </div>
             </div>
 
             <div className={style.detail_cocktail_header_element}>
               <img src="/assets/icons/LikeCheckedICON.png" alt="" />
               <div className={style.detail_cocktail_header_element_count}>
-                {cocktail_likes}
+                {props.cocktail_likes}
               </div>
             </div>
 
             <div className={style.detail_cocktail_header_element}>
               <img src="/assets/icons/CommentICON.png" alt="" />
               <div className={style.detail_cocktail_header_element_count}>
-                {cocktail_comments}
+                {props.cocktail_comments}
               </div>
             </div>
 
@@ -101,11 +87,11 @@ const Cocktail_info = (props: detail_props) => {
         {/* 가니쉬랑 베이스 영역 */}
         <div className={style.detail_cocktail_garnish}>
           <div className={style.detail_cocktail_garnish_title_div}>
-            <div className={style.detail_cocktail_garnish_title}>
-              Garnish
+            <div className={style.detail_cocktail_garnish_title}>Garnish</div>
+            {props.garnish?.map((v) => (
+              <div className={style.detail_cocktail_garnish_element}>
+                #{v.garnish_name}
               </div>
-            {garnish?.map((v) => (
-              <div className={style.detail_cocktail_garnish_element}>#{v.garnish_name}</div>
             ))}
           </div>
         </div>
@@ -118,14 +104,14 @@ const Cocktail_info = (props: detail_props) => {
               alt=""
             />
             <div className={style.detail_cocktail_ingredient_glass}>
-              &nbsp;{glass}&nbsp;
+              &nbsp;{props.glass}&nbsp;
             </div>
             <div className={style.detail_cocktail_ingredient_base}>
-              &nbsp; {base} &nbsp;
+              &nbsp; {props.base} &nbsp;
             </div>
           </div>
           <div className={style.detail_cocktail_ingredient_element}>
-            {ingredient?.map((key) => (
+            {props.ingredient?.map((key) => (
               <div>
                 - {key.ingredient_name} ({key.ingredient_amount}{" "}
                 {key.ingredient_unit})
@@ -137,7 +123,7 @@ const Cocktail_info = (props: detail_props) => {
         <div className={style.detail_cocktail_recipe_textarea}>
           <div className={style.detail_cocktail_recipe_title}>레시피</div>
           <div className={style.detail_cocktail_recipe_message}>
-            {recipe?.map((key) => (
+            {props.recipe?.map((key) => (
               <div>
                 {key.recipe_num} : {key.recipe_content}
               </div>
@@ -148,7 +134,7 @@ const Cocktail_info = (props: detail_props) => {
         <div className={style.detail_cocktail_recipe_content_textarea}>
           <div className={style.detail_cocktail_recipe_content_title}>소개</div>
           <div className={style.detail_cocktail_recipe_content_message}>
-            &nbsp; {cocktail_content}
+            &nbsp; {props.cocktail_content}
           </div>
         </div>
       </div>
