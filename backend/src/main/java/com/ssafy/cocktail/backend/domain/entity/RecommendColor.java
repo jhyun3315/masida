@@ -14,11 +14,11 @@ public class RecommendColor {
     @Column(name = "recipe_id")
     private Long id;
 
-    private Long recommend1;
-    private Long recommend2;
-    private Long recommend3;
-    private Long recommend4;
-    private Long recommend5;
+    private Long recommendColor1;
+    private Long recommendColor2;
+    private Long recommendColor3;
+    private Long recommendColor4;
+    private Long recommendColor5;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cocktail_id")

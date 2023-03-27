@@ -14,11 +14,11 @@ public class RecommendIngredient {
     @Column(name = "recipe_id")
     private Long id;
 
-    private Long recommend1;
-    private Long recommend2;
-    private Long recommend3;
-    private Long recommend4;
-    private Long recommend5;
+    private Long recommendIngredient1;
+    private Long recommendIngredient2;
+    private Long recommendIngredient3;
+    private Long recommendIngredient4;
+    private Long recommendIngredient5;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cocktail_id")
