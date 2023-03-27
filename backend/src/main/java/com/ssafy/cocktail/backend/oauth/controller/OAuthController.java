@@ -75,9 +75,19 @@ public class OAuthController {
         return new RedirectView("/");
     }
 
+//    @GetMapping("/kakao/logout")
+//    public ResponseEntity<?> kakaoLogout(@RequestHeader("authorization") String accessToken) {
+////        String accessToken = data.get("authorization");
+//        if (oAuthService.logoutUser(accessToken, false)) { // 로그아웃 요청
+//            return ResponseEntity.ok(BaseResponseBody.of(200, "Success"));
+//        }
+//        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
+//    }
+
     @GetMapping("/kakao/logout")
-    public ResponseEntity<?> kakaoLogout(@RequestHeader("authorization") String accessToken) {
+    public ResponseEntity<?> kakaoLogout(@RequestHeader("Authorization") String accessToken) {
 //        String accessToken = data.get("authorization");
+        /// daskljdlasj
         if (oAuthService.logoutUser(accessToken, false)) { // 로그아웃 요청
             return ResponseEntity.ok(BaseResponseBody.of(200, "Success"));
         }
