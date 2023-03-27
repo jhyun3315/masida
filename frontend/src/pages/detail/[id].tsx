@@ -132,7 +132,6 @@ const detail = ({ detail }: CocktailProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [visible, setVisible] = useState<boolean>();
   const [cocktail_detail, setCocktail_detail] = useState<detail_props>();
-
   useEffect(() => {
     setIsLoading(true);
     setCocktail_detail(detail);

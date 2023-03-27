@@ -5,10 +5,36 @@ import { useState, useEffect } from "react";
 import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty_img_url_converter";
 const Cocktail_info = (props: detail_props) => {
   const [isLiked, setIsLiked] = useState<boolean>(props.likes_checker);
-  const [isBookmarked, setIsBookmarked] = useState<boolean>(props.bookmark_checker);
-  console.log("isLiked : ", isLiked);
-  console.log("isBookmarked : ", isBookmarked)
-  
+  const [isBookmarked, setIsBookmarked] = useState<boolean>(
+    props.bookmark_checker
+  );
+
+  const [isLikedBtn, setIsLikedBtn] = useState<string>();
+  const [isBookmarkedBtn, setIsBookmarkedBtn] = useState<string>();
+
+  useEffect(() => {
+    if (isLiked) {
+      setIsLikedBtn("/assets/icons/LikeCheckedIMG.png");
+    } else {
+      setIsLikedBtn("/assets/icons/LikeUncheckedIMG.png");
+    }
+    if (isBookmarked) {
+      setIsBookmarkedBtn("/assets/icons/BookmarkCheckedIMG.png");
+    } else {
+      setIsBookmarkedBtn("/assets/icons/BookmarkUncheckedIMG.png");
+    }
+  }, [isLiked, isBookmarked]);
+
+  const likes_check_handler = () => {
+    console.log("isLiked : ", isLiked);
+    setIsLiked(!isLiked);
+  };
+
+  const bookmark_check_handler = () => {
+    console.log("isBookmarked : ", isBookmarked);
+    setIsBookmarked(!isBookmarked);
+  };
+
   let difficultyImg = difficulty_img_url_converter(props.cocktail_difficulty);
 
   return (
@@ -30,32 +56,18 @@ const Cocktail_info = (props: detail_props) => {
             <div className={style.detail_cocktail_title}>
               {props.cocktail_name_ko}
               <br />({props.cocktail_name_en})
-              {props.likes_checker ? (
-                <img
-                  className={style.detail_cocktail_likebtn}
-                  src="/assets/icons/LikeCheckedIMG.png"
-                  alt=""
-                />
-              ) : (
-                <img
-                  className={style.detail_cocktail_likebtn}
-                  src="/assets/icons/LikeUncheckedIMG.png"
-                  alt=""
-                />
-              )}
-              {props.bookmark_checker ? (
-                <img
-                  className={style.detail_cocktail_bookmark}
-                  src="/assets/icons/BookmarkCheckedIMG.png"
-                  alt="image"
-                />
-              ) : (
-                <img
-                  className={style.detail_cocktail_bookmark}
-                  src="/assets/icons/BookmarkUncheckedIMG.png"
-                  alt="image"
-                />
-              )}
+              <img
+                onClick={likes_check_handler}
+                className={style.detail_cocktail_likebtn}
+                src={isLikedBtn}
+                alt=""
+              />
+              <img
+                onClick={bookmark_check_handler}
+                className={style.detail_cocktail_bookmark}
+                src={isBookmarkedBtn}
+                alt="image"
+              />
             </div>
           </div>
           <div className={style.detail_cocktail_info_header_bottom}>
