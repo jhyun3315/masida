@@ -19,6 +19,7 @@ const data:any=[
 ]
 
 const RaidarBar = () => (
+  <div style={{ width: '100%', height: '400px', margin: '0 auto' }}>
     <ResponsiveRadialBar
         data={data}
         valueFormat=">-.2f"
@@ -32,8 +33,8 @@ const RaidarBar = () => (
                 anchor: 'right',
                 direction: 'column',
                 justify: false,
-                translateX: 80,
-                translateY: 0,
+                translateX: 150,
+                translateY: 120,
                 itemsSpacing: 6,
                 itemDirection: 'left-to-right',
                 itemWidth: 100,
@@ -52,6 +53,7 @@ const RaidarBar = () => (
             }
         ]}
     />
+    </div>
 )
 
 export default RaidarBar;
