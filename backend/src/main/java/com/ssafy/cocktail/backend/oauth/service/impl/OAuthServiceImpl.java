@@ -227,43 +227,86 @@ public class OAuthServiceImpl implements OAuthService {
         return null;
     }
 
+//    @Override
+//    public boolean logoutUser(String accessToken, boolean isdeleted) {
+//        String reqURL = "https://kapi.kakao.com/v1/user/logout"; // 요청 url
+//        try {
+//            URL url = new URL(reqURL); // 요청 url 삽입
+//            HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // 연결
+//            conn.setRequestMethod("POST"); // http 요청 형식 설정
+//            conn.setDoOutput(true); // post 요청시 필요
+//
+//            // 요청에 필요한 Header에 포함될 내용
+//            conn.setRequestProperty("Authorization", "KakaoAK " + adminKey);
+//
+//            //    POST 요청에 필요로 요구하는 파라미터 스트림을 통해 전송
+//            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
+//            StringBuilder sb = new StringBuilder();
+//            sb.append("target_id_type=user_id");
+//            User user = getUser(accessToken); // 유저 가져오기
+//            sb.append("&target_id=").append(user.getUserKey());
+//            bw.write(sb.toString());
+//            bw.flush();
+//
+//            int responseCode = conn.getResponseCode(); // 응답 코드
+//            // System.out.println("responseCode : " + responseCode);
+//
+//            // 스트림으로 읽어온다
+//            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//
+//            String line = "";
+//            String result = "";
+//
+//            while ((line = br.readLine()) != null) {
+//                result += line;
+//            }
+////            System.out.println("response body : " + result);
+//
+//            JsonParser parser = new JsonParser(); // JsonParser 설정
+//            JsonElement element = parser.parse(result); // Json 파싱
+//            if (isdeleted) {
+//                user.setUserDeleted("Y"); // 삭제 상태 삭제로 변경
+//                userRepository.save(user); // 회원 정보 수정
+//            }
+//            return true;
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//        return false;
+//    }
+
     @Override
     public boolean logoutUser(String accessToken, boolean isdeleted) {
-        String reqURL = "https://kapi.kakao.com/v1/user/logout"; // 요청 url
+        String reqURL = "https://kapi.kakao.com/v1/user/unlink"; // 요청 url
         try {
+            User user = getUser(accessToken);
             URL url = new URL(reqURL); // 요청 url 삽입
             HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // 연결
             conn.setRequestMethod("POST"); // http 요청 형식 설정
+            conn.setRequestProperty("Content-type", "application/x-www-form-urlencoded; utf-8"); // 헤더 설정
             conn.setDoOutput(true); // post 요청시 필요
 
             // 요청에 필요한 Header에 포함될 내용
-            conn.setRequestProperty("Authorization", "KakaoAK " + adminKey);
-
-            //    POST 요청에 필요로 요구하는 파라미터 스트림을 통해 전송
-            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-            StringBuilder sb = new StringBuilder();
-            sb.append("target_id_type=user_id");
-            User user = getUser(accessToken); // 유저 가져오기
-            sb.append("&target_id=").append(user.getUserKey());
-            bw.write(sb.toString());
-            bw.flush();
+            conn.setRequestProperty("Authorization", "Bearer " + accessToken);
 
             int responseCode = conn.getResponseCode(); // 응답 코드
             // System.out.println("responseCode : " + responseCode);
 
-            // 스트림으로 읽어온다
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//            // 스트림으로 읽어온다
+//            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//
+//            String line = "";
+//            String result = "";
+//
+//            while ((line = br.readLine()) != null) {
+//                result += line;
+//            }
+////            System.out.println("response body : " + result);
+//
+//            JsonParser parser = new JsonParser(); // JsonParser 설정
+//            JsonElement element = parser.parse(result); // Json 파싱
 
-            String line = "";
-            String result = "";
-
-            while ((line = br.readLine()) != null) {
-                result += line;
-            }
-//            System.out.println("response body : " + result);
-
-            JsonParser parser = new JsonParser(); // JsonParser 설정
-            JsonElement element = parser.parse(result); // Json 파싱
             if (isdeleted) {
                 user.setUserDeleted("Y"); // 삭제 상태 삭제로 변경
                 userRepository.save(user); // 회원 정보 수정

@@ -24,7 +24,7 @@ import java.io.IOException;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/oauth")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io"})
 public class OAuthController {
     private final OAuthService oAuthService;
 
@@ -101,25 +101,49 @@ public class OAuthController {
     }
 
     @DeleteMapping("/kakao/delete")
-    public ResponseEntity<?> kakaoDelete(@RequestHeader("authorization") String accessToken) {
+    public ResponseEntity<?> kakaoDelete(@RequestHeader("Authorization") String accessToken) {
 //        String accessToken = data.get("authorization");
+        System.out.println("---------------------------------");
+        System.out.println("회원탈퇴요청입니다");
+        System.out.println("회원탈퇴요청입니다");
+        System.out.println("회원탈퇴요청입니다");
+        System.out.println("accessToken: " + accessToken);
+        System.out.println("accessToken: " + accessToken);
         if (oAuthService.logoutUser(accessToken, true)) { // 회원 탈퇴 요청
+            System.out.println("회원탈퇴 완료");
+            System.out.println("회원탈퇴 완료");
             return ResponseEntity.ok(BaseResponseBody.of(200, "Success"));
         }
         return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
     }
 
     @GetMapping("users")
-    public ResponseEntity<UserInfoRes> mypageUserinfo(@RequestHeader("authorization") String accessToken) {
+    public ResponseEntity<UserInfoRes> mypageUserinfo(@RequestHeader("Authorization") String accessToken) {
+        System.out.println("---------------------------------");
+        System.out.println("사용자 정보 조회 요청입니다");
+        System.out.println("사용자 정보 조회 요청입니다");
+        System.out.println("사용자 정보 조회 요청입니다");
+        System.out.println("accessToken: " + accessToken);
+        System.out.println("accessToken: " + accessToken);
         User user = oAuthService.getUser(accessToken);
         UserInfo userInfo = new UserInfo(user.getUserName(), user.getUserEmail(), user.getUserProfile(), user.getUserGender(), user.getUserAgeRange());
+        System.out.println("사용자 정보 조회 완료");
+        System.out.println(userInfo.toString());
         return ResponseEntity.ok(UserInfoRes.of(200, "Success", userInfo));
     }
 
     @PutMapping("users")
-    public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("authorization") String accessToken, UserInfoReq req) {
+    public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("Authorization") String accessToken, UserInfoReq req) {
+        System.out.println("---------------------------------");
+        System.out.println("사용자 정보 수정 요청입니다");
+        System.out.println("사용자 정보 수정 요청입니다");
+        System.out.println("사용자 정보 수정 요청입니다");
+        System.out.println("accessToken: " + accessToken);
+        System.out.println("accessToken: " + accessToken);
         UserInfo userInfo = oAuthService.updateUser(accessToken, req.getUserGender(), req.getUserAgeRange()); // 사용자 정보 업데이트 후 사용자 정보 가져오기
         if(userInfo != null) { // 사용자 정보 수정에 성공했으면
+            System.out.println("사용자 정보 수정 완료");
+            System.out.println(userInfo.toString());
             return ResponseEntity.status(200).body(UserInfoRes.of(200, "Success", userInfo));
         }
         return ResponseEntity.status(200).body(UserInfoRes.of(200, "Fail", null));
