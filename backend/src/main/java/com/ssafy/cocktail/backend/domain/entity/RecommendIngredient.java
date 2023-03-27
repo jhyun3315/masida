@@ -3,10 +3,7 @@ package com.ssafy.cocktail.backend.domain.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -22,4 +19,8 @@ public class RecommendIngredient {
     private Long recommend3;
     private Long recommend4;
     private Long recommend5;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="cocktail_id")
+    private Cocktail cocktail;
 }
