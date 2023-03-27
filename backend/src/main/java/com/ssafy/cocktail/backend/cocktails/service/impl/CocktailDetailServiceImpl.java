@@ -40,16 +40,20 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         cocktailDetail.setCocktailContent(cocktail.get().getCocktailContent()); // 칵테일 내용 삽입
         String rating = String.format("%.1f", cocktail.get().getCocktailRating()); // 칵테일 평점 계산 (소수점 첫째자리 까지 표시)
         cocktailDetail.setCocktailRating(rating); // 칵테일 평점 삽입
-        switch (cocktail.get().getCocktailDifficulty().intValue()) { // 칵테일 난이도
-            case 1: // 난이도가 1 이면
-                cocktailDetail.setCocktailDifficulty("하"); // '하' 난이도 삽입
-                break;
-            case 2: // 난이도가 2 이면
-                cocktailDetail.setCocktailDifficulty("중"); // '중' 난이도 삽입
-                break;
-            default: // 난이도가 3 이면
-                cocktailDetail.setCocktailDifficulty("상"); // '상' 난이도 삽입
-                break;
+        if (cocktail.get().getCocktailDifficulty() == null) {
+            cocktailDetail.setCocktailDifficulty("중");
+        } else {
+            switch (cocktail.get().getCocktailDifficulty().intValue()) { // 칵테일 난이도
+                case 1: // 난이도가 1 이면
+                    cocktailDetail.setCocktailDifficulty("하"); // '하' 난이도 삽입
+                    break;
+                case 2: // 난이도가 2 이면
+                    cocktailDetail.setCocktailDifficulty("중"); // '중' 난이도 삽입
+                    break;
+                default: // 난이도가 3 이면
+                    cocktailDetail.setCocktailDifficulty("상"); // '상' 난이도 삽입
+                    break;
+            }
         }
         List<Like> likes = likeRepository.findAllByCocktailAndLikeDeleted(cocktail.get(), "N"); // 칵테일 좋아요 가져오기
         cocktailDetail.setCocktailLikes(likes.size()); // 칵테일 좋아요 개수 삽입
