@@ -42,22 +42,28 @@
     .comment_write_box {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       .comment_write_box_left {
         align-items: center;
-        font-size: 25px;
+        font-size: 22px;
+        margin-left : 8px;
+        .comment_check_img {
+          display: flex;
+          align-items: center;
+        } 
       }
       .comment_write_box_right {
         .difficulty_selector {
           display: flex;
           justify-content: center;
           align-items: center;
-          font-size: 28px;
+          font-size: 24px;
           margin-top: 8px;
           .difficulty_selector_lev {
             margin-right: 1rem;
           }
           input:checked + label {
-            font-size: 28px;
+            font-size: 25px;
             background-color: #253976;
             color: white;
             border-radius: 5px;
@@ -74,7 +80,7 @@
       margin-left: 1.5rem;
       height: auto;
       border-width: 1px;
-      font-size: 20px;
+      font-size: 18px;
       margin-top: 1rem;
       resize: none;
     }
@@ -95,7 +101,7 @@
 }
 
 .comment_list {
-  height: 65vh;
+  height: 63%;
   overflow: scroll;
   overflow-x: hidden;
   border: 1px solid rgba(0, 0, 255, 0.27);
