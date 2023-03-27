@@ -4,6 +4,7 @@ import baseSlice from "./category/baseSlice";
 import colorSlice from "./category/colorSlice";
 import difficultySlice from './category/difficultySlice';
 import ingredientSlice from './category/ingredientSlice';
+import nameSlice from './category/nameSlice';
 
 import userSlice from './user/userSlice';
 
@@ -48,6 +49,7 @@ const reducers = combineReducers({
   colorSelect : colorSlice,
   difficultySelect : difficultySlice,
   ingredientSelect: ingredientSlice,
+  nameSelect : nameSlice,
   user:userSlice,
 })
 

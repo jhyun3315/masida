@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { PayloadAction } from "@reduxjs/toolkit";
 
-interface baseState {
+interface nameState {
   base: string;
 }
 
-const initialState: baseState = {
+const initialState: nameState = {
   base: "",
 };
 
