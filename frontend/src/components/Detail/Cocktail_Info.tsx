@@ -104,7 +104,7 @@ const Cocktail_info = (props: detail_props) => {
             <div className={style.detail_cocktail_garnish_title}>
               Garnish
               </div>
-            {garnish.map((v) => (
+            {garnish?.map((v) => (
               <div className={style.detail_cocktail_garnish_element}>#{v.garnish_name}</div>
             ))}
           </div>
@@ -125,7 +125,7 @@ const Cocktail_info = (props: detail_props) => {
             </div>
           </div>
           <div className={style.detail_cocktail_ingredient_element}>
-            {ingredient.map((key) => (
+            {ingredient?.map((key) => (
               <div>
                 - {key.ingredient_name} ({key.ingredient_amount}{" "}
                 {key.ingredient_unit})
@@ -137,7 +137,7 @@ const Cocktail_info = (props: detail_props) => {
         <div className={style.detail_cocktail_recipe_textarea}>
           <div className={style.detail_cocktail_recipe_title}>레시피</div>
           <div className={style.detail_cocktail_recipe_message}>
-            {recipe.map((key) => (
+            {recipe?.map((key) => (
               <div>
                 {key.recipe_num} : {key.recipe_content}
               </div>

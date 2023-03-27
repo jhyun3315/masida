@@ -10,8 +10,8 @@ const Cocktail_recommend = (props: recommend_props) => {
   const ingredientList = props.ingredient_recommend.data;
   const colorList = props.color_recommend.data;
 
-  console.log(ingredientList);
-  console.log(colorList);
+  // console.log(ingredientList);
+  // console.log(colorList);
 
   const settings = {
     accessibility: false,
