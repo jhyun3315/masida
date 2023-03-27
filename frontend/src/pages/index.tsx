@@ -5,162 +5,56 @@ import Main_cocktail from "../components/Main/Main_cocktail";
 import Main_search from "../components/Main/Main_search";
 import Main_manual from "../components/Main/Main_manual";
 import Footer from "../components/Footer/Footer";
+import { useState, useEffect } from "react";
+
+import {
+  get_cocktails_likes_top,
+  get_cocktails_random,
+} from "./api/cocktails/cocktail_api";
+
+import { randomType, likeType } from "../type/cocktailTypes";
 
 // const inter = Inter({ subsets: ["latin"] });
 
-  
-// 칵테일 랜덤 추천 1개
-export type randomType = {
-  cocktail_id: number;
-  cocktail_name_ko: string;
-  cocktail_name_en: string;
-  cocktail_img: string;
-  cocktail_content: string;
-  // cocktail_difficulty: number;
-  cocktail_rating: number;
-  // cocktail_likes: number;
-  cocktail_comments: number;
-}
-  
-// 칵테일 좋아요 상위 10개
-export type likeType = {
-  cocktail_id: number,
-  cocktail_name_ko: string,
-  cocktail_name_en: string,
-  cocktail_img: string,
-  cocktail_rating: number,
-  // cocktail_difficulty:string
-  cocktail_comments: number,
-}
-
-export type likeList = {
-  data: likeType[];
-}
-
 export type cocktail_props = {
   random_type: randomType;
-  like_list: likeList;
+  like_list: likeType[];
+};
+
+export default function Home(): JSX.Element {
+  const [randomCocktail, setRandomCocktail] = useState<randomType>();
+  const [likeList, setLikeList] = useState<likeType[]>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    get_cocktails_random().then((response) => {
+      setRandomCocktail(response.value);
+    });
+    get_cocktails_likes_top().then((response) => {
+      console.log(response.value);
+      setLikeList(response.value);
+    });
+    setIsLoading(true);
+  }, []);
+
+  const cocktail_props: cocktail_props = {
+    random_type: randomCocktail,
+
+    like_list: likeList,
+  };
+
+  // if (isLoading) {
+    console.log("hello")
+    return (
+      <>
+        <Main_banner />
+        <Main_cocktail {...cocktail_props} />
+        <Main_search />
+        <Main_manual />
+        <Footer />
+      </>
+    );
+  // } else {
+  //   return <></>;
+  // }
 }
-
-export default function Home(): JSX.Element{
-
-  const cocktail_props:cocktail_props = {
-    random_type: {
-      cocktail_id: 1,
-      cocktail_name_ko: "진 토닉",
-      cocktail_name_en: "Gin and Tonic",
-      cocktail_img: "/assets/image/mainbanner.png",
-      cocktail_content: "진과 토닉이 들어간 깔끔한 맛의 칵테일입니다.",
-      // cocktail_difficulty: number;
-      cocktail_rating: 3.92,
-      // cocktail_likes: number;
-      cocktail_comments: 180
-    },
-
-    like_list: {
-      data:[
-        {
-          cocktail_id: 1,
-          cocktail_name_ko: "오렌지 블라섬1",
-          cocktail_name_en: "Orange Blossom",
-          cocktail_img: "/assets/image/cocktail.png",
-          cocktail_rating: 3.92,
-          // cocktail_difficulty:string
-          cocktail_comments: 180,
-        },
-        {
-          cocktail_id: 2,
-          cocktail_name_ko: "기목티2",
-          cocktail_name_en: "Pink Blossom",
-          cocktail_img: "/assets/image/cocktail.png",
-          cocktail_rating: 3.92,
-          // cocktail_difficulty:string
-          cocktail_comments: 180,
-        },
-        {
-          cocktail_id: 3,
-          cocktail_name_ko: "핑크 블라섬3",
-          cocktail_name_en: "Pink Blossom",
-          cocktail_img: "/assets/image/cocktail.png",
-          cocktail_rating: 3.92,
-          // cocktail_difficulty:string
-          cocktail_comments: 180,
-        },
-        {
-          cocktail_id: 4,
-          cocktail_name_ko: "핑크 블라섬4",
-          cocktail_name_en: "Pink Blossom",
-          cocktail_img: "/assets/image/cocktail.png",
-          cocktail_rating: 3.92,
-          // cocktail_difficulty:string
-          cocktail_comments: 180,
-        },
-        {
-          cocktail_id: 5,
-          cocktail_name_ko: "핑크 블라섬5",
-          cocktail_name_en: "Pink Blossom",
-          cocktail_img: "/assets/image/cocktail.png",
-          cocktail_rating: 3.92,
-          // cocktail_difficulty:string
-          cocktail_comments: 180,
-        },
-        {
-          cocktail_id: 6,
-          cocktail_name_ko: "핑크 블라섬6",
-          cocktail_name_en: "Pink Blossom",
-          cocktail_img: "/assets/image/cocktail.png",
-          cocktail_rating: 3.92,
-          // cocktail_difficulty:string
-          cocktail_comments: 180,
-        },
-        {
-          cocktail_id: 7,
-          cocktail_name_ko: "핑크 블라섬7",
-          cocktail_name_en: "Pink Blossom",
-          cocktail_img: "/assets/image/cocktail.png",
-          cocktail_rating: 3.92,
-          // cocktail_difficulty:string
-          cocktail_comments: 180,
-        },
-        {
-          cocktail_id: 8,
-          cocktail_name_ko: "핑크 블라섬8",
-          cocktail_name_en: "Pink Blossom",
-          cocktail_img: "/assets/image/cocktail.png",
-          cocktail_rating: 3.92,
-          // cocktail_difficulty:string
-          cocktail_comments: 180,
-        },
-        {
-          cocktail_id: 9,
-          cocktail_name_ko: "핑크 블라섬9",
-          cocktail_name_en: "Pink Blossom",
-          cocktail_img: "/assets/image/cocktail.png",
-          cocktail_rating: 3.92,
-          // cocktail_difficulty:string
-          cocktail_comments: 180,
-        },
-        {
-          cocktail_id: 10,
-          cocktail_name_ko: "메론소다 노맛10",
-          cocktail_name_en: "Pink Blossom",
-          cocktail_img: "/assets/image/cocktail.png",
-          cocktail_rating: 3.92,
-          // cocktail_difficulty:string
-          cocktail_comments: 180,
-        },
-      ]
-    } 
-  }
-
-  return (
-    <>
-      <Main_banner />
-      <Main_cocktail {...cocktail_props} />
-      <Main_search />
-      <Main_manual />
-      <Footer/>
-    </>
-  );
-}
-
