@@ -20,7 +20,6 @@ axios.defaults.baseURL = "https://j8b208.p.ssafy.io/";
  */
 export const get_cocktails_detail = async (cocktail_id: number) => {
   let url = `/api/cocktails/${cocktail_id}`;
-  console.log("Hello");
   let value: detail_props = null;
   await axios
     .get(url)
@@ -40,7 +39,6 @@ export const get_cocktails_detail = async (cocktail_id: number) => {
  */
 export const get_cocktails_random = async () => {
   let url = `/api/cocktails/random`;
-  console.log("Hello");
   let value: randomType = null;
   await axios
     .get(url)
@@ -51,7 +49,7 @@ export const get_cocktails_random = async () => {
       value = response.data.data;
     })
     .catch((err) => {
-      console.log("get_cocktails_detail error ocurred");
+      console.log("get_cocktails_random error ocurred");
     });
 
   return { value };
@@ -62,7 +60,6 @@ export const get_cocktails_random = async () => {
  */
 export const get_cocktails_likes_top = async () => {
   let url = `/api/cocktails/likes-top`;
-  console.log("Hello");
   let value: likeType[] = null;
   await axios
     .get(url)
@@ -73,7 +70,7 @@ export const get_cocktails_likes_top = async () => {
       value = response.data.data;
     })
     .catch((err) => {
-      console.log("get_cocktails_detail error ocurred");
+      console.log("get_cocktails_likes_top error ocurred");
     });
 
   return { value };

@@ -1,4 +1,5 @@
-// import { Inter } from "next/font/google";
+import axios from "axios";
+import { GetServerSideProps } from "next";
 
 import Main_banner from "../components/Main/Main_banner";
 import Main_cocktail from "../components/Main/Main_cocktail";
@@ -14,37 +15,29 @@ import {
 
 import { randomType, likeType } from "../type/cocktailTypes";
 
-// const inter = Inter({ subsets: ["latin"] });
 
-export type cocktail_props = {
-  random_type: randomType;
-  like_list: likeType[];
-};
+export interface landing_props {
+  random_cocktail : randomType;
+  like_list : likeType[];
+}
 
-export default function Home(): JSX.Element {
+const landing = ({random_cocktail, like_list} :landing_props) => {
   const [randomCocktail, setRandomCocktail] = useState<randomType>();
   const [likeList, setLikeList] = useState<likeType[]>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    get_cocktails_random().then((response) => {
-      setRandomCocktail(response.value);
-    });
-    get_cocktails_likes_top().then((response) => {
-      console.log(response.value);
-      setLikeList(response.value);
-    });
+    setRandomCocktail(random_cocktail)
+    setLikeList(like_list)
     setIsLoading(true);
   }, []);
 
-  const cocktail_props: cocktail_props = {
-    random_type: randomCocktail,
-
+  const cocktail_props: landing_props = {
+    random_cocktail: randomCocktail,
     like_list: likeList,
   };
 
-  // if (isLoading) {
-    console.log("hello")
+  if (isLoading) {
     return (
       <>
         <Main_banner />
@@ -54,7 +47,51 @@ export default function Home(): JSX.Element {
         <Footer />
       </>
     );
-  // } else {
-  //   return <></>;
-  // }
-}
+  } else {
+    return (
+      <>
+        <div>불러오는 중입니다.</div>
+      </>
+    );
+  }
+};
+
+export default landing;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const response_random = await axios.get(
+      `https://j8b208.p.ssafy.io/api/cocktails/random`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
+    );
+    const response_likeList = await axios.get(
+      `https://j8b208.p.ssafy.io/api/cocktails/likes-top`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
+    );
+
+    const random = response_random.data.data;
+    const likeList = response_likeList.data.data;
+
+    return {
+      props: {
+        random: random,
+        likeList: likeList,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      props: {},
+    };
+  }
+};

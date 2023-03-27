@@ -129,7 +129,7 @@ interface CocktailProps {
 }
 
 const detail = ({ detail }: CocktailProps) => {
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [visible, setVisible] = useState<boolean>();
   const [cocktail_detail, setCocktail_detail] = useState<detail_props>();
 
@@ -141,7 +141,7 @@ const detail = ({ detail }: CocktailProps) => {
   const toggleComment = () => {
     setVisible(!visible);
   };
-  if (isloading) {
+  if (isLoading) {
     return (
       <>
         <Header />

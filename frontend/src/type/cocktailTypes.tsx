@@ -55,23 +55,23 @@ export type cocktail_recommend = {
 
 // 칵테일 랜덤 추천 1개
 export type randomType = {
-  cocktail_id: number;
-  cocktail_name_ko: string;
-  cocktail_name_en: string;
-  cocktail_img: string;
-  cocktail_content: string;
-  cocktail_rating: number;
-  cocktail_comments: number;
+  cocktail_id?: number;
+  cocktail_name_ko?: string;
+  cocktail_name_en?: string;
+  cocktail_img?: string;
+  cocktail_content?: string;
+  cocktail_rating?: number;
+  cocktail_comments?: number;
 };
 
 // 칵테일 좋아요 상위 10개
 export type likeType = {
-  cocktail_id: number;
-  cocktail_name_ko: string;
-  cocktail_name_en: string;
-  cocktail_img: string;
-  cocktail_rating: number;
-  cocktail_comments: number;
+  cocktail_id?: number;
+  cocktail_name_ko?: string;
+  cocktail_name_en?: string;
+  cocktail_img?: string;
+  cocktail_rating?: number;
+  cocktail_comments?: number;
 };
 
 
