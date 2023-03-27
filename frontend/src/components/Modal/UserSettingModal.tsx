@@ -2,12 +2,14 @@ import { userType } from '../../type/userTypes';
 import { Dispatch, SetStateAction } from 'react';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import style from './UserSettingModal.module.scss';
+import axios from 'axios';
 
 interface propsType{
     setVisible: Dispatch<SetStateAction<boolean>>;
     visible: boolean;
     user_info: userType;
 }
+
   
 const UserSettingModal: React.FunctionComponent<propsType> = ({ setVisible, visible,user_info }) => {
   

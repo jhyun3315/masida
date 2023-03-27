@@ -5,21 +5,17 @@
 // you'll often use just a few of them.
 
 import { ResponsiveRadialBar } from '@nivo/radial-bar'
+import { cocktail_summary } from '../../type/cocktailTypes';
 
+const data: cocktail_summary[] = [];
 
-const data:any=[
-    {
-        id: 'Fruits',
-        data: [{ x: 'Apples', y: 32 }]
-    },
-    {
-        id: 'Vegetables',
-        data: [{ x: 'Eggplants', y: 27 }]
-    }
-]
+const RaidarBar = (props: cocktail_summary[]) => {
+  for (let i = 0; i < 3; i++){
+    data.push({ id: props[i].id, data:props[i].data});
+  }
 
-const RaidarBar = () => (
-  <div style={{ width: '100%', height: '400px', margin: '0 auto' }}>
+  return (
+    <div style={{ width: '100%', height: '400px', margin: '0 auto' }}>
     <ResponsiveRadialBar
         data={data}
         valueFormat=">-.2f"
@@ -28,6 +24,7 @@ const RaidarBar = () => (
         margin={{ top: 40, right: 120, bottom: 40, left: 40 }}
         radialAxisStart={{ tickSize: 5, tickPadding: 5, tickRotation: 0 }}
         circularAxisOuter={{ tickSize: 5, tickPadding: 12, tickRotation: 0 }}
+        colors={['#E8C1A0','#F4E77E','#F79D8E']} 
         legends={[
             {
                 anchor: 'right',
@@ -54,6 +51,7 @@ const RaidarBar = () => (
         ]}
     />
     </div>
-)
+  )
+}
 
 export default RaidarBar;
