@@ -38,11 +38,13 @@ const Main_banner = () => {
   console.log(query.accessToken);
 
   const onClickHandler = () => { 
-      axios.get('/api/oauth/kakao/logout', {
+      const logout:any = axios.get('/api/oauth/kakao/logout', {
         headers: {
           Authorization:query.accessToken,
         }
       })
+    
+    console.log(logout);
   }
 
   return (
