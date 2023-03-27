@@ -1,87 +1,105 @@
-.mainBanner_black {
-  position: relative;
-  min-height: 700px;
+.mainBanner {
+  overflow: hidden;
 
-  .mainHeader {
-    margin-top: 2%;
-    text-align: left;
-    position: absolute;
-    margin-left: 70%;
-    width: 100%;
+  .mainBanner_black {
+    position: relative;
+    min-height: 700px;
 
-    a {
-      text-decoration-line: none;
-      color: black;
-      margin-right: 1%;
-      font-weight: bold;
-      font-size: 1.3rem;
+    .mainHeader {
+      margin-top: 2%;
+      text-align: left;
+      position: absolute;
+      margin-left: 70%;
+      width: 100%;
+
+      a {
+        text-decoration-line: none;
+        color: black;
+        margin-right: 1%;
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
     }
-  }
 
-  .mainTitle {
-    position: absolute;
-    margin-top: 27%;
-    margin-left: 60%;
-    text-align: left;
-    font-size: 1.7rem;
-    color: white;
-  }
-}
-
-.mainBanner_white {
-  position: relative;
-  min-height: 700px;
-
-  .mainHeader {
-    margin-top: 2%;
-    text-align: left;
-    position: absolute;
-    margin-left: 70%;
-    width: 100%;
-
-    a {
-      text-decoration-line: none;
-      color: white;
-      margin-right: 1%;
-      font-weight: bold;
-      font-size: 1.3rem;
-    }
-  }
-
-  .mainTitle {
-    position: absolute;
-    margin-top: 27%;
-    margin-left: 60%;
-    text-align: left;
-    font-size: 1.7rem;
-    color: white;
-  }
-
-  .mainTitle2 {
-    position: absolute;
-    line-height: 1.125;
-    margin-top: 27%;
-    margin-left: 50%;
-    text-align: left;
-    font-size: 1.5rem;
-    color: rgb(253, 252, 236);
-
-    h3 {
+    .mainTitle {
+      position: absolute;
+      margin-top: 27%;
+      margin-left: 60%;
+      text-align: left;
+      font-size: 1.7rem;
       color: white;
     }
   }
 
-  .mainTitle3 {
-    position: absolute;
-    line-height: 1.125;
-    margin-top: 27%;
-    margin-left: 60%;
-    text-align: left;
-    font-size: 1.5rem;
-    color: rgb(238, 198, 233);
+  .mainBanner_white {
+    position: relative;
+    min-height: 700px;
 
-    h3 {
+    .mainHeader {
+      margin-top: 2%;
+      text-align: left;
+      position: absolute;
+      margin-left: 70%;
+      width: 100%;
+
+      a {
+        text-decoration-line: none;
+        color: white;
+        margin-right: 1%;
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
+    }
+
+    .mainTitle {
+      position: absolute;
+      margin-top: 27%;
+      margin-left: 60%;
+      text-align: left;
+      font-size: 1.7rem;
       color: white;
+    }
+
+    .mainTitle2 {
+      position: absolute;
+      line-height: 1.125;
+      margin-top: 27%;
+      margin-left: 50%;
+      text-align: left;
+      font-size: 1.5rem;
+      color: rgb(253, 252, 236);
+
+      h3 {
+        color: white;
+      }
+    }
+
+    .mainTitle3 {
+      position: absolute;
+      line-height: 1.125;
+      margin-top: 27%;
+      margin-left: 60%;
+      text-align: left;
+      font-size: 1.5rem;
+      color: rgb(238, 198, 233);
+
+      h3 {
+        color: white;
+      }
+    }
+
+    .mainTitle4 {
+      position: absolute;
+      line-height: 1.125;
+      margin-top: 27%;
+      margin-left: 54%;
+      text-align: left;
+      font-size: 1.5rem;
+      color: rgb(40, 134, 188);
+
+      h3 {
+        color: rgb(132, 188, 219);
+      }
     }
   }
 }

@@ -2,21 +2,25 @@
   padding-left: 5%;
   width: 90%;
   padding-bottom: 5%;
+
   .manual_title {
     padding-bottom: 5%;
+
     .manual_title_main {
+      margin-top: 3%;
       font-family: "Inter";
       font-style: normal;
       font-weight: 700;
-      font-size: 40px;
+      font-size: 5vh;
       line-height: 60px;
     }
+
     .manual_title_sub {
       font-family: "Inter";
       font-style: normal;
       font-weight: 500;
-      font-size: 23px;
-      line-height: 40px;
+      font-size: 2.75vh;
+      line-height: 1.125;
       display: flex;
       align-items: center;
     }
@@ -27,32 +31,38 @@
     padding-bottom: 1%;
     display: flex;
     flex-direction: row;
+
     .manual_content_youtube {
       .manual_content_youtube_tag {
         font-family: "Inter";
         font-style: normal;
         font-weight: 500;
-        font-size: 24px;
-        line-height: 42px;
+        font-size: 2.75vh;
+        line-height: 1.125;
 
         color: #253976;
       }
+
       .manual_content_youtube_title {
         font-family: "Inter";
         font-style: normal;
         font-weight: 700;
-        font-size: 30px;
+        font-size: 3.95vh;
         line-height: 50px;
       }
+
       .manual_content_youtube_video {
+        margin-top: 3%;
         width: 100%;
         height: 60vh;
       }
+
       .manual_content_youtube_video_legend {
         font-family: "Inter";
         font-style: normal;
+        margin-top: 2%;
         font-weight: 500;
-        font-size: 12px;
+        font-size: 2.5vh;
         line-height: 20px;
         /* identical to box height */
 
@@ -61,31 +71,37 @@
         color: #000000;
       }
     }
+
     .manual_content_shop {
       display: table;
       padding-left: 8%;
+
       .manual_content_shop_layout {
         display: table-cell;
         vertical-align: middle;
+
         .manual_content_shop_title {
           font-family: "Inter";
           font-style: normal;
           font-weight: 400;
-          font-size: 30px;
-          line-height: 40px;
+          font-size: 3.75vh;
+          line-height: 1.5;
 
           color: #333333;
         }
+
         .manual_content_shop_sub {
+          margin-bottom: 3%;
           font-family: "Inter";
           font-style: normal;
           font-weight: 400;
-          font-size: 14px;
-          line-height: 25px;
+          font-size: 2.25vh;
+          line-height: 1;
           /* identical to box height */
 
           color: #6d6d6d;
         }
+
         .manual_content_shop_carousel {
           width: 350px;
           // height: 10vh;
