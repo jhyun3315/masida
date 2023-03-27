@@ -5,6 +5,8 @@ import {
   likeType,
 } from "../../../type/cocktailTypes";
 
+import { searchIngredientType } from "../../../type/ingredientTypes";
+
 /**
  * @author kim jihwan
  *
@@ -77,3 +79,20 @@ export const get_cocktails_likes_top = async () => {
 };
 
 // export default {get_cocktails_detail};
+
+/**
+ * 칵테일 재료 목록 반환
+ */
+export const get_cocktails_ingredients = async () => {
+  let url = `/api/cocktails/ingredients`;
+  let value: searchIngredientType[] = null;
+  await axios
+    .get(url)
+    .then((response) => {
+      value = response.data.data;
+    })
+    .catch((err) => {
+      console.log("재료가 없습니다. 다시 입력해주세요.", err);
+    });
+  return value;
+};

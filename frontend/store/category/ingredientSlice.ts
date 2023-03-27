@@ -5,7 +5,6 @@ import {
   searchIngredientType,
 } from "../../src/type/ingredientTypes";
 
-//이부분이 잘못된 것 같음.
 const initialState: searchedIngredientType = {
   ingredient: [],
 };
@@ -20,10 +19,12 @@ const counterSlice = createSlice({
     ) => {
       state.ingredient = action.payload;
     },
-    changeSelectIngredient : (
-      state, action: PayloadAction<searchIngredientType>
+    changeSelectIngredient: (
+      state,
+      action: PayloadAction<searchIngredientType>
     ) => {
-      state.ingredient[action.payload.ingredient_id].ingredient_add = !action.payload.ingredient_add;
+      state.ingredient[action.payload.ingredient_id].ingredient_add =
+        !action.payload.ingredient_add;
     },
   },
 });

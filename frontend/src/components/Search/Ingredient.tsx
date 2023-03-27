@@ -8,13 +8,13 @@ import { RootState } from "../../../store/store";
 import { setSelectIngredient } from "../../../store/category/ingredientSlice";
 import { changeSelectIngredient } from "../../../store/category/ingredientSlice";
 import style from "./Ingredient.module.scss";
+import { search_props } from "../../pages/search";
 
-const Ingredient = (props: searchedIngredientType) => {
+const Ingredient = (props: search_props) => {
   const dispatch = useDispatch();
   const selectIngredient = useSelector(
     (state: RootState) => state.ingredientSelect
   );
-  const { ingredient } = props;
   let [inputvalue, setInputValue] = useState<string>("");
   let [addedIngredient, setAddedIngredient] = useState<searchIngredientType[]>(
     []
@@ -22,18 +22,18 @@ const Ingredient = (props: searchedIngredientType) => {
   let [listIngredient, setListIngredient] = useState<searchIngredientType[]>(
     []
   );
-  
+
   //페이지 처음 시작할 때 모든 재료목록을 redux에 저장해줍니다.
   useEffect(() => {
-    dispatch(setSelectIngredient(ingredient));
-  },[]);
+    dispatch(setSelectIngredient(props.ingredient));
+  }, []);
 
   //재료검색
   const searchIngredient = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
 
     setListIngredient(() => {
-      return selectIngredient.ingredient.filter((ingre) =>
+      return selectIngredient.ingredient?.filter((ingre) =>
         ingre.ingredient_name.includes(target.value)
       );
     });
@@ -43,23 +43,28 @@ const Ingredient = (props: searchedIngredientType) => {
     }
     //ingre.ingredient_name 이 target.value를 포함하고 있다면 그 요소들만 보여주기.
     setInputValue(target.value);
-  }; 
-  
+  };
 
   //재료추가
   const addIngredient = (e: searchIngredientType) => {
     dispatch(changeSelectIngredient(e));
 
     //추가시킬 것 등록.
-    const addi : searchIngredientType = {ingredient_id : selectIngredient.ingredient[e.ingredient_id].ingredient_id,
-    ingredient_name : selectIngredient.ingredient[e.ingredient_id].ingredient_name,
-    ingredient_add : !selectIngredient.ingredient[e.ingredient_id].ingredient_add}
+    const addi: searchIngredientType = {
+      ingredient_id: selectIngredient.ingredient[e.ingredient_id].ingredient_id,
+      ingredient_name:
+        selectIngredient.ingredient[e.ingredient_id].ingredient_name,
+      ingredient_add:
+        !selectIngredient.ingredient[e.ingredient_id].ingredient_add,
+    };
 
     //추가 시켰으니 리스트에서는 빼주기.
     setListIngredient(
-      listIngredient.filter((remove) => remove.ingredient_id !== e.ingredient_id)
-    )
-    
+      listIngredient.filter(
+        (remove) => remove.ingredient_id !== e.ingredient_id
+      )
+    );
+
     //추가시킨 것 addList에 추가 시켜주기.
     setAddedIngredient((prevInfo) => [...prevInfo, addi]);
   };
@@ -69,7 +74,6 @@ const Ingredient = (props: searchedIngredientType) => {
   //...인 스프레드 연산자는 얕은 복사입니다.
   //깊은 복사 Object.assign 실패
   const removeIngredient = (e: searchIngredientType) => {
-
     //dispatch시켜주어 현재 선택한 것의 add를 반대로 저장해줍니다.
     dispatch(changeSelectIngredient(e));
 
@@ -79,12 +83,15 @@ const Ingredient = (props: searchedIngredientType) => {
     );
 
     //리스트 상시 업데이트.
-    const addi : searchIngredientType = {ingredient_id : selectIngredient.ingredient[e.ingredient_id].ingredient_id,
-    ingredient_name : selectIngredient.ingredient[e.ingredient_id].ingredient_name,
-    ingredient_add : !selectIngredient.ingredient[e.ingredient_id].ingredient_add}
+    const addi: searchIngredientType = {
+      ingredient_id: selectIngredient.ingredient[e.ingredient_id].ingredient_id,
+      ingredient_name:
+        selectIngredient.ingredient[e.ingredient_id].ingredient_name,
+      ingredient_add:
+        !selectIngredient.ingredient[e.ingredient_id].ingredient_add,
+    };
 
     setListIngredient((previnfo) => [...previnfo, addi]);
-
   };
 
   return (
@@ -101,7 +108,7 @@ const Ingredient = (props: searchedIngredientType) => {
           />
         </div>
         <div className={style.ingredient_search_result_list}>
-          {listIngredient.map((ingre) => (
+          {listIngredient?.map((ingre) => (
             <div
               key={ingre.ingredient_id}
               className={style.ingredient_search_result_key}
@@ -120,7 +127,7 @@ const Ingredient = (props: searchedIngredientType) => {
           ))}
         </div>
         <div className={style.ingredient_search_added_list}>
-          {addedIngredient.map((ingre) => (
+          {addedIngredient?.map((ingre) => (
             <div
               key={ingre.ingredient_id}
               className={style.ingredient_search_result_key}

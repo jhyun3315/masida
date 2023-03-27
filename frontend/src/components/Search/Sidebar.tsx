@@ -1,40 +1,25 @@
 import Category from "./Category";
 import style from "./Sidebar.module.scss";
-import { useState, useEffect } from 'react';
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store/store";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { search_props } from "../../pages/search";
+import { setSelectName } from "../../../store/category/nameSlice";
 
-import { searchIngredientType } from "../../type/ingredientTypes";
+const Sidebar2 = (props: search_props) => {
+  const dispatch = useDispatch();
 
-const Sidebar = () => {
+  const [searchName, setSearchName] = useState<string>("");
 
-  const [addIngredient, setAddIngredient] = useState<searchIngredientType[]>([]);
-  const selectIngredient = useSelector(
-    (state: RootState) => state.ingredientSelect
-  );
-  const selectBase = useSelector((state : RootState) => state.baseSelect);
-  const selectColor = useSelector((state : RootState) => state.colorSelect);
-  const selectDifficulty = useSelector((state : RootState) => state.difficultySelect);
-  
-  //내가 추가한 재료들만 뽑아내기위해 useEffect를 사용해 주었습니다.
-  //내가 데이터를 보냈을 때 백에서 true인것만 빼서 해도 됍니다.(데이터가 많은 경우에는 이게 더 처리가 빠르고 좋겠다.)
+  //내가 데이터를 보냈을 때 백에서 true인것만 빼서 해도 됍니다.
+  const searchCocktailName = (e: React.ChangeEvent<HTMLElement>) => {
+    const target = e.target as HTMLInputElement;
+    setSearchName(target.value);
+  };
+
+  //칵테일 이름 dispatch해주어서 넣어주기
   useEffect(() => {
-    setAddIngredient(() => {
-      return selectIngredient.ingredient.filter((ingre) =>
-        ingre.ingredient_add === true,
-      )}
-    );
-  },[selectIngredient]);
-
-  //여기에서 axios 요청을 할거야!
-  const searchCocktail = (e : React.MouseEvent<HTMLElement>) => {
-    console.log(addIngredient);
-    console.log(selectBase.base);
-    console.log(selectColor.color);
-    console.log(selectDifficulty.difficulty);
-    e.preventDefault();
-  }
-
+    dispatch(setSelectName(searchName));
+  }, [searchName]);
 
   return (
     <>
@@ -44,13 +29,15 @@ const Sidebar = () => {
             id="search"
             placeholder="Search"
             className={style.search_form}
-          ></input>
-          <button className={style.search_btn} onClick={searchCocktail}>검색</button>
+            value={searchName}
+            onChange={searchCocktailName}
+          />
+          <button className={style.search_btn}>검색</button>
         </form>
-        <Category />
+        <Category {...props} />
       </div>
     </>
   );
 };
 
-export default Sidebar;
+export default Sidebar2;
