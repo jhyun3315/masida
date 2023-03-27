@@ -40,7 +40,7 @@ const Main_banner = () => {
   const onClickHandler = () => { 
       axios.get('/api/oauth/kakao/logout', {
         headers: {
-          Authorization:`Bearer ${query.accessToken}`,
+          Authorization:query.accessToken,
         }
       })
   }
