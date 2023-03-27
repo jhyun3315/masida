@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 interface nameState {
@@ -6,15 +6,15 @@ interface nameState {
 }
 
 const initialState: nameState = {
-  searchName : "",
+  searchName: "",
 };
 
 const counterSlice = createSlice({
-  name: 'nameSelect',
+  name: "nameSelect",
   initialState,
   reducers: {
-    setSelectName : (state, action : PayloadAction<string>) => {
-      state.searchName = action.payload ;
+    setSelectName: (state, action: PayloadAction<string>) => {
+      state.searchName = action.payload;
     },
   },
 });
@@ -24,30 +24,3 @@ const { actions, reducer: nameReducer } = counterSlice;
 export const { setSelectName } = actions;
 
 export default nameReducer;
-
-// import { createSlice } from '@reduxjs/toolkit';
-// import { PayloadAction } from "@reduxjs/toolkit";
-
-// interface nameState {
-//   base: string;
-// }
-
-// const initialState: nameState = {
-//   base: "",
-// };
-
-// const counterSlice = createSlice({
-//   name: 'nameSelect',
-//   initialState,
-//   reducers: {
-//     setSelectName : (state, action : PayloadAction<string>) => {
-//       state.base = action.payload ;
-//     },
-//   },
-// });
-
-// const { actions, reducer: nameReducer } = counterSlice;
-
-// export const { setSelectName } = actions;
-
-// export default nameReducer;
