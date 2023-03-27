@@ -48,7 +48,7 @@ const Main_banner = () => {
     (state: RootState) => state.user
   );
 
-  console.log(result);
+  console.log("나는 토큰이야", result);
   
 
 
