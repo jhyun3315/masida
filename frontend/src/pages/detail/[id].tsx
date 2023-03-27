@@ -5,24 +5,13 @@ import { useRouter } from "next/router";
 import Header from "../../components/Header/Header";
 import Cocktail_Info from "../../components/Detail/Cocktail_Info";
 import Cocktail_recommend from "../../components/Detail/Cocktail_recommend";
-import {
-  cocktailType,
-  detail_props,
-} from "../../type/cocktailTypes";
+import { cocktailType, detail_props } from "../../type/cocktailTypes";
 import { commentType } from "../../type/commentTypes";
 import { useEffect, useState } from "react";
 import Modal_portal from "../../components/Modal/Modal_portal";
 import CommentModal from "../../components/Modal/CommentModal";
 
-import {get_cocktails_detail} from "../api/cocktails/cocktail_api";
-
-import {
-  GetStaticPaths,
-  GetStaticPathsContext,
-  GetStaticProps,
-  GetStaticPropsContext,
-  GetServerSidePropsContext
-} from "next";
+import { GetServerSideProps } from "next";
 
 // 1. 칵테일 상세 조회
 // 화면 단에서 axios 호출을 하여 결과 값을 컴포넌트에 props로 넘겨준다.
@@ -135,59 +124,87 @@ const recommend_props: recommend_props = {
   },
 };
 
+interface CocktailProps {
+  detail: detail_props;
+}
 
-
-
-const detail = () => {
-  const router = useRouter();
+const detail = ({ detail }: CocktailProps) => {
+  const [isloading, setIsLoading] = useState(false);
   const [visible, setVisible] = useState<boolean>();
   const [cocktail_detail, setCocktail_detail] = useState<detail_props>();
-  
-  // router.query.id가 undefined일 수 있기 때문에 as String을 붙혀줘서 해결한다.
-  useEffect(() => {
-    const id = router.query.id as string; // id를 가져옴
-    if (id) { // id가 있으면 axios 요청을 보냄
-      get_cocktails_detail(parseInt(id)).then((response) => {
-        setCocktail_detail(response.value);
-      });
-    }
-  }, [router.query.id]); // router.query.id가 변경될 때마다 실행
 
+  useEffect(() => {
+    setIsLoading(true);
+    setCocktail_detail(detail);
+  }, [detail]);
 
   const toggleComment = () => {
     setVisible(!visible);
   };
-
-  // 서버에서 정보 받아올 때 우리 칵테일 수보다 router에 뒤에 params값이 더 크면 안되도록 하자
-  // 왜냐면 GetStaticPropsContext으로 했더니 너무 느림
-  return (
-    <>
-      <Header />
-      <div className={style.detail_layout}>
-        <div className={style.detail_layout_left}>
-          <Cocktail_Info {...cocktail_detail} />
+  if (isloading) {
+    return (
+      <>
+        <Header />
+        <div className={style.detail_layout}>
+          <div className={style.detail_layout_left}>
+            <Cocktail_Info {...cocktail_detail} />
+          </div>
+          <div className={style.detail_layout_right}>
+            <Cocktail_recommend {...recommend_props} />
+          </div>
+          {/* 댓글 호버 펼치는 버튼 */}
+          <div>
+            <img
+              className={style.detail_comment_btn}
+              src="/assets/icons/detail_comment_btn.png"
+              alt="btn"
+              onClick={toggleComment}
+            />
+          </div>
+          {visible && (
+            <Modal_portal>
+              <CommentModal setVisible={setVisible} visible={visible} />
+            </Modal_portal>
+          )}
         </div>
-        <div className={style.detail_layout_right}>
-          <Cocktail_recommend {...recommend_props} />
-        </div>
-        {/* 댓글 호버 펼치는 버튼 */}
-        <div>
-          <img
-            className={style.detail_comment_btn}
-            src="/assets/icons/detail_comment_btn.png"
-            alt="btn"
-            onClick={toggleComment}
-          />
-        </div>
-        {visible && (
-          <Modal_portal>
-            <CommentModal setVisible={setVisible} visible={visible} />
-          </Modal_portal>
-        )}
-      </div>
-    </>
-  );
+      </>
+    );
+  } else{
+    return(
+      <div>Loading</div>
+    )
+  }
 };
 
-
 export default detail;
+
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  try {
+    const cocktail_id = params?.id;
+    console.log(cocktail_id);
+    const response = await axios.get<detail_props>(
+      `https://j8b208.p.ssafy.io/api/cocktails/${cocktail_id}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        params: {
+          cocktail_id: cocktail_id,
+        },
+      }
+    );
+    const data = response.data.data;
+    console.log("call : " ,data);
+    return {
+      props: {
+        detail: data,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      props: {},
+    };
+  }
+};
