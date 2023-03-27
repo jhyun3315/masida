@@ -27,5 +27,4 @@ public class Cocktail {
     String cocktailGlass;
     Double cocktailRating;
     Double cocktailDifficulty;
-    String cocktailDeleted;
 }
