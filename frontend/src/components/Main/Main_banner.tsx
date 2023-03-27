@@ -37,7 +37,7 @@ const Main_banner = () => {
 
   console.log(query.accessToken);
 
-  const onClickHandler = () => { 
+  const onLogoutHandler = () => { 
       const logout:any = axios.get('/api/oauth/kakao/logout', {
         headers: {
           Authorization:query.accessToken,
@@ -49,6 +49,15 @@ const Main_banner = () => {
 
   const onQuitHandler = () => { 
     const result:any = axios.delete('/api/oauth/kakao/delete',{
+        headers: {
+          Authorization:query.accessToken,
+        }
+    })
+    console.log(result);
+  }
+
+  const onViewHandler = () => { 
+    const result:any = axios.get('/api/oauth/users',{
         headers: {
           Authorization:query.accessToken,
         }
@@ -92,7 +101,8 @@ const Main_banner = () => {
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
             <Link href="/api/oauth/kakao/login">로그인</Link>
-            <button onClick={ onClickHandler}>로그아웃</button>
+            <button onClick={onLogoutHandler}>로그아웃</button>
+            <button onClick={ onViewHandler}>정보조회</button>
             </div>
             <div className={style.mainTitle2} onClick={goBegginer}>
               <h1><strong>맛과 향, </strong>모두 즐기는 칵테일의 <br/>매력을 느껴보세요.</h1>

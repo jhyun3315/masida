@@ -48,7 +48,19 @@ export type detail_props = {
 
 // 마이페이지 칵테일 추천...
 export type cocktail_recommend = {
-  cocktail_id: number,
-  cocktail_name_ko: string,
-  cocktail_img: string,
+  cocktail_id: number;
+  cocktail_name_ko: string;
+  cocktail_img: string;
+}
+
+// 마이페이지 칵테일 데이터
+export type cocktail_summary_data = {
+  x: string;
+  y: number;
+}
+
+// 마이페이지 요약본 데이터
+export type cocktail_summary = {
+  id: string;
+  data: cocktail_summary_data[];
 }
