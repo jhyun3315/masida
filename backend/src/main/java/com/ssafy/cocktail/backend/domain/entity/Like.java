@@ -36,11 +36,11 @@ public class Like {
         this.cocktail = cocktail;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cocktail_id")
     private Cocktail cocktail;
 }

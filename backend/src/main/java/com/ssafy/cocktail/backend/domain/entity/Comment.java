@@ -41,11 +41,11 @@ public class Comment {
         this.commentUpdateDate = commentUpdateDate;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cocktail_id")
     Cocktail cocktail;
 

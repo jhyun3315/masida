@@ -17,7 +17,7 @@ public class Recipe {
     private int recipeNum;
     private String recipeContent;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cocktail_id")
     private Cocktail cocktail;
 
