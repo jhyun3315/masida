@@ -10,7 +10,7 @@ import { ImageLoaderProps } from 'next/image';
 import { imgLoader } from '../../utils/imgLoader';
 import axios from 'axios';
 
-const Main_banner = () => {
+const Main_banner = () => { //w
   const settings = {
     dots: true,
     infinite: true,
