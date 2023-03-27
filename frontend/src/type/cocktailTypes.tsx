@@ -64,12 +64,16 @@ export type randomType = {
   cocktail_comments: number;
 };
 
-// 마이페이지 칵테일 추천...
-export type cocktail_recommend = {
+// 칵테일 좋아요 상위 10개
+export type likeType = {
   cocktail_id: number;
   cocktail_name_ko: string;
+  cocktail_name_en: string;
   cocktail_img: string;
-}
+  cocktail_rating: number;
+  cocktail_comments: number;
+};
+
 
 // 마이페이지 칵테일 데이터
 export type cocktail_summary_data = {
