@@ -11,7 +11,6 @@ import { ImageLoaderProps } from 'next/image';
 import { imgLoader } from '../../utils/imgLoader';
 import axios from 'axios';
 import { login } from '../../../store/user/userSlice';
-import { Store } from '@reduxjs/toolkit';
 import { RootState } from "../../../store/store";
 
 const Main_banner = () => { 
@@ -45,12 +44,11 @@ const Main_banner = () => {
   },);
 
   const result = useSelector(
-    (state: RootState) => state.user
+    (state: RootState) => state.user.accessToken
   );
 
   console.log("나는 토큰이야", result);
   
-
 
   const onLogoutHandler = () => { 
       const logout:any = axios.get('/api/oauth/kakao/logout', {
@@ -68,7 +66,7 @@ const Main_banner = () => {
           Authorization:accessToken,
         }
     })
-    console.log(result);
+    console.log(result.data.message);
   }
 
   const onViewHandler = () => { 
@@ -94,8 +92,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-            <Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>
-            <button onClick={ onQuitHandler}>회원 탈퇴</button>
+              {accessToken ? (<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>):(<button onClick={onLogoutHandler}>로그아웃</button>)}
             </div>
             <div className={style.mainTitle}>
               <h1>MASIDA,</h1>
@@ -115,9 +112,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-            <Link href="/api/oauth/kakao/login">로그인</Link>
-            <button onClick={onLogoutHandler}>로그아웃</button>
-            <button onClick={ onViewHandler}>정보조회</button>
+              {accessToken ? (<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>):(<button onClick={onLogoutHandler}>로그아웃</button>)}
             </div>
             <div className={style.mainTitle2} onClick={goBegginer}>
               <h1><strong>맛과 향, </strong>모두 즐기는 칵테일의 <br/>매력을 느껴보세요.</h1>
@@ -155,7 +150,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-            <Link href="">로그인</Link>
+              {accessToken ? (<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>):(<button onClick={onLogoutHandler}>로그아웃</button>)}
             </div>
             <div className={style.mainTitle4} onClick = {goSummer}>
               <h1>여름 햇살 아래 즐기는 칵테일, 궁금하신가요?</h1>
@@ -167,11 +162,7 @@ const Main_banner = () => {
   );
 };
  
-// Main_banner.getInitialProps= async () => { 
-//   const req = await fetch('/api/oauth/kakao/login');
-//   const json = await req.json();
-//   console.log(json);
-// }
+
 
 export default Main_banner;
 
