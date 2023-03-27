@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GetServerSideProps } from "next";
+import { NextPageContext } from "next";
 
 import Main_banner from "../components/Main/Main_banner";
 import Main_cocktail from "../components/Main/Main_cocktail";
@@ -15,50 +15,31 @@ import {
 
 import { randomType, likeType } from "../type/cocktailTypes";
 
-
 export interface landing_props {
-  random_cocktail : randomType;
-  like_list : likeType[];
+  random: randomType;
+  likeList: likeType[];
 }
 
-const landing = ({random_cocktail, like_list} :landing_props) => {
-  const [randomCocktail, setRandomCocktail] = useState<randomType>();
-  const [likeList, setLikeList] = useState<likeType[]>();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    setRandomCocktail(random_cocktail)
-    setLikeList(like_list)
-    setIsLoading(true);
-  }, []);
-
+const landing = ({ random, likeList }: landing_props) => {
   const cocktail_props: landing_props = {
-    random_cocktail: randomCocktail,
-    like_list: likeList,
+    random: random,
+    likeList: likeList,
   };
 
-  if (isLoading) {
-    return (
-      <>
-        <Main_banner />
-        <Main_cocktail {...cocktail_props} />
-        <Main_search />
-        <Main_manual />
-        <Footer />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <div>불러오는 중입니다.</div>
-      </>
-    );
-  }
+  return (
+    <>
+      <Main_banner />
+      <Main_cocktail {...cocktail_props} />
+      <Main_search />
+      <Main_manual />
+      <Footer />
+    </>
+  );
 };
 
 export default landing;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+landing.getInitialProps = async (ctx: NextPageContext) => {
   try {
     const response_random = await axios.get(
       `https://j8b208.p.ssafy.io/api/cocktails/random`,
@@ -78,20 +59,21 @@ export const getServerSideProps: GetServerSideProps = async () => {
         },
       }
     );
+    const random: randomType = response_random.data.data;
+    const likeList: likeType[] = response_likeList.data.data;
 
-    const random = response_random.data.data;
-    const likeList = response_likeList.data.data;
+    console.log("성공")
+    console.log(random)
 
     return {
-      props: {
-        random: random,
-        likeList: likeList,
-      },
+      random,
+      likeList,
     };
   } catch (err) {
-    console.log(err);
+    console.log("random, like list를 불러오지 못함");
     return {
-      props: {},
+      random: null,
+      likeList: null,
     };
   }
 };

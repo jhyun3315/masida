@@ -10,9 +10,9 @@ import { imgLoader } from '../../utils/imgLoader';
 
 const Main_cocktail = (props: landing_props) => {
   
-  const cocktailInfo = props.random_cocktail;
-  const cocktailList = props.like_list;
-  console.log("info " , cocktailInfo)
+  const cocktailInfo = props.random;
+  const cocktailList = props.likeList;
+  console.log("info " , props)
   const settings = {
     // dots: true,
     slidesToShow: 1,
@@ -70,7 +70,7 @@ const Main_cocktail = (props: landing_props) => {
   )}
   else{
     return(
-      <></>
+      <>123</>
     )
   }
 };
