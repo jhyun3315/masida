@@ -5,6 +5,6 @@ public interface CocktailLikesInterface {
     String getCocktailNameKo();
     String getCocktailNameEn();
     String getCocktailImg();
-    float getCocktailRating();
+    Double getCocktailRating();
     Long getCnt();
 }
