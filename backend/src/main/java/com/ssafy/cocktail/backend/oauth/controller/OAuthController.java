@@ -24,7 +24,7 @@ import java.io.IOException;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/oauth")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000, https://j8b208.p.ssafy.io")
 public class OAuthController {
     private final OAuthService oAuthService;
 
