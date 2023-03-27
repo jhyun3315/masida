@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
 import style from './Main_banner.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,8 +10,11 @@ import 'slick-carousel/slick/slick-theme.css';
 import { ImageLoaderProps } from 'next/image';
 import { imgLoader } from '../../utils/imgLoader';
 import axios from 'axios';
+import { login } from '../../../store/user/userSlice';
+import { Store } from '@reduxjs/toolkit';
+import { RootState } from "../../../store/store";
 
-const Main_banner = () => { //w
+const Main_banner = () => { 
   const settings = {
     dots: true,
     infinite: true,
@@ -31,16 +35,27 @@ const Main_banner = () => { //w
     router.push("/theme/summer");
   }
 
-  console.log('sssssss');
   const router2 = useRouter();
-  const { query } = router;
+  const accessToken = router.query.accessToken as string;
+  
+  const dispatch = useDispatch();
 
-  console.log(query.accessToken);
+  useEffect(() => {
+    dispatch(login(accessToken));
+  },);
+
+  const result = useSelector(
+    (state: RootState) => state.user
+  );
+
+  console.log(result);
+  
+
 
   const onLogoutHandler = () => { 
       const logout:any = axios.get('/api/oauth/kakao/logout', {
         headers: {
-          Authorization:query.accessToken,
+          Authorization:accessToken,
         }
       })
     
@@ -50,7 +65,7 @@ const Main_banner = () => { //w
   const onQuitHandler = () => { 
     const result:any = axios.delete('/api/oauth/kakao/delete',{
         headers: {
-          Authorization:query.accessToken,
+          Authorization:accessToken,
         }
     })
     console.log(result);
@@ -59,7 +74,7 @@ const Main_banner = () => { //w
   const onViewHandler = () => { 
     const result:any = axios.get('/api/oauth/users',{
         headers: {
-          Authorization:query.accessToken,
+          Authorization:accessToken,
         }
     })
     console.log(result);
