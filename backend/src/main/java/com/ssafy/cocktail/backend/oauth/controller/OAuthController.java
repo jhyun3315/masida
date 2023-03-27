@@ -86,7 +86,7 @@ public class OAuthController {
 //    }
 
     @GetMapping("/kakao/logout")
-    public ResponseEntity<?> kakaoLogout(@RequestHeader("authorization") String accessToken) {
+    public ResponseEntity<?> kakaoLogout(@RequestHeader("Authorization") String accessToken) {
 //        String accessToken = data.get("authorization");
         System.out.println("------------------------------------");
         System.out.println("로그아웃 요청입니다");
@@ -101,7 +101,7 @@ public class OAuthController {
     }
 
     @DeleteMapping("/kakao/delete")
-    public ResponseEntity<?> kakaoDelete(@RequestHeader("authorization") String accessToken) {
+    public ResponseEntity<?> kakaoDelete(@RequestHeader("Authorization") String accessToken) {
 //        String accessToken = data.get("authorization");
         System.out.println("---------------------------------");
         System.out.println("회원탈퇴요청입니다");
@@ -118,7 +118,7 @@ public class OAuthController {
     }
 
     @GetMapping("users")
-    public ResponseEntity<UserInfoRes> mypageUserinfo(@RequestHeader("authorization") String accessToken) {
+    public ResponseEntity<UserInfoRes> mypageUserinfo(@RequestHeader("Authorization") String accessToken) {
         System.out.println("---------------------------------");
         System.out.println("사용자 정보 조회 요청입니다");
         System.out.println("사용자 정보 조회 요청입니다");
@@ -133,7 +133,7 @@ public class OAuthController {
     }
 
     @PutMapping("users")
-    public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("authorization") String accessToken, UserInfoReq req) {
+    public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("Authorization") String accessToken, UserInfoReq req) {
         System.out.println("---------------------------------");
         System.out.println("사용자 정보 수정 요청입니다");
         System.out.println("사용자 정보 수정 요청입니다");
