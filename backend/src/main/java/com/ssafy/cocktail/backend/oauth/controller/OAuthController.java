@@ -86,7 +86,7 @@ public class OAuthController {
 //    }
 
     @GetMapping("/kakao/logout")
-    public ResponseEntity<?> kakaoLogout(@RequestHeader("Authorization") String accessToken) {
+    public ResponseEntity<?> kakaoLogout(@RequestHeader("authorization") String accessToken) {
 //        String accessToken = data.get("authorization");
         System.out.println("------------------------------------");
         System.out.println("로그아웃 요청입니다");
