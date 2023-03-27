@@ -34,13 +34,13 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         CocktailDetail cocktailDetail = new CocktailDetail(); // 칵테일 상세 정보 객체 생성
         Optional<Cocktail> cocktail = cocktailRepository.findById(Long.valueOf(cocktailId)); // 칵테일 가져오기
         cocktailDetail.setCocktailId(Integer.parseInt(cocktailId)); // 칵테일 아이디 삽입
-        cocktailDetail.setCocktailNameKo(cocktail.get().getCocktailNameKo()); // 칵테일 한글 이롬 삽입
+        cocktailDetail.setCocktailNameKo(cocktail.get().getCocktailNameKo() == null ? cocktail.get().getCocktailNameEn() : cocktail.get().getCocktailNameKo()); // 칵테일 한글 이롬 삽입
         cocktailDetail.setCocktailNameEn(cocktail.get().getCocktailNameEn()); // 칵테일 영어 이름 삽입
         cocktailDetail.setCocktailImg(cocktail.get().getCocktailImg()); // 칵테일 이미지 삽입
-        cocktailDetail.setCocktailContent(cocktail.get().getCocktailContent()); // 칵테일 내용 삽입
-        String rating = String.format("%.1f", cocktail.get().getCocktailRating()); // 칵테일 평점 계산 (소수점 첫째자리 까지 표시)
+        cocktailDetail.setCocktailContent(cocktail.get().getCocktailContent() == null ? "맛있는 칵테일":cocktail.get().getCocktailContent()); // 칵테일 내용 삽입
+        String rating = cocktail.get().getCocktailRating() == null ? "0.0" : String.format("%.1f", cocktail.get().getCocktailRating()); // 칵테일 평점 계산 (소수점 첫째자리 까지 표시)
         cocktailDetail.setCocktailRating(rating); // 칵테일 평점 삽입
-        if (cocktail.get().getCocktailDifficulty() == null) {
+        if (cocktail.get().getCocktailDifficulty() == null) { // 예외 처리: 난이도가 null 이라면
             cocktailDetail.setCocktailDifficulty("중");
         } else {
             switch (cocktail.get().getCocktailDifficulty().intValue()) { // 칵테일 난이도
@@ -69,7 +69,7 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
             cocktailDetail.setLikesChecker(false); // 좋아요 여부 false 삽입
             cocktailDetail.setBookmarkCheckcker(false); // 북마크 여부 false 삽입
         }
-        cocktailDetail.setGlass(cocktail.get().getCocktailGlass()); // 칵테일의 글라스 삽입
+        cocktailDetail.setGlass(cocktail.get().getCocktailGlass() == null ? "글라스" : cocktail.get().getCocktailGlass()); // 칵테일의 글라스 삽입
         cocktailDetail.setBase(cocktail.get().getCocktailBase()); // 칵테일의 베이스 삽입
         List<CocktailIngredient> cocktailIngredients = cocktailIngredientRepository.findByCocktail(cocktail.get()); // 칵테일 재료 가져오기
         cocktailDetail.setGarnish(new ArrayList<>()); // 가니쉬 리스트 생성
@@ -83,6 +83,7 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
             }
         }
         List<Recipe> recipes = recipeRepository.findAllByCocktail(cocktail.get()); // 칵테일 제조법 가져오기
+        if (recipes.size() == 0) cocktailDetail.getRecipe().add(new RecipeDetail(1, "모두 넣고 섞으세요")); // 예외처리: 제조법이 없을때
         for (Recipe recipe: recipes) { // 제조법
             cocktailDetail.getRecipe().add(new RecipeDetail(recipe.getRecipeNum(), recipe.getRecipeContent())); // 제조법 삽입
         }
