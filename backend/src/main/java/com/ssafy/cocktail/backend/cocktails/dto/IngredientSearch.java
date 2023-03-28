@@ -14,9 +14,11 @@ public class IngredientSearch {
     @Schema(description = "재료 id", example = "0")
     @JsonProperty("ingredient_id")
     private Long ingredientId;
+
     @Schema(description = "재료 이름", example = "럼")
     @JsonProperty("ingredient_name")
     private String ingredientName;
+
     @Schema(description = "재료 추가", example = "false")
     @JsonProperty("ingredient_add")
     private boolean ingredientAdd;
