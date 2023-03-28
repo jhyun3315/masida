@@ -1,8 +1,12 @@
 import style from "./Cocktail_Info.module.scss";
+import axios from "axios"
 
+import { useSelector } from "react-redux";
 import { detail_props } from "../../type/cocktailTypes";
 import { useState, useEffect } from "react";
+
 import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty_img_url_converter";
+import { RootState } from "../../../store";
 const Cocktail_info = (props: detail_props) => {
   const [isLiked, setIsLiked] = useState<boolean>(props.likes_checker);
   const [isBookmarked, setIsBookmarked] = useState<boolean>(
@@ -11,7 +15,7 @@ const Cocktail_info = (props: detail_props) => {
 
   const [isLikedBtn, setIsLikedBtn] = useState<string>();
   const [isBookmarkedBtn, setIsBookmarkedBtn] = useState<string>();
-
+    
   useEffect(() => {
     if (isLiked) {
       setIsLikedBtn("/assets/icons/LikeCheckedIMG.png");
@@ -24,15 +28,38 @@ const Cocktail_info = (props: detail_props) => {
       setIsBookmarkedBtn("/assets/icons/BookmarkUncheckedIMG.png");
     }
   }, [isLiked, isBookmarked]);
+  const getAccessToken = useSelector(
+    (state: RootState) => state.user.accessToken
+  );
+  console.log("hi atk : ",getAccessToken)
 
   const likes_check_handler = () => {
     console.log("isLiked : ", isLiked);
-    setIsLiked(!isLiked);
+    axios.get(`/api/cocktails/bookmark`, {
+      headers: {
+        Authorization : getAccessToken,
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    }).then((response) =>{
+      console.log(response)
+      setIsLiked(!isLiked);
+    })
+
   };
 
   const bookmark_check_handler = () => {
     console.log("isBookmarked : ", isBookmarked);
-    setIsBookmarked(!isBookmarked);
+    axios.get(`/api/cocktails/likes`, {
+      headers: {
+        Authorization : getAccessToken,
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    }).then((response) =>{
+      setIsBookmarked(!isBookmarked);
+      console.log(response)
+    })
   };
 
   let difficultyImg = difficulty_img_url_converter(props.cocktail_difficulty);
