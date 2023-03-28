@@ -8,4 +8,5 @@ import java.util.ArrayList;
 public interface CommentService {
     public ArrayList<CommentDetail> getComments(String cocktailId, String accessToken);
     public boolean saveOrUpdateComment(String cocktailId,  String commentId, CommentReq req, String accessToken);
+    public boolean removeComment(String cocktailId,  String commentId, String accessToken);
 }
