@@ -22,12 +22,7 @@ const Ingredient = (props: search_props) => {
   let [listIngredient, setListIngredient] = useState<searchIngredientType[]>(
     []
   );
-
-  //페이지 처음 시작할 때 모든 재료목록을 redux에 저장해줍니다.
-  useEffect(() => {
-    dispatch(setSelectIngredient(props.ingredient));
-  }, []);
-
+  
   //재료검색
   const searchIngredient = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
@@ -44,6 +39,7 @@ const Ingredient = (props: search_props) => {
     //ingre.ingredient_name 이 target.value를 포함하고 있다면 그 요소들만 보여주기.
     setInputValue(target.value);
   };
+
 
   //재료추가
   const addIngredient = (e: searchIngredientType) => {
@@ -90,7 +86,9 @@ const Ingredient = (props: search_props) => {
       ingredient_add:
         !selectIngredient.ingredient[e.ingredient_id].ingredient_add,
     };
-
+    // if(addi.ingredient_name.includes(inputvalue))
+    console.log(addi);
+    
     setListIngredient((previnfo) => [...previnfo, addi]);
   };
 

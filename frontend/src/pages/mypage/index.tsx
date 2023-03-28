@@ -6,6 +6,10 @@ import Analysis_thumbnail from "../../components/MyPage/Analysis_thumbnail";
 import User_cocktail_list from "../../components/MyPage/User_cocktail_list";
 import { userType } from "../../type/userTypes"; 
 import { cocktail_summary } from "../../type/cocktailTypes";
+import { GetServerSideProps } from "next";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
 
 const mypage = () => {
 
@@ -49,3 +53,31 @@ const mypage = () => {
 };
 
 export default mypage;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  //북마크, 좋아요를 가져오는 axios 요청입니다.
+  try {
+    const response = await axios.get(
+      "https://j8b208.p.ssafy.io/api/mypage",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Authorization": useSelector((state: RootState) => state.user.accessToken),
+        },
+      }
+    );
+    const data = response.data.data;
+    console.log("call : ", data);
+    return {
+      props: {
+        detail: data,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      props: {},
+    };
+  }
+};

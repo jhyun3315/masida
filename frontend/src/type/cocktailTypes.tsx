@@ -86,3 +86,13 @@ export type cocktail_summary = {
   id: string;
   data: cocktail_summary_data[];
 }
+
+//마이페이지에서 좋아요 누른 칵테일 반환
+export type likes_cocktail = {
+  cocktail_id : string,
+  cocktail_name_ko? : string,
+  cocktail_img? : string,
+  cocktail_likes : number,
+  cocktail_rating : number,
+  cocktail_difficulty : string,
+}

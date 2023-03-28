@@ -89,6 +89,7 @@ export const get_cocktails_ingredients = async () => {
   await axios
     .get(url)
     .then((response) => {
+      console.log("내가가진 재료는 이것들이야", response);
       value = response.data.data;
     })
     .catch((err) => {

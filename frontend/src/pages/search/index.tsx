@@ -26,6 +26,10 @@ const search = () => {
     });
   }, []);
 
+  const cocktail_name = useSelector((state : RootState) => state.nameSelect);
+  console.log(cocktail_name);
+  
+
   const search_props: search_props = {
     ingredient: ingredientList,
   };
@@ -50,14 +54,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       {
         params: {
           sort_num: 0,
-          cocktail_name: useSelector((state: RootState) => state.nameSelect),
-          cocktail_base: useSelector((state: RootState) => state.baseSelect),
-          cocktail_color: useSelector((state: RootState) => state.colorSelect),
+          cocktail_name: useSelector((state: RootState) => state.nameSelect.searchName),
+          cocktail_base: useSelector((state: RootState) => state.baseSelect.base),
+          cocktail_color: useSelector((state: RootState) => state.colorSelect.color),
           cocktail_difficulty: useSelector(
-            (state: RootState) => state.difficultySelect
+            (state: RootState) => state.difficultySelect.difficulty
           ),
           cocktail_ingredient: useSelector(
-            (state: RootState) => state.ingredientSelect
+            (state: RootState) => state.ingredientSelect.ingredient
           ),
         },
       }
