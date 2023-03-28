@@ -47,8 +47,8 @@ public class Cocktail {
     double cocktailDifficulty;
 
     @LastModifiedBy
-    @Column(name="cocktail_update_by",columnDefinition = "VARCHAR(20)", nullable = false)
-    private String roomUpdateBy;
+    @Column(name="cocktail_update_by", nullable = false)
+    private Long roomUpdateBy;
 
     @LastModifiedDate
     @Column(name="cocktail_update_date",columnDefinition = "DATETIME", nullable = false)
