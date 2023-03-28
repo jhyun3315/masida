@@ -29,7 +29,7 @@ public class CommentServiceImpl implements CommentService {
         double curCocktailDiffculty =
                 commentInfo.getCommentDifficulty().equals("하") ? 1.0 :
                 commentInfo.getCommentDifficulty().equals("중") ? 2.0 : 3.0;
-        double curCocktailRating = commentInfo.getCommentRating();
+        Double curCocktailRating = commentInfo.getCommentRating();
         commentRepository.save( // 댓글 저장
                 Comment.builder()
                         .commentContent(commentInfo.getCommentContent())
@@ -47,7 +47,8 @@ public class CommentServiceImpl implements CommentService {
         double prevCocktailDiffculty = cocktail.getCocktailDifficulty(); // 저장된 칵테일 난이도 가져오기
         double newCocktailDiffculty = ((prevCocktailDiffculty * commentSize) + curCocktailDiffculty) / (commentSize + 1); // 새로운 난이도 계산
         cocktail.setCocktailDifficulty(newCocktailDiffculty); // 새로운 난이도 삽입
-        double prevCocktailRating = cocktail.getCocktailRating(); // 저장된 칵테일 평점 가져오기
+        double prevCocktailRating = cocktail.getCocktailRating() == null
+                ? 0.0 : cocktail.getCocktailRating(); // 저장된 칵테일 평점 가져오기
         double newCocktailRating = ((prevCocktailRating * commentSize) + curCocktailRating) / (commentSize + 1); // 새로운 평점 계산
         cocktail.setCocktailRating(newCocktailRating); // 새로운 칵테일 평점 삽입
         cocktailRepository.save(cocktail); // 칵테일 난이도, 평점 업데이트
