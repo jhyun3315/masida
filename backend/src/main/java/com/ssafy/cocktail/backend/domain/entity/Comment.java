@@ -22,10 +22,10 @@ public class Comment {
     String commentContent;
 
     @Column(name = "comment_rating", columnDefinition="DOUBLE",nullable = false)
-    Double commentRating;
+    double commentRating;
 
     @Column(name = "comment_difficulty", columnDefinition="DOUBLE",nullable = false)
-    Double commentDifficulty;
+    double commentDifficulty;
 
     @ColumnDefault("false")
     @Column(name = "comment_deleted", columnDefinition="BOOLEAN",nullable = false)
