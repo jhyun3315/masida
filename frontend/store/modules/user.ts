@@ -16,7 +16,10 @@ export const userSlice = createSlice({
   reducers: {
     login : (state,action: PayloadAction<string>) => {
       state.accessToken = action.payload;
-    }
+    },
+    logout : (state) => {
+      state.accessToken = "";
+    },
   },
   extraReducers: {
     [HYDRATE]: (state, action) => {
@@ -29,6 +32,8 @@ export const userSlice = createSlice({
   },
 });
 
-export const { login } = userSlice.actions;
+const { actions, reducer: userSliceReducer } = userSlice;
+
 export const selectUser = (state: RootState) => state.user;
-export default userSlice.reducer;
+export const { login, logout } = userSlice.actions;
+export default userSliceReducer;
