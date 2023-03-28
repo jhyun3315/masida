@@ -73,7 +73,8 @@ public class OAuthController {
         Cookie cookie = new Cookie("accessTokenCookie", userLoginInfo.getAccessToken());
         cookie.setHttpOnly(true);
         response.addCookie(cookie);
-        return new RedirectView("/");
+//        return new RedirectView("");
+        return new RedirectView("http://localhost:3000");
     }
 
 //    @GetMapping("/kakao/logout")
