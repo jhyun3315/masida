@@ -51,7 +51,7 @@ const Main_banner = () => {
       headers: {
         Authorization: accessToken,
       }
-    }).then(() => dispatch(logout()));
+    })
     
     console.log(logout);
   }
