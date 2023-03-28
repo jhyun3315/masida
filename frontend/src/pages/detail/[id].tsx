@@ -1,21 +1,26 @@
-import style from "./index.module.scss";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
+import style from "./index.module.scss";
 
 import Header from "../../components/Header/Header";
 import Cocktail_Info from "../../components/Detail/Cocktail_Info";
 import Cocktail_recommend from "../../components/Detail/Cocktail_recommend";
-import { cocktailType, detail_props } from "../../type/cocktailTypes";
-import { commentType } from "../../type/commentTypes";
-import { useEffect, useState } from "react";
 import Modal_portal from "../../components/Modal/Modal_portal";
 import CommentModal from "../../components/Modal/CommentModal";
 
+import { cocktailType, detail_props } from "../../type/cocktailTypes";
+import { commentType } from "../../type/commentTypes";
 import { GetServerSideProps } from "next";
-import { get_cocktails_detail } from "../api/cocktails/cocktail_api";
-// 1. 칵테일 상세 조회
-// 화면 단에서 axios 호출을 하여 결과 값을 컴포넌트에 props로 넘겨준다.
 
+import { selectUser } from "../../../store/user/userSlice";
+import { useAppSelector } from "../../../store/hooks";
+import { RootState } from "../../../store/store";
+import { wrapper } from "../../../store";
+// 1. 칵테일 상세 조회
+//  화면 단에서 axios 호출을 하여 결과 값을 컴포넌트에 props로 넘겨준다.
 // 2. 특정 칵테일의 재료와 유사한 칵테일 상위 5개 추천 (컨텐츠 기반)
 
 export type ingredientRecommend = {
@@ -132,6 +137,15 @@ const detail = ({ detail }: CocktailProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [visible, setVisible] = useState<boolean>();
   const [cocktail_detail, setCocktail_detail] = useState<detail_props>();
+  
+  
+  const header: string = useSelector(
+    (state: RootState) => state.user.accessToken
+  );
+  console.log("Atk : ", header);
+
+
+
   useEffect(() => {
     setIsLoading(true);
     setCocktail_detail(detail);
@@ -140,6 +154,7 @@ const detail = ({ detail }: CocktailProps) => {
   const toggleComment = () => {
     setVisible(!visible);
   };
+
   if (isLoading) {
     return (
       <>
@@ -176,6 +191,11 @@ const detail = ({ detail }: CocktailProps) => {
 export default detail;
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  // const header: string = useSelector(
+  //   (state: RootState) => state.user.accessToken
+  // );
+  // console.log(header);
+
   try {
     const cocktail_id = params?.id;
     console.log(cocktail_id);
@@ -183,6 +203,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       `https://j8b208.p.ssafy.io/api/cocktails/${cocktail_id}`,
       {
         headers: {
+          // "header" :
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
         },
