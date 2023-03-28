@@ -10,8 +10,11 @@ import 'slick-carousel/slick/slick-theme.css';
 import { ImageLoaderProps } from 'next/image';
 import { imgLoader } from '../../utils/imgLoader';
 import axios from 'axios';
-import { login } from '../../../store/user/userSlice';
-import { RootState } from "../../../store/store";
+import { login } from '../../../store/modules/user';
+import { logout } from '../../../store/user/userSlice';
+// import { RootState } from '../../../store';
+import { RootState } from '../../../store/store';
+// 
 
 const Main_banner = () => { 
   const settings = {
@@ -34,7 +37,6 @@ const Main_banner = () => {
     router.push("/theme/summer");
   }
 
-  const router2 = useRouter();
   const accessToken = router.query.accessToken as string;
   
   const dispatch = useDispatch();
@@ -43,40 +45,21 @@ const Main_banner = () => {
     dispatch(login(accessToken));
   },);
 
-  const result = useSelector(
+  const getAccessToken = useSelector(
     (state: RootState) => state.user.accessToken
   );
 
-  console.log("나는 토큰이야", result);
-  
-
   const onLogoutHandler = () => { 
-      const logout:any = axios.get('/api/oauth/kakao/logout', {
-        headers: {
-          Authorization:accessToken,
-        }
-      })
+    const logout: any = axios.get('/api/oauth/kakao/logout', {
+      headers: {
+        Authorization: accessToken,
+      }
+    }).then(() => dispatch(logout()));
     
     console.log(logout);
   }
 
-  const onQuitHandler = () => { 
-    const result:any = axios.delete('/api/oauth/kakao/delete',{
-        headers: {
-          Authorization:accessToken,
-        }
-    })
-    console.log(result.data.message);
-  }
-
-  const onViewHandler = () => { 
-    const result:any = axios.get('/api/oauth/users',{
-        headers: {
-          Authorization:accessToken,
-        }
-    })
-    console.log(result);
-  }
+  console.log("앙 토큰 값 가져오기?",getAccessToken);
 
   return (
     <div className={ style.mainBanner}>
@@ -92,7 +75,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              {accessToken ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
+              {getAccessToken ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
             </div>
             <div className={style.mainTitle}>
               <h1>MASIDA,</h1>
@@ -112,7 +95,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              {accessToken ? (<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>):(<button onClick={onLogoutHandler}>로그아웃</button>)}
+              {getAccessToken ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
             </div>
             <div className={style.mainTitle2} onClick={goBegginer}>
               <h1><strong>맛과 향, </strong>모두 즐기는 칵테일의 <br/>매력을 느껴보세요.</h1>
@@ -131,7 +114,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              {accessToken ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
+              {getAccessToken ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
             </div>
             <div className={style.mainTitle3} onClick={goSpring}>
               <h1>봄의 느낌을 담은 칵테일,<br/> 궁금하지 않으신가요?</h1>
@@ -150,7 +133,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              {accessToken ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
+              {getAccessToken ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
             </div>
             <div className={style.mainTitle4} onClick = {goSummer}>
               <h1>여름 햇살 아래 즐기는 칵테일, 궁금하신가요?</h1>
