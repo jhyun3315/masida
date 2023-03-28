@@ -21,14 +21,22 @@ public class CommentController {
     private CommentService commentService;
 
     @GetMapping("/{cocktail_id}")
-    public ResponseEntity<CommentRes> getComments(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String id) {
-        ArrayList<CommentDetail> commentDetails = commentService.getComments(id, accessToken);
+    public ResponseEntity<CommentRes> getComments(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId) {
+        ArrayList<CommentDetail> commentDetails = commentService.getComments(cocktailId, accessToken);
         return ResponseEntity.status(200).body(CommentRes.of(200, "Success", commentDetails));
     }
 
     @PostMapping("/{cocktail_id}")
-    public ResponseEntity<?> registerComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String id, @RequestBody CommentReq req) {
-        if (commentService.saveOrUpdateComment(id, null, req, accessToken)) {
+    public ResponseEntity<?> saveComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId, @RequestBody CommentReq req) {
+        if (commentService.saveOrUpdateComment(cocktailId, null, req, accessToken)) {
+            return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+        }
+        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
+    }
+
+    @PutMapping("/{cocktail_id}/{comment_id}")
+    public ResponseEntity<?> saveComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId, @PathVariable("comment_id") String commentId, @RequestBody CommentReq req) {
+        if (commentService.saveOrUpdateComment(cocktailId, commentId, req, accessToken)) {
             return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
         }
         return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
