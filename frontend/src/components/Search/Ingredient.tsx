@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  searchedIngredientType,
-  searchIngredientType,
-} from "../../type/ingredientTypes";
+import { searchIngredientType } from "../../type/ingredientTypes";
 import { RootState } from "../../../store/store";
-import { setSelectIngredient } from "../../../store/category/ingredientSlice";
 import { changeSelectIngredient } from "../../../store/category/ingredientSlice";
 import style from "./Ingredient.module.scss";
 import { search_props } from "../../pages/search";
@@ -22,7 +18,7 @@ const Ingredient = (props: search_props) => {
   let [listIngredient, setListIngredient] = useState<searchIngredientType[]>(
     []
   );
-  
+
   //재료검색
   const searchIngredient = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
@@ -46,12 +42,11 @@ const Ingredient = (props: search_props) => {
         ingre.ingredient_name.includes(inputvalue)
       );
     });
-     if (inputvalue.length === 0) {
+    if (inputvalue.length === 0) {
       //아무것도 안써있으면 빈배열이여야해
       setListIngredient([]);
     }
-  },[listIngredient])
-
+  }, [addedIngredient]);
 
   //재료추가
   const addIngredient = (e: searchIngredientType) => {
@@ -100,7 +95,7 @@ const Ingredient = (props: search_props) => {
     };
     // if(addi.ingredient_name.includes(inputvalue))
     console.log(addi);
-    
+
     setListIngredient((previnfo) => [...previnfo, addi]);
   };
 
