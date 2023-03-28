@@ -53,6 +53,7 @@ const Main_banner = () => {
         Authorization: getAccessToken,
       }
     })
+    console.log(logout);
   }
 
   console.log("앙 토큰 값 가져오기?",getAccessToken);
