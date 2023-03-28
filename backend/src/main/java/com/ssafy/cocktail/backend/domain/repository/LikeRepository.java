@@ -9,6 +9,6 @@ import java.security.cert.CertPath;
 import java.util.List;
 
 public interface LikeRepository extends JpaRepository<Like, Long> {
-    public List<Like> findAllByCocktailAndLikeDeleted(Cocktail cocktail, String likeDeleted);
+    public List<Like> findAllByCocktailAndLikeDeleted(Cocktail cocktail, boolean likeDeleted);
     public Like findByUserAndCocktail(User user, Cocktail cocktail);
 }
