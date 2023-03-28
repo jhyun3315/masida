@@ -12,8 +12,9 @@ import { imgLoader } from '../../utils/imgLoader';
 import axios from 'axios';
 import { login } from '../../../store/modules/user';
 import { logout } from '../../../store/user/userSlice';
-import { RootState } from '../../../store';
-
+// import { RootState } from '../../../store';
+import { RootState } from '../../../store/store';
+// 
 
 const Main_banner = () => { 
   const settings = {
@@ -44,8 +45,8 @@ const Main_banner = () => {
     dispatch(login(accessToken));
   },);
 
-   const getAccessToken = useSelector(
-    (state: RootState) => state.counter.accessToken
+  const getAccessToken = useSelector(
+    (state: RootState) => state.user.accessToken
   );
 
   const onLogoutHandler = () => { 
