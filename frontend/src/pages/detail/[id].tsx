@@ -139,10 +139,10 @@ const detail = ({ detail }: CocktailProps) => {
   const [cocktail_detail, setCocktail_detail] = useState<detail_props>();
   
   
-  const header: string = useSelector(
-    (state: RootState) => state.user.accessToken
-  );
-  console.log("Atk : ", header);
+  // const header: string = useSelector(
+  //   (state: RootState) => state.user.accessToken
+  // );
+  // console.log("Atk : ", header);
 
 
 
@@ -195,6 +195,11 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   //   (state: RootState) => state.user.accessToken
   // );
   // console.log(header);
+
+  const header: string = useSelector(
+    (state: RootState) => state.user.accessToken
+  );
+  console.log("Atk : ", header);
 
   try {
     const cocktail_id = params?.id;
