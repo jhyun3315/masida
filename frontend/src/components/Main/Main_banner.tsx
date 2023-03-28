@@ -11,7 +11,6 @@ import { ImageLoaderProps } from 'next/image';
 import { imgLoader } from '../../utils/imgLoader';
 import axios from 'axios';
 import { login, logout } from '../../../store/user/userSlice';
-import { RootState } from "../../../store/store";
 
 
 const Main_banner = () => { 
@@ -35,10 +34,10 @@ const Main_banner = () => {
     router.push("/theme/summer");
   }
 
-  const [tokenValue, setTokenValue] = useState("");
+  // const [tokenValue, setTokenValue] = useState<string>("");
 
   const accessToken = router.query.accessToken as string;
-  setTokenValue(accessToken);
+  // setTokenValue(accessToken);
   
   const dispatch = useDispatch();
 
@@ -52,12 +51,12 @@ const Main_banner = () => {
         Authorization: accessToken,
       }
     }).then(() => dispatch(logout()));
-    setTokenValue("");
+    // setTokenValue("");
     
     console.log(logout);
   }
 
-  console.log("앙 토큰 값 가져오기?",tokenValue);
+  console.log("앙 토큰 값 가져오기?");
 
   return (
     <div className={ style.mainBanner}>
