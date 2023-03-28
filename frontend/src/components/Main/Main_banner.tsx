@@ -86,7 +86,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              {accessToken ? (<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>):(<button onClick={onLogoutHandler}>로그아웃</button>)}
+              {accessToken ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
             </div>
             <div className={style.mainTitle2} onClick={goBegginer}>
               <h1><strong>맛과 향, </strong>모두 즐기는 칵테일의 <br/>매력을 느껴보세요.</h1>
