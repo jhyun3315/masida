@@ -31,14 +31,15 @@ public class Comment {
     private LocalDateTime commentUpdateDate;
 
     @Builder
-    public Comment(Long id, String commentContent, double commentRating, double commentDifficulty, String commentDeleted, LocalDateTime commentCreatedDate, LocalDateTime commentUpdateDate) {
-        this.id = id;
+    public Comment(String commentContent, Double commentRating, Double commentDifficulty, String commentDeleted, LocalDateTime commentCreatedDate, LocalDateTime commentUpdateDate, User user, Cocktail cocktail) {
         this.commentContent = commentContent;
         this.commentRating = commentRating;
         this.commentDifficulty = commentDifficulty;
         this.commentDeleted = commentDeleted;
         this.commentCreatedDate = commentCreatedDate;
         this.commentUpdateDate = commentUpdateDate;
+        this.user = user;
+        this.cocktail = cocktail;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
