@@ -146,7 +146,7 @@ public class OAuthServiceImpl implements OAuthService {
 //            String email = kakao_account.getAsJsonObject().get("email").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
             String age_range = kakao_account.getAsJsonObject().get("age_range") == null
-                    ? "연령미동의~" : kakao_account.getAsJsonObject().get("age_range").toString();
+                    ? "연령미동의" : kakao_account.getAsJsonObject().get("age_range").toString().split("~")[0];
 //			String birthday = kakao_account.getAsJsonObject().get("birthday").getAsString();
 //            String gender = kakao_account.getAsJsonObject().get("gender").getAsString();
             String gender = kakao_account.getAsJsonObject().get("gender") == null
@@ -159,7 +159,6 @@ public class OAuthServiceImpl implements OAuthService {
             System.out.println("profile_image: " + profile_image);
             System.out.println("thumbnail_image: " + thumbnail_image);
             System.out.println("gender: " + gender);
-            age_range = age_range.split("~")[0];
             System.out.println("age_range: " + age_range);
             User user = userRepository.findOneByUserEmail(email);
             if (userRepository.findOneByUserEmail(email) == null) {
