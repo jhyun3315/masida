@@ -51,6 +51,8 @@ public class CommentServiceImpl implements CommentService {
                 ? 0.0 : cocktail.getCocktailRating(); // 저장된 칵테일 평점 가져오기
         double newCocktailRating = ((prevCocktailRating * commentSize) + curCocktailRating) / (commentSize + 1); // 새로운 평점 계산
         cocktail.setCocktailRating(newCocktailRating); // 새로운 칵테일 평점 삽입
+        cocktail.setRoomUpdateBy(cocktail.getId()); // 수정자 삽입
+        cocktail.setCommentUpdateDate(LocalDateTime.now()); // 수정일 삽입
         cocktailRepository.save(cocktail); // 칵테일 난이도, 평점 업데이트
 
         return true;
