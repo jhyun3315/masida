@@ -40,6 +40,18 @@ const Ingredient = (props: search_props) => {
     setInputValue(target.value);
   };
 
+  useEffect(() => {
+    setListIngredient(() => {
+      return selectIngredient.ingredient?.filter((ingre) =>
+        ingre.ingredient_name.includes(inputvalue)
+      );
+    });
+     if (inputvalue.length === 0) {
+      //아무것도 안써있으면 빈배열이여야해
+      setListIngredient([]);
+    }
+  },[listIngredient])
+
 
   //재료추가
   const addIngredient = (e: searchIngredientType) => {
