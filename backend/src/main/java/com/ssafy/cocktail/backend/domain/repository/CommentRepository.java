@@ -9,6 +9,4 @@ import java.util.List;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
     public List<Comment> findAllByCocktailAndCommentDeleted(Cocktail cocktail, boolean commentDeleted);
-    public Comment findByUserAndCocktail(User user, Cocktail cocktail);
-    public Comment findByCocktailAndCommentDeleted(Cocktail cocktail, boolean commentDeleted);
 }
