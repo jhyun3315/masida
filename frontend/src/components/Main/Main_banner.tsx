@@ -50,10 +50,12 @@ const Main_banner = () => {
   const onLogoutHandler = () => { 
     const logout: any = axios.get('/api/oauth/kakao/logout', {
       headers: {
-        Authorization: accessToken,
+        Authorization: getAccessToken,
       }
     }).then(() => dispatch(logout()))
   }
+
+  console.log("앙 토큰 값 가져오기?", getAccessToken);
 
   return (
     <div className={ style.mainBanner}>
