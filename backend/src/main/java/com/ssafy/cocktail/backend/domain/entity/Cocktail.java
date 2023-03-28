@@ -47,10 +47,10 @@ public class Cocktail {
     double cocktailDifficulty;
 
     @LastModifiedBy
-    @Column(name="cocktail_update_by", nullable = false)
+    @Column(name="cocktail_update_by")
     private Long roomUpdateBy;
 
     @LastModifiedDate
-    @Column(name="cocktail_update_date",columnDefinition = "DATETIME", nullable = false)
+    @Column(name="cocktail_update_date",columnDefinition = "DATETIME")
     private LocalDateTime commentUpdateDate;
 }
