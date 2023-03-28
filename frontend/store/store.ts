@@ -55,7 +55,7 @@ const reducers = combineReducers({
 const persistConfig = {
   key: "root",
   storage: local,
-  whitelist: ["counter"],
+  whitelist: ["user"],
 };
 
 //redux-persist를 사용하기위해 Reducer합치는 단계
