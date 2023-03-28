@@ -145,7 +145,6 @@ const detail = ({ detail }: CocktailProps) => {
   // console.log("Atk : ", header);
 
 
-
   useEffect(() => {
     setIsLoading(true);
     setCocktail_detail(detail);
@@ -194,12 +193,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   // const header: string = useSelector(
   //   (state: RootState) => state.user.accessToken
   // );
-  // console.log(header);
-
-  const header: string = useSelector(
-    (state: RootState) => state.user.accessToken
-  );
-  console.log("Atk : ", header);
+  // console.log("Atk : ", header);
 
   try {
     const cocktail_id = params?.id;
