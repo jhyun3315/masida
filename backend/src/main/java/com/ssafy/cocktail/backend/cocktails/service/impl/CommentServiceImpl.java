@@ -5,7 +5,6 @@ import com.ssafy.cocktail.backend.cocktails.dto.request.CommentReq;
 import com.ssafy.cocktail.backend.cocktails.service.CommentService;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.Comment;
-import com.ssafy.cocktail.backend.domain.entity.Like;
 import com.ssafy.cocktail.backend.domain.entity.User;
 import com.ssafy.cocktail.backend.domain.repository.CocktailRepository;
 import com.ssafy.cocktail.backend.domain.repository.CommentRepository;
@@ -16,7 +15,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
 
 @Service
 @AllArgsConstructor
@@ -54,7 +53,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public boolean registerComment(String cocktailId, CommentReq commentInfo, String accessToken) {
+    public boolean registerOrUpdateComment(String cocktailId, CommentReq commentInfo, String accessToken, boolean check) {
         User user = oAuthService.getUser(accessToken); // 사용자 가져오기
         Cocktail cocktail = cocktailRepository.findCocktailById(Long.valueOf(cocktailId)); // 칵테일 가져오기
         double curCocktailDiffculty =

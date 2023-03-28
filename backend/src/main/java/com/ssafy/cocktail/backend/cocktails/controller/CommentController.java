@@ -28,7 +28,7 @@ public class CommentController {
 
     @PostMapping("/{cocktail_id}")
     public ResponseEntity<?> registerComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String id, @RequestBody CommentReq req) {
-        if (commentService.registerComment(id, req, accessToken)) {
+        if (commentService.registerOrUpdateComment(id, req, accessToken, false)) {
             return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
         }
         return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
