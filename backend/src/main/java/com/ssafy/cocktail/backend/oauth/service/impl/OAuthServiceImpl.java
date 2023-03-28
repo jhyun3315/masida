@@ -143,16 +143,14 @@ public class OAuthServiceImpl implements OAuthService {
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
             String profile_image = properties.getAsJsonObject().get("profile_image").getAsString();
             String thumbnail_image = properties.getAsJsonObject().get("thumbnail_image").getAsString();
+//            String email = kakao_account.getAsJsonObject().get("email").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
-            String age_range = kakao_account.getAsJsonObject().get("age_range").getAsString();
-            if (age_range.length() == 0) {
-                age_range = "미동의";
-            }
+            String age_range = kakao_account.getAsJsonObject().get("age_range") == null
+                    ? "연령미동의~" : kakao_account.getAsJsonObject().get("age_range").toString();
 //			String birthday = kakao_account.getAsJsonObject().get("birthday").getAsString();
-            String gender = kakao_account.getAsJsonObject().get("gender").getAsString();
-            if (gender.length() == 0) {
-                age_range = "미동의";
-            }
+//            String gender = kakao_account.getAsJsonObject().get("gender").getAsString();
+            String gender = kakao_account.getAsJsonObject().get("gender") == null
+                    ? "성별미동의" : kakao_account.getAsJsonObject().get("gender").getAsString();
 
             System.out.println("------------------------------------------------------");
             System.out.println("user_id: " + user_id);
