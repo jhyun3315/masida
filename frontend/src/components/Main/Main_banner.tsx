@@ -10,11 +10,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import { ImageLoaderProps } from 'next/image';
 import { imgLoader } from '../../utils/imgLoader';
 import axios from 'axios';
-import { login } from '../../../store/modules/user';
-import { logout } from '../../../store/user/userSlice';
-// import { RootState } from '../../../store';
+import { login,logout } from '../../../store/modules/user';
 import { RootState } from '../../../store/store';
-// 
 
 const Main_banner = () => { 
   const settings = {
