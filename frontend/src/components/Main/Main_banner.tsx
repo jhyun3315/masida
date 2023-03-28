@@ -42,14 +42,17 @@ const Main_banner = () => {
     dispatch(login(accessToken));
   },);
 
+  const getAccessToken = useSelector(
+    (state: RootState) => state.user.accessToken
+  );
+
   const onLogoutHandler = () => { 
-      const logout:any = axios.get('/api/oauth/kakao/logout', {
-        headers: {
-          Authorization:accessToken,
-        }
-      })
-    
-    console.log(logout);
+    const logout: any = axios.get('/api/oauth/kakao/logout', {
+      headers: {
+        Authorization: accessToken,
+      }
+    })
+    console.log(logout.data.message);
   }
 
   return (
