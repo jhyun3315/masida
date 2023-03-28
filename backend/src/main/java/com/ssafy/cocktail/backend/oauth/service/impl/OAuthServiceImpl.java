@@ -42,10 +42,10 @@ public class OAuthServiceImpl implements OAuthService {
 
     @Override
     public UserLoginInfo loginUser(String authorize_code) throws IOException {
-        userLoginInfo = new UserLoginInfo();
+        userLoginInfo = new UserLoginInfo(); // 사용자 로그인 정보
         String accessToken = getKakaoAccessToken(authorize_code); // accessToken 가져오기
-        userLoginInfo.setAccessToken(accessToken);
-        saveOrUpdate(accessToken);
+        userLoginInfo.setAccessToken(accessToken); // 엑세스 토큰 삽입
+        saveOrUpdate(accessToken); // 새로운 사용자 저장 또는 업데이트
         return userLoginInfo;
     }
 
@@ -170,7 +170,7 @@ public class OAuthServiceImpl implements OAuthService {
                         .userProfile(thumbnail_image)
                         .userGender(gender)
                         .userAgeRange(age_range)
-                        .userDeleted("N")
+                        .userDeleted(false)
                         .userCreatedDate(LocalDateTime.now())
                         .userUpdateDate(LocalDateTime.now())
                         .build());
@@ -179,7 +179,7 @@ public class OAuthServiceImpl implements OAuthService {
                 user.setUserProfile(thumbnail_image);
                 user.setUserGender(gender);
                 user.setUserAgeRange(age_range);
-                user.setUserDeleted("N");
+                user.setUserDeleted(false);
                 user.setUserUpdateDate(LocalDateTime.now());
                 userRepository.save(user);
             }
