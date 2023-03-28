@@ -32,7 +32,7 @@ public class CommentDetail {
     @JsonProperty("comment_profile")
     private String commentProfile;
 
-    @Schema(description = "작성자 확인", example = "N")
+    @Schema(description = "작성자 확인", example = "false")
     @JsonProperty("comment_checker")
-    private Boolean commentChecker;
+    private boolean commentChecker;
 }
