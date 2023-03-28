@@ -13,11 +13,7 @@ import CommentModal from "../../components/Modal/CommentModal";
 
 import { cocktailType, detail_props } from "../../type/cocktailTypes";
 import { commentType } from "../../type/commentTypes";
-import { GetServerSideProps } from "next";
 
-import { selectUser } from "../../../store/user/userSlice";
-import { useAppSelector } from "../../../store/hooks";
-import { RootState } from "../../../store/store";
 import { wrapper } from "../../../store";
 // 1. 칵테일 상세 조회
 //  화면 단에서 axios 호출을 하여 결과 값을 컴포넌트에 props로 넘겨준다.

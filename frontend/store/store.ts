@@ -1,12 +1,11 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import counterSlice from "./counter/counterSlice";
 import baseSlice from "./category/baseSlice";
 import colorSlice from "./category/colorSlice";
 import difficultySlice from './category/difficultySlice';
 import ingredientSlice from './category/ingredientSlice';
 import nameSlice from './category/nameSlice';
 
-import userSlice from './user/userSlice';
+import userSlice  from './modules/user';
 
 import persistReducer from 'redux-persist/lib/persistReducer';
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
@@ -44,7 +43,6 @@ import {
 
 
 const reducers = combineReducers({
-  counter: counterSlice,
   baseSelect : baseSlice,
   colorSelect : colorSlice,
   difficultySelect : difficultySlice,

@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     "declaration.d.ts"
-  ],
+, "store/user/userSlice.txt"  ],
   "exclude": [
     "node_modules"
   ]
