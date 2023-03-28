@@ -41,6 +41,7 @@ const Main_banner = () => {
 
   const dispatch = useDispatch();
   let accessToken = "";
+  
   const atkQuery =router.query.accessToken as string | null; 
   if (atkQuery) {
     if(atkQuery.length > 0){
