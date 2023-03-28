@@ -312,7 +312,7 @@ public class OAuthServiceImpl implements OAuthService {
 //            JsonElement element = parser.parse(result); // Json 파싱
 
             if (isdeleted) {
-                user.setUserDeleted("Y"); // 삭제 상태 삭제로 변경
+                user.setUserDeleted(false); // 삭제 상태 삭제로 변경
                 userRepository.save(user); // 회원 정보 수정
             }
             return true;
