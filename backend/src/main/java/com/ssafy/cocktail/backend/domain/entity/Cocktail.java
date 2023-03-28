@@ -1,7 +1,11 @@
 package com.ssafy.cocktail.backend.domain.entity;
 
 import lombok.*;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter @Setter
@@ -41,4 +45,12 @@ public class Cocktail {
 
     @Column(name = "cocktail_difficulty", columnDefinition="DOUBLE",nullable = false)
     double cocktailDifficulty;
+
+    @LastModifiedBy
+    @Column(name="cocktail_update_by",columnDefinition = "VARCHAR(20)", nullable = false)
+    private String roomUpdateBy;
+
+    @LastModifiedDate
+    @Column(name="cocktail_update_date",columnDefinition = "DATETIME", nullable = false)
+    private LocalDateTime commentUpdateDate;
 }
