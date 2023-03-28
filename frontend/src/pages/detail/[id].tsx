@@ -137,13 +137,11 @@ const detail = ({ detail }: CocktailProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [visible, setVisible] = useState<boolean>();
   const [cocktail_detail, setCocktail_detail] = useState<detail_props>();
-  
-  
+
   // const header: string = useSelector(
   //   (state: RootState) => state.user.accessToken
   // );
   // console.log("Atk : ", header);
-
 
   useEffect(() => {
     setIsLoading(true);
@@ -189,39 +187,44 @@ const detail = ({ detail }: CocktailProps) => {
 
 export default detail;
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  // const header: string = useSelector(
-  //   (state: RootState) => state.user.accessToken
-  // );
-  // console.log("Atk : ", header);
-
-  try {
-    const cocktail_id = params?.id;
-    console.log(cocktail_id);
-    const response = await axios.get(
-      `https://j8b208.p.ssafy.io/api/cocktails/${cocktail_id}`,
-      {
-        headers: {
-          // "header" :
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-        params: {
-          cocktail_id: cocktail_id,
-        },
+// export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async ({ params }) => {
+      let header: string = store.getState().user.accessToken;
+      if (!header) {
+        header = "";
       }
-    );
-    const data = response.data.data;
-    console.log("call : ", data);
-    return {
-      props: {
-        detail: data,
-      },
-    };
-  } catch (err) {
-    console.log(err);
-    return {
-      props: {},
-    };
-  }
-};
+      console.log("Atk : ", header);
+
+      try {
+        const cocktail_id: number = parseInt(params?.id as string);
+        console.log("here ", cocktail_id);
+        const response = await axios.get(
+          `https://j8b208.p.ssafy.io/api/cocktails/${cocktail_id}`,
+          {
+            headers: {
+              header: header,
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+            params: {
+              cocktail_id: cocktail_id,
+            },
+          }
+        );
+        const data = response.data.data;
+        // console.log("call : ", data);
+        return {
+          props: {
+            detail: data,
+          },
+        };
+      } catch (err) {
+        console.log(err);
+        return {
+          props: undefined,
+        };
+      }
+    }
+);
