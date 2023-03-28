@@ -15,11 +15,13 @@ const userSlice = createSlice({
   reducers: {
     login (state,action: PayloadAction<string>) {
       state.accessToken = action.payload;
+    }, logout(state) {
+      state.accessToken = "";
     }
   }
 });
 
 const { actions, reducer: userReducer } = userSlice;
-export const { login } = actions;
+export const { login,logout } = actions;
 export default userReducer;
 
