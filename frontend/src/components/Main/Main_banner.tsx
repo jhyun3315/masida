@@ -58,6 +58,8 @@ const Main_banner = () => {
     })
   }
 
+  console.log("앙 토큰띠", getAccessToken);
+
   return (
     <div className={ style.mainBanner}>
         <Slider {...settings}>
