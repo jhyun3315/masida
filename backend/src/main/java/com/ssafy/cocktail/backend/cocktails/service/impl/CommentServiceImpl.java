@@ -26,8 +26,8 @@ public class CommentServiceImpl implements CommentService {
         User user = oAuthService.getUser(accessToken); // 사용자 가져오기
         Cocktail cocktail = cocktailRepository.findCocktailById(Long.valueOf(cocktailId)); // 칵테일 가져오기
         Double cocktailDiffculty =
-                commentInfo.getCommentContent().equals("하") ? 1.0 :
-                commentInfo.getCommentContent().equals("중") ? 2.0 : 3.0;
+                commentInfo.getCommentDifficulty().equals("하") ? 1.0 :
+                commentInfo.getCommentDifficulty().equals("중") ? 2.0 : 3.0;
         commentRepository.save(
                 Comment.builder()
                         .commentContent(commentInfo.getCommentContent())
