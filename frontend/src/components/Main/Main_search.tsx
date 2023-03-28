@@ -2,16 +2,19 @@ import { useRef } from "react";
 import { useRouter } from "next/router";
 import { KeyboardEvent } from "react";
 import style from "./Main_search.module.scss";
+import { useDispatch } from "react-redux";
+import { setSelectName } from "../../../store/category/nameSlice";
 
 const Main_search = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const cocktailSearchRef = useRef<HTMLInputElement>(null);
   const searchCocktail = (e: KeyboardEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
     if (e.key === "Enter") {
+      dispatch(setSelectName(target.value)); //이름을 라우터에 저장하고 나서 보내줍니다.
       router.push({
         pathname: "/search",
-        query: { name: target.value },
       });
     }
   };
