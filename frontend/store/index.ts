@@ -7,7 +7,7 @@ import { Action } from "redux";
 const makeStore = (context: Context) =>
   configureStore({
     reducer: {
-      counter: userReducer,
+      user: userReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
     devTools: true,
