@@ -35,7 +35,10 @@ const Main_banner = () => {
     router.push("/theme/summer");
   }
 
+  const [tokenValue, setTokenValue] = useState("");
+
   const accessToken = router.query.accessToken as string;
+  setTokenValue(accessToken);
   
   const dispatch = useDispatch();
 
@@ -43,16 +46,14 @@ const Main_banner = () => {
     dispatch(login(accessToken));
   },);
 
-  const getAccessToken = useSelector(
-    (state: RootState) => state.user.accessToken
-  );
-
   const onLogoutHandler = () => { 
     const logout: any = axios.get('/api/oauth/kakao/logout', {
       headers: {
-        Authorization: getAccessToken,
+        Authorization: accessToken,
       }
-    })
+    }).then(() => dispatch(logout()));
+    setTokenValue("");
+    
     console.log(logout);
   }
 
@@ -72,7 +73,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              {getAccessToken ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
+              {tokenValue ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
             </div>
             <div className={style.mainTitle}>
               <h1>MASIDA,</h1>
@@ -92,7 +93,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              {getAccessToken ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
+              {tokenValue ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
             </div>
             <div className={style.mainTitle2} onClick={goBegginer}>
               <h1><strong>맛과 향, </strong>모두 즐기는 칵테일의 <br/>매력을 느껴보세요.</h1>
@@ -111,7 +112,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              {getAccessToken ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
+              {tokenValue ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
             </div>
             <div className={style.mainTitle3} onClick={goSpring}>
               <h1>봄의 느낌을 담은 칵테일,<br/> 궁금하지 않으신가요?</h1>
@@ -130,7 +131,7 @@ const Main_banner = () => {
             <div className={style.mainHeader}>
               <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
               <Link href="/search">칵테일 검색</Link>
-              {getAccessToken ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
+              {tokenValue ?(<button onClick={onLogoutHandler}>로그아웃</button>) :(<Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">로그인</Link>)}
             </div>
             <div className={style.mainTitle4} onClick = {goSummer}>
               <h1>여름 햇살 아래 즐기는 칵테일, 궁금하신가요?</h1>
