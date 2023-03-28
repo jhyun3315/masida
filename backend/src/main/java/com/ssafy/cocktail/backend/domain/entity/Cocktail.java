@@ -18,7 +18,7 @@ public class Cocktail {
     @Column(name = "cocktail_name_en", columnDefinition="VARCHAR(30)",nullable = false)
     String cocktailNameEn;
 
-    @Column(name = "cocktail_img", columnDefinition="VARCHAR(150)")
+    @Column(name = "cocktail_img", columnDefinition="VARCHAR(150)",nullable = false)
     String cocktailImg;
 
     @Column(name = "cocktail_content", columnDefinition="VARCHAR(100)")
@@ -40,5 +40,5 @@ public class Cocktail {
     Double cocktailRating;
 
     @Column(name = "cocktail_difficulty", columnDefinition="DOUBLE",nullable = false)
-    Double cocktailDifficulty;
+    double cocktailDifficulty;
 }
