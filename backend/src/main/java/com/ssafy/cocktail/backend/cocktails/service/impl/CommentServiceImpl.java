@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -53,35 +54,51 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public boolean registerOrUpdateComment(String cocktailId, CommentReq commentInfo, String accessToken, boolean check) {
+    public boolean saveOrUpdateComment(String coctailId, String commentId, CommentReq commentInfo, String accessToken) {
+        // 댓글 등록 또는 수정
         User user = oAuthService.getUser(accessToken); // 사용자 가져오기
-        Cocktail cocktail = cocktailRepository.findCocktailById(Long.valueOf(cocktailId)); // 칵테일 가져오기
+        Cocktail cocktail = cocktailRepository.findCocktailById(Long.valueOf(coctailId)); // 칵테일 가져오기
+        List<Comment> commets = commentRepository.findAllByCocktailAndCommentDeleted(cocktail, false); // 칵테일 댓글 가져오기
+        int commentSize = commets.size(); // 칵테일의 댓글 전체 개수
         double curCocktailDiffculty =
                 commentInfo.getCommentDifficulty().equals("하") ? 1.0 :
-                commentInfo.getCommentDifficulty().equals("중") ? 2.0 : 3.0;
-        Double curCocktailRating = commentInfo.getCommentRating();
-        commentRepository.save( // 댓글 저장
-                Comment.builder()
-                        .commentContent(commentInfo.getCommentContent())
-                        .commentRating(curCocktailRating)
-                        .commentDifficulty(curCocktailDiffculty)
-                        .commentDeleted(false)
-                        .commentCreatedDate(LocalDateTime.now())
-                        .commentUpdateDate(LocalDateTime.now())
-                        .user(user)
-                        .cocktail(cocktail)
-                        .build()
-        );
-        List<Comment> commets = commentRepository.findAllByCocktailAndCommentDeleted(cocktail, false); // 칵테일 댓글 가져오기
-        int commentSize = commets.size() - 1; // 칵테일 댓글 개수
-        double prevCocktailDiffculty = cocktail.getCocktailDifficulty(); // 저장된 칵테일 난이도 가져오기
-        double newCocktailDiffculty = ((prevCocktailDiffculty * commentSize) + curCocktailDiffculty) / (commentSize + 1); // 새로운 난이도 계산
-        cocktail.setCocktailDifficulty(newCocktailDiffculty); // 새로운 난이도 삽입
-        double prevCocktailRating = cocktail.getCocktailRating() == null
-                ? 0.0 : cocktail.getCocktailRating(); // 저장된 칵테일 평점 가져오기
-        double newCocktailRating = ((prevCocktailRating * commentSize) + curCocktailRating) / (commentSize + 1); // 새로운 평점 계산
+                        commentInfo.getCommentDifficulty().equals("중") ? 2.0 : 3.0; // 댓글 난이도
+        double curCocktailRating = commentInfo.getCommentRating(); // 댓글 평점
+        double difficultySum = cocktail.getCocktailRating() * commentSize; // 난이도의 총점
+        double ratingSum = cocktail.getCocktailRating() * commentSize; // 평점의 총점
+
+        if (commentId == null) { // 댓글 등록 이면
+            commentRepository.save( // 댓글 저장
+                    Comment.builder()
+                            .commentContent(commentInfo.getCommentContent()) // 내용 삽입
+                            .commentRating(curCocktailRating) // 평점 삽입
+                            .commentDifficulty(curCocktailDiffculty) // 난이도 삽입
+                            .commentDeleted(false) // 삭제 여부 삽입
+                            .commentCreatedDate(LocalDateTime.now()) // 생성일 삽입
+                            .commentUpdateDate(LocalDateTime.now()) // 수정일 삽입
+                            .user(user) // 사용자 삽입
+                            .cocktail(cocktail) // 칵테일 삽입
+                            .build()
+            );
+            commentSize++; // 댓글 개수 증가
+            difficultySum += curCocktailDiffculty; // 난이도의 총점 증가
+            ratingSum += curCocktailRating; // 평점의 총점 증가
+        } else { // 댓글 수정 이면
+            Optional<Comment> comment = commentRepository.findById(Long.valueOf(commentId)); // 댓글 가져오기
+            difficultySum -= comment.get().getCommentDifficulty(); // 이전 난이도 제거
+            ratingSum -= comment.get().getCommentRating(); // 이전 평점 제거
+            comment.get().setCommentContent(commentInfo.getCommentContent()); // 내용 업데이트
+            comment.get().setCommentRating(curCocktailRating); // 평점 업데이트
+            comment.get().setCommentDifficulty(curCocktailDiffculty); // 난이도 업데이트
+            commentRepository.save(comment.get()); // 댓글 업데이트
+            difficultySum += comment.get().getCommentDifficulty(); // 새로운 난이도 총점
+            ratingSum += comment.get().getCommentRating(); // 새로운 평점 총점
+        }
+        double newCocktailDiffculty = difficultySum / commentSize; // 새로운 난이도 계산
+        cocktail.setCocktailDifficulty(newCocktailDiffculty); // 새로운 칵테일 난이도 삽입
+        double newCocktailRating = ratingSum / curCocktailRating; // 새로운 평점 계산
         cocktail.setCocktailRating(newCocktailRating); // 새로운 칵테일 평점 삽입
-        cocktail.setRoomUpdateBy(cocktail.getId()); // 수정자 삽입
+        cocktail.setRoomUpdateBy(user.getId()); // 수정자 삽입
         cocktail.setCommentUpdateDate(LocalDateTime.now()); // 수정일 삽입
         cocktailRepository.save(cocktail); // 칵테일 난이도, 평점 업데이트
 

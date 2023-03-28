@@ -38,7 +38,8 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         cocktailDetail.setCocktailNameEn(cocktail.get().getCocktailNameEn()); // 칵테일 영어 이름 삽입
         cocktailDetail.setCocktailImg(cocktail.get().getCocktailImg()); // 칵테일 이미지 삽입
         cocktailDetail.setCocktailContent(cocktail.get().getCocktailContent() == null ? "맛있는 칵테일":cocktail.get().getCocktailContent()); // 칵테일 내용 삽입
-        String rating = cocktail.get().getCocktailRating() == null ? "0.0" : String.format("%.1f", cocktail.get().getCocktailRating()); // 칵테일 평점 계산 (소수점 첫째자리 까지 표시)
+//        String rating = cocktail.get().getCocktailRating() == null ? "0.0" : String.format("%.1f", cocktail.get().getCocktailRating()); // 칵테일 평점 계산 (소수점 첫째자리 까지 표시)
+        String rating = String.format("%.1f", cocktail.get().getCocktailRating()); // 칵테일 평점 계산 (소수점 첫째자리 까지 표시)
         cocktailDetail.setCocktailRating(rating); // 칵테일 평점 삽입
         switch ((int) cocktail.get().getCocktailDifficulty()) { // 칵테일 난이도
             case 1: // 난이도가 1 이면

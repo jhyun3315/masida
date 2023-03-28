@@ -7,5 +7,5 @@ import java.util.ArrayList;
 
 public interface CommentService {
     public ArrayList<CommentDetail> getComments(String cocktailId, String accessToken);
-    public boolean registerOrUpdateComment(String cocktailId, CommentReq req, String accessToken, boolean check);
+    public boolean saveOrUpdateComment(String cocktailId,  String commentId, CommentReq req, String accessToken);
 }

@@ -40,8 +40,8 @@ public class Cocktail {
     @Column(name = "cocktail_glass", columnDefinition="VARCHAR(20)")
     String cocktailGlass;
 
-    @Column(name = "cocktail_rating", columnDefinition="DOUBLE")
-    Double cocktailRating;
+    @Column(name = "cocktail_rating", columnDefinition="DOUBLE",nullable = false)
+    double cocktailRating;
 
     @Column(name = "cocktail_difficulty", columnDefinition="DOUBLE",nullable = false)
     double cocktailDifficulty;
