@@ -49,7 +49,7 @@ public class CommentServiceImpl implements CommentService {
             commentDetail.setWriterChecker(writerChecker); // 작성자 확인 삽입
             commentDetails.add(commentDetail); // 댓글 삽입
         }
-        
+
         return commentDetails;
     }
 
