@@ -35,8 +35,16 @@ public class CommentController {
     }
 
     @PutMapping("/{cocktail_id}/{comment_id}")
-    public ResponseEntity<?> saveComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId, @PathVariable("comment_id") String commentId, @RequestBody CommentReq req) {
+    public ResponseEntity<?> updateComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId, @PathVariable("comment_id") String commentId, @RequestBody CommentReq req) {
         if (commentService.saveOrUpdateComment(cocktailId, commentId, req, accessToken)) {
+            return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+        }
+        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
+    }
+
+    @DeleteMapping("/{cocktail_id}/{comment_id}")
+    public ResponseEntity<?> removeComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId, @PathVariable("comment_id") String commentId) {
+        if (commentService.removeComment(cocktailId, commentId, accessToken)) {
             return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
         }
         return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
