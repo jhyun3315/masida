@@ -34,7 +34,6 @@ const Main_banner = () => {
     router.push("/theme/summer");
   }
 
-  const router2 = useRouter();
   const accessToken = router.query.accessToken as string;
   
   const dispatch = useDispatch();
@@ -42,13 +41,6 @@ const Main_banner = () => {
   useEffect(() => {
     dispatch(login(accessToken));
   },);
-
-  const result = useSelector(
-    (state: RootState) => state.user.accessToken
-  );
-
-  console.log("나는 토큰이야", result);
-  
 
   const onLogoutHandler = () => { 
       const logout:any = axios.get('/api/oauth/kakao/logout', {
@@ -58,24 +50,6 @@ const Main_banner = () => {
       })
     
     console.log(logout);
-  }
-
-  const onQuitHandler = () => { 
-    const result:any = axios.delete('/api/oauth/kakao/delete',{
-        headers: {
-          Authorization:accessToken,
-        }
-    })
-    console.log(result.data.message);
-  }
-
-  const onViewHandler = () => { 
-    const result:any = axios.get('/api/oauth/users',{
-        headers: {
-          Authorization:accessToken,
-        }
-    })
-    console.log(result);
   }
 
   return (
