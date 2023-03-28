@@ -16,7 +16,7 @@ import java.util.ArrayList;
 @RestController
 @AllArgsConstructor
 @CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io"})
-@RequestMapping("api/comments")
+@RequestMapping("/api/comments")
 public class CommentController {
     private CommentService commentService;
 

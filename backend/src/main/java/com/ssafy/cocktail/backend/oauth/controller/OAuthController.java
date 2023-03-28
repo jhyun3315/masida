@@ -28,7 +28,7 @@ import java.io.IOException;
 public class OAuthController {
     private final OAuthService oAuthService;
 
-    @GetMapping("kakao/login")
+    @GetMapping("/kakao/login")
     public void kakaoLogin(HttpServletResponse response) throws IOException {
         String loginPageUri = oAuthService.loginPage(); // 로그인 페이지 가져오기
         response.sendRedirect(loginPageUri); // 로그인 페이지로 이동
@@ -118,7 +118,7 @@ public class OAuthController {
         return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
     }
 
-    @GetMapping("users")
+    @GetMapping("/users")
     public ResponseEntity<UserInfoRes> mypageUserinfo(@RequestHeader("Authorization") String accessToken) {
         System.out.println("---------------------------------");
         System.out.println("사용자 정보 조회 요청입니다");
@@ -133,7 +133,7 @@ public class OAuthController {
         return ResponseEntity.ok(UserInfoRes.of(200, "Success", userInfo));
     }
 
-    @PutMapping("users")
+    @PutMapping("/users")
     public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("Authorization") String accessToken, UserInfoReq req) {
         System.out.println("---------------------------------");
         System.out.println("사용자 정보 수정 요청입니다");
