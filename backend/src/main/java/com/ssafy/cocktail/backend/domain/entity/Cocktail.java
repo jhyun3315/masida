@@ -1,30 +1,44 @@
 package com.ssafy.cocktail.backend.domain.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
 @Table(name="cocktails")
 public class Cocktail {
     @Id
-    @GeneratedValue
-    @Column(name = "cocktail_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cocktail_id",nullable = false)
     private Long id;
 
+    @Column(name = "cocktail_name_ko", columnDefinition="VARCHAR(20)",nullable = false)
     String cocktailNameKo;
+
+    @Column(name = "cocktail_name_en", columnDefinition="VARCHAR(30)",nullable = false)
     String cocktailNameEn;
+
+    @Column(name = "cocktail_img", columnDefinition="VARCHAR(150)")
     String cocktailImg;
+
+    @Column(name = "cocktail_content", columnDefinition="VARCHAR(100)")
     String cocktailContent;
+
+    @Column(name = "cocktail_color1", columnDefinition="VARCHAR(10)",nullable = false)
     String cocktailColor1;
+
+    @Column(name = "cocktail_color2", columnDefinition="VARCHAR(10)",nullable = false)
     String cocktailColor2;
+
+    @Column(name = "cocktail_base", columnDefinition="VARCHAR(10)",nullable = false)
     String cocktailBase;
+
+    @Column(name = "cocktail_glass", columnDefinition="VARCHAR(20)")
     String cocktailGlass;
+
+    @Column(name = "cocktail_rating", columnDefinition="DOUBLE")
     Double cocktailRating;
+
+    @Column(name = "cocktail_difficulty", columnDefinition="DOUBLE",nullable = false)
     Double cocktailDifficulty;
 }

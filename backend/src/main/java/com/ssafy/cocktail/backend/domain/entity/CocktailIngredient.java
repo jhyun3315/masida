@@ -1,22 +1,29 @@
 package com.ssafy.cocktail.backend.domain.entity;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
 public class CocktailIngredient {
     @Id
-    @GeneratedValue
-    @Column(name = "cocktail_ingredient_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cocktail_ingredient_id", nullable = false)
     private Long id;
 
+    @Column(name = "ingredient_amont", columnDefinition="VARCHAR(10)",nullable = false)
     private String ingredientAmount;
+
+    @Column(name = "ingredient_unit", columnDefinition="VARCHAR(10)",nullable = false)
     private String ingredientUnit;
+
+    @Column(name = "ingredient_name", columnDefinition="VARCHAR(20)",nullable = false)
     private String ingredientName;
+
+    @Column(name = "ingredient_type", columnDefinition="VARCHAR(10)",nullable = false)
     private String ingredientType;
 
     @ManyToOne(fetch = FetchType.LAZY)

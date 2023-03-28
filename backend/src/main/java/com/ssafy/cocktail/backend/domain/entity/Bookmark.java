@@ -1,6 +1,7 @@
 package com.ssafy.cocktail.backend.domain.entity;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -8,27 +9,30 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
 @ToString
 @NoArgsConstructor(access= AccessLevel.PUBLIC)
 @Table(name="bookmarks")
 public class Bookmark {
     @Id
-    @GeneratedValue
-    @Column(name = "bookmark_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "bookmark_id",nullable = false)
     private Long id;
 
-    private String bookmarkDeleted;
+    @ColumnDefault("false")
+    @Column(name = "bookmark_deleted",columnDefinition = "BOOLEAN", nullable = false)
+    private boolean bookmarkDeleted;
 
     @CreatedDate
-    @Column(nullable = false, updatable = false)
+    @Column(name="bookmark_create_date",columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime bookmarkCreatedDate;
+
     @LastModifiedDate
-    @Column(nullable = false)
+    @Column(name="bookmark_update_date",columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime bookmarkUpdateDate;
+
     @Builder
-    public Bookmark(String bookmarkDeleted, LocalDateTime bookmarkCreatedDate, LocalDateTime bookmarkUpdateDate, User user, Cocktail cocktail) {
+    public Bookmark(boolean bookmarkDeleted, LocalDateTime bookmarkCreatedDate, LocalDateTime bookmarkUpdateDate, User user, Cocktail cocktail) {
         this.bookmarkDeleted = bookmarkDeleted;
         this.bookmarkCreatedDate = bookmarkCreatedDate;
         this.bookmarkUpdateDate = bookmarkUpdateDate;
