@@ -10,9 +10,11 @@ import com.ssafy.cocktail.backend.domain.repository.CocktailRepository;
 import com.ssafy.cocktail.backend.domain.repository.CommentRepository;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+@Service
 @AllArgsConstructor
 public class CommentServiceImpl implements CommentService {
     private CommentRepository commentRepository;
