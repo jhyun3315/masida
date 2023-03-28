@@ -187,11 +187,11 @@ export default detail;
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) =>
     async ({ params }) => {
-      let header: string = store.getState().user.accessToken;
-      if (!header) {
-        header = "";
+      let atk: string = store.getState().user.accessToken;
+      if (!atk) {
+        atk = "";
       }
-      console.log("Atk : ", header);
+      console.log("Atk : ", atk);
 
       try {
         const cocktail_id: number = parseInt(params?.id as string);
@@ -200,7 +200,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
           `https://j8b208.p.ssafy.io/api/cocktails/${cocktail_id}`,
           {
             headers: {
-              header: header,
+              Authorization : atk,
               "Content-Type": "application/json",
               "Access-Control-Allow-Origin": "*",
             },
