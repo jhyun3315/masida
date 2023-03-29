@@ -30,6 +30,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
   const [currentTab, setCurrentTab] = useState<string>("Comment");
   const [commentList, setCommentList] = useState<commentType[]>();
   const [commentAdd, setCommentAdd] = useState<boolean>();
+  
   const getAccessToken = store.getState().user.accessToken;
 
   useEffect(() => {
