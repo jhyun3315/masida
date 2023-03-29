@@ -1,3 +1,6 @@
+// 이 파일은 pages/detail/[id].tsx과 같이 wrapper를 사용하기 위해 필요합니다.
+// by - kim jihwan
+
 import { configureStore, ThunkAction } from "@reduxjs/toolkit";
 import { Context, createWrapper } from "next-redux-wrapper";
 import userReducer from "./modules/user";
@@ -13,13 +16,13 @@ const makeStore = (context: Context) =>
     devTools: true,
   });
 
-export type RootStore = ReturnType<typeof makeStore>;
-export type RootState = ReturnType<RootStore["getState"]>;
+export type TokenStore = ReturnType<typeof makeStore>;
+export type TokenState = ReturnType<TokenStore["getState"]>;
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
-  RootState,
+  TokenState,
   unknown,
   Action
 >;
 
-export const wrapper = createWrapper<RootStore>(makeStore);
+export const wrapper = createWrapper<TokenStore>(makeStore);

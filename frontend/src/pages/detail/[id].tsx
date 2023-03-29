@@ -160,14 +160,14 @@ const detail = ({ detail }: CocktailProps) => {
             <Cocktail_recommend {...recommend_props} />
           </div>
           {/* 댓글 호버 펼치는 버튼 */}
-          <div>
+          {!visible &&(<div >
             <img
               className={style.detail_comment_btn}
               src="/assets/icons/detail_comment_btn.png"
               alt="btn"
               onClick={toggleComment}
             />
-          </div>
+          </div>)}
           {visible && (
             <Modal_portal>
               <CommentModal setVisible={setVisible} visible={visible} />
