@@ -9,7 +9,7 @@ import lombok.ToString;
 import java.util.ArrayList;
 
 @Setter @Getter @ToString
-public class CoctailSearchDetail {
+public class CocktailSearchDetail {
     @Schema(description = "칵테일 id", example = "0")
     @JsonProperty("cocktail_id")
     private int cocktailId;
