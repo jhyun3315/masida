@@ -17,11 +17,11 @@ export const get_user_info = async () => {
   await axios
     .get(url, config)
     .then((response) => {
-      console.log("get_cocktails_detail : ", response);
+      console.log("Current User Info : ", response);
       value = response.data.data;
     })
     .catch((err) => {
-      console.log("get_cocktails_detail error ocurred");
+      console.log("Current User Info Error");
     });
 
   return { value };

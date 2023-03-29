@@ -1,7 +1,7 @@
 import style from "./Header.module.scss";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../store";
+import { RootState } from "../../../store/store";
 import { useState, useEffect } from "react";
 import { userType } from "../../type/userTypes";
 import { get_user_info } from "../../pages/api/auth/user_api";
