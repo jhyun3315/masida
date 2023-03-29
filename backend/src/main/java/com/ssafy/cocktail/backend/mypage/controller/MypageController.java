@@ -28,7 +28,7 @@ public class MypageController {
 	private final MypageBookmarkService mypageBookmarkService;
 	private final MypageCommentService mypageCommentService;
 
-	@GetMapping("/")
+	@GetMapping("/cnt")
 	public ResponseEntity<?> getLikeBookmarkCnt(@RequestHeader("Authorization") String accessToken) {
 
 		return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
