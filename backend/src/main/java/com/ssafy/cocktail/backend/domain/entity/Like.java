@@ -9,8 +9,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
 @ToString
 @NoArgsConstructor(access= AccessLevel.PUBLIC)
 @Table(name="likes")
