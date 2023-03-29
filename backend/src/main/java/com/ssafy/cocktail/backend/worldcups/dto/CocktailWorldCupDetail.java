@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class CocktailWorldCupDetail {
     @Schema(description = "칵테일 id", example = "0")
     @JsonProperty("cocktail_id")
-    private int cocktailId;
+    private Long cocktailId;
 
     @Schema(description = "칵테일 한글 이름", example = "칵테일")
     @JsonProperty("cocktail_name_ko")
