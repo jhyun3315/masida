@@ -52,4 +52,20 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
             return new ArrayList<>();
         }
     }
+
+    @Override
+    public ArrayList<MyAnalysisIngredient> getAnalysisByIngredient(String accessToken) {
+        try{
+            User user =  oAuthService.getUser(accessToken);
+            ArrayList<MyAnalysisIngredientInterface> interfaceArrayList = myAnalysisRepository.getMyAnalysisIngredientList(user.getId());
+            ArrayList<MyAnalysisIngredient> myAnalysisIngredientArrayList = new ArrayList<>();
+
+            for(MyAnalysisIngredientInterface ele : interfaceArrayList){
+                myAnalysisIngredientArrayList.add(new MyAnalysisIngredient(ele.getIngredientName(), ele.getIngredientCount(), ele.getIngredientRatio()));
+            }
+            return myAnalysisIngredientArrayList;
+        }catch (Exception e){
+            return new ArrayList<>();
+        }
+    }
 }
