@@ -24,7 +24,7 @@ public class LikeBookmarkCocktail {
 //	@JsonProperty("cocktail_name_en")
 //	private String cocktailNameEn;
 
-	@Schema(description = "칵테일 이미지", example = "/image")
+	@Schema(description = "칵테일 이미지 url", example = "/image")
 	@JsonProperty("cocktail_img")
 	private String cocktailImg;
 

@@ -14,12 +14,15 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Tag(name = "mypage", description = "마이페이지 API")
 @RestController
 @AllArgsConstructor
+@CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io"})
 @RequestMapping("api/mypage")
 public class MypageController {
 
@@ -35,8 +38,11 @@ public class MypageController {
 	}
 
 	@GetMapping("/likes")
-	public ResponseEntity<?> getLikeCocktailList(@RequestHeader("Authorization") String accessToken) {
-		// access token 유효한지는 검사 안해도 되나?
+	public ResponseEntity<?> getLikeCocktailList(@RequestHeader Map<String, String> data) {
+		String accessToken = data.get("authorization");
+		if(accessToken == null) {
+			return ResponseEntity.status(400).body(LikeCocktailsRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
+		}
 
 		// 해당 사용자 가져오기
 		User user = oAuthService.getUser(accessToken);
