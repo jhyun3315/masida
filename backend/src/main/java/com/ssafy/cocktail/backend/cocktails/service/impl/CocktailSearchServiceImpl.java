@@ -1,14 +1,16 @@
 package com.ssafy.cocktail.backend.cocktails.service.impl;
 
 
-import com.ssafy.cocktail.backend.cocktails.dto.CocktailLikesInterface;
-import com.ssafy.cocktail.backend.cocktails.dto.CocktailMain;
-import com.ssafy.cocktail.backend.cocktails.dto.CocktailSearchDetail;
-import com.ssafy.cocktail.backend.cocktails.dto.IngredientSearch;
+import com.ssafy.cocktail.backend.cocktails.dto.*;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailSearchService;
+import com.ssafy.cocktail.backend.domain.entity.Cocktail;
+import com.ssafy.cocktail.backend.domain.entity.CocktailIngredient;
 import com.ssafy.cocktail.backend.domain.entity.Ingredient;
+import com.ssafy.cocktail.backend.domain.entity.Like;
+import com.ssafy.cocktail.backend.domain.repository.CocktailIngredientRepository;
 import com.ssafy.cocktail.backend.domain.repository.CocktailRepository;
 import com.ssafy.cocktail.backend.domain.repository.IngredientRepository;
+import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,10 +23,88 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
 
     private IngredientRepository ingredientRepository;
     private CocktailRepository cocktailRepository;
+    private CocktailIngredientRepository cocktailIngredientRepository;
+    private LikeRepository likeRepository;
 
     @Override
-    public ArrayList<CocktailSearchDetail> getCocktailSeatchList() {
-        return null;
+    public ArrayList<CocktailSearchDetail> getCocktailSearchList(SearchInfo info) {
+        // 검색어에 맞는 칵테일 리턴
+        ArrayList<CocktailSearchDetail> cocktailSearchDetails = new ArrayList<>(); // 검색 결과 칵테일
+
+        List<Cocktail> cocktails = cocktailRepository.findAll(); // 모든 칵테일 가져오기
+        for (Cocktail cocktail: cocktails) { // 칵테일
+            // 칵테일 정보 가져오기
+            String cocktailKo = cocktail.getCocktailNameKo(); // 칵테일 한글 이름
+            String cocktailEn = cocktail.getCocktailNameEn(); // 칵테일 영어 이름
+            String cocktailBase = cocktail.getCocktailBase(); // 칵테일 베이스
+            String cocktailColor1 = cocktail.getCocktailColor1(); // 칵테일 색상1
+            String cocktailColor2 = cocktail.getCocktailColor2(); // 칵테일 색상2
+            String cocktaildifficulty = (int)cocktail.getCocktailDifficulty() == 1 ? "하" :
+                    cocktail.getCocktailDifficulty() == 2 ? "중" : "상"; // 칵테일 난이도
+            ArrayList<Long> cocktailIngredients = new ArrayList<Long>(); // 칵테일 재료들 id
+            List<CocktailIngredient> ingredients = cocktailIngredientRepository.findByCocktail(cocktail); // 칵테일 재료들
+            for (CocktailIngredient ingredient: ingredients) { // 칵테일 재료
+                cocktailIngredients.add(ingredient.getId()); // 칵테일 id 삽입
+            }
+
+            // 칵테일 검색
+            if (info.getCocktailName() != null) { // 조건 1: 이름 검색이 있으면
+                if (!cocktailKo.contains(info.getCocktailName()) // 조건 1-1: 검색어가 한글 이름에 포함되는가
+                        || !cocktailEn.contains(info.getCocktailName())) // 조건 1-2: 검색어가 영어 이름에 포함되는가
+                    continue; // 검색한 이름이 한글 이름 또는 영어 이름에 포함되지 않으면 (x)
+            }
+            if (info.getCocktailBase() != null) { // 조건 2: 베이스 검색이 있으면
+                if (!cocktailBase.equals(info.getCocktailBase())) // 조건 2-1: 검색어와 베이스가 일치하는가
+                    continue; // 일치한 베이스가 없으면 (x)
+            }
+            if (info.getCocktailColor().size() > 0) { // 조건 3: 색상 검색이 있으면
+                boolean found = false; // 동일한 색상이 없으면 false
+                for (String color: info.getCocktailColor()) { // 검색 색상 (최대 2개)
+                    if (cocktailColor1.equals(color) || cocktailColor2.equals(color)) { // 조건 3-1: 색상 1또는 색상 2가 동일한 색상인가
+                        found = true; // 동일한 색상 발견 true
+                        break;
+                    }
+                }
+                if (!found) continue; // 동일한 색상이 없으면 (x)
+            }
+            if (info.getCocktailDifficulty().size() > 0) { // 조건 4: 난이도 검색이 있으면
+                boolean found = false; // 동일한 난이도가 없으면 false
+                for (String difficulty: info.getCocktailDifficulty()) { // 검색 난이도 (최대 3개)
+                    if (cocktaildifficulty.equals(difficulty)) { // 난이도가 동일하면
+                        found = true; // 동알한 난이도 발견 true
+                        break;
+                    }
+                }
+                if (!found) continue; // 동일한 난이도가 없으면 (x)
+            }
+            if (info.getCocktailDifficulty().size() > 0) { // 조건 5: 재료 검색이 있으면
+                boolean found = false; // 조건 5-1: 하나라도 동일한 재료가 없으면 false
+                for (Long ingredientId: info.getCocktailIngredient()) { // 검색 재료 (최대 n개)
+                    found = false; // 동일한 재료 탐색 초기화
+                    for (Long cocktailIngredientId: cocktailIngredients) { // 칵테일 재료 (최대 n개)
+                        if (ingredientId.equals(cocktailIngredientId)) { // 재료가 동일하면
+                            found = true; // 재료 일치 체크
+                            break;
+                        }
+                    }
+                    if (!found) break; // 동일한 재료가 없으면
+                }
+                if (!found) continue; // 동일한 재료가 없으면
+            }
+
+            CocktailSearchDetail cand = new CocktailSearchDetail();
+            cand.setCocktailId(cocktail.getId()); // 칵테일 id 삽입
+            cand.setCocktailNameKo(cocktailKo); // 칵테일 한글 이름 삽입
+            cand.setCocktailNameEn(cocktailEn); // 칵테일 영어 이름 삽입
+            cand.setCocktailImg(cocktail.getCocktailImg()); // 칵테일 이미지 삽입
+            cand.setCocktailRating(Math.round(cocktail.getCocktailRating()*10)/10.0); // 칵테일 평점 삽입
+            List<Like> likes = likeRepository.findAllByCocktailAndLikeDeleted(cocktail, false); // 칵테일 좋아요 가져오기
+            cand.setCocktailLikes(likes.size()); // 칵테일 좋아요 개수 삽입
+            cand.setCocktailDifficulty(cocktaildifficulty); // 칵테일 난이도 삽입
+            cocktailSearchDetails.add(cand); // 검색 결과 칵테일 추가
+        }
+
+        return cocktailSearchDetails;
     }
 
     @Override

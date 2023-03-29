@@ -1,14 +1,8 @@
 package com.ssafy.cocktail.backend.cocktails.controller;
 
-import com.ssafy.cocktail.backend.cocktails.dto.CocktailDetail;
-import com.ssafy.cocktail.backend.cocktails.dto.CocktailMain;
-import com.ssafy.cocktail.backend.cocktails.dto.IngredientSearch;
-import com.ssafy.cocktail.backend.cocktails.dto.SearchInfo;
+import com.ssafy.cocktail.backend.cocktails.dto.*;
 import com.ssafy.cocktail.backend.cocktails.dto.request.CocktailIDReq;
-import com.ssafy.cocktail.backend.cocktails.dto.response.CocktailDetailRes;
-import com.ssafy.cocktail.backend.cocktails.dto.response.CocktailMainLikesRes;
-import com.ssafy.cocktail.backend.cocktails.dto.response.CocktailMainRandomRes;
-import com.ssafy.cocktail.backend.cocktails.dto.response.IngredientSearchRes;
+import com.ssafy.cocktail.backend.cocktails.dto.response.*;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailDetailService;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailSearchService;
 import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
@@ -30,13 +24,13 @@ public class CocktailController {
     private CocktailDetailService cocktailDetailService;
 
     @GetMapping("/search")
-    public ResponseEntity<?> cocktailSerch(@RequestParam Map<String, Object> params) {
-        System.out.println(params.get("sort_num"));
-        System.out.println(params.get("cocktail_name"));
-        System.out.println(params.get("cocktail_base"));
-        System.out.println(params.get("cocktail_color"));
-        System.out.println(params.get("cocktail_difficulty"));
-        System.out.println(params.get("cocktail_ingredient"));
+    public ResponseEntity<CocktailSearchRes> cocktailSerch(@RequestParam Map<String, Object> params) {
+//        System.out.println(params.get("sort_num"));
+//        System.out.println(params.get("cocktail_name"));
+//        System.out.println(params.get("cocktail_base"));
+//        System.out.println(params.get("cocktail_color"));
+//        System.out.println(params.get("cocktail_difficulty"));
+//        System.out.println(params.get("cocktail_ingredient"));
         SearchInfo searchInfo = new SearchInfo();
         if (params.get("sort_num") != null) searchInfo.setSortNum((String) params.get("sort_num"));
         if (params.get("cocktail_name") != null) searchInfo.setCocktailName((String) params.get("cocktail_name"));
@@ -44,8 +38,9 @@ public class CocktailController {
         if (params.get("cocktail_color") != null) searchInfo.setCocktailColor((String) params.get("cocktail_color"));
         if (params.get("cocktail_difficulty") != null) searchInfo.setCocktailDifficulty((String) params.get("cocktail_difficulty"));
         if (params.get("cocktail_ingredient") != null) searchInfo.setCocktailIngredient((String) params.get("cocktail_ingredient"));
-        System.out.println(searchInfo.toString());
-        return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+//        System.out.println(searchInfo.toString());
+        ArrayList<CocktailSearchDetail> results = cocktailSearchService.getCocktailSearchList(searchInfo); // 칵테일 검색
+        return ResponseEntity.status(200).body(CocktailSearchRes.of(200, "Success", results));
     }
 
     @GetMapping("/ingredients")

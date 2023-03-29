@@ -25,7 +25,7 @@ public class SearchInfo {
     private ArrayList<String> cocktailColor;
 
     @Schema(description = "칵테일 난이도", example = "중")
-    private ArrayList<Double> cocktailDifficulty;
+    private ArrayList<String> cocktailDifficulty;
 
     @Schema(description = "칵재일 재료", example = "0")
     private ArrayList<Long> cocktailIngredient;
@@ -37,14 +37,9 @@ public class SearchInfo {
     }
 
     public void setCocktailDifficulty(String cocktailDifficultys) {
-        this.cocktailDifficulty = new ArrayList<Double>();
+        this.cocktailDifficulty = new ArrayList<String>();
         StringTokenizer st = new StringTokenizer(cocktailDifficultys, ",");
-        while (st.hasMoreTokens()) {
-            String token = st.nextToken().trim();
-            Double difficulty = token.equals("하") ? 1.0 :
-                    token.equals("중") ? 2.0 : 3.0;
-            this.cocktailDifficulty.add(difficulty);
-        }
+        while (st.hasMoreTokens()) this.cocktailDifficulty.add(st.nextToken());
     }
 
     public void setCocktailIngredient(String cocktailIngredients) {
