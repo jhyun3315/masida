@@ -65,7 +65,7 @@ public class CommentServiceImpl implements CommentService {
         int commentSize = commets.size(); // 칵테일의 댓글 전체 개수
         double curCocktailDiffculty =
                 commentInfo.getCommentDifficulty().equals("하") ? 1.0 :
-                        commentInfo.getCommentDifficulty().equals("중") ? 2.0 : 3.0; // 댓글 난이도
+                        commentInfo.getCommentDifficulty().equals("중") ? 2.5 : 4.0; // 댓글 난이도
         double curCocktailRating = commentInfo.getCommentRating(); // 댓글 평점
         double difficultySum = cocktail.getCocktailDifficulty() * commentSize; // 난이도의 총점
         double ratingSum = cocktail.getCocktailRating() * commentSize; // 평점의 총점
