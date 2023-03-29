@@ -4,13 +4,18 @@ import { Dispatch, SetStateAction } from "react";
 import style from "./Star.module.scss";
 
 interface propsType {
-  setScope: Dispatch<SetStateAction<string>>;
+  setScope: Dispatch<SetStateAction<number>>;
+  current : number;
 }
 
-const Star: React.FunctionComponent<propsType> = ({setScope}) => {
-  const [rating, setRating] = useState<number>(0);
+const Star: React.FunctionComponent<propsType> = ({setScope, current}) => {
+  const [rating, setRating] = useState<number>(current);
+  
+  console.log("this rating : ", rating)
+  console.log("current : ", current)
+  
 
-  const handleRating = (e : React.MouseEvent<HTMLElement>, value : number) => {
+   const handleRating = (e : React.MouseEvent<HTMLElement>, value : number) => {
       
     const target = e.target as HTMLInputElement
     const boundingRect = target.getBoundingClientRect();
@@ -27,7 +32,7 @@ const Star: React.FunctionComponent<propsType> = ({setScope}) => {
     console.log(score);
     
     setRating(score);
-    setScope(score.toFixed(1));
+    setScope(parseFloat(score.toFixed(1)));
   };
 
 
