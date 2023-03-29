@@ -198,7 +198,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
 
       {/* 댓글 리스트 */}
       <div className={style.comment_list}>
-        {commentList.map((key, v) => (
+        {commentList?.map((key, v) => (
           <div className={style.comment}>
             <div className={style.comment_layout}>
               <div className={style.comment_left}>
