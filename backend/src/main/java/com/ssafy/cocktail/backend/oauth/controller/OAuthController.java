@@ -66,13 +66,13 @@ public class OAuthController {
         System.out.println("로그인 완료");
         System.out.println("refreshToken: "+ userLoginInfo.getRefreshToken());
         System.out.println("accessToken: "+  userLoginInfo.getAccessToken());
-        attributes.addFlashAttribute("refreshToken", userLoginInfo.getRefreshToken());
-        attributes.addFlashAttribute("accessToken", userLoginInfo.getAccessToken());
+//        attributes.addFlashAttribute("refreshToken", userLoginInfo.getRefreshToken());
+//        attributes.addFlashAttribute("accessToken", userLoginInfo.getAccessToken());
         attributes.addAttribute("accessToken", userLoginInfo.getAccessToken());
-        response.setHeader("accessToken", userLoginInfo.getAccessToken());
-        Cookie cookie = new Cookie("accessTokenCookie", userLoginInfo.getAccessToken());
-        cookie.setHttpOnly(true);
-        response.addCookie(cookie);
+//        response.setHeader("accessToken", userLoginInfo.getAccessToken());
+//        Cookie cookie = new Cookie("accessTokenCookie", userLoginInfo.getAccessToken());
+//        cookie.setHttpOnly(true);
+//        response.addCookie(cookie);
 //        return new RedirectView("");
         return new RedirectView("http://localhost:3000");
     }

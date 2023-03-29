@@ -29,6 +29,7 @@ public class CommentServiceImpl implements CommentService {
     public ArrayList<CommentDetail> getComments(String cocktailId, String accessToken) {
         // 칵테일 댓글을 리턴
         User user = oAuthService.getUser(accessToken); // 사용자 가져오기
+        if (user == null) return null;
         Cocktail cocktail = cocktailRepository.findCocktailById(Long.valueOf(cocktailId)); // 칵테일 가져오기
         List<Comment> comments = commentRepository.findAllByCocktailAndCommentDeleted(cocktail, false); // 칵테일 댓글 가져오기
         ArrayList<CommentDetail> commentDetails = new ArrayList<CommentDetail>(); // 댓글을 저장할 객체
@@ -111,6 +112,7 @@ public class CommentServiceImpl implements CommentService {
     public boolean removeComment(String cocktailId, String commentId, String accessToken) {
         // 댓글 삭제
         User user = oAuthService.getUser(accessToken); // 사용자 가져오기
+        if (user == null) return false;
         Cocktail cocktail = cocktailRepository.findCocktailById(Long.valueOf(cocktailId)); // 칵테일 가져오기
         List<Comment> commets = commentRepository.findAllByCocktailAndCommentDeleted(cocktail, false); // 칵테일 댓글들 가져오기
         Optional<Comment> removeComment = commentRepository.findById(Long.valueOf(commentId)); // 제거할 댓글 가져오기
