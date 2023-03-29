@@ -1,11 +1,9 @@
 package com.ssafy.cocktail.backend.cocktails.service.impl;
 
 
-import com.ssafy.cocktail.backend.cocktails.dto.CocktailLikesInterface;
-import com.ssafy.cocktail.backend.cocktails.dto.CocktailMain;
-import com.ssafy.cocktail.backend.cocktails.dto.CocktailSearchDetail;
-import com.ssafy.cocktail.backend.cocktails.dto.IngredientSearch;
+import com.ssafy.cocktail.backend.cocktails.dto.*;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailSearchService;
+import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.Ingredient;
 import com.ssafy.cocktail.backend.domain.repository.CocktailRepository;
 import com.ssafy.cocktail.backend.domain.repository.IngredientRepository;
@@ -23,7 +21,19 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
     private CocktailRepository cocktailRepository;
 
     @Override
-    public ArrayList<CocktailSearchDetail> getCocktailSeatchList() {
+    public ArrayList<CocktailSearchDetail> getCocktailSearchList(SearchInfo info) {
+        ArrayList<CocktailSearchDetail> cocktailSearchDetails = new ArrayList<>();
+        List<Cocktail> cocktails = cocktailRepository.findAll(); // 모든 칵테일 가져오기
+        for (Cocktail cocktail: cocktails) { // 칵테일
+            String cocktailKo = cocktail.getCocktailNameKo(); // 칵테일 한글 이름
+            String cocktailEn = cocktail.getCocktailNameEn(); // 칵테일 영어 이름
+            String cocktailBase = cocktail.getCocktailBase(); // 칵테일 베이스
+            String cocktailColor1 = cocktail.getCocktailColor1(); // 칵테일 색상1
+            String cocktailColor2 = cocktail.getCocktailColor2(); // 칵테일 색상2
+            String cocktaildifficulty = (int)cocktail.getCocktailDifficulty() == 1 ? "하" :
+                    cocktail.getCocktailDifficulty() == 2 ? "중" : "상";
+        }
+
         return null;
     }
 
