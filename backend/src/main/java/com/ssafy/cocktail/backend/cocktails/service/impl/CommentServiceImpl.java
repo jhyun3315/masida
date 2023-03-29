@@ -34,19 +34,20 @@ public class CommentServiceImpl implements CommentService {
         List<Comment> comments = commentRepository.findAllByCocktailAndCommentDeleted(cocktail, false); // 칵테일 댓글 가져오기
         ArrayList<CommentDetail> commentDetails = new ArrayList<CommentDetail>(); // 댓글을 저장할 객체
         for (Comment comment: comments) {
+            User commetUser = comment.getUser(); // 댓글을 작성한 유저 가져오기
             CommentDetail commentDetail = new CommentDetail(); // 댓글 생성
             String commentCreateDate = comment.getCommentCreatedDate().toLocalDate().toString(); // 날짜를 년-월-일 형식으로 변환
             String commentDifficulty =
                     (int) comment.getCommentDifficulty() == 1 ? "하" :
                             (int) comment.getCommentDifficulty() == 2 ? "중" : "상"; // 난이도를 하, 상, 중 으로 변환
-            boolean writerChecker = comment.getUser().equals(user); // 작성자 확인
+            boolean writerChecker = commetUser.equals(user); // 작성자 확인
             commentDetail.setCommentId(comment.getId()); // id 삽입
             commentDetail.setCommentContent(comment.getCommentContent()); // 내용 삽입
             commentDetail.setCommentRating(comment.getCommentRating()); // 평점 삽입
             commentDetail.setCommentCreateDate(commentCreateDate); // 생성일자 삽입
             commentDetail.setCommentDifficulty(commentDifficulty); // 난이도 삽입
-            commentDetail.setUserName(user.getUserName()); // 작성자 이름 삽입
-            commentDetail.setUserProfile(user.getUserProfile()); // 작성자 프로필 삽입
+            commentDetail.setUserName(commetUser.getUserName()); // 작성자 이름 삽입
+            commentDetail.setUserProfile(commetUser.getUserProfile()); // 작성자 프로필 삽입
             commentDetail.setWriterChecker(writerChecker); // 작성자 확인 삽입
             commentDetails.add(commentDetail); // 댓글 삽입
         }
