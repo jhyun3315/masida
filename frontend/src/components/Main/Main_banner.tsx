@@ -13,6 +13,12 @@ import axios from "axios";
 import { login, logout } from "../../../store/modules/user";
 import { RootState } from "../../../store/store";
 
+//좌표의 타입입니다.
+type coordinate = {
+  x : number,
+  y : number,
+}
+
 const Main_banner = () => {
   const settings = {
     dots: true,
@@ -22,17 +28,39 @@ const Main_banner = () => {
     autoplaySpeed: 3000,
   };
   const router = useRouter();
-  const goBegginer = () => {
-    router.push("/theme/begginer");
+  
+  //시작지점과 끝지점을 체크해줄 useState변수입니다.
+  const [startPosition, setStartPosition] = useState<coordinate>({ x: 0, y: 0 });
+
+  //마우스를 눌렀을때의 좌표입니다.
+  const handleMouseDown = (e: React.MouseEvent<HTMLElement>) => {
+    setStartPosition({ x: e.clientX, y: e.clientY });
+    //마우스를 눌렀을때 해당 좌표 저장해주고
   };
 
-  const goSpring = () => {
-    router.push("/theme/spring");
+  //마우스를 떼어냈을때의 좌표입니다.
+  const handleMouseUpBegginer = (e: React.MouseEvent<HTMLElement>) => {
+    console.log(startPosition.x);
+    console.log(startPosition.y);
+    console.log(e.clientX);
+    console.log(e.clientY);
+    if(startPosition.y - 2 < e.clientY && startPosition.y + 2 >  e.clientY) {
+      router.push("/theme/begginer");
+    } 
   };
 
-  const goSummer = () => {
-    router.push("/theme/summer");
+  const handleMouseUpSpring = (e: React.MouseEvent<HTMLElement>) => {
+    if(startPosition.y - 2 < e.clientY && startPosition.y + 2 >  e.clientY) {
+      router.push("/theme/spring");
+    }
   };
+
+  const handleMouseUpSummer = (e: React.MouseEvent<HTMLElement>) => {
+    if(startPosition.y - 2 < e.clientY && startPosition.y + 2 >  e.clientY) {
+      router.push("/theme/summer");
+    } 
+  };
+
   const [tokenValue, setTokenValue] = useState<string>("");
 
   // 1. 로그인 안한 상태
@@ -85,6 +113,7 @@ const Main_banner = () => {
             }
             src="/assets/image/mainbanner.png"
             alt="image"
+            
             layout="fill"
             objectFit="cover"
             objectPosition="center"
@@ -117,7 +146,8 @@ const Main_banner = () => {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
-            onClick={goBegginer}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUpBegginer}
           />
           <div className={style.mainHeader}>
             <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
@@ -130,7 +160,8 @@ const Main_banner = () => {
               </Link>
             )}
           </div>
-          <div className={style.mainTitle2} onClick={goBegginer}>
+          <div className={style.mainTitle2} onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUpBegginer}>
             <h1>
               <strong>맛과 향, </strong>모두 즐기는 칵테일의 <br />
               매력을 느껴보세요.
@@ -148,7 +179,8 @@ const Main_banner = () => {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
-            onClick={goSpring}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUpSpring}
           />
           <div className={style.mainHeader}>
             <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
@@ -161,7 +193,8 @@ const Main_banner = () => {
               </Link>
             )}
           </div>
-          <div className={style.mainTitle3} onClick={goSpring}>
+          <div className={style.mainTitle3} onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUpSpring}>
             <h1>
               봄의 느낌을 담은 칵테일,
               <br /> 궁금하지 않으신가요?
@@ -179,7 +212,8 @@ const Main_banner = () => {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
-            onClick={goSummer}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUpSummer}
           />
           <div className={style.mainHeader}>
             <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
@@ -192,7 +226,8 @@ const Main_banner = () => {
               </Link>
             )}
           </div>
-          <div className={style.mainTitle4} onClick={goSummer}>
+          <div className={style.mainTitle4} onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUpSummer}>
             <h1>여름 햇살 아래 즐기는 칵테일, 궁금하신가요?</h1>
             <h3>여름에 어울리는 다양한 칵테일을 추천해드립니다.</h3>
           </div>

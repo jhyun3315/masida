@@ -9,7 +9,7 @@ export const get_user_info = async () => {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      Authorization: getAuthHeader().Authorization,
+      Authorization: getAuthHeader()?.Authorization,
     },
   };
   let url = "/api/oauth/users";
