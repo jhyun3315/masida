@@ -1,7 +1,9 @@
 package com.ssafy.cocktail.backend.myAnalysis.controller;
 
 import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisBase;
+import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisColor;
 import com.ssafy.cocktail.backend.myAnalysis.dto.response.MyAnalysisBaseRes;
+import com.ssafy.cocktail.backend.myAnalysis.dto.response.MyAnalysisColorRes;
 import com.ssafy.cocktail.backend.myAnalysis.service.MyAnalysisUserService;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -31,6 +33,19 @@ public class MyAnalysisController {
             return ResponseEntity.status(200).body(MyAnalysisBaseRes.of(200, "Success", myAnalysisBaseList));
         }else{
             return ResponseEntity.status(400).body(MyAnalysisBaseRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
+        }
+    }
+
+    @GetMapping("/cocktail-color")
+    public ResponseEntity<MyAnalysisColorRes> analysisByUserColor(@RequestHeader Map<String, String> data ) {
+        String accessToken = data.get("authorization");
+        System.out.println(data.get("authorization"));
+
+        if(accessToken !=null){
+            ArrayList<MyAnalysisColor> myAnalysisColorList = myAnalysisUserService.getAnalysisByColor(data.get("authorization"));
+            return ResponseEntity.status(200).body(MyAnalysisColorRes.of(200, "Success", myAnalysisColorList));
+        }else{
+            return ResponseEntity.status(400).body(MyAnalysisColorRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
         }
     }
 }
