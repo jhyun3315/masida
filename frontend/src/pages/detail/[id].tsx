@@ -55,7 +55,7 @@ const recommend_props: recommend_props = {
         cocktail_difficulty: "하",
       },
       {
-        cocktail_id: 2,
+        cocktail_id: 3,
         cocktail_name_ko: "오렌지 블라썸c2",
         cocktail_name_en: "(orange Blossom)",
         cocktail_img: "/assets/image/cocktailSample.png",
@@ -64,7 +64,7 @@ const recommend_props: recommend_props = {
         cocktail_difficulty: "하",
       },
       {
-        cocktail_id: 3,
+        cocktail_id: 5,
         cocktail_name_ko: "오렌지 블라썸c3",
         cocktail_name_en: "(orange Blossom)",
         cocktail_img: "/assets/image/cocktailSample.png",
@@ -95,7 +95,7 @@ const recommend_props: recommend_props = {
         cocktail_difficulty: "중",
       },
       {
-        cocktail_id: 2,
+        cocktail_id: 3,
         cocktail_name_ko: "오렌지 블라썸i2",
         cocktail_name_en: "(orange Blossom)",
         cocktail_img: "/assets/image/cocktailSample.png",
@@ -104,7 +104,7 @@ const recommend_props: recommend_props = {
         cocktail_difficulty: "중",
       },
       {
-        cocktail_id: 3,
+        cocktail_id: 4,
         cocktail_name_ko: "오렌지 블라썸i3",
         cocktail_name_en: "(orange Blossom)",
         cocktail_img: "/assets/image/cocktailSample.png",
@@ -113,7 +113,7 @@ const recommend_props: recommend_props = {
         cocktail_difficulty: "중",
       },
       {
-        cocktail_id: 4,
+        cocktail_id: 5,
         cocktail_name_ko: "오렌지 블라썸i4",
         cocktail_name_en: "(orange Blossom)",
         cocktail_img: "/assets/image/cocktailSample.png",
@@ -133,11 +133,6 @@ const detail = ({ detail }: CocktailProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [visible, setVisible] = useState<boolean>();
   const [cocktail_detail, setCocktail_detail] = useState<detail_props>();
-
-  // const header: string = useSelector(
-  //   (state: RootState) => state.user.accessToken
-  // );
-  // console.log("Atk : ", header);
 
   useEffect(() => {
     setIsLoading(true);
@@ -170,7 +165,7 @@ const detail = ({ detail }: CocktailProps) => {
           </div>)}
           {visible && (
             <Modal_portal>
-              <CommentModal setVisible={setVisible} visible={visible} />
+              <CommentModal setVisible={setVisible} visible={visible} cocktail_id = {detail.cocktail_id} />
             </Modal_portal>
           )}
         </div>
@@ -183,7 +178,6 @@ const detail = ({ detail }: CocktailProps) => {
 
 export default detail;
 
-// export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) =>
     async ({ params }) => {
@@ -192,7 +186,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
         atk = "";
       }
       console.log("Atk : ", atk);
-
+      console.log("id : ", parseInt(params?.id as string))
       try {
         const cocktail_id: number = parseInt(params?.id as string);
         console.log("here ", cocktail_id);
@@ -210,7 +204,6 @@ export const getServerSideProps = wrapper.getServerSideProps(
           }
         );
         const data = response.data.data;
-        // console.log("call : ", data);
         return {
           props: {
             detail: data,

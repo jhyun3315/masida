@@ -14,32 +14,37 @@ import Star from "./Star";
 interface propsType {
   setVisible: Dispatch<SetStateAction<boolean>>;
   visible: boolean;
+  cocktail_id: number;
 }
 
-const CommentModal: React.FunctionComponent<propsType> = ({setVisible, visible,}) => {
-  
+const CommentModal: React.FunctionComponent<propsType> = ({
+  setVisible,
+  visible,
+  cocktail_id,
+}) => {
   let [inputValue, setInputValue] = useState<string>(""); //댓글
   let [difficulty, setDifficulty] = useState<string>(""); //난이도
   let [scope, setScope] = useState<string>(""); //별점
-  
+
   // 현재 탭의 상태를 구분하기 위함 (Comment / MyMemo)
   const [currentTab, setCurrentTab] = useState<string>("Comment");
   const [commentList, setCommentList] = useState<commentType[]>();
+  const [commentAdd, setCommentAdd] = useState<boolean>();
   const getAccessToken = store.getState().user.accessToken;
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     axios
-      .get("https://j8b208.p.ssafy.io/api/comments/1", {
+      .get(`https://j8b208.p.ssafy.io/api/comments/${cocktail_id}`, {
         headers: {
           Authorization: getAccessToken,
         },
       })
       .then((response) => {
-        console.log(response)
+        console.log(response);
         setCommentList(response.data.data);
-      })
-      console.log(commentList)
-  }, [])
+      });
+    console.log(commentList);
+  }, [commentAdd]);
 
   //난이도 선택하는 함수입니다.
   const selectDifficulty = (e: React.MouseEvent<HTMLElement>) => {
@@ -61,38 +66,13 @@ const CommentModal: React.FunctionComponent<propsType> = ({setVisible, visible,}
   //댓글 등록 함수
   const registComment = () => {
     //여기서 axios 시작.
-    console.log(scope);
-    console.log(inputValue);
-    console.log(difficulty);
-  };
-
-  // Comment Tab을 눌렀을 때입니다.
-  const commentTab = () => {
-    console.log("this is comment");
-    setCurrentTab("Comment");
-    axios
-      .get("https://j8b208.p.ssafy.io/api/comments/1", {
-        headers: {
-          Authorization: getAccessToken,
-        },
-      })
-      .then((response) => {
-        console.log(response)
-        setCommentList(response.data.data);
-      })
-      console.log(commentList)
-  };
-
-  const memoTab = () => {
-    console.log("this is test");
-    setCurrentTab("MyMemo");
     axios
       .post(
-        "https://j8b208.p.ssafy.io/api/comments/1",
+        `https://j8b208.p.ssafy.io/api/comments/${cocktail_id}`,
         {
-          comment_content: "댓글 내용 나는 김지환이다.",
-          comment_rating: 3.2,
-          comment_difficulty: "하",
+          comment_content: inputValue,
+          comment_rating: scope,
+          comment_difficulty: difficulty,
         },
         {
           headers: {
@@ -102,13 +82,67 @@ const CommentModal: React.FunctionComponent<propsType> = ({setVisible, visible,}
           },
         }
       )
-      .then((response) => {
-        console.log(response);
-        console.log("hi");
+      .then(() => {
+        setCommentAdd(!commentAdd);
       })
       .catch((error) => {
         console.error(error);
       });
+  };
+
+  // 댓글 수정 함수
+
+  // 댓글 삭제 함수
+  const deleteComment = (id: number) => {
+    console.log(id);
+    axios
+      .delete(`https://j8b208.p.ssafy.io/api/comments/${cocktail_id}/${id}`, {
+        headers: {
+          Authorization: getAccessToken,
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
+      .then(() => {
+        setCommentAdd(!commentAdd);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const modifyComment = (
+    id: number,
+    content: string,
+    difficulty: string,
+    rating: number
+  ) => {
+    console.log(id, content, difficulty, rating)
+    setInputValue(content)
+    setDifficulty(difficulty)
+    
+  };
+
+  // Comment Tab을 눌렀을 때입니다.
+  const commentTab = () => {
+    console.log("this is comment");
+    setCurrentTab("Comment");
+    axios
+      .get(`https://j8b208.p.ssafy.io/api/comments/${cocktail_id}`, {
+        headers: {
+          Authorization: getAccessToken,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        setCommentList(response.data.data);
+      });
+    console.log(commentList);
+  };
+
+  const memoTab = () => {
+    console.log("this is test");
+    setCurrentTab("MyMemo");
   };
 
   return (
@@ -176,7 +210,9 @@ const CommentModal: React.FunctionComponent<propsType> = ({setVisible, visible,}
                     <img
                       className={style.comment_difficulty_img}
                       // src={key.comment_difficulty}
-                      src= {difficulty_img_url_converter_mini(key.comment_difficulty)}
+                      src={difficulty_img_url_converter_mini(
+                        key.comment_difficulty
+                      )}
                       alt=""
                     />
                   </div>
@@ -195,7 +231,17 @@ const CommentModal: React.FunctionComponent<propsType> = ({setVisible, visible,}
                 </div>
                 {key.writer_checker && (
                   <div className={style.cocktail_comment_edit}>
-                    <div className={style.comment_modify}>
+                    <div
+                      className={style.comment_modify}
+                      onClick={() =>
+                        modifyComment(
+                          key.comment_id,
+                          key.comment_content,
+                          key.comment_difficulty,
+                          key.comment_rating
+                        )
+                      }
+                    >
                       <img
                         className={style.comment_modify_img}
                         src="/assets/icons/detail_cocktailcomment_modify.png"
@@ -203,7 +249,10 @@ const CommentModal: React.FunctionComponent<propsType> = ({setVisible, visible,}
                       />
                       수정
                     </div>
-                    <div className={style.comment_modify}>
+                    <div
+                      className={style.comment_modify}
+                      onClick={() => deleteComment(key.comment_id)}
+                    >
                       <img
                         className={style.comment_modify_img}
                         src="/assets/icons/detail_cocktailcomment_delete.png"
