@@ -198,16 +198,55 @@
           }
         }
 
-        .cocktail_comment_edit {
+        .cocktail_comment_edit_false {
           display: flex;
           flex-direction: row;
           width: 100%;
           .comment_modify {
             margin-left: 4px;
             width: 50%;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: bold;
 
+            .comment_modify_img {
+              width: 24%;
+              height: 15px;
+            }
+          }
+          .comment_delete {
+            margin-left: 4px;
+            width: 50%;
+            font-size: 14px;
+            font-weight: bold;
+            
+            .comment_modify_img {
+              width: 24%;
+              height: 15px;
+            }
+          }
+        }
+        .cocktail_comment_edit_true {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          .comment_modify {
+            margin-left: 4px;
+            width: 50%;
+            font-size: 14px;
+            font-weight: bold;
+            color : red;
+            
+            .comment_modify_img {
+              width: 24%;
+              height: 15px;
+            }
+          }
+          .comment_delete {
+            margin-left: 4px;
+            width: 50%;
+            font-size: 14px;
+            font-weight: bold;
+            
             .comment_modify_img {
               width: 24%;
               height: 15px;

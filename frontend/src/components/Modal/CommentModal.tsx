@@ -24,13 +24,14 @@ const CommentModal: React.FunctionComponent<propsType> = ({
 }) => {
   let [inputValue, setInputValue] = useState<string>(""); //댓글
   let [difficulty, setDifficulty] = useState<string>(""); //난이도
-  let [scope, setScope] = useState<string>(""); //별점
+  let [scope, setScope] = useState<number>(0); //별점
+  const [modify, setModify] = useState<boolean>(false); //수정버튼이 클릭 되었는지 확인해주는 useState변수입니다.
 
   // 현재 탭의 상태를 구분하기 위함 (Comment / MyMemo)
   const [currentTab, setCurrentTab] = useState<string>("Comment");
   const [commentList, setCommentList] = useState<commentType[]>();
   const [commentAdd, setCommentAdd] = useState<boolean>();
-  
+  const [commentId, setCommentId] = useState<number>(0);
   const getAccessToken = store.getState().user.accessToken;
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
       .get(`https://j8b208.p.ssafy.io/api/comments/${cocktail_id}`, {
         headers: {
           Authorization: getAccessToken,
-        },
+        },  
       })
       .then((response) => {
         console.log(response);
@@ -112,16 +113,20 @@ const CommentModal: React.FunctionComponent<propsType> = ({
       });
   };
 
+
+  //댓글 수정부분입니다.
   const modifyComment = (
     id: number,
     content: string,
     difficulty: string,
     rating: number
   ) => {
+    setModify(true);
     console.log(id, content, difficulty, rating)
     setInputValue(content)
     setDifficulty(difficulty)
-    
+    setScope(rating);
+    setCommentId(id);
   };
 
   // Comment Tab을 눌렀을 때입니다.
@@ -231,7 +236,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
                   </div>
                 </div>
                 {key.writer_checker && (
-                  <div className={style.cocktail_comment_edit}>
+                  <div className={modify && commentId === key.comment_id ? style.cocktail_comment_edit_true : style.cocktail_comment_edit_false}>
                     <div
                       className={style.comment_modify}
                       onClick={() =>
@@ -251,7 +256,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
                       수정
                     </div>
                     <div
-                      className={style.comment_modify}
+                      className={style.comment_delete}
                       onClick={() => deleteComment(key.comment_id)}
                     >
                       <img
@@ -285,7 +290,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
               />
               <div>댓글 쓰기</div>
             </div>
-            <Star setScope={setScope} />
+            <Star setScope={setScope} current = {scope}/>
           </div>
           <div className={style.comment_write_box_right}>
             <div className={style.difficulty_selector}>
@@ -295,6 +300,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
                 className={style.difficulty_selector_btn}
                 name="level"
                 value="상"
+                checked={difficulty === "상"}
                 onClick={selectDifficulty}
               />
               <label htmlFor="high" className={style.difficulty_selector_lev}>
@@ -307,6 +313,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
                 className={style.difficulty_selector_btn}
                 name="level"
                 value="중"
+                checked={difficulty === "중"}
                 onClick={selectDifficulty}
               />
               <label htmlFor="medium" className={style.difficulty_selector_lev}>
@@ -319,6 +326,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
                 className={style.difficulty_selector_btn}
                 name="level"
                 value="하"
+                checked={difficulty === "하"}
                 onClick={selectDifficulty}
               />
               <label htmlFor="low" className={style.difficulty_selector_lev}>
@@ -335,9 +343,10 @@ const CommentModal: React.FunctionComponent<propsType> = ({
             onChange={writeComment}
           ></textarea>
         </div>
+        
         <div className={style.write_btn_form}>
           <button className={style.write_btn} onClick={registComment}>
-            등록
+            {modify ? "수정" : "등록"}
           </button>
         </div>
       </div>
