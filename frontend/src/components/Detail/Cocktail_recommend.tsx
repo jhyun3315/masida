@@ -7,11 +7,11 @@ import { Detail_recommend_card } from "../UI/Card_ui";
 import { recommend_props } from "../../pages/detail/[id]";
 
 const Cocktail_recommend = (props: recommend_props) => {
-  const ingredientList = props.ingredient_recommend.data;
-  const colorList = props.color_recommend.data;
+  const ingredientList = props.ingredient_recommend;
+  const colorList = props.color_recommend;
 
-  // console.log(ingredientList);
-  // console.log(colorList);
+  console.log(ingredientList);
+  console.log(colorList);
 
   const settings = {
     accessibility: false,
@@ -21,7 +21,7 @@ const Cocktail_recommend = (props: recommend_props) => {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     speed: 500,
     autoplaySpeed: 3000,
     cssEase: "linear",
@@ -39,7 +39,7 @@ const Cocktail_recommend = (props: recommend_props) => {
           {/* map cards */}
           <div className={style.carousel}>
             <Slider {...settings}>
-              {ingredientList.map((key) => (
+              {ingredientList?.map((key) => (
                 <Detail_recommend_card {...key} />
               ))}
             </Slider>
@@ -54,7 +54,7 @@ const Cocktail_recommend = (props: recommend_props) => {
           {/* map cards */}
           <div className={style.carousel}>
             <Slider {...settings}>
-              {colorList.map((key) => (
+              {colorList?.map((key) => (
                 <Detail_recommend_card {...key} />
               ))}
             </Slider>
