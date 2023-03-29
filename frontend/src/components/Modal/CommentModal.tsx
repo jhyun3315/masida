@@ -78,9 +78,6 @@ const comments: commentType[] = [
 
 const getAccessToken = store.getState().user.accessToken;
 console.log(getAccessToken, "atk입니다.");
-// const getAccessToken = useSelector(
-//   (state: RootState) => state.user.accessToken
-// );
 
 interface propsType {
   setVisible: Dispatch<SetStateAction<boolean>>;
@@ -97,7 +94,8 @@ const CommentModal: React.FunctionComponent<propsType> = ({
 
   // 현재 탭의 상태를 구분하기 위함 (Comment / MyMemo)
   const [currentTab, setCurrentTab] = useState<string>("Comment");
-
+  const [commentList, setCommentList] = useState<commentType[]>();
+  
   //난이도 선택하는 함수입니다.
   const selectDifficulty = (e: React.MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLInputElement;
@@ -123,8 +121,9 @@ const CommentModal: React.FunctionComponent<propsType> = ({
     console.log(difficulty);
   };
 
+  // Comment Tab을 눌렀을 때입니다.
   const commentTab = () => {
-    console.log("this is test");
+    console.log("this is comment");
     setCurrentTab("Comment");
     axios
       .get("https://j8b208.p.ssafy.io/api/comments/1", {
@@ -133,8 +132,8 @@ const CommentModal: React.FunctionComponent<propsType> = ({
         },
       })
       .then((response) => {
-        console.log(response.data);
-      });
+        setCommentList(response.data.data);
+      })
   };
 
   const memoTab = () => {
@@ -199,7 +198,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
 
       {/* 댓글 리스트 */}
       <div className={style.comment_list}>
-        {comments.map((key, v) => (
+        {commentList.map((key, v) => (
           <div className={style.comment}>
             <div className={style.comment_layout}>
               <div className={style.comment_left}>
