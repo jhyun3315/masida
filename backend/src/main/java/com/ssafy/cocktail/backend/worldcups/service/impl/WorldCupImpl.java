@@ -7,6 +7,7 @@ import com.ssafy.cocktail.backend.domain.repository.CocktailRepository;
 import com.ssafy.cocktail.backend.worldcups.dto.CocktailWorldCupDetail;
 import com.ssafy.cocktail.backend.worldcups.dto.IngredientName;
 import com.ssafy.cocktail.backend.worldcups.service.WorldCupService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class WorldCupImpl implements WorldCupService {
     private CocktailRepository cocktailRepository;
     private CocktailIngredientRepository cocktailIngredientRepository;
