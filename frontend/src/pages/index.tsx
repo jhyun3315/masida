@@ -6,12 +6,6 @@ import Main_cocktail from "../components/Main/Main_cocktail";
 import Main_search from "../components/Main/Main_search";
 import Main_manual from "../components/Main/Main_manual";
 import Footer from "../components/Footer/Footer";
-import { useState, useEffect } from "react";
-
-import {
-  get_cocktails_likes_top,
-  get_cocktails_random,
-} from "./api/cocktails/cocktail_api";
 
 import { randomType, likeType } from "../type/cocktailTypes";
 

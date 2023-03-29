@@ -10,6 +10,11 @@ import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty
 
 const World_cup_league_result = (props: detail_props) => {
   const router = useRouter();
+
+  const restart = () => {
+    router.reload();
+  }
+  
   let difficulty = difficulty_img_url_converter(props.cocktail_difficulty);
   const x = (
     // <div className={style.world_cup_winner_info}>
@@ -33,7 +38,7 @@ const World_cup_league_result = (props: detail_props) => {
         {/* 다시하기 버튼 */}
         <div
           className={style.cocktail_worldcup_retry_btn}
-          onClick={() => router.reload()}
+          onClick={restart}
         >
           <div className={style.cocktail_worldcup_retry_btn_text}>
             다시하기 &nbsp;
