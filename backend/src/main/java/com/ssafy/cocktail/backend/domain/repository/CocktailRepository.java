@@ -2,8 +2,10 @@ package com.ssafy.cocktail.backend.domain.repository;
 
 import com.ssafy.cocktail.backend.cocktails.dto.CocktailLikesInterface;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
+import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisBase;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -18,7 +20,7 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
             "join likes l on c.cocktail_id = l.cocktail_id " +
             "group by cocktailId " +
             "order by 'cnt' desc", nativeQuery = true)
-    public List<CocktailLikesInterface> findCocktailByLikes();
+    List<CocktailLikesInterface> findCocktailByLikes();
 
     @Query(value = "select cocktail_id as cocktailId " +
             ", cocktail_name_ko as cocktailNameKo " +
@@ -27,7 +29,9 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
             ", cocktail_rating as cocktailRating " +
             "from cocktails " +
             "order by rand() limit 1", nativeQuery = true)
-    public CocktailLikesInterface getCocktailRandomOne();
-    public Cocktail findCocktailById(Long cocktailId);
+    CocktailLikesInterface getCocktailRandomOne();
+
+    Cocktail findCocktailById(Long cocktailId);
+
 
 }
