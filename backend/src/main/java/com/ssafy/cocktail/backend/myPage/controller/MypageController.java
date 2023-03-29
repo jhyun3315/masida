@@ -1,7 +1,6 @@
 package com.ssafy.cocktail.backend.myPage.controller;
 
 import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
-import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.User;
 import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
 import com.ssafy.cocktail.backend.myPage.dto.response.LikeCocktailsRes;

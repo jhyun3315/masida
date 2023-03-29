@@ -5,10 +5,16 @@ import com.ssafy.cocktail.backend.domain.entity.User;
 import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
 import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
 import com.ssafy.cocktail.backend.myPage.service.MypageLikeService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
+@Transactional
+@RequiredArgsConstructor
 public class MypageLikeServiceImpl implements MypageLikeService {
 
 	private LikeRepository likeRepository;
