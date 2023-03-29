@@ -146,7 +146,7 @@ public class OAuthServiceImpl implements OAuthService {
 //            String email = kakao_account.getAsJsonObject().get("email").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
             String age_range = kakao_account.getAsJsonObject().get("age_range") == null
-                    ? "연령미동의" : kakao_account.getAsJsonObject().get("age_range").toString().split("~")[0];
+                    ? "연령미동의" : kakao_account.getAsJsonObject().get("age_range").toString().split("~")[0].substring(1);
 //			String birthday = kakao_account.getAsJsonObject().get("birthday").getAsString();
 //            String gender = kakao_account.getAsJsonObject().get("gender").getAsString();
             String gender = kakao_account.getAsJsonObject().get("gender") == null
