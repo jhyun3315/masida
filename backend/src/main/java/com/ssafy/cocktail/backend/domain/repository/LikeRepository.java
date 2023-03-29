@@ -18,4 +18,7 @@ public interface LikeRepository extends JpaRepository<Like, Long> {
     @Query("select l.cocktail from Like l where l.user = :user")
     public List<Cocktail> findByUser(@Param("user") User user);
 
+    // 해당 칵테일의 좋아요 개수
+    @Query("select count(l.id) from Like l where l.cocktail = :cocktail")
+    Integer findLikeCntByCocktail(@Param("cocktail") Cocktail cocktail);
 }

@@ -20,34 +20,30 @@ public class LikeBookmarkCocktail {
 	@JsonProperty("cocktail_name_ko")
 	private String cocktailNameKo;
 
-//	@Schema(description = "칵테일 영어 이름", example = "cocktail")
-//	@JsonProperty("cocktail_name_en")
-//	private String cocktailNameEn;
-
-	@Schema(description = "칵테일 이미지 url", example = "/image")
+	@Schema(description = "칵테일 이미지 url", example = ".jpg")
 	@JsonProperty("cocktail_img")
 	private String cocktailImg;
 
-//	@Schema(description = "칵테일 좋아요 수", example = "1")
-//	@JsonProperty("cocktail_likes")
-//	private int cocktailLikes;
+	@Schema(description = "칵테일 좋아요 수", example = "1")
+	@JsonProperty("cocktail_likes")
+	private int cocktailLikes;
 
 	@Schema(description = "칵테일 평점", example = "4.9")
 	@JsonProperty("cocktail_rating")
 	private Double cocktailRating;
 
-	@Schema(description = "칵테일 난이도", example = "하")
+	@Schema(description = "칵테일 난이도", example = "중")
 	@JsonProperty("cocktail_difficulty")
-	private Double cocktailDifficulty;
+	private String cocktailDifficulty;
 
 	@Builder
-	public LikeBookmarkCocktail(Cocktail cocktail) {
+	public LikeBookmarkCocktail(Cocktail cocktail, int likeCnt) {
 		this.cocktailId = cocktail.getId();
 		this.cocktailNameKo = cocktail.getCocktailNameKo();
 		this.cocktailImg = cocktail.getCocktailImg();
-//		this.cocktailLikes =
+		this.cocktailLikes = likeCnt;
 		this.cocktailRating = cocktail.getCocktailRating();
-		this.cocktailDifficulty = cocktail.getCocktailDifficulty();
+		this.cocktailDifficulty = ((cocktail.getCocktailDifficulty() < 2 ) ? "하" : (cocktail.getCocktailDifficulty() < 3) ? "중" : "상" );	// double형 난이도를 String형으로 바꿔주기
 	}
 
 }
