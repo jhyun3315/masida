@@ -5,10 +5,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Setter
 @Getter
 @AllArgsConstructor
+@ToString
 public class RecipeDetail {
     @Schema(description = "제조법 순서", example = "1")
     @JsonProperty("recipe_num")

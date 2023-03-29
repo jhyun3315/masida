@@ -1,6 +1,7 @@
 package com.ssafy.cocktail.backend.domain.entity;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -15,20 +16,24 @@ import java.time.LocalDateTime;
 @Table(name="likes")
 public class Like {
     @Id
-    @GeneratedValue
-    @Column(name = "like_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "like_id",nullable = false)
     private Long id;
 
-    private String likeDeleted;
+    @ColumnDefault("false")
+    @Column(name = "like_deleted",columnDefinition = "BOOLEAN", nullable = false)
+    private boolean likeDeleted;
 
     @CreatedDate
-    @Column(nullable = false, updatable = false)
+    @Column(name="like_create_date",columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime likeCreatedDate;
+
     @LastModifiedDate
-    @Column(nullable = false)
+    @Column(name="like_update_date",columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime likeUpdateDate;
+
     @Builder
-    public Like(String likeDeleted, LocalDateTime likeCreatedDate, LocalDateTime likeUpdateDate, User user, Cocktail cocktail) {
+    public Like(boolean likeDeleted, LocalDateTime likeCreatedDate, LocalDateTime likeUpdateDate, User user, Cocktail cocktail) {
         this.likeDeleted = likeDeleted;
         this.likeCreatedDate = likeCreatedDate;
         this.likeUpdateDate = likeUpdateDate;
@@ -36,11 +41,11 @@ public class Like {
         this.cocktail = cocktail;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cocktail_id")
     private Cocktail cocktail;
 }
