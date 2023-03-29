@@ -59,9 +59,9 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         if (accessToken != null) { // 로그인한 유저이면
             User user = oAuthService.getUser(accessToken); // 유저 가져오기
             Like like = likeRepository.findByUserAndCocktail(user, cocktail.get()); // 칵테일의 유저 좋아요 가져오기
-            cocktailDetail.setLikesChecker(like != null && like.isLikeDeleted()); // 유저가 좋아요 여부 삽입
+            cocktailDetail.setLikesChecker(like != null && !like.isLikeDeleted()); // 유저가 좋아요 여부 삽입
             Bookmark bookmark = bookmarkRepository.findByUserAndCocktail(user, cocktail.get()); // 칵테일의 유저 북마크 가져오기
-            cocktailDetail.setBookmarkCheckcker(bookmark != null && bookmark.isBookmarkDeleted()); // 유저가 북마크 여부 삽입
+            cocktailDetail.setBookmarkCheckcker(bookmark != null && !bookmark.isBookmarkDeleted()); // 유저가 북마크 여부 삽입
         } else { // 로그인 하지 않은 유저이면
             cocktailDetail.setLikesChecker(false); // 좋아요 여부 false 삽입
             cocktailDetail.setBookmarkCheckcker(false); // 북마크 여부 false 삽입
