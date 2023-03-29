@@ -2,7 +2,10 @@ package com.ssafy.cocktail.backend.cocktails.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Setter;
 
+@Setter
 public class CommentDetail {
     @Schema(description = "댓글 id", example = "0")
     @JsonProperty("comment_id")
@@ -25,14 +28,14 @@ public class CommentDetail {
     private String commentDifficulty;
 
     @Schema(description = "작성자 이름", example = "이싸피")
-    @JsonProperty("comment_name")
-    private String commentName;
+    @JsonProperty("user_name")
+    private String userName;
 
     @Schema(description = "작성자 프로필", example = "/img")
-    @JsonProperty("comment_profile")
-    private String commentProfile;
+    @JsonProperty("user_profile")
+    private String userProfile;
 
-    @Schema(description = "작성자 확인", example = "N")
-    @JsonProperty("comment_checker")
-    private Boolean commentChecker;
+    @Schema(description = "작성자 확인", example = "false")
+    @JsonProperty("writer_checker")
+    private boolean writerChecker;
 }

@@ -8,6 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-    public List<Comment> findAllByCocktailAndCommentDeleted(Cocktail cocktail, String commentDeleted);
-    public Comment findByUserAndCocktail(User user, Cocktail cocktail);
+    public List<Comment> findAllByCocktailAndCommentDeleted(Cocktail cocktail, boolean commentDeleted);
 }

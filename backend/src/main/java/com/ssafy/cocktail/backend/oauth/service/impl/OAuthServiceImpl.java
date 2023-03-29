@@ -42,10 +42,10 @@ public class OAuthServiceImpl implements OAuthService {
 
     @Override
     public UserLoginInfo loginUser(String authorize_code) throws IOException {
-        userLoginInfo = new UserLoginInfo();
+        userLoginInfo = new UserLoginInfo(); // 사용자 로그인 정보
         String accessToken = getKakaoAccessToken(authorize_code); // accessToken 가져오기
-        userLoginInfo.setAccessToken(accessToken);
-        saveOrUpdate(accessToken);
+        userLoginInfo.setAccessToken(accessToken); // 엑세스 토큰 삽입
+        saveOrUpdate(accessToken); // 새로운 사용자 저장 또는 업데이트
         return userLoginInfo;
     }
 
@@ -146,7 +146,7 @@ public class OAuthServiceImpl implements OAuthService {
 //            String email = kakao_account.getAsJsonObject().get("email").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
             String age_range = kakao_account.getAsJsonObject().get("age_range") == null
-                    ? "연령미동의~" : kakao_account.getAsJsonObject().get("age_range").toString();
+                    ? "연령미동의" : kakao_account.getAsJsonObject().get("age_range").toString().split("~")[0].substring(1);
 //			String birthday = kakao_account.getAsJsonObject().get("birthday").getAsString();
 //            String gender = kakao_account.getAsJsonObject().get("gender").getAsString();
             String gender = kakao_account.getAsJsonObject().get("gender") == null
@@ -159,7 +159,6 @@ public class OAuthServiceImpl implements OAuthService {
             System.out.println("profile_image: " + profile_image);
             System.out.println("thumbnail_image: " + thumbnail_image);
             System.out.println("gender: " + gender);
-            age_range = age_range.split("~")[0];
             System.out.println("age_range: " + age_range);
             User user = userRepository.findOneByUserEmail(email);
             if (userRepository.findOneByUserEmail(email) == null) {
@@ -170,7 +169,7 @@ public class OAuthServiceImpl implements OAuthService {
                         .userProfile(thumbnail_image)
                         .userGender(gender)
                         .userAgeRange(age_range)
-                        .userDeleted("N")
+                        .userDeleted(false)
                         .userCreatedDate(LocalDateTime.now())
                         .userUpdateDate(LocalDateTime.now())
                         .build());
@@ -179,7 +178,7 @@ public class OAuthServiceImpl implements OAuthService {
                 user.setUserProfile(thumbnail_image);
                 user.setUserGender(gender);
                 user.setUserAgeRange(age_range);
-                user.setUserDeleted("N");
+                user.setUserDeleted(false);
                 user.setUserUpdateDate(LocalDateTime.now());
                 userRepository.save(user);
             }
@@ -312,7 +311,7 @@ public class OAuthServiceImpl implements OAuthService {
 //            JsonElement element = parser.parse(result); // Json 파싱
 
             if (isdeleted) {
-                user.setUserDeleted("Y"); // 삭제 상태 삭제로 변경
+                user.setUserDeleted(false); // 삭제 상태 삭제로 변경
                 userRepository.save(user); // 회원 정보 수정
             }
             return true;

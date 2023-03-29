@@ -14,10 +14,10 @@ public class CocktailIngredient {
     @Column(name = "cocktail_ingredient_id", nullable = false)
     private Long id;
 
-    @Column(name = "ingredient_amont", columnDefinition="VARCHAR(10)",nullable = false)
+    @Column(name = "ingredient_amont", columnDefinition="VARCHAR(10)")
     private String ingredientAmount;
 
-    @Column(name = "ingredient_unit", columnDefinition="VARCHAR(10)",nullable = false)
+    @Column(name = "ingredient_unit", columnDefinition="VARCHAR(10)")
     private String ingredientUnit;
 
     @Column(name = "ingredient_name", columnDefinition="VARCHAR(20)",nullable = false)

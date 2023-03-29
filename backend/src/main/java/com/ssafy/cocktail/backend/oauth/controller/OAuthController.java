@@ -24,11 +24,11 @@ import java.io.IOException;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/oauth")
-@CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io", "https://kapi.kakao.com"})
 public class OAuthController {
     private final OAuthService oAuthService;
 
-    @GetMapping("kakao/login")
+    @GetMapping("/kakao/login")
     public void kakaoLogin(HttpServletResponse response) throws IOException {
         String loginPageUri = oAuthService.loginPage(); // 로그인 페이지 가져오기
         response.sendRedirect(loginPageUri); // 로그인 페이지로 이동
@@ -66,13 +66,14 @@ public class OAuthController {
         System.out.println("로그인 완료");
         System.out.println("refreshToken: "+ userLoginInfo.getRefreshToken());
         System.out.println("accessToken: "+  userLoginInfo.getAccessToken());
-        attributes.addFlashAttribute("refreshToken", userLoginInfo.getRefreshToken());
-        attributes.addFlashAttribute("accessToken", userLoginInfo.getAccessToken());
+//        attributes.addFlashAttribute("refreshToken", userLoginInfo.getRefreshToken());
+//        attributes.addFlashAttribute("accessToken", userLoginInfo.getAccessToken());
         attributes.addAttribute("accessToken", userLoginInfo.getAccessToken());
-        response.setHeader("accessToken", userLoginInfo.getAccessToken());
-        Cookie cookie = new Cookie("accessTokenCookie", userLoginInfo.getAccessToken());
-        cookie.setHttpOnly(true);
-        response.addCookie(cookie);
+        attributes.addAttribute("userName", userLoginInfo.getUserName());
+//        response.setHeader("accessToken", userLoginInfo.getAccessToken());
+//        Cookie cookie = new Cookie("accessTokenCookie", userLoginInfo.getAccessToken());
+//        cookie.setHttpOnly(true);
+//        response.addCookie(cookie);
 //        return new RedirectView("");
         return new RedirectView("http://localhost:3000");
     }
@@ -118,7 +119,7 @@ public class OAuthController {
         return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
     }
 
-    @GetMapping("users")
+    @GetMapping("/users")
     public ResponseEntity<UserInfoRes> mypageUserinfo(@RequestHeader("Authorization") String accessToken) {
         System.out.println("---------------------------------");
         System.out.println("사용자 정보 조회 요청입니다");
@@ -133,7 +134,7 @@ public class OAuthController {
         return ResponseEntity.ok(UserInfoRes.of(200, "Success", userInfo));
     }
 
-    @PutMapping("users")
+    @PutMapping("/users")
     public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("Authorization") String accessToken, UserInfoReq req) {
         System.out.println("---------------------------------");
         System.out.println("사용자 정보 수정 요청입니다");
