@@ -31,7 +31,7 @@ public class CommentController {
         if (commentService.saveOrUpdateComment(cocktailId, null, req, accessToken)) {
             return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
         }
-        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
+        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "user not found"));
     }
 
     @PutMapping("/{cocktail_id}/{comment_id}")
@@ -39,7 +39,7 @@ public class CommentController {
         if (commentService.saveOrUpdateComment(cocktailId, commentId, req, accessToken)) {
             return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
         }
-        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Fail"));
+        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "user not found"));
     }
 
     @DeleteMapping("/{cocktail_id}/{comment_id}")

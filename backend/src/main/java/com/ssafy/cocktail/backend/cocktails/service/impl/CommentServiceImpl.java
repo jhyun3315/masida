@@ -57,6 +57,7 @@ public class CommentServiceImpl implements CommentService {
     public boolean saveOrUpdateComment(String cocktailId, String commentId, CommentReq commentInfo, String accessToken) {
         // 댓글 등록 또는 수정
         User user = oAuthService.getUser(accessToken); // 사용자 가져오기
+        if (user == null) return false;
         Cocktail cocktail = cocktailRepository.findCocktailById(Long.valueOf(cocktailId)); // 칵테일 가져오기
         List<Comment> commets = commentRepository.findAllByCocktailAndCommentDeleted(cocktail, false); // 칵테일 댓글 가져오기
         int commentSize = commets.size(); // 칵테일의 댓글 전체 개수
