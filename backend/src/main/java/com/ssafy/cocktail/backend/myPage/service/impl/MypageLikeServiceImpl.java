@@ -1,9 +1,9 @@
-package com.ssafy.cocktail.backend.mypage.service.impl;
+package com.ssafy.cocktail.backend.myPage.service.impl;
 
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.User;
 import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
-import com.ssafy.cocktail.backend.mypage.service.MypageLikeService;
+import com.ssafy.cocktail.backend.myPage.service.MypageLikeService;
 
 import java.util.List;
 

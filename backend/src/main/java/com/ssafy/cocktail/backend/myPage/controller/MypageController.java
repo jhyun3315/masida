@@ -1,13 +1,13 @@
-package com.ssafy.cocktail.backend.mypage.controller;
+package com.ssafy.cocktail.backend.myPage.controller;
 
 import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.User;
-import com.ssafy.cocktail.backend.mypage.dto.LikeBookmarkCocktail;
-import com.ssafy.cocktail.backend.mypage.dto.response.LikeCocktailsRes;
-import com.ssafy.cocktail.backend.mypage.service.MypageBookmarkService;
-import com.ssafy.cocktail.backend.mypage.service.MypageCommentService;
-import com.ssafy.cocktail.backend.mypage.service.MypageLikeService;
+import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
+import com.ssafy.cocktail.backend.myPage.dto.response.LikeCocktailsRes;
+import com.ssafy.cocktail.backend.myPage.service.MypageBookmarkService;
+import com.ssafy.cocktail.backend.myPage.service.MypageCommentService;
+import com.ssafy.cocktail.backend.myPage.service.MypageLikeService;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.ssafy.cocktail.backend.mypage.service;
+package com.ssafy.cocktail.backend.myPage.service;
 
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.User;

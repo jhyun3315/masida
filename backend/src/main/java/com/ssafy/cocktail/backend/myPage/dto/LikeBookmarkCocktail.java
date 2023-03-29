@@ -1,9 +1,10 @@
-package com.ssafy.cocktail.backend.mypage.dto;
+package com.ssafy.cocktail.backend.myPage.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,6 +40,7 @@ public class LikeBookmarkCocktail {
 	@JsonProperty("cocktail_difficulty")
 	private Double cocktailDifficulty;
 
+	@Builder
 	public LikeBookmarkCocktail(Cocktail cocktail) {
 		this.cocktailId = cocktail.getId();
 		this.cocktailNameKo = cocktail.getCocktailNameKo();

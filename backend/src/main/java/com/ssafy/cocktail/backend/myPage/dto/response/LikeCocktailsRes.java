@@ -1,8 +1,8 @@
-package com.ssafy.cocktail.backend.mypage.dto.response;
+package com.ssafy.cocktail.backend.myPage.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
-import com.ssafy.cocktail.backend.mypage.dto.LikeBookmarkCocktail;
+import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Setter;
 
