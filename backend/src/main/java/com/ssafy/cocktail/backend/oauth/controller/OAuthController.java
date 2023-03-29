@@ -69,6 +69,7 @@ public class OAuthController {
 //        attributes.addFlashAttribute("refreshToken", userLoginInfo.getRefreshToken());
 //        attributes.addFlashAttribute("accessToken", userLoginInfo.getAccessToken());
         attributes.addAttribute("accessToken", userLoginInfo.getAccessToken());
+        attributes.addAttribute("userName", userLoginInfo.getUserName());
 //        response.setHeader("accessToken", userLoginInfo.getAccessToken());
 //        Cookie cookie = new Cookie("accessTokenCookie", userLoginInfo.getAccessToken());
 //        cookie.setHttpOnly(true);
