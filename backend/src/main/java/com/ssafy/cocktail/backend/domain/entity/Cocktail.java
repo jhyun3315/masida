@@ -16,10 +16,10 @@ public class Cocktail {
     @Column(name = "cocktail_id",nullable = false)
     private Long id;
 
-    @Column(name = "cocktail_name_ko", columnDefinition="VARCHAR(20)",nullable = false)
+    @Column(name = "cocktail_name_ko", columnDefinition="VARCHAR(50)",nullable = false)
     String cocktailNameKo;
 
-    @Column(name = "cocktail_name_en", columnDefinition="VARCHAR(30)",nullable = false)
+    @Column(name = "cocktail_name_en", columnDefinition="VARCHAR(50)",nullable = false)
     String cocktailNameEn;
 
     @Column(name = "cocktail_img", columnDefinition="VARCHAR(150)",nullable = false)
@@ -28,10 +28,10 @@ public class Cocktail {
     @Column(name = "cocktail_content", columnDefinition="VARCHAR(100)")
     String cocktailContent;
 
-    @Column(name = "cocktail_color1", columnDefinition="VARCHAR(10)",nullable = false)
+    @Column(name = "cocktail_color1", columnDefinition="VARCHAR(10)")
     String cocktailColor1;
 
-    @Column(name = "cocktail_color2", columnDefinition="VARCHAR(10)",nullable = false)
+    @Column(name = "cocktail_color2", columnDefinition="VARCHAR(10)")
     String cocktailColor2;
 
     @Column(name = "cocktail_base", columnDefinition="VARCHAR(10)",nullable = false)
