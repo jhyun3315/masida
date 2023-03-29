@@ -1,101 +1,46 @@
 import axios from "axios";
 import Image from "next/image";
-
-import { useState, Dispatch, SetStateAction } from "react";
-
-import { useSelector } from "react-redux";
-import { store } from "../../../store/store";
-// import { RootState } from "../../../store";
-
-import { commentType } from "../../type/commentTypes";
-import { imgLoader } from "../../utils/imgLoader";
 import { ImageLoaderProps } from "next/image";
+import { useState, Dispatch, SetStateAction, useEffect } from "react";
+
+import { store } from "../../../store/store";
+import { difficulty_img_url_converter_mini } from "../../pages/api/utility/difficulty_img_url_converter";
+import { imgLoader } from "../../utils/imgLoader";
+import { commentType } from "../../type/commentTypes";
+
 import style from "./CommentModal.module.scss";
 import Star from "./Star";
-
-const comments: commentType[] = [
-  {
-    comment_id: 1,
-    comment_content: "댓글이다 이건.",
-    comment_rating: 1,
-    comment_create_date: "2023-03-26",
-    comment_difficulty: "/assets/icons/difficulty_HIGH_MINI.png",
-    user_name: "내이름은 손종효 탐정이죠",
-    user_profile: "/assets/image/user_profile_img.png",
-    writer_checker: false,
-  },
-  {
-    comment_id: 2,
-    comment_content: "comment_content2",
-    comment_rating: 2,
-    comment_create_date: "comment_create_date2",
-    comment_difficulty: "/assets/icons/difficulty_LOW_MINI.png",
-    user_name: "user_name2",
-    user_profile: "/assets/image/user_profile_img.png",
-    writer_checker: true,
-  },
-  {
-    comment_id: 3,
-    comment_content: "comment_content3",
-    comment_rating: 3,
-    comment_create_date: "comment_create_date3",
-    comment_difficulty: "/assets/icons/difficulty_MID_MINI.png",
-    user_name: "user_name3",
-    user_profile: "/assets/image/user_profile_img.png",
-    writer_checker: false,
-  },
-  {
-    comment_id: 3,
-    comment_content: "comment_content3",
-    comment_rating: 3,
-    comment_create_date: "comment_create_date3",
-    comment_difficulty: "/assets/icons/difficulty_MID_MINI.png",
-    user_name: "user_name3",
-    user_profile: "/assets/image/user_profile_img.png",
-    writer_checker: true,
-  },
-  {
-    comment_id: 3,
-    comment_content: "comment_content3",
-    comment_rating: 3,
-    comment_create_date: "comment_create_date3",
-    comment_difficulty: "/assets/icons/difficulty_MID_MINI.png",
-    user_name: "user_name3",
-    user_profile: "/assets/image/user_profile_img.png",
-    writer_checker: false,
-  },
-  {
-    comment_id: 3,
-    comment_content: "comment_content3",
-    comment_rating: 3,
-    comment_create_date: "comment_create_date3",
-    comment_difficulty: "/assets/icons/difficulty_MID_MINI.png",
-    user_name: "user_name3",
-    user_profile: "/assets/image/user_profile_img.png",
-    writer_checker: true,
-  },
-];
-
-const getAccessToken = store.getState().user.accessToken;
-console.log(getAccessToken, "atk입니다.");
 
 interface propsType {
   setVisible: Dispatch<SetStateAction<boolean>>;
   visible: boolean;
 }
 
-const CommentModal: React.FunctionComponent<propsType> = ({
-  setVisible,
-  visible,
-}) => {
+const CommentModal: React.FunctionComponent<propsType> = ({setVisible, visible,}) => {
+  
   let [inputValue, setInputValue] = useState<string>(""); //댓글
   let [difficulty, setDifficulty] = useState<string>(""); //난이도
   let [scope, setScope] = useState<string>(""); //별점
-
+  
   // 현재 탭의 상태를 구분하기 위함 (Comment / MyMemo)
   const [currentTab, setCurrentTab] = useState<string>("Comment");
   const [commentList, setCommentList] = useState<commentType[]>();
+  const getAccessToken = store.getState().user.accessToken;
   
+  useEffect(()=>{
+    axios
+      .get("https://j8b208.p.ssafy.io/api/comments/1", {
+        headers: {
+          Authorization: getAccessToken,
+        },
+      })
+      .then((response) => {
+        console.log(response)
+        setCommentList(response.data.data);
+      })
+      console.log(commentList)
+  }, [])
+
   //난이도 선택하는 함수입니다.
   const selectDifficulty = (e: React.MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLInputElement;
@@ -132,8 +77,10 @@ const CommentModal: React.FunctionComponent<propsType> = ({
         },
       })
       .then((response) => {
+        console.log(response)
         setCommentList(response.data.data);
       })
+      console.log(commentList)
   };
 
   const memoTab = () => {
@@ -145,7 +92,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
         {
           comment_content: "댓글 내용 나는 김지환이다.",
           comment_rating: 3.2,
-          comment_difficulty: "상",
+          comment_difficulty: "하",
         },
         {
           headers: {
@@ -228,7 +175,8 @@ const CommentModal: React.FunctionComponent<propsType> = ({
                   <div className={style.comment_difficulty}>
                     <img
                       className={style.comment_difficulty_img}
-                      src={key.comment_difficulty}
+                      // src={key.comment_difficulty}
+                      src= {difficulty_img_url_converter_mini(key.comment_difficulty)}
                       alt=""
                     />
                   </div>

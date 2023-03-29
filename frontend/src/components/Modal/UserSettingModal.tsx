@@ -5,7 +5,7 @@ import { AiOutlineCheckCircle } from "react-icons/ai";
 import style from "./UserSettingModal.module.scss";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../store";
+import { RootState } from "../../../store/store";
 import { useDispatch } from "react-redux";
 import { logout } from "../../../store/modules/user";
 import { useRouter } from "next/router";

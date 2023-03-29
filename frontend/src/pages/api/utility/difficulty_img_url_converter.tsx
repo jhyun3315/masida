@@ -18,3 +18,20 @@ export const difficulty_img_url_converter = (difficulty: string) => {
 
   return difficulty_img_url;
 };
+
+export const difficulty_img_url_converter_mini = (difficulty: string) => {
+  let difficulty_img_url = "";
+  switch (difficulty) {
+    case "하":
+      difficulty_img_url = "/assets/icons/difficulty_LOW_MINI.png";
+      break;
+    case "중":
+      difficulty_img_url = "/assets/icons/difficulty_MID_MINI.png";
+      break;
+    case "상":
+      difficulty_img_url = "/assets/icons/difficulty_HIGH_MINI.png";
+      break;
+  }
+
+  return difficulty_img_url;
+};
