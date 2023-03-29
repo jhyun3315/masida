@@ -56,13 +56,20 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         cocktailDetail.setCocktailLikes(likes.size()); // 칵테일 좋아요 개수 삽입
         List<Comment> cocktails = commentRepository.findAllByCocktailAndCommentDeleted(cocktail.get(), false); // 칵테일 댓글 가져오기
         cocktailDetail.setCocktailComments(cocktails.size()); // 칵테일 댓글 개수 삽입
-        if (accessToken != null) { // 로그인한 유저이면
-            User user = oAuthService.getUser(accessToken); // 유저 가져오기
+        User user = oAuthService.getUser(accessToken); // 유저 가져오기
+        System.out.println("칵테일 상세 보기입니다");
+        if (user != null) { // 로그인한 유저이면
+            System.out.println("좋아요 여부");
             Like like = likeRepository.findByUserAndCocktail(user, cocktail.get()); // 칵테일의 유저 좋아요 가져오기
+            if (like == null) System.out.println("좋아요 객체 없음");
+            else System.out.println("좋아요 체크 여부" + like.isLikeDeleted());
             cocktailDetail.setLikesChecker(like != null && !like.isLikeDeleted()); // 유저가 좋아요 여부 삽입
             Bookmark bookmark = bookmarkRepository.findByUserAndCocktail(user, cocktail.get()); // 칵테일의 유저 북마크 가져오기
+            if (bookmark == null) System.out.println("북마크 객체 없음");
+            else System.out.println("북마크 체크 여부" + bookmark.isBookmarkDeleted());
             cocktailDetail.setBookmarkCheckcker(bookmark != null && !bookmark.isBookmarkDeleted()); // 유저가 북마크 여부 삽입
         } else { // 로그인 하지 않은 유저이면
+            System.out.println("로그인 하지 않은 유저입니다");
             cocktailDetail.setLikesChecker(false); // 좋아요 여부 false 삽입
             cocktailDetail.setBookmarkCheckcker(false); // 북마크 여부 false 삽입
         }
@@ -89,7 +96,7 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
 
     @Override
     public void setCocktailLike(Long cocktailId, String accessToken) {
-        // 좋아요 체크 상태이면 true, 좋아요 해제 상태이면 false 리턴
+        // 좋아요 상태 업데이트
         Cocktail cocktail = cocktailRepository.findCocktailById(cocktailId); // 칵테일 가져오기
         User user = oAuthService.getUser(accessToken); // 사용자 가져오기
         Like like = likeRepository.findByUserAndCocktail(user, cocktail); // 칵테일의 사용자 좋아요 가져오기
@@ -111,9 +118,10 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
 
     @Override
     public void setCocktailBookMark(Long cocktailId, String accessToken) {
+        // 북마크 상태 업데이트
         Cocktail cocktail = cocktailRepository.findCocktailById(cocktailId); // 칵테일 가져오기
         User user = oAuthService.getUser(accessToken); // 사용자 가져오기
-        Bookmark bookmark = bookmarkRepository.findByUserAndCocktail(user, cocktail);
+        Bookmark bookmark = bookmarkRepository.findByUserAndCocktail(user, cocktail); // 칵테일의 사용자 북마크 가져오기
         if (bookmark == null) { // 사용자가 칵테일의 북마크를 누른적이 없다면
             bookmarkRepository.save(
                     Bookmark.builder()
