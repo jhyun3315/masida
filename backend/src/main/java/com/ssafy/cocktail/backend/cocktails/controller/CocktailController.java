@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Objects;
-import java.util.stream.DoubleStream;
 
 @Tag(name = "cocktail", description = "칵테일 API")
 @RestController
