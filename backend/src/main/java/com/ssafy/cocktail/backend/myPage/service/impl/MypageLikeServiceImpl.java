@@ -38,7 +38,7 @@ public class MypageLikeServiceImpl implements MypageLikeService {
 	public List<LikeBookmarkCocktail> getLikeCocktailList(Long userId) {
 		// 해당 유저가 좋아요한 칵테일 리스트
 		List<Cocktail> cocktailList = likeRepository.findLikeCocktailByUserId(userId);
-		// 칵테일 리스트를 DTO 전용으로 바꿔서 해당 List에 담아주기
+		// 칵테일 리스트를 DTO 객체로 바꿔서 해당 List에 담아주기
 		List<LikeBookmarkCocktail> result = new ArrayList<>();
 
 		for(Cocktail cocktail : cocktailList) {
