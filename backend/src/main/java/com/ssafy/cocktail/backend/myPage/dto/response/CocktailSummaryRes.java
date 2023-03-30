@@ -3,7 +3,6 @@ package com.ssafy.cocktail.backend.myPage.dto.response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
 import com.ssafy.cocktail.backend.myPage.dto.CocktailSummary;
-import com.ssafy.cocktail.backend.myPage.dto.CommentCocktail;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Setter;
 

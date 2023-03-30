@@ -12,6 +12,7 @@ import com.ssafy.cocktail.backend.myPage.dto.response.LikeBookmarkCocktailsRes;
 import com.ssafy.cocktail.backend.myPage.service.MypageBookmarkService;
 import com.ssafy.cocktail.backend.myPage.service.MypageCommentService;
 import com.ssafy.cocktail.backend.myPage.service.MypageLikeService;
+import com.ssafy.cocktail.backend.myPage.service.MypageSummaryService;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -33,6 +34,7 @@ public class MypageController {
 	private final MypageLikeService mypageLikeService;
 	private final MypageBookmarkService mypageBookmarkService;
 	private final MypageCommentService mypageCommentService;
+	private final MypageSummaryService mypageSummaryService;
 
 	@GetMapping("/cnt")
 	public ResponseEntity<?> getLikeBookmarkCnt(@RequestHeader Map<String, String> data) {
@@ -138,7 +140,7 @@ public class MypageController {
 		}
 	}
 
-	@GetMapping("/cocktail-summary")
+	@GetMapping("/cocktail_summary")
 	public ResponseEntity<?> getCocktailSummary (@RequestHeader Map<String, String> data) {
 		String accessToken = data.get("authorization");
 
@@ -154,7 +156,7 @@ public class MypageController {
 			System.out.println(user.getId());
 
 			// 해당 유저가 댓글 및 평점 등록한 칵테일 리스트
-			List<CocktailSummary> cocktailSummaryList = null;
+			List<CocktailSummary> cocktailSummaryList = mypageSummaryService.getCocktailSummaryList(user.getId());
 			return ResponseEntity.status(200).body(CocktailSummaryRes.of(200, "Success", cocktailSummaryList));
 		}
 		// 토큰이 유효하지 않은 경우
