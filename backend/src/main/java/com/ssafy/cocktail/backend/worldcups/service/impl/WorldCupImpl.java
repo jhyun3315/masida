@@ -9,7 +9,7 @@ import com.ssafy.cocktail.backend.domain.repository.CocktailRepository;
 import com.ssafy.cocktail.backend.domain.repository.CommentRepository;
 import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
 import com.ssafy.cocktail.backend.worldcups.dto.CocktailWorldCupDetail;
-import com.ssafy.cocktail.backend.worldcups.dto.IngredientName;
+import com.ssafy.cocktail.backend.worldcups.dto.IngredientInfo;
 import com.ssafy.cocktail.backend.worldcups.service.WorldCupService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -38,7 +38,7 @@ public class WorldCupImpl implements WorldCupService {
             cand.setCocktailNameKo(cocktail.getCocktailNameKo()); // 칵테일 한글 이름 삽입
             cand.setCocktailNameEn(cocktail.getCocktailNameEn()); // 칵테일 영어 이름 삽입
             cand.setCocktailImg(cocktail.getCocktailImg()); // 칵테일 이미지 삽입
-            cand.setIngredient(new ArrayList<IngredientName>()); // 칵테일 재료를 저장하는 객체 삽입
+            cand.setIngredient(new ArrayList<IngredientInfo>()); // 칵테일 재료를 저장하는 객체 삽입
             String cocktaildifficulty = (int)cocktail.getCocktailDifficulty() == 1 ? "하" :
                     cocktail.getCocktailDifficulty() == 2 ? "중" : "상"; // 칵테일 난이도
             cand.setCocktailDifficulty(cocktaildifficulty); // 칵테일 난이도 삽입
@@ -49,7 +49,11 @@ public class WorldCupImpl implements WorldCupService {
             cand.setCocktailComments(comments.size()); // 댓글 개수 삽입
             List<CocktailIngredient> cocktailIngredients = cocktailIngredientRepository.findByCocktail(cocktail); // 칵테일 재료들
             for (CocktailIngredient cocktailIngredient: cocktailIngredients) { // 칵테일 재료
-                cand.getIngredient().add(new IngredientName(cocktailIngredient.getIngredientName())); // 재료 이름 삽입
+                IngredientInfo ingredientInfo = new IngredientInfo();
+                ingredientInfo.setIngredientName(cocktailIngredient.getIngredientName()); // 재료 이름 삽입
+                ingredientInfo.setIngredientAmount(cocktailIngredient.getIngredientAmount()); // 재료 양 삽입
+                ingredientInfo.setIngredientUnit(cocktailIngredient.getIngredientUnit()); // 재료 단위 삽입
+                cand.getIngredient().add(ingredientInfo); // 재료 삽입
             }
             cocktailWorldCupDetails.add(cand); // 월드컵 칵테일 추가
         }

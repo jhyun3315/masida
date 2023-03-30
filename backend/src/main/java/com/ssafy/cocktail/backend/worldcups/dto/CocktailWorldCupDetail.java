@@ -47,5 +47,5 @@ public class CocktailWorldCupDetail {
     private int cocktailComments;
 
     @Schema(description = "칵테일 재료", example = "칵테일 재료")
-    private ArrayList<IngredientName> ingredient;
+    private ArrayList<IngredientInfo> ingredient;
 }
