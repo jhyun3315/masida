@@ -38,6 +38,7 @@ public class WorldCupImpl implements WorldCupService {
             cand.setCocktailNameKo(cocktail.getCocktailNameKo()); // 칵테일 한글 이름 삽입
             cand.setCocktailNameEn(cocktail.getCocktailNameEn()); // 칵테일 영어 이름 삽입
             cand.setCocktailImg(cocktail.getCocktailImg()); // 칵테일 이미지 삽입
+            cand.setCocktailContent(cocktail.getCocktailContent()); // 칵테일 내용 삽입
             cand.setIngredient(new ArrayList<IngredientInfo>()); // 칵테일 재료를 저장하는 객체 삽입
             String cocktaildifficulty = (int)cocktail.getCocktailDifficulty() == 1 ? "하" :
                     cocktail.getCocktailDifficulty() == 2 ? "중" : "상"; // 칵테일 난이도
