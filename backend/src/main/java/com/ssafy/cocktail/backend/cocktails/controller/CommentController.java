@@ -26,7 +26,7 @@ public class CommentController {
         if (commentDetails != null) {
             return ResponseEntity.status(200).body(CommentRes.of(200, "Success", commentDetails));
         }
-        return ResponseEntity.status(404).body(CommentRes.of(404, "please reLogin", commentDetails));
+        return ResponseEntity.status(404).body(CommentRes.of(404, "Please relogin", commentDetails));
     }
 
     @PostMapping("/{cocktail_id}")
@@ -35,9 +35,9 @@ public class CommentController {
         if (state == 0) { // 요청 성공
             return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
         } else if (state == 1) { // 옳바르지 않은 사용자이면
-            return ResponseEntity.status(404).body(BaseResponseBody.of(404, "please reLogin"));
+            return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Please relogin"));
         } else { // 중복 댓글 등록이면
-            return ResponseEntity.status(405).body(BaseResponseBody.of(405, "duplicate comments"));
+            return ResponseEntity.status(405).body(BaseResponseBody.of(405, "Duplicate comments"));
         }
     }
 
@@ -46,7 +46,7 @@ public class CommentController {
         if (commentService.saveOrUpdateComment(cocktailId, commentId, req, accessToken) == 0) {
             return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
         }
-        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "please reLogin"));
+        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Please relogin"));
     }
 
     @DeleteMapping("/{cocktail_id}/{comment_id}")
@@ -54,6 +54,6 @@ public class CommentController {
         if (commentService.removeComment(cocktailId, commentId, accessToken)) {
             return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
         }
-        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "please reLogin"));
+        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Please relogin"));
     }
 }
