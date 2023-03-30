@@ -33,6 +33,7 @@ public class WorldCupImpl implements WorldCupService {
             cand.setCocktailNameEn(cocktail.getCocktailNameEn()); // 칵테일 영어 이름 삽입
             cand.setCocktailImg(cocktail.getCocktailImg()); // 칵테일 이미지 삽입
             cand.setIngredient(new ArrayList<IngredientName>()); // 칵테일 재료를 저장하는 객체 삽입
+            cand.setCocktailDifficulty();
             List<CocktailIngredient> cocktailIngredients = cocktailIngredientRepository.findByCocktail(cocktail); // 칵테일 재료들
             for (CocktailIngredient cocktailIngredient: cocktailIngredients) { // 칵테일 재료
                 cand.getIngredient().add(new IngredientName(cocktailIngredient.getIngredientName())); // 재료 이름 삽입

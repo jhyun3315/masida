@@ -30,6 +30,22 @@ public class CocktailWorldCupDetail {
     @JsonProperty("cocktail_content")
     private String cocktailContent;
 
+    @Schema(description = "칵테일 난이도", example = "하")
+    @JsonProperty("cocktail_difficulty")
+    private String cocktailDifficulty;
+
+    @Schema(description = "칵테일 평점", example = "4.9")
+    @JsonProperty("cocktail_rating")
+    private String cocktailRating;
+
+    @Schema(description = "칵테일 좋아요 수", example = "1")
+    @JsonProperty("cocktail_likes")
+    private int cocktailLikes;
+
+    @Schema(description = "칵테일 댓글 수", example = "1")
+    @JsonProperty("cocktail_comments")
+    private int cocktailComments;
+
     @Schema(description = "칵테일 재료", example = "칵테일 재료")
     private ArrayList<IngredientName> ingredient;
 }
