@@ -12,6 +12,8 @@ import CommentModal from "../../components/Modal/CommentModal";
 
 import { cocktailType } from "../../type/cocktailTypes";
 import { wrapper } from "../../../store";
+import { RootState } from "../../../store/store";
+import { useSelector } from "react-redux";
 
 // 1. 칵테일 상세 조회
 //  화면 단에서 axios 호출을 하여 결과 값을 컴포넌트에 props로 넘겨준다.
@@ -37,26 +39,50 @@ interface CocktailProps {
   recommend_list_ingredient: cocktailType[];
 }
 
-const detail = ({
-  recommend_list_color,
-  recommend_list_ingredient,
-}: CocktailProps) => {
+const detail = () => {
   const router = useRouter();
-  const [cocktail_id, setCocktail_id] = useState<number>(parseInt(router?.query.id as string));
+  const [cocktail_id, setCocktail_id] = useState<number>(
+    parseInt(router?.query.id as string)
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [visible, setVisible] = useState<boolean>();
   const [cocktail_recommend_color, setCocktail_recommend_color] =
     useState<cocktailType[]>();
   const [cocktail_recommend_ingredient, setCocktail_recommend_ingredient] =
     useState<cocktailType[]>();
+  let atk: string = useSelector((state: RootState) => state.user.accessToken);
+  if (!atk) {
+    atk = "";
+  }
+  useEffect(() => {
+    axios
+      .get(`https://j8b208.p.ssafy.io/api/cocktails/recommend/ingredient/${cocktail_id}`, {
+        headers: {
+          Authorization: atk,
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        setCocktail_recommend_color(response.data.data);
+      });
+    axios
+      .get(`https://j8b208.p.ssafy.io/api/cocktails/recommend/color/${cocktail_id}`, {
+        headers: {
+          Authorization: atk,
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        setCocktail_recommend_ingredient(response.data.data);
+      });
+  }, []);
 
-  useEffect(()=>{
-
-  }, [router.query.id])
   useEffect(() => {
     setIsLoading(true);
-    setCocktail_recommend_color(recommend_list_color);
-    setCocktail_recommend_ingredient(recommend_list_ingredient);
   }, [detail]);
 
   const recommend_props: recommend_props = {
@@ -69,7 +95,7 @@ const detail = ({
   };
 
   if (isLoading) {
-    console.log("page transition", router.query.id)
+    console.log("page transition", router.query.id);
     return (
       <>
         <Header />
@@ -109,49 +135,3 @@ const detail = ({
 };
 
 export default detail;
-
-export const getServerSideProps = wrapper.getServerSideProps(
-  (store) =>
-    async ({}) => {
-      let atk: string = store.getState().user.accessToken;
-      if (!atk) {
-        atk = "";
-      }
-      console.log("Atk : ", atk);
-      try {
-        const response = await axios.get(
-          `https://j8b208.p.ssafy.io/api/cocktails/likes-top`,
-          {
-            headers: {
-              Authorization: atk,
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        );
-        const response2 = await axios.get(
-          `https://j8b208.p.ssafy.io/api/cocktails/likes-top`,
-          {
-            headers: {
-              Authorization: atk,
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        );
-        const data = response.data.data;
-        const data2 = response2.data.data;
-        return {
-          props: {
-            recommend_list_color: data,
-            recommend_list_ingredient: data2,
-          },
-        };
-      } catch (err) {
-        console.log(err);
-        return {
-          props: undefined,
-        };
-      }
-    }
-);

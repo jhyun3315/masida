@@ -178,35 +178,35 @@ const userAnalisys = ({ ctList }:any) => {
 
 export default userAnalisys;
 
-export const getServerSideProps = wrapper.getServerSideProps(
-  (store) =>
-    async () => { 
-      let atk = store.getState().user.accessToken;
-      if (!atk) {
-        atk = "";
-    }
-    console.log("Atk : ", atk);
+// export const getServerSideProps = wrapper.getServerSideProps(
+//   (store) =>
+//     async () => { 
+//       let atk = store.getState().user.accessToken;
+//       if (!atk) {
+//         atk = "";
+//     }
+//     console.log("Atk : ", atk);
 
-    try {
-      const response1 = await axios.get("https://j8b208.p.ssafy.io/api/my-analysis/cocktail-base", {
-        headers: {
-          // Authorization: atk,
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      });
-      const data = response1.data.data;
-      console.log("몰라 시발", data);
-      return {
-        props: {
-          ctList: data,
-        }
-      };
-  } catch (err) {
-      console.log(err);
-      return {
-        props: undefined,
-      };
-    }
-  }
-);
+//     try {
+//       const response1 = await axios.get("https://j8b208.p.ssafy.io/api/my-analysis/cocktail-base", {
+//         headers: {
+//           // Authorization: atk,
+//           "Content-Type": "application/json",
+//           "Access-Control-Allow-Origin": "*",
+//         },
+//       });
+//       const data = response1.data.data;
+//       console.log("몰라 시발", data);
+//       return {
+//         props: {
+//           ctList: data,
+//         }
+//       };
+//   } catch (err) {
+//       console.log(err);
+//       return {
+//         props: undefined,
+//       };
+//     }
+//   }
+// );
