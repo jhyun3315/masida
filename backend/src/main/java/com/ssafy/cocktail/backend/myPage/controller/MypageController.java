@@ -42,7 +42,6 @@ public class MypageController {
 		try {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
-			System.out.println(user.getId());
 
 			// 해당 사용자가 좋아요한 칵테일 개수
 			long likesCnt = mypageLikeService.getLikeCocktailCnt(user.getId());
@@ -74,7 +73,6 @@ public class MypageController {
 		try {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
-			System.out.println(user.getId());
 
 			// 해당 유저가 좋아요한 칵테일 리스트
 			List<LikeBookmarkCocktail> likeCocktailList = mypageLikeService.getLikeCocktailList(user.getId());
@@ -100,7 +98,6 @@ public class MypageController {
 		try {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
-			System.out.println(user.getId());
 
 			// 해당 유저가 북마크한 칵테일 리스트
 			List<LikeBookmarkCocktail> bookmarkCocktailList = mypageBookmarkService.getBookmarkCocktailList(user.getId());
@@ -111,6 +108,4 @@ public class MypageController {
 			return ResponseEntity.status(400).body(LikeBookmarkCocktailsRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
 		}
 	}
-
-
 }
