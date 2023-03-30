@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface MypageLikeService {
 	public List<LikeBookmarkCocktail> getLikeCocktailList(Long userId);
+	public Long getLikeCocktailCnt(Long userId);
+
 }
