@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 @Setter @Getter
 @ToString
-public class RecommendDetail {
+public class CocktailRecommendDetail {
     @Schema(description = "칵테일 id", example = "0")
     @JsonProperty("cocktail_id")
     private int cocktailId;
