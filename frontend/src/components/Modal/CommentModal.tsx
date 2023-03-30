@@ -15,12 +15,16 @@ interface propsType {
   setVisible: Dispatch<SetStateAction<boolean>>;
   visible: boolean;
   cocktail_id: number;
+  modifyCommentCnt: boolean;
+  setModifyCommentCnt: Dispatch<SetStateAction<boolean>>;
 }
 
 const CommentModal: React.FunctionComponent<propsType> = ({
   setVisible,
   visible,
   cocktail_id,
+  modifyCommentCnt,
+  setModifyCommentCnt,
 }) => {
   let [inputValue, setInputValue] = useState<string>(""); //댓글
   let [difficulty, setDifficulty] = useState<string>(""); //난이도
@@ -70,6 +74,8 @@ const CommentModal: React.FunctionComponent<propsType> = ({
   //댓글 등록 함수
   const registComment = () => {
     //여기서 axios 시작.
+    console.log(getAccessToken);
+
     axios
       .post(
         `https://j8b208.p.ssafy.io/api/comments/${cocktail_id}`,
@@ -88,8 +94,11 @@ const CommentModal: React.FunctionComponent<propsType> = ({
       )
       .then(() => {
         setCommentAdd(!commentAdd);
+        setModifyCommentCnt(!modifyCommentCnt);
       })
       .catch((error) => {
+        console.log("아니 중복댓글 뭐냐고 진짜!!!!!");
+
         console.error(error);
       });
   };
@@ -157,6 +166,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
       })
       .then(() => {
         setCommentAdd(!commentAdd);
+        setModifyCommentCnt(!modifyCommentCnt);
       })
       .catch((error) => {
         console.error(error);
