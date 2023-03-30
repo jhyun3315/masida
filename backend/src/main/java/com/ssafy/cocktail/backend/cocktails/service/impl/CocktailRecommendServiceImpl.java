@@ -48,10 +48,10 @@ public class CocktailRecommendServiceImpl implements CocktailRecommendService {
         }
 
         User user = oAuthService.getUser(accessToken); // 유저 가져오기
-        List<Like> likes = likeRepository.findAllByCocktailAndLikeDeleted(cocktail.get(), false); // 좋아요 가져오기
-        Bookmark bookmark = bookmarkRepository.findByUserAndCocktail(user, cocktail.get()); // 북마크 가져오기
-
-        for (Cocktail recommend: recommends) {
+        
+        for (Cocktail recommend: recommends) { // 추천 칵테일
+            List<Like> likes = likeRepository.findAllByCocktailAndLikeDeleted(recommend, false); // 좋아요 가져오기
+            Bookmark bookmark = bookmarkRepository.findByUserAndCocktail(user, recommend); // 북마크 가져오기
             CocktailRecommendDetail detail = new CocktailRecommendDetail();
             detail.setCocktailId(recommend.getId()); // 칵테일 id 삽입
             detail.setCocktailNameKo(recommend.getCocktailNameKo()); // 칵테일 한글 이름 삽입
@@ -61,7 +61,7 @@ public class CocktailRecommendServiceImpl implements CocktailRecommendService {
             detail.setBookmarkCheckcker(bookmark != null && !bookmark.isBookmarkDeleted()); // 칵테일 북마크 체크 여부 삽입
             results.add(detail); // 추천 칵테일 삽입
         }
-        
+
         return results;
     }
 }
