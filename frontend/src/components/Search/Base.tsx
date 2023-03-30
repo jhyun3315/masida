@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectBase } from "../../../store/category/baseSlice";
-import { setSelectName } from "../../../store/category/nameSlice";
 
 import style from "./Base.module.scss";
 

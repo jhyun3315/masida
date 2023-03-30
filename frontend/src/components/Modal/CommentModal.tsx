@@ -26,6 +26,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
   let [difficulty, setDifficulty] = useState<string>(""); //난이도
   let [scope, setScope] = useState<number>(0); //별점
   const [modify, setModify] = useState<boolean>(false); //수정버튼이 클릭 되었는지 확인해주는 useState변수입니다.
+  //얘도 같이 내려줘서 서로 바뀔때마다 scope를 0으로 설정해주어야 할것 같다.
 
   // 현재 탭의 상태를 구분하기 위함 (Comment / MyMemo)
   const [currentTab, setCurrentTab] = useState<string>("Comment");
@@ -83,16 +84,56 @@ const CommentModal: React.FunctionComponent<propsType> = ({
             "Access-Control-Allow-Origin": "*",
           },
         }
-      )
-      .then(() => {
-        setCommentAdd(!commentAdd);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  // 댓글 수정 함수
+        )
+        .then(() => {
+          setCommentAdd(!commentAdd);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      };
+      
+      // 댓글 수정 함수
+      //댓글 수정부분입니다.
+      const modifyComment = (
+        id: number,
+        content: string,
+        mydifficulty: string,
+        rating: number
+      ) => {
+        setModify(true);
+        // console.log(id, content, difficulty, rating)
+        setInputValue(content);
+        setDifficulty(mydifficulty)
+        setScope(rating);
+        setCommentId(id);
+        if(modify) {
+          axios
+          .put(`https://j8b208.p.ssafy.io/api/comments/${cocktail_id}/${id}`, {
+            comment_content: inputValue,
+            comment_rating: scope,
+            comment_difficulty: difficulty,
+          },
+          {
+            headers: {
+              Authorization: getAccessToken,
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+          })
+          .then(() => {
+            setCommentAdd(!commentAdd);
+            setDifficulty("");
+            setInputValue("");
+            setScope(0);
+            setModify(false);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+        };
+      }
+ 
 
   // 댓글 삭제 함수
   const deleteComment = (id: number) => {
@@ -114,20 +155,6 @@ const CommentModal: React.FunctionComponent<propsType> = ({
   };
 
 
-  //댓글 수정부분입니다.
-  const modifyComment = (
-    id: number,
-    content: string,
-    difficulty: string,
-    rating: number
-  ) => {
-    setModify(true);
-    console.log(id, content, difficulty, rating)
-    setInputValue(content)
-    setDifficulty(difficulty)
-    setScope(rating);
-    setCommentId(id);
-  };
 
   // Comment Tab을 눌렀을 때입니다.
   const commentTab = () => {
@@ -231,7 +258,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
                       />
                     </div>
                     <div className={style.comment_rating_count}>
-                      {key.comment_rating} / 5.0
+                      {key.comment_rating} / 5
                     </div>
                   </div>
                 </div>
@@ -346,7 +373,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
         
         <div className={style.write_btn_form}>
           <button className={style.write_btn} onClick={registComment}>
-            {modify ? "수정" : "등록"}
+            등록
           </button>
         </div>
       </div>
