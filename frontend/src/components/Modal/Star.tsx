@@ -30,9 +30,19 @@ const Star: React.FunctionComponent<propsType> = ({setScope, current}) => {
 
     score = value - 1 + Math.max(Math.min(score, 5), 0);
     console.log(score);
-    
+    if(score < 1) {
+      score = 1;
+    }else if (score < 2) {
+      score = 2;
+    }else if (score < 3) {
+      score = 3;
+    }else if (score < 4) {
+      score = 4;
+    }else if (score < 5) {
+      score = 5;
+    }
     setRating(score);
-    setScope(parseFloat(score.toFixed(1)));
+    setScope(parseFloat(score.toFixed(0)));
   };
 
 
