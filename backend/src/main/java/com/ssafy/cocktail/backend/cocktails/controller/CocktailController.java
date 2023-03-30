@@ -4,6 +4,7 @@ import com.ssafy.cocktail.backend.cocktails.dto.*;
 import com.ssafy.cocktail.backend.cocktails.dto.request.CocktailIDReq;
 import com.ssafy.cocktail.backend.cocktails.dto.response.*;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailDetailService;
+import com.ssafy.cocktail.backend.cocktails.service.CocktailRecommendService;
 import com.ssafy.cocktail.backend.cocktails.service.CocktailSearchService;
 import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -22,6 +23,7 @@ import java.util.Map;
 public class CocktailController {
     private CocktailSearchService cocktailSearchService;
     private CocktailDetailService cocktailDetailService;
+    private CocktailRecommendService cocktailRecommendService;
 
     @GetMapping("/search")
     public ResponseEntity<CocktailSearchRes> cocktailSerch(@RequestParam Map<String, Object> params) {
@@ -100,5 +102,17 @@ public class CocktailController {
     public ResponseEntity<?> cocktailBookmarks(@RequestHeader("authorization") String accessToken, @RequestBody CocktailIDReq req) {
         cocktailDetailService.setCocktailBookMark(req.getCocktailId(), accessToken);
         return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+    }
+
+    @GetMapping("/recommend/ingredient/{cocktail_id}")
+    public ResponseEntity<CocktailRecommendRes> cocktailRecommendIngerdient(@RequestHeader("authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId) {
+        ArrayList<CocktailRecommendDetail> recommends = cocktailRecommendService.getRecommendCocktails(0, cocktailId, accessToken);
+        return ResponseEntity.status(200).body(CocktailRecommendRes.of(200, "Success", recommends));
+    }
+
+    @GetMapping("/recommend/color/{cocktail_id}")
+    public ResponseEntity<CocktailRecommendRes> cocktailRecommendColor(@RequestHeader("authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId) {
+        ArrayList<CocktailRecommendDetail> recommends = cocktailRecommendService.getRecommendCocktails(1, cocktailId, accessToken);
+        return ResponseEntity.status(200).body(CocktailRecommendRes.of(200, "Success", recommends));
     }
 }

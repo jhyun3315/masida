@@ -29,6 +29,9 @@ public class RecommendColor {
     @Column(name = "recommend_color_5", nullable = false)
     private Long recommendColor5;
 
+    @Column(name = "recommend_color_6", nullable = false)
+    private Long recommendColor6;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cocktail_id")
     private Cocktail cocktail;
