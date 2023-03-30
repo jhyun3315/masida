@@ -48,7 +48,7 @@ public class MypageController {
 			// 해당 사용자가 좋아요한 칵테일 개수
 			long likesCnt = mypageLikeService.getLikeCocktailCnt(user.getId());
 			// 해당 사용자가 북마크한 칵테일 개수
-			long bookmarkCnt = 0;
+			long bookmarkCnt = mypageBookmarkService.getBookmarkCocktailCnt(user.getId());
 			LikeBookmarkCnt likeBookmarkCnt = LikeBookmarkCnt.builder()
 					.likesCnt(likesCnt)
 					.bookmarkCnt(bookmarkCnt)
