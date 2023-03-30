@@ -128,8 +128,8 @@ public class MypageController {
 			System.out.println(user.getId());
 
 			// 해당 유저가 댓글 및 평점 등록한 칵테일 리스트
-			List<CommentCocktail> commmentCocktailList = mypageCommentService.getCommentCocktailList(user.getId());
-			return ResponseEntity.status(200).body(CommentCocktailRes.of(200, "Success", commmentCocktailList));
+			List<CommentCocktail> commentCocktailList = mypageCommentService.getCommentCocktailList(user.getId());
+			return ResponseEntity.status(200).body(CommentCocktailRes.of(200, "Success", commentCocktailList));
 		}
 		// 토큰이 유효하지 않은 경우
 		catch (Exception e) {

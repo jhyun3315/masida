@@ -44,7 +44,7 @@ public class CommentCocktail {
 		this.cocktailId = cocktailId;
 		this.cocktailNameKo = cocktailNameKo;
 		this.cocktailImg = cocktailImg;
-		this.commentDifficulty = ((commentDifficulty < 2 ) ? "하" : (commentDifficulty < 3) ? "중" : "상" );	// double형 난이도를 String형으로 바꿔주기
+		this.commentDifficulty = ((commentDifficulty == 1 ) ? "하" : (commentDifficulty == 2) ? "중" : "상" );
 		this.commentContent = commentContent;
 		this.commentRating = commentRating;
 		this.commentCreatedDate = commentCreatedDate;
