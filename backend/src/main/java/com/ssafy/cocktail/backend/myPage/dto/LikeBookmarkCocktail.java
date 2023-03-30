@@ -25,7 +25,7 @@ public class LikeBookmarkCocktail {
 
 	@Schema(description = "칵테일 좋아요 수", example = "1")
 	@JsonProperty("cocktail_likes")
-	private int cocktailLikes;
+	private Long cocktailLikes;
 
 	@Schema(description = "칵테일 평점", example = "4.9")
 	@JsonProperty("cocktail_rating")
@@ -36,7 +36,7 @@ public class LikeBookmarkCocktail {
 	private String cocktailDifficulty;
 
 	@Builder
-	public LikeBookmarkCocktail (Long cocktailId, String cocktailNameKo, String cocktailImg, int likeCnt, Double cocktailRating, double cocktailDifficulty) {
+	public LikeBookmarkCocktail (long cocktailId, String cocktailNameKo, String cocktailImg, long likeCnt, double cocktailRating, double cocktailDifficulty) {
 		this.cocktailId = cocktailId;
 		this.cocktailNameKo = cocktailNameKo;
 		this.cocktailImg = cocktailImg;
