@@ -9,4 +9,5 @@ public interface CommentService {
     public ArrayList<CommentDetail> getComments(String cocktailId, String accessToken);
     public int saveOrUpdateComment(String cocktailId,  String commentId, CommentReq req, String accessToken);
     public boolean removeComment(String cocktailId,  String commentId, String accessToken);
+    public boolean isWrited(String cocktailId, String accessToken);
 }
