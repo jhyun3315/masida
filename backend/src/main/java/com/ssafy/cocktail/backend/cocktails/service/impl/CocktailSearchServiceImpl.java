@@ -36,28 +36,29 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
             // 칵테일 정보 가져오기
             String cocktailKo = cocktail.getCocktailNameKo(); // 칵테일 한글 이름
             String cocktailEn = cocktail.getCocktailNameEn(); // 칵테일 영어 이름
+            String cocktailEnUpper = cocktail.getCocktailNameEn().toUpperCase(); // 칵테일 대문자 영어 이름
             String cocktailBase = cocktail.getCocktailBase(); // 칵테일 베이스
             String cocktailColor1 = cocktail.getCocktailColor1(); // 칵테일 색상1
             String cocktailColor2 = cocktail.getCocktailColor2(); // 칵테일 색상2
             String cocktaildifficulty = (int)cocktail.getCocktailDifficulty() == 1 ? "하" :
                     cocktail.getCocktailDifficulty() == 2 ? "중" : "상"; // 칵테일 난이도
-            ArrayList<Long> cocktailIngredients = new ArrayList<Long>(); // 칵테일 재료들 id
+            ArrayList<String> cocktailIngredients = new ArrayList<String>(); // 칵테일 재료 이름
             List<CocktailIngredient> ingredients = cocktailIngredientRepository.findByCocktail(cocktail); // 칵테일 재료들
             for (CocktailIngredient ingredient: ingredients) { // 칵테일 재료
-                cocktailIngredients.add(ingredient.getId()); // 칵테일 id 삽입
+                cocktailIngredients.add(ingredient.getIngredientName()); // 칵테일 재료 삽입
             }
 
             // 칵테일 검색
             if (info.getCocktailName() != null) { // 조건 1: 이름 검색이 있으면
                 if (!cocktailKo.contains(info.getCocktailName()) // 조건 1-1: 검색어가 한글 이름에 포함되는가
-                        || !cocktailEn.contains(info.getCocktailName())) // 조건 1-2: 검색어가 영어 이름에 포함되는가
+                        && !cocktailEnUpper.contains(info.getCocktailName().toUpperCase())) // 조건 1-2: 검색어가 영어 이름에 포함되는가
                     continue; // 검색한 이름이 한글 이름 또는 영어 이름에 포함되지 않으면 (x)
             }
             if (info.getCocktailBase() != null) { // 조건 2: 베이스 검색이 있으면
                 if (!cocktailBase.equals(info.getCocktailBase())) // 조건 2-1: 검색어와 베이스가 일치하는가
                     continue; // 일치한 베이스가 없으면 (x)
             }
-            if (info.getCocktailColor().size() > 0) { // 조건 3: 색상 검색이 있으면
+            if (info.getCocktailColor() != null && info.getCocktailColor().size() > 0) { // 조건 3: 색상 검색이 있으면
                 boolean found = false; // 동일한 색상이 없으면 false
                 for (String color: info.getCocktailColor()) { // 검색 색상 (최대 2개)
                     if (cocktailColor1.equals(color) || cocktailColor2.equals(color)) { // 조건 3-1: 색상 1또는 색상 2가 동일한 색상인가
@@ -67,7 +68,7 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
                 }
                 if (!found) continue; // 동일한 색상이 없으면 (x)
             }
-            if (info.getCocktailDifficulty().size() > 0) { // 조건 4: 난이도 검색이 있으면
+            if (info.getCocktailDifficulty() != null && info.getCocktailDifficulty().size() > 0) { // 조건 4: 난이도 검색이 있으면
                 boolean found = false; // 동일한 난이도가 없으면 false
                 for (String difficulty: info.getCocktailDifficulty()) { // 검색 난이도 (최대 3개)
                     if (cocktaildifficulty.equals(difficulty)) { // 난이도가 동일하면
@@ -77,19 +78,20 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
                 }
                 if (!found) continue; // 동일한 난이도가 없으면 (x)
             }
-            if (info.getCocktailDifficulty().size() > 0) { // 조건 5: 재료 검색이 있으면
-                boolean found = false; // 조건 5-1: 하나라도 동일한 재료가 없으면 false
+            if (info.getCocktailDifficulty() != null && info.getCocktailDifficulty().size() > 0) { // 조건 5: 재료 검색이 있으면
+                boolean found = false; // 조건 5-1: 하나라도 일치한 재료가 없으면 false
                 for (Long ingredientId: info.getCocktailIngredient()) { // 검색 재료 (최대 n개)
-                    found = false; // 동일한 재료 탐색 초기화
-                    for (Long cocktailIngredientId: cocktailIngredients) { // 칵테일 재료 (최대 n개)
-                        if (ingredientId.equals(cocktailIngredientId)) { // 재료가 동일하면
+                    String searchIngredient = ingredientRepository.findById(ingredientId).get().getIngredientName(); // 검색어의 이름
+                    found = false; // 일치한 재료 탐색 초기화
+                    for (String cocktailIngredient: cocktailIngredients) { // 칵테일 재료 (최대 n개)
+                        if (cocktailIngredient.contains(searchIngredient)) { // 검색 재료를 포함하면
                             found = true; // 재료 일치 체크
                             break;
                         }
                     }
-                    if (!found) break; // 동일한 재료가 없으면
+                    if (!found) break; // 일치한 재료가 없으면
                 }
-                if (!found) continue; // 동일한 재료가 없으면
+                if (!found) continue; // 일치한 재료가 없으면
             }
 
             CocktailSearchDetail cand = new CocktailSearchDetail();
