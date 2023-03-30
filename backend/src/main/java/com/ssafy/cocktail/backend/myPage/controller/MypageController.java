@@ -30,7 +30,9 @@ public class MypageController {
 //	private final MypageCommentService mypageCommentService;
 
 	@GetMapping("/cnt")
-	public ResponseEntity<?> getLikeBookmarkCnt(@RequestHeader("Authorization") String accessToken) {
+	public ResponseEntity<?> getLikeBookmarkCnt(@RequestHeader Map<String, String> data) {
+		String accessToken = data.get("authorization");
+
 
 		return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
 	}
