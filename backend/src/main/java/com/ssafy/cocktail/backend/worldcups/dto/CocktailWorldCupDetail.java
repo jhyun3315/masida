@@ -36,7 +36,7 @@ public class CocktailWorldCupDetail {
 
     @Schema(description = "칵테일 평점", example = "4.9")
     @JsonProperty("cocktail_rating")
-    private String cocktailRating;
+    private Double cocktailRating;
 
     @Schema(description = "칵테일 좋아요 수", example = "1")
     @JsonProperty("cocktail_likes")
