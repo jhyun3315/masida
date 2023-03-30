@@ -5,7 +5,6 @@ import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
 import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
 import com.ssafy.cocktail.backend.myPage.service.MypageLikeService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -19,6 +18,23 @@ public class MypageLikeServiceImpl implements MypageLikeService {
 
 	private LikeRepository likeRepository;
 
+
+	/***
+	 * 해당 유저가 좋아요한 칵테일 개수 구하기
+	 * @param userId
+	 * @return Integer
+	 */
+	@Override
+	public Long getLikeCocktailCnt(Long userId) {
+		return likeRepository.findLikeCocktailCntByUserId(userId);
+	}
+
+
+	/***
+	 * 해당 유저가 좋아요한 칵테일 리스트 구하기
+	 * @param userId
+	 * @return List<LikeBookmarkCocktail>
+	 */
 	@Override
 	public List<LikeBookmarkCocktail> getLikeCocktailList(Long userId) {
 		// 해당 유저가 좋아요한 칵테일 리스트
@@ -28,7 +44,7 @@ public class MypageLikeServiceImpl implements MypageLikeService {
 
 		for(Cocktail cocktail : cocktailList) {
 			// 해당 칵테일의 좋아요 개수
-			int likeCnt = likeRepository.findLikeCntByCocktailId(cocktail.getId());
+			long likeCnt = likeRepository.findLikeCntByCocktailId(cocktail.getId());
 			// DTO에 담아주기
 			LikeBookmarkCocktail likeCocktail = LikeBookmarkCocktail.builder()
 					.cocktailId(cocktail.getId())
