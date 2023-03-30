@@ -1,9 +1,11 @@
 package com.ssafy.cocktail.backend.myPage.controller;
 
 import com.ssafy.cocktail.backend.domain.entity.User;
+import com.ssafy.cocktail.backend.myPage.dto.CocktailSummary;
 import com.ssafy.cocktail.backend.myPage.dto.CommentCocktail;
 import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCnt;
 import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
+import com.ssafy.cocktail.backend.myPage.dto.response.CocktailSummaryRes;
 import com.ssafy.cocktail.backend.myPage.dto.response.CommentCocktailRes;
 import com.ssafy.cocktail.backend.myPage.dto.response.LikeBookmarkCntRes;
 import com.ssafy.cocktail.backend.myPage.dto.response.LikeBookmarkCocktailsRes;
@@ -115,7 +117,6 @@ public class MypageController {
 	public ResponseEntity<?> getCommentCocktailList(@RequestHeader Map<String, String> data) {
 		String accessToken = data.get("authorization");
 
-
 		// 토큰이 없는 경우,
 		if (accessToken == null) {
 			return ResponseEntity.status(400).body(CommentCocktailRes.of(400, "토큰이 비어있습니다", new ArrayList<>()));
@@ -134,6 +135,31 @@ public class MypageController {
 		// 토큰이 유효하지 않은 경우
 		catch (Exception e) {
 			return ResponseEntity.status(400).body(CommentCocktailRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
+		}
+	}
+
+	@GetMapping("/cocktail-summary")
+	public ResponseEntity<?> getCocktailSummary (@RequestHeader Map<String, String> data) {
+		String accessToken = data.get("authorization");
+
+		// 토큰이 없는 경우,
+		if (accessToken == null) {
+			return ResponseEntity.status(400).body(CocktailSummaryRes.of(400, "토큰이 비어있습니다", new ArrayList<>()));
+		}
+
+		// 토큰이 유효한 경우,
+		try {
+			// 해당 사용자 가져오기
+			User user = oAuthService.getUser(accessToken);
+			System.out.println(user.getId());
+
+			// 해당 유저가 댓글 및 평점 등록한 칵테일 리스트
+			List<CocktailSummary> cocktailSummaryList = null;
+			return ResponseEntity.status(200).body(CocktailSummaryRes.of(200, "Success", cocktailSummaryList));
+		}
+		// 토큰이 유효하지 않은 경우
+		catch (Exception e) {
+			return ResponseEntity.status(400).body(CocktailSummaryRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
 		}
 	}
 
