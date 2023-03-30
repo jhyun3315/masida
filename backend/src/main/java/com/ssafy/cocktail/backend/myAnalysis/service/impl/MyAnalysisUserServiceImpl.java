@@ -41,8 +41,6 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
             ArrayList<MyAnalysisColorInterface> interfaceArrayList = myAnalysisRepository.getMyAnalysisColorList(user.getId());
             ArrayList<MyAnalysisColor> myAnalysisColorArrayList = new ArrayList<>();
 
-            System.out.println(interfaceArrayList.size());
-
             for(MyAnalysisColorInterface ele : interfaceArrayList){
                 ColorRGB rgb = ColorRGB.valueOf(ele.getColorName());
                 myAnalysisColorArrayList.add(new MyAnalysisColor(ele.getColorName(),rgb.getValue(), ele.getColorCount(), ele.getColorRatio()));
