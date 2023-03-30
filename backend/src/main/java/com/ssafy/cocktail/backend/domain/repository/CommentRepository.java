@@ -15,7 +15,8 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
     // 해당 유저가 댓글과 평점 등록한 칵테일 리스트
     @Query("select c.cocktail.id, c.cocktail.cocktailNameKo, c.cocktail.cocktailImg," +
             "c.commentDifficulty, c.commentContent, c.commentRating, c.commentCreatedDate " +
-            "from Comment c where c.user.id = :userId")
+            "from Comment c " +
+            "where c.user.id = :userId and c.commentDeleted = false")
     public List<CommentCocktail> findCommentCocktailsByUserId(@Param("userId") Long userId);
 
 }
