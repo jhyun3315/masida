@@ -14,7 +14,7 @@ public class CommentRes extends BaseResponseBody {
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     ArrayList<CommentDetail> data;
 
-    @Schema(name="칵테일 댓글 작셩 여부", example = "false")
+    @Schema(name="칵테일 댓글 작성 여부", example = "false")
     @JsonProperty(value = "is_writed", access = JsonProperty.Access.READ_WRITE)
     boolean isWrited;
 
