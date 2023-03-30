@@ -18,11 +18,12 @@ public class CommentRes extends BaseResponseBody {
     @JsonProperty(value = "is_writed", access = JsonProperty.Access.READ_WRITE)
     boolean isWrited;
 
-    public static CommentRes of(Integer statusCode, String message, ArrayList<CommentDetail> CommentDetails) {
+    public static CommentRes of(Integer statusCode, String message, ArrayList<CommentDetail> CommentDetails, boolean isWrited) {
         CommentRes res = new CommentRes();
         res.setStatusCode(statusCode);
         res.setMessage(message);
         res.setData(CommentDetails);
+        res.setWrited(isWrited);
 
         return res;
     }
