@@ -18,15 +18,14 @@ public class MypageLikeServiceImpl implements MypageLikeService {
 
 	private LikeRepository likeRepository;
 
-
 	/***
 	 * 해당 유저가 좋아요한 칵테일 개수 구하기
 	 * @param userId
-	 * @return Integer
+	 * @return Long
 	 */
 	@Override
 	public Long getLikeCocktailCnt(Long userId) {
-		return likeRepository.findLikeCocktailCntByUserId(userId);
+		return likeRepository.findLikeCntByUserId(userId);
 	}
 
 
