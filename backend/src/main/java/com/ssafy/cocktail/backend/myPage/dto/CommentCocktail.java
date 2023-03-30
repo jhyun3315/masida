@@ -40,11 +40,11 @@ public class CommentCocktail {
 	private LocalDateTime commentCreatedDate;
 
 	@Builder
-	public CommentCocktail (long cocktailId, String cocktailNameKo, String cocktailImg, String commentDifficulty, String commentContent, double commentRating, LocalDateTime commentCreatedDate) {
+	public CommentCocktail (long cocktailId, String cocktailNameKo, String cocktailImg, double commentDifficulty, String commentContent, double commentRating, LocalDateTime commentCreatedDate) {
 		this.cocktailId = cocktailId;
 		this.cocktailNameKo = cocktailNameKo;
 		this.cocktailImg = cocktailImg;
-		this.commentDifficulty = commentDifficulty;
+		this.commentDifficulty = ((commentDifficulty < 2 ) ? "하" : (commentDifficulty < 3) ? "중" : "상" );	// double형 난이도를 String형으로 바꿔주기
 		this.commentContent = commentContent;
 		this.commentRating = commentRating;
 		this.commentCreatedDate = commentCreatedDate;
