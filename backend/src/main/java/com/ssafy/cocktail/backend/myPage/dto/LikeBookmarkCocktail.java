@@ -2,7 +2,6 @@ package com.ssafy.cocktail.backend.myPage.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Getter;
@@ -37,13 +36,13 @@ public class LikeBookmarkCocktail {
 	private String cocktailDifficulty;
 
 	@Builder
-	public LikeBookmarkCocktail(Cocktail cocktail, int likeCnt) {
-		this.cocktailId = cocktail.getId();
-		this.cocktailNameKo = cocktail.getCocktailNameKo();
-		this.cocktailImg = cocktail.getCocktailImg();
+	public LikeBookmarkCocktail (Long cocktailId, String cocktailNameKo, String cocktailImg, int likeCnt, Double cocktailRating, double cocktailDifficulty) {
+		this.cocktailId = cocktailId;
+		this.cocktailNameKo = cocktailNameKo;
+		this.cocktailImg = cocktailImg;
 		this.cocktailLikes = likeCnt;
-		this.cocktailRating = cocktail.getCocktailRating();
-		this.cocktailDifficulty = ((cocktail.getCocktailDifficulty() < 2 ) ? "하" : (cocktail.getCocktailDifficulty() < 3) ? "중" : "상" );	// double형 난이도를 String형으로 바꿔주기
+		this.cocktailRating = cocktailRating;
+		this.cocktailDifficulty = ((cocktailDifficulty < 2 ) ? "하" : (cocktailDifficulty < 3) ? "중" : "상" );	// double형 난이도를 String형으로 바꿔주기
 	}
 
 }

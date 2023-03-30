@@ -15,10 +15,10 @@ public interface LikeRepository extends JpaRepository<Like, Long> {
     public Like findByUserAndCocktail(User user, Cocktail cocktail);
 
     // 해당 유저가 좋아요한 칵테일 리스트
-    @Query("select l.cocktail from Like l where l.user = :user")
-    public List<Cocktail> findByUser(@Param("user") User user);
+    @Query("select l.cocktail from Like l where l.user.id = :userId")
+    public List<Cocktail> findByUserId(@Param("userId") Long userId);
 
     // 해당 칵테일의 좋아요 개수
-    @Query("select count(l.id) from Like l where l.cocktail = :cocktail")
-    Integer findLikeCntByCocktail(@Param("cocktail") Cocktail cocktail);
+    @Query("select count(l.id) from Like l where l.cocktail.id = :cocktailId")
+    public  Integer findLikeCntByCocktailId(@Param("cocktailId") Long cocktailId);
 }

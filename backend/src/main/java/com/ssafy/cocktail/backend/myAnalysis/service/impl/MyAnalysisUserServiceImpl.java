@@ -21,7 +21,7 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
     @Override
     public ArrayList<MyAnalysisBase> getAnalysisByBase(String accessToken) {
         try{
-            User user =  oAuthService.getUser(accessToken);
+            User user = oAuthService.getUser(accessToken);
             ArrayList<MyAnalysisBaseInterface> interfaceArrayList = myAnalysisRepository.getMyAnalysisBaseList(user.getId());
             ArrayList<MyAnalysisBase> myAnalysisBaseArrayList = new ArrayList<>();
 
