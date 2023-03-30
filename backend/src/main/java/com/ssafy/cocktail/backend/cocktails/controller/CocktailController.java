@@ -40,6 +40,7 @@ public class CocktailController {
         if (params.get("cocktail_ingredient") != null) searchInfo.setCocktailIngredient((String) params.get("cocktail_ingredient"));
 //        System.out.println(searchInfo.toString());
         ArrayList<CocktailSearchDetail> results = cocktailSearchService.getCocktailSearchList(searchInfo); // 칵테일 검색
+        if (results.size() == 0) return ResponseEntity.status(404).body(CocktailSearchRes.of(404, "Cocktail Not Found", results));
         return ResponseEntity.status(200).body(CocktailSearchRes.of(200, "Success", results));
     }
 
