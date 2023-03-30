@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { cocktailBase, dataType } from '../../type/cocktailPreference';
 import { ResponsivePie } from '@nivo/pie';
-import { landing_props } from '../../pages';
-import { cocktail_props_analysis } from '../../pages/user-analysis';
 
 const Piechart = (props: cocktailBase[]) => {
     const handle = {
@@ -16,6 +14,9 @@ const Piechart = (props: cocktailBase[]) => {
   };
   
   const data: dataType[] = [];
+
+  console.log("시이발", props[0].base_count);
+
 
   for (let i = 0; i < 5; i++) {
     data.push({ id: props[i].base_name, value:props[i].base_count });

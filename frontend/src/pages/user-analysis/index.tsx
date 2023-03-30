@@ -1,3 +1,4 @@
+import { useEffect,useState } from "react";
 import Header from "../../components/Header/Header";
 import CocktailPreference from "../../components/UserAnalysis/CocktailPreference";
 import ColorPreference from "../../components/UserAnalysis/ColorPreference";
@@ -6,7 +7,13 @@ import UserPreference from "../../components/UserAnalysis/UserPreference";
 import style from './index.module.scss';
 import { cocktailBase } from "../../type/cocktailPreference";
 import { cocktailBase_props } from "../../type/cocktailRating";
-import { cocktailType, cocktail_recommend } from "../../type/cocktailTypes";
+import { cocktail_recommend } from "../../type/cocktailTypes";
+import { userAnalysis_cocktailBase } from "../api/user-analysis/user-analysis_api";
+import { GetServerSideProps } from "next";
+import axios from "axios";
+import { store } from "../../../store/store";
+import { AnyAaaaRecord } from "dns";
+import { wrapper } from "../../../store";
 
 export type cocktail_props_analysis = {
   cocktailList: cocktailBase[],
@@ -14,38 +21,43 @@ export type cocktail_props_analysis = {
   cocktailRecordList: cocktail_recommend[],
 }
 
+const userAnalisys = ({ ctList }:any) => {
 
-const userAnalisys = () => {
+  const [cocktailList_props, setCocktailList_props] = useState<cocktailBase[]>(null);
+  useEffect(() => {
+    setCocktailList_props(ctList);
+    console.log(ctList,"냥냥펀ㄴ치")
+  }, [ctList]);
 
   const cocktail_props: cocktail_props_analysis = {
-    cocktailList: [
-    {
-      base_name: "진",
-      base_count: 23,
-      base_ratio: 56
-    },
-    {
-      base_name: "럼",
-			base_count : 12,
-	    base_ratio: 23
-    },
-    {
-      base_name: "보드카",
-      base_count: 6,
-      base_ratio: 12,
-    },
-    {
-      base_name: "데킬라",
-			base_count : 3,
-	    base_ratio: 6
-    },
-    {
-      base_name: "꼬냑",
-			base_count : 1,
-	    base_ratio: 3
-    }
-    ],
-
+    // cocktailList: [
+    // {
+    //   base_name: "진",
+    //   base_count: 23,
+    //   base_ratio: 56
+    // },
+    // {
+    //   base_name: "럼",
+		// 	base_count : 12,
+	  //   base_ratio: 23
+    // },
+    // {
+    //   base_name: "보드카",
+    //   base_count: 6,
+    //   base_ratio: 12,
+    // },
+    // {
+    //   base_name: "데킬라",
+		// 	base_count : 3,
+	  //   base_ratio: 6
+    // },
+    // {
+    //   base_name: "꼬냑",
+		// 	base_count : 1,
+	  //   base_ratio: 3
+    // }
+    // ],
+    cocktailList:cocktailList_props,
     cocktailRating: {
       rating_average: 3,
       rating_count: "79",
@@ -165,3 +177,36 @@ const userAnalisys = () => {
 };
 
 export default userAnalisys;
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async () => { 
+      let atk = store.getState().user.accessToken;
+      if (!atk) {
+        atk = "";
+    }
+    console.log("Atk : ", atk);
+
+    try {
+      const response1 = await axios.get("https://j8b208.p.ssafy.io/api/my-analysis/cocktail-base", {
+        headers: {
+          // Authorization: atk,
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      });
+      const data = response1.data.data;
+      console.log("몰라 시발", data);
+      return {
+        props: {
+          ctList: data,
+        }
+      };
+  } catch (err) {
+      console.log(err);
+      return {
+        props: undefined,
+      };
+    }
+  }
+);
