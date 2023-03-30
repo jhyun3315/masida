@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Setter
@@ -37,7 +38,7 @@ public class CommentCocktail {
 
 	@Schema(description = "사용자 댓글 생성 일자", example = "2023-01-01")
 	@JsonProperty("comment_date")
-	private LocalDateTime commentCreatedDate;
+	private LocalDate commentCreatedDate;
 
 	@Builder
 	public CommentCocktail (long cocktailId, String cocktailNameKo, String cocktailImg, double commentDifficulty, String commentContent, double commentRating, LocalDateTime commentCreatedDate) {
@@ -47,6 +48,6 @@ public class CommentCocktail {
 		this.commentDifficulty = ((commentDifficulty == 1 ) ? "하" : (commentDifficulty == 2) ? "중" : "상" );
 		this.commentContent = commentContent;
 		this.commentRating = commentRating;
-		this.commentCreatedDate = commentCreatedDate;
+		this.commentCreatedDate = commentCreatedDate.toLocalDate();
 	}
 }
