@@ -21,7 +21,7 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
     @Override
     public ArrayList<MyAnalysisBase> getAnalysisByBase(String accessToken) {
         try{
-            User user =  oAuthService.getUser(accessToken);
+            User user = oAuthService.getUser(accessToken);
             ArrayList<MyAnalysisBaseInterface> interfaceArrayList = myAnalysisRepository.getMyAnalysisBaseList(user.getId());
             ArrayList<MyAnalysisBase> myAnalysisBaseArrayList = new ArrayList<>();
 
@@ -64,6 +64,23 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
                 myAnalysisIngredientArrayList.add(new MyAnalysisIngredient(ele.getIngredientName(), ele.getIngredientCount(), ele.getIngredientRatio()));
             }
             return myAnalysisIngredientArrayList;
+        }catch (Exception e){
+            return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public ArrayList<MyAnalysisOthers> getAnalysisByOthers(String accessToken) {
+        try{
+            User user =  oAuthService.getUser(accessToken);
+
+            ArrayList<MyAnalysisOthersInterface> interfaceArrayList = myAnalysisRepository.getMyAnalysisOthersList(user.getId(), user.getUserGender(),user.getUserAgeRange());
+            ArrayList<MyAnalysisOthers> myAnalysisOthersArrayList = new ArrayList<>();
+
+            for(MyAnalysisOthersInterface ele : interfaceArrayList){
+                myAnalysisOthersArrayList.add(new MyAnalysisOthers(ele.getCocktailNameKo(), ele.getCocktailCount(), ele.getCocktailRatio()));
+            }
+            return myAnalysisOthersArrayList;
         }catch (Exception e){
             return new ArrayList<>();
         }
