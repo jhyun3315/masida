@@ -10,6 +10,9 @@ const CocktailPreference = (props: cocktail_props_analysis) => {
   const cocktailBase = props.cocktailList;
   const cocktailRate = props.cocktailRating.data;
   const cocktailRecordList = props.cocktailRecordList;
+
+  console.log("시이ㅣㅣㅣㅣㅣㅣ발", cocktailBase);
+
  
   return (
     <div className={ style.cocktailPreference}>
@@ -18,10 +21,10 @@ const CocktailPreference = (props: cocktail_props_analysis) => {
         <div className={style.cocktailPreference_analysis}>
           <div className={style.cocktailPreference_analysis_upper}>
             <div className={ style.cocktailPreference_analysis_upper_left}>
-              <Piechart {...cocktailBase} />
+              {/* <Piechart {...cocktailBase} /> */}
             </div>
             <div className={ style.cocktailPreference_analysis_upper_right}>
-              <Progress_bar {...cocktailBase} />
+              {/* <Progress_bar {...cocktailBase} /> */}
             </div>
           </div>
           <div className={style.cocktailPreference_analysis_lower}>
