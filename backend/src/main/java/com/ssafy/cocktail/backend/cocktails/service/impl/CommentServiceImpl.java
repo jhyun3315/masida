@@ -56,10 +56,10 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public boolean saveOrUpdateComment(String cocktailId, String commentId, CommentReq commentInfo, String accessToken) {
+    public int saveOrUpdateComment(String cocktailId, String commentId, CommentReq commentInfo, String accessToken) {
         // 댓글 등록 또는 수정
         User user = oAuthService.getUser(accessToken); // 사용자 가져오기
-        if (user == null) return false;
+        if (user == null) return 1;
         Cocktail cocktail = cocktailRepository.findCocktailById(Long.valueOf(cocktailId)); // 칵테일 가져오기
         List<Comment> commets = commentRepository.findAllByCocktailAndCommentDeleted(cocktail, false); // 칵테일 댓글 가져오기
         int commentSize = commets.size(); // 칵테일의 댓글 전체 개수
@@ -71,6 +71,10 @@ public class CommentServiceImpl implements CommentService {
         double ratingSum = cocktail.getCocktailRating() * commentSize; // 평점의 총점
 
         if (commentId == null) { // 댓글 등록 이면
+            for (Comment comment: commets) { // 댓글
+                if (comment.getUser().equals(user)) return 2; // 댓글을 이전에 작성했다면
+            }
+
             commentRepository.save( // 댓글 저장
                     Comment.builder()
                             .commentContent(commentInfo.getCommentContent()) // 내용 삽입
@@ -106,7 +110,7 @@ public class CommentServiceImpl implements CommentService {
         cocktail.setCommentUpdateDate(LocalDateTime.now()); // 수정일 삽입
         cocktailRepository.save(cocktail); // 칵테일 난이도, 평점 업데이트
 
-        return true;
+        return 0;
     }
 
     @Override
