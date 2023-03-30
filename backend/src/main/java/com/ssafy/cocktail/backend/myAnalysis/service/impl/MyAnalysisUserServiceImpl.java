@@ -68,4 +68,21 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
             return new ArrayList<>();
         }
     }
+
+    @Override
+    public ArrayList<MyAnalysisOthers> getAnalysisByOthers(String accessToken) {
+        try{
+            User user =  oAuthService.getUser(accessToken);
+
+            ArrayList<MyAnalysisOthersInterface> interfaceArrayList = myAnalysisRepository.getMyAnalysisOthersList(user.getId(), user.getUserGender(),user.getUserAgeRange());
+            ArrayList<MyAnalysisOthers> myAnalysisOthersArrayList = new ArrayList<>();
+
+            for(MyAnalysisOthersInterface ele : interfaceArrayList){
+                myAnalysisOthersArrayList.add(new MyAnalysisOthers(ele.getCocktailNameKo(), ele.getCocktailCount(), ele.getCocktailRatio()));
+            }
+            return myAnalysisOthersArrayList;
+        }catch (Exception e){
+            return new ArrayList<>();
+        }
+    }
 }

@@ -3,13 +3,16 @@ package com.ssafy.cocktail.backend.myAnalysis.controller;
 import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisBase;
 import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisColor;
 import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisIngredient;
+import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisOthers;
 import com.ssafy.cocktail.backend.myAnalysis.dto.response.MyAnalysisBaseRes;
 import com.ssafy.cocktail.backend.myAnalysis.dto.response.MyAnalysisColorRes;
 import com.ssafy.cocktail.backend.myAnalysis.dto.response.MyAnalysisIngredientRes;
+import com.ssafy.cocktail.backend.myAnalysis.dto.response.MyAnalysisOthersRes;
 import com.ssafy.cocktail.backend.myAnalysis.service.MyAnalysisUserService;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +21,7 @@ import java.util.Map;
 
 @Tag(name = "my-analysis", description = "마이페이지 상세 API")
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 @CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io"})
 @RequestMapping("api/my-analysis")
 public class MyAnalysisController {
@@ -61,6 +64,19 @@ public class MyAnalysisController {
             return ResponseEntity.status(200).body(MyAnalysisIngredientRes.of(200, "Success", myAnalysisIngredientsList));
         }else{
             return ResponseEntity.status(400).body(MyAnalysisIngredientRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
+        }
+    }
+
+    @GetMapping("/cocktail-age-gender")
+    public ResponseEntity<MyAnalysisOthersRes> MyAnalysisByUserIngredient(@RequestHeader Map<String, String> data) {
+        String accessToken = data.get("authorization");
+        System.out.println(data.get("authorization"));
+
+        if(accessToken !=null){
+            ArrayList<MyAnalysisOthers> myAnalysisOthersList = myAnalysisUserService.getAnalysisByOthers(data.get("authorization"));
+            return ResponseEntity.status(200).body(MyAnalysisOthersRes.of(200, "Success", myAnalysisOthersList));
+        }else{
+            return ResponseEntity.status(400).body(MyAnalysisOthersRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
         }
     }
 }
