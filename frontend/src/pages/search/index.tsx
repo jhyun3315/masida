@@ -43,40 +43,40 @@ const search = () => {
 
 export default search;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  console.log(context);
-  const req = context.req;
-  const res = context.res;
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   console.log(context);
+//   const req = context.req;
+//   const res = context.res;
 
-  try {
-    const response = await axios.get(
-      `https://j8b208.p.ssafy.io/api/cocktails/search`,
-      {
-        params: {
-          sort_num: 0,
-          cocktail_name: useSelector((state: RootState) => state.nameSelect.searchName),
-          cocktail_base: useSelector((state: RootState) => state.baseSelect.base),
-          cocktail_color: useSelector((state: RootState) => state.colorSelect.color),
-          cocktail_difficulty: useSelector(
-            (state: RootState) => state.difficultySelect.difficulty
-          ),
-          cocktail_ingredient: useSelector(
-            (state: RootState) => state.ingredientSelect.ingredient
-          ),
-        },
-      }
-    );
-    const data = response.data.data;
-    console.log("call : ", data);
-    return {
-      props: {
-        detail: data,
-      },
-    };
-  } catch (err) {
-    console.log(err);
-    return {
-      props: {},
-    };
-  }
-};
+//   try {
+//     const response = await axios.get(
+//       `https://j8b208.p.ssafy.io/api/cocktails/search`,
+//       {
+//         params: {
+//           sort_num: 0,
+//           cocktail_name: useSelector((state: RootState) => state.nameSelect.searchName),
+//           cocktail_base: useSelector((state: RootState) => state.baseSelect.base),
+//           cocktail_color: useSelector((state: RootState) => state.colorSelect.color),
+//           cocktail_difficulty: useSelector(
+//             (state: RootState) => state.difficultySelect.difficulty
+//           ),
+//           cocktail_ingredient: useSelector(
+//             (state: RootState) => state.ingredientSelect.ingredient
+//           ),
+//         },
+//       }
+//     );
+//     const data = response.data.data;
+//     console.log("call : ", data);
+//     return {
+//       props: {
+//         detail: data,
+//       },
+//     };
+//   } catch (err) {
+//     console.log(err);
+//     return {
+//       props: {},
+//     };
+//   }
+// };

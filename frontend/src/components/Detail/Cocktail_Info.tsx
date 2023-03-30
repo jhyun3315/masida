@@ -15,6 +15,7 @@ type CocktailInfoProps = {
 };
 const Cocktail_info = ({ cocktail_id }: CocktailInfoProps) => {
   const atk = store.getState().user.accessToken;
+  // console.log("info : ", atk)
   // 현재 페이지의 칵테일 정보를 저장함 (detail)
   const [detail, setDetail] = useState<detail_props>();
   const [isLiked, setIsLiked] = useState<boolean>();
@@ -81,6 +82,7 @@ const Cocktail_info = ({ cocktail_id }: CocktailInfoProps) => {
 
   const bookmark_check_handler = () => {
     console.log("isBookmarked : ", isBookmarked);
+    console.log(detail.cocktail_id)
     axios
       .post(
         `https://j8b208.p.ssafy.io/api/cocktails/bookmark`,
