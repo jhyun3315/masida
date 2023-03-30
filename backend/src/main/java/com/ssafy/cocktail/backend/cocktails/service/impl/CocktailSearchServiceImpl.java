@@ -78,7 +78,7 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
                 }
                 if (!found) continue; // 동일한 난이도가 없으면 (x)
             }
-            if (info.getCocktailDifficulty() != null && info.getCocktailDifficulty().size() > 0) { // 조건 5: 재료 검색이 있으면
+            if (info.getCocktailIngredient() != null && info.getCocktailIngredient().size() > 0) { // 조건 5: 재료 검색이 있으면
                 boolean found = false; // 조건 5-1: 하나라도 일치한 재료가 없으면 false
                 for (Long ingredientId: info.getCocktailIngredient()) { // 검색 재료 (최대 n개)
                     String searchIngredient = ingredientRepository.findById(ingredientId).get().getIngredientName(); // 검색어의 이름
