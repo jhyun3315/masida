@@ -99,6 +99,7 @@ public class CocktailController {
     }
 
     @PostMapping("/bookmarks")
+    @CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io", "https://kapi.kakao.com"})
     public ResponseEntity<?> cocktailBookmarks(@RequestHeader("authorization") String accessToken, @RequestBody CocktailIDReq req) {
         cocktailDetailService.setCocktailBookMark(req.getCocktailId(), accessToken);
         return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
