@@ -143,4 +143,16 @@ public class CommentServiceImpl implements CommentService {
 
         return true;
     }
+
+    @Override
+    public boolean isWrited(String cocktailId, String accessToken) {
+        // 댓글 작성 여부 리턴
+        User user = oAuthService.getUser(accessToken); // 사용자 가져오기
+        Cocktail cocktail = cocktailRepository.findCocktailById(Long.valueOf(cocktailId)); // 칵테일 가져오기
+        List<Comment> commets = commentRepository.findAllByCocktailAndCommentDeleted(cocktail, false); // 칵테일 댓글 가져오기
+        for (Comment comment: commets) { // 댓글
+            if (comment.getUser().equals(user)) return true; // 댓글을 이전에 작성했다면
+        }
+        return false;
+    }
 }

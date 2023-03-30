@@ -24,9 +24,10 @@ public class CommentController {
     public ResponseEntity<CommentRes> getComments(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId) {
         ArrayList<CommentDetail> commentDetails = commentService.getComments(cocktailId, accessToken);
         if (commentDetails != null) {
-            return ResponseEntity.status(200).body(CommentRes.of(200, "Success", commentDetails));
+            boolean isWrired = commentService.isWrited(cocktailId, accessToken); // 칵테일 작성 여부 확인
+            return ResponseEntity.status(200).body(CommentRes.of(200, "Success", commentDetails, isWrired));
         }
-        return ResponseEntity.status(404).body(CommentRes.of(404, "Please relogin", commentDetails));
+        return ResponseEntity.status(404).body(CommentRes.of(404, "Please relogin", commentDetails, false));
     }
 
     @PostMapping("/{cocktail_id}")

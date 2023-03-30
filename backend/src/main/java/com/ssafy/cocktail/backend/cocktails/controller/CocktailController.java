@@ -93,25 +93,26 @@ public class CocktailController {
     }
 
     @PostMapping("/likes")
-    public ResponseEntity<?> cocktailLikes(@RequestHeader("authorization") String accessToken, @RequestBody CocktailIDReq req) {
+    public ResponseEntity<?> cocktailLikes(@RequestHeader("Authorization") String accessToken, @RequestBody CocktailIDReq req) {
         cocktailDetailService.setCocktailLike(req.getCocktailId(), accessToken);
         return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
     }
 
     @PostMapping("/bookmarks")
-    public ResponseEntity<?> cocktailBookmarks(@RequestHeader("authorization") String accessToken, @RequestBody CocktailIDReq req) {
+    @CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io", "https://kapi.kakao.com"})
+    public ResponseEntity<?> cocktailBookmarks(@RequestHeader("Authorization") String accessToken, @RequestBody CocktailIDReq req) {
         cocktailDetailService.setCocktailBookMark(req.getCocktailId(), accessToken);
         return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
     }
 
     @GetMapping("/recommend/ingredient/{cocktail_id}")
-    public ResponseEntity<CocktailRecommendRes> cocktailRecommendIngerdient(@RequestHeader("authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId) {
+    public ResponseEntity<CocktailRecommendRes> cocktailRecommendIngerdient(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId) {
         ArrayList<CocktailRecommendDetail> recommends = cocktailRecommendService.getRecommendCocktails(0, cocktailId, accessToken);
         return ResponseEntity.status(200).body(CocktailRecommendRes.of(200, "Success", recommends));
     }
 
     @GetMapping("/recommend/color/{cocktail_id}")
-    public ResponseEntity<CocktailRecommendRes> cocktailRecommendColor(@RequestHeader("authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId) {
+    public ResponseEntity<CocktailRecommendRes> cocktailRecommendColor(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId) {
         ArrayList<CocktailRecommendDetail> recommends = cocktailRecommendService.getRecommendCocktails(1, cocktailId, accessToken);
         return ResponseEntity.status(200).body(CocktailRecommendRes.of(200, "Success", recommends));
     }
