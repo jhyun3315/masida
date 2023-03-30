@@ -28,6 +28,9 @@ public class RecommendIngredient {
     @Column(name = "recommend_ingredient_5", nullable = false)
     private Long recommendIngredient5;
 
+    @Column(name = "recommend_ingredient_6", nullable = false)
+    private Long recommendIngredient6;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cocktail_id")
     private Cocktail cocktail;
