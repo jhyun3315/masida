@@ -4,8 +4,11 @@ import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.repository.BookmarkRepository;
 import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
 import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
+import com.ssafy.cocktail.backend.myPage.dto.PaginationDataSet;
 import com.ssafy.cocktail.backend.myPage.service.MypageBookmarkService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -36,12 +39,15 @@ public class MypageBookmarkServiceImpl implements MypageBookmarkService {
 	 * @return List<LikeBookmarkCocktail>
 	 */
 	@Override
-	public List<LikeBookmarkCocktail> getBookmarkCocktailList(Long userId) {
-		// 해당 유저가 북마크한 칵테일 리스트
-		List<Cocktail> cocktailList = bookmarkRepository.findBookmarkCocktailByUserId(userId);
-		// 칵테일 리스트를 DTO 객체로 바꿔서 해당 List에 담아주기
-		List<LikeBookmarkCocktail> result = new ArrayList<>();
-
+	public PaginationDataSet getBookmarkCocktailList(Long userId, Pageable pageable) {
+		// 해당 유저가 북마크한 칵테일 리스트 - Pagination 적용
+		Page<Cocktail> cocktailPage = bookmarkRepository.findBookmarkCocktailByUserId(userId, pageable);
+		// Cocktail 엔티티 리스트로 가져오기
+		List<Cocktail> cocktailList = cocktailPage.getContent();
+		// 엔티티 칵테일을 DTO 객체로 바꿔서 해당 List에 담아주기
+		List<LikeBookmarkCocktail> bookmarkCocktailData = new ArrayList<>();
+		
+		// 엔티티 칵테일을 DTO 객체로 바꿔주기
 		for(Cocktail cocktail : cocktailList) {
 			// 해당 칵테일의 좋아요 개수
 			long likeCnt = likeRepository.findLikeCntByCocktailId(cocktail.getId());
@@ -55,8 +61,29 @@ public class MypageBookmarkServiceImpl implements MypageBookmarkService {
 					.cocktailDifficulty(cocktail.getCocktailDifficulty())
 					.build();
 			// result 리스트에 담아주기
-			result.add(likeCocktail);
+			bookmarkCocktailData.add(likeCocktail);
 		}
-		return result;
+
+		// 현재 페이지
+		int curPage = pageable.getPageNumber();
+		// 총 페이지 개수
+		int totalPages = cocktailPage.getTotalPages();
+		// 다음 페이지
+		int nextPage = curPage + 1;
+		// 마지막 페이지 여부
+		boolean isEnd = false;
+		if(curPage + 1 >= totalPages) {
+			isEnd = true;
+			nextPage = -1;
+		}
+
+		// PaginationDataSet 객체에 data들 담아주기
+		PaginationDataSet pageListCocktail = PaginationDataSet.builder()
+				.data(bookmarkCocktailData)
+				.nextPage(nextPage)
+				.isEnd(isEnd)
+				.build();
+
+		return pageListCocktail;
 	}
 }

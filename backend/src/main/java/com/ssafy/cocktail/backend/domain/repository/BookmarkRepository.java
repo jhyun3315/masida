@@ -3,6 +3,8 @@ package com.ssafy.cocktail.backend.domain.repository;
 import com.ssafy.cocktail.backend.domain.entity.Bookmark;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,5 +20,5 @@ public interface BookmarkRepository extends JpaRepository<Bookmark, Long> {
 
     // 해당 유저가 북마크한 칵테일 리스트
     @Query("select b.cocktail from Bookmark b where b.user.id = :userId")
-    public List<Cocktail> findBookmarkCocktailByUserId(@Param("userId") Long userId);
+    public Page<Cocktail> findBookmarkCocktailByUserId(@Param("userId") Long userId, Pageable pageable);
 }
