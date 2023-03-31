@@ -3,8 +3,11 @@ package com.ssafy.cocktail.backend.myPage.service.impl;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
 import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
+import com.ssafy.cocktail.backend.myPage.dto.response.PageableRes;
 import com.ssafy.cocktail.backend.myPage.service.MypageLikeService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -35,11 +38,18 @@ public class MypageLikeServiceImpl implements MypageLikeService {
 	 * @return List<LikeBookmarkCocktail>
 	 */
 	@Override
-	public List<LikeBookmarkCocktail> getLikeCocktailList(Long userId) {
+	public List<LikeBookmarkCocktail> getLikeCocktailList(Long userId, Pageable pageable) {
 		// 해당 유저가 좋아요한 칵테일 리스트
-		List<Cocktail> cocktailList = likeRepository.findLikeCocktailByUserId(userId);
-		// 칵테일 리스트를 DTO 객체로 바꿔서 해당 List에 담아주기
-		List<LikeBookmarkCocktail> result = new ArrayList<>();
+		Page<Cocktail> cocktailPage = likeRepository.findLikeCocktailByUserId(userId, pageable);
+//		System.out.println(cocktailPage.getSize());
+//		System.out.println(cocktailPage.getTotalElements());
+//		System.out.println(cocktailPage.getContent().size());
+		System.out.println(cocktailPage.getTotalPages());
+
+		List<Cocktail> cocktailList = cocktailPage.getContent();
+
+//		int totalPages = cocktailPage.getTotalPages();
+		List<LikeBookmarkCocktail> data = new ArrayList<>();
 
 		for(Cocktail cocktail : cocktailList) {
 			// 해당 칵테일의 좋아요 개수
@@ -54,9 +64,9 @@ public class MypageLikeServiceImpl implements MypageLikeService {
 					.cocktailDifficulty(cocktail.getCocktailDifficulty())
 					.build();
 			// result 리스트에 담아주기
-			result.add(likeCocktail);
+			data.add(likeCocktail);
 		}
-		return result;
+		return data;
 	}
 
 
