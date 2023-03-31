@@ -4,8 +4,8 @@ export type cocktailType = {
   cocktail_name_ko : string;
   cocktail_name_en  :string;
   cocktail_img : string;
-  cocktail_likes : number;
   cocktail_rating : number;
+  cocktail_likes : number;
   cocktail_difficulty : string;
 };
 
