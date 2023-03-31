@@ -8,9 +8,9 @@
 .main_left {
   display: flex;
   line-height: 36px;
-  a{
+  a {
   }
-  .main_logo{
+  .main_logo {
     height: 48px;
     // vertical-align: middle;
     cursor: pointer;
@@ -28,5 +28,11 @@
     color: white;
     text-decoration: none;
     padding: 1rem;
+  }
+
+  .main_logout {
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
   }
 }

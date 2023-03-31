@@ -19,11 +19,7 @@ const Star: React.FunctionComponent<propsType> = ({
   useEffect(() => {
     setScope(0);
     setRating(0);
-    console.log("나 계속 동작하지롱 ㅋㅋㅋ");
   }, [rated]);
-
-  // console.log("this rating : ", rating);
-  // console.log("current : ", current);
 
   const handleRating = (e: React.MouseEvent<HTMLElement>, value: number) => {
     const target = e.target as HTMLInputElement;
@@ -33,10 +29,8 @@ const Star: React.FunctionComponent<propsType> = ({
     const clickX = e.clientX - boundingRect.left;
 
     let score = clickX / starWidth;
-    console.log(score);
 
     score = value - 1 + Math.max(Math.min(score, 5), 0);
-    console.log(score);
     if (score < 1) {
       score = 1;
     } else if (score < 2) {

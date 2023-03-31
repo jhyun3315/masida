@@ -12,8 +12,12 @@ import { detail_props } from "../../type/cocktailTypes";
 
 type CocktailInfoProps = {
   cocktail_id: number;
+  modifyCommentCnt: boolean;
 };
-const Cocktail_info = ({ cocktail_id }: CocktailInfoProps) => {
+const Cocktail_info = ({
+  cocktail_id,
+  modifyCommentCnt,
+}: CocktailInfoProps) => {
   const atk = store.getState().user.accessToken;
   // console.log("info : ", atk)
   // 현재 페이지의 칵테일 정보를 저장함 (detail)
@@ -43,7 +47,8 @@ const Cocktail_info = ({ cocktail_id }: CocktailInfoProps) => {
           difficulty_img_url_converter(result.cocktail_difficulty)
         );
       });
-  }, [isLiked, isBookmarked]);
+
+  }, [modifyCommentCnt,isLiked, isBookmarked]);
 
   useEffect(() => {
     if (isLiked) {
@@ -83,7 +88,10 @@ const Cocktail_info = ({ cocktail_id }: CocktailInfoProps) => {
   const bookmark_check_handler = () => {
     console.log("isBookmarked : ", isBookmarked);
     console.log(detail.cocktail_id);
+<<<<<<< frontend/src/components/Detail/Cocktail_Info.tsx
+=======
     console.log(atk);
+>>>>>>> frontend/src/components/Detail/Cocktail_Info.tsx
     axios
       .post(
         `https://j8b208.p.ssafy.io/api/cocktails/bookmarks`,

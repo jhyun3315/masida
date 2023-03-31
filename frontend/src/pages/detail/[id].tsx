@@ -44,6 +44,7 @@ const detail = () => {
   const [cocktail_id, setCocktail_id] = useState<number>(
     parseInt(router?.query.id as string)
   );
+  const [modifyCommentCnt, setModifyCommentCnt] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
   const [visible, setVisible] = useState<boolean>();
   const [cocktail_recommend_color, setCocktail_recommend_color] =
@@ -56,25 +57,31 @@ const detail = () => {
   }
   useEffect(() => {
     axios
-      .get(`https://j8b208.p.ssafy.io/api/cocktails/recommend/ingredient/${cocktail_id}`, {
-        headers: {
-          Authorization: atk,
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
+      .get(
+        `https://j8b208.p.ssafy.io/api/cocktails/recommend/ingredient/${cocktail_id}`,
+        {
+          headers: {
+            Authorization: atk,
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
       .then((response) => {
         console.log(response);
         setCocktail_recommend_color(response.data.data);
       });
     axios
-      .get(`https://j8b208.p.ssafy.io/api/cocktails/recommend/color/${cocktail_id}`, {
-        headers: {
-          Authorization: atk,
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
+      .get(
+        `https://j8b208.p.ssafy.io/api/cocktails/recommend/color/${cocktail_id}`,
+        {
+          headers: {
+            Authorization: atk,
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
       .then((response) => {
         console.log(response);
         setCocktail_recommend_ingredient(response.data.data);
@@ -101,7 +108,10 @@ const detail = () => {
         <Header />
         <div className={style.detail_layout}>
           <div className={style.detail_layout_left}>
-            <Cocktail_Info cocktail_id={cocktail_id} />
+            <Cocktail_Info
+              cocktail_id={cocktail_id}
+              modifyCommentCnt={modifyCommentCnt}
+            />
           </div>
           <div className={style.detail_layout_right}>
             <Cocktail_recommend {...recommend_props} />
@@ -123,6 +133,8 @@ const detail = () => {
                 setVisible={setVisible}
                 visible={visible}
                 cocktail_id={parseInt(router?.query.id as string)}
+                modifyCommentCnt={modifyCommentCnt}
+                setModifyCommentCnt={setModifyCommentCnt}
               />
             </Modal_portal>
           )}
