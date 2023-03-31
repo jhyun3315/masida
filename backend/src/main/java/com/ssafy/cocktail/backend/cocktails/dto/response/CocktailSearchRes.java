@@ -14,11 +14,27 @@ public class CocktailSearchRes extends BaseResponseBody {
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     ArrayList<CocktailSearchDetail> data;
 
-    public static CocktailSearchRes of(Integer statusCode, String message, ArrayList<CocktailSearchDetail> cocktailSearchDetailsc) {
+    @Schema(name="다음 페이지 번호", example = "1")
+    @JsonProperty(value = "next_page", access = JsonProperty.Access.READ_WRITE)
+    Integer nextPage;
+
+    @Schema(name="마지막 페이지 여부", example = "1")
+    @JsonProperty(value = "is_end", access = JsonProperty.Access.READ_WRITE)
+    boolean isEnd;
+
+    @Schema(name="총 검색 결과 개수", example = "1")
+    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
+    Integer max;
+
+    public static CocktailSearchRes of(Integer statusCode, String message, ArrayList<CocktailSearchDetail> cocktailSearchDetailsc, int nextPage, boolean isEnd, int max) {
         CocktailSearchRes res = new CocktailSearchRes();
         res.setStatusCode(statusCode);
         res.setMessage(message);
         res.setData(cocktailSearchDetailsc);
+        res.setNextPage(nextPage);
+        res.setMax(max);
+
+        res.setEnd(isEnd);
 
         return res;
     }

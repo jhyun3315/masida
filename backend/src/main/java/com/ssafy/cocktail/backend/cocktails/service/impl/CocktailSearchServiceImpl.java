@@ -15,6 +15,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -26,13 +28,25 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
     private CocktailIngredientRepository cocktailIngredientRepository;
     private LikeRepository likeRepository;
 
+    static int max; // 칵테일 총 검색 결과 총 개수
+
     @Override
     public ArrayList<CocktailSearchDetail> getCocktailSearchList(SearchInfo info) {
         // 칵테일 검색 결과 리턴
+        max = 0; // // 칵테일 검색 결과 총 개수 초기화
         ArrayList<CocktailSearchDetail> searchList = new ArrayList<>(); // 검색 결과 칵테일
         searchList = getCocktails(info); // 칵테일 검색 결과 가져오기
+        max = searchList.size(); // 칵테일 검색 결과 총 개수
+        if (info.getSortNum().equals("0"))searchList.sort(Comparator.comparing(CocktailSearchDetail::getCocktailNameKo)); // 이름 오름차순 정렬
+        if (info.getSortNum().equals("1"))searchList.sort(Comparator.comparing(CocktailSearchDetail::getCocktailLikes, Comparator.reverseOrder())); // 좋아요 내림차순 정렬
+        if (info.getSortNum().equals("2"))searchList.sort(Comparator.comparing(CocktailSearchDetail::getCocktailRating, Comparator.reverseOrder())); // 평점 내림차순 정렬
         searchList = getPage(searchList, info.getPage()); // 페이지의 칵테일 가져오기
         return searchList;
+    }
+
+    @Override
+    public int getMax() {
+        return max;
     }
 
     private ArrayList<CocktailSearchDetail> getPage(ArrayList<CocktailSearchDetail> searchList, int page) {
