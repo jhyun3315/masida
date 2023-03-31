@@ -29,7 +29,7 @@ public class LikeBookmarkCocktail {
 
 	@Schema(description = "칵테일 평점", example = "4.9")
 	@JsonProperty("cocktail_rating")
-	private double cocktailRating;
+	private Double cocktailRating;
 
 	@Schema(description = "칵테일 난이도", example = "중")
 	@JsonProperty("cocktail_difficulty")
@@ -41,7 +41,7 @@ public class LikeBookmarkCocktail {
 		this.cocktailNameKo = cocktailNameKo;
 		this.cocktailImg = cocktailImg;
 		this.cocktailLikes = likeCnt;
-		this.cocktailRating = Math.round((cocktailRating*10/10));
+		this.cocktailRating = Double.parseDouble(String.format("%.1f", cocktailRating));
 		this.cocktailDifficulty = ((cocktailDifficulty < 2 ) ? "하" : (cocktailDifficulty < 3) ? "중" : "상" );	// double형 난이도를 String형으로 바꿔주기
 	}
 
