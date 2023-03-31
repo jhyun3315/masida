@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { search_props } from "../../pages/search";
 import { setSelectName } from "../../../store/category/nameSlice";
+import axios from "axios";
 
 const Sidebar2 = (props: search_props) => {
   const dispatch = useDispatch();
@@ -21,6 +22,17 @@ const Sidebar2 = (props: search_props) => {
     dispatch(setSelectName(searchName));
   }, [searchName]);
 
+  const searchCocktail = () => {
+    axios
+      .get(`https://j8b208.p.ssafy.io/api/search`, {
+        
+      })
+      .then((response) => {
+        console.log(response);
+  
+      });
+  }
+
   return (
     <>
       <div className={style.sidebar}>
@@ -32,7 +44,7 @@ const Sidebar2 = (props: search_props) => {
             value={searchName}
             onChange={searchCocktailName}
           />
-          <button className={style.search_btn}>검색</button>
+          <button className={style.search_btn} onClick={searchCocktail}>검색</button>
         </form>
         <Category {...props} />
       </div>

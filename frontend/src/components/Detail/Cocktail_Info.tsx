@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Loading_spinner from "../UI/Loading_spinner";
 
 import style from "./Cocktail_Info.module.scss";
+import { useRouter } from "next/router"; 
 
 import { store } from "../../../store/store";
 import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty_img_url_converter";
@@ -11,13 +12,12 @@ import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty
 import { detail_props } from "../../type/cocktailTypes";
 
 type CocktailInfoProps = {
-  cocktail_id: number;
   modifyCommentCnt: boolean;
 };
 const Cocktail_info = ({
-  cocktail_id,
   modifyCommentCnt,
 }: CocktailInfoProps) => {
+  const router = useRouter();
   const atk = store.getState().user.accessToken;
   // console.log("info : ", atk)
   // 현재 페이지의 칵테일 정보를 저장함 (detail)
@@ -29,8 +29,13 @@ const Cocktail_info = ({
   const [difficultyImg, setDifficultyImg] = useState<string>();
 
   useEffect(() => {
+    const cocktail_num = parseInt(router.query.id as string) 
+    console.log(cocktail_num);
+    console.log(router.query);
+    
+    
     axios
-      .get(`https://j8b208.p.ssafy.io/api/cocktails/${cocktail_id}`, {
+      .get(`https://j8b208.p.ssafy.io/api/cocktails/${cocktail_num}`, {
         headers: {
           Authorization: atk,
           "Content-Type": "application/json",
@@ -88,10 +93,7 @@ const Cocktail_info = ({
   const bookmark_check_handler = () => {
     console.log("isBookmarked : ", isBookmarked);
     console.log(detail.cocktail_id);
-<<<<<<< frontend/src/components/Detail/Cocktail_Info.tsx
-=======
     console.log(atk);
->>>>>>> frontend/src/components/Detail/Cocktail_Info.tsx
     axios
       .post(
         `https://j8b208.p.ssafy.io/api/cocktails/bookmarks`,

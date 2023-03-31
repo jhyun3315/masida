@@ -56,6 +56,7 @@ const detail = () => {
     atk = "";
   }
   useEffect(() => {
+    setCocktail_id(parseInt(router?.query.id as string))
     axios
       .get(
         `https://j8b208.p.ssafy.io/api/cocktails/recommend/ingredient/${cocktail_id}`,
@@ -109,7 +110,6 @@ const detail = () => {
         <div className={style.detail_layout}>
           <div className={style.detail_layout_left}>
             <Cocktail_Info
-              cocktail_id={cocktail_id}
               modifyCommentCnt={modifyCommentCnt}
             />
           </div>

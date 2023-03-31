@@ -194,6 +194,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
            setCommentAdd(!commentAdd);
            resetComment();
            setModify(false);
+           setModifyCommentCnt(!modifyCommentCnt)
            setResetStar(!resetStar);
            textareaRef.current.setAttribute("readOnly", true);
          })
