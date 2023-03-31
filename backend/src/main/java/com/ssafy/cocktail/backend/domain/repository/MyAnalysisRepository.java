@@ -1,10 +1,7 @@
 package com.ssafy.cocktail.backend.domain.repository;
 
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
-import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisBaseInterface;
-import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisColorInterface;
-import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisIngredientInterface;
-import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisOthersInterface;
+import com.ssafy.cocktail.backend.myAnalysis.dto.*;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -71,4 +68,15 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
         , nativeQuery = true)
 
     ArrayList<MyAnalysisOthersInterface> getMyAnalysisOthersList(@Param("userId") Long user_id,@Param("gender") String user_gender, @Param("ageRange") String user_ageRange);
+
+    @Query(value="SELECT m.comment_rating As RatingScore, " +
+            "c.cocktail_base As BaseName, " +
+            "count(c.cocktail_base) BaseCount " +
+            "FROM comments As m " +
+            "INNER JOIN cocktails c ON c.cocktail_id = m.cocktail_id " +
+            "WHERE m.comment_deleted = false AND m.user_id=:userId " +
+            "GROUP BY m.comment_rating, c.cocktail_base " +
+            "ORDER BY BaseCount DESC "
+            ,nativeQuery = true)
+    ArrayList<MyAnalysisRatingBaseInterface> getMyAnalysisRatingBaseList(@Param("userId") Long user_id);
 }
