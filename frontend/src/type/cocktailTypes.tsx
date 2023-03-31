@@ -96,3 +96,17 @@ export type likes_cocktail = {
   cocktail_rating : number,
   cocktail_difficulty : string,
 }
+
+// 칵테일 월드컵 데이터
+export type cocktail_worldcup_data = {
+  cocktail_id: string,
+  cocktail_name_ko: string,
+  cocktail_name_en: string,
+  cocktail_img: string,
+  cocktail_content: string,
+  cocktail_difficulty: string,
+  cocktail_rating: number,
+  cocktail_likes: number,
+  cocktail_comments: number,
+  ingredient: ingredientType[]
+}

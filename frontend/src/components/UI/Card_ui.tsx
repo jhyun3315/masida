@@ -1,9 +1,5 @@
 import style from "./Card_ui.module.scss";
-import {
-  cocktailType,
-  detail_props,
-  cocktail_recommend,
-} from "../../type/cocktailTypes";
+import { cocktailType,cocktail_recommend,cocktail_worldcup_data } from "../../type/cocktailTypes";
 import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty_img_url_converter";
 import { mypageCommentType } from "../../type/commentTypes";
 
@@ -259,10 +255,9 @@ const My_comment_card: React.FC<mypageCommentType> = (
   );
 };
 
-const World_cup_league_card: React.FC<detail_props> = (
-  cocktail: detail_props
+const World_cup_league_card: React.FC<cocktail_worldcup_data> = (
+  cocktail: cocktail_worldcup_data
 ) => {
-  // console.log(cocktail);
   return (
     <div className={style.flip}>
       <div className={style.world_cup_card}>
@@ -299,20 +294,16 @@ const World_cup_league_card: React.FC<detail_props> = (
               src="/assets/icons/ingredient_legendIMG.png"
               alt=""
             />
-            {cocktail
-              ? cocktail.recipe.map((key) => (
-                  <div className={style.ingredient_list_element}>
-                    {key.recipe_num}. {key.recipe_content}
-                  </div>
-                ))
-              : ""}
+            {/* {cocktail ?
+              cocktail.ingredient.map((key) => (
+                <div className={style.ingredient_list_element}>
+                  {key.ingredient_name}. {key.ingredient_amount}
+                </div>
+              )) : ""} */}
           </div>
           <div className={style.recipe_content_textarea}>
             {/* 소개 or 레시피 */}
             <div className={style.recipe_content_title}>소개</div>
-            {/* {cocktail.recipe.map((key) => (
-              <div>{key.recipe_content}</div>
-            ))} */}
             {cocktail.cocktail_content}
           </div>
         </div>

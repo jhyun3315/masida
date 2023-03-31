@@ -8,9 +8,10 @@ import { search_props } from "../../pages/search";
 
 const Ingredient = (props: search_props) => {
   const dispatch = useDispatch();
-  const selectIngredient = useSelector(
-    (state: RootState) => state.ingredientSelect
-  );
+  // const selectIngredient = useSelector(
+  //   (state: RootState) => state.ingredientSelect
+  // );
+  const selectIngredient = props;
   let [inputvalue, setInputValue] = useState<string>("");
   let [addedIngredient, setAddedIngredient] = useState<searchIngredientType[]>(
     []

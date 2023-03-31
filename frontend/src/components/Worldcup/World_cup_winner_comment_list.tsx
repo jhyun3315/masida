@@ -1,77 +1,21 @@
+import { useEffect,useState } from "react";
 import style from "./World_cup_winner_comment_list.module.scss";
+import { get_worldcup_final_comments } from "../../pages/api/cocktail-worldcup/cocktail-worldcup_api";
+import { cocktail_worldcup_data } from "../../type/cocktailTypes";
 import { commentType } from "../../type/commentTypes";
-import { detail_props } from "../../type/cocktailTypes";
 
-const World_cup_winner_comments_list = (props: detail_props) => {
-  // id를 기준으로 댓글을 가져온다. (props.cocktail_id)
-  const comments: commentType[] = [
-    {
-      comment_id: 1,
-      comment_content:
-        "comment_content2comment_content2comment_content2comment_content2comment_content2comment_content2comment_content2comment_content2comment_content2",
-      comment_rating: 1,
-      comment_create_date: "comment_create_date1",
-      comment_difficulty: "/assets/icons/difficulty_HIGH_MINI.png",
-      user_name: "user_name1",
-      user_profile: "/assets/image/user_profile_img.png",
-      writer_checker: true,
-    },
-    {
-      comment_id: 2,
-      comment_content: "comment_content2",
-      comment_rating: 2,
-      comment_create_date: "comment_create_date2",
-      comment_difficulty: "/assets/icons/difficulty_LOW_MINI.png",
-      user_name: "user_name2",
-      user_profile: "/assets/image/user_profile_img.png",
-      writer_checker: true,
-    },
-    {
-      comment_id: 3,
-      comment_content: "comment_content3",
-      comment_rating: 3,
-      comment_create_date: "comment_create_date3",
-      comment_difficulty: "/assets/icons/difficulty_MID_MINI.png",
-      user_name: "user_name3",
-      user_profile: "/assets/image/user_profile_img.png",
-      writer_checker: true,
-    },
-    {
-      comment_id: 3,
-      comment_content: "comment_content3",
-      comment_rating: 3,
-      comment_create_date: "comment_create_date3",
-      comment_difficulty: "/assets/icons/difficulty_MID_MINI.png",
-      user_name: "user_name3",
-      user_profile: "/assets/image/user_profile_img.png",
-      writer_checker: true,
-    },
-    {
-      comment_id: 3,
-      comment_content: "comment_content3",
-      comment_rating: 3,
-      comment_create_date: "comment_create_date3",
-      comment_difficulty: "/assets/icons/difficulty_MID_MINI.png",
-      user_name: "user_name3",
-      user_profile: "/assets/image/user_profile_img.png",
-      writer_checker: true,
-    },
-    {
-      comment_id: 3,
-      comment_content: "comment_content3",
-      comment_rating: 3,
-      comment_create_date: "comment_create_date3",
-      comment_difficulty: "/assets/icons/difficulty_MID_MINI.png",
-      user_name: "user_name3",
-      user_profile: "/assets/image/user_profile_img.png",
-      writer_checker: true,
-    },
-  ];
+const World_cup_winner_comments_list = (props: cocktail_worldcup_data) => {
+  const [comments,setComments] = useState<commentType[]>([]);
+  useEffect(() => {
+    get_worldcup_final_comments(props.cocktail_id).then((response) => { 
+      setComments(response);
+    })
+  },);
 
   return (
     <>
       <div className={style.winner_comment_list}>
-        {comments.map((key) => (
+        {comments?comments.map((key:any) => (
           <div className={style.winner_comment}>
             <div className={style.comment_layout}>
               <div className={style.winner_comment_left}>
@@ -118,29 +62,10 @@ const World_cup_winner_comments_list = (props: detail_props) => {
                     </div>
                   </div>
                 </div>
-
-                <div className={style.winner_cocktail_comment_edit}>
-                  <div className={style.comment_modify}>
-                    <img
-                      className={style.comment_modify_img}
-                      src="/assets/icons/detail_cocktailcomment_modify.png"
-                      alt=""
-                    />
-                    수정
-                  </div>
-                  <div className={style.comment_modify}>
-                    <img
-                      className={style.comment_modify_img}
-                      src="/assets/icons/detail_cocktailcomment_delete.png"
-                      alt=""
-                    />
-                    삭제
-                  </div>
-                </div>
               </div>
             </div>
           </div>
-        ))}
+        )):<div>해당 댓글이 존재하지 않습니다!</div>}
       </div>
     </>
   );
