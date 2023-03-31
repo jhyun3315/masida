@@ -94,17 +94,18 @@ const User_info: React.FC<MyComponentProps> = ({
             Likes({likesCnt})
           </h3>
         </div>
-        <div className={style.user_info_setting}>
-          <Image
-            src="/assets/icons/user_info_setting_btn.png"
-            loader={({ src, width, quality }: ImageLoaderProps) =>
-              imgLoader({ src, width, quality })
-            }
-            alt="image"
-            width={30}
-            height={30}
-            onClick={onClickHandler}
-          />
+        <div className={style.userInfo_setting}>
+            <Image 
+            className={style.button}
+              src="/assets/icons/user_info_setting_btn.png"
+              loader={({ src, width, quality }: ImageLoaderProps) =>
+                imgLoader({ src, width, quality })
+              }
+              alt="image"
+              width={30}
+              height={30}
+              onClick={onClickHandler}
+            />
         </div>
       </div>
     </>

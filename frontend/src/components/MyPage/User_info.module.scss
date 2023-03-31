@@ -6,20 +6,23 @@
   display: flex;
 
   .userInfo_leftImg {
-    flex: 1;
+    flex: 2;
   }
 
   .userInfo_rightDesc {
-    flex: 1;
+    flex: 2;
     margin-right: 40%;
   }
 
-  .uesrInfo_setting {
+  .userInfo_setting {
     flex: 1;
-
+    // border: 1px solid black;
     .button {
       outline: none;
       box-shadow: none;
+    }
+    .button:hover {
+      cursor: pointer;
     }
   }
 }

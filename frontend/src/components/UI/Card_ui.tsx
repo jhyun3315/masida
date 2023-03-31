@@ -328,6 +328,64 @@ const World_cup_league_card: React.FC<cocktail_worldcup_data> = (
     </div>
   );
 };
+
+const World_cup_winner_card: React.FC<cocktail_worldcup_data> = (
+  cocktail: cocktail_worldcup_data
+) => {
+  return (
+    <div className={style.flip_winner}>
+      <div className={style.world_cup_card}>
+        <div className={style.world_cup_card_front}>
+          <div className={style.world_cup_top}>
+            <img
+              className={style.world_cup_cocktailImg}
+              src={cocktail.cocktail_img}
+              alt="사진이 없어요.../"
+            />
+          </div>
+          <div className={style.world_cup_bottom}>
+            <div className={style.world_cup_cocktail_name_ko}>
+              {cocktail.cocktail_name_ko}
+            </div>
+            <div className={style.world_cup_cocktail_name_en}>
+              {cocktail.cocktail_name_en}
+            </div>
+          </div>
+        </div>
+
+        <div className={style.world_cup_card_back}>
+          <div className={style.world_cup_title}>
+            <div className={style.world_cup_cocktail_name_ko}>
+              {cocktail.cocktail_name_ko}
+            </div>
+            <div className={style.world_cup_cocktail_name_en}>
+              {cocktail.cocktail_name_en}
+            </div>
+          </div>
+          <div className={style.ingredient_list}>
+            <img
+              className={style.ingredient_legendIMG}
+              src="/assets/icons/ingredient_legendIMG.png"
+              alt=""
+            />
+            {/* {cocktail ?
+              cocktail.ingredient.map((key) => (
+                <div className={style.ingredient_list_element}>
+                  {key.ingredient_name}. {key.ingredient_amount}
+                </div>
+              )) : ""} */}
+          </div>
+          <div className={style.recipe_content_textarea}>
+            {/* 소개 or 레시피 */}
+            <div className={style.recipe_content_title}>소개</div>
+            {cocktail.cocktail_content}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // const AnalysisCardComponent: React.FC<AnalysisProps> = ({
 //   analysisCard,
 // }: AnalysisProps) => {
@@ -349,4 +407,5 @@ export {
   My_comment_card,
   My_Analysis_card,
   World_cup_league_card,
+  World_cup_winner_card
 };

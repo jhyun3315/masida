@@ -88,6 +88,7 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
           className={style.userSettingModal_header_left}
           src="/assets/image/logo.png"
         ></img>
+        <div> &nbsp; </div>
         <img
           className={style.userSettingModal_header_right}
           src="/assets/icons/topbar_img.png"
