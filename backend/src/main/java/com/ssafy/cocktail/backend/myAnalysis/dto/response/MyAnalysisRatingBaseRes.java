@@ -8,15 +8,23 @@ import lombok.Setter;
 @Setter
 @Schema(defaultValue = "MyAnalysisRatingBaseResponse")
 public class MyAnalysisRatingBaseRes  extends BaseResponseBody {
-    @Schema(name="마이페이지 상세보기 비슷한 사용자 분석 정보", example = "마이페이지 상세보기 비슷한 사용자 분석 정보")
+    @Schema(name="별점 평균", example = "2.5")
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     double rating_average;
+
+    @Schema(name="별점 개수", example = "11")
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     int rating_count;
+
+    @Schema(name="최대 별점", example = "5")
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     int rating_max;
+
+    @Schema(name="최대 별점 베이스", example = "rum")
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     String rating_max_base;
+
+    @Schema(name="펼점별 베이스의 개수 분포", example = "HashMap<String,Integer>")
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     Object data;
 
