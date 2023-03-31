@@ -28,6 +28,25 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
 
     @Override
     public ArrayList<CocktailSearchDetail> getCocktailSearchList(SearchInfo info) {
+        // 칵테일 검색 결과 리턴
+        ArrayList<CocktailSearchDetail> searchList = new ArrayList<>(); // 검색 결과 칵테일
+        searchList = getCocktails(info); // 칵테일 검색 결과 가져오기
+        searchList = getPage(searchList, info.getPage()); // 페이지의 칵테일 가져오기
+        return searchList;
+    }
+
+    private ArrayList<CocktailSearchDetail> getPage(ArrayList<CocktailSearchDetail> searchList, int page) {
+        // 페이지의 칵테일들을 리턴
+        ArrayList<CocktailSearchDetail> result = new ArrayList<>();
+        int startNum = page * 15;
+        for (int i = startNum, k = 0; k < 15; i++, k++) {
+            if (i >= searchList.size()) break; // 검색 개수를 초과하면
+            result.add(searchList.get(i));
+        }
+        return result;
+    }
+
+    private ArrayList<CocktailSearchDetail> getCocktails(SearchInfo info) {
         // 검색어에 맞는 칵테일 리턴
         ArrayList<CocktailSearchDetail> cocktailSearchDetails = new ArrayList<>(); // 검색 결과 칵테일
 

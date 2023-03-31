@@ -12,6 +12,9 @@ import java.util.StringTokenizer;
 @Setter @Getter
 @ToString
 public class SearchInfo {
+    @Schema(description = "페이지 수", example = "1")
+    private Integer page;
+
     @Schema(description = "정렬 기준", example = "0")
     private String sortNum;
 
@@ -29,6 +32,10 @@ public class SearchInfo {
 
     @Schema(description = "칵재일 재료", example = "0")
     private ArrayList<Long> cocktailIngredient;
+
+    public void setPage(String page) {
+        this.page = Integer.parseInt(page);
+    }
 
     public void setCocktailColor(String cocktailColors) {
         this.cocktailColor = new ArrayList<String>();
