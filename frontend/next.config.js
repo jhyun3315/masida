@@ -62,7 +62,7 @@ const nextConfig = {
   ) {
     return {
       "/": { page: "/" },
-      "/cocktail-worldcup": { page: "/worldcup" },
+      "/cocktail-worldcup": { page: "/cocktail-worldcup" },
       "/mypage": { page: "/mypage" },
       "/search": { page: "/search" },
       "/theme": { page: "/theme" },
