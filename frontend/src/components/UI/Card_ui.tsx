@@ -1,3 +1,4 @@
+import axios from "axios";
 import style from "./Card_ui.module.scss";
 import {
   cocktailType,
@@ -96,21 +97,33 @@ const Search_result_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
 interface myBookMarkProps {
   key: number;
   cocktail: cocktailType;
-  setIsChanged: Dispatch<SetStateAction<boolean>>;
-  isChanged: boolean;
+  setBookmarkModify: Dispatch<SetStateAction<boolean>>;
+  bookmarkModify: boolean;
 }
 
 const My_bookmark_card: React.FunctionComponent<myBookMarkProps> = ({
   key,
   cocktail,
-  setIsChanged,
-  isChanged,
+  setBookmarkModify,
+  bookmarkModify,
 }) => {
   // 북마크 클릭 시 이벤트 만들어야함
   const bookmarkHandler = (cocktail_id: number) => {
     const atk = store.getState().user.accessToken;
-    setIsChanged(!isChanged);
+    setBookmarkModify(!bookmarkModify);
     console.log(atk, " ", cocktail_id);
+
+    axios.post(
+      `https://j8b208.p.ssafy.io/api/cocktails/bookmarks`,
+      {
+        cocktail_id: cocktail_id,
+      },
+      {
+        headers: {
+          Authorization: atk,
+        },
+      }
+    );
   };
 
   return (
