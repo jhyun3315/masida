@@ -16,5 +16,4 @@ public class PaginationDataSet {
 		this.nextPage = nextPage;
 		this.isEnd = isEnd;
 	}
-
 }
