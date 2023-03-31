@@ -23,7 +23,7 @@ public class CommentController {
 
     @GetMapping("/{cocktail_id}")
     public ResponseEntity<CommentRes> getComments(@RequestHeader Map<String, String> data, @PathVariable("cocktail_id") String cocktailId) {
-        String accessToken = data.get("Authorization");
+        String accessToken = data.get("authorization");
         ArrayList<CommentDetail> commentDetails = commentService.getComments(cocktailId, accessToken);
         if (commentDetails != null) {
             boolean isWrired = commentService.isWrited(cocktailId, accessToken); // 칵테일 작성 여부 확인
