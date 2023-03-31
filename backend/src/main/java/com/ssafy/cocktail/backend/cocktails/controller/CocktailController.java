@@ -42,9 +42,13 @@ public class CocktailController {
         if (params.get("cocktail_difficulty") != null) searchInfo.setCocktailDifficulty((String) params.get("cocktail_difficulty"));
         if (params.get("cocktail_ingredient") != null) searchInfo.setCocktailIngredient((String) params.get("cocktail_ingredient"));
 //        System.out.println(searchInfo.toString());
+
         ArrayList<CocktailSearchDetail> results = cocktailSearchService.getCocktailSearchList(searchInfo); // 칵테일 검색
-        if (results.size() == 0) return ResponseEntity.status(404).body(CocktailSearchRes.of(404, "Cocktail Not Found", results));
-        return ResponseEntity.status(200).body(CocktailSearchRes.of(200, "Success", results));
+        int nextPage = Integer.parseInt((String) params.get("page")) + 1; // 다음 페이지 번호
+        boolean isEnd = results.size() != 15; // 마지막 페이지 여부
+        int max = cocktailSearchService.getMax(); // 총 검색 결과 수 가져오기
+        if (results.size() == 0) return ResponseEntity.status(404).body(CocktailSearchRes.of(404, "Cocktail Not Found", results, 0, true, 0));
+        return ResponseEntity.status(200).body(CocktailSearchRes.of(200, "Success", results, nextPage, isEnd, max));
     }
 
     @GetMapping("/ingredients")
