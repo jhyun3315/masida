@@ -1,13 +1,7 @@
 package com.ssafy.cocktail.backend.myAnalysis.controller;
 
-import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisBase;
-import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisColor;
-import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisIngredient;
-import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisOthers;
-import com.ssafy.cocktail.backend.myAnalysis.dto.response.MyAnalysisBaseRes;
-import com.ssafy.cocktail.backend.myAnalysis.dto.response.MyAnalysisColorRes;
-import com.ssafy.cocktail.backend.myAnalysis.dto.response.MyAnalysisIngredientRes;
-import com.ssafy.cocktail.backend.myAnalysis.dto.response.MyAnalysisOthersRes;
+import com.ssafy.cocktail.backend.myAnalysis.dto.*;
+import com.ssafy.cocktail.backend.myAnalysis.dto.response.*;
 import com.ssafy.cocktail.backend.myAnalysis.service.MyAnalysisUserService;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -17,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 @Tag(name = "my-analysis", description = "마이페이지 상세 API")
@@ -77,6 +72,25 @@ public class MyAnalysisController {
             return ResponseEntity.status(200).body(MyAnalysisOthersRes.of(200, "Success", myAnalysisOthersList));
         }else{
             return ResponseEntity.status(400).body(MyAnalysisOthersRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
+        }
+    }
+
+    @GetMapping("/base-rating")
+    public ResponseEntity<MyAnalysisRatingBaseRes> MyAnalysisByRatingBase(@RequestHeader Map<String, String> data) {
+        String accessToken = data.get("authorization");
+        System.out.println(data.get("authorization"));
+
+        if(accessToken !=null){
+            RatingBase ratingBase = myAnalysisUserService.getAnalysisByRatingBase(data.get("authorization"));
+            return ResponseEntity.status(200).body(MyAnalysisRatingBaseRes.of(200, "Success",
+                    ratingBase.getRating_average(),
+                    ratingBase.getRating_count(),
+                    ratingBase.getRating_max(),
+                    ratingBase.getRating_max_base(),
+                    ratingBase.getData()));
+        }else{
+            return ResponseEntity.status(400).body(MyAnalysisRatingBaseRes.of(400, "존재하지 않는 사용자입니다.",
+                    0,0,0,null, null));
         }
     }
 }
