@@ -76,7 +76,27 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
             "INNER JOIN cocktails c ON c.cocktail_id = m.cocktail_id " +
             "WHERE m.comment_deleted = false AND m.user_id=:userId " +
             "GROUP BY m.comment_rating, c.cocktail_base " +
-            "ORDER BY BaseCount DESC "
+            "ORDER BY RatingScore DESC "
             ,nativeQuery = true)
     ArrayList<MyAnalysisRatingBaseInterface> getMyAnalysisRatingBaseList(@Param("userId") Long user_id);
+
+@Query(value="SELECT ColorTable.RatingScore, " +
+        "ColorTable.ColorName, " +
+        "COUNT(ColorTable.ColorName) AS ColorCount " +
+        "FROM (" +
+            "SELECT cocktails.cocktail_color1 AS ColorName, " +
+            "comments.comment_rating AS RatingScore " +
+            "FROM cocktails " +
+            "INNER JOIN comments ON cocktails.cocktail_id = comments.cocktail_id " +
+            "WHERE comments.comment_deleted = false AND comments.user_id=:userId " +
+            "UNION ALL " +
+            "SELECT cocktails.cocktail_color2 AS ColorName, comments.comment_rating AS RatingScore " +
+            "FROM cocktails " +
+            "INNER JOIN comments ON cocktails.cocktail_id = comments.cocktail_id " +
+            "WHERE comments.comment_deleted = false AND comments.user_id=:userId " +
+        ") AS ColorTable " +
+        "GROUP BY ColorTable.ColorName, ColorTable.RatingScore " +
+        "ORDER BY ColorTable.RatingScore DESC", nativeQuery = true)
+    ArrayList<MyAnalysisRatingColorInterface> getMyAnalysisRatingColorList(@Param("userId") Long user_id);
+
 }
