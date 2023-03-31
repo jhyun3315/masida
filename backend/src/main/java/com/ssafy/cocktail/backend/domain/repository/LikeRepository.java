@@ -17,14 +17,14 @@ public interface LikeRepository extends JpaRepository<Like, Long> {
     public Like findByUserAndCocktail(User user, Cocktail cocktail);
 
     // 해당 유저가 좋아요한 칵테일 리스트
-    @Query("select l.cocktail from Like l where l.user.id = :userId")
+    @Query("select l.cocktail from Like l where l.user.id = :userId and l.likeDeleted = false")
     public Page<Cocktail> findLikeCocktailByUserId(@Param("userId") Long userId, Pageable pageable);
 
     // 해당 유저가 좋아요한 칵테일 개수
-    @Query("select count(l.cocktail) from Like l where l.user.id = :userId")
+    @Query("select count(l.cocktail) from Like l where l.user.id = :userId and l.likeDeleted = false")
     public Long findLikeCntByUserId(@Param("userId") Long userId);
 
     // 해당 칵테일의 좋아요 개수
-    @Query("select count(l.id) from Like l where l.cocktail.id = :cocktailId")
+    @Query("select count(l.id) from Like l where l.cocktail.id = :cocktailId and l.likeDeleted = false")
     public  Long findLikeCntByCocktailId(@Param("cocktailId") Long cocktailId);
 }
