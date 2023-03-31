@@ -1,10 +1,8 @@
 package com.ssafy.cocktail.backend.myPage.controller;
 
+import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.User;
-import com.ssafy.cocktail.backend.myPage.dto.CocktailSummary;
-import com.ssafy.cocktail.backend.myPage.dto.CommentCocktail;
-import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCnt;
-import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
+import com.ssafy.cocktail.backend.myPage.dto.*;
 import com.ssafy.cocktail.backend.myPage.dto.response.*;
 import com.ssafy.cocktail.backend.myPage.service.MypageBookmarkService;
 import com.ssafy.cocktail.backend.myPage.service.MypageCommentService;
@@ -85,11 +83,35 @@ public class MypageController {
 			Pageable pageable = PageRequest.of(page, 15, Sort.by("id").descending());
 
 			// 해당 유저가 좋아요한 칵테일 리스트
-			List<LikeBookmarkCocktail> likeCocktailList = mypageLikeService.getLikeCocktailList(user.getId(), pageable);
-			Integer nextPage = page + 1;
-			Boolean isEnd = false;
+			Page<Cocktail> cocktailPage = mypageLikeService.getLikeCocktailList(user.getId(), pageable);
+			// 칵테일 리스트만 가져오기
+			List<Cocktail> cocktailList = cocktailPage.getContent();
+			// LikeBookmarkCocktail DTO 리스트에 담아주기
+			List<LikeBookmarkCocktail> dataList = new ArrayList<>();
+			for(Cocktail cocktail : cocktailList) {
+				// 해당 칵테일의 좋아요 개수
+				long likeCnt = mypageLikeService.getLikeCocktailCnt(cocktail.getId());
+				// DTO에 담아주기
+				LikeBookmarkCocktail likeCocktail = LikeBookmarkCocktail.builder()
+						.cocktailId(cocktail.getId())
+						.cocktailNameKo(cocktail.getCocktailNameKo())
+						.cocktailImg(cocktail.getCocktailImg())
+						.likeCnt(likeCnt)
+						.cocktailRating(cocktail.getCocktailRating())
+						.cocktailDifficulty(cocktail.getCocktailDifficulty())
+						.build();
+				// data 리스트에 담아주기
+				dataList.add(likeCocktail);
+			}
 
-			return ResponseEntity.status(200).body(PageableRes.of(200, "Success", likeCocktailList, nextPage, isEnd));
+			int nextPage = page + 1;
+			boolean isEnd = false;
+			int totalPages = cocktailPage.getTotalPages();
+			if(page+1 >= totalPages) {
+				nextPage = 0;
+				isEnd = true;
+			}
+			return ResponseEntity.status(200).body(PageableRes.of(200, "Success", dataList, nextPage, isEnd));
 		} 
 		// 토큰이 유효하지 않은 경우
 		catch (Exception e) {
