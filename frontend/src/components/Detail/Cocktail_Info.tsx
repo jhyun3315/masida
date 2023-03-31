@@ -43,7 +43,7 @@ const Cocktail_info = ({ cocktail_id }: CocktailInfoProps) => {
           difficulty_img_url_converter(result.cocktail_difficulty)
         );
       });
-  }, []);
+  }, [isLiked, isBookmarked]);
 
   useEffect(() => {
     if (isLiked) {
@@ -82,10 +82,11 @@ const Cocktail_info = ({ cocktail_id }: CocktailInfoProps) => {
 
   const bookmark_check_handler = () => {
     console.log("isBookmarked : ", isBookmarked);
-    console.log(detail.cocktail_id)
+    console.log(detail.cocktail_id);
+    console.log(atk);
     axios
       .post(
-        `https://j8b208.p.ssafy.io/api/cocktails/bookmark`,
+        `https://j8b208.p.ssafy.io/api/cocktails/bookmarks`,
         {
           cocktail_id: detail.cocktail_id,
         },

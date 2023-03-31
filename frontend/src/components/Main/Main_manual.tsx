@@ -119,7 +119,7 @@ const Main_manual = () => {
                 집에서 나만의 칵테일을 만들어보세요!
               </div>
               <div className={style.manual_content_shop_carousel}>
-                <Slider>
+                <Slider {...settings}>
                   {items.map((key) => (
                     <Shop_item {...key} />
                   ))}

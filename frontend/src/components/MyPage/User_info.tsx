@@ -7,7 +7,28 @@ import { userType } from "../../type/userTypes";
 import { imgLoader } from "../../utils/imgLoader";
 import { ImageLoaderProps } from "next/image";
 
+import { RootState, store } from "../../../store/store";
+import { useSelector } from "react-redux";
+import axios from "axios";
+
 const User_info = (user_props: userType) => {
+  const [likesCnt, setLikesCnt] = useState<number>();
+  const [booksCnt, setBooksCnt] = useState<number>();
+
+  useEffect(()=>{
+    // const atk = useSelector((state:RootState) => state.user.accessToken);
+    const atk = store.getState().user.accessToken;
+    axios.get("/api/mypage/cnt", {
+      headers : {
+        Authorization:atk
+      }
+    }).then(response=>{
+      const result = response.data.data;
+      setBooksCnt(result.bookmark_count);
+      setLikesCnt(result.bookmark_count);
+      console.log(response)
+    })
+  }, [])
   const user_info = user_props;
 
   const [visible, setVisible] = useState(false);
@@ -49,7 +70,7 @@ const User_info = (user_props: userType) => {
               width={20}
               height={20}
             />{" "}
-            BookMark(55)
+            BookMark({booksCnt})
           </h3>
           <h3>
             <Image
@@ -61,7 +82,7 @@ const User_info = (user_props: userType) => {
               width={20}
               height={20}
             />{" "}
-            Likes(38)
+            Likes({likesCnt})
           </h3>
         </div>
         <div className={style.user_info_setting}>
