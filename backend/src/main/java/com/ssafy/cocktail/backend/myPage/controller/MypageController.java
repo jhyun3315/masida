@@ -148,27 +148,29 @@ public class MypageController {
 	}
 
 	@GetMapping("/comment")
-	public ResponseEntity<?> getCommentCocktailList(@RequestHeader Map<String, String> data) {
+	public ResponseEntity<?> getCommentCocktailList(@RequestHeader Map<String, String> data, @RequestParam(value = "page", defaultValue = "0") Integer page) {
 		String accessToken = data.get("authorization");
 
 		// 토큰이 없는 경우,
 		if (accessToken == null) {
-			return ResponseEntity.status(400).body(CommentCocktailRes.of(400, "토큰이 비어있습니다", new ArrayList<>()));
+			return ResponseEntity.status(400).body(PageableRes.of(400, "토큰이 비어있습니다", new ArrayList<>(), -1, false));
 		}
 
 		// 토큰이 유효한 경우,
 		try {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
-			System.out.println(user.getId());
+
+			// pagination 위해 Pageable 생성
+			Pageable pageable = PageRequest.of(page, 15, Sort.by("id").descending());
 
 			// 해당 유저가 댓글 및 평점 등록한 칵테일 리스트
-			List<CommentCocktail> commentCocktailList = mypageCommentService.getCommentCocktailList(user.getId());
-			return ResponseEntity.status(200).body(CommentCocktailRes.of(200, "Success", commentCocktailList));
+			PaginationDataSet pageCommentCocktails = mypageCommentService.getCommentCocktailList(user.getId(), pageable);
+			return ResponseEntity.status(200).body(PageableRes.of(200, "Success", pageCommentCocktails.getData(), pageCommentCocktails.getNextPage(), pageCommentCocktails.isEnd()));
 		}
 		// 토큰이 유효하지 않은 경우
 		catch (Exception e) {
-			return ResponseEntity.status(400).body(CommentCocktailRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
+			return ResponseEntity.status(400).body(PageableRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>(), -1, false));
 		}
 	}
 

@@ -3,9 +3,11 @@ package com.ssafy.cocktail.backend.myPage.service.impl;
 import com.ssafy.cocktail.backend.domain.entity.Comment;
 import com.ssafy.cocktail.backend.domain.repository.CommentRepository;
 import com.ssafy.cocktail.backend.myPage.dto.CommentCocktail;
-import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
+import com.ssafy.cocktail.backend.myPage.dto.PaginationDataSet;
 import com.ssafy.cocktail.backend.myPage.service.MypageCommentService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -25,13 +27,16 @@ public class MypageCommentServiceImpl implements MypageCommentService {
 	 * @return List<CommentCocktail>
 	 */
 	@Override
-	public List<CommentCocktail> getCommentCocktailList(Long userId) {
-		// 해당 유저가 등록한 Comment 객체 리스트
-		List<Comment> commentCocktailList = commentRepository.findCommentCocktailsByUserId(userId);
-		// CommentCocktail DTO 담을 List
-		List<CommentCocktail> result = new ArrayList<>();
+	public PaginationDataSet getCommentCocktailList(Long userId, Pageable pageable) {
+		// 해당 유저가 등록한 Comment 객체 리스트 - Pagination 적용
+		Page<Comment> commentPage = commentRepository.findCommentCocktailsByUserId(userId, pageable);
+		// Comment 엔티티 리스트로 가져오기
+		List<Comment> commentList = commentPage.getContent();
+		// 엔티티 Comment를 DTO 객체로 바꿔서 해당 List에 담아주기
+		List<CommentCocktail> commentCocktailData = new ArrayList<>();
 
-		for(Comment comment : commentCocktailList) {
+		// 엔티티 칵테일을 DTO 객체로 바꿔주기
+		for(Comment comment : commentList) {
 			// CommentCocktail DTO에 담아주기
 			CommentCocktail commentCocktail = CommentCocktail.builder()
 					.cocktailId(comment.getCocktail().getId())
@@ -42,8 +47,29 @@ public class MypageCommentServiceImpl implements MypageCommentService {
 					.commentRating(comment.getCommentRating())
 					.commentCreatedDate(comment.getCommentCreatedDate())
 					.build();
-			result.add(commentCocktail);
+			commentCocktailData.add(commentCocktail);
 		}
-		return result;
+
+		// 현재 페이지
+		int curPage = pageable.getPageNumber();
+		// 총 페이지 개수
+		int totalPages = commentPage.getTotalPages();
+		// 다음 페이지
+		int nextPage = curPage + 1;
+		// 마지막 페이지 여부
+		boolean isEnd = false;
+		if(curPage + 1 >= totalPages) {
+			isEnd = true;
+			nextPage = -1;
+		}
+
+		// PaginationDataSet 객체에 data들 담아주기
+		PaginationDataSet pageListCocktail = PaginationDataSet.builder()
+				.data(commentCocktailData)
+				.nextPage(nextPage)
+				.isEnd(isEnd)
+				.build();
+
+		return pageListCocktail;
 	}
 }
