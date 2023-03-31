@@ -1,6 +1,5 @@
 package com.ssafy.cocktail.backend.myPage.controller;
 
-import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.User;
 import com.ssafy.cocktail.backend.myPage.dto.*;
 import com.ssafy.cocktail.backend.myPage.dto.response.*;
@@ -11,7 +10,6 @@ import com.ssafy.cocktail.backend.myPage.service.MypageSummaryService;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -47,7 +45,6 @@ public class MypageController {
 		try {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
-
 			// 해당 사용자가 좋아요한 칵테일 개수
 			long likesCnt = mypageLikeService.getLikeCocktailCnt(user.getId());
 			// 해당 사용자가 북마크한 칵테일 개수
@@ -71,51 +68,23 @@ public class MypageController {
 
 		// 토큰이 없는 경우,
 		if(accessToken == null) {
-			return ResponseEntity.status(400).body(LikeBookmarkCocktailsRes.of(400, "토큰이 비어있습니다", new ArrayList<>()));
+			return ResponseEntity.status(400).body(PageableRes.of(400, "토큰이 비어있습니다", new ArrayList<>(), -1, true));
 		}
 
 		// 토큰이 유효한 경우,
 		try {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
-
 			// pagination 위해 Pageable 생성
-			Pageable pageable = PageRequest.of(page, 15, Sort.by("id").descending());
+			Pageable pageable = PageRequest.of(page, 12, Sort.by("id").descending());
 
 			// 해당 유저가 좋아요한 칵테일 리스트
-			Page<Cocktail> cocktailPage = mypageLikeService.getLikeCocktailList(user.getId(), pageable);
-			// 칵테일 리스트만 가져오기
-			List<Cocktail> cocktailList = cocktailPage.getContent();
-			// LikeBookmarkCocktail DTO 리스트에 담아주기
-			List<LikeBookmarkCocktail> dataList = new ArrayList<>();
-			for(Cocktail cocktail : cocktailList) {
-				// 해당 칵테일의 좋아요 개수
-				long likeCnt = mypageLikeService.getLikeCocktailCnt(cocktail.getId());
-				// DTO에 담아주기
-				LikeBookmarkCocktail likeCocktail = LikeBookmarkCocktail.builder()
-						.cocktailId(cocktail.getId())
-						.cocktailNameKo(cocktail.getCocktailNameKo())
-						.cocktailImg(cocktail.getCocktailImg())
-						.likeCnt(likeCnt)
-						.cocktailRating(cocktail.getCocktailRating())
-						.cocktailDifficulty(cocktail.getCocktailDifficulty())
-						.build();
-				// data 리스트에 담아주기
-				dataList.add(likeCocktail);
-			}
-
-			int nextPage = page + 1;
-			boolean isEnd = false;
-			int totalPages = cocktailPage.getTotalPages();
-			if(page+1 >= totalPages) {
-				nextPage = 0;
-				isEnd = true;
-			}
-			return ResponseEntity.status(200).body(PageableRes.of(200, "Success", dataList, nextPage, isEnd));
+			PaginationDataSet pageLikeCocktails = mypageLikeService.getLikeCocktailList(user.getId(), pageable);
+			return ResponseEntity.status(200).body(PageableRes.of(200, "Success", pageLikeCocktails.getData(), pageLikeCocktails.getNextPage(), pageLikeCocktails.isEnd()));
 		} 
 		// 토큰이 유효하지 않은 경우
 		catch (Exception e) {
-			return ResponseEntity.status(400).body(LikeBookmarkCocktailsRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
+			return ResponseEntity.status(400).body(PageableRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>(), -1, true));
 		}
 	}
 
@@ -126,16 +95,15 @@ public class MypageController {
 
 		// 토큰이 없는 경우,
 		if(accessToken == null) {
-			return ResponseEntity.status(400).body(PageableRes.of(400, "토큰이 비어있습니다", new ArrayList<>(), -1, false));
+			return ResponseEntity.status(400).body(PageableRes.of(400, "토큰이 비어있습니다", new ArrayList<>(), -1, true));
 		}
 
 		// 토큰이 유효한 경우,
 		try {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
-
 			// pagination 위해 Pageable 생성
-			Pageable pageable = PageRequest.of(page, 15, Sort.by("id").descending());
+			Pageable pageable = PageRequest.of(page, 12, Sort.by("id").descending());
 
 			// 해당 유저가 북마크한 칵테일 리스트
 			PaginationDataSet pageBookmarkCocktails = mypageBookmarkService.getBookmarkCocktailList(user.getId(), pageable);
@@ -143,7 +111,7 @@ public class MypageController {
 		}
 		// 토큰이 유효하지 않은 경우
 		catch (Exception e) {
-			return ResponseEntity.status(400).body(PageableRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>(), -1, false));
+			return ResponseEntity.status(400).body(PageableRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>(), -1, true));
 		}
 	}
 
@@ -153,16 +121,15 @@ public class MypageController {
 
 		// 토큰이 없는 경우,
 		if (accessToken == null) {
-			return ResponseEntity.status(400).body(PageableRes.of(400, "토큰이 비어있습니다", new ArrayList<>(), -1, false));
+			return ResponseEntity.status(400).body(PageableRes.of(400, "토큰이 비어있습니다", new ArrayList<>(), -1, true));
 		}
 
 		// 토큰이 유효한 경우,
 		try {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
-
 			// pagination 위해 Pageable 생성
-			Pageable pageable = PageRequest.of(page, 15, Sort.by("id").descending());
+			Pageable pageable = PageRequest.of(page, 12, Sort.by("id").descending());
 
 			// 해당 유저가 댓글 및 평점 등록한 칵테일 리스트
 			PaginationDataSet pageCommentCocktails = mypageCommentService.getCommentCocktailList(user.getId(), pageable);
@@ -170,7 +137,7 @@ public class MypageController {
 		}
 		// 토큰이 유효하지 않은 경우
 		catch (Exception e) {
-			return ResponseEntity.status(400).body(PageableRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>(), -1, false));
+			return ResponseEntity.status(400).body(PageableRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>(), -1, true));
 		}
 	}
 
@@ -187,7 +154,6 @@ public class MypageController {
 		try {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
-			System.out.println(user.getId());
 
 			// 해당 유저가 댓글 및 평점 등록한 칵테일 리스트
 			List<CocktailSummary> cocktailSummaryList = mypageSummaryService.getCocktailSummaryList(user.getId());

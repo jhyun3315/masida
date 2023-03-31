@@ -41,7 +41,7 @@ public class LikeBookmarkCocktail {
 		this.cocktailNameKo = cocktailNameKo;
 		this.cocktailImg = cocktailImg;
 		this.cocktailLikes = likeCnt;
-		this.cocktailRating = cocktailRating;
+		this.cocktailRating = Double.parseDouble(String.format("%.1f", cocktailRating));
 		this.cocktailDifficulty = ((cocktailDifficulty < 2 ) ? "하" : (cocktailDifficulty < 3) ? "중" : "상" );	// double형 난이도를 String형으로 바꿔주기
 	}
 
