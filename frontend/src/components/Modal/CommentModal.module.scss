@@ -26,10 +26,11 @@
   }
   .comment_btn {
     position: absolute;
-    left: 0;
-    top: 45%;
-    width: 20px;
-    height: 80px;
+    right: 0.5%;
+    top: 0.5%;
+    width: 40px;
+    height: 40px;
+    
   }
 
   .comment_list {
@@ -95,6 +96,16 @@
         height: 32px;
         font-weight: bold;
         margin-right: 24px;
+      }
+      .nowrite_btn {
+        margin: 1rem;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 56px;
+        height: 32px;
+        font-weight: bold;
+        margin-right: 24px;
+        opacity: 0.5;
       }
     }
   }
