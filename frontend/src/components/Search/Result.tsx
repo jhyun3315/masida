@@ -8,6 +8,8 @@ const Result = () => {
   const [cocktail, setCokctail] = useState<cocktailType[]>([]);
   const [page, setPage] = useState<number>(0);
   const [sortingNum, setSortingNum] = useState<number>(0);
+  const [cocktailCnt, setCocktailCnt] = useState<number>(0);
+  const [pageEnd, setPageEnd] = useState<boolean>(false);
 
   useEffect(() => {
     axios
@@ -25,10 +27,13 @@ const Result = () => {
       .then((response) => {
         response.data.data;
         setCokctail([...cocktail, ...response.data.data]);
-        setPage(page+1);
+        setCocktailCnt(response.data.max);
+        setPage(response.data.next_page);
+        console.log(response);
+        setPageEnd(response.data.is_end);
       });
   },[])
-  // console.log(cocktail);
+  console.log(cocktail);
 
   //정렬 기준이 바뀔때마다 useEffect 새로해주어야함.(즉 axios통신 새로해주기.)
   useEffect(() => {
@@ -60,7 +65,7 @@ const Result = () => {
     
     console.log(isEnd);
     
-    if(isEnd) { //끝을 감지했다면?
+    if(isEnd && !pageEnd) { //끝을 감지했다면?
        axios
       .get(`https://j8b208.p.ssafy.io/api/cocktails/search`, {
         params : {
@@ -76,7 +81,8 @@ const Result = () => {
       .then((response) => {
         response.data.data;
         setCokctail([...cocktail, ...response.data.data]);
-        setPage(page+1);
+        setPage(response.data.next_page);
+        setPageEnd(response.data.is_end);
       });
     }
     
@@ -88,7 +94,7 @@ const Result = () => {
     <>
       <div className={style.result}>
         <div className={style.result_header}>
-          <div className={style.result_count}>총 건</div>
+          <div className={style.result_count}>총 {cocktailCnt}건</div>
           <div className={style.result_sort}>
             <input
               type="radio"
