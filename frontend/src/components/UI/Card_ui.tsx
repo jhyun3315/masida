@@ -1,5 +1,9 @@
 import style from "./Card_ui.module.scss";
-import { cocktailType,cocktail_recommend,cocktail_worldcup_data } from "../../type/cocktailTypes";
+import {
+  cocktailType,
+  cocktail_recommend,
+  cocktail_worldcup_data,
+} from "../../type/cocktailTypes";
 import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty_img_url_converter";
 import { mypageCommentType } from "../../type/commentTypes";
 
@@ -90,7 +94,7 @@ const Search_result_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
 };
 
 interface myBookMarkProps {
-  key : number,
+  key: number;
   cocktail: cocktailType;
   setIsChanged: Dispatch<SetStateAction<boolean>>;
   isChanged: boolean;
