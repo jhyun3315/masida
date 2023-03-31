@@ -11,51 +11,54 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { get_user_info } from "../api/auth/user_api";
-
+import { store } from "../../../store/store";
 const mypage = () => {
-  // const user_props: userType = {
-  //   user_name: "손종효",
-  //   user_email: "jonghyo0220@ssafy.com",
-  //   user_profile: "/assets/image/user_profile_img.png",
-  //   user_gender: "남",
-  //   user_age_range: 20,
-  // };
   let [userInfo, setUserInfo] = useState<userType>(null);
+  const [analysisThumbnail_props, setAnalysisThumbnail_props] =
+    useState<cocktail_summary[]>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   useEffect(() => {
     get_user_info().then((response) => {
+      // console.log("userINFO : ", response)
       setUserInfo(response.value);
     });
   }, []);
+  useEffect(() => {
+    // const atk = useSelector((state: RootState) => state.user.accessToken);
+    const atk = store.getState().user.accessToken;
+    console.log(atk);
+    axios
+      .get(`https://j8b208.p.ssafy.io/api/mypage/cocktail_summary`, {
+        headers: {
+          Authorization: atk,
+        },
+      })
+      .then((response) => {
+        const parsedArr = response.data.data.map((el: any) => {
+          el.data = [el.data];
+          return el;
+        });
+        setAnalysisThumbnail_props(parsedArr);
+        setIsLoading(true);
+      });
+  }, []);
 
-  const analysisThumbnail_props: cocktail_summary[] = [
-    {
-      id: "베이스",
-      data: [{ x: "럼", y: 32 }],
-    },
-    {
-      id: "재료",
-      data: [{ x: "라임", y: 29 }],
-    },
-    {
-      id: "색상",
-      data: [{ x: "빨간색", y: 41 }],
-    },
-  ];
-
-  return (
-    <>
-      <Header />
-      <div className={style.mypage}>
-        <div className={style.mypage_left}>
-          <User_info {...userInfo} />
-          <Analysis_thumbnail {...analysisThumbnail_props} />
+  if (isLoading) {
+    return (
+      <>
+        <Header />
+        <div className={style.mypage}>
+          <div className={style.mypage_left}>
+            <User_info {...userInfo} />
+            <Analysis_thumbnail {...analysisThumbnail_props} />
+          </div>
+          <div className={style.mypage_right}>
+            <User_cocktail_list />
+          </div>
         </div>
-        <div className={style.mypage_right}>
-          <User_cocktail_list />
-        </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 };
 
 export default mypage;

@@ -4,6 +4,8 @@ import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty
 import { mypageCommentType } from "../../type/commentTypes";
 
 import Link from "next/link";
+import { store } from "../../../store/store";
+import { SetStateAction, Dispatch } from "react";
 
 const Detail_recommend_card: React.FC<cocktailType> = (
   cocktail: cocktailType
@@ -87,11 +89,26 @@ const Search_result_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
   );
 };
 
-// 북마크 클릭 시 이벤트 만들어야함
-const test = () => {
-  console.log("hi");
-};
-const My_bookmark_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
+interface myBookMarkProps {
+  key : number,
+  cocktail: cocktailType;
+  setIsChanged: Dispatch<SetStateAction<boolean>>;
+  isChanged: boolean;
+}
+
+const My_bookmark_card: React.FunctionComponent<myBookMarkProps> = ({
+  key,
+  cocktail,
+  setIsChanged,
+  isChanged,
+}) => {
+  // 북마크 클릭 시 이벤트 만들어야함
+  const bookmarkHandler = (cocktail_id: number) => {
+    const atk = store.getState().user.accessToken;
+    setIsChanged(!isChanged);
+    console.log(atk, " ", cocktail_id);
+  };
+
   return (
     <div>
       <div className={style.result_card}>
@@ -107,7 +124,7 @@ const My_bookmark_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
           className={style.result_card_bookmark_icon}
           src="/assets/icons/BookmarkCheckedIMG.png"
           alt=""
-          onClick={test}
+          onClick={() => bookmarkHandler(cocktail.cocktail_id)}
         />
         <div className={style.result_card_title}>
           {cocktail.cocktail_name_ko}
@@ -176,11 +193,13 @@ const My_like_card: React.FC<cocktailType> = (cocktail: cocktailType) => {
   );
 };
 
-const My_Analysis_card: React.FC<cocktail_recommend> = (cocktail: cocktail_recommend) => { 
+const My_Analysis_card: React.FC<cocktail_recommend> = (
+  cocktail: cocktail_recommend
+) => {
   return (
     <>
       <div className={style.recommendCard}>
-        <div className={ style.recommendCard_content}>
+        <div className={style.recommendCard_content}>
           <div className={style.recommendCard_content_img}>
             <Link href={`detail/${cocktail.cocktail_id}`}>
               <img src={cocktail.cocktail_img}></img>
@@ -192,8 +211,8 @@ const My_Analysis_card: React.FC<cocktail_recommend> = (cocktail: cocktail_recom
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 const My_comment_card: React.FC<mypageCommentType> = (
   cocktail: mypageCommentType
