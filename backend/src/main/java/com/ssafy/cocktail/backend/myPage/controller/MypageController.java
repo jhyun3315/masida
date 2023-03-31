@@ -1,14 +1,9 @@
 package com.ssafy.cocktail.backend.myPage.controller;
 
+import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.User;
-import com.ssafy.cocktail.backend.myPage.dto.CocktailSummary;
-import com.ssafy.cocktail.backend.myPage.dto.CommentCocktail;
-import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCnt;
-import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
-import com.ssafy.cocktail.backend.myPage.dto.response.CocktailSummaryRes;
-import com.ssafy.cocktail.backend.myPage.dto.response.CommentCocktailRes;
-import com.ssafy.cocktail.backend.myPage.dto.response.LikeBookmarkCntRes;
-import com.ssafy.cocktail.backend.myPage.dto.response.LikeBookmarkCocktailsRes;
+import com.ssafy.cocktail.backend.myPage.dto.*;
+import com.ssafy.cocktail.backend.myPage.dto.response.*;
 import com.ssafy.cocktail.backend.myPage.service.MypageBookmarkService;
 import com.ssafy.cocktail.backend.myPage.service.MypageCommentService;
 import com.ssafy.cocktail.backend.myPage.service.MypageLikeService;
@@ -16,6 +11,10 @@ import com.ssafy.cocktail.backend.myPage.service.MypageSummaryService;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -67,7 +66,7 @@ public class MypageController {
 
 
 	@GetMapping("/likes")
-	public ResponseEntity<?> getLikeCocktailList(@RequestHeader Map<String, String> data) {
+	public ResponseEntity<?> getLikeCocktailList(@RequestHeader Map<String, String> data, @RequestParam(value = "page", defaultValue = "0") Integer page) {
 		String accessToken = data.get("authorization");
 
 		// 토큰이 없는 경우,
@@ -80,9 +79,39 @@ public class MypageController {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
 
+			// pagination 위해 Pageable 생성
+			Pageable pageable = PageRequest.of(page, 15, Sort.by("id").descending());
+
 			// 해당 유저가 좋아요한 칵테일 리스트
-			List<LikeBookmarkCocktail> likeCocktailList = mypageLikeService.getLikeCocktailList(user.getId());
-			return ResponseEntity.status(200).body(LikeBookmarkCocktailsRes.of(200, "Success", likeCocktailList));
+			Page<Cocktail> cocktailPage = mypageLikeService.getLikeCocktailList(user.getId(), pageable);
+			// 칵테일 리스트만 가져오기
+			List<Cocktail> cocktailList = cocktailPage.getContent();
+			// LikeBookmarkCocktail DTO 리스트에 담아주기
+			List<LikeBookmarkCocktail> dataList = new ArrayList<>();
+			for(Cocktail cocktail : cocktailList) {
+				// 해당 칵테일의 좋아요 개수
+				long likeCnt = mypageLikeService.getLikeCocktailCnt(cocktail.getId());
+				// DTO에 담아주기
+				LikeBookmarkCocktail likeCocktail = LikeBookmarkCocktail.builder()
+						.cocktailId(cocktail.getId())
+						.cocktailNameKo(cocktail.getCocktailNameKo())
+						.cocktailImg(cocktail.getCocktailImg())
+						.likeCnt(likeCnt)
+						.cocktailRating(cocktail.getCocktailRating())
+						.cocktailDifficulty(cocktail.getCocktailDifficulty())
+						.build();
+				// data 리스트에 담아주기
+				dataList.add(likeCocktail);
+			}
+
+			int nextPage = page + 1;
+			boolean isEnd = false;
+			int totalPages = cocktailPage.getTotalPages();
+			if(page+1 >= totalPages) {
+				nextPage = 0;
+				isEnd = true;
+			}
+			return ResponseEntity.status(200).body(PageableRes.of(200, "Success", dataList, nextPage, isEnd));
 		} 
 		// 토큰이 유효하지 않은 경우
 		catch (Exception e) {

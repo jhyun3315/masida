@@ -3,6 +3,8 @@ package com.ssafy.cocktail.backend.domain.repository;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.Like;
 import com.ssafy.cocktail.backend.domain.entity.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -16,7 +18,7 @@ public interface LikeRepository extends JpaRepository<Like, Long> {
 
     // 해당 유저가 좋아요한 칵테일 리스트
     @Query("select l.cocktail from Like l where l.user.id = :userId")
-    public List<Cocktail> findLikeCocktailByUserId(@Param("userId") Long userId);
+    public Page<Cocktail> findLikeCocktailByUserId(@Param("userId") Long userId, Pageable pageable);
 
     // 해당 유저가 좋아요한 칵테일 개수
     @Query("select count(l.cocktail) from Like l where l.user.id = :userId")
