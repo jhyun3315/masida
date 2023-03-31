@@ -10,4 +10,5 @@ public interface MyAnalysisUserService {
     ArrayList<MyAnalysisIngredient> getAnalysisByIngredient(String accessToken);
     ArrayList<MyAnalysisOthers> getAnalysisByOthers(String accessToken);
     RatingBase getAnalysisByRatingBase(String accessToken);
+    RatingColor getAnalysisByRatingColor(String accessToken);
 }

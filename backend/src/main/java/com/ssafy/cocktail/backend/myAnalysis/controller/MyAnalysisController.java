@@ -5,13 +5,11 @@ import com.ssafy.cocktail.backend.myAnalysis.dto.response.*;
 import com.ssafy.cocktail.backend.myAnalysis.service.MyAnalysisUserService;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 @Tag(name = "my-analysis", description = "마이페이지 상세 API")
@@ -26,7 +24,6 @@ public class MyAnalysisController {
     @GetMapping("/cocktail-base")
     public ResponseEntity<MyAnalysisBaseRes> analysisByUserBase(@RequestHeader Map<String, String> data ) {
         String accessToken = data.get("authorization");
-        System.out.println(data.get("authorization"));
 
         if(accessToken !=null){
             ArrayList<MyAnalysisBase> myAnalysisBaseList = myAnalysisUserService.getAnalysisByBase(data.get("authorization"));
@@ -39,7 +36,6 @@ public class MyAnalysisController {
     @GetMapping("/cocktail-color")
     public ResponseEntity<MyAnalysisColorRes> analysisByUserColor(@RequestHeader Map<String, String> data ) {
         String accessToken = data.get("authorization");
-        System.out.println(data.get("authorization"));
 
         if(accessToken !=null){
             ArrayList<MyAnalysisColor> myAnalysisColorList = myAnalysisUserService.getAnalysisByColor(data.get("authorization"));
@@ -52,7 +48,6 @@ public class MyAnalysisController {
     @GetMapping("/cocktail-ingredient")
     public ResponseEntity<MyAnalysisIngredientRes> analysisByUserIngredient(@RequestHeader Map<String, String> data) {
         String accessToken = data.get("authorization");
-        System.out.println(data.get("authorization"));
 
         if(accessToken !=null){
             ArrayList<MyAnalysisIngredient> myAnalysisIngredientsList = myAnalysisUserService.getAnalysisByIngredient(data.get("authorization"));
@@ -65,7 +60,6 @@ public class MyAnalysisController {
     @GetMapping("/cocktail-age-gender")
     public ResponseEntity<MyAnalysisOthersRes> MyAnalysisByUserIngredient(@RequestHeader Map<String, String> data) {
         String accessToken = data.get("authorization");
-        System.out.println(data.get("authorization"));
 
         if(accessToken !=null){
             ArrayList<MyAnalysisOthers> myAnalysisOthersList = myAnalysisUserService.getAnalysisByOthers(data.get("authorization"));
@@ -78,7 +72,6 @@ public class MyAnalysisController {
     @GetMapping("/base-rating")
     public ResponseEntity<MyAnalysisRatingBaseRes> MyAnalysisByRatingBase(@RequestHeader Map<String, String> data) {
         String accessToken = data.get("authorization");
-        System.out.println(data.get("authorization"));
 
         if(accessToken !=null){
             RatingBase ratingBase = myAnalysisUserService.getAnalysisByRatingBase(data.get("authorization"));
@@ -93,4 +86,23 @@ public class MyAnalysisController {
                     0,0,0,null, null));
         }
     }
+
+    @GetMapping("/color-rating")
+    public ResponseEntity<MyAnalysisRatingColorRes> MyAnalysisByRatingColor(@RequestHeader Map<String, String> data) {
+        String accessToken = data.get("authorization");
+
+        if(accessToken !=null){
+            RatingColor ratingColor = myAnalysisUserService.getAnalysisByRatingColor(data.get("authorization"));
+            return ResponseEntity.status(200).body(MyAnalysisRatingColorRes.of(200, "Success",
+                    ratingColor.getRating_average(),
+                    ratingColor.getRating_count(),
+                    ratingColor.getRating_max(),
+                    ratingColor.getRating_max_color(),
+                    ratingColor.getData()));
+        }else{
+            return ResponseEntity.status(400).body(MyAnalysisRatingColorRes.of(400, "존재하지 않는 사용자입니다.",
+                    0,0,0,null, null));
+        }
+    }
+
 }
