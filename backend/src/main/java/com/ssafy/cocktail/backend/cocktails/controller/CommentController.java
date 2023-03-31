@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 @Tag(name = "comment", description = "댓글 API")
 @RestController
@@ -21,7 +22,8 @@ public class CommentController {
     private CommentService commentService;
 
     @GetMapping("/{cocktail_id}")
-    public ResponseEntity<CommentRes> getComments(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId) {
+    public ResponseEntity<CommentRes> getComments(@RequestHeader Map<String, String> data, @PathVariable("cocktail_id") String cocktailId) {
+        String accessToken = data.get("Authorization");
         ArrayList<CommentDetail> commentDetails = commentService.getComments(cocktailId, accessToken);
         if (commentDetails != null) {
             boolean isWrired = commentService.isWrited(cocktailId, accessToken); // 칵테일 작성 여부 확인

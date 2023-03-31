@@ -28,8 +28,11 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public ArrayList<CommentDetail> getComments(String cocktailId, String accessToken) {
         // 칵테일 댓글을 리턴
-        User user = oAuthService.getUser(accessToken); // 사용자 가져오기
-        if (user == null) return null;
+        User user = null; // 사용자
+        if (accessToken != null ) { // 엑세스 토큰이 있으면
+            user = oAuthService.getUser(accessToken); // 사용자 가져오기
+            if (user == null) return null; // 사용자가 없으면
+        }
         Cocktail cocktail = cocktailRepository.findCocktailById(Long.valueOf(cocktailId)); // 칵테일 가져오기
         List<Comment> comments = commentRepository.findAllByCocktailAndCommentDeleted(cocktail, false); // 칵테일 댓글 가져오기
         ArrayList<CommentDetail> commentDetails = new ArrayList<CommentDetail>(); // 댓글을 저장할 객체
