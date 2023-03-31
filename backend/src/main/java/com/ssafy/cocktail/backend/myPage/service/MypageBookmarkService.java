@@ -1,10 +1,9 @@
 package com.ssafy.cocktail.backend.myPage.service;
 
-import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
-
-import java.util.List;
+import com.ssafy.cocktail.backend.myPage.dto.PaginationDataSet;
+import org.springframework.data.domain.Pageable;
 
 public interface MypageBookmarkService {
-	public List<LikeBookmarkCocktail> getBookmarkCocktailList(Long userId);
+	public PaginationDataSet getBookmarkCocktailList(Long userId, Pageable pageable);
 	public Long getBookmarkCocktailCnt(Long userId);
 }
