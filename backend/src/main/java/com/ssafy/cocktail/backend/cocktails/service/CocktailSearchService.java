@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public interface CocktailSearchService {
     public ArrayList<CocktailSearchDetail> getCocktailSearchList(SearchInfo info);
+    public int getMax();
     public ArrayList<IngredientSearch> getIngredientSearchList();
     public ArrayList<CocktailMain> getCocktailMainList();
     public CocktailMain getCocktailRandomOne();
