@@ -11,7 +11,6 @@ import Modal_portal from "../../components/Modal/Modal_portal";
 import CommentModal from "../../components/Modal/CommentModal";
 
 import { cocktailType } from "../../type/cocktailTypes";
-import { wrapper } from "../../../store";
 import { RootState } from "../../../store/store";
 import { useSelector } from "react-redux";
 
