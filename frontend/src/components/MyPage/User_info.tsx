@@ -11,27 +11,36 @@ import { RootState, store } from "../../../store/store";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
-const User_info = (user_props: userType) => {
+interface MyComponentProps {
+  userInfo: userType;
+  bookmarkModify: boolean;
+}
+
+const User_info: React.FC<MyComponentProps> = ({
+  userInfo,
+  bookmarkModify,
+}) => {
   const [likesCnt, setLikesCnt] = useState<number>();
   const [booksCnt, setBooksCnt] = useState<number>();
+  const [visible, setVisible] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     // const atk = useSelector((state:RootState) => state.user.accessToken);
     const atk = store.getState().user.accessToken;
-    axios.get("/api/mypage/cnt", {
-      headers : {
-        Authorization:atk
-      }
-    }).then(response=>{
-      const result = response.data.data;
-      setBooksCnt(result.bookmark_count);
-      setLikesCnt(result.bookmark_count);
-      console.log(response)
-    })
-  }, [])
-  const user_info = user_props;
+    axios
+      .get("/api/mypage/cnt", {
+        headers: {
+          Authorization: atk,
+        },
+      })
+      .then((response) => {
+        const result = response.data.data;
+        setBooksCnt(result.bookmark_count);
+        setLikesCnt(result.likes_count);
+        console.log(response);
+      });
+  }, [bookmarkModify]);
 
-  const [visible, setVisible] = useState(false);
   const onClickHandler = (event: React.MouseEvent<HTMLElement>) => {
     setVisible(!visible);
   };
@@ -43,7 +52,7 @@ const User_info = (user_props: userType) => {
           <UserSettingModal
             setVisible={setVisible}
             visible={visible}
-            user_info={user_info}
+            user_info={userInfo}
           />
         </Modal_portal>
       )}

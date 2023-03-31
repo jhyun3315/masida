@@ -1,6 +1,6 @@
 .userCocktailList {
   margin: 5%;
-
+  // margin-bottom: 0;
   .userCocktailList_header {
     span {
       font-weight: bold;
@@ -8,13 +8,17 @@
       margin-right: 3%;
     }
   }
-
+  
   .userCocktailList_content {
-    margin-top: 7%;
+    border: 1px solid #25397627;
+    border-radius: 10px;
+    margin-top: 2%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 1%;
-
+    height: 85vh;
+    overflow: scroll;
+    overflow-x: hidden;
   }
 
   .active {
