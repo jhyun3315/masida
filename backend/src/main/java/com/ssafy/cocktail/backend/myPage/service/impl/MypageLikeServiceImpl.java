@@ -2,7 +2,6 @@ package com.ssafy.cocktail.backend.myPage.service.impl;
 
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
-import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
 import com.ssafy.cocktail.backend.myPage.service.MypageLikeService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -10,8 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @Transactional
