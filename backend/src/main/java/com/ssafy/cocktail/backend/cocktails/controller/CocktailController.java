@@ -34,6 +34,7 @@ public class CocktailController {
 //        System.out.println(params.get("cocktail_difficulty"));
 //        System.out.println(params.get("cocktail_ingredient"));
         SearchInfo searchInfo = new SearchInfo();
+        if (params.get("page") != null) searchInfo.setPage((String) params.get("page"));
         if (params.get("sort_num") != null) searchInfo.setSortNum((String) params.get("sort_num"));
         if (params.get("cocktail_name") != null) searchInfo.setCocktailName((String) params.get("cocktail_name"));
         if (params.get("cocktail_base") != null) searchInfo.setCocktailBase((String) params.get("cocktail_base"));
