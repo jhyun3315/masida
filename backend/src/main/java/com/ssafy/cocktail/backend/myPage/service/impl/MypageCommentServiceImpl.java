@@ -3,7 +3,6 @@ package com.ssafy.cocktail.backend.myPage.service.impl;
 import com.ssafy.cocktail.backend.domain.entity.Comment;
 import com.ssafy.cocktail.backend.domain.repository.CommentRepository;
 import com.ssafy.cocktail.backend.myPage.dto.CommentCocktail;
-import com.ssafy.cocktail.backend.myPage.dto.LikeBookmarkCocktail;
 import com.ssafy.cocktail.backend.myPage.dto.PaginationDataSet;
 import com.ssafy.cocktail.backend.myPage.service.MypageCommentService;
 import lombok.AllArgsConstructor;
