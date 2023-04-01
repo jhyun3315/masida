@@ -23,6 +23,9 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
   let [sendIngredient, setSendIngredient] = useState<string[]>([]);
   const [resultLandering, setResultLandering] = useState<boolean>(false);
 
+  //처음 시작할때, 검색할때 초기화 시켜줄 배열입니다.
+  const resetCocktail: cocktailType[] = [];
+
   let name = useSelector((state: RootState) => state.nameSelect.searchName);
   let base = useSelector((state: RootState) => state.baseSelect.base);
   let color = useSelector((state: RootState) => state.colorSelect.color);
@@ -38,6 +41,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
     let tmpcolor: string = null;
     let tmpdifficulty: string = null;
     let tmpingredient: string = null;
+    setCokctail(resetCocktail);
     if (name === "") {
       name = null;
     }
@@ -50,7 +54,6 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
       tmpcolor = color.join(",");
     }
     if (difficulty?.length === 0) {
-      console.log("나 동작하지?");
       tmpdifficulty = null;
     } else {
       tmpdifficulty = difficulty.join(",");
@@ -79,7 +82,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
       })
       .then((response) => {
         response.data.data;
-        setCokctail([, ...response.data.data]);
+        setCokctail([...resetCocktail, ...response.data.data]);
         setCocktailCnt(response.data.max);
         setPage(response.data.next_page);
         console.log(response);
@@ -105,7 +108,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
   const handelScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
     const isEnd =
-      Math.round(target.scrollTop + target.clientHeight) ===
+      Math.round(target.scrollTop + target.clientHeight) >
       target.scrollHeight - 20;
 
     if (isEnd && !pageEnd) {
@@ -123,7 +126,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
           },
         })
         .then((response) => {
-          response.data.data;
+          console.log(response.data.data);
           setCokctail([...cocktail, ...response.data.data]);
           setPage(response.data.next_page);
           setPageEnd(response.data.is_end);
