@@ -21,6 +21,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
   const [cocktailCnt, setCocktailCnt] = useState<number>(0);
   const [pageEnd, setPageEnd] = useState<boolean>(false);
   let [sendIngredient, setSendIngredient] = useState<string[]>([]);
+  const [resultLandering, setResultLandering] = useState<boolean>(false);
 
   let name = useSelector((state: RootState) => state.nameSelect.searchName);
   let base = useSelector((state: RootState) => state.baseSelect.base);
@@ -63,9 +64,6 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
     tmpingredient = sendIngredient.join(",");
 
     setPage(0);
-    console.log(sendIngredient);
-    console.log(tmpcolor);
-    console.log(tmpdifficulty);
 
     axios
       .get(`https://j8b208.p.ssafy.io/api/cocktails/search`, {
@@ -81,7 +79,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
       })
       .then((response) => {
         response.data.data;
-        setCokctail([...cocktail, ...response.data.data]);
+        setCokctail([, ...response.data.data]);
         setCocktailCnt(response.data.max);
         setPage(response.data.next_page);
         console.log(response);
@@ -105,9 +103,6 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
 
   //무한 스크롤 구현.
   const handelScroll = (e: React.UIEvent<HTMLDivElement>) => {
-    console.log(e);
-    console.log(e.target);
-
     const target = e.target as HTMLDivElement;
     const isEnd =
       Math.round(target.scrollTop + target.clientHeight) ===
