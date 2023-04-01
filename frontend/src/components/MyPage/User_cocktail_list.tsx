@@ -19,8 +19,11 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
   const [display, setDisplay] = useState<string>("bookmark");
 
   const [likesList, setLikesList] = useState<cocktailType[]>();
+  const [likeToggle, setLikeToggle] = useState<boolean>(false);
   const [bookmarksList, setBookmarksList] = useState<cocktailType[]>();
+  const [bookmarkToggle, setBookmark] = useState<boolean>(true);
   const [commentsList, setCommentsList] = useState<mypageCommentType[]>();
+  const [commentToggle, setCommentToggle] = useState<boolean>(false);
 
   const [currentPage, setCurrentPage] = useState<number>(0);
   const atk = store.getState().user.accessToken;
@@ -88,19 +91,39 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
       });
   }, [bookmarkModify]);
 
-  const tabHandler = (mood: string) => {
-    switch (mood) {
+  const tabHandler = (mode: string) => {
+    //북마크 좋아요 댓글 스타일 먹이기 위해서 사용.
+    if (mode === "bookmark") {
+      if (bookmarkToggle) {
+        return;
+      }
+    } else if (mode === "like") {
+      if (likeToggle) {
+        return;
+      }
+    } else if (mode === "comment") {
+      if (commentToggle) {
+        return;
+      }
+    }
+    switch (mode) {
       case "bookmark":
         setDisplay("bookmark");
-        console.log("bookmark selected");
+        setLikeToggle(false);
+        setBookmark(true);
+        setCommentToggle(false);
         break;
       case "like":
         setDisplay("like");
-        console.log("like selected");
+        setLikeToggle(true);
+        setBookmark(false);
+        setCommentToggle(false);
         break;
       case "comment":
         setDisplay("comment");
-        console.log("comment selected");
+        setLikeToggle(false);
+        setBookmark(false);
+        setCommentToggle(true);
         break;
       default:
         setDisplay("bookmark");
@@ -150,9 +173,24 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
   return (
     <div className={style.userCocktailList}>
       <div className={style.userCocktailList_header}>
-        <span onClick={() => tabHandler("bookmark")}>BOOKMARK</span>
-        <span onClick={() => tabHandler("like")}>LIKE</span>
-        <span onClick={() => tabHandler("comment")}>COMMENT</span>
+        <span
+          className={bookmarkToggle ? style.bookmark : ""}
+          onClick={() => tabHandler("bookmark")}
+        >
+          BOOKMARK
+        </span>
+        <span
+          className={likeToggle ? style.like : ""}
+          onClick={() => tabHandler("like")}
+        >
+          LIKE
+        </span>
+        <span
+          className={commentToggle ? style.comment : ""}
+          onClick={() => tabHandler("comment")}
+        >
+          COMMENT
+        </span>
       </div>
       <div
         className={`${
