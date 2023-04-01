@@ -4,11 +4,49 @@
   .userCocktailList_header {
     span {
       font-weight: bold;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin-right: 3%;
+      color: #808080;
+    }
+    .bookmark {
+      color: black;
+      font-weight: bold;
+    }
+    .bookmark:hover {
+      color: black;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .like {
+      color: black;
+      font-weight: bold;
+    }
+
+    .like:hover {
+      color: black;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .comment {
+      color: black;
+      font-weight: bold;
+    }
+
+    .comment:hover {
+      color: black;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    span:hover {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #808080;
     }
   }
-  
+
   .userCocktailList_content {
     border: 1px solid #25397627;
     border-radius: 10px;
