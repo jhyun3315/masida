@@ -18,7 +18,7 @@ public class MyAnalysisOthers {
     private int CocktailCount;
 
     @Builder
-    public MyAnalysisOthers(String CocktailNameKo, int CocktailRatio, int CocktailCount){
+    public MyAnalysisOthers(String CocktailNameKo, int CocktailCount, int CocktailRatio){
         this.CocktailNameKo = CocktailNameKo;
         this.CocktailCount = CocktailCount;
         this.CocktailRatio = CocktailRatio;
