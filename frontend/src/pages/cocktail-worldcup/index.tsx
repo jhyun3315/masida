@@ -3,18 +3,20 @@ import { cocktail_worldcup_data } from "../../type/cocktailTypes";
 import World_cup_league from "../../components/Worldcup/World_cup_league";
 import Header from "../../components/Header/Header";
 import axios from "axios";
+import ResetCategory from "../../components/UI/ResetCategory";
 
-interface Props { 
+interface Props {
   ctList: cocktail_worldcup_data[];
 }
 
-const cocktail_worldcup:NextPage<Props> = ({ ctList }) =>  {
-    return (
-      <>
-        <Header />
-        <World_cup_league {...ctList} />
-      </>
-    );
+const cocktail_worldcup: NextPage<Props> = ({ ctList }) => {
+  ResetCategory();
+  return (
+    <>
+      <Header />
+      <World_cup_league {...ctList} />
+    </>
+  );
 };
 export default cocktail_worldcup;
 
@@ -29,7 +31,8 @@ cocktail_worldcup.getInitialProps = async () => {
         },
       }
     );
-    const ctList: cocktail_worldcup_data[] = get_cocktail_worldcup_list.data.data;
+    const ctList: cocktail_worldcup_data[] =
+      get_cocktail_worldcup_list.data.data;
 
     return {
       ctList,

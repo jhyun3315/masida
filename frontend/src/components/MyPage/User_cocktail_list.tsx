@@ -1,287 +1,208 @@
-import { useState } from 'react';
-import style from './User_cocktail_list.module.scss';
-import Link from 'next/link';
-import { My_bookmark_card, My_like_card,My_comment_card } from '../UI/Card_ui';
-import { cocktailType } from '../../type/cocktailTypes';
-import { mypageCommentType } from '../../type/commentTypes';
+import axios from "axios";
+import { useState, useEffect, Dispatch, SetStateAction } from "react";
+import style from "./User_cocktail_list.module.scss";
+import Link from "next/link";
+import { My_bookmark_card, My_like_card, My_comment_card } from "../UI/Card_ui";
+import { cocktailType } from "../../type/cocktailTypes";
+import { mypageCommentType } from "../../type/commentTypes";
+import { store } from "../../../store/store";
 
-  
-const User_cocktail_list = () => {
+interface MyComponentProps {
+  setBookmarkModify: Dispatch<SetStateAction<boolean>>;
+  bookmarkModify: boolean;
+}
 
-  const [bookmark, bookmarkState] = useState(false);
-  const [like, likeState] = useState(false);
-  const [comment, commentState] = useState(false);  
+const User_cocktail_list: React.FC<MyComponentProps> = ({
+  bookmarkModify,
+  setBookmarkModify,
+}) => {
+  const [display, setDisplay] = useState<string>("bookmark");
 
-  const BookMarkHandler = () => {
-    if (like) {
-      likeState(!like);
-    } else if (comment) {
-      commentState(!comment);
+  const [likesList, setLikesList] = useState<cocktailType[]>();
+  const [likeToggle, setLikeToggle] = useState<boolean>(false);
+  const [bookmarksList, setBookmarksList] = useState<cocktailType[]>();
+  const [bookmarkToggle, setBookmark] = useState<boolean>(true);
+  const [commentsList, setCommentsList] = useState<mypageCommentType[]>();
+  const [commentToggle, setCommentToggle] = useState<boolean>(false);
+
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const atk = store.getState().user.accessToken;
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://j8b208.p.ssafy.io/api/mypage/bookmarks?page=${currentPage}`,
+        {
+          headers: {
+            Authorization: atk,
+          },
+        }
+      )
+      .then((response) => {
+        console.log("bookmark");
+        setBookmarksList(response.data.data);
+        console.log(response.data.next_page);
+        console.log(response.data.is_end);
+      });
+    axios
+      .get(`https://j8b208.p.ssafy.io/api/mypage/likes?page=${currentPage}`, {
+        headers: {
+          Authorization: atk,
+        },
+      })
+      .then((response) => {
+        console.log("like");
+        setLikesList(response.data.data);
+        console.log(response.data.next_page);
+        console.log(response.data.is_end);
+      });
+
+    axios
+      .get(`https://j8b208.p.ssafy.io/api/mypage/comment?page=${currentPage}`, {
+        headers: {
+          Authorization: atk,
+        },
+      })
+      .then((response) => {
+        console.log("comment");
+        setCommentsList(response.data.data);
+        console.log(response.data.next_page);
+        console.log(response.data.is_end);
+      });
+  }, []);
+
+  useEffect(() => {
+    // 북마크 변경하면 화면 다시 렌더링하려고 둔 부분
+    console.log("triggered");
+    axios
+      .get(
+        `https://j8b208.p.ssafy.io/api/mypage/bookmarks?page=${currentPage}`,
+        {
+          headers: {
+            Authorization: atk,
+          },
+        }
+      )
+      .then((response) => {
+        console.log("bookmark reload");
+        setBookmarksList(response.data.data);
+        console.log(response.data.next_page);
+        console.log(response.data.is_end);
+      });
+  }, [bookmarkModify]);
+
+  const tabHandler = (mode: string) => {
+    //북마크 좋아요 댓글 스타일 먹이기 위해서 사용.
+    if (mode === "bookmark") {
+      if (bookmarkToggle) {
+        return;
+      }
+    } else if (mode === "like") {
+      if (likeToggle) {
+        return;
+      }
+    } else if (mode === "comment") {
+      if (commentToggle) {
+        return;
+      }
     }
-
-    bookmarkState(!bookmark);
-  };
-    
-  const LikeHandler = () => {
-    if (bookmark) {
-      bookmarkState(!bookmark);
-    } else if (comment) {
-      commentState(!comment);
+    switch (mode) {
+      case "bookmark":
+        setDisplay("bookmark");
+        setLikeToggle(false);
+        setBookmark(true);
+        setCommentToggle(false);
+        break;
+      case "like":
+        setDisplay("like");
+        setLikeToggle(true);
+        setBookmark(false);
+        setCommentToggle(false);
+        break;
+      case "comment":
+        setDisplay("comment");
+        setLikeToggle(false);
+        setBookmark(false);
+        setCommentToggle(true);
+        break;
+      default:
+        setDisplay("bookmark");
+        break;
     }
-
-    likeState(!like);
   };
 
-  const commentHandler = () => {
-     if (bookmark) {
-      bookmarkState(!bookmark);
-    } else if (like) {
-      likeState(!like);
+  const bookmarksListDiv = () => {
+    return (
+      <>
+        {bookmarksList?.map((key) => (
+          <My_bookmark_card
+            key={key.cocktail_id}
+            cocktail={key}
+            bookmarkModify={bookmarkModify}
+            setBookmarkModify={setBookmarkModify}
+          />
+        ))}
+      </>
+    );
+  };
+
+  const likesListDiv = () => {
+    return (
+      <>
+        {likesList?.map((key) => (
+          <My_like_card {...key} />
+        ))}
+      </>
+    );
+  };
+
+  const commentsListDiv = () => {
+    if (commentsList) {
+      return (
+        <>
+          {commentsList?.map((key) => (
+            <My_comment_card {...key} />
+          ))}
+        </>
+      );
+    } else {
+      return <>댓글 없ㅇ름</>;
     }
-    
-    commentState(!comment);
   };
 
-
-
-  const bookmarkList_props: cocktailType[] = [
-    {
-    cocktail_id: 1,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },
-  {
-    cocktail_id: 2,
-    cocktail_name_ko: "앙 기모띠",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-   {
-    cocktail_id: 3,
-    cocktail_name_ko: "기모링링링",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 4,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 5,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 6,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 7,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 8,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 9,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },
-  ]
-
-  const likeList_props: cocktailType[] = [
-    {
-    cocktail_id: 1,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },
-  {
-    cocktail_id: 2,
-    cocktail_name_ko: "앙 기모띠",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-   {
-    cocktail_id: 3,
-    cocktail_name_ko: "기모링링링",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 4,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 5,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 6,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 7,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 8,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 9,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },
-  ]
-
-  const commentList_props: mypageCommentType[] = [
-    {
-      cocktail_id: 1,
-	    cocktail_name_ko: "오렌지 블라섬",
-	    cocktail_img: "/assets/image/cocktail.png",
-			cocktail_difficulty_user : "상",
-			comment_content : "존맛탱구리 뭘 적어야 잘 적었다고 소문이 날려나 나는 심심하다 지금은 발표 중",
-			comment_rating : 3.9,
-      comment_date: "2023-05-05"
-    },
-    {
-      cocktail_id: 2,
-	    cocktail_name_ko: "오렌지 블라섬",
-	    cocktail_img: "/assets/image/cocktail.png",
-			cocktail_difficulty_user : "중",
-			comment_content : "존맛탱구리",
-			comment_rating : 3.9,
-      comment_date: "2023-05-05"
-    },
-    {
-      cocktail_id: 3,
-	    cocktail_name_ko: "오렌지 블라섬",
-	    cocktail_img: "/assets/image/cocktail.png",
-			cocktail_difficulty_user : "하",
-			comment_content : "존맛탱구리",
-			comment_rating : 3.9,
-      comment_date: "2023-05-05"
-    },
-    {
-      cocktail_id: 4,
-	    cocktail_name_ko: "오렌지 블라섬",
-	    cocktail_img: "/assets/image/cocktail.png",
-			cocktail_difficulty_user : "상",
-			comment_content : "존맛탱구리",
-			comment_rating : 3.9,
-      comment_date: "2023-05-05"
-    },
-    {
-      cocktail_id: 5,
-	    cocktail_name_ko: "오렌지 블라섬",
-	    cocktail_img: "/assets/image/cocktail.png",
-			cocktail_difficulty_user : "상",
-			comment_content : "존맛탱구리",
-			comment_rating : 3.9,
-      comment_date: "2023-05-05"
-    },
-
-  ]
-
-  
   return (
-    <div className={ style.userCocktailList}>
-      <div className={ style.userCocktailList_header}>
-        <span onClick={BookMarkHandler}>BOOKMARK</span>
-        <span onClick={ LikeHandler}>LIKE</span>
-        <span onClick={commentHandler }>COMMENT</span>
+    <div className={style.userCocktailList}>
+      <div className={style.userCocktailList_header}>
+        <span
+          className={bookmarkToggle ? style.bookmark : ""}
+          onClick={() => tabHandler("bookmark")}
+        >
+          BOOKMARK
+        </span>
+        <span
+          className={likeToggle ? style.like : ""}
+          onClick={() => tabHandler("like")}
+        >
+          LIKE
+        </span>
+        <span
+          className={commentToggle ? style.comment : ""}
+          onClick={() => tabHandler("comment")}
+        >
+          COMMENT
+        </span>
       </div>
-      <div className={`${comment? style.active:style.userCocktailList_content}`}>
-        {bookmark&&bookmarkList_props.map((key) => 
-          <My_bookmark_card {...key} />
-        )}
-        {like && likeList_props.map((key) => 
-          <My_like_card {...key}/>
-        )}
-        {comment && commentList_props.map((key) => 
-          <My_comment_card {...key}/>
-        )}
+      <div
+        className={`${
+          display == "comment" ? style.active : style.userCocktailList_content
+        }`}
+      >
+        {display === "bookmark" ? bookmarksListDiv() : " "}
+        {display === "like" ? likesListDiv() : " "}
+        {display === "comment" ? commentsListDiv() : " "}
       </div>
     </div>
-  )
+  );
 };
 
 export default User_cocktail_list;

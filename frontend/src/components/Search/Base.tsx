@@ -26,11 +26,11 @@ const Base = () => {
         <div className={style.base_checkbox}>
           <div className={style.base_interval}>
             <label className={style.base_value}>
-              <input type="radio" name="base" value="Gin" onClick={clickBase} />{" "}
+              <input type="radio" name="base" value="진" onClick={clickBase} />{" "}
               진
             </label>
             <label className={style.base_value}>
-              <input type="radio" name="base" value="Rum" onClick={clickBase} />{" "}
+              <input type="radio" name="base" value="럼" onClick={clickBase} />{" "}
               럼
             </label>
           </div>
@@ -39,7 +39,7 @@ const Base = () => {
               <input
                 type="radio"
                 name="base"
-                value="Whisky"
+                value="위스키"
                 onClick={clickBase}
               />{" "}
               위스키
@@ -48,7 +48,7 @@ const Base = () => {
               <input
                 type="radio"
                 name="base"
-                value="Liqueur"
+                value="리퀴르"
                 onClick={clickBase}
               />{" "}
               리큐르
@@ -59,7 +59,7 @@ const Base = () => {
               <input
                 type="radio"
                 name="base"
-                value="Vodka"
+                value="보드카"
                 onClick={clickBase}
               />{" "}
               보드카
@@ -68,7 +68,7 @@ const Base = () => {
               <input
                 type="radio"
                 name="base"
-                value="Brandy"
+                value="브랜디"
                 onClick={clickBase}
               />{" "}
               브랜디
@@ -79,13 +79,18 @@ const Base = () => {
               <input
                 type="radio"
                 name="base"
-                value="Tequila"
+                value="테킬라"
                 onClick={clickBase}
               />{" "}
               데킬라
             </label>
             <label className={style.base_value}>
-              <input type="radio" name="base" value="etc" onClick={clickBase} />{" "}
+              <input
+                type="radio"
+                name="base"
+                value="기타"
+                onClick={clickBase}
+              />{" "}
               기타
             </label>
           </div>

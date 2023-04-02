@@ -6,21 +6,39 @@
   overflow: hidden;
   // justify-content: space-between;
   // border: 1px solid black;
-  width:100%;
+  width: 100%;
   height: 90vh;
   margin: 0 auto;
-  .detail_layout_left{
+  .detail_layout_left {
     flex: 3;
   }
-  .detail_layout_right{
+  .detail_layout_right {
     flex: 2;
-    width:40%;
+    width: 40%;
   }
-  .detail_comment_btn{
+  @keyframes blink {
+    from,
+    to {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .detail_comment_btn {
     position: absolute;
-      right: 0;
-      top : 45%;
-      width: 20px;
-      height: 80px;
+    right: 0;
+    top: 45%;
+    width: 20px;
+    height: 80px;
+    animation: blink 2s infinite;
+    // 깜빡이는 애니메이션 적용
+  }
+
+  .detail_comment_btn:hover {
+    cursor: pointer;
+    animation: none;
+    // 호버시 애니메이션 해제
   }
 }

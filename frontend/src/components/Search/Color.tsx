@@ -7,7 +7,7 @@ const Color = () => {
   const [checked, isChecked] = useState<number>(0);
   const [errorMsg, isErrorMsg] = useState<boolean>(false);
   const [checkColor, setCheckColor] = useState<string[]>([]);
-  
+
   const dispatch = useDispatch();
 
   //색상은 2개이상 선택할수 없게 만들어주게 하려함.
@@ -24,10 +24,10 @@ const Color = () => {
     } else {
       if (target.checked === true) {
         isChecked(checked + 1);
-        setCheckColor(checkColor => [...checkColor, target.value]);
+        setCheckColor((checkColor) => [...checkColor, target.value]);
       } else {
         isChecked(checked - 1);
-        setCheckColor(checkColor.filter(color => color !== target.value))
+        setCheckColor(checkColor.filter((color) => color !== target.value));
       }
       isErrorMsg(false);
     }
@@ -35,7 +35,7 @@ const Color = () => {
 
   useEffect(() => {
     dispatch(setSelectColor(checkColor));
-  }, [checkColor])
+  }, [checkColor]);
 
   return (
     <>
@@ -43,98 +43,98 @@ const Color = () => {
         <h3 className={style.color_title}>색상</h3>
         <div className={style.color}>
           <div className={style.color_up}>
-          <label>
-            <input
-              type="checkbox"
-              name="color"
-              value="red"
-              className={style.color_red}
-              onClick={checkedColor}
-            />
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="color"
-              value="orange"
-              className={style.color_orange}
-              onClick={checkedColor}
-            />
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="color"
-              value="yellow"
-              className={style.color_yellow}
-              onClick={checkedColor}
-            />
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="color"
-              value="green"
-              className={style.color_green}
-              onClick={checkedColor}
-            />
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="color"
-              value="blue"
-              className={style.color_blue}
-              onClick={checkedColor}
-            />
-          </label>
+            <label>
+              <input
+                type="checkbox"
+                name="color"
+                value="빨간색"
+                className={style.color_red}
+                onClick={checkedColor}
+              />
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="color"
+                value="주황색"
+                className={style.color_orange}
+                onClick={checkedColor}
+              />
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="color"
+                value="노란색"
+                className={style.color_yellow}
+                onClick={checkedColor}
+              />
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="color"
+                value="초록색"
+                className={style.color_green}
+                onClick={checkedColor}
+              />
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="color"
+                value="파란색"
+                className={style.color_blue}
+                onClick={checkedColor}
+              />
+            </label>
           </div>
           <div className={style.color_down}>
             <label>
-            <input
-              type="checkbox"
-              name="color"
-              value="indigo"
-              className={style.color_indigo}
-              onClick={checkedColor}
-            />
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="color"
-              value="purple"
-              className={style.color_purple}
-              onClick={checkedColor}
-            />
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="color"
-              value="brown"
-              className={style.color_brown}
-              onClick={checkedColor}
-            />
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="color"
-              value="pink"
-              className={style.color_pink}
-              onClick={checkedColor}
-            />
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="color"
-              value="white"
-              className={style.color_white}
-              onClick={checkedColor}
-            />
-          </label>
+              <input
+                type="checkbox"
+                name="color"
+                value="남색"
+                className={style.color_indigo}
+                onClick={checkedColor}
+              />
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="color"
+                value="보라색"
+                className={style.color_purple}
+                onClick={checkedColor}
+              />
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="color"
+                value="갈색"
+                className={style.color_brown}
+                onClick={checkedColor}
+              />
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="color"
+                value="분홍색"
+                className={style.color_pink}
+                onClick={checkedColor}
+              />
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="color"
+                value="하얀색"
+                className={style.color_white}
+                onClick={checkedColor}
+              />
+            </label>
           </div>
           {errorMsg ? (
             <div className={style.color_errmsg}>
