@@ -9,7 +9,8 @@ public enum ColorEnum {
     파란색("blue"),
     연보라색("violet"),
     보라색("purple"),
-    갈색("brown");
+    갈색("brown"),
+    흰색("white");
 
     private final String color;
     ColorEnum(String color){

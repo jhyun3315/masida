@@ -166,46 +166,30 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
             ArrayList<HashMap<String, Integer>> myAnalysisRatingColorArrayList = new ArrayList<>();
             HashMap<Integer, HashMap<String,Integer>> map = new HashMap<>();
 
+            for (int i = 1; i <= 5; i++) map.put(i, new RatingColorObj(i).getCMap());
+
             //데이터 정제 필요 ***
             for(MyAnalysisRatingColorInterface ele : interfaceArrayList){
                 int rating = ele.getRatingScore();
                 int color_count = ele.getColorCount();
 
                 ColorEnum color = ColorEnum.valueOf(ele.getColorName());
-                String color_name =  color.getValue();
+                String color_name = color.getValue();
 
                 rating_count += color_count;
-                total_rating +=rating;
+                total_rating += rating;
 
                 // 최대 별점이라면, 최대 별점 베이스 & 최대 별점 갱신
-                if(rating > rating_max) {
+                if (rating > rating_max) {
                     rating_max_color = color_name;
                     rating_max = rating;
                 }
 
-                // 해당 rating 이 존재하지 않으면, 새로운 base 정보 추가
-                if(!map.containsKey(rating)){
-                    HashMap<String, Integer> ColorMap = new HashMap<>();
-                    ColorMap.put( "rating_score", rating);
-                    ColorMap.put( "red", 0);
-                    ColorMap.put( "orange", 0);
-                    ColorMap.put( "pink", 0);
-                    ColorMap.put( "yellow", 0);
-                    ColorMap.put( "green", 0);
-                    ColorMap.put( "blue", 0);
-                    ColorMap.put( "violet", 0);
-                    ColorMap.put( "purple", 0);
-                    ColorMap.put( "brown", 0);
+                // 기존 ArrayList에 RatingBase 객체 추가
+                HashMap<String, Integer> cMap = map.get(rating);
+                cMap.put(color_name, cMap.getOrDefault(color_name, 0) + color_count);
+                map.put(rating, cMap);
 
-                    ColorMap.put(color_name, ColorMap.getOrDefault(color_name, 0) +color_count);
-                    map.put(rating, ColorMap);
-
-                }else{
-                    // 해당 rating이 존재, 기존 ArrayList에 RatingBase 객체 추가
-                    HashMap<String,Integer> bMap = map.get(rating);
-                    bMap.put(color_name, bMap.getOrDefault(color_name, 0) +color_count);
-                    map.put(rating, bMap);
-                }
             }
 
             for(int key : map.keySet()){
