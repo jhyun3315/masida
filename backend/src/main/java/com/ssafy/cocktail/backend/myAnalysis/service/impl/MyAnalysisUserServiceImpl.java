@@ -112,6 +112,8 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
             ArrayList<HashMap<String, Integer>> myAnalysisRatingBaseArrayList = new ArrayList<>();
             HashMap<Integer, HashMap<String,Integer>> map = new HashMap<>();
 
+            for (int i = 1; i <= 5; i++) map.put(i, new RatingBaseObj(i).getBMap());
+
             //데이터 정제 필요 ***
             for(MyAnalysisRatingBaseInterface ele : interfaceArrayList){
                 int rating = ele.getRatingScore();
@@ -128,32 +130,12 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
                     rating_max = rating;
                 }
 
-                // 해당 rating 이 존재하지 않으면, 새로운 base 정보 추가
-                if(!map.containsKey(rating)){
-                    HashMap<String, Integer> BaseMap = new HashMap<>();
-                    BaseMap.put( "rating_score", rating);
-                    BaseMap.put( "jin", 0);
-                    BaseMap.put( "rum", 0);
-                    BaseMap.put( "vodka", 0);
-                    BaseMap.put( "whisky", 0);
-                    BaseMap.put( "liqueur", 0);
-                    BaseMap.put( "brandy", 0);
-                    BaseMap.put( "tequila", 0);
-                    BaseMap.put( "beer", 0);
-                    BaseMap.put( "wine", 0);
-                    BaseMap.put( "mezcal", 0);
-                    BaseMap.put( "spirits", 0);
-
-                    BaseMap.put(base_name, BaseMap.getOrDefault(base_name, 0) +base_count);
-                    map.put(rating, BaseMap);
-
-                }else{
-                    // 해당 rating이 존재, 기존 ArrayList에 RatingBase 객체 추가
-                    HashMap<String,Integer> bMap = map.get(rating);
-                    bMap.put(base_name, bMap.getOrDefault(base_name, 0) +base_count);
-                    map.put(rating, bMap);
-                }
+                //기존 ArrayList에 RatingBase 객체 추가
+                HashMap<String,Integer> bMap = map.get(rating);
+                bMap.put(base_name, bMap.getOrDefault(base_name, 0)+ base_count);
+                map.put(rating, bMap);
             }
+
 
             for(int key : map.keySet()){
                 myAnalysisRatingBaseArrayList.add(map.get(key));
