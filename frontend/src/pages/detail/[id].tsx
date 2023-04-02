@@ -56,6 +56,8 @@ const detail = () => {
   if (!atk) {
     atk = "";
   }
+
+  //새로고침할때 이 useEffect보다 아래 return이 먼저 실행이 되어서 그런거같음.
   useEffect(() => {
     setCocktail_id(parseInt(router?.query.id as string));
     axios

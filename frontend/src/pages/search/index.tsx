@@ -26,9 +26,7 @@ const search = () => {
     });
   }, []);
 
-  const cocktail_name = useSelector((state : RootState) => state.nameSelect);
-  console.log(cocktail_name);
-  
+  const cocktail_name = useSelector((state: RootState) => state.nameSelect);
 
   const search_props: search_props = {
     ingredient: ingredientList,
