@@ -1,11 +1,18 @@
 package com.ssafy.cocktail.backend.myAnalysis.controller;
 
+import com.ssafy.cocktail.backend.domain.entity.User;
 import com.ssafy.cocktail.backend.myAnalysis.dto.*;
 import com.ssafy.cocktail.backend.myAnalysis.dto.response.*;
+import com.ssafy.cocktail.backend.myAnalysis.service.CollaborativeRecommend;
 import com.ssafy.cocktail.backend.myAnalysis.service.MyAnalysisUserService;
+import com.ssafy.cocktail.backend.myPage.dto.PaginationDataSet;
+import com.ssafy.cocktail.backend.myPage.dto.response.PageableRes;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,18 +27,19 @@ import java.util.Map;
 public class MyAnalysisController {
     private final MyAnalysisUserService myAnalysisUserService;
     private final OAuthService oAuthService;
+    private final CollaborativeRecommend collaborativeRecommend;
 
-    @GetMapping("/recommend/base")
-    public ResponseEntity<TestRecommendRes> testBase(@RequestHeader("Authorization") String accessToken) {
-        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "1");
-        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
-    }
+//    @GetMapping("/recommend/base")
+//    public ResponseEntity<TestRecommendRes> testBase(@RequestHeader("Authorization") String accessToken) {
+//        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "1");
+//        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
+//    }
 
-    @GetMapping("/recommend/ingredient")
-    public ResponseEntity<TestRecommendRes> testIngredient(@RequestHeader("Authorization") String accessToken) {
-        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "2");
-        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
-    }
+//    @GetMapping("/recommend/ingredient")
+//    public ResponseEntity<TestRecommendRes> testIngredient(@RequestHeader("Authorization") String accessToken) {
+//        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "2");
+//        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
+//    }
 
     @GetMapping("/recommend/color")
     public ResponseEntity<TestRecommendRes> testColor(@RequestHeader("Authorization") String accessToken) {
@@ -125,6 +133,42 @@ public class MyAnalysisController {
         }else{
             return ResponseEntity.status(400).body(MyAnalysisRatingColorRes.of(400, "존재하지 않는 사용자입니다.",
                     0,0,0,null, null));
+        }
+    }
+
+    @GetMapping("/recommend/ingredient")
+    public ResponseEntity<?> getRecommendByIngredient(@RequestHeader Map<String, String> data) {
+        String accessToken = data.get("authorization");
+
+        if(accessToken == null) { // 토큰이 없는 경우,
+            return null;
+        }
+
+        try { // 토큰이 유효한 경우,
+            User user = oAuthService.getUser(accessToken); // 해당 사용자 가져오기
+            collaborativeRecommend.getTop5Ingredients(user.getId());
+            return null;
+        }
+        catch (Exception e) { // 토큰이 유효하지 않은 경우
+            return null;
+        }
+    }
+
+    @GetMapping("/recommend/base")
+    public ResponseEntity<?> getRecommendByBase(@RequestHeader Map<String, String> data) {
+        String accessToken = data.get("authorization");
+
+        if(accessToken == null) { // 토큰이 없는 경우,
+            return null;
+        }
+
+        try { // 토큰이 유효한 경우,
+            User user = oAuthService.getUser(accessToken); // 해당 사용자 가져오기
+            collaborativeRecommend.getTop5Base(user.getId());
+            return null;
+        }
+        catch (Exception e) { // 토큰이 유효하지 않은 경우
+            return null;
         }
     }
 

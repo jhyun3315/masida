@@ -2,11 +2,13 @@ package com.ssafy.cocktail.backend.domain.repository;
 
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.myAnalysis.dto.*;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
     @Query(value="SELECT cocktails.cocktail_base as BaseName, " +
@@ -47,7 +49,7 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
             "INNER JOIN cocktail_ingredient As ci ON c.cocktail_id = ci.cocktail_id " +
             "INNER JOIN ingredient AS i ON ci.ingredient_id = i.ingredient_id "+
             "WHERE l.like_deleted = false " +
-            "AND (i.ingredient_type = 'Garnish' OR i.ingredient_type = 'General') " +
+            "AND (i.ingredient_type = '가니쉬' OR i.ingredient_type = '일반') " +
             "AND l.user_id=:userId " +
             "GROUP BY ci.ingredient_name " +
             "ORDER BY IngredientCount DESC LIMIT 5"
@@ -100,5 +102,31 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
         "GROUP BY ColorTable.ColorName, ColorTable.RatingScore " +
         "ORDER BY ColorTable.RatingScore DESC", nativeQuery = true)
     ArrayList<MyAnalysisRatingColorInterface> getMyAnalysisRatingColorList(@Param("userId") Long user_id);
+
+
+    // 추천 알고리즘용 분석 - 사용자의 베이스 취향에 따른 칵테일 추천
+    @Query("SELECT ci.ingredientName, ci.ingredient.id, COUNT(ci) as cnt " +
+            "FROM CocktailIngredient ci " +
+            "WHERE ci.cocktail.id " +
+            "IN (SELECT l.cocktail.id " +
+            "FROM Like l " +
+            "WHERE l.user.id = :userId) " +
+            "AND ci.ingredient.ingredientType NOT IN ('일반', '가니쉬') " +
+            "GROUP BY ci.ingredientName, ci.ingredient.id " +
+            "ORDER BY cnt DESC")
+    List<Object[]> findTop5BaseByUserId(@Param("userId") Long userId, Pageable pageable);
+
+
+    // 추천 알고리즘용 분석 - 사용자의 재료 취향에 따른 칵테일 추천
+    @Query("SELECT ci.ingredientName, ci.ingredient.id, COUNT(ci) as cnt " +
+            "FROM CocktailIngredient ci " +
+            "WHERE ci.cocktail.id " +
+            "IN (SELECT l.cocktail.id " +
+                "FROM Like l " +
+                "WHERE l.user.id = :userId) " +
+            "AND ci.ingredient.ingredientType IN ('일반', '가니쉬') " +
+            "GROUP BY ci.ingredientName, ci.ingredient.id " +
+            "ORDER BY cnt DESC")
+    List<Object[]> findTop5IngredientsByUserId(@Param("userId") Long userId, Pageable pageable);
 
 }
