@@ -12,6 +12,8 @@ import { imgLoader } from "../../utils/imgLoader";
 import axios from "axios";
 import { login, logout } from "../../../store/modules/user";
 import { RootState } from "../../../store/store";
+// import { setUserInfo } from "../../../store/user/userSlice";
+import { get_user_info } from "../../pages/api/auth/user_api";
 
 //좌표의 타입입니다.
 type coordinate = {
@@ -82,12 +84,14 @@ const Main_banner = () => {
   useEffect(() => {
     dispatch(login(accessToken));
     setTokenValue(accessToken);
+    // get_user_info().then((response) => { dispatch(setUserInfo(response)) });
   }, []);
 
   const getAccessToken = useSelector(
     (state: RootState) => state.user.accessToken
   );
 
+  const getUserInfo = useSelector((state: RootState) => state);
   const onLogoutHandler = () => {
     const logoutt: any = axios
       .get("https://j8b208.p.ssafy.io/api/oauth/kakao/logout", {

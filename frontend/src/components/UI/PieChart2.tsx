@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { cocktailBase, dataType } from '../../type/cocktailPreference';
+import {cocktailColor, dataType } from '../../type/cocktailPreference';
 import { ResponsivePie } from '@nivo/pie';
 
-const Piechart = (props: cocktailBase[]) => {
+const Piechart2 = (props: cocktailColor[]) => {
     const handle = {
         padClick: (data: any) => {
             console.log(data);
@@ -15,11 +15,8 @@ const Piechart = (props: cocktailBase[]) => {
   
   const data: dataType[] = [];
 
-  console.log("시이발", props[0].base_count);
-
-
   for (let i = 0; i < 5; i++) {
-    data.push({ id: props[i].base_name, value:props[i].base_ratio });
+    data.push({ id: props[i].color_name, value:props[i].color_ratio });
   }
   
     return (
@@ -131,4 +128,4 @@ const Piechart = (props: cocktailBase[]) => {
     );
 };
 
-export default Piechart;
+export default Piechart2;

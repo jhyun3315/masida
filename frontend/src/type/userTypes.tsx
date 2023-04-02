@@ -3,5 +3,5 @@ export type userType = {
   user_email: string,
   user_profile: string,
   user_gender: string,
-  user_age_range: number,
+  user_age_range: string,
 };

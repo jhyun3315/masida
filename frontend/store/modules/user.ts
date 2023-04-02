@@ -1,14 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
+import { userType } from "../../src/type/userTypes";
 import { RootState } from "../store";
 
-export interface tokenState {
-    accessToken:string
-  }
+export interface userState {
+  accessToken: string,
+  userInfo: userType;
+};
 
-  const initialState: tokenState = {
-    accessToken: "",
-  };
+const initialState: userState = {
+  accessToken: "",
+  userInfo: {
+    user_name: "",
+    user_email: "",
+    user_profile: "",
+    user_gender: "",
+    user_age_range: ""
+  }
+};
 
 export const userSlice = createSlice({
   name: "user",
@@ -19,6 +28,10 @@ export const userSlice = createSlice({
     },
     logout : (state) => {
       state.accessToken = "";
+    },
+    setUserInfo: (state, { payload}) => {
+      const newInfo = { ...state.userInfo, ...payload };
+      state.userInfo = newInfo;
     },
   },
   extraReducers: {

@@ -3,7 +3,7 @@ import { ResponsiveBar } from '@nivo/bar';
 import { cocktailBaseRating } from '../../type/cocktailRating';
 
 const Barchart = (props: cocktailBaseRating[]) => {
-  console.log(props);
+  console.log(props, "tlqlkfkfsklfs");
     const handle = {
         barClick: (data: any) => {
             console.log(data);
@@ -14,20 +14,15 @@ const Barchart = (props: cocktailBaseRating[]) => {
         },
   };
   
-  const data = [
-    // { rating: '365ml', cola: 1200, cidar: 10000, fanta: 1100, molla: 113, n: 99 },
-    // { rating: '500ml', cola: 2200, cidar: 2000, fanta: 2100 , molla:113, n:99},
-    // { rating: '1000ml', cola: 3200, cidar: 3000, fanta: 3100, molla: 113, n: 99 },
-    // { rating: '400ml', cola: 3200, cidar: 3000, fanta: 3100, molla: 113, n: 99 },
-    // { rating: '700ml', cola: 3200, cidar: 3000, fanta: 3100, molla:113, n:99 },
-  ];
+  const data = [];
 
   for (let i = 0; i < 5; i++){
-    data.push({ rating: props[i].rating_score, jin: props[i].base_rest, rum: props[i].base_rum, vodka: props[i].base_vodka, whiskey:props[i].base_whiskey, rest: props[i].base_rest});
+    data.push({
+      rating: props[i].rating_score, whisky: props[i].whisky, tequila: props[i].tequila, vodka: props[i].vodka, mezcal: props[i].mezcal, spirits: props[i].spirits,
+      rum:props[i].rum, liqueur:props[i].liqueur, brandy:props[i].brandy, jin:props[i].jin, beer:props[i].beer, wine:props[i].wine
+    });
   }
   
-  const keys = [];
-
     return (
         // chart height이 100%이기 때문이 chart를 덮는 마크업 요소에 height 설정
         <div style={{ width: '100%', height: '400px', margin: '0 auto' }}>
@@ -39,7 +34,7 @@ const Barchart = (props: cocktailBaseRating[]) => {
                 /**
                  * chart에 보여질 데이터 key (측정되는 값)
                  */
-                keys={['jin', 'rum', 'vodka','whiskey','rest']}
+                keys={["whisky","tequila","vodka","mezcal","spirits","rum","liqueur","brandy","jin","beer","wine"]}
                 /**
                  * keys들을 그룹화하는 index key (분류하는 값)
                  */
