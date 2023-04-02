@@ -9,7 +9,7 @@ import Cocktail_Info from "../../components/Detail/Cocktail_Info";
 import Cocktail_recommend from "../../components/Detail/Cocktail_recommend";
 import Modal_portal from "../../components/Modal/Modal_portal";
 import CommentModal from "../../components/Modal/CommentModal";
-
+import Swal from "sweetalert2";
 import { cocktailType } from "../../type/cocktailTypes";
 import { RootState } from "../../../store/store";
 import { useSelector } from "react-redux";
@@ -55,7 +55,7 @@ const detail = () => {
     atk = "";
   }
   useEffect(() => {
-    setCocktail_id(parseInt(router?.query.id as string))
+    setCocktail_id(parseInt(router?.query.id as string));
     axios
       .get(
         `https://j8b208.p.ssafy.io/api/cocktails/recommend/ingredient/${cocktail_id}`,
@@ -98,7 +98,22 @@ const detail = () => {
   };
 
   const toggleComment = () => {
-    setVisible(!visible);
+    if (atk.length === 0) {
+      Swal.fire({
+        title: "로그인이 필요한 서비스입니다.",
+        html: "로그인 하시겠습니까?.",
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: "확인",
+        denyButtonText: `취소`,
+      }).then((confirm) => {
+        if (confirm.isConfirmed) {
+          router.push("https://j8b208.p.ssafy.io/api/oauth/kakao/login");
+        }
+      });
+    } else {
+      setVisible(!visible);
+    }
   };
 
   if (isLoading) {
@@ -108,9 +123,7 @@ const detail = () => {
         <Header />
         <div className={style.detail_layout}>
           <div className={style.detail_layout_left}>
-            <Cocktail_Info
-              modifyCommentCnt={modifyCommentCnt}
-            />
+            <Cocktail_Info modifyCommentCnt={modifyCommentCnt} />
           </div>
           <div className={style.detail_layout_right}>
             <Cocktail_recommend {...recommend_props} />

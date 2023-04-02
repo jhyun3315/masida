@@ -42,13 +42,13 @@ const CommentModal: React.FunctionComponent<propsType> = ({
   const getAccessToken = store.getState().user.accessToken;
   const textareaRef = useRef(null);
 
-  useEffect(() => {  
-    if(isWrited === true) {
+  useEffect(() => {
+    if (isWrited === true) {
       textareaRef.current.setAttribute("readOnly", true);
-    }else {
+    } else {
       textareaRef.current.removeAttribute("readOnly");
     }
-  },[isWrited])
+  }, [isWrited]);
 
   useEffect(() => {
     axios
@@ -84,28 +84,28 @@ const CommentModal: React.FunctionComponent<propsType> = ({
 
   //댓글 초기화 시켜주는 함수.
   const resetComment = () => {
-      setDifficulty("");
-      setInputValue("");
-      setScope(0);
-  }
+    setDifficulty("");
+    setInputValue("");
+    setScope(0);
+  };
 
   //댓글 등록 함수
   const registComment = () => {
     console.log(getAccessToken);
     //만약 이미 댓글이 달려있다면?
-    if(isWrited) {
+    if (isWrited) {
       Swal.fire({
         title: "등록 불가",
         html: "이미 댓글이 등록 되어있습니다.",
         showCancelButton: false,
         confirmButtonText: "확인",
-    })
-    }else {
+      });
+    } else {
       Swal.fire({
         html: "댓글을 등록 하시겠습니까?",
         showDenyButton: true,
         showCancelButton: false,
-        confirmButtonText: '등록',
+        confirmButtonText: "등록",
         denyButtonText: `취소`,
       }).then((result) => {
         //등록을 눌렀다면?
@@ -134,27 +134,27 @@ const CommentModal: React.FunctionComponent<propsType> = ({
             .catch((error) => {
               console.error(error);
             });
-          Swal.fire('Saved!', '', 'success')
+          Swal.fire("Saved!", "", "success");
         } else if (result.isDenied) {
         }
-      })
+      });
     }
   };
-    
-    // 댓글 수정 함수
-    //댓글 수정부분입니다.
-    const modifyComment = (
-      id: number,
-      content: string,
-      mydifficulty: string,
-      rating: number
-      ) => {
-        setModify(true);
-        setInputValue(content);
-        setDifficulty(mydifficulty);
-        setScope(rating);
-        setCommentId(id);
-        textareaRef.current.removeAttribute("readOnly");
+
+  // 댓글 수정 함수
+  //댓글 수정부분입니다.
+  const modifyComment = (
+    id: number,
+    content: string,
+    mydifficulty: string,
+    rating: number
+  ) => {
+    setModify(true);
+    setInputValue(content);
+    setDifficulty(mydifficulty);
+    setScope(rating);
+    setCommentId(id);
+    textareaRef.current.removeAttribute("readOnly");
     if (modify && commentId === id) {
       resetComment();
       setCommentAdd(!commentAdd);
@@ -165,47 +165,47 @@ const CommentModal: React.FunctionComponent<propsType> = ({
   };
 
   const modifyCommentClick = () => {
-  Swal.fire({
-    html: "정말로 댓글을 변경하시겠습니까?",
-    showDenyButton: true,
-    showCancelButton: false,
-    confirmButtonText: '변경',
-    denyButtonText: "변경취소",
-  }).then((result) => {
-  /* Read more about isConfirmed, isDenied below */
-    if (result.isConfirmed) {
-      axios
-         .put(
-           `https://j8b208.p.ssafy.io/api/comments/${cocktail_id}/${commentId}`,
-           {
-             comment_content: inputValue,
-             comment_rating: scope,
-             comment_difficulty: difficulty,
-           },
-           {
-             headers: {
-               Authorization: getAccessToken,
-               "Content-Type": "application/json",
-               "Access-Control-Allow-Origin": "*",
-             },
-           }
-         )
-         .then(() => {
-           setCommentAdd(!commentAdd);
-           resetComment();
-           setModify(false);
-           setModifyCommentCnt(!modifyCommentCnt)
-           setResetStar(!resetStar);
-           textareaRef.current.setAttribute("readOnly", true);
-         })
-         .catch((error) => {
-           console.error(error);
-         });
-      Swal.fire('저장되었습니다!')
-    } else if (result.isDenied) {
-    }
-  })
-  }
+    Swal.fire({
+      html: "정말로 댓글을 변경하시겠습니까?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "변경",
+      denyButtonText: "변경취소",
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        axios
+          .put(
+            `https://j8b208.p.ssafy.io/api/comments/${cocktail_id}/${commentId}`,
+            {
+              comment_content: inputValue,
+              comment_rating: scope,
+              comment_difficulty: difficulty,
+            },
+            {
+              headers: {
+                Authorization: getAccessToken,
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+              },
+            }
+          )
+          .then(() => {
+            setCommentAdd(!commentAdd);
+            resetComment();
+            setModify(false);
+            setModifyCommentCnt(!modifyCommentCnt);
+            setResetStar(!resetStar);
+            textareaRef.current.setAttribute("readOnly", true);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+        Swal.fire("저장되었습니다!");
+      } else if (result.isDenied) {
+      }
+    });
+  };
 
   // 댓글 삭제 함수
   const deleteComment = (id: number) => {
@@ -213,18 +213,21 @@ const CommentModal: React.FunctionComponent<propsType> = ({
       html: "정말 삭제 하시겠습니까?",
       showDenyButton: true,
       showCancelButton: false,
-      confirmButtonText: '삭제',
+      confirmButtonText: "삭제",
       denyButtonText: "취소",
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://j8b208.p.ssafy.io/api/comments/${cocktail_id}/${id}`, {
-            headers: {
-              Authorization: getAccessToken,
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          })
+          .delete(
+            `https://j8b208.p.ssafy.io/api/comments/${cocktail_id}/${id}`,
+            {
+              headers: {
+                Authorization: getAccessToken,
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+              },
+            }
+          )
           .then(() => {
             setCommentAdd(!commentAdd);
             setModifyCommentCnt(!modifyCommentCnt);
@@ -232,10 +235,10 @@ const CommentModal: React.FunctionComponent<propsType> = ({
           .catch((error) => {
             console.error(error);
           });
-        Swal.fire('삭제되었습니다.')
+        Swal.fire("삭제되었습니다.");
       } else if (result.isDenied) {
       }
-    })
+    });
   };
 
   // Comment Tab을 눌렀을 때입니다.
@@ -461,13 +464,18 @@ const CommentModal: React.FunctionComponent<propsType> = ({
         </div>
 
         <div className={style.write_btn_form}>
-          {modify ? <button className={style.write_btn} onClick={modifyCommentClick}>
-            수정
-          </button> :   
-          <button className={isWrited ? style.nowrite_btn : style.write_btn} onClick={registComment}>
-            등록
-          </button>
-          }
+          {modify ? (
+            <button className={style.write_btn} onClick={modifyCommentClick}>
+              수정
+            </button>
+          ) : (
+            <button
+              className={isWrited ? style.nowrite_btn : style.write_btn}
+              onClick={registComment}
+            >
+              등록
+            </button>
+          )}
         </div>
       </div>
     </div>
