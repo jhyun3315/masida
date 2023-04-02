@@ -1,11 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-
 import Loading_spinner from "../UI/Loading_spinner";
-
 import style from "./Cocktail_Info.module.scss";
-import { useRouter } from "next/router"; 
-
+import { useRouter } from "next/router";
+import Swal from "sweetalert2";
 import { store } from "../../../store/store";
 import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty_img_url_converter";
 
@@ -14,9 +12,7 @@ import { detail_props } from "../../type/cocktailTypes";
 type CocktailInfoProps = {
   modifyCommentCnt: boolean;
 };
-const Cocktail_info = ({
-  modifyCommentCnt,
-}: CocktailInfoProps) => {
+const Cocktail_info = ({ modifyCommentCnt }: CocktailInfoProps) => {
   const router = useRouter();
   const atk = store.getState().user.accessToken;
   // console.log("info : ", atk)
@@ -28,12 +24,25 @@ const Cocktail_info = ({
   const [isBookmarkedBtn, setIsBookmarkedBtn] = useState<string>();
   const [difficultyImg, setDifficultyImg] = useState<string>();
 
+  const checkLogin = () => {
+    Swal.fire({
+      title: "로그인이 필요한 서비스입니다.",
+      html: "로그인 하시겠습니까?.",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "확인",
+      denyButtonText: `취소`,
+    }).then((confirm) => {
+      if (confirm.isConfirmed) {
+        //확인 버튼이 눌렸을때만 로그인창으로이동해
+        router.push("https://j8b208.p.ssafy.io/api/oauth/kakao/login");
+      }
+    });
+  };
+
   useEffect(() => {
-    const cocktail_num = parseInt(router.query.id as string) 
-    console.log(cocktail_num);
-    console.log(router.query);
-    
-    
+    const cocktail_num = parseInt(router.query.id as string);
+
     axios
       .get(`https://j8b208.p.ssafy.io/api/cocktails/${cocktail_num}`, {
         headers: {
@@ -52,8 +61,7 @@ const Cocktail_info = ({
           difficulty_img_url_converter(result.cocktail_difficulty)
         );
       });
-
-  }, [modifyCommentCnt,isLiked, isBookmarked]);
+  }, [modifyCommentCnt, isLiked, isBookmarked]);
 
   useEffect(() => {
     if (isLiked) {
@@ -69,49 +77,54 @@ const Cocktail_info = ({
   }, [isLiked, isBookmarked]);
 
   const likes_check_handler = () => {
-    console.log("isLiked : ", isLiked);
-    axios
-      .post(
-        `/api/cocktails/likes`,
-        {
-          cocktail_id: detail.cocktail_id,
-        },
-        {
-          headers: {
-            Authorization: atk,
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
+    if (atk.length === 0) {
+      checkLogin();
+    } else {
+      console.log("isLiked : ", isLiked);
+      axios
+        .post(
+          `/api/cocktails/likes`,
+          {
+            cocktail_id: detail.cocktail_id,
           },
-        }
-      )
-      .then((response) => {
-        console.log(response);
-        setIsLiked(!isLiked);
-      });
+          {
+            headers: {
+              Authorization: atk,
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+          setIsLiked(!isLiked);
+        });
+    }
   };
 
   const bookmark_check_handler = () => {
-    console.log("isBookmarked : ", isBookmarked);
-    console.log(detail.cocktail_id);
-    console.log(atk);
-    axios
-      .post(
-        `https://j8b208.p.ssafy.io/api/cocktails/bookmarks`,
-        {
-          cocktail_id: detail.cocktail_id,
-        },
-        {
-          headers: {
-            Authorization: atk,
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
+    if (atk.length === 0) {
+      checkLogin();
+    } else {
+      axios
+        .post(
+          `https://j8b208.p.ssafy.io/api/cocktails/bookmarks`,
+          {
+            cocktail_id: detail.cocktail_id,
           },
-        }
-      )
-      .then((response) => {
-        setIsBookmarked(!isBookmarked);
-        console.log(response);
-      });
+          {
+            headers: {
+              Authorization: atk,
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
+        )
+        .then((response) => {
+          setIsBookmarked(!isBookmarked);
+          console.log(response);
+        });
+    }
   };
 
   if (detail) {

@@ -87,6 +87,10 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
         setPage(response.data.next_page);
         console.log(response);
         setPageEnd(response.data.is_end);
+      })
+      .catch(() => {
+        //해당되는 데이터가 없다는 소리이므로 데이터의 총 개수 0으로 설정
+        setCocktailCnt(0);
       });
   }, [clickSearchBtn]);
   console.log(cocktail);
