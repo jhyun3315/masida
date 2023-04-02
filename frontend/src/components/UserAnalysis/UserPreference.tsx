@@ -15,7 +15,7 @@ const UserPreference = (props: cocktail_props_analysis_age_gender) => {
   const cocktailBase = props.cocktailList;
   const cocktailRecordList = props.cocktailRecordList;
 
-  // useEffect(() => {
+  // useEffect(() => {/
   //   if (isLoading2) {
   //     setCocktailRateList(props.cocktailRating.data);
   //     console.log(props.cocktailRating.data, "ㅗ띠ㅒㅣㅐㅣㅐ");
