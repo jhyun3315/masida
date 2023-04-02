@@ -36,7 +36,6 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
   let ingredient = useSelector(
     (state: RootState) => state.ingredientSelect.ingredient
   );
-  console.log(ingredient);
 
   const cocktailSearch = (sort: number) => {
     let tmpcolor: string = null;
@@ -84,11 +83,9 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
         },
       })
       .then((response) => {
-        response.data.data;
         setCokctail([...resetCocktail, ...response.data.data]);
         setCocktailCnt(response.data.max);
         setPage(response.data.next_page);
-        console.log(response);
         setPageEnd(response.data.is_end);
       })
       .catch(() => {
@@ -102,7 +99,6 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
     setLikeChecked(false);
     setRankChecked(false);
   }, [clickSearchBtn]);
-  console.log(cocktail);
 
   //정렬 기준이 바뀔때마다 useEffect 새로해주어야함.(즉 axios통신 새로해주기.)
   useEffect(() => {

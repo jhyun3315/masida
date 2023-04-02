@@ -13,6 +13,7 @@ import Swal from "sweetalert2";
 import { cocktailType } from "../../type/cocktailTypes";
 import { RootState } from "../../../store/store";
 import { useSelector } from "react-redux";
+import ResetCategory from "../../components/UI/ResetCategory";
 
 // 1. 칵테일 상세 조회
 //  화면 단에서 axios 호출을 하여 결과 값을 컴포넌트에 props로 넘겨준다.
@@ -39,6 +40,7 @@ interface CocktailProps {
 }
 
 const detail = () => {
+  ResetCategory();
   const router = useRouter();
   const [cocktail_id, setCocktail_id] = useState<number>(
     parseInt(router?.query.id as string)

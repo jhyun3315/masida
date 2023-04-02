@@ -14,6 +14,7 @@ import axios from "axios";
 import { store } from "../../../store/store";
 import { AnyAaaaRecord } from "dns";
 import { wrapper } from "../../../store";
+import ResetCategory from "../../components/UI/ResetCategory";
 
 export type cocktail_props_analysis = {
   cocktailList: cocktailBase[];
@@ -22,6 +23,7 @@ export type cocktail_props_analysis = {
 };
 
 const userAnalisys = ({ ctList }: any) => {
+  ResetCategory();
   const [cocktailList_props, setCocktailList_props] =
     useState<cocktailBase[]>(null);
   useEffect(() => {
