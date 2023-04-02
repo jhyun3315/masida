@@ -13,11 +13,8 @@ const Main_search = () => {
     const target = e.target as HTMLInputElement;
     if (e.key === "Enter") {
       dispatch(setSelectName(target.value)); //이름을 라우터에 저장하고 나서 보내줍니다.
-      //여기 왜 저장이 안되고 넘어가지?..
 
-      router.push({
-        pathname: "/search",
-      });
+      router.push("/search");
     }
   };
   return (

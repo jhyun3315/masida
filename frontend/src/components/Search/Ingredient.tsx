@@ -20,6 +20,8 @@ const Ingredient = (props: search_props) => {
     []
   );
 
+  console.log(listIngredient);
+
   //재료검색
   const searchIngredient = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
@@ -37,12 +39,16 @@ const Ingredient = (props: search_props) => {
     setInputValue(target.value);
   };
 
+  //추가했을때 list를 이름 포함된거로 바꿔주어야합니다.
   useEffect(() => {
+    console.log("나 때문에 안나오는거 같은데..");
+
     setListIngredient(() => {
-      return selectIngredient.ingredient?.filter((ingre) =>
+      return listIngredient?.filter((ingre) =>
         ingre.ingredient_name.includes(inputvalue)
       );
     });
+    console.log(listIngredient);
     if (inputvalue.length === 0) {
       //아무것도 안써있으면 빈배열이여야해
       setListIngredient([]);
@@ -58,9 +64,10 @@ const Ingredient = (props: search_props) => {
       ingredient_id: selectIngredient.ingredient[e.ingredient_id].ingredient_id,
       ingredient_name:
         selectIngredient.ingredient[e.ingredient_id].ingredient_name,
-      ingredient_add:
-        !selectIngredient.ingredient[e.ingredient_id].ingredient_add,
+      ingredient_add: true,
     };
+    console.log(e.ingredient_id);
+    console.log(listIngredient);
 
     //추가 시켰으니 리스트에서는 빼주기.
     setListIngredient(
@@ -91,13 +98,13 @@ const Ingredient = (props: search_props) => {
       ingredient_id: selectIngredient.ingredient[e.ingredient_id].ingredient_id,
       ingredient_name:
         selectIngredient.ingredient[e.ingredient_id].ingredient_name,
-      ingredient_add:
-        !selectIngredient.ingredient[e.ingredient_id].ingredient_add,
+      ingredient_add: false,
     };
     // if(addi.ingredient_name.includes(inputvalue))
     console.log(addi);
 
     setListIngredient((previnfo) => [...previnfo, addi]);
+    console.log("나 동작함?");
   };
 
   return (
