@@ -43,9 +43,12 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
             "COUNT(ci.ingredient_name) AS IngredientCount, " +
             "round(COUNT(ci.ingredient_name) / SUM(COUNT(ci.ingredient_name)) OVER(),2)* 100  AS IngredientRatio " +
             "FROM likes l " +
-            "JOIN cocktails As c ON l.cocktail_id = c.cocktail_id " +
-            "JOIN cocktail_ingredient As ci ON c.cocktail_id = ci.cocktail_id " +
-            "WHERE l.like_deleted = false AND l.user_id=:userId " +
+            "INNER JOIN cocktails As c ON l.cocktail_id = c.cocktail_id " +
+            "INNER JOIN cocktail_ingredient As ci ON c.cocktail_id = ci.cocktail_id " +
+            "INNER JOIN ingredient AS i ON ci.ingredient_id = i.ingredient_id "+
+            "WHERE l.like_deleted = false " +
+            "AND (i.ingredient_type = 'Garnish' OR i.ingredient_type = 'General') " +
+            "AND l.user_id=:userId " +
             "GROUP BY ci.ingredient_name " +
             "ORDER BY IngredientCount DESC LIMIT 5"
             ,nativeQuery = true)
