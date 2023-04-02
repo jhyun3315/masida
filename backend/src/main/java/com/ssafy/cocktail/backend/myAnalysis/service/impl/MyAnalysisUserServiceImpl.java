@@ -1,10 +1,15 @@
 package com.ssafy.cocktail.backend.myAnalysis.service.impl;
 
-import com.ssafy.cocktail.backend.domain.entity.User;
+import com.ssafy.cocktail.backend.cocktails.dto.CocktailRecommendDetail;
+import com.ssafy.cocktail.backend.domain.entity.*;
+import com.ssafy.cocktail.backend.domain.repository.CocktailRepository;
 import com.ssafy.cocktail.backend.domain.repository.MyAnalysisRepository;
+import com.ssafy.cocktail.backend.domain.repository.RecommendColorRepository;
+import com.ssafy.cocktail.backend.domain.repository.RecommendIngredientRepository;
 import com.ssafy.cocktail.backend.myAnalysis.dto.*;
 import com.ssafy.cocktail.backend.myAnalysis.service.MyAnalysisUserService;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +18,13 @@ import java.util.*;
 
 @Service
 @Transactional
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
+@AllArgsConstructor
 public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
     private final MyAnalysisRepository myAnalysisRepository;
     private final OAuthService oAuthService;
+    private CocktailRepository cocktailRepository; // 칵테일 추천 9개 테스트를 위해 삽입
+    private RecommendIngredientRepository recommendIngredientRepository; // 칵테일 추천 9개 테스트를 위해 삽입
 
     @Override
     public ArrayList<MyAnalysisBase> getAnalysisByBase(String accessToken) {
@@ -230,5 +238,33 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
         }catch (Exception e){
             return ratingColor;
         }
+    }
+
+    @Override
+    public ArrayList<TestRecommend> getRecommendTest(String accessToken) {
+        // 추천 테스트로 임의 9개 리턴
+        ArrayList<TestRecommend> results = new ArrayList<>(); // 칵테일 추천 상위 6개를 저장하는 객체
+        Optional<Cocktail> cocktail = cocktailRepository.findById(1L); // 칵테일 가져오기
+        ArrayList<Cocktail> recommends = new ArrayList<>(); // 추천 칵테일 9개 목록
+        RecommendIngredient recommendIngredient = recommendIngredientRepository.findByCocktail(cocktail.get()); // 재료 기반 추천 상위 6개 가져오기
+        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient1())); // 추천 1번 삽입
+        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient2())); // 추천 2번 삽입
+        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient3())); // 추천 3번 삽입
+        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient4())); // 추천 4번 삽입
+        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient5())); // 추천 5번 삽입
+        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient6())); // 추천 6번 삽입
+        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient1())); // 추천 7번 삽입
+        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient2())); // 추천 8번 삽입
+        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient3())); // 추천 9번 삽입
+
+        for (Cocktail recommend: recommends) { // 추천 칵테일
+            TestRecommend testRecommend = new TestRecommend();
+            testRecommend.setCocktailId(recommend.getId()); // 칵테일 id 삽입
+            testRecommend.setCocktailNameKo(recommend.getCocktailNameKo()); // 칵테일 한글 이름 삽입
+            testRecommend.setCocktailImg(recommend.getCocktailImg()); // 칵테일 이미지 삽입
+            results.add(testRecommend); // 추천 칵테일 삽입
+        }
+
+        return results;
     }
 }

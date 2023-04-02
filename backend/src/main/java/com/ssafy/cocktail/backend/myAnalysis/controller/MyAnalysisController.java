@@ -21,6 +21,29 @@ public class MyAnalysisController {
     private final MyAnalysisUserService myAnalysisUserService;
     private final OAuthService oAuthService;
 
+    @GetMapping("/recommend/base")
+    public ResponseEntity<TestRecommendRes> testBase(@RequestHeader("Authorization") String accessToken) {
+        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken);
+        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
+    }
+
+    @GetMapping("/recommend/ingredient")
+    public ResponseEntity<TestRecommendRes> testIngredient(@RequestHeader("Authorization") String accessToken) {
+        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken);
+        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
+    }
+
+    @GetMapping("/recommend/color")
+    public ResponseEntity<TestRecommendRes> testColor(@RequestHeader("Authorization") String accessToken) {
+        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken);
+        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
+    }
+
+    @GetMapping("/recommend/age-gender")
+    public ResponseEntity<TestRecommendRes> testAgeGender(@RequestHeader("Authorization") String accessToken) {
+        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken);
+        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
+    }
     @GetMapping("/cocktail-base")
     public ResponseEntity<MyAnalysisBaseRes> analysisByUserBase(@RequestHeader Map<String, String> data ) {
         String accessToken = data.get("authorization");
