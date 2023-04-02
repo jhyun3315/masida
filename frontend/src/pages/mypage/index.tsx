@@ -12,7 +12,10 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { get_user_info } from "../api/auth/user_api";
 import { store } from "../../../store/store";
+import ResetCategory from "../../components/UI/ResetCategory";
+
 const mypage = () => {
+  ResetCategory();
   let [userInfo, setUserInfo] = useState<userType>(null);
   // 북마크 버튼을 사용하여 리스트에서 제거하기 위한 상태 변수
   const [bookmarkModify, setBookmarkModify] = useState<boolean>(false);

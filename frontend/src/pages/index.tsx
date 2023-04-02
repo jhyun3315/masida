@@ -13,8 +13,10 @@ export interface landing_props {
   random: randomType;
   likeList: likeType[];
 }
+import ResetCategory from "../components/UI/ResetCategory";
 
 const landing = ({ random, likeList }: landing_props) => {
+  ResetCategory();
   const cocktail_props: landing_props = {
     random: random,
     likeList: likeList,
@@ -56,8 +58,8 @@ landing.getInitialProps = async (ctx: NextPageContext) => {
     const random: randomType = response_random.data.data;
     const likeList: likeType[] = response_likeList.data.data;
 
-    console.log("성공")
-    console.log(random)
+    console.log("성공");
+    console.log(random);
 
     return {
       random,
