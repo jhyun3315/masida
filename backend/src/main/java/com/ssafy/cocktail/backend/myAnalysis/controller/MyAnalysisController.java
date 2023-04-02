@@ -3,16 +3,11 @@ package com.ssafy.cocktail.backend.myAnalysis.controller;
 import com.ssafy.cocktail.backend.domain.entity.User;
 import com.ssafy.cocktail.backend.myAnalysis.dto.*;
 import com.ssafy.cocktail.backend.myAnalysis.dto.response.*;
-import com.ssafy.cocktail.backend.myAnalysis.service.CollaborativeRecommend;
+import com.ssafy.cocktail.backend.myAnalysis.service.CollaborativeRecommendService;
 import com.ssafy.cocktail.backend.myAnalysis.service.MyAnalysisUserService;
-import com.ssafy.cocktail.backend.myPage.dto.PaginationDataSet;
-import com.ssafy.cocktail.backend.myPage.dto.response.PageableRes;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +22,7 @@ import java.util.Map;
 public class MyAnalysisController {
     private final MyAnalysisUserService myAnalysisUserService;
     private final OAuthService oAuthService;
-    private final CollaborativeRecommend collaborativeRecommend;
+    private final CollaborativeRecommendService collaborativeRecommend;
 
 //    @GetMapping("/recommend/base")
 //    public ResponseEntity<TestRecommendRes> testBase(@RequestHeader("Authorization") String accessToken) {
