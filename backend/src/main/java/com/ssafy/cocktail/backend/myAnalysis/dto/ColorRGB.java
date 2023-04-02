@@ -9,7 +9,8 @@ public enum ColorRGB {
     파란색("#0000FF"),
     연보라("#E68CF0"),
     보라색("#B400BE"),
-    갈색("#964B00");
+    갈색("#964B00"),
+    흰색("#ffffff");
 
     private final String rgb;
     ColorRGB(String rgb){
