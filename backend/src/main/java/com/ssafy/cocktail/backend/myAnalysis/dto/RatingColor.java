@@ -20,7 +20,7 @@ public class RatingColor {
 
     @Builder
     public RatingColor(double rating_average, int rating_count, int rating_max, String rating_max_color, ArrayList<HashMap<String, Integer>> data) {
-        this.rating_average = rating_average;
+        this.rating_average = Math.round(rating_average*100)/100.0;
         this.rating_count = rating_count/2;
         this.rating_max = rating_max;
         this.rating_max_color = rating_max_color;
