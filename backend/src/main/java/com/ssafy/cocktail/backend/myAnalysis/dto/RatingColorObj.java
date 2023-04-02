@@ -17,7 +17,7 @@ public class RatingColorObj {
         this.cMap.put("green", 0);
         this.cMap.put("blue", 0);
         this.cMap.put("yellow", 0);
-        this.cMap.put("violet", 0);
+        this.cMap.put("navy", 0);
         this.cMap.put("purple", 0);
         this.cMap.put("brown", 0);
         this.cMap.put("white", 0);

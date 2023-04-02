@@ -7,7 +7,7 @@ public enum ColorEnum {
     노란색("yellow"),
     초록색("green"),
     파란색("blue"),
-    연보라색("violet"),
+    남색("navy"),
     보라색("purple"),
     갈색("brown"),
     흰색("white");
