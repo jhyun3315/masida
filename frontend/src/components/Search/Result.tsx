@@ -21,7 +21,8 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
   const [cocktailCnt, setCocktailCnt] = useState<number>(0);
   const [pageEnd, setPageEnd] = useState<boolean>(false);
   let [sendIngredient, setSendIngredient] = useState<string[]>([]);
-  const [resultLandering, setResultLandering] = useState<boolean>(false);
+  let [likeChecked, setLikeChecked] = useState<boolean>(false);
+  let [rankChecked, setRankChecked] = useState<boolean>(false);
 
   //처음 시작할때, 검색할때 초기화 시켜줄 배열입니다.
   const resetCocktail: cocktailType[] = [];
@@ -37,11 +38,13 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
   );
   console.log(ingredient);
 
-  useEffect(() => {
+  const cocktailSearch = (sort: number) => {
     let tmpcolor: string = null;
     let tmpdifficulty: string = null;
     let tmpingredient: string = null;
     setCokctail(resetCocktail);
+    setSortingNum(sort);
+
     if (name === "") {
       name = null;
     }
@@ -77,7 +80,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
           cocktail_base: base,
           cocktail_color: tmpcolor,
           cocktail_difficulty: tmpdifficulty,
-          cocktail_ingredient: sendIngredient,
+          cocktail_ingredient: tmpingredient,
         },
       })
       .then((response) => {
@@ -92,19 +95,31 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
         //해당되는 데이터가 없다는 소리이므로 데이터의 총 개수 0으로 설정
         setCocktailCnt(0);
       });
+  };
+
+  useEffect(() => {
+    cocktailSearch(0);
+    setLikeChecked(false);
+    setRankChecked(false);
   }, [clickSearchBtn]);
   console.log(cocktail);
 
   //정렬 기준이 바뀔때마다 useEffect 새로해주어야함.(즉 axios통신 새로해주기.)
-  useEffect(() => {}, [sortingNum]);
+  useEffect(() => {
+    cocktailSearch(sortingNum);
+  }, [sortingNum]);
 
   //현재 선택한 것들을 기준으로 좋아요 순으로 정렬.
   const sortLike = () => {
+    setLikeChecked(true);
+    setRankChecked(false);
     setSortingNum(1);
   };
 
   //현재 선택한 것들을 기준으로 별점 순으로 정렬
   const sortRating = () => {
+    setRankChecked(true);
+    setLikeChecked(false);
     setSortingNum(2);
   };
 
@@ -116,21 +131,47 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
       target.scrollHeight - 20;
 
     if (isEnd && !pageEnd) {
+      let tmpcolor: string = null;
+      let tmpdifficulty: string = null;
+      let tmpingredient: string = null;
+
+      if (name === "") {
+        name = null;
+      }
+      if (base === "") {
+        base = null;
+      }
+      if (color?.length === 0) {
+        tmpcolor = null;
+      } else {
+        tmpcolor = color.join(",");
+      }
+      if (difficulty?.length === 0) {
+        tmpdifficulty = null;
+      } else {
+        tmpdifficulty = difficulty.join(",");
+      }
+      //참인 것들만 재료에 담아줘..
+      ingredient.filter((ingre) =>
+        ingre.ingredient_add
+          ? setSendIngredient([...sendIngredient, ingre.ingredient_name])
+          : ""
+      );
+      tmpingredient = sendIngredient.join(",");
       //끝을 감지했다면?
       axios
         .get(`https://j8b208.p.ssafy.io/api/cocktails/search`, {
           params: {
             page: page,
-            sort_num: 0,
-            cocktail_name: null,
-            cocktail_base: null,
-            cocktail_color: null,
-            cocktail_difficulty: null,
-            cocktail_ingredient: null,
+            sort_num: sortingNum,
+            cocktail_name: name,
+            cocktail_base: base,
+            cocktail_color: tmpcolor,
+            cocktail_difficulty: tmpdifficulty,
+            cocktail_ingredient: tmpingredient,
           },
         })
         .then((response) => {
-          console.log(response.data.data);
           setCokctail([...cocktail, ...response.data.data]);
           setPage(response.data.next_page);
           setPageEnd(response.data.is_end);
@@ -149,6 +190,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
               id="like"
               name="sort"
               className={style.result_sort_btn}
+              checked={likeChecked}
             />
             <label
               htmlFor="like"
@@ -163,6 +205,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
               id="rank"
               name="sort"
               className={style.result_sort_btn}
+              checked={rankChecked}
             />
             <label
               htmlFor="rank"
