@@ -21,7 +21,7 @@ const RaidarBar = (props: cocktail_summary[]) => {
         valueFormat=">-.2f"
         padding={0.4}
         cornerRadius={2}
-        margin={{ top: 40, right: 120, bottom: 40, left: 40 }}
+        margin={{ top: 20, right: 100, bottom: 20, left: 40 }}
         radialAxisStart={{ tickSize: 5, tickPadding: 5, tickRotation: 0 }}
         circularAxisOuter={{ tickSize: 5, tickPadding: 12, tickRotation: 0 }}
         colors={['#E8C1A0','#F4E77E','#F79D8E']} 
