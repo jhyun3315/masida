@@ -9,10 +9,19 @@
       margin-top: 2%;
       text-align: left;
       position: absolute;
-      margin-left: 70%;
-      width: 100%;
-
+      width: 99%;
+      display: flex;
+      flex-direction: row-reverse;
       a {
+        cursor: pointer;
+        text-decoration-line: none;
+        color: black;
+        margin-right: 1%;
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
+      .logout {
+        cursor: pointer;
         text-decoration-line: none;
         color: black;
         margin-right: 1%;
@@ -24,7 +33,6 @@
     .mainTitle {
       position: absolute;
       margin-top: 27%;
-      margin-left: 60%;
       text-align: left;
       font-size: 1.7rem;
       color: white;
@@ -39,10 +47,18 @@
       margin-top: 2%;
       text-align: left;
       position: absolute;
-      margin-left: 70%;
-      width: 100%;
-
+      width: 99%;
+      display: flex;
+      flex-direction: row-reverse;
       a {
+        text-decoration-line: none;
+        color: white;
+        margin-right: 1%;
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
+      .logout {
+        cursor: pointer;
         text-decoration-line: none;
         color: white;
         margin-right: 1%;
