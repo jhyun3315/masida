@@ -17,21 +17,33 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
   setBookmarkModify,
 }) => {
   const [display, setDisplay] = useState<string>("bookmark");
-
   const [likesList, setLikesList] = useState<cocktailType[]>();
   const [likeToggle, setLikeToggle] = useState<boolean>(false);
+
   const [bookmarksList, setBookmarksList] = useState<cocktailType[]>();
   const [bookmarkToggle, setBookmark] = useState<boolean>(true);
+
   const [commentsList, setCommentsList] = useState<mypageCommentType[]>();
   const [commentToggle, setCommentToggle] = useState<boolean>(false);
 
-  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [bookmarkCurrentPage, setBookmarkCurrentPage] = useState<number>(0);
+  const [bookmarkNextPage, setBookmarkNextPage] = useState<number>(0);
+  const [bookmarkIsEnd, setBookmarkIsEnd] = useState<boolean>(false);
+
+  const [likeCurrentPage, setLikeCurrentPage] = useState<number>(0);
+  const [likeNextPage, setLikeNextPage] = useState<number>(0);
+  const [likeIsEnd, setLikeIsEnd] = useState<boolean>(false);
+
+  const [commentCurrentPage, setCommentCurrentPage] = useState<number>(0);
+  const [commentNextPage, setCommentNextPage] = useState<number>(0);
+  const [commentIsEnd, setCommentIsEnd] = useState<boolean>(false);
+
   const atk = store.getState().user.accessToken;
 
   useEffect(() => {
     axios
       .get(
-        `https://j8b208.p.ssafy.io/api/mypage/bookmarks?page=${currentPage}`,
+        `https://j8b208.p.ssafy.io/api/mypage/bookmarks?page=${bookmarkCurrentPage}`,
         {
           headers: {
             Authorization: atk,
@@ -39,50 +51,57 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
         }
       )
       .then((response) => {
+        const result = response.data;
         console.log("bookmark");
-        setBookmarksList(response.data.data);
-        console.log(response.data.next_page);
-        console.log(response.data.is_end);
+        setBookmarksList(result.data);
+        setBookmarkCurrentPage(result.next_page);
+        setBookmarkIsEnd(result.is_end);
       });
     axios
-      .get(`https://j8b208.p.ssafy.io/api/mypage/likes?page=${currentPage}`, {
-        headers: {
-          Authorization: atk,
-        },
-      })
+      .get(
+        `https://j8b208.p.ssafy.io/api/mypage/likes?page=${likeCurrentPage}`,
+        {
+          headers: {
+            Authorization: atk,
+          },
+        }
+      )
       .then((response) => {
+        const result = response.data;
+        console.log(result.data);
         console.log("like");
-        setLikesList(response.data.data);
-        console.log(response.data.next_page);
-        console.log(response.data.is_end);
+        setLikesList(result.data);
+        setLikeCurrentPage(result.next_page);
+        setLikeIsEnd(result.is_end);
       });
 
     axios
-      .get(`https://j8b208.p.ssafy.io/api/mypage/comment?page=${currentPage}`, {
-        headers: {
-          Authorization: atk,
-        },
-      })
+      .get(
+        `https://j8b208.p.ssafy.io/api/mypage/comment?page=${commentCurrentPage}`,
+        {
+          headers: {
+            Authorization: atk,
+          },
+        }
+      )
       .then((response) => {
+        const result = response.data;
         console.log("comment");
-        setCommentsList(response.data.data);
-        console.log(response.data.next_page);
-        console.log(response.data.is_end);
+        setCommentsList(result.data);
+        setCommentCurrentPage(result.next_page);
+        setCommentIsEnd(result.is_end);
       });
   }, []);
 
   useEffect(() => {
     // 북마크 변경하면 화면 다시 렌더링하려고 둔 부분
-    console.log("triggered");
+    console.log("card bookmark clicked");
     axios
-      .get(
-        `https://j8b208.p.ssafy.io/api/mypage/bookmarks?page=${currentPage}`,
-        {
-          headers: {
-            Authorization: atk,
-          },
-        }
-      )
+      .get(`https://j8b208.p.ssafy.io/api/mypage/bookmarks?page=0`, {
+        headers: {
+          Authorization: atk,
+        },
+      })
       .then((response) => {
         console.log("bookmark reload");
         setBookmarksList(response.data.data);
@@ -131,42 +150,151 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
     }
   };
 
+  //무한 스크롤 구현. Bookmark
+  const bookmarkScrollHandler = (e: React.UIEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLDivElement;
+    if (
+      200 > target.scrollHeight - (target.scrollTop + target.clientHeight) &&
+      !bookmarkIsEnd
+    ) {
+      console.log("bottom");
+      axios
+        .get(
+          `https://j8b208.p.ssafy.io/api/mypage/bookmarks?page=${bookmarkCurrentPage}`,
+          {
+            headers: {
+              Authorization: atk,
+            },
+          }
+        )
+        .then((response) => {
+          const result = response.data;
+          console.log("bookmark");
+          setBookmarksList([...bookmarksList, ...response.data.data]);
+          setBookmarkCurrentPage(result.next_page);
+          setBookmarkIsEnd(result.is_end);
+        });
+    }
+  };
+
+  //무한 스크롤 구현. like
+  const likeScrollHandler = (e: React.UIEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLDivElement;
+    if (
+      200 > target.scrollHeight - (target.scrollTop + target.clientHeight) &&
+      !bookmarkIsEnd
+    ) {
+      console.log("bottom");
+      axios
+        .get(
+          `https://j8b208.p.ssafy.io/api/mypage/likes?page=${likeCurrentPage}`,
+          {
+            headers: {
+              Authorization: atk,
+            },
+          }
+        )
+        .then((response) => {
+          const result = response.data;
+          console.log(result.data);
+          console.log("like");
+          setLikesList([...likesList, ...response.data.data]);
+          setLikeCurrentPage(result.next_page);
+          setLikeIsEnd(result.is_end);
+        });
+    }
+  };
+
+  //무한 스크롤 구현. comment
+  const commentScrollHandler = (e: React.UIEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLDivElement;
+    if (
+      200 > target.scrollHeight - (target.scrollTop + target.clientHeight) &&
+      !bookmarkIsEnd
+    ) {
+      console.log("bottom");
+      axios
+        .get(
+          `https://j8b208.p.ssafy.io/api/mypage/comment?page=${commentCurrentPage}`,
+          {
+            headers: {
+              Authorization: atk,
+            },
+          }
+        )
+        .then((response) => {
+          const result = response.data;
+          console.log("bookmark");
+          setCommentsList([...commentsList, ...response.data.data]);
+          setCommentCurrentPage(result.next_page);
+          setCommentIsEnd(result.is_end);
+        });
+    }
+  };
+
   const bookmarksListDiv = () => {
-    return (
-      <>
-        {bookmarksList?.map((key) => (
-          <My_bookmark_card
-            key={key.cocktail_id}
-            cocktail={key}
-            bookmarkModify={bookmarkModify}
-            setBookmarkModify={setBookmarkModify}
-          />
-        ))}
-      </>
-    );
+    if (bookmarksList && bookmarksList.length > 0) {
+      return (
+        <div
+          className={style.userCocktailList_content}
+          onScroll={bookmarkScrollHandler}
+        >
+          {bookmarksList?.map((key) => (
+            <My_bookmark_card
+              key={key.cocktail_id}
+              cocktail={key}
+              bookmarkModify={bookmarkModify}
+              setBookmarkModify={setBookmarkModify}
+            />
+          ))}
+        </div>
+      );
+    } else {
+      return (
+        <div className={style.userCocktailList_content}>
+          북마크를 눌러주세요
+        </div>
+      );
+    }
   };
 
   const likesListDiv = () => {
-    return (
-      <>
-        {likesList?.map((key) => (
-          <My_like_card {...key} />
-        ))}
-      </>
-    );
+    if (likesList && likesList.length > 0) {
+      return (
+        <div
+          className={style.userCocktailList_content}
+          onScroll={likeScrollHandler}
+        >
+          {likesList?.map((key) => (
+            <My_like_card {...key} />
+          ))}
+        </div>
+      );
+    } else {
+      return (
+        <div className={style.userCocktailList_content}>
+          좋아요를 눌러주세요
+        </div>
+      );
+    }
   };
 
   const commentsListDiv = () => {
-    if (commentsList) {
+    if (commentsList && commentsList.length > 0) {
       return (
-        <>
+        <div
+          className={style.userCommentList_content}
+          onScroll={commentScrollHandler}
+        >
           {commentsList?.map((key) => (
             <My_comment_card {...key} />
           ))}
-        </>
+        </div>
       );
     } else {
-      return <>댓글 없ㅇ름</>;
+      return (
+        <div className={style.userCocktailList_content}>댓글을 달아주세요</div>
+      );
     }
   };
 
@@ -174,33 +302,27 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
     <div className={style.userCocktailList}>
       <div className={style.userCocktailList_header}>
         <span
-          className={bookmarkToggle ? style.bookmark : ""}
+          className={bookmarkToggle ? style.selectedTab : ""}
           onClick={() => tabHandler("bookmark")}
         >
           BOOKMARK
         </span>
         <span
-          className={likeToggle ? style.like : ""}
+          className={likeToggle ? style.selectedTab : ""}
           onClick={() => tabHandler("like")}
         >
           LIKE
         </span>
         <span
-          className={commentToggle ? style.comment : ""}
+          className={commentToggle ? style.selectedTab : ""}
           onClick={() => tabHandler("comment")}
         >
           COMMENT
         </span>
       </div>
-      <div
-        className={`${
-          display == "comment" ? style.active : style.userCocktailList_content
-        }`}
-      >
-        {display === "bookmark" ? bookmarksListDiv() : " "}
-        {display === "like" ? likesListDiv() : " "}
-        {display === "comment" ? commentsListDiv() : " "}
-      </div>
+      {display === "bookmark" ? bookmarksListDiv() : " "}
+      {display === "like" ? likesListDiv() : " "}
+      {display === "comment" ? commentsListDiv() : " "}
     </div>
   );
 };
