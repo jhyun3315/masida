@@ -1,7 +1,7 @@
+import { useRef } from "react";
 import { useState } from "react";
 import { userType } from "../../type/userTypes";
 import { Dispatch, SetStateAction } from "react";
-import { AiOutlineCheckCircle } from "react-icons/ai";
 import style from "./UserSettingModal.module.scss";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -9,6 +9,7 @@ import { RootState } from "../../../store/store";
 import { useDispatch } from "react-redux";
 import { logout } from "../../../store/modules/user";
 import { useRouter } from "next/router";
+import { store } from "../../../store/store";
 
 interface propsType {
   setVisible: Dispatch<SetStateAction<boolean>>;
@@ -21,9 +22,10 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
   visible,
   user_info,
 }) => {
+  const userInfoRef = useRef(null);
   const dispatch = useDispatch();
   const router = useRouter();
-  const accessToken = useSelector((state: RootState) => state.user.accessToken);
+  const accessToken = store.getState().user.accessToken;
   const [gender, setGender] = useState<string>("");
   const [age, setAge] = useState<string>("");
   //회원탈퇴가 들어갈 axios 입니다. (회원탈퇴하고 메인페이지로 보내주어야하고 ATK 초기화.)
@@ -47,29 +49,27 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
       });
   };
 
-  const putAccount = () => {
-    const put = axios
-      .put("https://j8b208.p.ssafy.io/api/oauth/users", {
-        headers: {
-          Authorization: accessToken,
-        },
-        body: {
-          user_gender: gender,
-          user_age_range: age,
-        },
-      })
-      .then(function (put) {
-        //제대로 동작하면
-        console.log(put);
-        dispatch(logout()); //토큰 없애고
-        router.push("/"); //랜딩페이지로 이동.
-      })
-      .catch((err) => {
-        console.log(accessToken);
 
-        console.log(err);
-      });
-  };
+//   const putAccount = () => {
+//   const put = axios
+//     .put("https://j8b208.p.ssafy.io/api/oauth/users", {
+//       user_gender: gender,
+//       user_age_range: age,
+//     }, {
+//       headers: {
+//         Authorization: accessToken,
+//       },
+//     })
+//     .then(function (put) {
+//       //제대로 동작하면
+//       console.log(put);
+//       router.push("/"); //랜딩페이지로 이동.
+//     })
+//     .catch((err) => {
+//       console.log(accessToken);
+//       console.log(err);
+//     });
+// };
 
   const changeAge = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
@@ -79,6 +79,30 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
   const changeGender = (e: React.MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLInputElement;
     setGender(target.value);
+  };
+
+    const putAccount = () => {
+      console.log("Gender : ", gender);
+      console.log("Age : ", age);
+
+    axios
+      .put("https://j8b208.p.ssafy.io/api/oauth/users", {
+          user_gender: "male",
+          user_age_range: "30",
+        }, {
+        headers: {
+          Authorization: accessToken,
+        },
+      })
+      .then(function (put) {
+        //제대로 동작하면
+        console.log(put);
+        router.push("/"); //랜딩페이지로 이동.
+      })
+      .catch((err) => {
+        console.log(accessToken);
+        console.log(err);
+      });
   };
 
   return (
@@ -100,7 +124,7 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
       <h2>개인 정보 수정</h2>
       <div className={style.userSettingModal_content}>
         <div className={style.userSettingModal_leftImg}>
-          <img src="/assets/image/user_profile_img.png"></img>
+          <img src={ user_info.user_profile}></img>
         </div>
         <div className={style.userSettingModal_rightDesc}>
           <div>
@@ -114,6 +138,7 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
             <input
               defaultValue={user_info.user_age_range}
               onChange={changeAge}
+              ref={ userInfoRef}
             />
             대
           </div>
@@ -133,11 +158,6 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
               onClick={changeGender}
             />
             여
-          </div>
-          <div>
-            <span>선택 약관 동의 </span>
-            <AiOutlineCheckCircle />
-            <span>개인 정보 수집, 이용 동의(선택)</span>
           </div>
         </div>
       </div>

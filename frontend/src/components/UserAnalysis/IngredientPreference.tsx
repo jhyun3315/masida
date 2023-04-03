@@ -50,7 +50,7 @@ const IngredientPreference = (props: cocktail_props_analysis_ingredient) => {
                   </div>
                   <div className={style.cocktailPreference_analysis_lower_content_right_start_count}>
                     <div className={style.cocktail_star}>별점 개수</div>
-                    <div>{props.cocktailRating.rating_count}</div>
+                    <div className={ style.cocktail_star_value}>{props.cocktailRating.rating_count}</div>
                   </div>
                   <div className={style.cocktailPreference_analysis_lower_content_right_star_max}>
                     <div className={style.cocktail_star}>최대 별점</div>
