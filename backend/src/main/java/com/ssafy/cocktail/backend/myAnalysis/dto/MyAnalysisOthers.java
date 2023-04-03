@@ -5,7 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 
 public class MyAnalysisOthers {
-    @Schema(description = "칵테일 이름", example = "레몬")
+    @Schema(description = "칵테일 한글 이름", example = "마니티")
     @JsonProperty("cocktail_name_ko")
     private String CocktailNameKo;
 
@@ -17,9 +17,14 @@ public class MyAnalysisOthers {
     @JsonProperty("cocktail_count")
     private int CocktailCount;
 
+    @Schema(description = "칵테일 영문 이름", example = "마티니")
+    @JsonProperty("cocktail_name_en")
+    private String CocktailNameEn;
+
     @Builder
-    public MyAnalysisOthers(String CocktailNameKo, int CocktailCount, int CocktailRatio){
+    public MyAnalysisOthers(String CocktailNameKo, String CocktailNameEn, int CocktailCount, int CocktailRatio){
         this.CocktailNameKo = CocktailNameKo;
+        this.CocktailNameEn = CocktailNameEn;
         this.CocktailCount = CocktailCount;
         this.CocktailRatio = CocktailRatio;
     }

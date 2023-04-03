@@ -57,6 +57,7 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
     ArrayList<MyAnalysisIngredientInterface> getMyAnalysisIngredientList(@Param("userId") Long user_id);
 
     @Query(value ="SELECT c.cocktail_name_ko As CocktailNameKo, " +
+            "c.cocktail_name_en As CocktailNameEn, "+
             "COUNT(c.cocktail_name_ko) As CocktailCount, " +
             "round(COUNT(c.cocktail_name_ko)/ SUM(COUNT(c.cocktail_name_ko)) OVER(),2)*100 AS CocktailRatio " +
             "FROM likes As l " +
@@ -67,7 +68,7 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
             "AND u.user_gender =:gender " +
             "AND u.user_age_range =:ageRange " +
             "AND l.like_deleted = false " +
-            "GROUP BY c.cocktail_name_ko " +
+            "GROUP BY c.cocktail_name_ko, c.cocktail_name_en " +
             "ORDER BY CocktailCount DESC LIMIT 5"
         , nativeQuery = true)
 

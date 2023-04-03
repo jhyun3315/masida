@@ -84,7 +84,7 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
             ArrayList<MyAnalysisOthers> myAnalysisOthersArrayList = new ArrayList<>();
 
             for(MyAnalysisOthersInterface ele : interfaceArrayList){
-                myAnalysisOthersArrayList.add(new MyAnalysisOthers(ele.getCocktailNameKo(), ele.getCocktailCount(), ele.getCocktailRatio()));
+                myAnalysisOthersArrayList.add(new MyAnalysisOthers(ele.getCocktailNameKo(), ele.getCocktailNameEn(), ele.getCocktailCount(), ele.getCocktailRatio()));
             }
             return myAnalysisOthersArrayList;
         }catch (Exception e){
