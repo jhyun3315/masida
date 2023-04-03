@@ -3,43 +3,17 @@ import style from "./Category.module.scss";
 import Color from "./Color";
 import Difficulty from "./Difficulty";
 import Ingredient from "./Ingredient";
-
+import { Dispatch, SetStateAction } from 'react';
 //재료들 타입 지정.
-export type searchIngredient = {
-  ingredient_id: number;
-  ingredient_name: string;
-  ingredient_add: boolean; //현재 검색 추가된 재료인지 확인하게 해주는 props.
-};
+import { search_props } from "../../pages/search";
 
-export type searchedIngredient = {
-  ingredient: searchIngredient[];
-};
+interface propsType {
+  props: search_props;
+  addNumIngredient : number[];
+  setAddNumIngredient : Dispatch<SetStateAction<number[]>>
+}
 
-const Category = () => {
-  const props: searchedIngredient = {
-    ingredient: [
-      {
-        ingredient_id: 1,
-        ingredient_name: "바나나",
-        ingredient_add: false,
-      },
-      {
-        ingredient_id: 2,
-        ingredient_name: "바지락",
-        ingredient_add: false,
-      },
-      {
-        ingredient_id: 3,
-        ingredient_name: "콜라",
-        ingredient_add: false,
-      },
-      {
-        ingredient_id: 4,
-        ingredient_name: "피냐콜라닥!",
-        ingredient_add: false,
-      },
-    ],
-  };
+const Category : React.FunctionComponent<propsType> = ({props,addNumIngredient,setAddNumIngredient}) => {
   return (
     <>
       <div className={style.category}>
@@ -48,7 +22,7 @@ const Category = () => {
         <Base />
         <Color />
         <Difficulty />
-        <Ingredient {...props} />
+        <Ingredient props={props} addNumIngredient={addNumIngredient} setAddNumIngredient={setAddNumIngredient}/>
       </div>
     </>
   );

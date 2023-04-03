@@ -1,208 +1,118 @@
-import styles from  "./World_cup_league.module.scss"
-import { cocktailType } from "@/type/cocktailTypes";
+import style from "./World_cup_league.module.scss";
+import { cocktail_worldcup_data } from "../../type/cocktailTypes";
 import React, { useState, useEffect } from "react";
-import { World_cup_league_card } from "../UI/card2";
+import { World_cup_league_card } from "../UI/Card_ui";
+// 최종 결과를 보여줄 컴포넌트
+import World_cup_league_result from "./World_cup_league_result";
 
 // https://velog.io/@pyo-sh/React-Project-%EC%9D%B4%EC%83%81%ED%98%95-%EC%9B%94%EB%93%9C%EC%BB%B5
 
-const World_cup_league = () => {
-  const items: cocktailType[] = [
-    {
-      cocktail_id: 1,
-      cocktail_name_ko: "The Missionary",
-      cocktail_name_en: "The Missionary",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/the-missionary.jpg?itok=MT7XW_-H",
-      cocktail_likes: 22,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 2,
-      cocktail_name_ko: "Missionary's Downfall",
-      cocktail_name_en: "Missionary's Downfall",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/_7505176-edit.jpg?itok=E-GYq9iO",
-      cocktail_likes: 32,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 3,
-      cocktail_name_ko: "Mizz Mazza",
-      cocktail_name_en: "Mizz Mazza",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/mizz-mazza.jpg?itok=gu14Gs50",
-      cocktail_likes: 24,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 4,
-      cocktail_name_ko: "Mockingbird, Wish Me Luck",
-      cocktail_name_en: "Mockingbird, Wish Me Luck",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/mockingbirdluck6487.jpg?itok=F5iUo5pJ",
-      cocktail_likes: 292,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 5,
-      cocktail_name_ko: "Moko Jumbie",
-      cocktail_name_en: "Moko Jumbie",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/mokojombie6173.jpg?itok=TLuLrcw8",
-      cocktail_likes: 292,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 6,
-      cocktail_name_ko: "El Momento Perfecto",
-      cocktail_name_en: "El Momento Perfecto",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/el-momento-perfecto.jpg?itok=99VfGOy0",
-      cocktail_likes: 292,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 7,
-      cocktail_name_ko: "A Monkey In Winter",
-      cocktail_name_en: "A Monkey In Winter",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/a-monkey-in-winter.jpg?itok=_FHsvkGa",
-      cocktail_likes: 292,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 8,
-      cocktail_name_ko: "Montauk (NoMad)",
-      cocktail_name_en: "Montauk (NoMad)",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/79C354F6-A692-4DA0-A412-",
-      cocktail_likes: 292,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 9,
-      cocktail_name_ko: "The Monte Press",
-      cocktail_name_en: "The Monte Press",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/img_1896.jpg?itok=uQJPxHts",
-      cocktail_likes: 292,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 10,
-      cocktail_name_ko: "Montreal Cocktail",
-      cocktail_name_en: "Montreal Cocktail",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/img_3795_1.png?itok=pKGlGhTS",
-      cocktail_likes: 292,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 11,
-      cocktail_name_ko: "Moral Turpitude",
-      cocktail_name_en: "Moral Turpitude",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/moralturpitude.jpg?itok=UgYU5BoR",
-      cocktail_likes: 292,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 12,
-      cocktail_name_ko: "More Amaro",
-      cocktail_name_en: "More Amaro",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/More%20AmaroB.JPG?itok=68B4BiTX",
-      cocktail_likes: 292,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 13,
-      cocktail_name_ko: "Morning Darling",
-      cocktail_name_en: "Morning Darling",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/20191211_170104.jpg?itok=QBcNlKaC",
-      cocktail_likes: 292,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 14,
-      cocktail_name_ko: "Mr. Manager",
-      cocktail_name_en: "Mr. Manager",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/zoos2qa3v5f21.jpg?itok=Pnv3oVJu",
-      cocktail_likes: 292,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 15,
-      cocktail_name_ko: "Mr. Swizzle",
-      cocktail_name_en: "Mr. Swizzle",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/mr-swizzle-cocktail_0.jpg?itok=Li232jH1",
-      cocktail_likes: 292,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-    {
-      cocktail_id: 16,
-      cocktail_name_ko: "The Music Orange",
-      cocktail_name_en: "The Music Orange",
-      cocktail_img: "https://kindredcocktails.com/sites/kindredcocktails.com/files/styles/large/public/pictures/cocktail/the-music-orange.jpg?itok=pZv_lMII",
-      cocktail_likes: 292,
-      cocktail_rating: 4.6,
-      cocktail_difficulty: "중",
-    },
-  ];
+const World_cup_league = (props: cocktail_worldcup_data[]) => {
 
-  const [cocktails, setCocktails] = useState<cocktailType[]>([]);
-  const [displays, setDisplays] = useState<cocktailType[]>([]);
-  const [winners, setWinners] = useState<cocktailType[]>([]);
-  const [rounds, setRounds] = useState<number>(1);
+  const items:any = [];
 
+  // const items:any = [];
+  for (let i = 0; i < 16; i++){
+    items.push(props[i]);
+  }
+
+
+  const [isFinal, setIsFinal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [cocktails, setCocktails] = useState<cocktail_worldcup_data[]>([]);
+  const [displays, setDisplays] = useState<cocktail_worldcup_data[]>([]);
+  const [winners, setWinners] = useState<cocktail_worldcup_data[]>([]);
+
+  // 횟수
+  const [times, setTimes] = useState<number>(1);
+  // 강
+  const [rounds, setRounds] = useState<number>(items.length);
+  
+  // console.log(items);
+  
   useEffect(() => {
+    setIsLoading(true);
     items.sort(() => Math.random() - 0.5);
+    setDisplays([items[0], items[1]]);
     setCocktails(items);
   }, []);
+  
+  
+  
 
-  useEffect(() => {
-    setDisplays([items[0], items[1]]);
-  }, []);
-
-  const clickHandler = (cocktail: cocktailType) => (e: React.MouseEvent) => {
-    if(rounds < 15)
-      setRounds(rounds+1);
-
-    if (cocktails.length <= 2) {
-      if (winners.length === 0) {
-        // 우승자가 나온 상황
-        // 화면 다시 렌더링하자
-        setDisplays([cocktail]);
-      } else {
-        let updatedCocktail: cocktailType[] = [...winners, cocktail];
-        setCocktails(updatedCocktail);
-        setDisplays([updatedCocktail[0], updatedCocktail[1]]);
-        setWinners([]);
+  const clickHandler = (cocktail: cocktail_worldcup_data) => (e: React.MouseEvent) => {
+    // console.log(cocktails.length);
+    if (rounds > 1) {
+      if (times < rounds) setTimes(times + 1);
+      if (times === rounds / 2 && rounds >= 2) {
+        setRounds(rounds / 2);
+        setTimes(1);
       }
-    } else if (cocktails.length > 2) {
-      setWinners([...winners, cocktail]);
-      setDisplays([cocktails[2], cocktails[3]]);
-      setCocktails(cocktails.slice(2));
+      if (cocktails.length <= 2) {
+        if (rounds === 2) {
+          // 우승자가 나온 상황
+          setDisplays([cocktail]);
+          setIsFinal(true);
+        } else {
+          let updatedCocktail: cocktail_worldcup_data[] = [...winners, cocktail];
+          setCocktails(updatedCocktail);
+          setDisplays([updatedCocktail[0], updatedCocktail[1]]);
+          setWinners([]);
+        }
+      } else {
+        setWinners([...winners, cocktail]);
+        setDisplays([cocktails[2], cocktails[3]]);
+        setCocktails(cocktails.slice(2));
+      }
     }
   };
-  return (
+
+  // 상단 문구 : 리그 진행 중
+  const onGameTitle = (
     <>
-      {/* {displays.map((key) => (
-        <div onClick={clickHandler(key)}>{key.cocktail_id}</div>
-      ))} */}
-      <div>{rounds}</div>
-      <div className= {styles.random_cocktail_selector}>
-      {displays.map((key) => (
-        <div onClick={clickHandler(key)} className = {styles.random_cocktail_card}>
-          <World_cup_league_card {...key} />
-        </div>
-      ))}
+      <div className={style.cocktail_worldcup_title}>칵테일 월드컵</div>
+      <div className={style.cocktail_worldcup_title_sub}>
+        좋아하는 칵테일을 골라주세요.
+      </div>
+      <div className={style.cocktail_worldcup_current_order}>
+        {isFinal ? "" : `${rounds}강 ${times} / ${rounds / 2}`}
       </div>
     </>
   );
+
+  // 상단 문구 : 결과 나왔을 때
+  const finalTitle = (
+    <div className={style.cocktail_worldcup_title}>
+      칵테일 월드컵 우승자입니다.
+    </div>
+  );
+
+  if (isLoading) {
+    return (
+      <>
+        <div className={style.cocktail_worldcup_textarea}>
+          {isFinal ? finalTitle : onGameTitle}
+        </div>
+        <div className={style.random_cocktail_selector}>
+          {isFinal ? (
+            <World_cup_league_result {...cocktails[0]} />
+          ) : (
+            displays.map((key) => (
+              <div
+                onClick={clickHandler(key)}
+                className={style.random_cocktail_card}
+              >
+                <World_cup_league_card {...key} />
+              </div>
+            ))
+          )}
+        </div>
+      </>
+    );
+  }
+  return(
+    <div>error</div>
+  )
 };
 
 export default World_cup_league;

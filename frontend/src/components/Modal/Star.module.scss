@@ -1,0 +1,40 @@
+.reviewForm {
+  font-size: 14px;
+
+  .reviewInner {
+    display: flex;
+    // text-align: center;
+    align-items: flex-end;
+    margin-left: 8px;
+    .ratingBox {
+        display: flex;
+
+        div {
+            span {
+            border: none;
+            background: transparent;
+            font-size: 2em;
+
+            -ms-user-select: none;
+            -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+            }
+        }
+        .starArea {
+            position: absolute;
+            z-index: -100;
+        }
+    }
+
+    .ratingBox:hover {
+      cursor: pointer;
+    }
+    
+    .rating_count {
+        font-size: 18px;
+        margin-left: 8px;
+    }
+  }
+}

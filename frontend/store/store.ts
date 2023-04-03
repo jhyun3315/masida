@@ -1,10 +1,16 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import counterSlice from "./counter/counterSlice";
 import baseSlice from "./category/baseSlice";
+import colorSlice from "./category/colorSlice";
+import difficultySlice from './category/difficultySlice';
+import ingredientSlice from './category/ingredientSlice';
+import nameSlice from './category/nameSlice';
+
+import userSlice  from './modules/user';
+import pageSlice from './modules/pageSlice';
 
 import persistReducer from 'redux-persist/lib/persistReducer';
-
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
+
 
 //로컬 스토리지에 persist 적용시키는 것.
 const createNoopStorage = () => {
@@ -38,19 +44,26 @@ import {
 
 
 const reducers = combineReducers({
-  counter: counterSlice,
-  baseselect : baseSlice,
+  baseSelect : baseSlice,
+  colorSelect : colorSlice,
+  difficultySelect : difficultySlice,
+  ingredientSelect: ingredientSlice,
+  nameSelect : nameSlice,
+  user:userSlice,
+  page :pageSlice,
 })
 
+//새로고침시 안없어 지는 것을 whitelist에 저장.
 const persistConfig = {
   key: "root",
   storage: local,
-  whitelist: ["counter"],
+  whitelist: ["user", "page"],
 };
 
-
+//redux-persist를 사용하기위해 Reducer합치는 단계
 const persistedReducer = persistReducer(persistConfig, reducers);
 
+//긁어온 거
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>

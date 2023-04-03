@@ -1,18 +1,43 @@
 .userCocktailList {
   margin: 5%;
-
   .userCocktailList_header {
     span {
       font-weight: bold;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin-right: 3%;
+      color: #808080;
+    }
+    .selectedTab {
+      color: black;
+      font-weight: bold;
+      color: #253976;
+    }
+    span:hover {
+      cursor: pointer;
     }
   }
 
   .userCocktailList_content {
-    margin-top: 7%;
+    border: 1px solid #25397627;
+    border-radius: 10px;
+    margin-top: 2%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    padding: 1%;
+    height: 87.5vh;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .userCommentList_content {
+    border: 1px solid #25397627;
+    border-radius: 10px;
+    margin-top: 2%;
+    padding: 1%;
+    height: 85vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin-top: 7%;
     padding: 1%;
   }
 }

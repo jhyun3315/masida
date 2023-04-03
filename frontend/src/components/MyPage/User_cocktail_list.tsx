@@ -1,221 +1,330 @@
-import { useState,useEffect } from 'react';
-import style from './User_cocktail_list.module.scss';
-import Link from 'next/link';
-import { My_bookmark_card, My_like_card } from '../UI/Card_ui';
-import { cocktailType } from '@/type/cocktailTypes';
+import axios from "axios";
+import { useState, useEffect, Dispatch, SetStateAction } from "react";
+import style from "./User_cocktail_list.module.scss";
+import Link from "next/link";
+import { My_bookmark_card, My_like_card, My_comment_card } from "../UI/Card_ui";
+import { cocktailType } from "../../type/cocktailTypes";
+import { mypageCommentType } from "../../type/commentTypes";
+import { store } from "../../../store/store";
 
-
-export type bookmarkList = {
-  data: cocktailType[];
+interface MyComponentProps {
+  setBookmarkModify: Dispatch<SetStateAction<boolean>>;
+  bookmarkModify: boolean;
 }
-  
-export type likeList = {
-  data: cocktailType[];
-}
-  
-const User_cocktail_list = () => {
 
-  const [bookmark, bookmarkState] = useState(false);
-  const [like, likeState] = useState(false);
-  const [comment, commentState] = useState(false);  
+const User_cocktail_list: React.FC<MyComponentProps> = ({
+  bookmarkModify,
+  setBookmarkModify,
+}) => {
+  const [display, setDisplay] = useState<string>("bookmark");
+  const [likesList, setLikesList] = useState<cocktailType[]>();
+  const [likeToggle, setLikeToggle] = useState<boolean>(false);
 
-  const BookMarkHandler = () => {
-    bookmarkState(!bookmark);
+  const [bookmarksList, setBookmarksList] = useState<cocktailType[]>();
+  const [bookmarkToggle, setBookmark] = useState<boolean>(true);
+
+  const [commentsList, setCommentsList] = useState<mypageCommentType[]>();
+  const [commentToggle, setCommentToggle] = useState<boolean>(false);
+
+  const [bookmarkCurrentPage, setBookmarkCurrentPage] = useState<number>(0);
+  const [bookmarkNextPage, setBookmarkNextPage] = useState<number>(0);
+  const [bookmarkIsEnd, setBookmarkIsEnd] = useState<boolean>(false);
+
+  const [likeCurrentPage, setLikeCurrentPage] = useState<number>(0);
+  const [likeNextPage, setLikeNextPage] = useState<number>(0);
+  const [likeIsEnd, setLikeIsEnd] = useState<boolean>(false);
+
+  const [commentCurrentPage, setCommentCurrentPage] = useState<number>(0);
+  const [commentNextPage, setCommentNextPage] = useState<number>(0);
+  const [commentIsEnd, setCommentIsEnd] = useState<boolean>(false);
+
+  const atk = store.getState().user.accessToken;
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://j8b208.p.ssafy.io/api/mypage/bookmarks?page=${bookmarkCurrentPage}`,
+        {
+          headers: {
+            Authorization: atk,
+          },
+        }
+      )
+      .then((response) => {
+        const result = response.data;
+        console.log("bookmark");
+        setBookmarksList(result.data);
+        setBookmarkCurrentPage(result.next_page);
+        setBookmarkIsEnd(result.is_end);
+      });
+    axios
+      .get(
+        `https://j8b208.p.ssafy.io/api/mypage/likes?page=${likeCurrentPage}`,
+        {
+          headers: {
+            Authorization: atk,
+          },
+        }
+      )
+      .then((response) => {
+        const result = response.data;
+        console.log(result.data);
+        console.log("like");
+        setLikesList(result.data);
+        setLikeCurrentPage(result.next_page);
+        setLikeIsEnd(result.is_end);
+      });
+
+    axios
+      .get(
+        `https://j8b208.p.ssafy.io/api/mypage/comment?page=${commentCurrentPage}`,
+        {
+          headers: {
+            Authorization: atk,
+          },
+        }
+      )
+      .then((response) => {
+        const result = response.data;
+        console.log("comment");
+        setCommentsList(result.data);
+        setCommentCurrentPage(result.next_page);
+        setCommentIsEnd(result.is_end);
+      });
+  }, []);
+
+  useEffect(() => {
+    // 북마크 변경하면 화면 다시 렌더링하려고 둔 부분
+    console.log("card bookmark clicked");
+    axios
+      .get(`https://j8b208.p.ssafy.io/api/mypage/bookmarks?page=0`, {
+        headers: {
+          Authorization: atk,
+        },
+      })
+      .then((response) => {
+        console.log("bookmark reload");
+        setBookmarksList(response.data.data);
+        console.log(response.data.next_page);
+        console.log(response.data.is_end);
+      });
+  }, [bookmarkModify]);
+
+  const tabHandler = (mode: string) => {
+    //북마크 좋아요 댓글 스타일 먹이기 위해서 사용.
+    if (mode === "bookmark") {
+      if (bookmarkToggle) {
+        return;
+      }
+    } else if (mode === "like") {
+      if (likeToggle) {
+        return;
+      }
+    } else if (mode === "comment") {
+      if (commentToggle) {
+        return;
+      }
+    }
+    switch (mode) {
+      case "bookmark":
+        setDisplay("bookmark");
+        setLikeToggle(false);
+        setBookmark(true);
+        setCommentToggle(false);
+        break;
+      case "like":
+        setDisplay("like");
+        setLikeToggle(true);
+        setBookmark(false);
+        setCommentToggle(false);
+        break;
+      case "comment":
+        setDisplay("comment");
+        setLikeToggle(false);
+        setBookmark(false);
+        setCommentToggle(true);
+        break;
+      default:
+        setDisplay("bookmark");
+        break;
+    }
   };
-    
-  const LikeHandler = () => {
-    likeState(!like);
+
+  //무한 스크롤 구현. Bookmark
+  const bookmarkScrollHandler = (e: React.UIEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLDivElement;
+    if (
+      200 > target.scrollHeight - (target.scrollTop + target.clientHeight) &&
+      !bookmarkIsEnd
+    ) {
+      console.log("bottom");
+      axios
+        .get(
+          `https://j8b208.p.ssafy.io/api/mypage/bookmarks?page=${bookmarkCurrentPage}`,
+          {
+            headers: {
+              Authorization: atk,
+            },
+          }
+        )
+        .then((response) => {
+          const result = response.data;
+          console.log("bookmark");
+          setBookmarksList([...bookmarksList, ...response.data.data]);
+          setBookmarkCurrentPage(result.next_page);
+          setBookmarkIsEnd(result.is_end);
+        });
+    }
   };
-  const commentHandler = () => {
-      commentState(!comment);
+
+  //무한 스크롤 구현. like
+  const likeScrollHandler = (e: React.UIEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLDivElement;
+    if (
+      200 > target.scrollHeight - (target.scrollTop + target.clientHeight) &&
+      !bookmarkIsEnd
+    ) {
+      console.log("bottom");
+      axios
+        .get(
+          `https://j8b208.p.ssafy.io/api/mypage/likes?page=${likeCurrentPage}`,
+          {
+            headers: {
+              Authorization: atk,
+            },
+          }
+        )
+        .then((response) => {
+          const result = response.data;
+          console.log(result.data);
+          console.log("like");
+          setLikesList([...likesList, ...response.data.data]);
+          setLikeCurrentPage(result.next_page);
+          setLikeIsEnd(result.is_end);
+        });
+    }
   };
 
-  const bookmarkList_props: cocktailType[] = [
-    {
-    cocktail_id: 1,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },
-  {
-    cocktail_id: 2,
-    cocktail_name_ko: "앙 기모띠",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-   {
-    cocktail_id: 3,
-    cocktail_name_ko: "기모링링링",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 4,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 5,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 6,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 7,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 8,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 9,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },
-  ]
+  //무한 스크롤 구현. comment
+  const commentScrollHandler = (e: React.UIEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLDivElement;
+    if (
+      200 > target.scrollHeight - (target.scrollTop + target.clientHeight) &&
+      !bookmarkIsEnd
+    ) {
+      console.log("bottom");
+      axios
+        .get(
+          `https://j8b208.p.ssafy.io/api/mypage/comment?page=${commentCurrentPage}`,
+          {
+            headers: {
+              Authorization: atk,
+            },
+          }
+        )
+        .then((response) => {
+          const result = response.data;
+          console.log("bookmark");
+          setCommentsList([...commentsList, ...response.data.data]);
+          setCommentCurrentPage(result.next_page);
+          setCommentIsEnd(result.is_end);
+        });
+    }
+  };
 
-  const likeList_props: cocktailType[] = [
-    {
-    cocktail_id: 1,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },
-  {
-    cocktail_id: 2,
-    cocktail_name_ko: "앙 기모띠",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-   {
-    cocktail_id: 3,
-    cocktail_name_ko: "기모링링링",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 4,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 5,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 6,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 7,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 8,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-    },
-    {
-    cocktail_id: 9,
-    cocktail_name_ko: "오렌지 블라썸",
-    cocktail_name_en: "orange blossom",
-    cocktail_img: "/assets/image/cocktail.png",
-    cocktail_likes: 292,
-    cocktail_rating: 4.6,
-    cocktail_difficulty: "중",
-  },
-  ]
+  const bookmarksListDiv = () => {
+    if (bookmarksList && bookmarksList.length > 0) {
+      return (
+        <div
+          className={style.userCocktailList_content}
+          onScroll={bookmarkScrollHandler}
+        >
+          {bookmarksList?.map((key) => (
+            <My_bookmark_card
+              key={key.cocktail_id}
+              cocktail={key}
+              bookmarkModify={bookmarkModify}
+              setBookmarkModify={setBookmarkModify}
+            />
+          ))}
+        </div>
+      );
+    } else {
+      return (
+        <div className={style.userCocktailList_content}>
+          북마크를 눌러주세요
+        </div>
+      );
+    }
+  };
 
-  
+  const likesListDiv = () => {
+    if (likesList && likesList.length > 0) {
+      return (
+        <div
+          className={style.userCocktailList_content}
+          onScroll={likeScrollHandler}
+        >
+          {likesList?.map((key) => (
+            <My_like_card {...key} />
+          ))}
+        </div>
+      );
+    } else {
+      return (
+        <div className={style.userCocktailList_content}>
+          좋아요를 눌러주세요
+        </div>
+      );
+    }
+  };
+
+  const commentsListDiv = () => {
+    if (commentsList && commentsList.length > 0) {
+      return (
+        <div
+          className={style.userCommentList_content}
+          onScroll={commentScrollHandler}
+        >
+          {commentsList?.map((key) => (
+            <My_comment_card {...key} />
+          ))}
+        </div>
+      );
+    } else {
+      return (
+        <div className={style.userCocktailList_content}>댓글을 달아주세요</div>
+      );
+    }
+  };
+
   return (
-    <div className={ style.userCocktailList}>
-      <div className={ style.userCocktailList_header}>
-        <span onClick={BookMarkHandler}>BOOKMARK</span>
-        <span onClick={ LikeHandler}>Like</span>
-        <span onClick={commentHandler }>Comment</span>
+    <div className={style.userCocktailList}>
+      <div className={style.userCocktailList_header}>
+        <span
+          className={bookmarkToggle ? style.selectedTab : ""}
+          onClick={() => tabHandler("bookmark")}
+        >
+          BOOKMARK
+        </span>
+        <span
+          className={likeToggle ? style.selectedTab : ""}
+          onClick={() => tabHandler("like")}
+        >
+          LIKE
+        </span>
+        <span
+          className={commentToggle ? style.selectedTab : ""}
+          onClick={() => tabHandler("comment")}
+        >
+          COMMENT
+        </span>
       </div>
-      <div className={style.userCocktailList_content}>
-        {bookmark&&bookmarkList_props.map((key) => 
-          <My_bookmark_card {...key} />
-        )}
-        {like && likeList_props.map((key) => 
-          <My_like_card {...key}/>
-        ) }
-      </div>
+      {display === "bookmark" ? bookmarksListDiv() : " "}
+      {display === "like" ? likesListDiv() : " "}
+      {display === "comment" ? commentsListDiv() : " "}
     </div>
-  )
+  );
 };
 
 export default User_cocktail_list;

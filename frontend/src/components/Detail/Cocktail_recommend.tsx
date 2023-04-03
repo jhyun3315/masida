@@ -7,21 +7,22 @@ import { Detail_recommend_card } from "../UI/Card_ui";
 import { recommend_props } from "../../pages/detail/[id]";
 
 const Cocktail_recommend = (props: recommend_props) => {
-  const ingredientList = props.ingredient_recommend.data;
-  const colorList = props.color_recommend.data;
-
-  console.log(ingredientList);
-  console.log(colorList);
+  const ingredientList = props.ingredient_recommend;
+  const colorList = props.color_recommend;
+  console.log("props : ")
+  console.log(props)
+  // console.log(ingredientList);
+  // console.log(colorList);
 
   const settings = {
     accessibility: false,
     adaptiveHeight: true,
-    arrows : false,
+    // arrows : true,
     // dots: true,
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
     speed: 500,
     autoplaySpeed: 3000,
     cssEase: "linear",
@@ -39,7 +40,7 @@ const Cocktail_recommend = (props: recommend_props) => {
           {/* map cards */}
           <div className={style.carousel}>
             <Slider {...settings}>
-              {ingredientList.map((key) => (
+              {ingredientList?.map((key) => (
                 <Detail_recommend_card {...key} />
               ))}
             </Slider>
@@ -54,19 +55,13 @@ const Cocktail_recommend = (props: recommend_props) => {
           {/* map cards */}
           <div className={style.carousel}>
             <Slider {...settings}>
-              {colorList.map((key) => (
+              {colorList?.map((key) => (
                 <Detail_recommend_card {...key} />
               ))}
             </Slider>
           </div>
         </div>
 
-        {/* 댓글 호버 펼치는 버튼 */}
-        <img
-          className={style.detail_comment_btn}
-          src="/assets/icons/detail_comment_btn.png"
-          alt=""
-        />
       </div>
     </div>
   );

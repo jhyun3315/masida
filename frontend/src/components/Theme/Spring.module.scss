@@ -1,0 +1,56 @@
+.springContainer {
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    .springTitle {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+        .springIntro {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        .springHashTag{
+            margin: 8px;
+            font-size: 24px;
+            color: #ffc0cb
+        }
+    }
+    .themeRecommend {
+        display: flex;
+        justify-content: center;
+        font-size: 26px;
+        .themeRecommend_right {
+            display: flex;
+            width: 50%;
+            text-align: end;
+            align-items: center;
+            margin:16px;
+        }
+
+        .themeRecommend_left {
+            display: flex;
+            width: 50%;
+            text-align: start;
+            align-items: center;
+            margin:16px;
+        }
+        .themeRecommend_img {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: bold;
+            .cocktail_img {
+                padding : 24px;
+            }
+        }
+        .themeRecommend_name {
+            font-weight: bold;
+            font-size: 30px;
+        }
+    }
+}
