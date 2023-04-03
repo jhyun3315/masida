@@ -1,5 +1,5 @@
 .analysisThumbnail {
-  margin: 13%;
+  margin-left: 5%;
   margin-top: 5%;
   margin-bottom: 0;
   p {
@@ -8,15 +8,16 @@
   }
 
   .analysisThumbnail_detail {
-    border: 1px solid #929090;
+    border: 1px solid #25397627;
+    border-radius: 10px;
     padding: 5%;
 
     div {
+      text-align: right;
       a {
-        text-decoration-line: none;
+        text-decoration-line: underline;
         color: #929090;
         font-weight: bold;
-        margin-left: 70%;
       }
     }
   }
