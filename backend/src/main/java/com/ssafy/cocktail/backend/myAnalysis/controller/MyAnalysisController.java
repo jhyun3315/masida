@@ -160,7 +160,7 @@ public class MyAnalysisController {
 //
 //        try { // 토큰이 유효한 경우,
 //            User user = oAuthService.getUser(accessToken); // 해당 사용자 가져오기
-//            collaborativeRecommend.getTop5Ingredients(user.getId());
+//            collaborativeRecommend.recommendCocktailByIngredient(user.getId());
 //            return null;
 //        }
 //        catch (Exception e) { // 토큰이 유효하지 않은 경우
@@ -178,7 +178,7 @@ public class MyAnalysisController {
 //
 //        try { // 토큰이 유효한 경우,
 //            User user = oAuthService.getUser(accessToken); // 해당 사용자 가져오기
-//            collaborativeRecommend.getTop5Base(user.getId());
+//            collaborativeRecommend.recommendCocktailByBase(user.getId());
 //            return null;
 //        }
 //        catch (Exception e) { // 토큰이 유효하지 않은 경우

@@ -3,8 +3,10 @@ package com.ssafy.cocktail.backend.oauth.dto.request;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class UserInfoReq {
     @Schema(description = "사용자 성별", example = "female")
     @JsonProperty("user_gender")
