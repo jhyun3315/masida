@@ -8,10 +8,14 @@ const Base = () => {
   const dispatch = useDispatch();
   const [checkBase, setCheckBase] = useState<string>("");
 
-  const clickBase = (e: React.MouseEvent<HTMLElement>) => {
+  const clickBase = (e: React.MouseEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
     //base의 이름을 내가 선택한 것으로 변경해줌.
-    setCheckBase(target.value);
+    if(checkBase === target.value) {
+      setCheckBase("");
+    }else {
+      setCheckBase(target.value);
+    } 
   };
 
   //base가 바뀔때마다 redux의 base에 저장해줍니다.
@@ -26,11 +30,11 @@ const Base = () => {
         <div className={style.base_checkbox}>
           <div className={style.base_interval}>
             <label className={style.base_value}>
-              <input type="radio" name="base" value="진" onClick={clickBase} />{" "}
+              <input type="radio" name="base" value="진" checked={checkBase === "진"} onClick={clickBase} />{" "}
               진
             </label>
             <label className={style.base_value}>
-              <input type="radio" name="base" value="럼" onClick={clickBase} />{" "}
+              <input type="radio" name="base" value="럼" checked={checkBase === "럼"} onClick={clickBase} />{" "}
               럼
             </label>
           </div>
@@ -40,6 +44,7 @@ const Base = () => {
                 type="radio"
                 name="base"
                 value="위스키"
+                checked={checkBase === "위스키"}
                 onClick={clickBase}
               />{" "}
               위스키
@@ -49,6 +54,7 @@ const Base = () => {
                 type="radio"
                 name="base"
                 value="리퀴르"
+                checked={checkBase === "리퀴르"}
                 onClick={clickBase}
               />{" "}
               리큐르
@@ -60,6 +66,7 @@ const Base = () => {
                 type="radio"
                 name="base"
                 value="보드카"
+                checked={checkBase === "보드카"}
                 onClick={clickBase}
               />{" "}
               보드카
@@ -69,6 +76,7 @@ const Base = () => {
                 type="radio"
                 name="base"
                 value="브랜디"
+                checked={checkBase === "브랜디"}
                 onClick={clickBase}
               />{" "}
               브랜디
@@ -80,6 +88,7 @@ const Base = () => {
                 type="radio"
                 name="base"
                 value="테킬라"
+                checked={checkBase === "테킬라"}
                 onClick={clickBase}
               />{" "}
               데킬라
@@ -89,6 +98,7 @@ const Base = () => {
                 type="radio"
                 name="base"
                 value="기타"
+                checked={checkBase === "기타"}
                 onClick={clickBase}
               />{" "}
               기타

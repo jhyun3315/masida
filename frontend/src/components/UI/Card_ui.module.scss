@@ -77,7 +77,8 @@
   position: relative;
 
   .result_card_img {
-    width: 95%;
+    width: 13vw;
+    height: 35vh;
     border-radius: 3%;
     z-index: 1;
   }
@@ -155,7 +156,7 @@
     }
   }
 
-  .result_card_difficulty_div {}
+  // .result_card_difficulty_div {}
 }
 
 .recommendCard {
@@ -413,7 +414,7 @@
     }
   }
 
-  .result_card_difficulty_div {}
+  // .result_card_difficulty_div {}
 }
 
 .flip {
