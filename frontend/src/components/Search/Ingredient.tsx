@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searchIngredientType } from "../../type/ingredientTypes";
 import { RootState } from "../../../store/store";
@@ -6,7 +6,14 @@ import { changeSelectIngredient } from "../../../store/category/ingredientSlice"
 import style from "./Ingredient.module.scss";
 import { search_props } from "../../pages/search";
 
-const Ingredient = (props: search_props) => {
+interface propsType {
+  props: search_props;
+  addNumIngredient : number[];
+  setAddNumIngredient : Dispatch<SetStateAction<number[]>>
+}
+
+
+const Ingredient : React.FunctionComponent<propsType> = ({props, addNumIngredient, setAddNumIngredient}) => {
   const dispatch = useDispatch();
   // const selectIngredient = useSelector(
   //   (state: RootState) => state.ingredientSelect
@@ -19,8 +26,6 @@ const Ingredient = (props: search_props) => {
   let [listIngredient, setListIngredient] = useState<searchIngredientType[]>(
     []
   );
-
-  console.log(listIngredient);
 
   //재료검색
   const searchIngredient = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,14 +46,11 @@ const Ingredient = (props: search_props) => {
 
   //추가했을때 list를 이름 포함된거로 바꿔주어야합니다.
   useEffect(() => {
-    console.log("나 때문에 안나오는거 같은데..");
-
     setListIngredient(() => {
       return listIngredient?.filter((ingre) =>
         ingre.ingredient_name.includes(inputvalue)
       );
     });
-    console.log(listIngredient);
     if (inputvalue.length === 0) {
       //아무것도 안써있으면 빈배열이여야해
       setListIngredient([]);
@@ -58,6 +60,7 @@ const Ingredient = (props: search_props) => {
   //재료추가
   const addIngredient = (e: searchIngredientType) => {
     dispatch(changeSelectIngredient(e));
+    
 
     //추가시킬 것 등록.
     const addi: searchIngredientType = {
@@ -78,6 +81,7 @@ const Ingredient = (props: search_props) => {
 
     //추가시킨 것 addList에 추가 시켜주기.
     setAddedIngredient((prevInfo) => [...prevInfo, addi]);
+    setAddNumIngredient((prevInfo) => [...prevInfo, addi.ingredient_id]);
   };
 
   //재료삭제(그냥 삭제하면 e.ingredient_add를 변경하면 read_only라 변경이 불가능하다며 에러를 띄웁니다.)
@@ -92,6 +96,9 @@ const Ingredient = (props: search_props) => {
     setAddedIngredient(
       addedIngredient.filter((add) => add.ingredient_id !== e.ingredient_id)
     );
+    setAddNumIngredient(
+      addNumIngredient.filter((add) => add !== e.ingredient_id)
+    )
 
     //리스트 상시 업데이트.
     const addi: searchIngredientType = {
@@ -104,7 +111,6 @@ const Ingredient = (props: search_props) => {
     console.log(addi);
 
     setListIngredient((previnfo) => [...previnfo, addi]);
-    console.log("나 동작함?");
   };
 
   return (

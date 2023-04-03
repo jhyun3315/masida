@@ -5,22 +5,23 @@ import {
   My_like_card,
 } from "../UI/Card_ui";
 import { cocktailType } from "../../type/cocktailTypes";
-import { useState, useEffect } from "react";
+import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 
 interface propsType {
   clickSearchBtn: boolean;
+  addNumIngredient : number[];
 }
 
-const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
+const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn, addNumIngredient }) => {
   const [cocktail, setCokctail] = useState<cocktailType[]>([]);
   const [page, setPage] = useState<number>(0);
   const [sortingNum, setSortingNum] = useState<number>(0);
   const [cocktailCnt, setCocktailCnt] = useState<number>(0);
   const [pageEnd, setPageEnd] = useState<boolean>(false);
-  let [sendIngredient, setSendIngredient] = useState<string[]>([]);
+  let [sendIngredient, setSendIngredient] = useState<number[]>([]);
   let [likeChecked, setLikeChecked] = useState<boolean>(false);
   let [rankChecked, setRankChecked] = useState<boolean>(false);
   let [sortCheckName, setSortCheckName] = useState<string>("");
@@ -64,11 +65,12 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
     //참인 것들만 재료에 담아줘..
     ingredient.filter((ingre) =>
       ingre.ingredient_add
-        ? setSendIngredient([...sendIngredient, ingre.ingredient_name])
+        ? setSendIngredient([...sendIngredient, ingre.ingredient_id])
         : ""
     );
-    tmpingredient = sendIngredient.join(",");
-
+    tmpingredient = addNumIngredient.join(",");
+    console.log(tmpingredient);
+    
     setPage(0);
 
     axios
@@ -88,6 +90,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
         setCocktailCnt(response.data.max);
         setPage(response.data.next_page);
         setPageEnd(response.data.is_end);
+        setSendIngredient([]);
       })
       .catch(() => {
         //해당되는 데이터가 없다는 소리이므로 데이터의 총 개수 0으로 설정
@@ -170,7 +173,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
       //참인 것들만 재료에 담아줘..
       ingredient.filter((ingre) =>
         ingre.ingredient_add
-          ? setSendIngredient([...sendIngredient, ingre.ingredient_name])
+          ? setSendIngredient([...sendIngredient, ingre.ingredient_id])
           : ""
       );
       tmpingredient = sendIngredient.join(",");
