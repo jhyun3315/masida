@@ -5,7 +5,7 @@ import {
   My_like_card,
 } from "../UI/Card_ui";
 import { cocktailType } from "../../type/cocktailTypes";
-import { Dispatch, SetStateAction, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
@@ -69,10 +69,10 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn, addNumIngr
         : ""
     );
     tmpingredient = addNumIngredient.join(",");
-    console.log(tmpingredient);
     
     setPage(0);
-
+    console.log(name);
+    
     axios
       .get(`https://j8b208.p.ssafy.io/api/cocktails/search`, {
         params: {
@@ -154,9 +154,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn, addNumIngr
       let tmpdifficulty: string = null;
       let tmpingredient: string = null;
 
-      if (name === "") {
-        name = null;
-      }
+
       if (base === "") {
         base = null;
       }
@@ -177,6 +175,10 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn, addNumIngr
           : ""
       );
       tmpingredient = sendIngredient.join(",");
+
+      console.log(name);
+      
+
       //끝을 감지했다면?
       axios
         .get(`https://j8b208.p.ssafy.io/api/cocktails/search`, {

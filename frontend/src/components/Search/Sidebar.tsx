@@ -4,6 +4,7 @@ import { Dispatch, useState, useEffect, SetStateAction } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { search_props } from "../../pages/search";
 import { setSelectName } from "../../../store/category/nameSlice";
+import { RootState } from "../../../store/store";
 
 interface propsType {
   props: search_props;
@@ -29,6 +30,12 @@ const Sidebar2: React.FunctionComponent<propsType> = ({
     const target = e.target as HTMLInputElement;
     setSearchName(target.value);
   };
+
+  let name = useSelector((state: RootState) => state.nameSelect.searchName);
+  
+  useEffect(() => {
+    setSearchName(name);
+  },[])
 
   //칵테일 이름 dispatch해주어서 넣어주기
   useEffect(() => {
