@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { ResponsiveBar } from '@nivo/bar';
-import { cocktailBaseRating } from '../../type/cocktailRating';
+import {cocktailIngredientRating } from '../../type/cocktailRating';
 
-const Barchart = (props: cocktailBaseRating[]) => {
+const Barchart3 = (props: cocktailIngredientRating[]) => {
     const handle = {
         barClick: (data: any) => {
             console.log(data);
@@ -14,11 +14,26 @@ const Barchart = (props: cocktailBaseRating[]) => {
   };
   
   const data = [];
+  const key:Array<string> = [];
+
+  for (let i = 0; i < 5; i++){
+    key.push(props[i].ingredient_name1);
+    key.push(props[i].ingredient_name2);
+    key.push(props[i].ingredient_name3);
+    key.push(props[i].ingredient_name4);
+    key.push(props[i].ingredient_name5);
+  }
+
+  const keys = key.filter((v: string, i: number) => key.indexOf(v) === i);
 
   for (let i = 0; i < 5; i++){
     data.push({
-      rating: props[i].rating_score, whisky: props[i].whisky, tequila: props[i].tequila, vodka: props[i].vodka, mezcal: props[i].mezcal, spirits: props[i].spirits,
-      rum:props[i].rum, liqueur:props[i].liqueur, brandy:props[i].brandy, jin:props[i].jin, beer:props[i].beer, wine:props[i].wine
+      rating: props[i].rating_score,
+      [props[i].ingredient_name1.replace(/"/g, "")]: props[i].ingredient_count1,
+      [props[i].ingredient_name2.replace(/"/g, "")]: props[i].ingredient_count2,
+      [props[i].ingredient_name3.replace(/"/g, "")]: props[i].ingredient_count3,
+      [props[i].ingredient_name4.replace(/"/g, "")]: props[i].ingredient_count4,
+      [props[i].ingredient_name5.replace(/"/g, "")]: props[i].ingredient_count5,
     });
   }
   
@@ -33,7 +48,7 @@ const Barchart = (props: cocktailBaseRating[]) => {
                 /**
                  * chart에 보여질 데이터 key (측정되는 값)
                  */
-                keys={["whisky","tequila","vodka","mezcal","spirits","rum","liqueur","brandy","jin","beer","wine"]}
+                keys={keys}
                 /**
                  * keys들을 그룹화하는 index key (분류하는 값)
                  */
@@ -49,7 +64,7 @@ const Barchart = (props: cocktailBaseRating[]) => {
                 /**
                  * chart 색상
                  */
-                colors={['#F4E77E', '#F79D8E', '#E8A93B','#E8C1A0','#61CDBB','#A6E7DB','#A0D468','#A077FF','#F4D160','#9FA3E3','#EC80C0']} // 커스터하여 사용할 때
+                colors={['#E02A1C', '#FFAD03', '#E685B5','#235C18','#0000FF',"#CCC8C8","#2E354F","#D0B83A","#C800FF","#B26132"]} // 커스터하여 사용할 때
                 // colors={{ scheme: 'nivo' }} // nivo에서 제공해주는 색상 조합 사용할 때
                 /**
                  * color 적용 방식
@@ -164,4 +179,4 @@ const Barchart = (props: cocktailBaseRating[]) => {
     );
 };
 
-export default Barchart;
+export default Barchart3;

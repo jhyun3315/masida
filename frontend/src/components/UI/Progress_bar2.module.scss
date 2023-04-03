@@ -1,0 +1,144 @@
+.progressBar {
+  border: 1px solid #c1c1c1;
+  border-radius: 5%;
+  padding: 5%;
+
+  h3 {
+    padding-bottom: 5%;
+  }
+
+
+  .progressBar_content {
+    .progressBar_content_first {
+      margin-bottom: 3%;
+
+      .progressBar_content_desc {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3%;
+      }
+
+      progress {
+        -webkit-appearance: none;
+      }
+
+      ::-webkit-progress-bar {
+        width: 40vh;
+        background-color: #ffffff;
+        border: 1px solid #DADADA;
+        border-radius: 20px;
+      }
+
+      ::-webkit-progress-value {
+        background-color: #253976;
+        border-radius: 20px;
+      }
+    }
+
+    .progressBar_content_second {
+      margin-bottom: 3%;
+
+      .progressBar_content_desc {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3%;
+      }
+
+      progress {
+        -webkit-appearance: none;
+      }
+
+      ::-webkit-progress-bar {
+        width: 40vh;
+        background-color: #ffffff;
+        border: 1px solid #DADADA;
+        border-radius: 20px;
+      }
+
+      ::-webkit-progress-value {
+        background-color: #253976;
+        border-radius: 20px;
+      }
+    }
+
+    .progressBar_content_third {
+      margin-bottom: 3%;
+
+      .progressBar_content_desc {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3%;
+      }
+
+      progress {
+        -webkit-appearance: none;
+      }
+
+      ::-webkit-progress-bar {
+        width: 40vh;
+        background-color: #ffffff;
+        border: 1px solid #DADADA;
+        border-radius: 20px;
+      }
+
+      ::-webkit-progress-value {
+        background-color: #253976;
+        border-radius: 20px;
+      }
+    }
+
+    .progressBar_content_fourth {
+      margin-bottom: 3%;
+
+      .progressBar_content_desc {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3%;
+      }
+
+      progress {
+        -webkit-appearance: none;
+      }
+
+      ::-webkit-progress-bar {
+        width: 40vh;
+        background-color: #ffffff;
+        border: 1px solid #DADADA;
+        border-radius: 20px;
+      }
+
+      ::-webkit-progress-value {
+        background-color: #253976;
+        border-radius: 20px;
+      }
+    }
+
+    .progressBar_content_fifth {
+      margin-bottom: 3%;
+
+      .progressBar_content_desc {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3%;
+      }
+
+      progress {
+        -webkit-appearance: none;
+      }
+
+      ::-webkit-progress-bar {
+        width: 40vh;
+        background-color: #ffffff;
+        border: 1px solid #DADADA;
+        border-radius: 20px;
+      }
+
+      ::-webkit-progress-value {
+        background-color: #253976;
+        border-radius: 20px;
+      }
+    }
+
+
+  }
+}

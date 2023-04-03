@@ -17,7 +17,6 @@ export const get_user_info = async () => {
   await axios
     .get(url, config)
     .then((response) => {
-      console.log("Current User Info : ", response.data.data);
       value = response.data.data;
     })
     .catch((err) => {

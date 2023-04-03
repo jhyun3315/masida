@@ -14,9 +14,14 @@ const Piechart2 = (props: cocktailColor[]) => {
   };
   
   const data: dataType[] = [];
+  const color: any = [];
 
   for (let i = 0; i < 5; i++) {
     data.push({ id: props[i].color_name, value:props[i].color_ratio });
+  }
+
+  for (let i = 0; i < 5; i++){
+    color.push(props[i].color_rgb);
   }
   
     return (
@@ -44,7 +49,7 @@ const Piechart2 = (props: cocktailColor[]) => {
                 /**
                  * chart 색상
                  */
-                colors={['#F4E77E', '#F79D8E', '#E8A93B','#E8C1A0','#61CDBB']} // 커스터하여 사용할 때
+                colors={color} // 커스터하여 사용할 때
                 // colors={{ scheme: 'nivo' }} // nivo에서 제공해주는 색상 조합 사용할 때
                 /**
                  * pad border 두께 설정

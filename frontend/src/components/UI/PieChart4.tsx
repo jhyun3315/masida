@@ -14,9 +14,8 @@ const Piechart4 = (props: cocktailAgeGender[]) => {
   };
   
   const data: dataType[] = [];
-  console.log(props.length, "기리");
   for (let i = 0; i < 5; i++) {
-    data.push({ id: props[i].cocktail_name_ko, value:props[i].cocktail_ratio });
+    data.push({ id: props[i].cocktail_name_ko+"["+props[i].cocktail_name_en+"]", value:props[i].cocktail_ratio });
   }
   
     return (
@@ -105,7 +104,7 @@ const Piechart4 = (props: cocktailAgeGender[]) => {
                 //         translateX: 0, // chart와 X 간격
                 //         translateY: 56, // chart와 Y 간격
                 //         itemsSpacing: 0, // item간 간격
-                //         itemWidth: 200, // item width
+                //         itemWidth: 150, // item width
                 //         itemHeight: 18, // item height
                 //         itemDirection: 'left-to-right', // item 내부에 그려지는 방향
                 //         itemOpacity: 1, // item opacity

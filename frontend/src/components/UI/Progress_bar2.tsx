@@ -1,5 +1,5 @@
 import { cocktailColor } from '../../type/cocktailPreference';
-import style from './Progress_bar.module.scss';
+import style from './Progress_bar2.module.scss';
 
 const Progress_bar = (props: cocktailColor[]) => {
 
