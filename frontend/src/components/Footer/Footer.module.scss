@@ -2,14 +2,16 @@
   background-color: white;
   display: flex;
   justify-content: space-between;
-  font-size: 24px;
+  font-size: 18px;
   .main_left {
     margin-top : 1rem;
     margin-left: 3rem;
     margin-bottom: 5rem;
-  
-    span {
-      margin-right: 0.5rem;
+    .main_intro {
+      margin-bottom: 0.5rem;
+      span {
+        margin-right: 0.5rem;
+      }
     }
     .main_left_descrption {
       font-weight: bold;
