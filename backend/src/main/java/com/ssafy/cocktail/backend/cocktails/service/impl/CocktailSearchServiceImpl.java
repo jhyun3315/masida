@@ -37,9 +37,7 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
         ArrayList<CocktailSearchDetail> searchList = new ArrayList<>(); // 검색 결과 칵테일
         searchList = getCocktails(info); // 칵테일 검색 결과 가져오기
         max = searchList.size(); // 칵테일 검색 결과 총 개수
-        if (info.getSortNum().equals("0"))searchList.sort(Comparator.comparing(CocktailSearchDetail::getCocktailNameKo)); // 이름 오름차순 정렬
-        if (info.getSortNum().equals("1"))searchList.sort(Comparator.comparing(CocktailSearchDetail::getCocktailLikes, Comparator.reverseOrder())); // 좋아요 내림차순 정렬
-        if (info.getSortNum().equals("2"))searchList.sort(Comparator.comparing(CocktailSearchDetail::getCocktailRating, Comparator.reverseOrder())); // 평점 내림차순 정렬
+        sortSearchList(info.getSortNum(), searchList);// 칵테일 검색 결과 정렬
         searchList = getPage(searchList, info.getPage()); // 페이지의 칵테일 가져오기
         return searchList;
     }
@@ -47,6 +45,17 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
     @Override
     public int getMax() {
         return max;
+    }
+
+    private ArrayList<CocktailSearchDetail> sortSearchList(String sortNum, ArrayList<CocktailSearchDetail> searchList) {
+        if (sortNum == null || sortNum.equals("0")) {  // 이름 오름차순 정렬
+            searchList.sort(Comparator.comparing(CocktailSearchDetail::getCocktailNameKo));
+        } else if (sortNum.equals("1")) { // 좋아요 내림차순 정렬
+            searchList.sort(Comparator.comparing(CocktailSearchDetail::getCocktailLikes, Comparator.reverseOrder())); // 좋아요 내림차순 정렬
+        } else { // sortNum == 2, 평점 내림차순 정렬
+            searchList.sort(Comparator.comparing(CocktailSearchDetail::getCocktailRating, Comparator.reverseOrder())); // 평점 내림차순 정렬
+        }
+        return searchList;
     }
 
     private ArrayList<CocktailSearchDetail> getPage(ArrayList<CocktailSearchDetail> searchList, int page) {
