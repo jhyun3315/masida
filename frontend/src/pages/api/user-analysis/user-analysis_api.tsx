@@ -1,7 +1,7 @@
 import axios from "axios";
 import { store } from "../../../../store/store";
 import { cocktailAgeGender, cocktailBase,cocktailColor, cocktailIngredient } from "../../../type/cocktailPreference";
-import { cocktailBase_props,cocktailColor_props } from "../../../type/cocktailRating";
+import { cocktailBase_props,cocktailColor_props,cocktailIngredient_props } from "../../../type/cocktailRating";
 import { cocktail_recommend } from "../../../type/cocktailTypes";
 
 axios.defaults.baseURL = "https://j8b208.p.ssafy.io/";
@@ -47,7 +47,6 @@ export const userAnalysis_cocktailColor = async() => {
   await axios
     .get(url, config)
     .then((response) => {
-      console.log("사용자의 칵테일 색상 취향 Top 5를 보여줘", response.data.data);
       value = response.data.data;
     })
     .catch((error) => { console.log(error) })
@@ -72,7 +71,6 @@ export const userAnalysis_cocktailIngredient = async() => {
   await axios
     .get(url, config)
     .then((response) => {
-      console.log("사용자의 칵테일 재료 취향 Top 5를 보여줘", response.data.data);
       value = response.data.data;
     })
     .catch((error) => { console.log(error) })
@@ -97,7 +95,6 @@ export const userAnalysis_cocktailAgeGender = async() => {
   await axios
     .get(url, config)
     .then((response) => {
-      console.log("사용자의 비슷한 나이&성별대에서 선호하는 칵테일 top 5를 보여줘", response.data.data);
       value = response.data.data;
     })
     .catch((error) => { console.log(error) })
@@ -148,6 +145,31 @@ export const user_starRating_cocktailColor = async() => {
     .get(url, config)
     .then((response) => {
       value = response.data;
+    })
+    .catch((error) => { console.log(error) })
+  
+  return value;
+}
+
+// 취향분석(재료)에서 별점의 분포도
+export const user_starRating_cocktailIngredient = async() => { 
+  let url = "/api/my-analysis/ingredient-rating";
+  let value: cocktailIngredient_props = null;
+
+  const getAccessToken = store.getState().user.accessToken;
+
+  const config = {
+    headers: {
+     "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      Authorization: getAccessToken,
+    }
+  }
+  await axios
+    .get(url, config)
+    .then((response) => {
+      value = response.data;
+      console.log("별점 분포도", value);
     })
     .catch((error) => { console.log(error) })
   

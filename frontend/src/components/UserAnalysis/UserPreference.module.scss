@@ -14,16 +14,14 @@
 
       .cocktailPreference_analysis_upper {
         margin-top: 7%;
-        display: flex;
 
-        .cocktailPreference_analysis_upper_left {
-          flex: 1.5;
-        }
+        .cocktailPreference_analysis_upper_left {}
 
         .cocktailPreference_analysis_upper_right {
-          flex: 1;
+          width: 62.5%;
+          margin-left: 20%;
+          margin-top: 5%;
         }
-
       }
 
       .cocktailPreference_analysis_lower {
@@ -68,7 +66,7 @@
               }
 
               .cocktail_star_value {
-                padding-left: 25%;
+                padding-left: 22%;
                 padding-top: 5%;
 
               }
@@ -109,7 +107,7 @@
 
   hr {
     width: 0.1px;
-    height: 120vh;
+    height: 125vh;
     margin-left: 3%;
   }
 }

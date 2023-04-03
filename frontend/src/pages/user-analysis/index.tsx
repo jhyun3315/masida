@@ -6,11 +6,11 @@ import IngredientPreference from "../../components/UserAnalysis/IngredientPrefer
 import UserPreference from "../../components/UserAnalysis/UserPreference";
 import style from './index.module.scss';
 import { cocktailAgeGender, cocktailBase, cocktailColor, cocktailIngredient } from "../../type/cocktailPreference";
-import { cocktailBase_props, cocktailColor_props } from "../../type/cocktailRating";
+import { cocktailBase_props, cocktailColor_props, cocktailIngredient_props } from "../../type/cocktailRating";
 import { cocktail_recommend } from "../../type/cocktailTypes";
-import { userAnalysis_cocktailBase,user_cocktail_recommend,user_starRating_cocktailBase,userAnalysis_cocktailColor,user_starRating_cocktailColor,user_cocktail_color_recommend, userAnalysis_cocktailIngredient,user_cocktail_ingredient_recommend,userAnalysis_cocktailAgeGender,user_cocktail_age_gender_recommend } from "../api/user-analysis/user-analysis_api";
+import { userAnalysis_cocktailBase,user_cocktail_recommend,user_starRating_cocktailBase,userAnalysis_cocktailColor,user_starRating_cocktailColor,user_cocktail_color_recommend, userAnalysis_cocktailIngredient,user_cocktail_ingredient_recommend,userAnalysis_cocktailAgeGender,user_cocktail_age_gender_recommend,user_starRating_cocktailIngredient } from "../api/user-analysis/user-analysis_api";
 
-export type cocktail_props_analysis = {//
+export type cocktail_props_analysis = {
   isLoading_props1: boolean,
   isLoading_props2:boolean,
   cocktailList: cocktailBase[],
@@ -30,13 +30,12 @@ export type cocktail_props_analysis_ingredient = {
   isLoading_props5: boolean,
   isLoading_props6:boolean,
   cocktailList: cocktailIngredient[],
-  cocktailRating: cocktailColor_props,
+  cocktailRating: cocktailIngredient_props,
   cocktailRecordList: cocktail_recommend[],
 }
 
 export type cocktail_props_analysis_age_gender = {
   isLoading_props7: boolean,
-  isLoading_props8: boolean,
   cocktailList: cocktailAgeGender[],
   cocktailRecordList:cocktail_recommend[]
 }
@@ -50,8 +49,6 @@ const userAnalisys = () => {
   const [isLoading5, setIsLoading5] = useState(false);
   const [isLoading6, setIsLoading6] = useState(false);
   const [isLoading7, setIsLoading7] = useState(false);
-  const [isLoading8, setIsLoading8] = useState(false);
-
 
   const [cocktailList_props, setCocktailList_props] = useState<cocktailBase[]>([]);
   const [cocktailStarRating_props, setCocktailStarRating_props] = useState<cocktailBase_props>(null);
@@ -62,7 +59,7 @@ const userAnalisys = () => {
   const [cocktailRecommendList_color_props, setcocktailRecommendList_color_props] = useState<cocktail_recommend[]>([]);
 
   const [cocktailList_ingredient_props, setCocktailList_ingredient_props] = useState<cocktailIngredient[]>([]);
-  const [cocktailStarRating_ingredient_props, setcocktailStarRating_ingredient_props] = useState<cocktailColor_props>(null);
+  const [cocktailStarRating_ingredient_props, setcocktailStarRating_ingredient_props] = useState<cocktailIngredient_props>(null);
   const [cocktailRecommendList_ingredient_props, setcocktailRecommendList_ingredient_props] = useState<cocktail_recommend[]>([]);
 
   const [cocktailList_age_gender_props, setCocktailList_age_gender_props] = useState<cocktailAgeGender[]>([]);
@@ -97,7 +94,11 @@ const userAnalisys = () => {
       setIsLoading5(true);
       setCocktailList_ingredient_props(response);
     })
-    user_cocktail_ingredient_recommend().then((response) => { 
+    user_starRating_cocktailIngredient().then((response) => { 
+      setcocktailStarRating_ingredient_props(response);
+    })
+    user_cocktail_ingredient_recommend().then((response) => {
+      setIsLoading6(true);
       setcocktailRecommendList_ingredient_props(response);
     })
     userAnalysis_cocktailAgeGender().then((response) => {
@@ -129,18 +130,15 @@ const userAnalisys = () => {
     isLoading_props5: isLoading5,
     isLoading_props6:isLoading6,
     cocktailList:cocktailList_ingredient_props,
-    cocktailRating: cocktailStarRating_color_props,
+    cocktailRating: cocktailStarRating_ingredient_props,
     cocktailRecordList: cocktailRecommendList_ingredient_props
   }
 
   const cocktail_age_gender_props: cocktail_props_analysis_age_gender = {
     isLoading_props7: isLoading7,
-    isLoading_props8:isLoading8,
     cocktailList:cocktailList_age_gender_props,
     cocktailRecordList: cocktailRecommendList_age_gender_props
   }
-
-  
 
   return (
     <>
@@ -157,7 +155,7 @@ const userAnalisys = () => {
       </div>
       <CocktailPreference {...cocktail_props}/>
       <ColorPreference {...cocktail_color_props} />
-      <IngredientPreference {...cocktail_ingredient_props} />
+      {/* <IngredientPreference {...cocktail_ingredient_props} /> */}
       <UserPreference {...cocktail_age_gender_props} />
     </>
    )

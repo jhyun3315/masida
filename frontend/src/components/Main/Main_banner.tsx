@@ -10,10 +10,11 @@ import "slick-carousel/slick/slick-theme.css";
 import { ImageLoaderProps } from "next/image";
 import { imgLoader } from "../../utils/imgLoader";
 import axios from "axios";
-import { login, logout } from "../../../store/modules/user";
+import { login, logout,setUserInfo } from "../../../store/modules/user";
 import { RootState } from "../../../store/store";
 import { userType } from "../../type/userTypes";
 import { get_user_info } from "../../pages/api/auth/user_api";
+import { store } from "../../../store/store";
 
 //좌표의 타입입니다.
 type coordinate = {
@@ -35,7 +36,7 @@ const Main_banner = () => {
   //시작지점과 끝지점을 체크해줄 useState변수입니다.
   const [startPosition, setStartPosition] = useState<coordinate>({ x: 0, y: 0 });
   let [checkToken, setCheckToken] = useState<boolean>(false);
-  let [userInfo, setUserInfo] = useState<userType>(null);
+  let [userInfo2, setUserInfo2] = useState<userType>(null);
   const [tokenValue, setTokenValue] = useState<string>("");
   let [userName , setUserName] = useState<string>("");
   
@@ -91,10 +92,13 @@ const Main_banner = () => {
   useEffect(() => {
     dispatch(login(accessToken));
     setTokenValue(accessToken);
-    // get_user_info().then((response) => { dispatch(setUserInfo(response)) });
-    get_user_info().then((response) => {
-      setUserInfo(response.value);
+    const atk = store.getState().user.accessToken;
+    if (atk) { 
+      get_user_info().then((response) => {
+        dispatch(setUserInfo(response.value));
+        setUserInfo2(response.value);
     });
+    }
     if (accessToken.length !== 0) {
       setCheckToken(true);
     } else {
@@ -103,15 +107,21 @@ const Main_banner = () => {
   }, []);
   
   useEffect(() => {
-    if(userInfo !== null) {
-      setUserName(userInfo.user_name);
+    if(userInfo2 !== null) {
+      setUserName(userInfo2.user_name);
     }
-  },[userInfo])
+  },[userInfo2])
 
 
   const getAccessToken = useSelector(
     (state: RootState) => state.user.accessToken
   );
+
+  const getUserInfo = useSelector(
+    (state: RootState) => state.user.userInfo
+  )
+
+  console.log("응애 나 유저 인포", getUserInfo);
 
   const onLogoutHandler = () => {
     const logoutt: any = axios
@@ -125,8 +135,6 @@ const Main_banner = () => {
         setTokenValue("");
       });
   };
-
-  // console.log("앙 토큰띠", getAccessToken);
 
   return (
     <div className={style.mainBanner}>

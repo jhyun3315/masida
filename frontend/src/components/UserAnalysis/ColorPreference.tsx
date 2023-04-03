@@ -2,32 +2,27 @@ import { useState ,useEffect} from 'react';
 import style from './CocktailPreference.module.scss';
 import Piechart2 from '../UI/PieChart2';
 import Progress_bar2 from '../UI/Progress_bar2';
-import Barchart from '../UI/BarChart';
+import Barchart2 from '../UI/BarChart2';
 import { cocktail_props_analysis_color } from '../../pages/user-analysis';
 import { My_Analysis_card } from '../UI/Card_ui';
-import { cocktailColor } from '../../type/cocktailPreference';
+import { cocktailColorRating } from '../../type/cocktailRating';
 
 const ColorPreference = (props: cocktail_props_analysis_color) => {
 
-  const[cocktailRateList,setCocktailRateList] = useState<cocktailColor[]>([]);
+  const[cocktailRateList,setCocktailRateList] = useState<cocktailColorRating[]>([]);
  
   const isLoading3 = props.isLoading_props3;
   const isLoading4 = props.isLoading_props4;
   const cocktailColor = props.cocktailList;
   const cocktailRecordList = props.cocktailRecordList;
 
-  // useEffect(() => {
-  //   if (isLoading2) {
-  //     setCocktailRateList(props.cocktailRating.data);
-  //     console.log(props.cocktailRating.data, "ㅗ띠ㅒㅣㅐㅣㅐ");
-  //     console.log(cocktailRateList, "sdsdsdsd");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (isLoading4 && props.cocktailRating) {
+      setCocktailRateList(props.cocktailRating.data);
+    }
+  },  [isLoading4, props.cocktailRating]);
 
-  console.log(cocktailRateList,"sdsdsd2323");
-  
-
-  if (isLoading3) {
+  if (isLoading3 && isLoading4) {
     return (
       <div className={style.cocktailPreference}>
         <p className={style.baseTitle}><strong>종효</strong>님의 칵테일 색상 선호도 분석 결과</p>
@@ -41,12 +36,11 @@ const ColorPreference = (props: cocktail_props_analysis_color) => {
                 <Progress_bar2 {...cocktailColor} />
               </div>
             </div>
-            {isLoading3 ? 
             <div className={style.cocktailPreference_analysis_lower}>
               <h3>별점 분포</h3>
               <div className={style.cocktailPreference_analysis_lower_content}>
                 <div className={style.cocktailPreference_analysis_lower_content_left}>
-                  {/* <Barchart {...cocktailRateList} /> */}
+                  { isLoading4&&(cocktailRateList.length!=0) ?<Barchart2 {...cocktailRateList} />:<>loading...</>}
                 </div>
                 <div className={style.cocktailPreference_analysis_lower_content_right}>
                   <div className={style.cocktailPreference_analysis_lower_content_right_star}>
@@ -55,7 +49,7 @@ const ColorPreference = (props: cocktail_props_analysis_color) => {
                   </div>
                   <div className={style.cocktailPreference_analysis_lower_content_right_start_count}>
                     <div className={style.cocktail_star}>별점 개수</div>
-                    <div>{props.cocktailRating.rating_count}</div>
+                    <div className={ style.cocktail_star_value}>{props.cocktailRating.rating_count}</div>
                   </div>
                   <div className={style.cocktailPreference_analysis_lower_content_right_star_max}>
                     <div className={style.cocktail_star}>최대 별점</div>
@@ -63,8 +57,7 @@ const ColorPreference = (props: cocktail_props_analysis_color) => {
                   </div>
                 </div>
               </div>
-            </div> : <>Error</>
-            }
+            </div> 
           </div>
           <hr />
           <div className={style.cocktailPreference_list}>

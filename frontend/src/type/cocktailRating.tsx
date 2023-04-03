@@ -46,3 +46,27 @@ export type cocktailColor_props = {
 	rating_max_color: string
   data: cocktailColorRating[];
 }
+
+// 마이페이지 별점 분포(재료)
+export type cocktailIngredientRating = {
+  rating_score: number,
+  ingredient_name1: string,
+  ingredient_count1: number,
+  ingredient_name2: string,
+	ingredient_count2: number,
+	ingredient_name3: string,
+	ingredient_count3: number,
+	ingredient_name4: string,
+	ingredient_count4: number,
+	ingredient_name5: string,
+	ingredient_count5: number,
+}
+
+// 마이페이지 별점 분포 결과(재료)
+export type cocktailIngredient_props = {
+  rating_average: number,
+	rating_count: number,
+	rating_max: number,
+	rating_max_ingredient: string
+  data: cocktailIngredientRating[];
+}

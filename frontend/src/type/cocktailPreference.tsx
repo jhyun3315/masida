@@ -32,5 +32,6 @@ export type cocktailAgeGender = {
   cocktail_name_ko: string,
   cocktail_ratio: number,
   cocktail_count: number
+  cocktail_name_en: string
 };
 
