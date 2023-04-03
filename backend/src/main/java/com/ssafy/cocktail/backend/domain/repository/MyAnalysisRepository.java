@@ -49,7 +49,7 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
             "INNER JOIN cocktail_ingredient As ci ON c.cocktail_id = ci.cocktail_id " +
             "INNER JOIN ingredient AS i ON ci.ingredient_id = i.ingredient_id "+
             "WHERE l.like_deleted = false " +
-            "AND (i.ingredient_type = '가니쉬' OR i.ingredient_type = '일반') " +
+            "AND (i.ingredient_type = 'Garnish' OR i.ingredient_type = 'General') " +
             "AND l.user_id=:userId " +
             "GROUP BY ci.ingredient_name " +
             "ORDER BY IngredientCount DESC LIMIT 5"
@@ -111,7 +111,7 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
             "IN (SELECT l.cocktail.id " +
             "FROM Like l " +
             "WHERE l.user.id = :userId) " +
-            "AND ci.ingredient.ingredientType NOT IN ('일반', '가니쉬') " +
+            "AND ci.ingredient.ingredientType NOT IN ('General', 'Garnish') " +
             "GROUP BY ci.ingredientName, ci.ingredient.id " +
             "ORDER BY cnt DESC")
     List<Object[]> findTop5BaseByUserId(@Param("userId") Long userId, Pageable pageable);
@@ -124,7 +124,7 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
             "IN (SELECT l.cocktail.id " +
                 "FROM Like l " +
                 "WHERE l.user.id = :userId) " +
-            "AND ci.ingredient.ingredientType IN ('일반', '가니쉬') " +
+            "AND ci.ingredient.ingredientType IN ('General', 'Garnish') " +
             "GROUP BY ci.ingredientName, ci.ingredient.id " +
             "ORDER BY cnt DESC")
     List<Object[]> findTop5IngredientsByUserId(@Param("userId") Long userId, Pageable pageable);
