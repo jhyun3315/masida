@@ -250,7 +250,6 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
 //          System.out.println(Arrays.toString(ingredientObjHashMap.get(2).toArray()));
 
             for (Integer rating : ingredientObjHashMap.keySet()) {
-                    System.out.println(rating);
                     ArrayList<String> names = new ArrayList<>();
                     ArrayList<Integer> counts = new ArrayList<>();
                     ArrayList<RatingIngredientObj> currArr = ingredientObjHashMap.get(rating);
