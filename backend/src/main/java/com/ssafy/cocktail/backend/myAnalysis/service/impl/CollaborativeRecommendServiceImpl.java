@@ -1,7 +1,7 @@
 package com.ssafy.cocktail.backend.myAnalysis.service.impl;
 
 import com.ssafy.cocktail.backend.domain.repository.MyAnalysisRepository;
-import com.ssafy.cocktail.backend.myAnalysis.service.CollaborativeRecommend;
+import com.ssafy.cocktail.backend.myAnalysis.service.CollaborativeRecommendService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 @Transactional
 @AllArgsConstructor
-public class CollaborativeRecommendImpl implements CollaborativeRecommend{
+public class CollaborativeRecommendServiceImpl implements CollaborativeRecommendService {
 	private MyAnalysisRepository myAnalysisRepository;
 
 
