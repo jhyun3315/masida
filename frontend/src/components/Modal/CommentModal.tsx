@@ -110,31 +110,39 @@ const CommentModal: React.FunctionComponent<propsType> = ({
       }).then((result) => {
         //등록을 눌렀다면?
         if (result.isConfirmed) {
-          axios
-            .post(
-              `https://j8b208.p.ssafy.io/api/comments/${cocktail_id}`,
-              {
-                comment_content: inputValue,
-                comment_rating: scope,
-                comment_difficulty: difficulty,
-              },
-              {
-                headers: {
-                  Authorization: getAccessToken,
-                  "Content-Type": "application/json",
-                  "Access-Control-Allow-Origin": "*",
+          if (scope === 0) {
+            Swal.fire("댓글별점이 등록되지 않았습니다. 별점을 등록해주세요.");
+          } else if (inputValue.length === 0) {
+            Swal.fire("댓글이 등록되지 않았습니다. 댓글을 등록해주세요.");
+          } else if (difficulty.length === 0) {
+            Swal.fire("난이도가 등록되지 않았습니다. 난이도를 등록해주세요.");
+          } else {
+            axios
+              .post(
+                `https://j8b208.p.ssafy.io/api/comments/${cocktail_id}`,
+                {
+                  comment_content: inputValue,
+                  comment_rating: scope,
+                  comment_difficulty: difficulty,
                 },
-              }
-            )
-            .then(() => {
-              setCommentAdd(!commentAdd);
-              setModifyCommentCnt(!modifyCommentCnt);
-              resetComment();
-            })
-            .catch((error) => {
-              console.error(error);
-            });
-          Swal.fire("Saved!", "", "success");
+                {
+                  headers: {
+                    Authorization: getAccessToken,
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                  },
+                }
+              )
+              .then(() => {
+                setCommentAdd(!commentAdd);
+                setModifyCommentCnt(!modifyCommentCnt);
+                resetComment();
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+            Swal.fire("Saved!", "", "success");
+          }
         } else if (result.isDenied) {
         }
       });
@@ -153,12 +161,14 @@ const CommentModal: React.FunctionComponent<propsType> = ({
     setInputValue(content);
     setDifficulty(mydifficulty);
     setScope(rating);
+    setScope(0);
     setCommentId(id);
     textareaRef.current.removeAttribute("readOnly");
     if (modify && commentId === id) {
       resetComment();
       setCommentAdd(!commentAdd);
       setModify(false);
+      setScope(0);
       setResetStar(!resetStar);
       textareaRef.current.setAttribute("readOnly", true);
     }
@@ -174,34 +184,44 @@ const CommentModal: React.FunctionComponent<propsType> = ({
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        axios
-          .put(
-            `https://j8b208.p.ssafy.io/api/comments/${cocktail_id}/${commentId}`,
-            {
-              comment_content: inputValue,
-              comment_rating: scope,
-              comment_difficulty: difficulty,
-            },
-            {
-              headers: {
-                Authorization: getAccessToken,
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
+        if (scope === 0) {
+          Swal.fire("댓글별점이 등록되지 않았습니다. 별점을 등록해주세요.");
+        } else if (inputValue.length === 0) {
+          Swal.fire("댓글이 등록되지 않았습니다. 댓글을 등록해주세요.");
+        } else if (difficulty.length === 0) {
+          Swal.fire("난이도가 등록되지 않았습니다. 난이도를 등록해주세요.");
+        } else {
+          axios
+            .put(
+              `https://j8b208.p.ssafy.io/api/comments/${cocktail_id}/${commentId}`,
+              {
+                comment_content: inputValue,
+                comment_rating: scope,
+                comment_difficulty: difficulty,
               },
-            }
-          )
-          .then(() => {
-            setCommentAdd(!commentAdd);
-            resetComment();
-            setModify(false);
-            setModifyCommentCnt(!modifyCommentCnt);
-            setResetStar(!resetStar);
-            textareaRef.current.setAttribute("readOnly", true);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-        Swal.fire("저장되었습니다!");
+              {
+                headers: {
+                  Authorization: getAccessToken,
+                  "Content-Type": "application/json",
+                  "Access-Control-Allow-Origin": "*",
+                },
+              }
+            )
+            .then(() => {
+              setCommentAdd(!commentAdd);
+              resetComment();
+              setModify(false);
+              setModifyCommentCnt(!modifyCommentCnt);
+              console.log(scope);
+
+              setResetStar(!resetStar);
+              textareaRef.current.setAttribute("readOnly", true);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+          Swal.fire("저장되었습니다!");
+        }
       } else if (result.isDenied) {
       }
     });
