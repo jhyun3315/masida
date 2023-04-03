@@ -104,7 +104,7 @@ const Main_manual = () => {
               살면서 알아두면 좋을 74가지 칵테일 입문서
             </div>
             <div className={style.manual_content_youtube_video}>
-              {/* <YouTube videoId={videoId} /> */}
+              <YouTube videoId={videoId} />
               <div className={style.manual_content_youtube_video_legend}>
                 출처 : 술덕후
               </div>

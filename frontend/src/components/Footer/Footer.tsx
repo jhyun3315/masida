@@ -9,7 +9,7 @@ const Footer = () => {
       <hr />
       <div className={style.main}>
         <div className={style.main_left}>
-          <div>
+          <div className={style.main_intro}>
             <span>회사소개</span>
             <span>이용약관</span>
             <span>개인정보처리방침</span>
