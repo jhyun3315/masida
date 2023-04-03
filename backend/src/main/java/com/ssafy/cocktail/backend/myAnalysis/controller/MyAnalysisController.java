@@ -47,6 +47,7 @@ public class MyAnalysisController {
         ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "4");
         return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
     }
+
     @GetMapping("/cocktail-base")
     public ResponseEntity<MyAnalysisBaseRes> analysisByUserBase(@RequestHeader Map<String, String> data ) {
         String accessToken = data.get("authorization");
@@ -125,6 +126,24 @@ public class MyAnalysisController {
                     ratingColor.getRating_max(),
                     ratingColor.getRating_max_color(),
                     ratingColor.getData()));
+        }else{
+            return ResponseEntity.status(400).body(MyAnalysisRatingColorRes.of(400, "존재하지 않는 사용자입니다.",
+                    0,0,0,null, null));
+        }
+    }
+
+    @GetMapping("/ingredient-rating")
+    public ResponseEntity<MyAnalysisRatingColorRes> MyAnalysisByRatingIngredient(@RequestHeader Map<String, String> data) {
+        String accessToken = data.get("authorization");
+
+        if(accessToken !=null){
+            RatingIngredient ratingIngredient = myAnalysisUserService.getAnalysisByRatingIngredient(data.get("authorization"));
+            return ResponseEntity.status(200).body(MyAnalysisRatingColorRes.of(200, "Success",
+                    ratingIngredient.getRating_average(),
+                    ratingIngredient.getRating_count(),
+                    ratingIngredient.getRating_max(),
+                    ratingIngredient.getRating_max_ingredient(),
+                    ratingIngredient.getData()));
         }else{
             return ResponseEntity.status(400).body(MyAnalysisRatingColorRes.of(400, "존재하지 않는 사용자입니다.",
                     0,0,0,null, null));
