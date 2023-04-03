@@ -76,7 +76,7 @@ public class MypageController {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
 			// pagination 위해 Pageable 생성
-			Pageable pageable = PageRequest.of(page, 4, Sort.by("id").descending());
+			Pageable pageable = PageRequest.of(page, 8, Sort.by("id").descending());
 
 			// 해당 유저가 좋아요한 칵테일 리스트
 			PaginationDataSet pageLikeCocktails = mypageLikeService.getLikeCocktailList(user.getId(), pageable);
@@ -103,7 +103,7 @@ public class MypageController {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
 			// pagination 위해 Pageable 생성
-			Pageable pageable = PageRequest.of(page, 4, Sort.by("id").descending());
+			Pageable pageable = PageRequest.of(page, 8, Sort.by("id").descending());
 
 			// 해당 유저가 북마크한 칵테일 리스트
 			PaginationDataSet pageBookmarkCocktails = mypageBookmarkService.getBookmarkCocktailList(user.getId(), pageable);
@@ -129,7 +129,7 @@ public class MypageController {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
 			// pagination 위해 Pageable 생성
-			Pageable pageable = PageRequest.of(page, 4, Sort.by("id").descending());
+			Pageable pageable = PageRequest.of(page, 8, Sort.by("id").descending());
 
 			// 해당 유저가 댓글 및 평점 등록한 칵테일 리스트
 			PaginationDataSet pageCommentCocktails = mypageCommentService.getCommentCocktailList(user.getId(), pageable);
