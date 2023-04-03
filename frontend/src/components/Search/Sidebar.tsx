@@ -4,19 +4,21 @@ import { Dispatch, useState, useEffect, SetStateAction } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { search_props } from "../../pages/search";
 import { setSelectName } from "../../../store/category/nameSlice";
-import axios from "axios";
-import { RootState } from "../../../store/store";
 
 interface propsType {
   props: search_props;
   clickSearchBtn: boolean;
   setClickSearchBtn: Dispatch<SetStateAction<boolean>>;
+  addNumIngredient : number[];
+  setAddNumIngredient : Dispatch<SetStateAction<number[]>>
 }
 
 const Sidebar2: React.FunctionComponent<propsType> = ({
   props,
   clickSearchBtn,
   setClickSearchBtn,
+  addNumIngredient,
+  setAddNumIngredient
 }) => {
   const dispatch = useDispatch();
 
@@ -53,7 +55,8 @@ const Sidebar2: React.FunctionComponent<propsType> = ({
             검색
           </button>
         </form>
-        <Category {...props} />
+        <Category props={props} addNumIngredient={addNumIngredient}
+            setAddNumIngredient={setAddNumIngredient} />
       </div>
     </>
   );

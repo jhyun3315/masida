@@ -7,6 +7,7 @@ import { search_props } from "../../pages/search";
 
 const SearchPage = (props: search_props) => {
   const [clickSearchBtn, setClickSearchBtn] = useState<boolean>(false);
+  let [addNumIngredient, setAddNumIngredient] = useState<number[]>([]);
 
   return (
     <>
@@ -16,10 +17,13 @@ const SearchPage = (props: search_props) => {
             props={props}
             clickSearchBtn={clickSearchBtn}
             setClickSearchBtn={setClickSearchBtn}
+            addNumIngredient={addNumIngredient}
+            setAddNumIngredient={setAddNumIngredient}
           />
         </div>
         <div className={style.searchpage_right}>
-          <Result clickSearchBtn={clickSearchBtn} />
+          <Result clickSearchBtn={clickSearchBtn} 
+          addNumIngredient={addNumIngredient} />
         </div>
       </div>
     </>
