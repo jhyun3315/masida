@@ -1,6 +1,5 @@
 .userCocktailList {
   margin: 5%;
-  // margin-bottom: 0;
   .userCocktailList_header {
     span {
       font-weight: bold;
@@ -8,42 +7,13 @@
       margin-right: 3%;
       color: #808080;
     }
-    .bookmark {
+    .selectedTab {
       color: black;
       font-weight: bold;
+      color: #253976;
     }
-    .bookmark:hover {
-      color: black;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .like {
-      color: black;
-      font-weight: bold;
-    }
-
-    .like:hover {
-      color: black;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .comment {
-      color: black;
-      font-weight: bold;
-    }
-
-    .comment:hover {
-      color: black;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
     span:hover {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #808080;
+      cursor: pointer;
     }
   }
 
@@ -59,9 +29,15 @@
     overflow-x: hidden;
   }
 
-  .active {
+  .userCommentList_content {
+    border: 1px solid #25397627;
+    border-radius: 10px;
+    margin-top: 2%;
+    padding: 1%;
+    height: 85vh;
+    overflow: scroll;
+    overflow-x: hidden;
     margin-top: 7%;
-
     padding: 1%;
   }
 }

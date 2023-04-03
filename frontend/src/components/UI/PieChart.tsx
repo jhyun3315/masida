@@ -15,9 +15,6 @@ const Piechart = (props: cocktailBase[]) => {
   
   const data: dataType[] = [];
 
-  console.log("시이발", props[0].base_count);
-
-
   for (let i = 0; i < 5; i++) {
     data.push({ id: props[i].base_name, value:props[i].base_ratio });
   }

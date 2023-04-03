@@ -6,28 +6,25 @@ import Barchart from '../UI/BarChart';
 import { cocktail_props_analysis } from '../../pages/user-analysis';
 import { My_Analysis_card } from '../UI/Card_ui';
 import { cocktailBaseRating } from '../../type/cocktailRating';
+import Loading_spinner from '../UI/Loading_spinner';
 
 const CocktailPreference = (props: cocktail_props_analysis) => {
 
   const[cocktailRateList,setCocktailRateList] = useState<cocktailBaseRating[]>([]);
- 
+  
   const isLoading = props.isLoading_props1;
   const isLoading2 = props.isLoading_props2;
   const cocktailBase = props.cocktailList;
   const cocktailRecordList = props.cocktailRecordList;
-
+  
   useEffect(() => {
-    if (isLoading2) {
-      setCocktailRateList(props.cocktailRating.data);
-      console.log(props.cocktailRating.data, "ㅗ띠ㅒㅣㅐㅣㅐ");
-      console.log(cocktailRateList, "sdsdsdsd");
-    }
-  }, []);
-
-  console.log(cocktailRateList,"sdsdsd2323");
+   if (isLoading2 && props.cocktailRating) {
+     setCocktailRateList(props.cocktailRating.data);
+    };
+}, [isLoading2, props.cocktailRating]);
   
 
-  if (isLoading) {
+  if (isLoading && isLoading2) {
     return (
       <div className={style.cocktailPreference}>
         <p className={style.baseTitle}><strong>종효</strong>님의 칵테일 베이스 선호도 분석 결과</p>
@@ -41,12 +38,11 @@ const CocktailPreference = (props: cocktail_props_analysis) => {
                 <Progress_bar {...cocktailBase} />
               </div>
             </div>
-            {isLoading2 ? 
-            <div className={style.cocktailPreference_analysis_lower}>
+             <div className={style.cocktailPreference_analysis_lower}>
               <h3>별점 분포</h3>
               <div className={style.cocktailPreference_analysis_lower_content}>
                 <div className={style.cocktailPreference_analysis_lower_content_left}>
-                  {/* <Barchart {...cocktailRateList} /> */}
+                  { isLoading2&&(cocktailRateList.length!=0) ?<Barchart {...cocktailRateList} />:<>loading...</>}
                 </div>
                 <div className={style.cocktailPreference_analysis_lower_content_right}>
                   <div className={style.cocktailPreference_analysis_lower_content_right_star}>
@@ -55,7 +51,7 @@ const CocktailPreference = (props: cocktail_props_analysis) => {
                   </div>
                   <div className={style.cocktailPreference_analysis_lower_content_right_start_count}>
                     <div className={style.cocktail_star}>별점 개수</div>
-                    <div>{props.cocktailRating.rating_count}</div>
+                    <div className={ style.cocktail_star_value}>{props.cocktailRating.rating_count}</div>
                   </div>
                   <div className={style.cocktailPreference_analysis_lower_content_right_star_max}>
                     <div className={style.cocktail_star}>최대 별점</div>
@@ -63,8 +59,7 @@ const CocktailPreference = (props: cocktail_props_analysis) => {
                   </div>
                 </div>
               </div>
-            </div> : <>Error</>
-            }
+            </div>
           </div>
           <hr />
           <div className={style.cocktailPreference_list}>
@@ -79,7 +74,7 @@ const CocktailPreference = (props: cocktail_props_analysis) => {
       </div>
     );
   } return(
-    <div>error</div>
+    <Loading_spinner/>
   )
 };
 

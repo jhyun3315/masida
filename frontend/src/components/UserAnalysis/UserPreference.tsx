@@ -1,5 +1,5 @@
 import { useState ,useEffect} from 'react';
-import style from './CocktailPreference.module.scss';
+import style from './UserPreference.module.scss';
 import Piechart4 from '../UI/PieChart4';
 import Progress_bar4 from '../UI/Progress_bar4';
 import { cocktail_props_analysis_age_gender } from '../../pages/user-analysis';
@@ -11,20 +11,9 @@ const UserPreference = (props: cocktail_props_analysis_age_gender) => {
   const[cocktailRateList,setCocktailRateList] = useState<cocktailAgeGender[]>([]);
  
   const isLoading7 = props.isLoading_props7;
-  const isLoading8 = props.isLoading_props8;
   const cocktailBase = props.cocktailList;
   const cocktailRecordList = props.cocktailRecordList;
 
-  // useEffect(() => {/
-  //   if (isLoading2) {
-  //     setCocktailRateList(props.cocktailRating.data);
-  //     console.log(props.cocktailRating.data, "ㅗ띠ㅒㅣㅐㅣㅐ");
-  //     console.log(cocktailRateList, "sdsdsdsd");
-  //   }
-  // }, []);
-
-  console.log(cocktailRateList,"sdsdsd2323");
-  
 
   if (isLoading7) {
     return (
