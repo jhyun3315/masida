@@ -103,7 +103,7 @@ public class MypageController {
 			// 해당 사용자 가져오기
 			User user = oAuthService.getUser(accessToken);
 			// pagination 위해 Pageable 생성
-			Pageable pageable = PageRequest.of(page, 12, Sort.by("id").descending());
+			Pageable pageable = PageRequest.of(page, 4, Sort.by("id").descending());
 
 			// 해당 유저가 북마크한 칵테일 리스트
 			PaginationDataSet pageBookmarkCocktails = mypageBookmarkService.getBookmarkCocktailList(user.getId(), pageable);
