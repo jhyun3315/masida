@@ -106,7 +106,7 @@ const Main_manual = () => {
             <div className={style.manual_content_youtube_video}>
               <YouTube videoId={videoId} />
               <div className={style.manual_content_youtube_video_legend}>
-                출처 : 술덕후
+                <a href="https://www.youtube.com/@Sooldukhu">출처 : 술덕후</a>
               </div>
             </div>
           </div>
