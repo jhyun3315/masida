@@ -12,38 +12,16 @@
       color: black;
       font-weight: bold;
     }
-    .bookmark:hover {
-      color: black;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
     .like {
       color: black;
       font-weight: bold;
     }
-
-    .like:hover {
-      color: black;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
     .comment {
       color: black;
       font-weight: bold;
     }
-
-    .comment:hover {
-      color: black;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
     span:hover {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #808080;
+      cursor: pointer;
     }
   }
 

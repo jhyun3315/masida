@@ -9,9 +9,10 @@ import { recommend_props } from "../../pages/detail/[id]";
 const Cocktail_recommend = (props: recommend_props) => {
   const ingredientList = props.ingredient_recommend;
   const colorList = props.color_recommend;
-
-  console.log(ingredientList);
-  console.log(colorList);
+  console.log("props : ")
+  console.log(props)
+  // console.log(ingredientList);
+  // console.log(colorList);
 
   const settings = {
     accessibility: false,

@@ -6,6 +6,7 @@ import ingredientSlice from './category/ingredientSlice';
 import nameSlice from './category/nameSlice';
 
 import userSlice  from './modules/user';
+import pageSlice from './modules/pageSlice';
 
 import persistReducer from 'redux-persist/lib/persistReducer';
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
@@ -49,13 +50,14 @@ const reducers = combineReducers({
   ingredientSelect: ingredientSlice,
   nameSelect : nameSlice,
   user:userSlice,
+  page :pageSlice,
 })
 
 //새로고침시 안없어 지는 것을 whitelist에 저장.
 const persistConfig = {
   key: "root",
   storage: local,
-  whitelist: ["user"],
+  whitelist: ["user", "page"],
 };
 
 //redux-persist를 사용하기위해 Reducer합치는 단계

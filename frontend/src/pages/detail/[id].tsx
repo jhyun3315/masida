@@ -14,6 +14,8 @@ import { cocktailType } from "../../type/cocktailTypes";
 import { RootState } from "../../../store/store";
 import { useSelector } from "react-redux";
 import ResetCategory from "../../components/UI/ResetCategory";
+import { store } from "../../../store/store";
+import { setCurrentPage } from "../../../store/modules/pageSlice";
 
 // 1. 칵테일 상세 조회
 //  화면 단에서 axios 호출을 하여 결과 값을 컴포넌트에 props로 넘겨준다.
@@ -47,6 +49,7 @@ const detail = () => {
   );
   const [modifyCommentCnt, setModifyCommentCnt] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isId, setIsId] = useState(false);
   const [visible, setVisible] = useState<boolean>();
   const [cocktail_recommend_color, setCocktail_recommend_color] =
     useState<cocktailType[]>();
@@ -56,45 +59,61 @@ const detail = () => {
   if (!atk) {
     atk = "";
   }
-
   //새로고침할때 이 useEffect보다 아래 return이 먼저 실행이 되어서 그런거같음.
   useEffect(() => {
-    setCocktail_id(parseInt(router?.query.id as string));
-    axios
-      .get(
-        `https://j8b208.p.ssafy.io/api/cocktails/recommend/ingredient/${cocktail_id}`,
-        {
-          headers: {
-            Authorization: atk,
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      )
-      .then((response) => {
-        console.log(response);
-        setCocktail_recommend_color(response.data.data);
-      });
-    axios
-      .get(
-        `https://j8b208.p.ssafy.io/api/cocktails/recommend/color/${cocktail_id}`,
-        {
-          headers: {
-            Authorization: atk,
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      )
-      .then((response) => {
-        console.log(response);
-        setCocktail_recommend_ingredient(response.data.data);
-      });
-  }, []);
+    if (!parseInt(router?.query.id as string)) {
+      console.log(store.getState().page.currentPage);
+      setCocktail_id(store.getState().page.currentPage);
+      console.log(cocktail_id);
+    } else {
+      store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
+      console.log("set cocktail id : ", cocktail_id);
+    }
+    if (cocktail_id >= 0) {
+      console.log("set id : ", cocktail_id);
+      setIsId(true);
+    }
+  }, [cocktail_id]);
 
   useEffect(() => {
-    setIsLoading(true);
-  }, [detail]);
+    if (cocktail_id >= 0) {
+      axios
+        .get(
+          `https://j8b208.p.ssafy.io/api/cocktails/recommend/ingredient/${cocktail_id}`,
+          {
+            headers: {
+              Authorization: atk,
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+          setCocktail_recommend_color(response.data.data);
+        });
+      axios
+        .get(
+          `https://j8b208.p.ssafy.io/api/cocktails/recommend/color/${cocktail_id}`,
+          {
+            headers: {
+              Authorization: atk,
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+          setCocktail_recommend_ingredient(response.data.data);
+          setIsLoading(true);
+        });
+    }
+  }, [isId]);
+
+  // useEffect(() => {
+  //   setIsLoading(true);
+  // }, [detail]);
 
   const recommend_props: recommend_props = {
     color_recommend: cocktail_recommend_color,
@@ -121,6 +140,7 @@ const detail = () => {
   };
 
   if (isLoading) {
+    // setIsLoading(false)
     console.log("page transition", router.query.id);
     return (
       <>
