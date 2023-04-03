@@ -9,20 +9,17 @@ import { cocktailBaseRating } from '../../type/cocktailRating';
 import Loading_spinner from '../UI/Loading_spinner';
 
 const CocktailPreference = (props: cocktail_props_analysis) => {
-
   const[cocktailRateList,setCocktailRateList] = useState<cocktailBaseRating[]>([]);
   
   const isLoading = props.isLoading_props1;
   const isLoading2 = props.isLoading_props2;
   const cocktailBase = props.cocktailList;
   const cocktailRecordList = props.cocktailRecordList;
-  
   useEffect(() => {
    if (isLoading2 && props.cocktailRating) {
      setCocktailRateList(props.cocktailRating.data);
     };
 }, [isLoading2, props.cocktailRating]);
-  
 
   if (isLoading && isLoading2) {
     return (

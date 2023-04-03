@@ -24,12 +24,10 @@ const mypage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   useEffect(() => {
     get_user_info().then((response) => {
-      // console.log("userINFO : ", response)
       setUserInfo(response.value);
     });
   }, []);
   useEffect(() => {
-    // const atk = useSelector((state: RootState) => state.user.accessToken);
     const atk = store.getState().user.accessToken;
     console.log(atk);
     axios
