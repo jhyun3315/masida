@@ -142,6 +142,7 @@ public class OAuthController {
         System.out.println("사용자 정보 수정 요청입니다");
         System.out.println("accessToken: " + accessToken);
         System.out.println("accessToken: " + accessToken);
+        System.out.println(req.toString());
         UserInfo userInfo = oAuthService.updateUser(accessToken, req.getUserGender(), req.getUserAgeRange()); // 사용자 정보 업데이트 후 사용자 정보 가져오기
         if(userInfo != null) { // 사용자 정보 수정에 성공했으면
             System.out.println("사용자 정보 수정 완료");
