@@ -74,7 +74,6 @@ public class MypageBookmarkServiceImpl implements MypageBookmarkService {
 		boolean isEnd = false;
 		if(curPage + 1 >= totalPages) {
 			isEnd = true;
-			nextPage = -1;
 		}
 
 		// PaginationDataSet 객체에 data들 담아주기
