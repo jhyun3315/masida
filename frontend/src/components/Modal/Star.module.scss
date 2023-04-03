@@ -27,6 +27,11 @@
             z-index: -100;
         }
     }
+
+    .ratingBox:hover {
+      cursor: pointer;
+    }
+    
     .rating_count {
         font-size: 18px;
         margin-left: 8px;
