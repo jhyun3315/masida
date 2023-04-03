@@ -133,19 +133,19 @@ public class MyAnalysisController {
     }
 
     @GetMapping("/ingredient-rating")
-    public ResponseEntity<MyAnalysisRatingColorRes> MyAnalysisByRatingIngredient(@RequestHeader Map<String, String> data) {
+    public ResponseEntity<MyAnalysisRatingIngredientRes> MyAnalysisByRatingIngredient(@RequestHeader Map<String, String> data) {
         String accessToken = data.get("authorization");
 
         if(accessToken !=null){
             RatingIngredient ratingIngredient = myAnalysisUserService.getAnalysisByRatingIngredient(data.get("authorization"));
-            return ResponseEntity.status(200).body(MyAnalysisRatingColorRes.of(200, "Success",
+            return ResponseEntity.status(200).body(MyAnalysisRatingIngredientRes.of(200, "Success",
                     ratingIngredient.getRating_average(),
                     ratingIngredient.getRating_count(),
                     ratingIngredient.getRating_max(),
                     ratingIngredient.getRating_max_ingredient(),
                     ratingIngredient.getData()));
         }else{
-            return ResponseEntity.status(400).body(MyAnalysisRatingColorRes.of(400, "존재하지 않는 사용자입니다.",
+            return ResponseEntity.status(400).body(MyAnalysisRatingIngredientRes.of(400, "존재하지 않는 사용자입니다.",
                     0,0,0,null, null));
         }
     }
