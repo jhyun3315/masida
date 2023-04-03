@@ -198,11 +198,16 @@ const Main_banner = () => {
           </div>
           <div className={style.mainTitle2} onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUpBegginer}>
-            <h1>
-              <strong>맛과 향, </strong>모두 즐기는 칵테일의 <br />
-              매력을 느껴보세요.
-            </h1>
-            <h3>칵테일 입문자를 위한 다양한 칵테일을 추천해드립니다.</h3>
+            <div>
+              <h1>
+                <strong>맛과 향, </strong>모두 즐기는 칵테일의 <br />
+                매력을 느껴보세요.
+              </h1>
+              <h3>칵테일 입문자를 위한 다양한 칵테일을 추천해드립니다.</h3>
+            </div>
+            <div className={style.mainTitle2_right}>
+              <h5>더보기</h5>
+            </div>
           </div>
         </div>
         <div className={style.mainBanner_white}>
@@ -237,11 +242,16 @@ const Main_banner = () => {
           </div>
           <div className={style.mainTitle3} onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUpSpring}>
-            <h1>
-              봄의 느낌을 담은 칵테일,
-              <br /> 궁금하지 않으신가요?
-            </h1>
-            <h3>봄에 어울리는 칵테일을 추천해드립니다.</h3>
+            <div>
+              <h1>
+                봄의 느낌을 담은 칵테일,
+                <br /> 궁금하지 않으신가요?
+              </h1>
+              <h3>봄에 어울리는 칵테일을 추천해드립니다.</h3>
+              <div className={style.mainTitle3_right}>
+                <h5>더보기</h5>
+              </div>
+            </div>
           </div>
         </div>
         <div className={style.mainBanner_white}>
@@ -276,8 +286,13 @@ const Main_banner = () => {
           </div>
           <div className={style.mainTitle4} onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUpSummer}>
-            <h1>여름 햇살 아래 즐기는 칵테일, 궁금하신가요?</h1>
-            <h3>여름에 어울리는 다양한 칵테일을 추천해드립니다.</h3>
+            <div>
+              <h1>여름 햇살 아래 즐기는 칵테일, 궁금하신가요?</h1>
+              <h3>여름에 어울리는 다양한 칵테일을 추천해드립니다.</h3>
+            </div>
+            <div className={style.mainTitle4_right}>
+              <h5>더보기</h5>
+            </div>
           </div>
         </div>
       </Slider>
