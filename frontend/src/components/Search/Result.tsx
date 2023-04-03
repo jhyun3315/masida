@@ -23,6 +23,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
   let [sendIngredient, setSendIngredient] = useState<string[]>([]);
   let [likeChecked, setLikeChecked] = useState<boolean>(false);
   let [rankChecked, setRankChecked] = useState<boolean>(false);
+  let [sortCheckName, setSortCheckName] = useState<string>("");
 
   //처음 시작할때, 검색할때 초기화 시켜줄 배열입니다.
   const resetCocktail: cocktailType[] = [];
@@ -106,17 +107,36 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
   }, [sortingNum]);
 
   //현재 선택한 것들을 기준으로 좋아요 순으로 정렬.
-  const sortLike = () => {
-    setLikeChecked(true);
-    setRankChecked(false);
-    setSortingNum(1);
+  const sortLike = (e : React.MouseEvent<HTMLLabelElement>) => {
+    const target = e.target as HTMLLabelElement;
+    if(sortCheckName === target.htmlFor) {
+      setLikeChecked(false);
+      setRankChecked(false);
+      setSortCheckName("");
+      setSortingNum(0);   
+    }else {
+      setLikeChecked(true);
+      setRankChecked(false);
+      setSortCheckName(target.htmlFor);
+      setSortingNum(1);
+    }
   };
 
   //현재 선택한 것들을 기준으로 별점 순으로 정렬
-  const sortRating = () => {
-    setRankChecked(true);
-    setLikeChecked(false);
-    setSortingNum(2);
+  const sortRating = (e : React.MouseEvent<HTMLLabelElement>) => {
+    const target = e.target as HTMLLabelElement;
+    
+    if(sortCheckName === target.htmlFor) {
+      setLikeChecked(false);
+      setRankChecked(false);
+      setSortCheckName("");
+      setSortingNum(0);   
+    }else {
+      setRankChecked(true);
+      setLikeChecked(false);
+      setSortCheckName(target.htmlFor);
+      setSortingNum(2);
+    }
   };
 
   //무한 스크롤 구현.
@@ -185,11 +205,12 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
               type="radio"
               id="like"
               name="sort"
+              value="좋아요"
               className={style.result_sort_btn}
               checked={likeChecked}
             />
             <label
-              htmlFor="like"
+              htmlFor="좋아요"
               className={style.result_sort_label}
               onClick={sortLike}
             >
@@ -200,11 +221,12 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn }) => {
               type="radio"
               id="rank"
               name="sort"
+              value="별점"
               className={style.result_sort_btn}
               checked={rankChecked}
             />
             <label
-              htmlFor="rank"
+              htmlFor="별점"
               className={style.result_sort_label}
               onClick={sortRating}
             >
