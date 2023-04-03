@@ -137,10 +137,10 @@ const userAnalisys = () => {
       setCocktailList_ingredient_props(response);
     });
     user_starRating_cocktailIngredient().then((response) => {
+      setIsLoading6(true);
       setcocktailStarRating_ingredient_props(response);
     });
     user_cocktail_ingredient_recommend().then((response) => {
-      setIsLoading6(true);
       setcocktailRecommendList_ingredient_props(response);
     });
     userAnalysis_cocktailAgeGender().then((response) => {

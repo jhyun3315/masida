@@ -7,8 +7,11 @@ import { cocktail_props_analysis } from '../../pages/user-analysis';
 import { My_Analysis_card } from '../UI/Card_ui';
 import { cocktailBaseRating } from '../../type/cocktailRating';
 import Loading_spinner from '../UI/Loading_spinner';
+import { store } from '../../../store/store';
 
 const CocktailPreference = (props: cocktail_props_analysis) => {
+
+  const userName = store.getState().user.userInfo.user_name;
   const[cocktailRateList,setCocktailRateList] = useState<cocktailBaseRating[]>([]);
   
   const isLoading = props.isLoading_props1;
@@ -24,7 +27,7 @@ const CocktailPreference = (props: cocktail_props_analysis) => {
   if (isLoading && isLoading2) {
     return (
       <div className={style.cocktailPreference}>
-        <p className={style.baseTitle}><strong>종효</strong>님의 칵테일 베이스 선호도 분석 결과</p>
+        <p className={style.baseTitle}><strong>{ userName}</strong>님의 칵테일 베이스 선호도 분석 결과</p>
         <div className={style.cocktailPreference_content}>
           <div className={style.cocktailPreference_analysis}>
             <div className={style.cocktailPreference_analysis_upper}>
@@ -60,7 +63,7 @@ const CocktailPreference = (props: cocktail_props_analysis) => {
           </div>
           <hr />
           <div className={style.cocktailPreference_list}>
-            <h3>종효님과 취향(베이스)과 비슷한 칵테일 추천</h3>
+            <h3>{ userName}님과 취향(베이스)과 비슷한 칵테일 추천</h3>
             <div className={style.cocktailPreference_list_content}>
               {cocktailRecordList.map((key => (
                 <My_Analysis_card {...key} />
