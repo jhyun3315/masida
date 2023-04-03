@@ -36,13 +36,14 @@
       text-align: left;
       font-size: 1.7rem;
       color: white;
+      margin-left: 60%;
     }
   }
 
   .mainBanner_white {
     position: relative;
     min-height: 700px;
-
+    cursor: pointer;
     .mainHeader {
       margin-top: 2%;
       text-align: left;
@@ -79,21 +80,28 @@
     .mainTitle2 {
       position: absolute;
       line-height: 1.125;
-      margin-top: 27%;
+      margin-top: 26%;
       margin-left: 50%;
-      text-align: left;
       font-size: 1.5rem;
       color: rgb(253, 252, 236);
 
       h3 {
         color: white;
       }
+      .mainTitle2_right {
+        text-align: right;
+        h5 {
+          text-decoration: underline;
+          text-underline-position: under;
+          cursor: pointer;
+        }
+      }
     }
 
     .mainTitle3 {
       position: absolute;
       line-height: 1.125;
-      margin-top: 27%;
+      margin-top: 26%;
       margin-left: 60%;
       text-align: left;
       font-size: 1.5rem;
@@ -102,19 +110,36 @@
       h3 {
         color: white;
       }
+      .mainTitle3_right {
+        text-align: right;
+        h5 {
+          text-decoration: underline;
+          text-underline-position: under;
+          cursor: pointer;
+        }
+      }
     }
 
     .mainTitle4 {
       position: absolute;
       line-height: 1.125;
-      margin-top: 27%;
+      margin-top: 26%;
       margin-left: 54%;
-      text-align: left;
+      // text-align: left;
       font-size: 1.5rem;
       color: rgb(40, 134, 188);
 
       h3 {
         color: rgb(132, 188, 219);
+      }
+      .mainTitle4_right {
+        text-align: right;
+        h5 {
+          text-decoration: underline;
+          text-underline-position: under;
+          cursor: pointer;
+          padding-right: 8%;
+        }
       }
     }
   }
