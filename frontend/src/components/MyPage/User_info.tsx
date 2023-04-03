@@ -8,7 +8,6 @@ import { imgLoader } from "../../utils/imgLoader";
 import { ImageLoaderProps } from "next/image";
 
 import { RootState, store } from "../../../store/store";
-import { useSelector } from "react-redux";
 import axios from "axios";
 
 interface MyComponentProps {
@@ -23,6 +22,8 @@ const User_info: React.FC<MyComponentProps> = ({
   const [likesCnt, setLikesCnt] = useState<number>();
   const [booksCnt, setBooksCnt] = useState<number>();
   const [visible, setVisible] = useState(false);
+
+  const getUserInfo = store.getState().user.userInfo;
 
   useEffect(() => {
     // const atk = useSelector((state:RootState) => state.user.accessToken);
@@ -59,7 +60,7 @@ const User_info: React.FC<MyComponentProps> = ({
       <div className={style.userInfo}>
         <div className={style.userInfo_leftImg}>
           <Image
-            src="/assets/image/user_profile_img.png"
+            src={ getUserInfo.user_profile}
             loader={({ src, width, quality }: ImageLoaderProps) =>
               imgLoader({ src, width, quality })
             }

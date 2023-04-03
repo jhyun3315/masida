@@ -152,6 +152,12 @@ const userAnalisys = () => {
     });
   }, []);
 
+  console.log("베이스",cocktailList_props);
+  console.log("색상",cocktailList_color_props);
+  console.log("재료",cocktailList_ingredient_props);
+  console.log("나이,색",cocktailList_age_gender_props);
+
+
   const cocktail_props: cocktail_props_analysis = {
     isLoading_props1: isLoading,
     isLoading_props2: isLoading2,
@@ -210,7 +216,7 @@ const userAnalisys = () => {
           </div>
           <CocktailPreference {...cocktail_props} />
           <ColorPreference {...cocktail_color_props} />
-          {/* <IngredientPreference {...cocktail_ingredient_props} /> */}
+          <IngredientPreference {...cocktail_ingredient_props} />
           <UserPreference {...cocktail_age_gender_props} />
         </>
       );
