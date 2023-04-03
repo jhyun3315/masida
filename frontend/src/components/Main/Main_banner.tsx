@@ -12,7 +12,7 @@ import { imgLoader } from "../../utils/imgLoader";
 import axios from "axios";
 import { login, logout } from "../../../store/modules/user";
 import { RootState } from "../../../store/store";
-// import { setUserInfo } from "../../../store/user/userSlice";
+import { userType } from "../../type/userTypes";
 import { get_user_info } from "../../pages/api/auth/user_api";
 
 //좌표의 타입입니다.
@@ -30,10 +30,15 @@ const Main_banner = () => {
     autoplaySpeed: 3000,
   };
   const router = useRouter();
+  const dispatch = useDispatch();
   
   //시작지점과 끝지점을 체크해줄 useState변수입니다.
   const [startPosition, setStartPosition] = useState<coordinate>({ x: 0, y: 0 });
-
+  let [checkToken, setCheckToken] = useState<boolean>(false);
+  let [userInfo, setUserInfo] = useState<userType>(null);
+  const [tokenValue, setTokenValue] = useState<string>("");
+  let [userName , setUserName] = useState<string>("");
+  
   //마우스를 눌렀을때의 좌표입니다.
   const handleMouseDown = (e: React.MouseEvent<HTMLElement>) => {
     setStartPosition({ x: e.clientX, y: e.clientY });
@@ -63,13 +68,15 @@ const Main_banner = () => {
     } 
   };
 
-  const [tokenValue, setTokenValue] = useState<string>("");
+  //마이페이지로 가는 함수입니다.
+  const gotoMyPage = () => {
+    router.push("/mypage");
+  }
 
   // 1. 로그인 안한 상태
   // 2. 로그인한 직후
   // 3. 로그인한 후 페이지 이동하다 돌아온 경우
 
-  const dispatch = useDispatch();
   let accessToken = "";
   
   const atkQuery =router.query.accessToken as string | null; 
@@ -85,13 +92,27 @@ const Main_banner = () => {
     dispatch(login(accessToken));
     setTokenValue(accessToken);
     // get_user_info().then((response) => { dispatch(setUserInfo(response)) });
+    get_user_info().then((response) => {
+      setUserInfo(response.value);
+    });
+    if (accessToken.length !== 0) {
+      setCheckToken(true);
+    } else {
+      setCheckToken(false);
+    }
   }, []);
+  
+  useEffect(() => {
+    if(userInfo !== null) {
+      setUserName(userInfo.user_name);
+    }
+  },[userInfo])
+
 
   const getAccessToken = useSelector(
     (state: RootState) => state.user.accessToken
   );
 
-  const getUserInfo = useSelector((state: RootState) => state);
   const onLogoutHandler = () => {
     const logoutt: any = axios
       .get("https://j8b208.p.ssafy.io/api/oauth/kakao/logout", {
@@ -105,7 +126,7 @@ const Main_banner = () => {
       });
   };
 
-  console.log("앙 토큰띠", getAccessToken);
+  // console.log("앙 토큰띠", getAccessToken);
 
   return (
     <div className={style.mainBanner}>
@@ -123,15 +144,20 @@ const Main_banner = () => {
             objectPosition="center"
           />
           <div className={style.mainHeader}>
-            <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
-            <Link href="/search">칵테일 검색</Link>
             {tokenValue ? (
-              <button onClick={onLogoutHandler}>로그아웃</button>
+              <>
+              <div className={style.logout} onClick={onLogoutHandler}>로그아웃</div>
+              {checkToken ? <div className={style.logout} onClick={gotoMyPage}>
+                {userName}님
+              </div> : <></>}
+              </>
             ) : (
               <Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">
                 로그인
               </Link>
-            )}
+                )}
+                <Link href="/search">칵테일 검색</Link>
+                <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
           </div>
           <div className={style.mainTitle}>
             <h1>MASIDA,</h1>
@@ -154,15 +180,21 @@ const Main_banner = () => {
             onMouseUp={handleMouseUpBegginer}
           />
           <div className={style.mainHeader}>
-            <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
-            <Link href="/search">칵테일 검색</Link>
             {tokenValue ? (
-              <button onClick={onLogoutHandler}>로그아웃</button>
+              <>
+              <div className={style.logout} onClick={onLogoutHandler}>로그아웃</div>
+              {checkToken ? <div className={style.logout} onClick={gotoMyPage}>
+                {userName}님
+              </div> : <></>}
+              
+              </>
             ) : (
               <Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">
                 로그인
               </Link>
             )}
+            <Link href="/search">칵테일 검색</Link>
+            <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
           </div>
           <div className={style.mainTitle2} onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUpBegginer}>
@@ -187,15 +219,21 @@ const Main_banner = () => {
             onMouseUp={handleMouseUpSpring}
           />
           <div className={style.mainHeader}>
-            <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
-            <Link href="/search">칵테일 검색</Link>
             {tokenValue ? (
-              <button onClick={onLogoutHandler}>로그아웃</button>
+              <>
+              <div className={style.logout} onClick={onLogoutHandler}>로그아웃</div>
+              {checkToken ? <div className={style.logout} onClick={gotoMyPage}>
+                {userName}님
+              </div> : <></>}
+              
+              </>
             ) : (
               <Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">
                 로그인
               </Link>
             )}
+            <Link href="/search">칵테일 검색</Link>
+                <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
           </div>
           <div className={style.mainTitle3} onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUpSpring}>
@@ -220,15 +258,21 @@ const Main_banner = () => {
             onMouseUp={handleMouseUpSummer}
           />
           <div className={style.mainHeader}>
-            <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
-            <Link href="/search">칵테일 검색</Link>
             {tokenValue ? (
-              <button onClick={onLogoutHandler}>로그아웃</button>
+              <>
+              <div className={style.logout} onClick={onLogoutHandler}>로그아웃</div>
+              {checkToken ? <div className={style.logout} onClick={gotoMyPage}>
+                {userName}님
+              </div> : <></>}
+              
+              </>
             ) : (
               <Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">
                 로그인
               </Link>
             )}
+            <Link href="/search">칵테일 검색</Link>
+            <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
           </div>
           <div className={style.mainTitle4} onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUpSummer}>
