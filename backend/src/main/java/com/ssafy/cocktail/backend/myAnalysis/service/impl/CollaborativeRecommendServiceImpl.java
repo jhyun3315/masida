@@ -3,10 +3,16 @@ package com.ssafy.cocktail.backend.myAnalysis.service.impl;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
 import com.ssafy.cocktail.backend.domain.repository.MyAnalysisRepository;
+import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendationReq;
+import com.ssafy.cocktail.backend.myAnalysis.dto.response.RecommendationRes;
 import com.ssafy.cocktail.backend.myAnalysis.service.CollaborativeRecommendService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -69,7 +75,36 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 			userLikeList.add(c.getId() + "");
 		}
 
+		// 파이썬 통신을 위한 DTO
+		RecommendationReq recommendationReq = RecommendationReq.builder()
+				.userLikeIngredient(userLikeIngredient)
+				.userLikeList(userLikeList)
+				.build();
+
+		// 파이썬 통신, 추천 칵테일 얻어오기
+//		List<String> reponse = dataToPy(recommendationReq);
+
 
 		return null;
 	}
+
+//	@Override
+//	public List<String> dataToPy(RecommendationReq recommendationReq) throws UnirestException {
+//		String PYTHON_API_URL = "http://localhost:8000";
+//
+//		ObjectMapper objectMapper = new ObjectMapper();
+//		String requestBody = objectMapper.writeValueAsString(recommendationReq);
+//
+//		HttpResponse<String> response = Unirest.post(PYTHON_API_URL + "/recommend")
+//				.header("Content-Type", "application/json")
+//				.body(requestBody)
+//				.asString();
+//
+//		String responseBody = response.getBody();
+//		RecommendationRes recommendationRes = objectMapper.readValue(responseBody, RecommendationRes.class);
+//		return recommendationRes.getCocktailIdList();
+//
+//	}
+
+
 }
