@@ -19,6 +19,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Map;
 
 @Tag(name = "oauth", description = "사용자 API")
 @RestController
@@ -135,7 +136,8 @@ public class OAuthController {
     }
 
     @PutMapping("/users")
-    public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("Authorization") String accessToken, UserInfoReq req) {
+    public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("Authorization") String accessToken, UserInfoReq req, @RequestParam Map<String, Object> params) {
+        System.out.println(params.toString());
         System.out.println("---------------------------------");
         System.out.println("사용자 정보 수정 요청입니다");
         System.out.println("사용자 정보 수정 요청입니다");
