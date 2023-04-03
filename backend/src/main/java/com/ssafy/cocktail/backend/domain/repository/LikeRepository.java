@@ -16,7 +16,7 @@ public interface LikeRepository extends JpaRepository<Like, Long> {
     public List<Like> findAllByCocktailAndLikeDeleted(Cocktail cocktail, boolean likeDeleted);
     public Like findByUserAndCocktail(User user, Cocktail cocktail);
 
-    // 해당 유저가 좋아요한 칵테일 리스트
+    // 해당 유저가 좋아요한 칵테일 리스트 - 페이지네이션 적용
     @Query("select l.cocktail from Like l where l.user.id = :userId and l.likeDeleted = false")
     public Page<Cocktail> findLikeCocktailByUserId(@Param("userId") Long userId, Pageable pageable);
 
@@ -27,4 +27,8 @@ public interface LikeRepository extends JpaRepository<Like, Long> {
     // 해당 칵테일의 좋아요 개수
     @Query("select count(l.id) from Like l where l.cocktail.id = :cocktailId and l.likeDeleted = false")
     public  Long findLikeCntByCocktailId(@Param("cocktailId") Long cocktailId);
+
+    // 해당 유저가 좋아요한 칵테일 리스트 모두 조회 - 추천알고리즘용
+    @Query("select l.cocktail from Like l where l.user.id = :userId and l.likeDeleted = false")
+    public List<Cocktail> findLikeCocktailAllByUserId(@Param("userId") Long userId);
 }
