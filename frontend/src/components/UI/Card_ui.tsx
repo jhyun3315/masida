@@ -254,18 +254,25 @@ const My_comment_card: React.FC<mypageCommentType> = (
             <img src={cocktail.cocktail_img}></img>
           </Link>
         </div>
-        <div className={style.commentCard_date}>
-          <div>{cocktail.comment_date}</div>
-          <div>
-            <h3>{cocktail.cocktail_name_ko}</h3>
+
+        <div className={style.commentCard_body}>
+          <div className={style.commentCard_comment_date}>
+            {cocktail.comment_date}
+          </div>
+          <div className={style.commentCard_cocktail_info}>
+            <div className={style.commentCard_cocktail_title}>
+              {cocktail.cocktail_name_ko}
+            </div>
+            <img src="/assets/icons/ratingICON.png"></img>
+            <div className={style.commentCard_cocktail_rating}>
+              {cocktail.comment_rating}
+            </div>
             <img src={ratingImg} alt="image"></img>
           </div>
         </div>
-        <div className={style.commentCard_rating}>
-          <img src="/assets/icons/ratingICON.png"></img>
-          <span>{cocktail.comment_rating}</span>
+        <div className={style.commentCard_comment}>
+          {cocktail.comment_content}
         </div>
-        <div className={style.commentCard_desc}>{cocktail.comment_content}</div>
       </div>
       <hr />
     </>
@@ -407,5 +414,5 @@ export {
   My_comment_card,
   My_Analysis_card,
   World_cup_league_card,
-  World_cup_winner_card
+  World_cup_winner_card,
 };

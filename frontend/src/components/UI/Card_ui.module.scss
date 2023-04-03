@@ -166,7 +166,6 @@
     margin-left: 4%;
 
     .recommendCard_content_img {
-
       img {
         width: 20vh;
         height: 22vh;
@@ -184,50 +183,49 @@
 
 .commentCard {
   display: flex;
-  margin: 3% 3% 0 3%;
+  height: 15vh;
 
   .commentCard_img {
-    flex: 0.5;
-
+    flex: 0.8;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     img {
-      width: 17vh;
+      height: 15vh;
     }
   }
-
-  .commentCard_date {
-    flex: 3;
-    margin: 3%;
-    margin-top: 7%;
-
-    div {
+  .commentCard_body {
+    flex: 2.4;
+    margin-top: 3%;
+    // align-items: center;
+    .commentCard_comment_date {
+      font-size: 15px;
+      margin-bottom: 1%;
+      margin-top: 1%;
+    }
+    .commentCard_cocktail_info {
       display: flex;
-
-      h3 {
-        flex: 1;
+      .commentCard_cocktail_title {
+        font-size: 26px;
+        font-weight: bold;
+        margin-right: 3%;
       }
-
       img {
-        margin-top: 10%;
-        flex: 0.1;
-        height: 3vh;
+        height: 3.5vh;
+        margin-right: 1%;
+      }
+      .commentCard_cocktail_rating {
+        font-size: 24px;
+        margin-right: 1%;
       }
     }
   }
-
-  .commentCard_rating {
-    flex: 1.25;
-    margin: 3%;
-    margin-top: 10%;
-
-    img {
-      width: 30%;
-      margin-right: 5%;
-    }
-  }
-
-  .commentCard_desc {
-    flex: 3.75;
-    margin: 3%;
+  .commentCard_comment {
+    margin-left: 1%;
+    margin-top: 3%;
+    flex: 2.3;
+    overflow: scroll;
+    overflow-x: hidden;
   }
 }
 
@@ -568,7 +566,6 @@
 .flip:hover .world_cup_card {
   transform: rotateY(180deg);
 }
-
 
 .flip_winner {
   margin: 0 auto;
