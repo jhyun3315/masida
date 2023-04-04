@@ -1,8 +1,8 @@
-package com.ssafy.cocktail.backend.Analysis.controller;
+package com.ssafy.cocktail.backend.analysis.controller;
 
-import com.ssafy.cocktail.backend.Analysis.dto.WordCloudDetail;
-import com.ssafy.cocktail.backend.Analysis.dto.response.WordCloudRes;
-import com.ssafy.cocktail.backend.Analysis.service.AnalysisService;
+import com.ssafy.cocktail.backend.analysis.dto.WordCloudDetail;
+import com.ssafy.cocktail.backend.analysis.dto.response.WordCloudRes;
+import com.ssafy.cocktail.backend.analysis.service.AnalysisService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
