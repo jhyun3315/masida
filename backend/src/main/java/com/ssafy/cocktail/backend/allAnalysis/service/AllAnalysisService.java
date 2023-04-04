@@ -2,8 +2,8 @@ package com.ssafy.cocktail.backend.allAnalysis.service;
 
 import com.ssafy.cocktail.backend.allAnalysis.dto.WordCloudDetail;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface AllAnalysisService {
-    public List<WordCloudDetail> getWordCloudData();
+    public ArrayList<WordCloudDetail> getWordCloudData();
 }
