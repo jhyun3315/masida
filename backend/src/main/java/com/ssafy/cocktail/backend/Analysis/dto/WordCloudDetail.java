@@ -1,5 +1,6 @@
-package com.ssafy.cocktail.backend.allAnalysis.dto;
+package com.ssafy.cocktail.backend.Analysis.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,8 +9,10 @@ import lombok.ToString;
 @ToString
 public class WordCloudDetail {
     @Schema(description = "재료 이름", example = "진")
+    @JsonProperty("name")
     private String name;
 
     @Schema(description = "재료 개수", example = "100")
+    @JsonProperty("value")
     private Integer value;
 }

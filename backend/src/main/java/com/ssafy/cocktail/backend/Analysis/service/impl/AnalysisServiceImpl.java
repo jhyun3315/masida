@@ -1,7 +1,8 @@
-package com.ssafy.cocktail.backend.allAnalysis.service.impl;
+package com.ssafy.cocktail.backend.Analysis.service.impl;
 
-import com.ssafy.cocktail.backend.allAnalysis.dto.WordCloudDetail;
-import com.ssafy.cocktail.backend.allAnalysis.service.AllAnalysisService;
+import com.ssafy.cocktail.backend.Analysis.dto.WordCloudDetail;
+
+import com.ssafy.cocktail.backend.Analysis.service.AnalysisService;
 import com.ssafy.cocktail.backend.domain.entity.WordCloud;
 import com.ssafy.cocktail.backend.domain.repository.WordCloudRepository;
 import lombok.AllArgsConstructor;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class AllAnalysisServiceImpl implements AllAnalysisService {
+public class AnalysisServiceImpl implements AnalysisService {
 
     private WordCloudRepository wordCloudRepository;
     @Override
