@@ -120,11 +120,10 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
     // 추천 알고리즘용 분석 - 사용자의 베이스 취향에 따른 칵테일 추천
     @Query("SELECT ci.ingredientName, ci.ingredient.id, COUNT(ci) as cnt " +
             "FROM CocktailIngredient ci " +
-            "WHERE ci.cocktail.id " +
-            "IN (SELECT l.cocktail.id " +
-            "FROM Like l " +
-            "WHERE l.user.id = :userId " +
-            "AND l.likeDeleted = false )" +
+            "WHERE ci.cocktail.id IN (SELECT l.cocktail.id " +
+                                    "FROM Like l " +
+                                    "WHERE l.user.id = :userId " +
+                                    "AND l.likeDeleted = false )" +
             "AND ci.ingredient.ingredientType NOT IN ('General', 'Garnish') " +
             "GROUP BY ci.ingredientName, ci.ingredient.id " +
             "ORDER BY cnt DESC")
@@ -134,10 +133,10 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
     // 추천 알고리즘용 분석 - 사용자의 재료 취향에 따른 칵테일 추천
     @Query("SELECT ci.ingredientName, ci.ingredient.id, COUNT(ci) as cnt " +
             "FROM CocktailIngredient ci " +
-            "WHERE ci.cocktail.id " +
-            "IN (SELECT l.cocktail.id " +
-                "FROM Like l " +
-                "WHERE l.user.id = :userId) " +
+            "WHERE ci.cocktail.id IN (SELECT l.cocktail.id " +
+                                    "FROM Like l " +
+                                    "WHERE l.user.id = :userId " +
+                                    "AND l.likeDeleted = false )" +
             "AND ci.ingredient.ingredientType IN ('General', 'Garnish') " +
             "GROUP BY ci.ingredientName, ci.ingredient.id " +
             "ORDER BY cnt DESC")
