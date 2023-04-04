@@ -7,6 +7,7 @@ import { store } from "../../../store/store";
 import { difficulty_img_url_converter_mini } from "../../pages/api/utility/difficulty_img_url_converter";
 import { imgLoader } from "../../utils/imgLoader";
 import { commentType } from "../../type/commentTypes";
+import { Hahmlet } from "@next/font/google";
 
 import style from "./CommentModal.module.scss";
 import Star from "./Star";
@@ -19,6 +20,12 @@ interface propsType {
   setModifyCommentCnt: Dispatch<SetStateAction<boolean>>;
 }
 
+const hahmelt = Hahmlet({
+  subsets : ['latin'],
+  weight : '400',
+})
+
+
 const CommentModal: React.FunctionComponent<propsType> = ({
   setVisible,
   visible,
@@ -26,6 +33,9 @@ const CommentModal: React.FunctionComponent<propsType> = ({
   modifyCommentCnt,
   setModifyCommentCnt,
 }) => {
+
+
+
   let [inputValue, setInputValue] = useState<string>(""); //댓글
   let [difficulty, setDifficulty] = useState<string>(""); //난이도
   let [scope, setScope] = useState<number>(0); //별점
@@ -475,7 +485,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
             </div>
           </div>
         </div>
-        <div>
+        <div className={hahmelt.className}>
           <textarea
             id="comment"
             className={style.write_commentarea}
