@@ -1,5 +1,8 @@
 .base_title {
   font-size: 23px;
+  line-height: 36px;
+  font-weight: bold;
+  padding-bottom: 5px;
 }
 
 .base_checkbox {
@@ -7,9 +10,12 @@
   width: 90%;
   justify-content: space-between;
   flex-wrap: wrap;
+  .base_interval {
+    padding-bottom: 5px;
+  }
   .base_value {
     font-size: 22px;
     margin-left: 5px;
+    padding-right: 5px;
   }
- 
 }

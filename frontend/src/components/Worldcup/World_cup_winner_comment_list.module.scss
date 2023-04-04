@@ -1,5 +1,5 @@
 .winner_comment_list {
-  height: 41vh;
+  height: 47vh;
   overflow: scroll;
   overflow-x: hidden;
   border: 1px solid rgba(0, 0, 255, 0.27);
@@ -17,23 +17,21 @@
       display: flex;
       width: 100%;
       flex-direction: row;
-
+      justify-content: space-between;
       .winner_comment_left {
         display: flex;
 
         .user_comment_profile {
+          margin : 0px 7px 0px 7px;
           .user_profile_img {
             height: 50px;
             width: 50px;
+            border-radius: 5px;
           }
         }
 
         .user_comment_textarea {
           margin-right: 10px;
-          // width: 30%;
-          // display: flex;
-          // flex-wrap: wrap;
-          width: 300px;
 
           .user_comment_name_date {
             display: flex;
@@ -41,10 +39,14 @@
             gap: 10px;
             font-size: 10px;
             font-weight: bold;
+            margin-bottom: 3px;
+            .user_comment_name {
+              font-size: 12px;
+            }
 
-            .user_comment_name {}
-
-            .user_comment_date {}
+            .user_comment_date {
+              font-size : 12px;
+            }
           }
 
           .user_comment_content {
@@ -60,7 +62,7 @@
       .winner_comment_right {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        margin-right: 10px;
 
         // width: 100px;
         .winner_comment_difficulty_user_rating {
@@ -76,9 +78,8 @@
           }
 
           .comment_rating {
-            flex: 3;
             display: flex;
-            flex-direction: rows;
+            align-items: center;
 
             .comment_rating_img {
               width: 60%;

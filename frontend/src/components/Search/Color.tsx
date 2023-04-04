@@ -40,7 +40,7 @@ const Color = () => {
   return (
     <>
       <div>
-        <h3 className={style.color_title}>색상</h3>
+        <div className={style.color_title}>색상</div>
         <div className={style.color}>
           <div className={style.color_up}>
             <label>

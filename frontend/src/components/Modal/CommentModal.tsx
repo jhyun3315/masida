@@ -7,6 +7,7 @@ import { store } from "../../../store/store";
 import { difficulty_img_url_converter_mini } from "../../pages/api/utility/difficulty_img_url_converter";
 import { imgLoader } from "../../utils/imgLoader";
 import { commentType } from "../../type/commentTypes";
+import { Hahmlet } from "@next/font/google";
 
 import style from "./CommentModal.module.scss";
 import Star from "./Star";
@@ -19,6 +20,12 @@ interface propsType {
   setModifyCommentCnt: Dispatch<SetStateAction<boolean>>;
 }
 
+const hahmelt = Hahmlet({
+  subsets : ['latin'],
+  weight : '400',
+})
+
+
 const CommentModal: React.FunctionComponent<propsType> = ({
   setVisible,
   visible,
@@ -26,10 +33,14 @@ const CommentModal: React.FunctionComponent<propsType> = ({
   modifyCommentCnt,
   setModifyCommentCnt,
 }) => {
+
+
+
   let [inputValue, setInputValue] = useState<string>(""); //댓글
   let [difficulty, setDifficulty] = useState<string>(""); //난이도
   let [scope, setScope] = useState<number>(0); //별점
   const [modify, setModify] = useState<boolean>(false); //수정버튼이 클릭 되었는지 확인해주는 useState변수입니다.
+  const [regist, setRegist] = useState<boolean>(false); //등록버튼이 클릭 되었는지 확인해주는 useState변수입니다.
   //얘도 같이 내려줘서 서로 바뀔때마다 scope를 0으로 설정해주어야 할것 같다.
 
   // 현재 탭의 상태를 구분하기 위함 (Comment / MyMemo)
@@ -136,6 +147,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
               .then(() => {
                 setCommentAdd(!commentAdd);
                 setModifyCommentCnt(!modifyCommentCnt);
+                setResetStar(!resetStar);
                 resetComment();
               })
               .catch((error) => {
@@ -163,13 +175,13 @@ const CommentModal: React.FunctionComponent<propsType> = ({
     setScope(rating);
     setScope(0);
     setCommentId(id);
+    setResetStar(!resetStar);
     textareaRef.current.removeAttribute("readOnly");
     if (modify && commentId === id) {
       resetComment();
       setCommentAdd(!commentAdd);
       setModify(false);
       setScope(0);
-      setResetStar(!resetStar);
       textareaRef.current.setAttribute("readOnly", true);
     }
   };
@@ -473,7 +485,7 @@ const CommentModal: React.FunctionComponent<propsType> = ({
             </div>
           </div>
         </div>
-        <div>
+        <div className={hahmelt.className}>
           <textarea
             id="comment"
             className={style.write_commentarea}

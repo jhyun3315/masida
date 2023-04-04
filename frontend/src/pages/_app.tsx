@@ -9,6 +9,14 @@ import Loading_spinner from "../components/UI/Loading_spinner";
 
 import { wrapper } from "../../store";
 
+//font추가
+import { IBM_Plex_Sans_KR } from '@next/font/google'
+
+const ibm = IBM_Plex_Sans_KR({
+  subsets: ['latin'],
+  weight: '400',
+})
+
 //여기서 Provider로 감싸주어 store에 연결시켜줍니다.
 function App({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState<boolean>();
@@ -34,14 +42,14 @@ function App({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
   return (
-    <>
+    <div className={ibm.className}>
       {loading && <Loading_spinner />}
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           {!loading && <Component {...pageProps} />}
         </PersistGate>
       </Provider>
-    </>
+    </div>
   );
 }
 export default wrapper.withRedux(App);

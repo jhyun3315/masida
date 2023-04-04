@@ -21,6 +21,7 @@
     flex: 0.55;
     margin-top: 3%;
 
+
     img {
       width: 15%;
       margin-right: 3%;
@@ -30,5 +31,8 @@
       color: #B1B1B1;
       font-size: 1.2rem;
     }
+  }
+  .userAnalisys_pdf:hover{
+    cursor: pointer;
   }
 }

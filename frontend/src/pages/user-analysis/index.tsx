@@ -1,4 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+
 import Header from "../../components/Header/Header";
 import CocktailPreference from "../../components/UserAnalysis/CocktailPreference";
 import ColorPreference from "../../components/UserAnalysis/ColorPreference";
@@ -65,6 +68,7 @@ export type cocktail_props_analysis_age_gender = {
 
 const userAnalisys = () => {
   const router = useRouter();
+  const componentRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoading2, setIsLoading2] = useState(false);
   const [isLoading3, setIsLoading3] = useState(false);
@@ -72,6 +76,7 @@ const userAnalisys = () => {
   const [isLoading5, setIsLoading5] = useState(false);
   const [isLoading6, setIsLoading6] = useState(false);
   const [isLoading7, setIsLoading7] = useState(false);
+  const [isProblem, SetIsProblem] = useState(false);
 
   const [cocktailList_props, setCocktailList_props] = useState<cocktailBase[]>(
     []
@@ -152,11 +157,10 @@ const userAnalisys = () => {
     });
   }, []);
 
-  console.log("베이스",cocktailList_props);
-  console.log("색상",cocktailList_color_props);
-  console.log("재료",cocktailList_ingredient_props);
-  console.log("나이,색",cocktailList_age_gender_props);
-
+  console.log("베이스", cocktailList_props);
+  console.log("색상", cocktailList_color_props);
+  console.log("재료", cocktailList_ingredient_props);
+  console.log("나이,색", cocktailList_age_gender_props);
 
   const cocktail_props: cocktail_props_analysis = {
     isLoading_props1: isLoading,
@@ -186,6 +190,7 @@ const userAnalisys = () => {
     cocktailList: cocktailList_age_gender_props,
     cocktailRecordList: cocktailRecommendList_age_gender_props,
   };
+
   if (
     isLoading &&
     isLoading2 &&
@@ -201,15 +206,29 @@ const userAnalisys = () => {
       cocktailList_ingredient_props.length === 5 &&
       cocktailList_age_gender_props.length === 5
     ) {
+      const handleExport = () => {
+        const input = componentRef.current;
+        
+        console.log(input);
+        html2canvas(input, { allowTaint: true, useCORS: true }).then(
+          (canvas) => {
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new jsPDF();
+            pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
+            pdf.save("MASIDA-Cocktail-Preferences.pdf");
+          }
+        );
+      };
+
       return (
-        <>
+        <div ref={componentRef}>
           <Header />
           <div className={style.userAnalisys}>
             <div className={style.userAnalisys_logo}>
               <h1>MASIDA</h1>
               <p>칵테일을 맛있게 마시다.</p>
             </div>
-            <div className={style.userAnalisys_pdf}>
+            <div className={style.userAnalisys_pdf} onClick={handleExport}>
               <img src="assets/icons/Vector.png"></img>
               <span>PDF로 내보내기</span>
             </div>
@@ -218,14 +237,20 @@ const userAnalisys = () => {
           <ColorPreference {...cocktail_color_props} />
           <IngredientPreference {...cocktail_ingredient_props} />
           <UserPreference {...cocktail_age_gender_props} />
-        </>
+        </div>
       );
     } else {
-      Swal.fire('칵테일에 좋아요를 눌러주세요 (분석을 위한 충분한 데이터가 존재하지 않습니다.)').then((result) =>{
-        if(result.isConfirmed){
+      Swal.fire({
+        icon: "error",
+        title: "분석을 할 수 없습니다.",
+        confirmButtonText: "마이페이지로 돌아가기",
+        text: "분석을 위한 충분한 데이터가 존재하지 않습니다. 칵테일에 좋아요를 눌러주세요",
+        footer: '<a href="/search">여기를 눌러서 칵테일 둘러볼까요?</a>',
+      }).then((result) => {
+        if (result.isConfirmed) {
           router.back();
         }
-      })
+      });
     }
   }
 };

@@ -58,7 +58,7 @@ const World_cup_winner_comments_list = (props: cocktail_worldcup_data) => {
                       />
                     </div>
                     <div className={style.comment_rating_count}>
-                      {key.comment_rating}
+                      {key.comment_rating} / 5
                     </div>
                   </div>
                 </div>

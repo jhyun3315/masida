@@ -1,5 +1,8 @@
 .color_title {
   font-size: 23px;
+  line-height: 36px;
+  font-weight: bold;
+  padding-bottom: 5px;
 }
 .color {
   display: flex;
@@ -79,7 +82,7 @@
   .color_white {
     margin-left: 0.8rem;
     margin-right: 0.8rem;
-    background-color:rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     width: 27px;
     height: 27px;
     border: 1px solid black;
