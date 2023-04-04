@@ -22,7 +22,6 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
     private CocktailIngredientRepository cocktailIngredientRepository;
     private CocktailRepository cocktailRepository;
     private CommentRepository commentRepository;
-    private IngredientRepository ingredientRepository;
     private LikeRepository likeRepository;
     private BookmarkRepository bookmarkRepository;
     private OAuthService oAuthService;
@@ -38,7 +37,6 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         cocktailDetail.setCocktailNameEn(cocktail.get().getCocktailNameEn()); // 칵테일 영어 이름 삽입
         cocktailDetail.setCocktailImg(cocktail.get().getCocktailImg()); // 칵테일 이미지 삽입
         cocktailDetail.setCocktailContent(cocktail.get().getCocktailContent() == null ? "맛있는 칵테일":cocktail.get().getCocktailContent()); // 칵테일 내용 삽입
-//        String rating = cocktail.get().getCocktailRating() == null ? "0.0" : String.format("%.1f", cocktail.get().getCocktailRating()); // 칵테일 평점 계산 (소수점 첫째자리 까지 표시)
         String rating = String.format("%.1f", cocktail.get().getCocktailRating()); // 칵테일 평점 계산 (소수점 첫째자리 까지 표시)
         cocktailDetail.setCocktailRating(rating); // 칵테일 평점 삽입
         switch ((int) cocktail.get().getCocktailDifficulty()) { // 칵테일 난이도
@@ -57,23 +55,16 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         List<Comment> cocktails = commentRepository.findAllByCocktailAndCommentDeleted(cocktail.get(), false); // 칵테일 댓글 가져오기
         cocktailDetail.setCocktailComments(cocktails.size()); // 칵테일 댓글 개수 삽입
         User user = oAuthService.getUser(accessToken); // 유저 가져오기
-        System.out.println("칵테일 상세 보기입니다");
         if (user != null) { // 로그인한 유저이면
-            System.out.println("좋아요 여부");
             Like like = likeRepository.findByUserAndCocktail(user, cocktail.get()); // 칵테일의 유저 좋아요 가져오기
-            if (like == null) System.out.println("좋아요 객체 없음");
-            else System.out.println("좋아요 체크 여부" + like.isLikeDeleted());
             cocktailDetail.setLikesChecker(like != null && !like.isLikeDeleted()); // 유저가 좋아요 여부 삽입
             Bookmark bookmark = bookmarkRepository.findByUserAndCocktail(user, cocktail.get()); // 칵테일의 유저 북마크 가져오기
-            if (bookmark == null) System.out.println("북마크 객체 없음");
-            else System.out.println("북마크 체크 여부" + bookmark.isBookmarkDeleted());
             cocktailDetail.setBookmarkCheckcker(bookmark != null && !bookmark.isBookmarkDeleted()); // 유저가 북마크 여부 삽입
         } else { // 로그인 하지 않은 유저이면
-            System.out.println("로그인 하지 않은 유저입니다");
             cocktailDetail.setLikesChecker(false); // 좋아요 여부 false 삽입
             cocktailDetail.setBookmarkCheckcker(false); // 북마크 여부 false 삽입
         }
-        cocktailDetail.setGlass(cocktail.get().getCocktailGlass() == null ? "글라스" : cocktail.get().getCocktailGlass()); // 칵테일의 글라스 삽입
+        cocktailDetail.setGlass(cocktail.get().getCocktailGlass() == null ? "기본글라스" : cocktail.get().getCocktailGlass()); // 칵테일의 글라스 삽입
         cocktailDetail.setBase(cocktail.get().getCocktailBase()); // 칵테일의 베이스 삽입
         List<CocktailIngredient> cocktailIngredients = cocktailIngredientRepository.findByCocktail(cocktail.get()); // 칵테일 재료 가져오기
         cocktailDetail.setGarnish(new ArrayList<>()); // 가니쉬 리스트 생성

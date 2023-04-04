@@ -13,6 +13,7 @@ public class UserLoginRes extends BaseResponseBody {
     @Schema(name="JWT access 인증 토큰", example = "ekdif123SDKVIdf1231...")
     @JsonProperty(value = "access_token", access = JsonProperty.Access.READ_WRITE)
     String accessToken;
+
     @JsonProperty(value = "user_name", access = JsonProperty.Access.READ_WRITE)
     @Schema(name="유저 이름", example = "김싸피")
     String userName;

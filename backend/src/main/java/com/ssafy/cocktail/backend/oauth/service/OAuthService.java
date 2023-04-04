@@ -9,9 +9,7 @@ import java.io.IOException;
 public interface OAuthService {
 	public String loginPage();
 	public UserLoginInfo loginUser(String authorize_code) throws Exception;
-	// public boolean isVaildAccessToken(String accessToken, String id);
 	public User getUser(String accessToken);
 	public boolean logoutUser(String accessToken, boolean isdeleted);
 	public UserInfo updateUser(String accessToken, String userGender, String userAgeRange);
-
 }

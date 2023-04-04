@@ -104,6 +104,18 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
         "ORDER BY ColorTable.RatingScore DESC", nativeQuery = true)
     ArrayList<MyAnalysisRatingColorInterface> getMyAnalysisRatingColorList(@Param("userId") Long user_id);
 
+    @Query(value="SELECT m.comment_rating As RatingScore, " +
+            "ci.ingredient_name As IngredientName, " +
+            "count(ci.ingredient_name) IngredientCount " +
+            "FROM comments As m " +
+            "INNER JOIN cocktails c ON c.cocktail_id = m.cocktail_id " +
+            "INNER JOIN cocktail_ingredient ci ON ci.cocktail_id = m.cocktail_id " +
+            "WHERE m.comment_deleted = false AND m.user_id=:userId " +
+            "GROUP BY m.comment_rating, ci.ingredient_name " +
+            "ORDER BY RatingScore DESC "
+            ,nativeQuery = true)
+    ArrayList<MyAnalysisRatingIngredientInterface> getMyAnalysisRatingIngredientList(@Param("userId") Long user_id);
+
 
     // 추천 알고리즘용 분석 - 사용자의 베이스 취향에 따른 칵테일 추천
     @Query("SELECT ci.ingredientName, ci.ingredient.id, COUNT(ci) as cnt " +
@@ -111,7 +123,8 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
             "WHERE ci.cocktail.id " +
             "IN (SELECT l.cocktail.id " +
             "FROM Like l " +
-            "WHERE l.user.id = :userId) " +
+            "WHERE l.user.id = :userId " +
+            "AND l.likeDeleted = false )" +
             "AND ci.ingredient.ingredientType NOT IN ('General', 'Garnish') " +
             "GROUP BY ci.ingredientName, ci.ingredient.id " +
             "ORDER BY cnt DESC")
