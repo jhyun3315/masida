@@ -26,7 +26,7 @@ const Base = () => {
   return (
     <>
       <div>
-        <h3 className={style.base_title}>베이스</h3>
+        <div className={style.base_title}>베이스</div>
         <div className={style.base_checkbox}>
           <div className={style.base_interval}>
             <label className={style.base_value}>
