@@ -1,27 +1,31 @@
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { setSelectDifficulty } from "../../../store/category/difficultySlice";
 import style from "./Difficulty.module.scss";
 
 const Difficulty = () => {
   const [checkDifficulty, setCheckDifficulty] = useState<string[]>([]);
-  const dispatch =  useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setSelectDifficulty(checkDifficulty));
-  },[checkDifficulty])
-
+  }, [checkDifficulty]);
 
   const checkedDifficulty = (event: React.MouseEvent<HTMLElement>) => {
     const target = event.target as HTMLInputElement;
-    
+
     if (target.checked === true) {
-        setCheckDifficulty(checkDifficulty => [...checkDifficulty, target.value]);
-      } else {
-        setCheckDifficulty(checkDifficulty.filter(difficulty => difficulty !== target.value))
-      }
+      setCheckDifficulty((checkDifficulty) => [
+        ...checkDifficulty,
+        target.value,
+      ]);
+    } else {
+      setCheckDifficulty(
+        checkDifficulty.filter((difficulty) => difficulty !== target.value)
+      );
+    }
   };
-  
+
   return (
     <>
       <div>
@@ -36,7 +40,10 @@ const Difficulty = () => {
               value="상"
               onClick={checkedDifficulty}
             />
-            <label htmlFor="high" className={style.difficulty_selector_lev}>
+            <label
+              htmlFor="high"
+              className={style.difficulty_selector_lev_high}
+            >
               상
             </label>
             |
@@ -48,7 +55,10 @@ const Difficulty = () => {
               value="중"
               onClick={checkedDifficulty}
             />
-            <label htmlFor="medium" className={style.difficulty_selector_lev}>
+            <label
+              htmlFor="medium"
+              className={style.difficulty_selector_lev_middle}
+            >
               중
             </label>
             |
@@ -60,7 +70,7 @@ const Difficulty = () => {
               value="하"
               onClick={checkedDifficulty}
             />
-            <label htmlFor="low" className={style.difficulty_selector_lev}>
+            <label htmlFor="low" className={style.difficulty_selector_lev_low}>
               하
             </label>
           </div>

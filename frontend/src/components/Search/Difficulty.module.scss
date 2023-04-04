@@ -12,13 +12,27 @@
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    .difficulty_selector_lev {
+    .difficulty_selector_lev_high {
       margin-right: 1rem;
     }
-      input:checked + label {
-        font-size: 24px;
-        color: red;
-      }
+    .difficulty_selector_lev_middle {
+      margin-right: 1rem;
+    }
+    .difficulty_selector_lev_low {
+      margin-right: 1rem;
+    }
+    input:checked + .difficulty_selector_lev_high {
+      font-size: 24px;
+      color: red;
+    }
+    input:checked + .difficulty_selector_lev_middle {
+      font-size: 24px;
+      color: blue;
+    }
+    input:checked + .difficulty_selector_lev_low {
+      font-size: 24px;
+      color: #98f306;
+    }
     .difficulty_selector_btn {
       opacity: 0;
     }

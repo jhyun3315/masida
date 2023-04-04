@@ -8,6 +8,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
+
   .userSettingModal_header {
     display: flex;
     justify-content: center;
@@ -19,26 +20,37 @@
     .userSettingModal_header_left {
       flex: 1;
     }
-    div{
+
+    div {
       flex: 9;
     }
+
     .userSettingModal_header_right {
       margin-left: 4%;
       margin-right: 1%;
       flex: 1;
       padding: 1%;
     }
+
     .userSettingModal_header_right:hover {
       cursor: pointer;
     }
   }
 
+  h2 {
+    margin-left: 10%;
+    margin-top: 5%;
+  }
+
   .userSettingModal_content {
     display: flex;
     padding: 3%;
+    margin-left: 12.5%;
+    margin-top: 5%;
 
     .userSettingModal_leftImg {
       flex: 1;
+      margin-top: 3%;
     }
 
     .userSettingModal_rightDesc {
@@ -58,12 +70,13 @@
 
   .userSettingModal_button {
     display: flex;
-    margin: 0 20%;
+    margin: 0 17.5%;
     height: 7%;
+    margin-top: 10%;
 
     .userSettingModal_button_exit {
       flex: 1;
-      border-radius: 8.89%;
+      border-radius: 10px;
       border-color: #253976;
       color: #253976;
       background-color: white;
@@ -73,7 +86,7 @@
 
     .userSettingModal_button_update {
       flex: 1;
-      border-radius: 8.89%;
+      border-radius: 10px;
       border-color: #253976;
       color: white;
       background-color: #253976;

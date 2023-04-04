@@ -25,7 +25,7 @@ const Barchart3 = (props: cocktailIngredientRating[]) => {
   }
 
   const keys = key.filter((v: string, i: number) => key.indexOf(v) === i);
-
+  
   for (let i = 0; i < 5; i++){
     data.push({
       rating: props[i].rating_score,
@@ -64,7 +64,7 @@ const Barchart3 = (props: cocktailIngredientRating[]) => {
                 /**
                  * chart 색상
                  */
-                colors={['#E02A1C', '#FFAD03', '#E685B5','#235C18','#0000FF',"#CCC8C8","#2E354F","#D0B83A","#C800FF","#B26132"]} // 커스터하여 사용할 때
+                colors={['#F4E77E', '#F79D8E', '#E8A93B','#E8C1A0','#61CDBB','#A6E7DB','#A0D468','#A077FF','#F4D160','#9FA3E3','#EC80C0']} // 커스터하여 사용할 때
                 // colors={{ scheme: 'nivo' }} // nivo에서 제공해주는 색상 조합 사용할 때
                 /**
                  * color 적용 방식

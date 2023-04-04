@@ -6,9 +6,11 @@ import Barchart2 from '../UI/BarChart2';
 import { cocktail_props_analysis_color } from '../../pages/user-analysis';
 import { My_Analysis_card } from '../UI/Card_ui';
 import { cocktailColorRating } from '../../type/cocktailRating';
+import { store } from '../../../store/store';
 
 const ColorPreference = (props: cocktail_props_analysis_color) => {
 
+  const userName = store.getState().user.userInfo.user_name;
   const[cocktailRateList,setCocktailRateList] = useState<cocktailColorRating[]>([]);
  
   const isLoading3 = props.isLoading_props3;
@@ -25,7 +27,7 @@ const ColorPreference = (props: cocktail_props_analysis_color) => {
   if (isLoading3 && isLoading4) {
     return (
       <div className={style.cocktailPreference}>
-        <p className={style.baseTitle}><strong>종효</strong>님의 칵테일 색상 선호도 분석 결과</p>
+        <p className={style.baseTitle}><strong>{ userName}</strong>님의 칵테일 색상 선호도 분석 결과</p>
         <div className={style.cocktailPreference_content}>
           <div className={style.cocktailPreference_analysis}>
             <div className={style.cocktailPreference_analysis_upper}>
@@ -61,7 +63,7 @@ const ColorPreference = (props: cocktail_props_analysis_color) => {
           </div>
           <hr />
           <div className={style.cocktailPreference_list}>
-            <h3>종효님과 취향(색상)과 비슷한 칵테일 추천</h3>
+            <h3>{ userName}님과 취향(색상)과 비슷한 칵테일 추천</h3>
             <div className={style.cocktailPreference_list_content}>
               {cocktailRecordList.map((key => (
                 <My_Analysis_card {...key} />
