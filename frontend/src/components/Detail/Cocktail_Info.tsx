@@ -247,7 +247,11 @@ const Cocktail_info = ({ modifyCommentCnt }: CocktailInfoProps) => {
       </div>
     );
   } else {
-    return <Loading_spinner />;
+    return (
+      <div className={style.spinner_location}>
+        <Loading_spinner />
+      </div>
+      )
   }
 };
 
