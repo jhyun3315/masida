@@ -30,8 +30,14 @@ const Base = () => {
         <div className={style.base_checkbox}>
           <div className={style.base_interval}>
             <label className={style.base_value}>
-              <input type="radio" name="base" value="진" checked={checkBase === "진"} onClick={clickBase} />{" "}
-              진
+              <input
+                type="radio"
+                name="base"
+                value="위스키"
+                checked={checkBase === "위스키"}
+                onClick={clickBase}
+              />{" "}
+              위스키
             </label>
             <label className={style.base_value}>
               <input type="radio" name="base" value="럼" checked={checkBase === "럼"} onClick={clickBase} />{" "}
@@ -43,21 +49,15 @@ const Base = () => {
               <input
                 type="radio"
                 name="base"
-                value="위스키"
-                checked={checkBase === "위스키"}
-                onClick={clickBase}
-              />{" "}
-              위스키
-            </label>
-            <label className={style.base_value}>
-              <input
-                type="radio"
-                name="base"
                 value="리퀴르"
                 checked={checkBase === "리퀴르"}
                 onClick={clickBase}
               />{" "}
-              리큐르
+              리퀴르
+            </label>
+            <label className={style.base_value}>
+              <input type="radio" name="base" value="진" checked={checkBase === "진"} onClick={clickBase} />{" "}
+              진
             </label>
           </div>
           <div className={style.base_interval}>
@@ -91,7 +91,7 @@ const Base = () => {
                 checked={checkBase === "테킬라"}
                 onClick={clickBase}
               />{" "}
-              데킬라
+              테킬라
             </label>
             <label className={style.base_value}>
               <input

@@ -177,8 +177,6 @@ const detail = () => {
         </div>
       </>
     );
-  } else {
-    return <div>Loading</div>;
   }
 };
 
