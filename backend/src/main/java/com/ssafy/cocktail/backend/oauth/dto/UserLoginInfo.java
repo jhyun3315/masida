@@ -9,5 +9,4 @@ public class UserLoginInfo {
     String accessToken;
     String refreshToken;
     String userName;
-
 }
