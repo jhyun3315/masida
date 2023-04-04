@@ -26,6 +26,7 @@ import java.util.List;
 @Transactional
 @AllArgsConstructor
 public class CollaborativeRecommendServiceImpl implements CollaborativeRecommendService {
+	private final String PYTHON_API_URL = "http://localhost:8000";
 	private MyAnalysisRepository myAnalysisRepository;
 	private LikeRepository likeRepository;
 
@@ -88,8 +89,14 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 		return null;
 	}
 
-	private final String PYTHON_API_URL = "http://localhost:8000";
 
+	/**
+	 * 파이썬 통신
+	 * @param recommendationRequest
+	 * @return List<String> : 추천 칵테일 응답 리스트
+	 * @throws UnirestException
+	 * @throws JsonProcessingException
+	 */
 	@Override
 	public List<String> dataToPython(RecommendationRequest recommendationRequest) throws UnirestException, JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper()
@@ -107,6 +114,7 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 		RecommendationResponse recommendationResponse = objectMapper.readValue(responseBody, RecommendationResponse.class);
 		return recommendationResponse.getCocktailIdList();
 	}
+
 
 
 }
