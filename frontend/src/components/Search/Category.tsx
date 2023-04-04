@@ -17,7 +17,7 @@ const Category : React.FunctionComponent<propsType> = ({props,addNumIngredient,s
   return (
     <>
       <div className={style.category}>
-        <h3 className={style.category_title}>카테고리</h3>
+        <div className={style.category_title}>카테고리</div>
         <hr />
         <Base />
         <Color />

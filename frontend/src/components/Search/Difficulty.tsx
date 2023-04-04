@@ -30,7 +30,7 @@ const Difficulty = () => {
     <>
       <div>
         <div className={style.difficulty}>
-          <h3 className={style.difficulty_title}>난이도</h3>
+          <div className={style.difficulty_title}>난이도</div>
           <div className={style.difficulty_selector}>
             <input
               type="checkbox"

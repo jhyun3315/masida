@@ -208,12 +208,13 @@ const userAnalisys = () => {
     ) {
       const handleExport = () => {
         const input = componentRef.current;
+        
         console.log(input);
         html2canvas(input, { allowTaint: true, useCORS: true }).then(
           (canvas) => {
             const imgData = canvas.toDataURL("image/png");
             const pdf = new jsPDF();
-            pdf.addImage(imgData, "PNG", 0, 0, 180, 297);
+            pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
             pdf.save("MASIDA-Cocktail-Preferences.pdf");
           }
         );
