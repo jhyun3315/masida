@@ -15,14 +15,13 @@ const Header = () => {
   let [checkToken, setCheckToken] = useState<boolean>(false);
   const accessToken = useSelector((state: RootState) => state.user.accessToken); //처음에 토큰을 받아와.
 
-  let [userInfo, setUserInfo] = useState<userType>(null);
+
+  //리덕스에 저장된 유저의 정보를 저장해줄 변수 userInfo
+  const userInfo = useSelector((state: RootState) => state.user.userInfo);
 
   //처음에 토큰의 길이가 만약 0이 아니라면?
   //즉 토큰이 존재한다면?
   useEffect(() => {
-    get_user_info().then((response) => {
-      setUserInfo(response.value);
-    });
     if (accessToken.length !== 0) {
       setCheckToken(true); //header를 OO님 환영합니다로 표현.
     } else {
