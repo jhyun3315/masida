@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
-@Table(name = "word_cloud_db")
+@Table(name = "word_cloud")
 public class WordCloud {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
