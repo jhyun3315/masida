@@ -14,10 +14,7 @@ import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -97,8 +94,12 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
                     continue; // 검색한 이름이 한글 이름 또는 영어 이름에 포함되지 않으면 (x)
             }
             if (info.getCocktailBase() != null) { // 조건 2: 베이스 검색이 있으면
-                if (!cocktailBase.equals(info.getCocktailBase())) // 조건 2-1: 검색어와 베이스가 일치하는가
-                    continue; // 일치한 베이스가 없으면 (x)
+                String[] etcBases = {"맥주", "와인", "메즈칼", "스프릿"}; // 기타 베이스
+                List<String> etcList = new ArrayList<>(Arrays.asList(etcBases));
+                if (!cocktailBase.equals(info.getCocktailBase())
+                 || !(info.getCocktailBase().equals("기타") && etcList.contains(cocktailBase))) // 조건 2-1: 검색어와 베이스가 일치하는가
+                    continue;
+                     // 일치한 베이스가 없으면 (x)
             }
             if (info.getCocktailColor() != null && info.getCocktailColor().size() > 0) { // 조건 3: 색상 검색이 있으면
                 boolean found = false; // 동일한 색상이 없으면 false
