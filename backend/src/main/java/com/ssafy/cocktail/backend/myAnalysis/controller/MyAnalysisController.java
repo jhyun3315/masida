@@ -132,6 +132,7 @@ public class MyAnalysisController {
         }
     }
 
+
     @GetMapping("/ingredient-rating")
     public ResponseEntity<MyAnalysisRatingIngredientRes> MyAnalysisByRatingIngredient(@RequestHeader Map<String, String> data) {
         String accessToken = data.get("authorization");

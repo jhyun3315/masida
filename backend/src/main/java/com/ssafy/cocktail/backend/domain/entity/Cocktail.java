@@ -19,13 +19,13 @@ public class Cocktail {
     @Column(name = "cocktail_name_ko", columnDefinition="VARCHAR(50)",nullable = false)
     String cocktailNameKo;
 
-    @Column(name = "cocktail_name_en", columnDefinition="VARCHAR(50)",nullable = false)
+    @Column(name = "cocktail_name_en", columnDefinition="VARCHAR(80)",nullable = false)
     String cocktailNameEn;
 
     @Column(name = "cocktail_img", columnDefinition="VARCHAR(255)",nullable = false)
     String cocktailImg;
 
-    @Column(name = "cocktail_content", columnDefinition="VARCHAR(100)")
+    @Column(name = "cocktail_content", columnDefinition="VARCHAR(300)")
     String cocktailContent;
 
     @Column(name = "cocktail_color1", columnDefinition="VARCHAR(10)")
