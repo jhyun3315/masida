@@ -50,6 +50,7 @@ public class OAuthServiceImpl implements OAuthService {
     }
 
     private String getKakaoAccessToken(String authorize_code) {
+        // 사용자의 엑세스 토큰 가져오기
         String access_Token = "";
         String refresh_Token = "";
         String reqURL = "https://kauth.kakao.com/oauth/token";
@@ -110,6 +111,7 @@ public class OAuthServiceImpl implements OAuthService {
     }
 
     private void saveOrUpdate(String access_Token) throws IOException {
+        // 사용자 로그인
         String reqURL = "https://kapi.kakao.com/v2/user/me";
         try {
             URL url = new URL(reqURL);
@@ -143,12 +145,9 @@ public class OAuthServiceImpl implements OAuthService {
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
             String profile_image = properties.getAsJsonObject().get("profile_image").getAsString();
             String thumbnail_image = properties.getAsJsonObject().get("thumbnail_image").getAsString();
-//            String email = kakao_account.getAsJsonObject().get("email").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
             String age_range = kakao_account.getAsJsonObject().get("age_range") == null
                     ? "연령미동의" : kakao_account.getAsJsonObject().get("age_range").toString().split("~")[0].substring(1);
-//			String birthday = kakao_account.getAsJsonObject().get("birthday").getAsString();
-//            String gender = kakao_account.getAsJsonObject().get("gender").getAsString();
             String gender = kakao_account.getAsJsonObject().get("gender") == null
                     ? "성별미동의" : kakao_account.getAsJsonObject().get("gender").getAsString();
 
@@ -193,6 +192,7 @@ public class OAuthServiceImpl implements OAuthService {
 
     @Override
     public User getUser(String accessToken) {
+        // 엑세스 토큰으로 사용자 가져오기
         String reqURL = "https://kapi.kakao.com/v1/user/access_token_info";
         try {
             URL url = new URL(reqURL);
@@ -203,7 +203,6 @@ public class OAuthServiceImpl implements OAuthService {
             conn.setRequestProperty("Authorization", "Bearer " + accessToken);
 
             int responseCode = conn.getResponseCode();
-            // System.out.println("responseCode : " + responseCode);
 
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
@@ -230,57 +229,9 @@ public class OAuthServiceImpl implements OAuthService {
         return null;
     }
 
-//    @Override
-//    public boolean logoutUser(String accessToken, boolean isdeleted) {
-//        String reqURL = "https://kapi.kakao.com/v1/user/logout"; // 요청 url
-//        try {
-//            URL url = new URL(reqURL); // 요청 url 삽입
-//            HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // 연결
-//            conn.setRequestMethod("POST"); // http 요청 형식 설정
-//            conn.setDoOutput(true); // post 요청시 필요
-//
-//            // 요청에 필요한 Header에 포함될 내용
-//            conn.setRequestProperty("Authorization", "KakaoAK " + adminKey);
-//
-//            //    POST 요청에 필요로 요구하는 파라미터 스트림을 통해 전송
-//            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-//            StringBuilder sb = new StringBuilder();
-//            sb.append("target_id_type=user_id");
-//            User user = getUser(accessToken); // 유저 가져오기
-//            sb.append("&target_id=").append(user.getUserKey());
-//            bw.write(sb.toString());
-//            bw.flush();
-//
-//            int responseCode = conn.getResponseCode(); // 응답 코드
-//            // System.out.println("responseCode : " + responseCode);
-//
-//            // 스트림으로 읽어온다
-//            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-//
-//            String line = "";
-//            String result = "";
-//
-//            while ((line = br.readLine()) != null) {
-//                result += line;
-//            }
-////            System.out.println("response body : " + result);
-//
-//            JsonParser parser = new JsonParser(); // JsonParser 설정
-//            JsonElement element = parser.parse(result); // Json 파싱
-//            if (isdeleted) {
-//                user.setUserDeleted("Y"); // 삭제 상태 삭제로 변경
-//                userRepository.save(user); // 회원 정보 수정
-//            }
-//            return true;
-//        } catch (IOException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//        return false;
-//    }
-
     @Override
     public boolean logoutUser(String accessToken, boolean isdeleted) {
+        // 로그아웃 요청 서비스
         String reqURL = "https://kapi.kakao.com/v1/user/unlink"; // 요청 url
         try {
             User user = getUser(accessToken);
@@ -294,21 +245,6 @@ public class OAuthServiceImpl implements OAuthService {
             conn.setRequestProperty("Authorization", "Bearer " + accessToken);
 
             int responseCode = conn.getResponseCode(); // 응답 코드
-            // System.out.println("responseCode : " + responseCode);
-
-//            // 스트림으로 읽어온다
-//            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-//
-//            String line = "";
-//            String result = "";
-//
-//            while ((line = br.readLine()) != null) {
-//                result += line;
-//            }
-////            System.out.println("response body : " + result);
-//
-//            JsonParser parser = new JsonParser(); // JsonParser 설정
-//            JsonElement element = parser.parse(result); // Json 파싱
 
             if (isdeleted) {
                 user.setUserDeleted(false); // 삭제 상태 삭제로 변경
