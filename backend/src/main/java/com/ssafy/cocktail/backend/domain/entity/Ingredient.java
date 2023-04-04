@@ -13,7 +13,7 @@ public class Ingredient {
     @Column(name = "ingredient_id",nullable = false)
     private Long id;
 
-    @Column(name = "ingredient_name", columnDefinition="VARCHAR(20)",nullable = false)
+    @Column(name = "ingredient_name", columnDefinition="VARCHAR(80)",nullable = false)
     private String ingredientName;
 
     @Column(name = "ingredient_type", columnDefinition="VARCHAR(20)",nullable = false)
