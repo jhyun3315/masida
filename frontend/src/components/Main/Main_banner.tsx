@@ -13,6 +13,7 @@ import { login, logout,setUserInfo } from "../../../store/modules/user";
 import { store, RootState } from "../../../store/store";
 import { userType } from "../../type/userTypes";
 import { get_user_info } from "../../pages/api/auth/user_api";
+import { logout_user } from "../../pages/api/auth/user_api";
 
 //좌표의 타입입니다.
 type coordinate = {
@@ -117,16 +118,7 @@ const Main_banner = () => {
   },[userInfo2])
 
   const onLogoutHandler = () => {
-    axios
-      .get("https://j8b208.p.ssafy.io/api/oauth/kakao/logout", {
-        headers: {
-          Authorization: accessToken,
-        },
-      })
-      .then(function () {
-        dispatch(logout());
-        setTokenValue("");
-      });
+    logout_user();
   };
 
   return (

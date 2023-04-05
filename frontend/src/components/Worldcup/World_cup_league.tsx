@@ -7,12 +7,12 @@ import World_cup_league_result from "./World_cup_league_result";
 
 const World_cup_league = (props: cocktail_worldcup_data[]) => {
 
-  const items:any = [];
+  let items:cocktail_worldcup_data[] = [];
 
-  // const items:any = [];
   for (let i = 0; i < 16; i++){
     items.push(props[i]);
   }
+
 
 
   const [isFinal, setIsFinal] = useState(false);
@@ -31,7 +31,6 @@ const World_cup_league = (props: cocktail_worldcup_data[]) => {
   
   useEffect(() => {
     setIsLoading(true);
-    items.sort(() => Math.random() - 0.5);
     setDisplays([items[0], items[1]]);
     setCocktails(items);
   }, []);
