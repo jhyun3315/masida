@@ -2,10 +2,7 @@ package com.ssafy.cocktail.backend.myAnalysis.service.impl;
 
 import com.ssafy.cocktail.backend.cocktails.dto.CocktailRecommendDetail;
 import com.ssafy.cocktail.backend.domain.entity.*;
-import com.ssafy.cocktail.backend.domain.repository.CocktailRepository;
-import com.ssafy.cocktail.backend.domain.repository.MyAnalysisRepository;
-import com.ssafy.cocktail.backend.domain.repository.RecommendColorRepository;
-import com.ssafy.cocktail.backend.domain.repository.RecommendIngredientRepository;
+import com.ssafy.cocktail.backend.domain.repository.*;
 import com.ssafy.cocktail.backend.myAnalysis.dto.*;
 import com.ssafy.cocktail.backend.myAnalysis.service.MyAnalysisUserService;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
@@ -23,8 +20,10 @@ import java.util.*;
 public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
     private final MyAnalysisRepository myAnalysisRepository;
     private final OAuthService oAuthService;
-    private CocktailRepository cocktailRepository; // 칵테일 추천 9개 테스트를 위해 삽입
+    private CocktailRepository cocktailRepository;
     private RecommendIngredientRepository recommendIngredientRepository; // 칵테일 추천 9개 테스트를 위해 삽입
+    private UserRepository userRepository;
+    private LikeRepository likeRepository;
 
     @Override
     public ArrayList<MyAnalysisBase> getAnalysisByBase(String accessToken) {
@@ -379,6 +378,36 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
             myAnalysisRecommend.setCocktailNameKo(recommend.getCocktailNameKo()); // 칵테일 한글 이름 삽입
             myAnalysisRecommend.setCocktailImg(recommend.getCocktailImg()); // 칵테일 이미지 삽입
             results.add(myAnalysisRecommend); // 추천 칵테일 삽입
+        }
+
+        return results;
+    }
+
+    @Override
+    public ArrayList<MyAnalysisRecommend> getRecommendByAgeAndGender(String accessToken) {
+        ArrayList<MyAnalysisRecommend> results = new ArrayList<>();
+
+        User user = oAuthService.getUser(accessToken);
+
+        if (user.getUserAgeRange() == null || user.getUserAgeRange().length() == 0
+        || user.getUserGender() == null || user.getUserGender().length() == 0) return null;
+
+        ArrayList<MyAnalysisRecommendInterface> recommends = likeRepository.findCocktailByUserGenderAndUserAgeRange(user.getUserGender(), user.getUserAgeRange());
+        for (MyAnalysisRecommendInterface recommend : recommends) { // 추천 칵테일
+            MyAnalysisRecommend myAnalysisRecommend = new MyAnalysisRecommend();
+            myAnalysisRecommend.setCocktailId(recommend.getCocktailId()); // 칵테일 id 삽입
+            myAnalysisRecommend.setCocktailNameKo(recommend.getCocktailNameKo()); // 칵테일 한글 이름 삽입
+            myAnalysisRecommend.setCocktailImg(recommend.getCocktailImg()); // 칵테일 이미지 삽입
+            results.add(myAnalysisRecommend); // 추천 칵테일 삽입
+        }
+
+        ArrayList<MyAnalysisRecommendInterface> recommendsRandom = cocktailRepository.getCocktailByRandomNine();
+        for (int i = 0; results.size() < 9; i++) { // 랜덤 칵테일
+            MyAnalysisRecommend myAnalysisRecommend = new MyAnalysisRecommend();
+            myAnalysisRecommend.setCocktailId(recommendsRandom.get(i).getCocktailId()); // 칵테일 id 삽입
+            myAnalysisRecommend.setCocktailNameKo(recommendsRandom.get(i).getCocktailNameKo()); // 칵테일 한글 이름 삽입
+            myAnalysisRecommend.setCocktailImg(recommendsRandom.get(i).getCocktailImg()); // 칵테일 이미지 삽입
+            results.add(myAnalysisRecommend); // 랜덤 칵테일 삽입
         }
 
         return results;

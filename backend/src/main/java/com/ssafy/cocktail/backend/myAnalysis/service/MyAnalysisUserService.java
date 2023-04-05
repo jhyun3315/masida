@@ -16,5 +16,6 @@ public interface MyAnalysisUserService {
     ArrayList<TestRecommend> getRecommendTest(String accessToken, String num);
 
     ArrayList<MyAnalysisRecommend> getRecommendByColor(String accessToken);
+    ArrayList<MyAnalysisRecommend> getRecommendByAgeAndGender(String accessToken);
 
 }

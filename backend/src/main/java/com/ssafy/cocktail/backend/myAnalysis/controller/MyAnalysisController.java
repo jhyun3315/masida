@@ -49,10 +49,17 @@ public class MyAnalysisController {
         return ResponseEntity.status(200).body(MyAnalysisRecommendRes.of(200, "Success", recommends));
     }
 
+//    @GetMapping("/recommend/age-gender")
+//    public ResponseEntity<TestRecommendRes> testAgeGender(@RequestHeader("Authorization") String accessToken) {
+//        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "4");
+//        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
+//    }
+
     @GetMapping("/recommend/age-gender")
-    public ResponseEntity<TestRecommendRes> testAgeGender(@RequestHeader("Authorization") String accessToken) {
-        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "4");
-        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
+    public ResponseEntity<MyAnalysisRecommendRes> analysisRecommendByAgeAndGender(@RequestHeader("Authorization") String accessToken) {
+        ArrayList<MyAnalysisRecommend> recommends = myAnalysisUserService.getRecommendByAgeAndGender(accessToken);
+
+        return ResponseEntity.status(200).body(MyAnalysisRecommendRes.of(200, "Success", recommends));
     }
 
     @GetMapping("/cocktail-base")

@@ -3,6 +3,7 @@ package com.ssafy.cocktail.backend.domain.repository;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.Like;
 import com.ssafy.cocktail.backend.domain.entity.User;
+import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisRecommendInterface;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.security.cert.CertPath;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface LikeRepository extends JpaRepository<Like, Long> {
@@ -31,4 +33,17 @@ public interface LikeRepository extends JpaRepository<Like, Long> {
     // 해당 유저가 좋아요한 칵테일 리스트 모두 조회 - 추천알고리즘용
     @Query("select l.cocktail from Like l where l.user.id = :userId and l.likeDeleted = false")
     public List<Cocktail> findLikeCocktailAllByUserId(@Param("userId") Long userId);
+
+    @Query(value = "select c.cocktail_id as cocktailId " +
+            ", c.cocktail_name_ko as cocktailNameKo " +
+            ", c.cocktail_img as cocktailImg " +
+            "from cocktails c " +
+            "where cocktail_id in " +
+            "( " +
+            " select l.cocktail_id from users u " +
+            " join likes l " +
+            " where u.user_gender = :userGender and u.user_age_range = :userAgeRange " +
+            ") " +
+            "order by rand() limit 9 ", nativeQuery = true)
+    ArrayList<MyAnalysisRecommendInterface> findCocktailByUserGenderAndUserAgeRange(String userGender, String userAgeRange);
 }
