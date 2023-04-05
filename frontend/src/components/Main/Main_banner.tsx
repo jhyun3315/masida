@@ -71,7 +71,7 @@ const Main_banner = () => {
 
   const handleMouseUpCocktailWorld = (e: React.MouseEvent<HTMLElement>) => { 
      if(startPosition.y - 2 < e.clientY && startPosition.y + 2 >  e.clientY) {
-      router.push("/theme/");
+      router.push("/theme/cocktail_world");
     }
   }
 
