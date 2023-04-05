@@ -26,8 +26,8 @@ const Main_banner = () => {
   const settings = {
     dots: true,
     infinite: true,
-    // speed: 100,
-    // autoplay: true,
+    speed: 100,
+    autoplay: true,
     autoplaySpeed: 3000,
   };
   const router = useRouter();
