@@ -1,7 +1,6 @@
-import Image from 'next/image';
 import style from "./Footer.module.scss";
 import { imgLoader } from '../../utils/imgLoader';
-import { ImageLoaderProps } from 'next/image';
+import Image, { ImageLoaderProps } from 'next/image';
 
 const Footer = () => {
   return (

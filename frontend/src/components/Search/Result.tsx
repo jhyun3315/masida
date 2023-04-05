@@ -1,8 +1,6 @@
 import style from "./Result.module.scss";
 import {
   Search_result_card,
-  My_bookmark_card,
-  My_like_card,
 } from "../UI/Card_ui";
 import { cocktailType } from "../../type/cocktailTypes";
 import { useState, useEffect } from "react";
@@ -22,7 +20,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn, addNumIngr
   const [sortingNum, setSortingNum] = useState<number>(0);
   const [cocktailCnt, setCocktailCnt] = useState<number>(0);
   const [pageEnd, setPageEnd] = useState<boolean>(false);
-  let [sendIngredient, setSendIngredient] = useState<number[]>([]);
+  let [, setSendIngredient] = useState<number[]>([]);
   let [likeChecked, setLikeChecked] = useState<boolean>(false);
   let [rankChecked, setRankChecked] = useState<boolean>(false);
   let [sortCheckName, setSortCheckName] = useState<string>("");

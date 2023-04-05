@@ -7,7 +7,7 @@ import { userType } from "../../type/userTypes";
 import { imgLoader } from "../../utils/imgLoader";
 import { ImageLoaderProps } from "next/image";
 
-import { RootState, store } from "../../../store/store";
+import { store } from "../../../store/store";
 import axios from "axios";
 
 interface MyComponentProps {
@@ -26,7 +26,6 @@ const User_info: React.FC<MyComponentProps> = ({
   const getUserInfo = store.getState().user.userInfo;
 
   useEffect(() => {
-    // const atk = useSelector((state:RootState) => state.user.accessToken);
     const atk = store.getState().user.accessToken;
     axios
       .get("/api/mypage/cnt", {
@@ -42,7 +41,7 @@ const User_info: React.FC<MyComponentProps> = ({
       });
   }, [bookmarkModify]);
 
-  const onClickHandler = (event: React.MouseEvent<HTMLElement>) => {
+  const onClickHandler = () => {
     setVisible(!visible);
   };
 

@@ -1,8 +1,8 @@
 import { useState ,useEffect} from 'react';
 import style from './CocktailPreference.module.scss';
 import Piechart2 from '../UI/PieChart2';
-import Progress_bar2 from '../UI/Progress_bar2';
 import Barchart2 from '../UI/BarChart2';
+import Progress_bar2 from '../UI/Progress_bar2';
 import { cocktail_props_analysis_color } from '../../pages/user-analysis';
 import { My_Analysis_card } from '../UI/Card_ui';
 import { cocktailColorRating } from '../../type/cocktailRating';

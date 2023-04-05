@@ -1,6 +1,5 @@
-import { useRef } from "react";
+import { useRef, KeyboardEvent } from "react";
 import { useRouter } from "next/router";
-import { KeyboardEvent } from "react";
 import style from "./Main_search.module.scss";
 import { useDispatch } from "react-redux";
 import { setSelectName } from "../../../store/category/nameSlice";
