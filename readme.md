@@ -78,7 +78,7 @@
 1. **git clone**
   
   ```bash
-  git clone https://lab.ssafy.com/s07-bigdata-recom-sub2/S07P22B205.git
+  git clone 
   ```
     
 2. **[도커 설치](https://docs.docker.com/get-docker/) 및 도커 [컴포즈 설치](https://docs.docker.com/compose/install/)**
