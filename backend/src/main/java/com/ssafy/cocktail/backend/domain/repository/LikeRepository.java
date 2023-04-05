@@ -1,5 +1,6 @@
 package com.ssafy.cocktail.backend.domain.repository;
 
+import com.ssafy.cocktail.backend.domain.entity.Bookmark;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.entity.Like;
 import com.ssafy.cocktail.backend.domain.entity.User;
@@ -46,4 +47,7 @@ public interface LikeRepository extends JpaRepository<Like, Long> {
             ") " +
             "order by rand() limit 9 ", nativeQuery = true)
     ArrayList<MyAnalysisRecommendInterface> findCocktailByUserGenderAndUserAgeRange(String userGender, String userAgeRange);
+
+    public ArrayList<Like> findAllByUserId(Long userId);
+
 }
