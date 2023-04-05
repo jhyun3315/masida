@@ -1,6 +1,5 @@
 import style from "./Shop_item.module.scss";
 import { itemProps } from "../Main_manual";
-import Image from "next/image";
 const Shop_item: React.FC<itemProps> = (item: itemProps) => {
   return (
     <>

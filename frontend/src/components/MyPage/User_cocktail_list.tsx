@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import style from "./User_cocktail_list.module.scss";
-import Link from "next/link";
 import { My_bookmark_card, My_like_card, My_comment_card } from "../UI/Card_ui";
 import { cocktailType } from "../../type/cocktailTypes";
 import { mypageCommentType } from "../../type/commentTypes";

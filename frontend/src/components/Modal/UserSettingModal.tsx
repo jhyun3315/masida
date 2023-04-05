@@ -1,7 +1,5 @@
-import { useRef } from "react";
-import { useState } from "react";
+import { useRef, useState, Dispatch, SetStateAction } from "react";
 import { userType } from "../../type/userTypes";
-import { Dispatch, SetStateAction } from "react";
 import style from "./UserSettingModal.module.scss";
 import axios from "axios";
 import { useDispatch } from "react-redux";
