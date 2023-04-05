@@ -203,6 +203,7 @@ public class OAuthServiceImpl implements OAuthService {
             conn.setRequestProperty("Authorization", "Bearer " + accessToken);
 
             int responseCode = conn.getResponseCode();
+            if (responseCode == 401) return null; // 옳바르지 않은 엑세스 토큰이면
 
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 

@@ -69,9 +69,11 @@ public class OAuthController {
     public ResponseEntity<UserInfoRes> mypageUserinfo(@RequestHeader("Authorization") String accessToken) {
         // 사용자 정보 조회
         User user = oAuthService.getUser(accessToken); // 조회할 사용자 가져오기
-        UserInfo userInfo = new UserInfo(user.getUserName(), user.getUserEmail(), user.getUserProfile(), user.getUserGender(), user.getUserAgeRange()); // 사용자 정보 삽입
-
-        return ResponseEntity.ok(UserInfoRes.of(200, "Success", userInfo));
+        if (user != null) {
+            UserInfo userInfo = new UserInfo(user.getUserName(), user.getUserEmail(), user.getUserProfile(), user.getUserGender(), user.getUserAgeRange()); // 사용자 정보 삽입
+            return ResponseEntity.ok(UserInfoRes.of(200, "Success", userInfo));
+        }
+        return ResponseEntity.status(404).body(UserInfoRes.of(404, "Invalid User", null));
     }
 
     @PutMapping("/users")
