@@ -59,7 +59,7 @@ const Summer = () => {
                 </div>
                 <div className={style.themeRecommend} data-aos="fade-left" data-aos-once="false">
                     <div className={style.themeRecommend_img}>
-                        <img src="/assets/image/Mojito.png" alt='mojito' className={style.cocktail_img}/>                           
+                    <img src="/assets/image/mojito.png" alt='mojito' className={style.cocktail_img}/>                           
                     <div>
                         모히또
                     </div>
