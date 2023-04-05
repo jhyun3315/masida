@@ -123,7 +123,7 @@ const Main_cocktail = (props: landing_props) => {
       </>
     );
   } else {
-    return <>123</>;
+    return <>Loading</>;
   }
 };
 

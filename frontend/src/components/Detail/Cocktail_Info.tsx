@@ -11,7 +11,7 @@ import { detail_props } from "../../type/cocktailTypes";
 import {
   get_cocktails_detail,
   post_cocktails_likes,
-  post_cocktails_bookmarks,
+  post_cocktails_bookmarks
 } from "../../pages/api/cocktails/cocktail_api";
 type CocktailInfoProps = {
   modifyCommentCnt: boolean;
@@ -88,10 +88,11 @@ const Cocktail_info = ({ modifyCommentCnt }: CocktailInfoProps) => {
     if (atk.length === 0) {
       checkLogin();
     } else {
-      post_cocktails_bookmarks(detail.cocktail_id).then((response) => {
-        setIsBookmarked(!isBookmarked);
-        console.log(response);
-      });
+      post_cocktails_bookmarks(detail.cocktail_id)
+        .then((response) => {
+          setIsBookmarked(!isBookmarked);
+          console.log(response);
+        });
     }
   };
 

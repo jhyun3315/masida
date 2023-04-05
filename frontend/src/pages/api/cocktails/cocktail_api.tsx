@@ -14,7 +14,7 @@ import { searchIngredientType } from "../../../type/ingredientTypes";
 import { store } from "../../../../store/store";
 
 // 엑시오스 기본 세팅
-axios.defaults.baseURL = "https://j8b208.p.ssafy.io/";
+axios.defaults.baseURL = "https://j8b208.p.ssafy.io";
 const atk = store.getState().user.accessToken;
 const config_loggedIn = {
   headers: {
@@ -37,6 +37,7 @@ const config_non = {
 export const get_cocktails_detail = async (cocktail_id: number) => {
   let url = `/api/cocktails/${cocktail_id}`;
   let value: detail_props = null;
+  console.log(atk)
   await axios
     .get(url, config_loggedIn)
     .then((response) => {
