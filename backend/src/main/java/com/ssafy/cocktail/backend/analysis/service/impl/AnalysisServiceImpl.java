@@ -22,15 +22,9 @@ public class AnalysisServiceImpl implements AnalysisService {
         ArrayList<WordCloudDetail> results = new ArrayList<>();
 
         List<WordCloud> wordClouds = wordCloudRepository.findAll(); // 사용 개수로 정렬하여 50개 가져오기
-//        wordClouds.forEach(wordCloud -> { // 워드 클라우드 데이터
-//            WordCloudDetail wordCloudDetail = new WordCloudDetail();
-//            wordCloudDetail.setName(wordCloud.getWcIngredientNameKo()); // 재료 이름
-//            wordCloudDetail.setValue(wordCloud.getWcCnt()); // 재료 개수
-//            results.add(wordCloudDetail);
-//        });
         for (WordCloud wordCloud: wordClouds) {
             WordCloudDetail wordCloudDetail = new WordCloudDetail();
-            wordCloudDetail.setName(wordCloud.getWcIngredientNameKo()); // 재료 이름
+            wordCloudDetail.setText(wordCloud.getWcIngredientNameKo()); // 재료 이름
             wordCloudDetail.setValue(wordCloud.getWcCnt()); // 재료 개수
             results.add(wordCloudDetail);
         }

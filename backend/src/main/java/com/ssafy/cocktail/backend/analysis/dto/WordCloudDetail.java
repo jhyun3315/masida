@@ -9,8 +9,8 @@ import lombok.ToString;
 @ToString
 public class WordCloudDetail {
     @Schema(description = "재료 이름", example = "진")
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("text")
+    private String text;
 
     @Schema(description = "재료 개수", example = "100")
     @JsonProperty("value")
