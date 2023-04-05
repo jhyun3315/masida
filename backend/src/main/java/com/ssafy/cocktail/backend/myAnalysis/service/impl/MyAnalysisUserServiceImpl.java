@@ -111,15 +111,13 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
             ArrayList<MyAnalysisRatingBaseInterface> interfaceArrayList = myAnalysisRepository.getMyAnalysisRatingBaseList(user.getId());
             ArrayList<HashMap<String, Integer>> myAnalysisRatingBaseArrayList = new ArrayList<>();
             HashMap<Integer, HashMap<String, Integer>> map = new HashMap<>();
-
             for (int i = 1; i <= 5; i++) map.put(i, new RatingBaseObj(i).getBMap());
 
             //데이터 정제 필요 ***
             for (MyAnalysisRatingBaseInterface ele : interfaceArrayList) {
                 int rating = ele.getRatingScore();
                 int base_count = ele.getBaseCount();
-                BaseEnum base = BaseEnum.valueOf(ele.getBaseName());
-                String base_name = base.getValue();
+                String base_name = ele.getBaseName();
 
                 rating_count += base_count;
                 total_rating += rating;
