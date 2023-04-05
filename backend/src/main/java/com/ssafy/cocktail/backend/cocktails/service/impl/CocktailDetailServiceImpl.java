@@ -71,7 +71,7 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         cocktailDetail.setIngredient(new ArrayList<>()); // 재료 리스트 생성
         cocktailDetail.setRecipe(new ArrayList<>()); // 레시피 리스트 생성
         for (CocktailIngredient ingredient: cocktailIngredients) { // 재료
-            if (ingredient.getIngredientType().equals("가니쉬")) { // 재료가 가니쉬 이면
+            if (ingredient.getIngredientType().equals("Garnish")) { // 재료가 가니쉬 이면
                 cocktailDetail.getGarnish().add(new GarnishDetail(ingredient.getIngredientName())); // 가니쉬 추가
             } else { // 가니쉬가 아닌 재료이면
                 cocktailDetail.getIngredient().add(new IngredientDetail(ingredient.getIngredientName(), ingredient.getIngredientAmount(), ingredient.getIngredientUnit())); // 가니쉬가 아닌 재료 추가
