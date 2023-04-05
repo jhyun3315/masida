@@ -30,11 +30,11 @@ public class MyAnalysisController {
         return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
     }
 
-    @GetMapping("/recommend/ingredient")
-    public ResponseEntity<TestRecommendRes> testIngredient(@RequestHeader("Authorization") String accessToken) {
-        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "2");
-        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
-    }
+//    @GetMapping("/recommend/ingredient")
+//    public ResponseEntity<TestRecommendRes> testIngredient(@RequestHeader("Authorization") String accessToken) {
+//        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "2");
+//        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
+//    }
 
     @GetMapping("/recommend/color")
     public ResponseEntity<TestRecommendRes> testColor(@RequestHeader("Authorization") String accessToken) {
@@ -151,23 +151,23 @@ public class MyAnalysisController {
         }
     }
 
-//    @GetMapping("/recommend/ingredient")
-//    public ResponseEntity<?> getRecommendByIngredient(@RequestHeader Map<String, String> data) {
-//        String accessToken = data.get("authorization");
-//
-//        if(accessToken == null) { // 토큰이 없는 경우,
-//            return null;
-//        }
-//
-//        try { // 토큰이 유효한 경우,
-//            User user = oAuthService.getUser(accessToken); // 해당 사용자 가져오기
-//            collaborativeRecommend.recommendCocktailByIngredient(user.getId());
-//            return null;
-//        }
-//        catch (Exception e) { // 토큰이 유효하지 않은 경우
-//            return null;
-//        }
-//    }
+    @GetMapping("/recommend/ingredient")
+    public ResponseEntity<?> getRecommendByIngredient(@RequestHeader Map<String, String> data) {
+        String accessToken = data.get("authorization");
+
+        if(accessToken == null) { // 토큰이 없는 경우,
+            return null;
+        }
+
+        try { // 토큰이 유효한 경우,
+            User user = oAuthService.getUser(accessToken); // 해당 사용자 가져오기
+            collaborativeRecommend.recommendCocktailByIngredient(user.getId());
+            return null;
+        }
+        catch (Exception e) { // 토큰이 유효하지 않은 경우
+            return null;
+        }
+    }
 
 //    @GetMapping("/recommend/base")
 //    public ResponseEntity<?> getRecommendByBase(@RequestHeader Map<String, String> data) {
