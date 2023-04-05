@@ -7,8 +7,8 @@ import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.repository.CocktailRepository;
 import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
 import com.ssafy.cocktail.backend.domain.repository.MyAnalysisRepository;
-import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendationRequest;
-import com.ssafy.cocktail.backend.myAnalysis.dto.response.RecommendationResponse;
+import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendationRequestToPy;
+import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendationResponseFromPy;
 import com.ssafy.cocktail.backend.myAnalysis.service.CollaborativeRecommendService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
@@ -88,7 +88,7 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 		Collections.sort(userLikeList);
 
 		// 파이썬 통신을 위한 DTO
-		RecommendationRequest recommendationRequest = new RecommendationRequest(userLikeIngredient, userLikeList);
+		RecommendationRequestToPy recommendationRequest = new RecommendationRequestToPy(userLikeIngredient, userLikeList);
 
 		// 파이썬 통신, 추천 칵테일 얻어오기
 		List<Long> response = dataToPython(recommendationRequest, "ingredient");
@@ -110,7 +110,7 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 	 * @throws JsonProcessingException
 	 */
 	@Override
-	public List<Long> dataToPython(RecommendationRequest recommendationRequest, String endPoint) throws UnirestException, JsonProcessingException {
+	public List<Long> dataToPython(RecommendationRequestToPy recommendationRequest, String endPoint) throws UnirestException, JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper()
 				.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
 				.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
@@ -123,7 +123,7 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 				.asString();
 
 		String responseBody = response.getBody();
-		RecommendationResponse recommendationResponse = objectMapper.readValue(responseBody, RecommendationResponse.class);
+		RecommendationResponseFromPy recommendationResponse = objectMapper.readValue(responseBody, RecommendationResponseFromPy.class);
 
 		return recommendationResponse.getCocktailIdList();
 	}
