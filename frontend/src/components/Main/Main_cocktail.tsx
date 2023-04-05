@@ -14,7 +14,7 @@ const Main_cocktail = (props: landing_props) => {
   // console.log("info " , props)
   const settings = {
     // dots: true,
-    slidesToShow: 1,
+    slidesToShow: 3,
     infinite: true,
     speed: 100,
     autoplay: true,
