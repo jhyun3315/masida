@@ -12,17 +12,17 @@ public class RatingBaseObj extends HashMap {
     @Builder
     public RatingBaseObj(int i) {
         this.bMap.put("rating_score",i);
-        this.bMap.put("jin", 0);
-        this.bMap.put("rum", 0);
-        this.bMap.put("vodka", 0);
-        this.bMap.put("whisky", 0);
-        this.bMap.put("liqueur", 0);
-        this.bMap.put("brandy", 0);
-        this.bMap.put("tequila", 0);
-        this.bMap.put("beer", 0);
-        this.bMap.put("wine", 0);
-        this.bMap.put("mezcal", 0);
-        this.bMap.put("spirits", 0);
+        this.bMap.put("Gin", 0);
+        this.bMap.put("Rum", 0);
+        this.bMap.put("Vodka", 0);
+        this.bMap.put("Whisky", 0);
+        this.bMap.put("Liqueur", 0);
+        this.bMap.put("Brandy", 0);
+        this.bMap.put("Tequila", 0);
+        this.bMap.put("Beer", 0);
+        this.bMap.put("Wine", 0);
+        this.bMap.put("Mezcal", 0);
+        this.bMap.put("Spirits", 0);
     }
 
 }
