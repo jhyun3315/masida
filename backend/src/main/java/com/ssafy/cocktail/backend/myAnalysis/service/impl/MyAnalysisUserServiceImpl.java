@@ -286,9 +286,9 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
 
 
     @Override
-    public ArrayList<TestRecommend> getRecommendTest(String accessToken, String num) {
+    public ArrayList<RecommendCocktail> getRecommendTest(String accessToken, String num) {
         // 추천 테스트로 임의 9개 리턴
-        ArrayList<TestRecommend> results = new ArrayList<>(); // 칵테일 추천 상위 6개를 저장하는 객체
+        ArrayList<RecommendCocktail> results = new ArrayList<>(); // 칵테일 추천 상위 6개를 저장하는 객체
         Optional<Cocktail> cocktail = cocktailRepository.findById(1L); // 칵테일 가져오기
         ArrayList<Cocktail> recommends = new ArrayList<>(); // 추천 칵테일 9개 목록
         RecommendIngredient recommendIngredient = recommendIngredientRepository.findByCocktail(cocktail.get()); // 재료 기반 추천 상위 6개 가져오기
@@ -303,7 +303,7 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
         recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient3())); // 추천 9번 삽입
 
         for (Cocktail recommend : recommends) { // 추천 칵테일
-            TestRecommend testRecommend = new TestRecommend();
+            RecommendCocktail testRecommend = new RecommendCocktail();
             testRecommend.setCocktailId(recommend.getId()); // 칵테일 id 삽입
             testRecommend.setCocktailNameKo(recommend.getCocktailNameKo() + num); // 칵테일 한글 이름 삽입
             testRecommend.setCocktailImg(recommend.getCocktailImg()); // 칵테일 이미지 삽입

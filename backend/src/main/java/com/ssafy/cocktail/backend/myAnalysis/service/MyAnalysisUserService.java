@@ -13,7 +13,7 @@ public interface MyAnalysisUserService {
     RatingBase getAnalysisByRatingBase(String accessToken);
     RatingColor getAnalysisByRatingColor(String accessToken);
     RatingIngredient getAnalysisByRatingIngredient(String accessToken);
-    ArrayList<TestRecommend> getRecommendTest(String accessToken, String num);
+    ArrayList<RecommendCocktail> getRecommendTest(String accessToken, String num);
 
 
 }

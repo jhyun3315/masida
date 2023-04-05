@@ -7,6 +7,7 @@ import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.repository.CocktailRepository;
 import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
 import com.ssafy.cocktail.backend.domain.repository.MyAnalysisRepository;
+import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendCocktail;
 import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendationRequestToPy;
 import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendationResponseFromPy;
 import com.ssafy.cocktail.backend.myAnalysis.service.CollaborativeRecommendService;
@@ -62,7 +63,7 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 	 * @return List<Object[]>
 	 */
 	@Override
-	public List<String> recommendCocktailByIngredient(Long userId) throws UnirestException, JsonProcessingException{
+	public List<RecommendCocktail> recommendCocktailByIngredient(Long userId) throws UnirestException, JsonProcessingException{
 		// 사용자가 선호하는 재료 top 5 조회
 		List<String> userLikeIngredient = new ArrayList<>(); // 파이썬에 보낼 사용자 선호 재료 리스트
 		List<Object[]> top5Ingredients = myAnalysisRepository.findTop5IngredientsByUserId(userId, PageRequest.of(0, 5));
@@ -94,11 +95,17 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 		List<Long> response = dataToPython(recommendationRequest, "ingredient");
 
 		// 추천 받은 칵테일 인덱스로 칵테일 객체 조회
+		List<RecommendCocktail> recommendationList = new ArrayList<>();
 		for(Long res : response) {
-			System.out.println(res);
-//			cocktailRepository.findCocktailById();
+			Cocktail cocktail = cocktailRepository.findCocktailById(res);
+			RecommendCocktail recommendCocktail = RecommendCocktail.builder()
+					.cocktailId(cocktail.getId())
+					.cocktailNameKo(cocktail.getCocktailNameKo())
+					.cocktailImg(cocktail.getCocktailImg())
+					.build();
+			recommendationList.add(recommendCocktail);
 		}
-		return null;
+		return recommendationList;
 	}
 
 
@@ -123,8 +130,12 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 				.asString();
 
 		String responseBody = response.getBody();
-		RecommendationResponseFromPy recommendationResponse = objectMapper.readValue(responseBody, RecommendationResponseFromPy.class);
-
-		return recommendationResponse.getCocktailIdList();
+		if (responseBody != null && !responseBody.isEmpty()) {
+			RecommendationResponseFromPy recommendationResponse = objectMapper.readValue(responseBody, RecommendationResponseFromPy.class);
+			return recommendationResponse.getCocktailIdList();
+		} else {
+			// responseBody가 null이거나 비어있는 경우, 빈 배열 보내기
+			return new ArrayList<>();
+		}
 	}
 }
