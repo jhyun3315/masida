@@ -62,5 +62,4 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
             "order by rand() limit 3", nativeQuery = true)
     List<MyAnalysisRecommendInterface> getCocktailByRandomThree();
 
-
 }
