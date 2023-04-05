@@ -16,7 +16,7 @@ public class Recipe {
     @Column(name = "recipe_num",columnDefinition = "INT", nullable = false)
     private int recipeNum;
 
-    @Column(name = "recipe_content",columnDefinition = "VARCHAR(100)", nullable = false)
+    @Column(name = "recipe_content",columnDefinition = "VARCHAR(150)", nullable = false)
     private String recipeContent;
 
     @ManyToOne(fetch = FetchType.LAZY)

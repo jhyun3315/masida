@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Tag(name = "my-analysis", description = "마이페이지 상세 API")
@@ -24,42 +25,18 @@ public class MyAnalysisController {
     private final OAuthService oAuthService;
     private final CollaborativeRecommendService collaborativeRecommend;
 
-    @GetMapping("/recommend/base")
-    public ResponseEntity<TestRecommendRes> testBase(@RequestHeader("Authorization") String accessToken) {
-        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "1");
-        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
-    }
-
-//    @GetMapping("/recommend/ingredient")
-//    public ResponseEntity<TestRecommendRes> testIngredient(@RequestHeader("Authorization") String accessToken) {
-//        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "2");
-//        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
-//    }
-
-//    @GetMapping("/recommend/color")
-//    public ResponseEntity<TestRecommendRes> testColor(@RequestHeader("Authorization") String accessToken) {
-//        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "3");
-//        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
-//    }
-
     @GetMapping("/recommend/color")
-    public ResponseEntity<MyAnalysisRecommendRes> analysisRecommendByColor(@RequestHeader("Authorization") String accessToken) {
-        ArrayList<MyAnalysisRecommend> recommends = myAnalysisUserService.getRecommendByColor(accessToken);
+    public ResponseEntity<RecommendCocktailRes> analysisRecommendByColor(@RequestHeader("Authorization") String accessToken) {
+        ArrayList<RecommendCocktail> recommends = myAnalysisUserService.getRecommendByColor(accessToken);
 
-        return ResponseEntity.status(200).body(MyAnalysisRecommendRes.of(200, "Success", recommends));
+        return ResponseEntity.status(200).body(RecommendCocktailRes.of(200, "Success", recommends));
     }
-
-//    @GetMapping("/recommend/age-gender")
-//    public ResponseEntity<TestRecommendRes> testAgeGender(@RequestHeader("Authorization") String accessToken) {
-//        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "4");
-//        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
-//    }
 
     @GetMapping("/recommend/age-gender")
-    public ResponseEntity<MyAnalysisRecommendRes> analysisRecommendByAgeAndGender(@RequestHeader("Authorization") String accessToken) {
-        ArrayList<MyAnalysisRecommend> recommends = myAnalysisUserService.getRecommendByAgeAndGender(accessToken);
+    public ResponseEntity<RecommendCocktailRes> analysisRecommendByAgeAndGender(@RequestHeader("Authorization") String accessToken) {
+        ArrayList<RecommendCocktail> recommends = myAnalysisUserService.getRecommendByAgeAndGender(accessToken);
 
-        return ResponseEntity.status(200).body(MyAnalysisRecommendRes.of(200, "Success", recommends));
+        return ResponseEntity.status(200).body(RecommendCocktailRes.of(200, "Success", recommends));
     }
 
     @GetMapping("/cocktail-base")
@@ -166,17 +143,21 @@ public class MyAnalysisController {
     }
 
     @GetMapping("/recommend/ingredient")
-    public ResponseEntity<?> getRecommendByIngredient(@RequestHeader Map<String, String> data) {
+    public ResponseEntity<RecommendCocktailRes> getRecommendByIngredient(@RequestHeader Map<String, String> data) {
         String accessToken = data.get("authorization");
 
         if(accessToken == null) { // 토큰이 없는 경우,
             return null;
         }
-
         try { // 토큰이 유효한 경우,
             User user = oAuthService.getUser(accessToken); // 해당 사용자 가져오기
-            collaborativeRecommend.recommendCocktailByIngredient(user.getId());
-            return null;
+            ArrayList<RecommendCocktail> recommendationList = collaborativeRecommend.recommendCocktailByIngredient(user.getId());
+
+            if(recommendationList.isEmpty()) { // 추천할 칵테일이 없다면
+                return ResponseEntity.status(200).body(RecommendCocktailRes.of(200, "추천 칵테일이 없습니다.", recommendationList));
+            }
+            // 추천 칵테일이 있다면
+            return ResponseEntity.status(200).body(RecommendCocktailRes.of(200, "Success", recommendationList));
         }
         catch (Exception e) { // 토큰이 유효하지 않은 경우
             return null;

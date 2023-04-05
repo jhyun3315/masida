@@ -1,7 +1,6 @@
 package com.ssafy.cocktail.backend.myAnalysis.service;
 
 import com.ssafy.cocktail.backend.myAnalysis.dto.*;
-import com.ssafy.cocktail.backend.myAnalysis.dto.response.MyAnalysisBaseRes;
 
 import java.util.ArrayList;
 
@@ -13,9 +12,9 @@ public interface MyAnalysisUserService {
     RatingBase getAnalysisByRatingBase(String accessToken);
     RatingColor getAnalysisByRatingColor(String accessToken);
     RatingIngredient getAnalysisByRatingIngredient(String accessToken);
-    ArrayList<TestRecommend> getRecommendTest(String accessToken, String num);
+    ArrayList<RecommendCocktail> getRecommendTest(String accessToken, String num);
 
-    ArrayList<MyAnalysisRecommend> getRecommendByColor(String accessToken);
-    ArrayList<MyAnalysisRecommend> getRecommendByAgeAndGender(String accessToken);
+    ArrayList<RecommendCocktail> getRecommendByColor(String accessToken);
+    ArrayList<RecommendCocktail> getRecommendByAgeAndGender(String accessToken);
 
 }

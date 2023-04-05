@@ -4,6 +4,7 @@ import com.ssafy.cocktail.backend.cocktails.dto.CocktailRecommendDetail;
 import com.ssafy.cocktail.backend.domain.entity.*;
 import com.ssafy.cocktail.backend.domain.repository.*;
 import com.ssafy.cocktail.backend.myAnalysis.dto.*;
+import com.ssafy.cocktail.backend.myAnalysis.dto.response.RecommendCocktailRes;
 import com.ssafy.cocktail.backend.myAnalysis.service.MyAnalysisUserService;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import lombok.AllArgsConstructor;
@@ -110,15 +111,13 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
             ArrayList<MyAnalysisRatingBaseInterface> interfaceArrayList = myAnalysisRepository.getMyAnalysisRatingBaseList(user.getId());
             ArrayList<HashMap<String, Integer>> myAnalysisRatingBaseArrayList = new ArrayList<>();
             HashMap<Integer, HashMap<String, Integer>> map = new HashMap<>();
-
             for (int i = 1; i <= 5; i++) map.put(i, new RatingBaseObj(i).getBMap());
 
             //데이터 정제 필요 ***
             for (MyAnalysisRatingBaseInterface ele : interfaceArrayList) {
                 int rating = ele.getRatingScore();
                 int base_count = ele.getBaseCount();
-                BaseEnum base = BaseEnum.valueOf(ele.getBaseName());
-                String base_name = base.getValue();
+                String base_name = ele.getBaseName();
 
                 rating_count += base_count;
                 total_rating += rating;
@@ -287,9 +286,9 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
 
 
     @Override
-    public ArrayList<TestRecommend> getRecommendTest(String accessToken, String num) {
+    public ArrayList<RecommendCocktail> getRecommendTest(String accessToken, String num) {
         // 추천 테스트로 임의 9개 리턴
-        ArrayList<TestRecommend> results = new ArrayList<>(); // 칵테일 추천 상위 6개를 저장하는 객체
+        ArrayList<RecommendCocktail> results = new ArrayList<>(); // 칵테일 추천 상위 6개를 저장하는 객체
         Optional<Cocktail> cocktail = cocktailRepository.findById(1L); // 칵테일 가져오기
         ArrayList<Cocktail> recommends = new ArrayList<>(); // 추천 칵테일 9개 목록
         RecommendIngredient recommendIngredient = recommendIngredientRepository.findByCocktail(cocktail.get()); // 재료 기반 추천 상위 6개 가져오기
@@ -304,7 +303,7 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
         recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient3())); // 추천 9번 삽입
 
         for (Cocktail recommend : recommends) { // 추천 칵테일
-            TestRecommend testRecommend = new TestRecommend();
+            RecommendCocktail testRecommend = new RecommendCocktail();
             testRecommend.setCocktailId(recommend.getId()); // 칵테일 id 삽입
             testRecommend.setCocktailNameKo(recommend.getCocktailNameKo() + num); // 칵테일 한글 이름 삽입
             testRecommend.setCocktailImg(recommend.getCocktailImg()); // 칵테일 이미지 삽입
@@ -315,8 +314,8 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
     }
 
     @Override
-    public ArrayList<MyAnalysisRecommend> getRecommendByColor(String accessToken) {
-        ArrayList<MyAnalysisRecommend> results = new ArrayList<>(); // 칵테일 추천 9개
+    public ArrayList<RecommendCocktail> getRecommendByColor(String accessToken) {
+        ArrayList<RecommendCocktail> results = new ArrayList<>(); // 칵테일 추천 9개
 
         User user = oAuthService.getUser(accessToken); // 사용자 가져오기
 
@@ -373,7 +372,7 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
         }
 
         for (MyAnalysisRecommendInterface recommend : recommends) { // 추천 칵테일
-            MyAnalysisRecommend myAnalysisRecommend = new MyAnalysisRecommend();
+            RecommendCocktail myAnalysisRecommend = new RecommendCocktail();
             myAnalysisRecommend.setCocktailId(recommend.getCocktailId()); // 칵테일 id 삽입
             myAnalysisRecommend.setCocktailNameKo(recommend.getCocktailNameKo()); // 칵테일 한글 이름 삽입
             myAnalysisRecommend.setCocktailImg(recommend.getCocktailImg()); // 칵테일 이미지 삽입
@@ -384,8 +383,8 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
     }
 
     @Override
-    public ArrayList<MyAnalysisRecommend> getRecommendByAgeAndGender(String accessToken) {
-        ArrayList<MyAnalysisRecommend> results = new ArrayList<>();
+    public ArrayList<RecommendCocktail> getRecommendByAgeAndGender(String accessToken) {
+        ArrayList<RecommendCocktail> results = new ArrayList<>();
 
         User user = oAuthService.getUser(accessToken);
 
@@ -394,7 +393,7 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
 
         ArrayList<MyAnalysisRecommendInterface> recommends = likeRepository.findCocktailByUserGenderAndUserAgeRange(user.getUserGender(), user.getUserAgeRange());
         for (MyAnalysisRecommendInterface recommend : recommends) { // 추천 칵테일
-            MyAnalysisRecommend myAnalysisRecommend = new MyAnalysisRecommend();
+            RecommendCocktail myAnalysisRecommend = new RecommendCocktail();
             myAnalysisRecommend.setCocktailId(recommend.getCocktailId()); // 칵테일 id 삽입
             myAnalysisRecommend.setCocktailNameKo(recommend.getCocktailNameKo()); // 칵테일 한글 이름 삽입
             myAnalysisRecommend.setCocktailImg(recommend.getCocktailImg()); // 칵테일 이미지 삽입
@@ -403,7 +402,7 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
 
         ArrayList<MyAnalysisRecommendInterface> recommendsRandom = cocktailRepository.getCocktailByRandomNine();
         for (int i = 0; results.size() < 9; i++) { // 랜덤 칵테일
-            MyAnalysisRecommend myAnalysisRecommend = new MyAnalysisRecommend();
+            RecommendCocktail myAnalysisRecommend = new RecommendCocktail();
             myAnalysisRecommend.setCocktailId(recommendsRandom.get(i).getCocktailId()); // 칵테일 id 삽입
             myAnalysisRecommend.setCocktailNameKo(recommendsRandom.get(i).getCocktailNameKo()); // 칵테일 한글 이름 삽입
             myAnalysisRecommend.setCocktailImg(recommendsRandom.get(i).getCocktailImg()); // 칵테일 이미지 삽입
