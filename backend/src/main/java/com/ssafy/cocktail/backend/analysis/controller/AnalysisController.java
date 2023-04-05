@@ -20,7 +20,7 @@ import java.util.ArrayList;
 @RequestMapping("/api/analysis")
 public class AnalysisController {
     private AnalysisService analysisService;
-    @GetMapping("/world-cloud")
+    @GetMapping("/word-cloud")
     public ResponseEntity<WordCloudRes> wordCloudData() {
         ArrayList<WordCloudDetail> wordCloudDetails = analysisService.getWordCloudData();
 

@@ -45,8 +45,8 @@ public class OAuthController {
         attributes.addAttribute("accessToken", userLoginInfo.getAccessToken()); // 파라미터에 엑세스토큰 삽입
         attributes.addAttribute("userName", userLoginInfo.getUserName()); // 파라미터에 사용자 이름 삽입
 
-        return new RedirectView("http://localhost:3000"); // 메인 페이지로 리다이렉트
-//        return new RedirectView("/"); // 메인 페이지로 리다이렉트
+//        return new RedirectView("http://localhost:3000"); // 메인 페이지로 리다이렉트
+        return new RedirectView("/"); // 메인 페이지로 리다이렉트
     }
 
     @GetMapping("/kakao/logout")
@@ -69,18 +69,20 @@ public class OAuthController {
     public ResponseEntity<UserInfoRes> mypageUserinfo(@RequestHeader("Authorization") String accessToken) {
         // 사용자 정보 조회
         User user = oAuthService.getUser(accessToken); // 조회할 사용자 가져오기
-        UserInfo userInfo = new UserInfo(user.getUserName(), user.getUserEmail(), user.getUserProfile(), user.getUserGender(), user.getUserAgeRange()); // 사용자 정보 삽입
-
-        return ResponseEntity.ok(UserInfoRes.of(200, "Success", userInfo));
+        if (user != null) {
+            UserInfo userInfo = new UserInfo(user.getUserName(), user.getUserEmail(), user.getUserProfile(), user.getUserGender(), user.getUserAgeRange()); // 사용자 정보 삽입
+            return ResponseEntity.ok(UserInfoRes.of(200, "Success", userInfo));
+        }
+        return ResponseEntity.status(404).body(UserInfoRes.of(404, "Invalid User", null));
     }
 
     @PutMapping("/users")
-    public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("Authorization") String accessToken, UserInfoReq req) {
+    public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("Authorization") String accessToken, @RequestBody UserInfoReq req) {
         // 사용자 정보 수정
         UserInfo userInfo = oAuthService.updateUser(accessToken, req.getUserGender(), req.getUserAgeRange()); // 사용자 정보 업데이트 후 사용자 정보 가져오기
         if(userInfo != null) { // 사용자 정보 수정에 성공했으면
             return ResponseEntity.status(200).body(UserInfoRes.of(200, "Success", userInfo));
         }
-        return ResponseEntity.status(200).body(UserInfoRes.of(404, "Fail", null));
+        return ResponseEntity.status(404).body(UserInfoRes.of(404, "Fail", null));
     }
 }
