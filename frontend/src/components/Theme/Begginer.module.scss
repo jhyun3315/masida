@@ -1,54 +1,104 @@
 .themeContainer {
-    margin : 16px;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
+  margin: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+
+  div {
+
     .themeTitle {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        flex-direction: column;
-        .themeIntro {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-        .themeHashTag{
-            margin: 8px;
-            font-size: 24px;
-            color: #5D60EF;
-        }
+      display: flex;
+      align-items: center;
+      width: 100%;
+      flex-direction: column;
+
+      .themeIntro {
+        font-weight: bold;
+        font-size: 37px;
+        margin-bottom: 8px;
+        margin-top: 3%;
+      }
+
+      .themeHashTag {
+        margin: 8px;
+        font-size: 20px;
+        color: #7a7a82;
+      }
     }
-    .themeRecommendCocktail {
+
+    .themeCocktail {
+      background-color: #EFEBE9;
+      margin-bottom: 3%;
+
+      div {
         display: flex;
-        justify-content: center;
-        font-size: 28px;
-        .themeRecommendCocktail_description_right {
-            display: flex;
-            width: 50%;
-            text-align: end;
-            align-items: center;
-            margin:16px;
-        }
-        .themeRecommendCocktail_description_left {
-            display: flex;
-            width: 50%;
-            text-align: start;
-            align-items: center;
-            margin:16px;
-        }
-        .themeRecommendCocktail_img {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 8px;
-            font-weight: bold;
-            .cocktail_img {
-                padding : 24px;
+        margin: 5% 20.5%;
+        justify-content: space-between;
+
+        .themeCocktail_content {
+          img {
+            height: 30vh;
+            width: 30vh;
+            border-radius: 70%;
+          }
+
+          div {
+            line-height: 0.1;
+
+            img {
+              width: 15vh;
+              margin: 11% 17% 0 22.5%;
             }
+
+            p {
+              margin: 11% 30% 0 30%;
+              font-weight: bold;
+              font-size: 3vh;
+            }
+          }
         }
-        .themeRecommendCocktail_name {
-            font-weight: bold;
-            font-size: 30px;
-        }
+      }
     }
+  }
+
+  .themeRecommendCocktail {
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+
+    .themeRecommendCocktail_description_right {
+      display: flex;
+      width: 50%;
+      text-align: end;
+      align-items: center;
+      margin: 16px;
+    }
+
+    div {}
+
+    .themeRecommendCocktail_description_left {
+      display: flex;
+      width: 50%;
+      text-align: start;
+      align-items: center;
+      margin: 16px;
+    }
+
+    .themeRecommendCocktail_img {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 8px;
+      font-weight: bold;
+
+      .cocktail_img {
+        padding: 24px;
+      }
+    }
+
+    .themeRecommendCocktail_name {
+      font-weight: bold;
+      font-size: 30px;
+    }
+  }
 }
