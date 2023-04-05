@@ -1,6 +1,5 @@
 import axios from "axios";
-import Image from "next/image";
-import { ImageLoaderProps } from "next/image";
+import Image , { ImageLoaderProps } from "next/image";
 import Swal from "sweetalert2";
 import { useState, Dispatch, SetStateAction, useEffect, useRef } from "react";
 import { store } from "../../../store/store";

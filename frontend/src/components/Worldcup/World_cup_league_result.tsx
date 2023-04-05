@@ -35,7 +35,6 @@ const World_cup_league_result = (props: cocktail_worldcup_data) => {
         </div>
       </div>
       <div className={style.info_btn_div}>
-        {/* 다시하기 버튼 */}
         <div
           className={style.cocktail_worldcup_retry_btn}
           onClick={restart}

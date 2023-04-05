@@ -1,4 +1,4 @@
-import { useState ,useEffect} from 'react';
+import { useState} from 'react';
 import style from './UserPreference.module.scss';
 import Piechart4 from '../UI/PieChart4';
 import Progress_bar4 from '../UI/Progress_bar4';
@@ -10,7 +10,7 @@ import { store } from '../../../store/store';
 const UserPreference = (props: cocktail_props_analysis_age_gender) => {
 
   const userName = store.getState().user.userInfo.user_name;
-  const[cocktailRateList,setCocktailRateList] = useState<cocktailAgeGender[]>([]);
+  // const[cocktailRateList,setCocktailRateList] = useState<cocktailAgeGender[]>([]);
  
   const isLoading7 = props.isLoading_props7;
   const cocktailBase = props.cocktailList;

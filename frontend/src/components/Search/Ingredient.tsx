@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searchIngredientType } from "../../type/ingredientTypes";
-import { RootState } from "../../../store/store";
 import { changeSelectIngredient } from "../../../store/category/ingredientSlice";
 import style from "./Ingredient.module.scss";
 import { search_props } from "../../pages/search";

@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { Dispatch, SetStateAction } from "react";
+import { useEffect, useState, Dispatch, SetStateAction } from "react";
 
 import style from "./Star.module.scss";
 
