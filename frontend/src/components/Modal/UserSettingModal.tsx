@@ -63,8 +63,8 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
       .put(
         "https://j8b208.p.ssafy.io/api/oauth/users",
         {
-          user_gender: "male",
-          user_age_range: "30",
+          user_gender: gender,
+          user_age_range: age,
         },
         {
           headers: {
@@ -75,7 +75,7 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
       .then(function (put) {
         //제대로 동작하면
         console.log(put);
-        router.push("/"); //랜딩페이지로 이동.
+        router.push("/mypage"); //랜딩페이지로 이동.
       })
       .catch((err) => {
         console.log(accessToken);
