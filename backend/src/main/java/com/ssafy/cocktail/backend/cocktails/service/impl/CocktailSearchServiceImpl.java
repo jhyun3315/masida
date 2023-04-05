@@ -86,7 +86,7 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
             for (CocktailIngredient ingredient: ingredients) { // 칵테일 재료
                 cocktailIngredients.add(ingredient.getIngredientName()); // 칵테일 재료 삽입
             }
-
+            if (cocktailColor1 == null || cocktailColor2 ==null) continue; // 색상 값이 null 이면
             // 칵테일 검색
             if (info.getCocktailName() != null) { // 조건 1: 이름 검색이 있으면
                 if (!cocktailKo.contains(info.getCocktailName()) // 조건 1-1: 검색어가 한글 이름에 포함되는가
