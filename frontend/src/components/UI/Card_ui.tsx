@@ -406,6 +406,7 @@ const World_cup_winner_card: React.FC<cocktail_worldcup_data> = (
 //   );
 // };
 
+
 export {
   Detail_recommend_card,
   Search_result_card,

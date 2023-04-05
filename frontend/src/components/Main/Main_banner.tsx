@@ -298,7 +298,7 @@ const Main_banner = () => {
             objectFit="cover"
             objectPosition="center"
             onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUpSummer}
+            onMouseUp={handleMouseUpCocktailWorld}
           />
           <div className={style.mainHeader}>
             {tokenValue ? (
@@ -318,7 +318,7 @@ const Main_banner = () => {
             <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
           </div>
           <div className={style.mainTitle2} onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUpSummer}>
+            onMouseUp={handleMouseUpCocktailWorld}>
             <div>
               <h1>Let's go to Cocktail World!</h1>
               <h3>칵테일에 대한 정보 및 재미있는 사실을 알려드립니다.</h3>

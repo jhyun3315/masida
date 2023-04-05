@@ -12,8 +12,13 @@ const Main_cocktail = (props: landing_props) => {
   const cocktailInfo = props.random;
   const cocktailList = props.likeList;
   const settings = {
+<<<<<<< HEAD
+    // dots: true,
+    slidesToShow: 3,
+=======
 
     slidesToShow: 1,
+>>>>>>> 348d832ffa867576b36d0df50c8f0872cb3a3c60
     infinite: true,
     speed: 100,
     autoplay: true,
