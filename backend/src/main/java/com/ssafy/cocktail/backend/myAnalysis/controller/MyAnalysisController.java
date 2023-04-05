@@ -36,10 +36,17 @@ public class MyAnalysisController {
 //        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
 //    }
 
+//    @GetMapping("/recommend/color")
+//    public ResponseEntity<TestRecommendRes> testColor(@RequestHeader("Authorization") String accessToken) {
+//        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "3");
+//        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
+//    }
+
     @GetMapping("/recommend/color")
-    public ResponseEntity<TestRecommendRes> testColor(@RequestHeader("Authorization") String accessToken) {
-        ArrayList<TestRecommend> recommends = myAnalysisUserService.getRecommendTest(accessToken, "3");
-        return ResponseEntity.status(200).body(TestRecommendRes.of(200, "Success", recommends));
+    public ResponseEntity<MyAnalysisRecommendRes> testColor(@RequestHeader("Authorization") String accessToken) {
+        ArrayList<MyAnalysisRecommend> recommends = myAnalysisUserService.getRecommendByColor(accessToken);
+
+        return ResponseEntity.status(200).body(MyAnalysisRecommendRes.of(200, "Success", recommends));
     }
 
     @GetMapping("/recommend/age-gender")
