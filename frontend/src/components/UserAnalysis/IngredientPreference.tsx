@@ -66,7 +66,7 @@ const IngredientPreference = (props: cocktail_props_analysis_ingredient) => {
           <div className={style.cocktailPreference_list}>
             <h3>{ userName}님과 취향(재료)과 비슷한 칵테일 추천</h3>
             <div className={style.cocktailPreference_list_content}>
-              {cocktailRecordList.map((key => (
+              {cocktailRecordList?.map((key => (
                 <My_Analysis_card {...key} />
               )))}
             </div>
