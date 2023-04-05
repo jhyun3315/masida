@@ -198,60 +198,53 @@ const userAnalisys = () => {
     isLoading4 &&
     isLoading5 &&
     isLoading6 &&
-    isLoading7
+    isLoading7 &&
+    cocktailList_props.length === 5 &&
+    cocktailList_color_props.length === 5 &&
+    cocktailList_ingredient_props.length === 5 &&
+    cocktailList_age_gender_props.length === 5
   ) {
-    if (
-      cocktailList_props.length === 5 &&
-      cocktailList_color_props.length === 5 &&
-      cocktailList_ingredient_props.length === 5 &&
-      cocktailList_age_gender_props.length === 5
-    ) {
-      const handleExport = () => {
-        const input = componentRef.current;
-        
-        console.log(input);
-        html2canvas(input, { allowTaint: true, useCORS: true }).then(
-          (canvas) => {
-            const imgData = canvas.toDataURL("image/png");
-            const pdf = new jsPDF();
-            pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
-            pdf.save("MASIDA-Cocktail-Preferences.pdf");
-          }
-        );
-      };
-
-      return (
-        <div ref={componentRef}>
-          <Header />
-          <div className={style.userAnalisys}>
-            <div className={style.userAnalisys_logo}>
-              <h1>MASIDA</h1>
-              <p>칵테일을 맛있게 마시다.</p>
-            </div>
-            <div className={style.userAnalisys_pdf} onClick={handleExport}>
-              <img src="assets/icons/Vector.png"></img>
-              <span>PDF로 내보내기</span>
-            </div>
-          </div>
-          <CocktailPreference {...cocktail_props} />
-          <ColorPreference {...cocktail_color_props} />
-          <IngredientPreference {...cocktail_ingredient_props} />
-          <UserPreference {...cocktail_age_gender_props} />
-        </div>
-      );
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "분석을 할 수 없습니다.",
-        confirmButtonText: "마이페이지로 돌아가기",
-        text: "분석을 위한 충분한 데이터가 존재하지 않습니다. 칵테일에 좋아요를 눌러주세요",
-        footer: '<a href="/search">여기를 눌러서 칵테일 둘러볼까요?</a>',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          router.back();
-        }
+    const handleExport = () => {
+      const input = componentRef.current;
+      html2canvas(input, { allowTaint: true, useCORS: true }).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF();
+        pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
+        pdf.save("MASIDA-Cocktail-Preferences.pdf");
       });
-    }
+    };
+
+    return (
+      <div ref={componentRef}>
+        <Header />
+        <div className={style.userAnalisys}>
+          <div className={style.userAnalisys_logo}>
+            <h1>MASIDA</h1>
+            <p>칵테일을 맛있게 마시다.</p>
+          </div>
+          <div className={style.userAnalisys_pdf} onClick={handleExport}>
+            <img src="assets/icons/Vector.png"></img>
+            <span>PDF로 내보내기</span>
+          </div>
+        </div>
+        <CocktailPreference {...cocktail_props} />
+        <ColorPreference {...cocktail_color_props} />
+        <IngredientPreference {...cocktail_ingredient_props} />
+        <UserPreference {...cocktail_age_gender_props} />
+      </div>
+    );
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "정확한 분석을 할 수 없습니다.",
+      confirmButtonText: "마이페이지로 돌아가기",
+      text: "분석을 위한 충분한 데이터가 존재하지 않습니다. 좋아하는 칵테일에 좋아요를 눌러주세요",
+      footer: '<a href="/search">여기를 눌러서 칵테일 둘러볼까요?</a>',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        router.back();
+      }
+    });
   }
 };
 

@@ -7,7 +7,6 @@
     padding-bottom: 5%;
   }
 
-
   .progressBar_content {
     .progressBar_content_first {
       margin-bottom: 3%;
@@ -17,128 +16,12 @@
         justify-content: space-between;
         margin-bottom: 3%;
       }
-
-      progress {
-        -webkit-appearance: none;
-      }
-
-      ::-webkit-progress-bar {
-        width: 40vh;
-        background-color: #ffffff;
-        border: 1px solid #DADADA;
-        border-radius: 20px;
-      }
-
-      ::-webkit-progress-value {
-        background-color: #F4E77E;
-        border-radius: 20px;
+      .progressBar_gauge_layer {
+        border: 1px solid #dadada;;
+        .progressBar_gauge{
+          border: 1px solid #dadada;;
+        }
       }
     }
-
-    .progressBar_content_second {
-      margin-bottom: 3%;
-
-      .progressBar_content_desc {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 3%;
-      }
-
-      progress {
-        -webkit-appearance: none;
-      }
-
-      ::-webkit-progress-bar {
-        width: 40vh;
-        background-color: #ffffff;
-        border: 1px solid #DADADA;
-        border-radius: 20px;
-      }
-
-      ::-webkit-progress-value {
-        background-color: #F79D8E;
-        border-radius: 20px;
-      }
-    }
-
-    .progressBar_content_third {
-      margin-bottom: 3%;
-
-      .progressBar_content_desc {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 3%;
-      }
-
-      progress {
-        -webkit-appearance: none;
-      }
-
-      ::-webkit-progress-bar {
-        width: 40vh;
-        background-color: #ffffff;
-        border: 1px solid #DADADA;
-        border-radius: 20px;
-      }
-
-      ::-webkit-progress-value {
-        background-color: #E8A93B;
-        border-radius: 20px;
-      }
-    }
-
-    .progressBar_content_fourth {
-      margin-bottom: 3%;
-
-      .progressBar_content_desc {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 3%;
-      }
-
-      progress {
-        -webkit-appearance: none;
-      }
-
-      ::-webkit-progress-bar {
-        width: 40vh;
-        background-color: #ffffff;
-        border: 1px solid #DADADA;
-        border-radius: 20px;
-      }
-
-      ::-webkit-progress-value {
-        background-color: #E8C1A0;
-        border-radius: 20px;
-      }
-    }
-
-    .progressBar_content_fifth {
-      margin-bottom: 3%;
-
-      .progressBar_content_desc {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 3%;
-      }
-
-      progress {
-        -webkit-appearance: none;
-      }
-
-      ::-webkit-progress-bar {
-        width: 40vh;
-        background-color: #ffffff;
-        border: 1px solid #DADADA;
-        border-radius: 20px;
-      }
-
-      ::-webkit-progress-value {
-        background-color: #61CDBB;
-        border-radius: 20px;
-      }
-    }
-
-
   }
 }

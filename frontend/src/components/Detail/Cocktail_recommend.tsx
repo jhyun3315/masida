@@ -11,8 +11,6 @@ const Cocktail_recommend = (props: recommend_props) => {
   const colorList = props.color_recommend;
   console.log("props : ")
   console.log(props)
-  // console.log(ingredientList);
-  // console.log(colorList);
 
   const settings = {
     accessibility: false,

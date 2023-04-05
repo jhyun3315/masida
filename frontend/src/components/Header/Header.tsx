@@ -3,8 +3,6 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { useState, useEffect } from "react";
-import { userType } from "../../type/userTypes";
-import { get_user_info } from "../../pages/api/auth/user_api";
 import axios from "axios";
 import { logout } from "../../../store/modules/user";
 import { useRouter } from "next/router";
@@ -14,7 +12,6 @@ const Header = () => {
   const router = useRouter();
   let [checkToken, setCheckToken] = useState<boolean>(false);
   const accessToken = useSelector((state: RootState) => state.user.accessToken); //처음에 토큰을 받아와.
-
 
   //리덕스에 저장된 유저의 정보를 저장해줄 변수 userInfo
   const userInfo = useSelector((state: RootState) => state.user.userInfo);
@@ -30,7 +27,7 @@ const Header = () => {
   }, []);
 
   const onLogoutHandler = () => {
-    const logoutt: any = axios
+    axios
       .get("https://j8b208.p.ssafy.io/api/oauth/kakao/logout", {
         headers: {
           Authorization: accessToken,

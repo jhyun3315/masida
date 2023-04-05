@@ -2,19 +2,17 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./Main_banner.module.scss";
-import Image from "next/image";
 import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ImageLoaderProps } from "next/image";
+import Image, { ImageLoaderProps } from "next/image";
 import { imgLoader } from "../../utils/imgLoader";
 import axios from "axios";
 import { login, logout,setUserInfo } from "../../../store/modules/user";
-import { RootState } from "../../../store/store";
+import { store, RootState } from "../../../store/store";
 import { userType } from "../../type/userTypes";
 import { get_user_info } from "../../pages/api/auth/user_api";
-import { store } from "../../../store/store";
 
 //좌표의 타입입니다.
 type coordinate = {
@@ -119,7 +117,7 @@ const Main_banner = () => {
   },[userInfo2])
 
   const onLogoutHandler = () => {
-    const logoutt: any = axios
+    axios
       .get("https://j8b208.p.ssafy.io/api/oauth/kakao/logout", {
         headers: {
           Authorization: accessToken,
