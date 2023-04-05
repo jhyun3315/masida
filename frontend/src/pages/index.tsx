@@ -42,8 +42,8 @@ const landing = ({ random, likeList }: landing_props) => {
         if (response.status !== 200) {
           dispatch(logout());
         }
-        setIstLoading(true)
       });
+      setIstLoading(true)
 
   },  [])
   if(isLoading){
