@@ -43,7 +43,7 @@ public class MyAnalysisController {
 //    }
 
     @GetMapping("/recommend/color")
-    public ResponseEntity<MyAnalysisRecommendRes> testColor(@RequestHeader("Authorization") String accessToken) {
+    public ResponseEntity<MyAnalysisRecommendRes> analysisRecommendByColor(@RequestHeader("Authorization") String accessToken) {
         ArrayList<MyAnalysisRecommend> recommends = myAnalysisUserService.getRecommendByColor(accessToken);
 
         return ResponseEntity.status(200).body(MyAnalysisRecommendRes.of(200, "Success", recommends));
