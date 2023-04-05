@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
@@ -34,24 +35,13 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
 
     Cocktail findCocktailById(Long cocktailId);
 
-    @Query(value = "select c.cocktail_id as cocktailId " +
-            ", c.cocktail_name_ko as cocktailNameKo " +
-            ", c.cocktail_img as cocktailImg " +
-            ", count(c.cocktail_id) as cnt " +
-            "from cocktails c " +
-            "join likes l on c.cocktail_id = l.cocktail_id " +
-            "where c.cocktail_color1 = :color " +
-            "group by cocktailId " +
-            "order by 'cnt' desc limit 3", nativeQuery = true)
-    List<MyAnalysisRecommendInterface> getCocktailByColorAndLikesCnt(@Param("color") String color);
-
     @Query(value = "select cocktail_id as cocktailId " +
             ", cocktail_name_ko as cocktailNameKo " +
             ", cocktail_img as cocktailImg " +
             "from cocktails " +
             "where cocktail_color1 = :color " +
-            "order by rand() limit 3", nativeQuery = true)
-    List<MyAnalysisRecommendInterface> getCocktailByColorAndRandomThree(@Param("color") String color);
+            "order by rand() limit 9", nativeQuery = true)
+    ArrayList<MyAnalysisRecommendInterface> getCocktailByColorAndRandomNine(@Param("color") String color);
 
     @Query(value = "select cocktail_id as cocktailId " +
             ", cocktail_name_ko as cocktailNameKo " +
@@ -60,6 +50,6 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
             ", cocktail_rating as cocktailRating " +
             "from cocktails " +
             "order by rand() limit 3", nativeQuery = true)
-    List<MyAnalysisRecommendInterface> getCocktailByRandomThree();
+    ArrayList<MyAnalysisRecommendInterface> getCocktailByRandomNine();
 
 }

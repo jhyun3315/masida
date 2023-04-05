@@ -314,4 +314,73 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
 
         return results;
     }
+
+    @Override
+    public ArrayList<MyAnalysisRecommend> getRecommendByColor(String accessToken) {
+        ArrayList<MyAnalysisRecommend> results = new ArrayList<>(); // 칵테일 추천 9개
+
+        User user = oAuthService.getUser(accessToken); // 사용자 가져오기
+
+        ArrayList<MyAnalysisRecommendInterface> recommends = new ArrayList<>(); // 추천 칵테일 9개
+
+        ArrayList<MyAnalysisColorInterface> interfaceArrayList = myAnalysisRepository.getMyAnalysisColorList(user.getId()); // 사용자가 좋아하는 색 가져오기
+        if (interfaceArrayList.size() >= 3) { // 좋아하는 색이 3개 이상이면
+            ArrayList<MyAnalysisRecommendInterface> row1 = cocktailRepository.getCocktailByColorAndRandomNine(interfaceArrayList.get(0).getColorName());
+            ArrayList<MyAnalysisRecommendInterface> row2 = cocktailRepository.getCocktailByColorAndRandomNine(interfaceArrayList.get(1).getColorName());
+            ArrayList<MyAnalysisRecommendInterface> row3 = cocktailRepository.getCocktailByColorAndRandomNine(interfaceArrayList.get(2).getColorName());
+            recommends.add(row1.get(0)); // 추천 1번 삽입
+            recommends.add(row1.get(1)); // 추천 2번 삽입
+            recommends.add(row1.get(2)); // 추천 3번 삽입
+            recommends.add(row2.get(0)); // 추천 4번 삽입
+            recommends.add(row2.get(1)); // 추천 5번 삽입
+            recommends.add(row2.get(2)); // 추천 6번 삽입
+            recommends.add(row3.get(0)); // 추천 7번 삽입
+            recommends.add(row3.get(1)); // 추천 8번 삽입
+            recommends.add(row3.get(2)); // 추천 9번 삽입
+        } else if (interfaceArrayList.size() == 2) { // 좋아하는 색이 2개 이면
+            ArrayList<MyAnalysisRecommendInterface> row1 = cocktailRepository.getCocktailByColorAndRandomNine(interfaceArrayList.get(0).getColorName());
+            ArrayList<MyAnalysisRecommendInterface> row2 = cocktailRepository.getCocktailByColorAndRandomNine(interfaceArrayList.get(1).getColorName());
+            recommends.add(row1.get(0)); // 추천 1번 삽입
+            recommends.add(row1.get(1)); // 추천 2번 삽입
+            recommends.add(row1.get(2)); // 추천 3번 삽입
+            recommends.add(row1.get(3)); // 추천 4번 삽입
+            recommends.add(row1.get(4)); // 추천 5번 삽입
+            recommends.add(row2.get(0)); // 추천 6번 삽입
+            recommends.add(row2.get(1)); // 추천 7번 삽입
+            recommends.add(row2.get(2)); // 추천 8번 삽입
+            recommends.add(row2.get(3)); // 추천 9번 삽입
+        } else if (interfaceArrayList.size() == 1) { // 좋아하는 색이 1개 이면
+            ArrayList<MyAnalysisRecommendInterface> row1 = cocktailRepository.getCocktailByColorAndRandomNine(interfaceArrayList.get(0).getColorName());
+            recommends.add(row1.get(0)); // 추천 1번 삽입
+            recommends.add(row1.get(1)); // 추천 2번 삽입
+            recommends.add(row1.get(2)); // 추천 3번 삽입
+            recommends.add(row1.get(3)); // 추천 4번 삽입
+            recommends.add(row1.get(4)); // 추천 5번 삽입
+            recommends.add(row1.get(5)); // 추천 6번 삽입
+            recommends.add(row1.get(6)); // 추천 7번 삽입
+            recommends.add(row1.get(7)); // 추천 8번 삽입
+            recommends.add(row1.get(8)); // 추천 9번 삽입
+        } else { // 좋아하는 색이 없으면
+            ArrayList<MyAnalysisRecommendInterface> row1 = cocktailRepository.getCocktailByRandomNine();
+            recommends.add(row1.get(0)); // 추천 1번 삽입
+            recommends.add(row1.get(1)); // 추천 2번 삽입
+            recommends.add(row1.get(2)); // 추천 3번 삽입
+            recommends.add(row1.get(3)); // 추천 4번 삽입
+            recommends.add(row1.get(4)); // 추천 5번 삽입
+            recommends.add(row1.get(5)); // 추천 6번 삽입
+            recommends.add(row1.get(6)); // 추천 7번 삽입
+            recommends.add(row1.get(7)); // 추천 8번 삽입
+            recommends.add(row1.get(8)); // 추천 9번 삽입
+        }
+
+        for (MyAnalysisRecommendInterface recommend : recommends) { // 추천 칵테일
+            MyAnalysisRecommend myAnalysisRecommend = new MyAnalysisRecommend();
+            myAnalysisRecommend.setCocktailId(recommend.getCocktailId()); // 칵테일 id 삽입
+            myAnalysisRecommend.setCocktailNameKo(recommend.getCocktailNameKo()); // 칵테일 한글 이름 삽입
+            myAnalysisRecommend.setCocktailImg(recommend.getCocktailImg()); // 칵테일 이미지 삽입
+            results.add(myAnalysisRecommend); // 추천 칵테일 삽입
+        }
+
+        return results;
+    }
 }
