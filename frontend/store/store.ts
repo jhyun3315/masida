@@ -27,9 +27,9 @@ const createNoopStorage = () => {
   };
 };
 
-const local =
+const session =
   typeof window !== "undefined"
-    ? createWebStorage("local")
+    ? createWebStorage("session")
     : createNoopStorage();
 
 import {
@@ -56,7 +56,7 @@ const reducers = combineReducers({
 //새로고침시 안없어 지는 것을 whitelist에 저장.
 const persistConfig = {
   key: "root",
-  storage: local,
+  storage: session,
   whitelist: ["user", "page"],
 };
 
