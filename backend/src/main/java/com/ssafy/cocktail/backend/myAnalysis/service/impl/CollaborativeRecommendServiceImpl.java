@@ -20,6 +20,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -63,12 +64,14 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 		// 사용자가 선호하는 재료 top 5 조회
 		List<String> userLikeIngredient = new ArrayList<>(); // 파이썬에 보낼 사용자 선호 재료 리스트
 		List<Object[]> top5Ingredients = myAnalysisRepository.findTop5IngredientsByUserId(userId, PageRequest.of(0, 5));
+
 		for (Object[] ingredient : top5Ingredients) {
+
 			String name = (String) ingredient[0];
-			String ingredientId = (String) ingredient[1];
+			Long ingredientId = (Long) ingredient[1];
 			Long count = (Long) ingredient[2];
 			System.out.println(name+ "("+ ingredientId+ ")" + " : " + count);
-			userLikeIngredient.add(ingredientId);
+			userLikeIngredient.add(ingredientId + "");
 			// top5Ingredients.get(0)[0] 재료 이름
 			// top5Ingredients.get(0)[1] 재료 인덱스 (재료 테이블 근거)
 			// top5Ingredients.get(0)[2]) 총 개수
@@ -80,12 +83,14 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 			userLikeList.add(c.getId() + "");
 		}
 
+		Collections.sort(userLikeList);
+
 		// 파이썬 통신을 위한 DTO
 		RecommendationRequest recommendationRequest = new RecommendationRequest(userLikeIngredient, userLikeList);
 
 		// 파이썬 통신, 추천 칵테일 얻어오기
-		List<String> reponse = dataToPython(recommendationRequest);
-
+		List<String> reponse = dataToPython(recommendationRequest, "ingredient");
+		System.out.println(reponse);
 		return null;
 	}
 
@@ -98,19 +103,20 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 	 * @throws JsonProcessingException
 	 */
 	@Override
-	public List<String> dataToPython(RecommendationRequest recommendationRequest) throws UnirestException, JsonProcessingException {
+	public List<String> dataToPython(RecommendationRequest recommendationRequest, String endpoint) throws UnirestException, JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper()
 				.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
 				.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
 				.findAndRegisterModules();
 		String requestBody = objectMapper.writeValueAsString(recommendationRequest);
 
-		HttpResponse<String> response = Unirest.post(PYTHON_API_URL + "/recommend")
+		HttpResponse<String> response = Unirest.post(PYTHON_API_URL + "/recommend/" +endpoint)
 				.header("Content-Type", "application/json")
 				.body(requestBody)
 				.asString();
 
 		String responseBody = response.getBody();
+		System.out.println(responseBody);
 		RecommendationResponse recommendationResponse = objectMapper.readValue(responseBody, RecommendationResponse.class);
 		return recommendationResponse.getCocktailIdList();
 	}
