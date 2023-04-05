@@ -45,7 +45,8 @@ public class OAuthController {
         attributes.addAttribute("accessToken", userLoginInfo.getAccessToken()); // 파라미터에 엑세스토큰 삽입
         attributes.addAttribute("userName", userLoginInfo.getUserName()); // 파라미터에 사용자 이름 삽입
 
-        return new RedirectView("/"); // 메인 페이지로 리다이렉트
+        return new RedirectView("http://localhost:3000"); // 메인 페이지로 리다이렉트
+//        return new RedirectView("/"); // 메인 페이지로 리다이렉트
     }
 
     @GetMapping("/kakao/logout")
