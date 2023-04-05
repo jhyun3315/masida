@@ -51,7 +51,7 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
             "from cocktails " +
             "where cocktail_color1 = :color " +
             "order by rand() limit 3", nativeQuery = true)
-    List<MyAnalysisRecommendInterface> getCocktailByColorAndRandom(@Param("color") String color);
+    List<MyAnalysisRecommendInterface> getCocktailByColorAndRandomThree(@Param("color") String color);
 
     @Query(value = "select cocktail_id as cocktailId " +
             ", cocktail_name_ko as cocktailNameKo " +
@@ -60,7 +60,7 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
             ", cocktail_rating as cocktailRating " +
             "from cocktails " +
             "order by rand() limit 3", nativeQuery = true)
-    List<MyAnalysisRecommendInterface> getCocktailByRandomCnt();
+    List<MyAnalysisRecommendInterface> getCocktailByRandomThree();
 
 
 }
