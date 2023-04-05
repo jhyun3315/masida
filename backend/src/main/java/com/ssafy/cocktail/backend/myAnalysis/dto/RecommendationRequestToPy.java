@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 @AllArgsConstructor
-public class RecommendationRequest {
+public class RecommendationRequestToPy {
 	@JsonProperty("userLikeIngredient")
 	private List<String> userLikeIngredient;
 	@JsonProperty("userLikeList")
