@@ -3,8 +3,9 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { useState, useEffect } from "react";
+import axios from "axios";
+import { logout } from "../../../store/modules/user";
 import { useRouter } from "next/router";
-import { logout_user } from "../../pages/api/auth/user_api";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,16 @@ const Header = () => {
   }, []);
 
   const onLogoutHandler = () => {
-     logout_user();
+    axios
+      .get("https://j8b208.p.ssafy.io/api/oauth/kakao/logout", {
+        headers: {
+          Authorization: accessToken,
+        },
+      })
+      .then(function () {
+        dispatch(logout());
+        router.reload();
+      });
   };
 
   return (

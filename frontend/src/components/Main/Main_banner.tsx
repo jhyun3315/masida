@@ -1,22 +1,18 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import Image, { ImageLoaderProps } from "next/image";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import style from "./Main_banner.module.scss";
 import Link from "next/link";
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import style from "./Main_banner.module.scss";
+import Image, { ImageLoaderProps } from "next/image";
 import { imgLoader } from "../../utils/imgLoader";
+import axios from "axios";
 import { login, logout,setUserInfo } from "../../../store/modules/user";
 import { store, RootState } from "../../../store/store";
 import { userType } from "../../type/userTypes";
-
 import { get_user_info } from "../../pages/api/auth/user_api";
-import { logout_user } from "../../pages/api/auth/user_api";
 
 //좌표의 타입입니다.
 type coordinate = {
@@ -121,7 +117,16 @@ const Main_banner = () => {
   },[userInfo2])
 
   const onLogoutHandler = () => {
-    logout_user();
+    axios
+      .get("https://j8b208.p.ssafy.io/api/oauth/kakao/logout", {
+        headers: {
+          Authorization: accessToken,
+        },
+      })
+      .then(function () {
+        dispatch(logout());
+        setTokenValue("");
+      });
   };
 
   return (
@@ -293,7 +298,7 @@ const Main_banner = () => {
             objectFit="cover"
             objectPosition="center"
             onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUpCocktailWorld}
+            onMouseUp={handleMouseUpSummer}
           />
           <div className={style.mainHeader}>
             {tokenValue ? (
@@ -313,7 +318,7 @@ const Main_banner = () => {
             <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
           </div>
           <div className={style.mainTitle2} onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUpCocktailWorld}>
+            onMouseUp={handleMouseUpSummer}>
             <div>
               <h1>Let's go to Cocktail World!</h1>
               <h3>칵테일에 대한 정보 및 재미있는 사실을 알려드립니다.</h3>
