@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface CollaborativeRecommendService {
 
-	List<String> recommendCocktailByBase(Long userId);
-	ArrayList<RecommendCocktail> recommendCocktailByIngredient(Long userId) throws UnirestException, JsonProcessingException;
-	List<Long> dataToPython(RecommendationRequestToPy recommendationReq, String endPoint) throws UnirestException, JsonProcessingException;
+	List<RecommendCocktail> recommendCocktailByBase(Long userId) throws UnirestException, JsonProcessingException;
+	List<RecommendCocktail> recommendCocktailByIngredient(Long userId) throws UnirestException, JsonProcessingException;
+	List<Long> dataToPython(RecommendationRequestToPy recommendationReq) throws UnirestException, JsonProcessingException;
 }
