@@ -39,11 +39,9 @@ const CommentModal: React.FunctionComponent<propsType> = ({
   let [difficulty, setDifficulty] = useState<string>(""); //난이도
   let [scope, setScope] = useState<number>(0); //별점
   const [modify, setModify] = useState<boolean>(false); //수정버튼이 클릭 되었는지 확인해주는 useState변수입니다.
-  const [regist, setRegist] = useState<boolean>(false); //등록버튼이 클릭 되었는지 확인해주는 useState변수입니다.
-  //얘도 같이 내려줘서 서로 바뀔때마다 scope를 0으로 설정해주어야 할것 같다.
 
   // 현재 탭의 상태를 구분하기 위함 (Comment / MyMemo)
-  const [currentTab, setCurrentTab] = useState<string>("Comment");
+  const [, setCurrentTab] = useState<string>("Comment");
   const [commentList, setCommentList] = useState<commentType[]>();
   const [commentAdd, setCommentAdd] = useState<boolean>();
   const [commentId, setCommentId] = useState<number>(0);
@@ -154,7 +152,6 @@ const CommentModal: React.FunctionComponent<propsType> = ({
               });
             Swal.fire("Saved!", "", "success");
           }
-        } else if (result.isDenied) {
         }
       });
     }
@@ -233,7 +230,6 @@ const CommentModal: React.FunctionComponent<propsType> = ({
             });
           Swal.fire("저장되었습니다!");
         }
-      } else if (result.isDenied) {
       }
     });
   };
@@ -267,7 +263,6 @@ const CommentModal: React.FunctionComponent<propsType> = ({
             console.error(error);
           });
         Swal.fire("삭제되었습니다.");
-      } else if (result.isDenied) {
       }
     });
   };

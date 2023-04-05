@@ -26,7 +26,7 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
   const [age, setAge] = useState<string>("");
   //회원탈퇴가 들어갈 axios 입니다. (회원탈퇴하고 메인페이지로 보내주어야하고 ATK 초기화.)
   const deleteAccount = () => {
-    const withdrawal = axios
+    axios
       .delete("https://j8b208.p.ssafy.io/api/oauth/kakao/delete", {
         headers: {
           Authorization: accessToken,
@@ -44,27 +44,6 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
         console.log(err);
       });
   };
-
-  //   const putAccount = () => {
-  //   const put = axios
-  //     .put("https://j8b208.p.ssafy.io/api/oauth/users", {
-  //       user_gender: gender,
-  //       user_age_range: age,
-  //     }, {
-  //       headers: {
-  //         Authorization: accessToken,
-  //       },
-  //     })
-  //     .then(function (put) {
-  //       //제대로 동작하면
-  //       console.log(put);
-  //       router.push("/"); //랜딩페이지로 이동.
-  //     })
-  //     .catch((err) => {
-  //       console.log(accessToken);
-  //       console.log(err);
-  //     });
-  // };
 
   const changeAge = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;

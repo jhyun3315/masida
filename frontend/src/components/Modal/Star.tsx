@@ -74,10 +74,6 @@ const Star: React.FunctionComponent<propsType> = ({
           ★
         </span>
       );
-    } else {
-      const style = {
-        color: "transparent",
-      };
     }
 
     for (let i = 0; i < count - filledCount - 1; i++) {
