@@ -164,6 +164,7 @@ const Result: React.FunctionComponent<propsType> = ({ clickSearchBtn, addNumIngr
       let tmpcolor: string = null;
       let tmpdifficulty: string = null;
       let tmpingredient: string = null;
+      console.log(saveName);
       
 
       if (saveBase === "") {
