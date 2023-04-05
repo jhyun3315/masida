@@ -77,12 +77,12 @@ public class OAuthController {
     }
 
     @PutMapping("/users")
-    public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("Authorization") String accessToken, UserInfoReq req) {
+    public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("Authorization") String accessToken, @RequestBody UserInfoReq req) {
         // 사용자 정보 수정
         UserInfo userInfo = oAuthService.updateUser(accessToken, req.getUserGender(), req.getUserAgeRange()); // 사용자 정보 업데이트 후 사용자 정보 가져오기
         if(userInfo != null) { // 사용자 정보 수정에 성공했으면
             return ResponseEntity.status(200).body(UserInfoRes.of(200, "Success", userInfo));
         }
-        return ResponseEntity.status(200).body(UserInfoRes.of(404, "Fail", null));
+        return ResponseEntity.status(404).body(UserInfoRes.of(404, "Fail", null));
     }
 }
