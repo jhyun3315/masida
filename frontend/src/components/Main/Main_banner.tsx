@@ -1,17 +1,20 @@
-import { useRouter } from "next/router";
+import axios from "axios";
 import { useEffect, useState } from "react";
+import Image, { ImageLoaderProps } from "next/image";
+import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import style from "./Main_banner.module.scss";
 import Link from "next/link";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image, { ImageLoaderProps } from "next/image";
+
+import style from "./Main_banner.module.scss";
 import { imgLoader } from "../../utils/imgLoader";
-import axios from "axios";
 import { login, logout,setUserInfo } from "../../../store/modules/user";
 import { store, RootState } from "../../../store/store";
 import { userType } from "../../type/userTypes";
+
 import { get_user_info } from "../../pages/api/auth/user_api";
 import { logout_user } from "../../pages/api/auth/user_api";
 

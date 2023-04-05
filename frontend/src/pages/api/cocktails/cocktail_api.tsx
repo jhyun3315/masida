@@ -1,3 +1,8 @@
+/**
+ * @author kim jihwan
+ *
+ * @copyright 2023
+ */
 import axios from "axios";
 import {
   detail_props,
@@ -6,16 +11,25 @@ import {
 } from "../../../type/cocktailTypes";
 
 import { searchIngredientType } from "../../../type/ingredientTypes";
-
-/**
- * @author kim jihwan
- *
- * @copyright 2023
- */
+import { store } from "../../../../store/store";
 
 // 엑시오스 기본 세팅
 axios.defaults.baseURL = "https://j8b208.p.ssafy.io/";
-// axios.defaults.withCredentials = true;
+const atk = store.getState().user.accessToken;
+const config_loggedIn = {
+  headers: {
+    Authorization: atk,
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+  },
+};
+const config_non = {
+  headers: {
+    Authorization: atk,
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+  },
+};
 
 /**
  * 칵테일 상세 조회
@@ -24,7 +38,7 @@ export const get_cocktails_detail = async (cocktail_id: number) => {
   let url = `/api/cocktails/${cocktail_id}`;
   let value: detail_props = null;
   await axios
-    .get(url)
+    .get(url, config_loggedIn)
     .then((response) => {
       console.log("get_cocktails_detail : ", response);
       value = response.data.data;
@@ -78,8 +92,6 @@ export const get_cocktails_likes_top = async () => {
   return { value };
 };
 
-// export default {get_cocktails_detail};
-
 /**
  * 칵테일 재료 목록 반환
  */
@@ -96,4 +108,34 @@ export const get_cocktails_ingredients = async () => {
       console.log("재료가 없습니다. 다시 입력해주세요.", err);
     });
   return value;
+};
+
+export const post_cocktails_likes = async (cocktail_id: number) => {
+  let url = `/api/cocktails/likes`;
+  await axios
+    .post(
+      url,
+      {
+        cocktail_id: cocktail_id,
+      },
+      config_loggedIn
+    )
+    .then((response) => {
+      console.log(response);
+    });
+};
+
+export const post_cocktails_bookmarks = async (cocktail_id: number) => {
+  let url = `/api/cocktails/bookmarks`;
+  await axios
+    .post(
+      url,
+      {
+        cocktail_id: cocktail_id,
+      },
+      config_loggedIn
+    )
+    .then((response) => {
+      console.log(response);
+    });
 };

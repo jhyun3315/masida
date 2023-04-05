@@ -1,6 +1,6 @@
 import axios from "axios";
 import { NextPageContext } from "next";
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react";
 import Main_banner from "../components/Main/Main_banner";
 import Main_cocktail from "../components/Main/Main_cocktail";
 import Main_search from "../components/Main/Main_search";
@@ -21,7 +21,7 @@ import ResetCategory from "../components/UI/ResetCategory";
 
 const landing = ({ random, likeList }: landing_props) => {
   const dispatch = useDispatch();
-  const [isLoading, setIstLoading] =useState(false);
+  const [isLoading, setIstLoading] = useState(false);
   ResetCategory();
   const cocktail_props: landing_props = {
     random: random,
@@ -30,35 +30,35 @@ const landing = ({ random, likeList }: landing_props) => {
 
   // Landing page로 왔을 때, 현재 localStorage에 저장된 atk의 유효성을 검사
   // 무효한 경우 dispatch(logout())을 활용해서 atk 초기화
-  useEffect(() => {
-    axios
-      .get("https://j8b208.p.ssafy.io/api/oauth/users", {
-        headers: {
-          Authorization: store.getState().user.accessToken,
-        },
-      })
-      .then((response) => {
-        console.log(response);
-        if (response.status !== 200) {
-          dispatch(logout());
-        }
-      });
-      setIstLoading(true)
+  // useEffect(() => {
+  //   axios
+  //     .get("https://j8b208.p.ssafy.io/api/oauth/users", {
+  //       headers: {
+  //         Authorization: store.getState().user.accessToken,
+  //       },
+  //     })
+  //     .then((response) => {
+  //       console.log(response);
+  //       if (response.status !== 200) {
+  //         dispatch(logout());
+  //       }
+  //     });
+  //     setIstLoading(true)
 
-  },  [])
-  if(isLoading){
-    return (
-      <>
-        <Main_banner />
-        <Main_cocktail {...cocktail_props} />
-        <Main_search />
-        <Main_manual />
-        <Footer />
-      </>
-    );
-  } else {
-    return <Loading_spinner />
-  }
+  // },  [])
+  // if(isLoading){
+  return (
+    <>
+      <Main_banner />
+      <Main_cocktail {...cocktail_props} />
+      <Main_search />
+      <Main_manual />
+      <Footer />
+    </>
+  );
+  // } else {
+  //   return <Loading_spinner />
+  // }
 };
 
 export default landing;
