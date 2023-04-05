@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
+import com.ssafy.cocktail.backend.domain.repository.CocktailRepository;
 import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
 import com.ssafy.cocktail.backend.domain.repository.MyAnalysisRepository;
 import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendationRequest;
@@ -30,6 +31,7 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 	private final String PYTHON_API_URL = "http://localhost:8000";
 	private MyAnalysisRepository myAnalysisRepository;
 	private LikeRepository likeRepository;
+	private CocktailRepository cocktailRepository;
 
 	/**
 	 * 사용자가 선호하는 베이스 top 5 리스트 조회
@@ -89,8 +91,13 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 		RecommendationRequest recommendationRequest = new RecommendationRequest(userLikeIngredient, userLikeList);
 
 		// 파이썬 통신, 추천 칵테일 얻어오기
-		List<String> reponse = dataToPython(recommendationRequest, "ingredient");
-		System.out.println(reponse);
+		List<Long> response = dataToPython(recommendationRequest, "ingredient");
+
+		// 추천 받은 칵테일 인덱스로 칵테일 객체 조회
+		for(Long res : response) {
+			System.out.println(res);
+//			cocktailRepository.findCocktailById();
+		}
 		return null;
 	}
 
@@ -103,24 +110,21 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 	 * @throws JsonProcessingException
 	 */
 	@Override
-	public List<String> dataToPython(RecommendationRequest recommendationRequest, String endpoint) throws UnirestException, JsonProcessingException {
+	public List<Long> dataToPython(RecommendationRequest recommendationRequest, String endPoint) throws UnirestException, JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper()
 				.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
 				.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
 				.findAndRegisterModules();
 		String requestBody = objectMapper.writeValueAsString(recommendationRequest);
 
-		HttpResponse<String> response = Unirest.post(PYTHON_API_URL + "/recommend/" +endpoint)
+		HttpResponse<String> response = Unirest.post(PYTHON_API_URL + "/recommend/" + endPoint)
 				.header("Content-Type", "application/json")
 				.body(requestBody)
 				.asString();
 
 		String responseBody = response.getBody();
-		System.out.println(responseBody);
 		RecommendationResponse recommendationResponse = objectMapper.readValue(responseBody, RecommendationResponse.class);
+
 		return recommendationResponse.getCocktailIdList();
 	}
-
-
-
 }

@@ -11,5 +11,5 @@ public interface CollaborativeRecommendService {
 
 	List<String> recommendCocktailByBase(Long userId);
 	List<String> recommendCocktailByIngredient(Long userId) throws UnirestException, JsonProcessingException;
-	List<String> dataToPython(RecommendationRequest recommendationReq, String endPoint) throws UnirestException, JsonProcessingException;
+	List<Long> dataToPython(RecommendationRequest recommendationReq, String endPoint) throws UnirestException, JsonProcessingException;
 }
