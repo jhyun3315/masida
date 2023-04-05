@@ -28,12 +28,12 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
             "FROM (" +
                 "SELECT cocktails.cocktail_color1 AS ColorName FROM cocktails " +
                 "INNER JOIN likes AS l ON cocktails.cocktail_id = l.cocktail_id " +
-                "WHERE l.like_deleted = false AND l.user_id=:userId " +
+                "WHERE l.like_deleted = false AND l.user_id=:userId AND cocktails.cocktail_color1!='' " +
                 "UNION ALL " +
                 "SELECT cocktails.cocktail_color2 AS ColorName " +
                 "FROM cocktails " +
                 "INNER JOIN likes AS l ON cocktails.cocktail_id = l.cocktail_id " +
-                "WHERE l.like_deleted = false AND l.user_id =:userId " +
+                "WHERE l.like_deleted = false AND l.user_id =:userId  AND cocktails.cocktail_color2!='' " +
             ") AS ColorTable " +
             "GROUP BY ColorName " +
             "ORDER BY ColorCount DESC " +
@@ -85,23 +85,23 @@ public interface MyAnalysisRepository  extends CrudRepository<Cocktail, Long> {
             ,nativeQuery = true)
     ArrayList<MyAnalysisRatingBaseInterface> getMyAnalysisRatingBaseList(@Param("userId") Long user_id);
 
-@Query(value="SELECT ColorTable.RatingScore, " +
-        "ColorTable.ColorName, " +
-        "COUNT(ColorTable.ColorName) AS ColorCount " +
-        "FROM (" +
+    @Query(value="SELECT ColorTable.RatingScore, " +
+            "ColorTable.ColorName, " +
+            "COUNT(ColorTable.ColorName) AS ColorCount " +
+            "FROM (" +
             "SELECT cocktails.cocktail_color1 AS ColorName, " +
             "comments.comment_rating AS RatingScore " +
             "FROM cocktails " +
             "INNER JOIN comments ON cocktails.cocktail_id = comments.cocktail_id " +
-            "WHERE comments.comment_deleted = false AND comments.user_id=:userId " +
+            "WHERE comments.comment_deleted = false AND comments.user_id=:userId AND  cocktails.cocktail_color1!='' " +
             "UNION ALL " +
             "SELECT cocktails.cocktail_color2 AS ColorName, comments.comment_rating AS RatingScore " +
             "FROM cocktails " +
             "INNER JOIN comments ON cocktails.cocktail_id = comments.cocktail_id " +
-            "WHERE comments.comment_deleted = false AND comments.user_id=:userId " +
-        ") AS ColorTable " +
-        "GROUP BY ColorTable.ColorName, ColorTable.RatingScore " +
-        "ORDER BY ColorTable.RatingScore DESC", nativeQuery = true)
+            "WHERE comments.comment_deleted = false AND comments.user_id=:userId AND  cocktails.cocktail_color2!='' " +
+            ") AS ColorTable " +
+            "GROUP BY ColorTable.ColorName, ColorTable.RatingScore " +
+            "ORDER BY ColorTable.RatingScore DESC", nativeQuery = true)
     ArrayList<MyAnalysisRatingColorInterface> getMyAnalysisRatingColorList(@Param("userId") Long user_id);
 
     @Query(value="SELECT m.comment_rating As RatingScore, " +
