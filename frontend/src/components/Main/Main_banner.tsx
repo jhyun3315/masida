@@ -26,8 +26,8 @@ const Main_banner = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 100,
-    autoplay: true,
+    // speed: 100,
+    // autoplay: true,
     autoplaySpeed: 3000,
   };
   const router = useRouter();
@@ -68,6 +68,12 @@ const Main_banner = () => {
       router.push("/theme/summer");
     } 
   };
+
+  const handleMouseUpCocktailWorld = (e: React.MouseEvent<HTMLElement>) => { 
+     if(startPosition.y - 2 < e.clientY && startPosition.y + 2 >  e.clientY) {
+      router.push("/theme/");
+    }
+  }
 
   //마이페이지로 가는 함수입니다.
   const gotoMyPage = () => {
@@ -111,17 +117,6 @@ const Main_banner = () => {
       setUserName(userInfo2.user_name);
     }
   },[userInfo2])
-
-
-  const getAccessToken = useSelector(
-    (state: RootState) => state.user.accessToken
-  );
-
-  const getUserInfo = useSelector(
-    (state: RootState) => state.user.userInfo
-  )
-
-  console.log("응애 나 유저 인포", getUserInfo);
 
   const onLogoutHandler = () => {
     const logoutt: any = axios
@@ -213,9 +208,6 @@ const Main_banner = () => {
               </h1>
               <h3>칵테일 입문자를 위한 다양한 칵테일을 추천해드립니다.</h3>
             </div>
-            <div className={style.mainTitle2_right}>
-              <h5>더보기</h5>
-            </div>
           </div>
         </div>
         <div className={style.mainBanner_white}>
@@ -256,9 +248,6 @@ const Main_banner = () => {
                 <br /> 궁금하지 않으신가요?
               </h1>
               <h3>봄에 어울리는 칵테일을 추천해드립니다.</h3>
-              <div className={style.mainTitle3_right}>
-                <h5>더보기</h5>
-              </div>
             </div>
           </div>
         </div>
@@ -298,8 +287,43 @@ const Main_banner = () => {
               <h1>여름 햇살 아래 즐기는 칵테일, 궁금하신가요?</h1>
               <h3>여름에 어울리는 다양한 칵테일을 추천해드립니다.</h3>
             </div>
-            <div className={style.mainTitle4_right}>
-              <h5>더보기</h5>
+          </div>
+        </div>
+        <div className={style.mainBanner_black}>
+          <Image
+            loader={({ src, width, quality }: ImageLoaderProps) =>
+              imgLoader({ src, width, quality })
+            }
+            src="/assets/image/banner_etc_1.png"
+            alt="image"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUpSummer}
+          />
+          <div className={style.mainHeader}>
+            {tokenValue ? (
+              <>
+              <div className={style.logout} onClick={onLogoutHandler}>로그아웃</div>
+              {checkToken ? <div className={style.logout} onClick={gotoMyPage}>
+                {userName}님
+              </div> : <></>}
+              
+              </>
+            ) : (
+              <Link href="https://j8b208.p.ssafy.io/api/oauth/kakao/login">
+                로그인
+              </Link>
+            )}
+            <Link href="/search">칵테일 검색</Link>
+            <Link href="/cocktail-worldcup">칵테일 월드컵</Link>
+          </div>
+          <div className={style.mainTitle2} onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUpSummer}>
+            <div>
+              <h1>Let's go to Cocktail World!</h1>
+              <h3>칵테일에 대한 정보 및 재미있는 사실을 알려드립니다.</h3>
             </div>
           </div>
         </div>
