@@ -24,28 +24,30 @@ public class MyAnalysisController {
     private final MyAnalysisUserService myAnalysisUserService;
     private final OAuthService oAuthService;
     private final CollaborativeRecommendService collaborativeRecommend;
+    private static final String success = "Success";
+    private static final String authorization = "authorization";
 
     @GetMapping("/recommend/color")
     public ResponseEntity<RecommendCocktailRes> analysisRecommendByColor(@RequestHeader("Authorization") String accessToken) {
         ArrayList<RecommendCocktail> recommends = myAnalysisUserService.getRecommendByColor(accessToken);
 
-        return ResponseEntity.status(200).body(RecommendCocktailRes.of(200, "Success", recommends));
+        return ResponseEntity.status(200).body(RecommendCocktailRes.of(200, success, recommends));
     }
 
     @GetMapping("/recommend/age-gender")
     public ResponseEntity<RecommendCocktailRes> analysisRecommendByAgeAndGender(@RequestHeader("Authorization") String accessToken) {
         ArrayList<RecommendCocktail> recommends = myAnalysisUserService.getRecommendByAgeAndGender(accessToken);
 
-        return ResponseEntity.status(200).body(RecommendCocktailRes.of(200, "Success", recommends));
+        return ResponseEntity.status(200).body(RecommendCocktailRes.of(200, success, recommends));
     }
 
     @GetMapping("/cocktail-base")
     public ResponseEntity<MyAnalysisBaseRes> analysisByUserBase(@RequestHeader Map<String, String> data ) {
-        String accessToken = data.get("authorization");
+        String accessToken = data.get(authorization);
 
         if(accessToken !=null){
             ArrayList<MyAnalysisBase> myAnalysisBaseList = myAnalysisUserService.getAnalysisByBase(data.get("authorization"));
-            return ResponseEntity.status(200).body(MyAnalysisBaseRes.of(200, "Success", myAnalysisBaseList));
+            return ResponseEntity.status(200).body(MyAnalysisBaseRes.of(200, success, myAnalysisBaseList));
         }else{
             return ResponseEntity.status(400).body(MyAnalysisBaseRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
         }
@@ -53,11 +55,11 @@ public class MyAnalysisController {
 
     @GetMapping("/cocktail-color")
     public ResponseEntity<MyAnalysisColorRes> analysisByUserColor(@RequestHeader Map<String, String> data ) {
-        String accessToken = data.get("authorization");
+        String accessToken = data.get(authorization);
 
         if(accessToken !=null){
             ArrayList<MyAnalysisColor> myAnalysisColorList = myAnalysisUserService.getAnalysisByColor(data.get("authorization"));
-            return ResponseEntity.status(200).body(MyAnalysisColorRes.of(200, "Success", myAnalysisColorList));
+            return ResponseEntity.status(200).body(MyAnalysisColorRes.of(200, success, myAnalysisColorList));
         }else{
             return ResponseEntity.status(400).body(MyAnalysisColorRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
         }
@@ -65,11 +67,11 @@ public class MyAnalysisController {
 
     @GetMapping("/cocktail-ingredient")
     public ResponseEntity<MyAnalysisIngredientRes> analysisByUserIngredient(@RequestHeader Map<String, String> data) {
-        String accessToken = data.get("authorization");
+        String accessToken = data.get(authorization);
 
         if(accessToken !=null){
             ArrayList<MyAnalysisIngredient> myAnalysisIngredientsList = myAnalysisUserService.getAnalysisByIngredient(data.get("authorization"));
-            return ResponseEntity.status(200).body(MyAnalysisIngredientRes.of(200, "Success", myAnalysisIngredientsList));
+            return ResponseEntity.status(200).body(MyAnalysisIngredientRes.of(200, success, myAnalysisIngredientsList));
         }else{
             return ResponseEntity.status(400).body(MyAnalysisIngredientRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
         }
@@ -77,11 +79,11 @@ public class MyAnalysisController {
 
     @GetMapping("/cocktail-age-gender")
     public ResponseEntity<MyAnalysisOthersRes> MyAnalysisByUserIngredient(@RequestHeader Map<String, String> data) {
-        String accessToken = data.get("authorization");
+        String accessToken = data.get(authorization);
 
         if(accessToken !=null){
             ArrayList<MyAnalysisOthers> myAnalysisOthersList = myAnalysisUserService.getAnalysisByOthers(data.get("authorization"));
-            return ResponseEntity.status(200).body(MyAnalysisOthersRes.of(200, "Success", myAnalysisOthersList));
+            return ResponseEntity.status(200).body(MyAnalysisOthersRes.of(200, success, myAnalysisOthersList));
         }else{
             return ResponseEntity.status(400).body(MyAnalysisOthersRes.of(400, "존재하지 않는 사용자입니다.", new ArrayList<>()));
         }
@@ -89,11 +91,11 @@ public class MyAnalysisController {
 
     @GetMapping("/base-rating")
     public ResponseEntity<MyAnalysisRatingBaseRes> MyAnalysisByRatingBase(@RequestHeader Map<String, String> data) {
-        String accessToken = data.get("authorization");
+        String accessToken = data.get(authorization);
 
         if(accessToken !=null){
             RatingBase ratingBase = myAnalysisUserService.getAnalysisByRatingBase(data.get("authorization"));
-            return ResponseEntity.status(200).body(MyAnalysisRatingBaseRes.of(200, "Success",
+            return ResponseEntity.status(200).body(MyAnalysisRatingBaseRes.of(200, success,
                     ratingBase.getRating_average(),
                     ratingBase.getRating_count(),
                     ratingBase.getRating_max(),
@@ -107,11 +109,11 @@ public class MyAnalysisController {
 
     @GetMapping("/color-rating")
     public ResponseEntity<MyAnalysisRatingColorRes> MyAnalysisByRatingColor(@RequestHeader Map<String, String> data) {
-        String accessToken = data.get("authorization");
+        String accessToken = data.get(authorization);
 
         if(accessToken !=null){
             RatingColor ratingColor = myAnalysisUserService.getAnalysisByRatingColor(data.get("authorization"));
-            return ResponseEntity.status(200).body(MyAnalysisRatingColorRes.of(200, "Success",
+            return ResponseEntity.status(200).body(MyAnalysisRatingColorRes.of(200, success,
                     ratingColor.getRating_average(),
                     ratingColor.getRating_count(),
                     ratingColor.getRating_max(),
@@ -126,7 +128,7 @@ public class MyAnalysisController {
 
     @GetMapping("/ingredient-rating")
     public ResponseEntity<MyAnalysisRatingIngredientRes> MyAnalysisByRatingIngredient(@RequestHeader Map<String, String> data) {
-        String accessToken = data.get("authorization");
+        String accessToken = data.get(authorization);
 
         if(accessToken !=null){
             RatingIngredient ratingIngredient = myAnalysisUserService.getAnalysisByRatingIngredient(data.get("authorization"));
@@ -144,7 +146,7 @@ public class MyAnalysisController {
 
     @GetMapping("/recommend/ingredient")
     public ResponseEntity<RecommendCocktailRes> getRecommendByIngredient(@RequestHeader Map<String, String> data) {
-        String accessToken = data.get("authorization");
+        String accessToken = data.get(authorization);
 
         if(accessToken == null) { // 토큰이 없는 경우,
             return null;
