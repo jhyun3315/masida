@@ -104,7 +104,7 @@
           width: 80px;
           border-radius: 15px;
           color: white;
-          background-color: #5F0080;
+          background-color: #5f0080;
           display: flex;
           text-align: center;
           justify-content: center;
@@ -197,7 +197,7 @@
         color: #6d8843;
       }
       .detail_cocktail_recipe_message {
-        height: 15vh;
+        height: 10vh;
         padding-left: 1%;
         font-family: "Inter";
         font-style: normal;
@@ -208,18 +208,17 @@
         overflow-x: hidden;
       }
       .detail_cocktail_recipe_message::-webkit-scrollbar {
-        width: 8px;  /* 스크롤바의 너비 */
+        width: 8px; /* 스크롤바의 너비 */
       }
-      
+
       .detail_cocktail_recipe_message::-webkit-scrollbar-thumb {
         height: 30%; /* 스크롤바의 길이 */
-        background: #253976;/* 스크롤바의 색상 */
-        
+        background: #253976; /* 스크롤바의 색상 */
         border-radius: 10px;
       }
-      
+
       .detail_cocktail_recipe_message::-webkit-scrollbar-track {
-        background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+        background: rgba(33, 122, 244, 0.1); /*스크롤바 뒷 배경 색상*/
       }
     }
     // 소개 영역
@@ -227,51 +226,48 @@
       .detail_cocktail_recipe_content_title {
         width: fit-content;
         height: 40px;
-
         font-family: "Roboto";
         font-weight: 600;
         font-size: 24px;
         line-height: 40px;
         display: flex;
         align-items: center;
-
         color: #6d8843;
       }
       .detail_cocktail_recipe_content_message {
+        // border: 1px solid #253976;
         padding-left: 1%;
-        // padding-top: 1%;
-        height: 15vh;
+        padding-top: 1%;
+        height: 27vh;
         font-family: "Roboto";
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
         line-height: 20px;
         display: flex;
-        align-items: center;
         overflow: scroll;
         overflow-x: hidden;
       }
       .detail_cocktail_recipe_content_message::-webkit-scrollbar {
-        width: 8px;  /* 스크롤바의 너비 */
+        width: 8px; /* 스크롤바의 너비 */
       }
-      
+
       .detail_cocktail_recipe_content_message::-webkit-scrollbar-thumb {
         height: 30%; /* 스크롤바의 길이 */
-        background: #253976;/* 스크롤바의 색상 */
-        
+        background: #253976; /* 스크롤바의 색상 */
         border-radius: 10px;
       }
-      
+
       .detail_cocktail_recipe_content_message::-webkit-scrollbar-track {
-        background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+        background: rgba(33, 122, 244, 0.1); /*스크롤바 뒷 배경 색상*/
       }
     }
   }
 }
 
 .spinner_location {
-  position: fixed;  /* 화면 스크롤에 영향을 받지 않는 고정 위치 */
-  top: 50%;         /* 상단에서 50% 위치 */
-  left : 30%;        /* 왼쪽 끝에 위치 */
+  position: fixed; /* 화면 스크롤에 영향을 받지 않는 고정 위치 */
+  top: 50%; /* 상단에서 50% 위치 */
+  left: 30%; /* 왼쪽 끝에 위치 */
   transform: translateY(-50%); /* 상단에서 50% 위치에서 위로 이동 */
 }
