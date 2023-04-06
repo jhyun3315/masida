@@ -44,6 +44,7 @@ const Sidebar2: React.FunctionComponent<propsType> = ({
 
   const searchCocktail = (e: React.MouseEvent<HTMLElement>) => {
     setClickSearchBtn(!clickSearchBtn);
+    e.preventDefault()
   };
 
   return (

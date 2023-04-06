@@ -139,7 +139,7 @@ const My_bookmark_card: React.FunctionComponent<myBookMarkProps> = ({
 
         <img
           className={style.result_card_bookmark_icon}
-          src="/assets/icons/BookmarkCheckedIMG.png"
+          src="/assets/icons/BookmarkCheckedIMG_y.png"
           alt=""
           onClick={() => bookmarkHandler(cocktail.cocktail_id)}
         />
@@ -234,16 +234,16 @@ const My_Analysis_card: React.FC<cocktail_recommend> = (
 const My_comment_card: React.FC<mypageCommentType> = (
   cocktail: mypageCommentType
 ) => {
-  let ratingImg = "";
+  let difficultyImg = "";
   switch (cocktail.cocktail_difficulty_user) {
     case "상":
-      ratingImg = "/assets/icons/difficulty_HIGH_MINI.png";
+      difficultyImg = "/assets/icons/difficulty_HIGH_MINI.png";
       break;
     case "중":
-      ratingImg = "/assets/icons/difficulty_MID_MINI.png";
+      difficultyImg = "/assets/icons/difficulty_MID_MINI.png";
       break;
     default:
-      ratingImg = "/assets/icons/difficulty_LOW_MINI.png";
+      difficultyImg = "/assets/icons/difficulty_LOW_MINI.png";
       break;
   }
   return (
@@ -262,12 +262,14 @@ const My_comment_card: React.FC<mypageCommentType> = (
           <div className={style.commentCard_cocktail_info}>
             <div className={style.commentCard_cocktail_title}>
               {cocktail.cocktail_name_ko}
+              <div className={style.commentCard_cocktail_detail_info}>
+                <img src="/assets/icons/ratingICON.png"></img>
+                <div className={style.commentCard_cocktail_rating}>
+                  {cocktail.comment_rating}
+                </div>
+                <img src={difficultyImg} alt="image"></img>
+              </div>
             </div>
-            <img src="/assets/icons/ratingICON.png"></img>
-            <div className={style.commentCard_cocktail_rating}>
-              {cocktail.comment_rating}
-            </div>
-            <img src={ratingImg} alt="image"></img>
           </div>
         </div>
         <div className={style.commentCard_comment}>
@@ -318,12 +320,6 @@ const World_cup_league_card: React.FC<cocktail_worldcup_data> = (
               src="/assets/icons/ingredient_legendIMG.png"
               alt=""
             />
-            {/* {cocktail ?
-              cocktail.ingredient.map((key) => (
-                <div className={style.ingredient_list_element}>
-                  {key.ingredient_name}. {key.ingredient_amount}
-                </div>
-              )) : ""} */}
           </div>
           <div className={style.recipe_content_textarea}>
             {/* 소개 or 레시피 */}
@@ -375,12 +371,6 @@ const World_cup_winner_card: React.FC<cocktail_worldcup_data> = (
               src="/assets/icons/ingredient_legendIMG.png"
               alt=""
             />
-            {/* {cocktail ?
-              cocktail.ingredient.map((key) => (
-                <div className={style.ingredient_list_element}>
-                  {key.ingredient_name}. {key.ingredient_amount}
-                </div>
-              )) : ""} */}
           </div>
           <div className={style.recipe_content_textarea}>
             {/* 소개 or 레시피 */}
@@ -392,20 +382,6 @@ const World_cup_winner_card: React.FC<cocktail_worldcup_data> = (
     </div>
   );
 };
-
-// const AnalysisCardComponent: React.FC<AnalysisProps> = ({
-//   analysisCard,
-// }: AnalysisProps) => {
-//   return (
-//     <>
-//       <div className={styles.analysisCard}>
-//         <div className={styles.cocktailImg}></div>
-//         <div className={styles.cocktailName}>{analysisCard.name}</div>
-//       </div>
-//     </>
-//   );
-// };
-
 
 export {
   Detail_recommend_card,
