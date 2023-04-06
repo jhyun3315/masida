@@ -62,7 +62,7 @@
 
 ## 2-2. 서비스 아키텍처
   
-![PT_35](./images/README/PT_35.png)
+![Architecture](./images/masida_architecture.png)
   
 ------------------------------------------------------
   
