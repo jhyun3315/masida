@@ -65,7 +65,6 @@ const detail = () => {
   }
   //새로고침할때 이 useEffect보다 아래 return이 먼저 실행이 되어서 그런거같음.
   useEffect(() => {
-    console.log("나 동작해?");
     
     if (!parseInt(router?.query.id as string)) {
       console.log(store.getState().page.currentPage);
@@ -76,6 +75,8 @@ const detail = () => {
         setCocktail_id(store.getState().page.currentPage);
         store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
         console.log("내가 동작하는 건가?");
+        console.log(router?.query.id as string);
+        router.reload();
       }else {
         store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
         console.log("set cocktail id : ", cocktail_id);
