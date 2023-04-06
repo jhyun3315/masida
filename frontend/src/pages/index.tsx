@@ -1,14 +1,18 @@
 import axios from "axios";
 import { NextPageContext } from "next";
-
+import { useState, useEffect } from "react";
 import Main_banner from "../components/Main/Main_banner";
 import Main_cocktail from "../components/Main/Main_cocktail";
 import Main_search from "../components/Main/Main_search";
 import Main_manual from "../components/Main/Main_manual";
 import Footer from "../components/Footer/Footer";
+import Loading_spinner from "../components/UI/Loading_spinner";
 
 import { randomType, likeType } from "../type/cocktailTypes";
+import { useDispatch } from "react-redux";
+import { logout } from "../../store/modules/user";
 
+import { store } from "../../store/store";
 export interface landing_props {
   random: randomType;
   likeList: likeType[];
@@ -16,6 +20,8 @@ export interface landing_props {
 import ResetCategory from "../components/UI/ResetCategory";
 
 const landing = ({ random, likeList }: landing_props) => {
+  const dispatch = useDispatch();
+  const [isLoading, setIstLoading] = useState(false);
   ResetCategory();
   const cocktail_props: landing_props = {
     random: random,
@@ -58,15 +64,11 @@ landing.getInitialProps = async (ctx: NextPageContext) => {
     const random: randomType = response_random.data.data;
     const likeList: likeType[] = response_likeList.data.data;
 
-    console.log("성공");
-    console.log(random);
-
     return {
       random,
       likeList,
     };
   } catch (err) {
-    console.log("random, like list를 불러오지 못함");
     return {
       random: null,
       likeList: null,

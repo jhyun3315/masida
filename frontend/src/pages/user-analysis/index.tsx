@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+import { useRouter } from "next/router";
 import { useEffect, useState, useRef } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
@@ -7,6 +9,8 @@ import CocktailPreference from "../../components/UserAnalysis/CocktailPreference
 import ColorPreference from "../../components/UserAnalysis/ColorPreference";
 import IngredientPreference from "../../components/UserAnalysis/IngredientPreference";
 import UserPreference from "../../components/UserAnalysis/UserPreference";
+import Loading_spinner from "../../components/UI/Loading_spinner";
+
 import style from "./index.module.scss";
 import {
   cocktailAgeGender,
@@ -33,8 +37,6 @@ import {
   user_cocktail_age_gender_recommend,
   user_starRating_cocktailIngredient,
 } from "../api/user-analysis/user-analysis_api";
-import Swal from "sweetalert2";
-import { useRouter } from "next/router";
 
 export type cocktail_props_analysis = {
   isLoading_props1: boolean;
@@ -76,7 +78,6 @@ const userAnalisys = () => {
   const [isLoading5, setIsLoading5] = useState(false);
   const [isLoading6, setIsLoading6] = useState(false);
   const [isLoading7, setIsLoading7] = useState(false);
-  const [isProblem, SetIsProblem] = useState(false);
 
   const [cocktailList_props, setCocktailList_props] = useState<cocktailBase[]>(
     []
@@ -176,7 +177,6 @@ const userAnalisys = () => {
     cocktailRating: cocktailStarRating_color_props,
     cocktailRecordList: cocktailRecommendList_color_props,
   };
-
   const cocktail_ingredient_props: cocktail_props_analysis_ingredient = {
     isLoading_props5: isLoading5,
     isLoading_props6: isLoading6,
@@ -184,11 +184,20 @@ const userAnalisys = () => {
     cocktailRating: cocktailStarRating_ingredient_props,
     cocktailRecordList: cocktailRecommendList_ingredient_props,
   };
-
   const cocktail_age_gender_props: cocktail_props_analysis_age_gender = {
     isLoading_props7: isLoading7,
     cocktailList: cocktailList_age_gender_props,
     cocktailRecordList: cocktailRecommendList_age_gender_props,
+  };
+
+  const handleExport = () => {
+    const input = componentRef.current;
+    html2canvas(input, { allowTaint: true, useCORS: true }).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
+      pdf.save("MASIDA 취향 분석 보고서.pdf");
+    });
   };
 
   if (
@@ -206,20 +215,6 @@ const userAnalisys = () => {
       cocktailList_ingredient_props.length === 5 &&
       cocktailList_age_gender_props.length === 5
     ) {
-      const handleExport = () => {
-        const input = componentRef.current;
-        
-        console.log(input);
-        html2canvas(input, { allowTaint: true, useCORS: true }).then(
-          (canvas) => {
-            const imgData = canvas.toDataURL("image/png");
-            const pdf = new jsPDF();
-            pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
-            pdf.save("MASIDA-Cocktail-Preferences.pdf");
-          }
-        );
-      };
-
       return (
         <div ref={componentRef}>
           <Header />
@@ -242,9 +237,9 @@ const userAnalisys = () => {
     } else {
       Swal.fire({
         icon: "error",
-        title: "분석을 할 수 없습니다.",
+        title: "정확한 분석을 할 수 없습니다.",
         confirmButtonText: "마이페이지로 돌아가기",
-        text: "분석을 위한 충분한 데이터가 존재하지 않습니다. 칵테일에 좋아요를 눌러주세요",
+        text: "분석을 위한 충분한 데이터가 존재하지 않습니다. 좋아하는 칵테일에 좋아요를 눌러주세요",
         footer: '<a href="/search">여기를 눌러서 칵테일 둘러볼까요?</a>',
       }).then((result) => {
         if (result.isConfirmed) {
@@ -252,6 +247,8 @@ const userAnalisys = () => {
         }
       });
     }
+  } else {
+    return <Loading_spinner></Loading_spinner>;
   }
 };
 

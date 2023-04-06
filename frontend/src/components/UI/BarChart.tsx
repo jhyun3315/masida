@@ -17,8 +17,8 @@ const Barchart = (props: cocktailBaseRating[]) => {
 
   for (let i = 0; i < 5; i++){
     data.push({
-      rating: props[i].rating_score, whisky: props[i].whisky, tequila: props[i].tequila, vodka: props[i].vodka, mezcal: props[i].mezcal, spirits: props[i].spirits,
-      rum:props[i].rum, liqueur:props[i].liqueur, brandy:props[i].brandy, jin:props[i].jin, beer:props[i].beer, wine:props[i].wine
+      rating: props[i].rating_score, Whisky: props[i].Whisky, Tequila: props[i].Tequila, Vodka: props[i].Vodka, Mezcal: props[i].Mezcal, Spirits: props[i].Spirits,
+      Rum:props[i].Rum, Liqueur:props[i].Liqueur, Brandy:props[i].Brandy, Gin:props[i].Gin, Beer:props[i].Beer, Wine:props[i].Wine
     });
   }
   
@@ -33,7 +33,7 @@ const Barchart = (props: cocktailBaseRating[]) => {
                 /**
                  * chart에 보여질 데이터 key (측정되는 값)
                  */
-                keys={["whisky","tequila","vodka","mezcal","spirits","rum","liqueur","brandy","jin","beer","wine"]}
+                keys={["Whisky","Tequila","Vodka","Mezcal","Spirits","Rum","Liqueur","Brandy","Gin","Beer","Wine"]}
                 /**
                  * keys들을 그룹화하는 index key (분류하는 값)
                  */

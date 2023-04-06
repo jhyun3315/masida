@@ -1,11 +1,7 @@
-import { useRef } from "react";
-import { useState } from "react";
+import { useRef, useState, Dispatch, SetStateAction } from "react";
 import { userType } from "../../type/userTypes";
-import { Dispatch, SetStateAction } from "react";
 import style from "./UserSettingModal.module.scss";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store/store";
 import { useDispatch } from "react-redux";
 import { logout } from "../../../store/modules/user";
 import { useRouter } from "next/router";
@@ -30,7 +26,7 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
   const [age, setAge] = useState<string>("");
   //회원탈퇴가 들어갈 axios 입니다. (회원탈퇴하고 메인페이지로 보내주어야하고 ATK 초기화.)
   const deleteAccount = () => {
-    const withdrawal = axios
+    axios
       .delete("https://j8b208.p.ssafy.io/api/oauth/kakao/delete", {
         headers: {
           Authorization: accessToken,
@@ -49,28 +45,6 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
       });
   };
 
-
-//   const putAccount = () => {
-//   const put = axios
-//     .put("https://j8b208.p.ssafy.io/api/oauth/users", {
-//       user_gender: gender,
-//       user_age_range: age,
-//     }, {
-//       headers: {
-//         Authorization: accessToken,
-//       },
-//     })
-//     .then(function (put) {
-//       //제대로 동작하면
-//       console.log(put);
-//       router.push("/"); //랜딩페이지로 이동.
-//     })
-//     .catch((err) => {
-//       console.log(accessToken);
-//       console.log(err);
-//     });
-// };
-
   const changeAge = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
     setAge(target.value);
@@ -81,23 +55,27 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
     setGender(target.value);
   };
 
-    const putAccount = () => {
-      console.log("Gender : ", gender);
-      console.log("Age : ", age);
+  const putAccount = () => {
+    console.log("Gender : ", gender);
+    console.log("Age : ", age);
 
     axios
-      .put("https://j8b208.p.ssafy.io/api/oauth/users", {
-          user_gender: "male",
-          user_age_range: "30",
-        }, {
-        headers: {
-          Authorization: accessToken,
+      .put(
+        "https://j8b208.p.ssafy.io/api/oauth/users",
+        {
+          user_gender: gender,
+          user_age_range: age,
         },
-      })
+        {
+          headers: {
+            Authorization: accessToken,
+          },
+        }
+      )
       .then(function (put) {
         //제대로 동작하면
         console.log(put);
-        router.push("/"); //랜딩페이지로 이동.
+        router.push("/mypage"); //랜딩페이지로 이동.
       })
       .catch((err) => {
         console.log(accessToken);
@@ -124,7 +102,7 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
       <h2>개인 정보 수정</h2>
       <div className={style.userSettingModal_content}>
         <div className={style.userSettingModal_leftImg}>
-          <img src={ user_info.user_profile}></img>
+          <img src={user_info.user_profile}></img>
         </div>
         <div className={style.userSettingModal_rightDesc}>
           <div>
@@ -138,7 +116,7 @@ const UserSettingModal: React.FunctionComponent<propsType> = ({
             <input
               defaultValue={user_info.user_age_range}
               onChange={changeAge}
-              ref={ userInfoRef}
+              ref={userInfoRef}
             />
             대
           </div>

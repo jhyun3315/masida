@@ -22,6 +22,7 @@ const mypage = () => {
   const [analysisThumbnail_props, setAnalysisThumbnail_props] =
     useState<cocktail_summary[]>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [enoughData, setEnoughData] = useState(true);
   useEffect(() => {
     get_user_info().then((response) => {
       setUserInfo(response.value);
@@ -43,6 +44,11 @@ const mypage = () => {
         });
         setAnalysisThumbnail_props(parsedArr);
         setIsLoading(true);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(true);
+        setEnoughData(false)
       });
   }, []);
 
@@ -53,7 +59,7 @@ const mypage = () => {
         <div className={style.mypage}>
           <div className={style.mypage_left}>
             <User_info userInfo={userInfo} bookmarkModify={bookmarkModify} />
-            <Analysis_thumbnail {...analysisThumbnail_props} />
+            {enoughData ? <Analysis_thumbnail {...analysisThumbnail_props}/>  : " "}
           </div>
           <div className={style.mypage_right}>
             <User_cocktail_list

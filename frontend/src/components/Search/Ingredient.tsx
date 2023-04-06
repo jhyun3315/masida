@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction, useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { searchIngredientType } from "../../type/ingredientTypes";
-import { RootState } from "../../../store/store";
 import { changeSelectIngredient } from "../../../store/category/ingredientSlice";
 import style from "./Ingredient.module.scss";
 import { search_props } from "../../pages/search";
@@ -15,9 +14,6 @@ interface propsType {
 
 const Ingredient : React.FunctionComponent<propsType> = ({props, addNumIngredient, setAddNumIngredient}) => {
   const dispatch = useDispatch();
-  // const selectIngredient = useSelector(
-  //   (state: RootState) => state.ingredientSelect
-  // );
   const selectIngredient = props;
   let [inputvalue, setInputValue] = useState<string>("");
   let [addedIngredient, setAddedIngredient] = useState<searchIngredientType[]>(

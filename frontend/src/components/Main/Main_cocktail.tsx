@@ -11,10 +11,9 @@ import { imgLoader } from "../../utils/imgLoader";
 const Main_cocktail = (props: landing_props) => {
   const cocktailInfo = props.random;
   const cocktailList = props.likeList;
-  // console.log("info " , props)
   const settings = {
     // dots: true,
-    slidesToShow: 1,
+    slidesToShow: 3,
     infinite: true,
     speed: 100,
     autoplay: true,
@@ -22,9 +21,6 @@ const Main_cocktail = (props: landing_props) => {
   };
 
   if (cocktailInfo && cocktailList) {
-    // console.log("+++++++++++++++++++++++")
-    // console.log(cocktailList.length)
-
     return (
       <>
         <div className={style.mainCocktail}>
@@ -127,7 +123,7 @@ const Main_cocktail = (props: landing_props) => {
       </>
     );
   } else {
-    return <>123</>;
+    return <>Loading</>;
   }
 };
 

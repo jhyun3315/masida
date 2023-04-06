@@ -1,0 +1,67 @@
+.cocktailWorld {
+  margin: 3.75%;
+  margin-bottom: 10%;
+
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 3%;
+  }
+
+  .cocktailWorld_lower {
+    display: flex;
+    justify-content: space-between;
+
+
+    .cocktailWord_content {
+      width: 27%;
+
+      .flip {
+        margin: 0 auto;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        perspective: 3000px;
+
+        .world_cup_card {
+          // display: flex;
+          transition: all ease 0.55s;
+          transform-style: preserve-3d;
+
+          .world_cup_card_front {
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 5px;
+            border: 1px solid rgb(163, 163, 163);
+            // padding-top: 2%;
+            width: 100%;
+            height: 35vh;
+
+            .world_cup_cocktailImg {
+              border-radius: 5px;
+              width: 100%;
+              height: 35vh;
+            }
+          }
+
+          .world_cup_card_back {
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+            border: 1px solid rgba(0, 0, 255, 0.27);
+            border-radius: 5px;
+            padding-top: 2%;
+            padding: 0 2%;
+            margin-top: 5%;
+            width: 100%;
+            height: 35vh;
+          }
+
+          .world_cup_title {}
+        }
+      }
+
+      .flip:hover .world_cup_card {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+}

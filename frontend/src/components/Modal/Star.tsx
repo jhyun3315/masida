@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { Dispatch, SetStateAction } from "react";
+import { useEffect, useState, Dispatch, SetStateAction } from "react";
 
 import style from "./Star.module.scss";
 
@@ -75,10 +74,6 @@ const Star: React.FunctionComponent<propsType> = ({
           ★
         </span>
       );
-    } else {
-      const style = {
-        color: "transparent",
-      };
     }
 
     for (let i = 0; i < count - filledCount - 1; i++) {

@@ -1,9 +1,3 @@
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
-
 import { ResponsiveRadialBar } from '@nivo/radial-bar'
 import { cocktail_summary } from '../../type/cocktailTypes';
 
@@ -21,7 +15,7 @@ const RaidarBar = (props: cocktail_summary[]) => {
         valueFormat=">-.2f"
         padding={0.4}
         cornerRadius={2}
-        margin={{ top: 20, right: 100, bottom: 20, left: 40 }}
+        margin={{ top: 20, right: 130, bottom: 20, left: 40 }}
         radialAxisStart={{ tickSize: 5, tickPadding: 5, tickRotation: 0 }}
         circularAxisOuter={{ tickSize: 5, tickPadding: 12, tickRotation: 0 }}
         colors={['#E8C1A0','#F4E77E','#F79D8E']} 

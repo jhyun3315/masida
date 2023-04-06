@@ -5,16 +5,14 @@ import { World_cup_league_card } from "../UI/Card_ui";
 // 최종 결과를 보여줄 컴포넌트
 import World_cup_league_result from "./World_cup_league_result";
 
-// https://velog.io/@pyo-sh/React-Project-%EC%9D%B4%EC%83%81%ED%98%95-%EC%9B%94%EB%93%9C%EC%BB%B5
-
 const World_cup_league = (props: cocktail_worldcup_data[]) => {
 
-  const items:any = [];
+  let items:cocktail_worldcup_data[] = [];
 
-  // const items:any = [];
   for (let i = 0; i < 16; i++){
     items.push(props[i]);
   }
+
 
 
   const [isFinal, setIsFinal] = useState(false);
@@ -33,7 +31,6 @@ const World_cup_league = (props: cocktail_worldcup_data[]) => {
   
   useEffect(() => {
     setIsLoading(true);
-    items.sort(() => Math.random() - 0.5);
     setDisplays([items[0], items[1]]);
     setCocktails(items);
   }, []);

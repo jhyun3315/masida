@@ -15,13 +15,13 @@ export const get_user_info = async () => {
   let url = "/api/oauth/users";
   let value: userType = null;
   await axios
-    .get(url, config)
-    .then((response) => {
-      value = response.data.data;
-    })
-    .catch((err) => {
-      console.log("Current User Info Error");
-    });
-
+  .get(url, config)
+  .then((response) => {
+    value = response.data.data;
+  })
+  .catch((err) => {
+    console.log("Current User Info Error");
+  });
+  
   return { value };
 };

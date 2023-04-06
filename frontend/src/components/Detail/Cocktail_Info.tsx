@@ -8,7 +8,11 @@ import { store } from "../../../store/store";
 import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty_img_url_converter";
 
 import { detail_props } from "../../type/cocktailTypes";
-
+import {
+  get_cocktails_detail,
+  post_cocktails_likes,
+  post_cocktails_bookmarks
+} from "../../pages/api/cocktails/cocktail_api";
 type CocktailInfoProps = {
   modifyCommentCnt: boolean;
 };
@@ -43,24 +47,16 @@ const Cocktail_info = ({ modifyCommentCnt }: CocktailInfoProps) => {
   useEffect(() => {
     const cocktail_num = parseInt(router.query.id as string);
 
-    axios
-      .get(`https://j8b208.p.ssafy.io/api/cocktails/${cocktail_num}`, {
-        headers: {
-          Authorization: atk,
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
-      .then((response) => {
-        // console.log(response.data.data)
-        const result = response.data.data;
-        setDetail(result);
-        setIsLiked(result.likes_checker);
-        setIsBookmarked(result.bookmark_checker);
-        setDifficultyImg(
-          difficulty_img_url_converter(result.cocktail_difficulty)
-        );
-      });
+    get_cocktails_detail(cocktail_num).then((response) => {
+      console.log(response);
+      const result = response.value;
+      setDetail(result);
+      setIsLiked(result.likes_checker);
+      setIsBookmarked(result.bookmark_checker);
+      setDifficultyImg(
+        difficulty_img_url_converter(result.cocktail_difficulty)
+      );
+    });
   }, [modifyCommentCnt, isLiked, isBookmarked]);
 
   useEffect(() => {
@@ -81,24 +77,10 @@ const Cocktail_info = ({ modifyCommentCnt }: CocktailInfoProps) => {
       checkLogin();
     } else {
       console.log("isLiked : ", isLiked);
-      axios
-        .post(
-          `/api/cocktails/likes`,
-          {
-            cocktail_id: detail.cocktail_id,
-          },
-          {
-            headers: {
-              Authorization: atk,
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-          setIsLiked(!isLiked);
-        });
+      post_cocktails_likes(detail.cocktail_id).then((response) => {
+        console.log(response);
+        setIsLiked(!isLiked);
+      });
     }
   };
 
@@ -106,20 +88,7 @@ const Cocktail_info = ({ modifyCommentCnt }: CocktailInfoProps) => {
     if (atk.length === 0) {
       checkLogin();
     } else {
-      axios
-        .post(
-          `https://j8b208.p.ssafy.io/api/cocktails/bookmarks`,
-          {
-            cocktail_id: detail.cocktail_id,
-          },
-          {
-            headers: {
-              Authorization: atk,
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        )
+      post_cocktails_bookmarks(detail.cocktail_id)
         .then((response) => {
           setIsBookmarked(!isBookmarked);
           console.log(response);
@@ -251,7 +220,7 @@ const Cocktail_info = ({ modifyCommentCnt }: CocktailInfoProps) => {
       <div className={style.spinner_location}>
         <Loading_spinner />
       </div>
-      )
+    );
   }
 };
 

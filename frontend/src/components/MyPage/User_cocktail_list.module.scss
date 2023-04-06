@@ -10,7 +10,6 @@
     .selectedTab {
       color: black;
       font-weight: bold;
-      color: #253976;
     }
     span:hover {
       cursor: pointer;
@@ -32,12 +31,10 @@
   .userCommentList_content {
     border: 1px solid #25397627;
     border-radius: 10px;
-    margin-top: 2%;
     padding: 1%;
     height: 85vh;
     overflow: scroll;
     overflow-x: hidden;
     margin-top: 7%;
-    padding: 1%;
   }
 }

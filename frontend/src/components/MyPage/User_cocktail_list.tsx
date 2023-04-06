@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import style from "./User_cocktail_list.module.scss";
-import Link from "next/link";
 import { My_bookmark_card, My_like_card, My_comment_card } from "../UI/Card_ui";
 import { cocktailType } from "../../type/cocktailTypes";
 import { mypageCommentType } from "../../type/commentTypes";
@@ -27,16 +26,13 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
   const [commentToggle, setCommentToggle] = useState<boolean>(false);
 
   const [bookmarkCurrentPage, setBookmarkCurrentPage] = useState<number>(0);
-  const [bookmarkNextPage, setBookmarkNextPage] = useState<number>(0);
   const [bookmarkIsEnd, setBookmarkIsEnd] = useState<boolean>(false);
 
   const [likeCurrentPage, setLikeCurrentPage] = useState<number>(0);
-  const [likeNextPage, setLikeNextPage] = useState<number>(0);
-  const [likeIsEnd, setLikeIsEnd] = useState<boolean>(false);
+  const [, setLikeIsEnd] = useState<boolean>(false);
 
   const [commentCurrentPage, setCommentCurrentPage] = useState<number>(0);
-  const [commentNextPage, setCommentNextPage] = useState<number>(0);
-  const [commentIsEnd, setCommentIsEnd] = useState<boolean>(false);
+  const [, setCommentIsEnd] = useState<boolean>(false);
 
   const atk = store.getState().user.accessToken;
 
@@ -52,7 +48,6 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
       )
       .then((response) => {
         const result = response.data;
-        console.log("bookmark");
         setBookmarksList(result.data);
         setBookmarkCurrentPage(result.next_page);
         setBookmarkIsEnd(result.is_end);
@@ -68,8 +63,6 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
       )
       .then((response) => {
         const result = response.data;
-        console.log(result.data);
-        console.log("like");
         setLikesList(result.data);
         setLikeCurrentPage(result.next_page);
         setLikeIsEnd(result.is_end);
@@ -86,7 +79,6 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
       )
       .then((response) => {
         const result = response.data;
-        console.log("comment");
         setCommentsList(result.data);
         setCommentCurrentPage(result.next_page);
         setCommentIsEnd(result.is_end);
@@ -95,7 +87,6 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
 
   useEffect(() => {
     // 북마크 변경하면 화면 다시 렌더링하려고 둔 부분
-    console.log("card bookmark clicked");
     axios
       .get(`https://j8b208.p.ssafy.io/api/mypage/bookmarks?page=0`, {
         headers: {
@@ -103,10 +94,7 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
         },
       })
       .then((response) => {
-        console.log("bookmark reload");
         setBookmarksList(response.data.data);
-        console.log(response.data.next_page);
-        console.log(response.data.is_end);
       });
   }, [bookmarkModify]);
 
@@ -157,7 +145,6 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
       200 > target.scrollHeight - (target.scrollTop + target.clientHeight) &&
       !bookmarkIsEnd
     ) {
-      console.log("bottom");
       axios
         .get(
           `https://j8b208.p.ssafy.io/api/mypage/bookmarks?page=${bookmarkCurrentPage}`,
@@ -169,7 +156,6 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
         )
         .then((response) => {
           const result = response.data;
-          console.log("bookmark");
           setBookmarksList([...bookmarksList, ...response.data.data]);
           setBookmarkCurrentPage(result.next_page);
           setBookmarkIsEnd(result.is_end);
@@ -184,7 +170,6 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
       200 > target.scrollHeight - (target.scrollTop + target.clientHeight) &&
       !bookmarkIsEnd
     ) {
-      console.log("bottom");
       axios
         .get(
           `https://j8b208.p.ssafy.io/api/mypage/likes?page=${likeCurrentPage}`,
@@ -196,8 +181,6 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
         )
         .then((response) => {
           const result = response.data;
-          console.log(result.data);
-          console.log("like");
           setLikesList([...likesList, ...response.data.data]);
           setLikeCurrentPage(result.next_page);
           setLikeIsEnd(result.is_end);
@@ -212,7 +195,6 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
       200 > target.scrollHeight - (target.scrollTop + target.clientHeight) &&
       !bookmarkIsEnd
     ) {
-      console.log("bottom");
       axios
         .get(
           `https://j8b208.p.ssafy.io/api/mypage/comment?page=${commentCurrentPage}`,
@@ -224,7 +206,6 @@ const User_cocktail_list: React.FC<MyComponentProps> = ({
         )
         .then((response) => {
           const result = response.data;
-          console.log("bookmark");
           setCommentsList([...commentsList, ...response.data.data]);
           setCommentCurrentPage(result.next_page);
           setCommentIsEnd(result.is_end);

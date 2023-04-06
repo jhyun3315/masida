@@ -4,9 +4,6 @@ import Slider from "react-slick";
 
 import Shop_item from "./Shop/Shop_item";
 
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-
 export type itemProps = {
   product_img: string;
   product_name: string;

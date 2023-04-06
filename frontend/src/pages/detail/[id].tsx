@@ -55,6 +55,9 @@ const detail = () => {
     useState<cocktailType[]>();
   const [cocktail_recommend_ingredient, setCocktail_recommend_ingredient] =
     useState<cocktailType[]>();
+  const [enoughDataIngredient, setEnoughDataIngredient] = useState(true);
+  const [enoughDataColor, setEnoughDataColor] = useState(true);
+
   let atk: string = useSelector((state: RootState) => state.user.accessToken);
   if (!atk) {
     atk = "";
@@ -91,6 +94,10 @@ const detail = () => {
         .then((response) => {
           console.log(response);
           setCocktail_recommend_color(response.data.data);
+        })
+        .catch((error) => {
+          console.log(error);
+          setEnoughDataIngredient(false);
         });
       axios
         .get(
@@ -107,6 +114,10 @@ const detail = () => {
           console.log(response);
           setCocktail_recommend_ingredient(response.data.data);
           setIsLoading(true);
+        })
+        .catch((error) => {
+          console.log(error);
+          setEnoughDataColor(false);
         });
     }
   }, [isId]);
@@ -150,7 +161,11 @@ const detail = () => {
             <Cocktail_Info modifyCommentCnt={modifyCommentCnt} />
           </div>
           <div className={style.detail_layout_right}>
-            <Cocktail_recommend {...recommend_props} />
+            {enoughDataColor && enoughDataIngredient ? (
+              <Cocktail_recommend {...recommend_props} />
+            ) : (
+              " "
+            )}
           </div>
           {/* 댓글 호버 펼치는 버튼 */}
           {!visible && (
