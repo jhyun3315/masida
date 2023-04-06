@@ -36,7 +36,7 @@ public class CommentController {
     }
 
     @PostMapping("/{cocktail_id}")
-    public ResponseEntity<?> saveComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId, @RequestBody CommentReq req) {
+    public ResponseEntity<BaseResponseBody> saveComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId, @RequestBody CommentReq req) {
         // 댓들 등록
         int state = commentService.saveOrUpdateComment(cocktailId, null, req, accessToken); // 댓글 저장 또는 업데이트
         if (state == 0) { // 요청 성공
@@ -49,7 +49,7 @@ public class CommentController {
     }
 
     @PutMapping("/{cocktail_id}/{comment_id}")
-    public ResponseEntity<?> updateComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId, @PathVariable("comment_id") String commentId, @RequestBody CommentReq req) {
+    public ResponseEntity<BaseResponseBody> updateComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId, @PathVariable("comment_id") String commentId, @RequestBody CommentReq req) {
         // 댓글 내용 수정
         if (commentService.saveOrUpdateComment(cocktailId, commentId, req, accessToken) == 0) { // 댓글 수정에 성공했으면
             return ResponseEntity.status(200).body(BaseResponseBody.of(200, success));
@@ -58,7 +58,7 @@ public class CommentController {
     }
 
     @DeleteMapping("/{cocktail_id}/{comment_id}")
-    public ResponseEntity<?> removeComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId, @PathVariable("comment_id") String commentId) {
+    public ResponseEntity<BaseResponseBody> removeComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId, @PathVariable("comment_id") String commentId) {
         // 댓글 삭제
         if (commentService.removeComment(cocktailId, commentId, accessToken)) { // 댓글 삭제에 성공 했으면
             return ResponseEntity.status(200).body(BaseResponseBody.of(200, success));

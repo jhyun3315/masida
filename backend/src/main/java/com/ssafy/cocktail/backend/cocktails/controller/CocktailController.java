@@ -90,7 +90,7 @@ public class CocktailController {
     }
 
     @PostMapping("/likes")
-    public ResponseEntity<?> cocktailLikes(@RequestHeader("Authorization") String accessToken, @RequestBody CocktailIDReq req) {
+    public ResponseEntity<BaseResponseBody> cocktailLikes(@RequestHeader("Authorization") String accessToken, @RequestBody CocktailIDReq req) {
         // 칵테일 좋아요 요청
         cocktailDetailService.setCocktailLike(req.getCocktailId(), accessToken); // 칵테일 좋아요 체크 혹은 해제
 
@@ -99,7 +99,7 @@ public class CocktailController {
 
     @PostMapping("/bookmarks")
     @CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io", "https://kapi.kakao.com"})
-    public ResponseEntity<?> cocktailBookmarks(@RequestHeader("Authorization") String accessToken, @RequestBody CocktailIDReq req) {
+    public ResponseEntity<BaseResponseBody> cocktailBookmarks(@RequestHeader("Authorization") String accessToken, @RequestBody CocktailIDReq req) {
         // 칵테일 북마크 요청
         cocktailDetailService.setCocktailBookMark(req.getCocktailId(), accessToken); // 칵테일 북마크 체크 혹은 해제
 
