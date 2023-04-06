@@ -68,6 +68,7 @@ const Main_cocktail = (props: landing_props) => {
                   {cocktailList.map((key) => (
                     <div className={style.cocktailTopLike}>
                       <div className={style.cocktailTopLike_Img}>
+                      <Link href={`detail/${key.cocktail_id}`}>
                         <Image
                           loader={({ src, width, quality }: ImageLoaderProps) =>
                             imgLoader({ src, width, quality })
@@ -76,7 +77,7 @@ const Main_cocktail = (props: landing_props) => {
                           alt="image"
                           width={200}
                           height={200}
-                        />
+                        /></Link>
                       </div>
                       <div
                         className={style.cocktailTopLike_desc}
