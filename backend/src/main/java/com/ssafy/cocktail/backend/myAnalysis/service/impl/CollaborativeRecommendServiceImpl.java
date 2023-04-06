@@ -26,7 +26,7 @@ import java.util.*;
 @Transactional
 @AllArgsConstructor
 public class CollaborativeRecommendServiceImpl implements CollaborativeRecommendService {
-	private final String PYTHON_API_URL = "http://localhost:8000";
+	private final String PYTHON_API_URL = "http://localhost:8000/py";
 	private MyAnalysisRepository myAnalysisRepository;
 	private LikeRepository likeRepository;
 	private CocktailRepository cocktailRepository;
