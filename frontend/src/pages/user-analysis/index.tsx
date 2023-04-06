@@ -158,6 +158,7 @@ const userAnalisys = () => {
   }, []);
 
   console.log("베이스", cocktailList_props);
+  console.log("베이스 별점", cocktailStarRating_props);
   console.log("색상", cocktailList_color_props);
   console.log("재료", cocktailList_ingredient_props);
   console.log("나이,색", cocktailList_age_gender_props);

@@ -25,7 +25,7 @@ const IngredientPreference = (props: cocktail_props_analysis_ingredient) => {
   },  [isLoading6, props.cocktailRating]);
 
 
-  if (isLoading5 && isLoading6) {
+  if (isLoading5 && isLoading6 && cocktailRateList) {
     return (
       <div className={style.cocktailPreference}>
         <p className={style.baseTitle}><strong>{userName}</strong>님의 재료 별 선호도 분석 결과</p>
