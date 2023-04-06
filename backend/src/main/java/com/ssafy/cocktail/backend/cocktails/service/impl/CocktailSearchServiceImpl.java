@@ -94,7 +94,7 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
                     continue; // 검색한 이름이 한글 이름 또는 영어 이름에 포함되지 않으면 (x)
             }
             if (info.getCocktailBase() != null) { // 조건 2: 베이스 검색이 있으면
-                String[] etcBases = {"맥주", "와인", "메즈칼", "스프릿"}; // 기타 베이스
+                String[] etcBases = {"Beer", "Wine", "Mezcal", "Spirits"}; // 기타 베이스
                 List<String> etcList = new ArrayList<>(Arrays.asList(etcBases));
                 if (!cocktailBase.equals(info.getCocktailBase())
                  || !(info.getCocktailBase().equals("기타") && etcList.contains(cocktailBase))) // 조건 2-1: 검색어와 베이스가 일치하는가
