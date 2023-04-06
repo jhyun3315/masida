@@ -34,7 +34,7 @@ public class MypageController {
 	private final MypageSummaryService mypageSummaryService;
 
 	@GetMapping("/cnt")
-	public ResponseEntity<?> getLikeBookmarkCnt(@RequestHeader Map<String, String> data) {
+	public ResponseEntity<LikeBookmarkCntRes> getLikeBookmarkCnt(@RequestHeader Map<String, String> data) {
 		String accessToken = data.get("authorization");
 		// 토큰이 없는 경우,
 		if(accessToken == null) {
@@ -63,7 +63,7 @@ public class MypageController {
 
 
 	@GetMapping("/likes")
-	public ResponseEntity<?> getLikeCocktailList(@RequestHeader Map<String, String> data, @RequestParam(value = "page", defaultValue = "0") Integer page) {
+	public ResponseEntity<PageableRes> getLikeCocktailList(@RequestHeader Map<String, String> data, @RequestParam(value = "page", defaultValue = "0") Integer page) {
 		String accessToken = data.get("authorization");
 
 		// 토큰이 없는 경우,
@@ -90,7 +90,7 @@ public class MypageController {
 
 
 	@GetMapping("/bookmarks")
-	public ResponseEntity<?> getBookmarkCocktailList(@RequestHeader Map<String, String> data, @RequestParam(value = "page", defaultValue = "0") Integer page) {
+	public ResponseEntity<PageableRes> getBookmarkCocktailList(@RequestHeader Map<String, String> data, @RequestParam(value = "page", defaultValue = "0") Integer page) {
 		String accessToken = data.get("authorization");
 
 		// 토큰이 없는 경우,
@@ -116,7 +116,7 @@ public class MypageController {
 	}
 
 	@GetMapping("/comment")
-	public ResponseEntity<?> getCommentCocktailList(@RequestHeader Map<String, String> data, @RequestParam(value = "page", defaultValue = "0") Integer page) {
+	public ResponseEntity<PageableRes> getCommentCocktailList(@RequestHeader Map<String, String> data, @RequestParam(value = "page", defaultValue = "0") Integer page) {
 		String accessToken = data.get("authorization");
 
 		// 토큰이 없는 경우,
@@ -142,7 +142,7 @@ public class MypageController {
 	}
 
 	@GetMapping("/cocktail_summary")
-	public ResponseEntity<?> getCocktailSummary (@RequestHeader Map<String, String> data) {
+	public ResponseEntity<CocktailSummaryRes> getCocktailSummary (@RequestHeader Map<String, String> data) {
 		String accessToken = data.get("authorization");
 
 		// 토큰이 없는 경우,
