@@ -75,6 +75,7 @@ const detail = () => {
       if(parseInt(router?.query.id as string)) {   
         setCocktail_id(store.getState().page.currentPage);
         store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
+        console.log("내가 동작하는 건가?");
       }else {
         store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
         console.log("set cocktail id : ", cocktail_id);
