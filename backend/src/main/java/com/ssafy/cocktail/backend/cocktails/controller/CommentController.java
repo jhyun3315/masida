@@ -16,10 +16,12 @@ import java.util.Map;
 @Tag(name = "comment", description = "댓글 API")
 @RestController
 @AllArgsConstructor
-@CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io", "https://kapi.kakao.com"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io"})
 @RequestMapping("/api/comments")
 public class CommentController {
     private CommentService commentService;
+    private static final String success = "Success";
+    private static final String relogin = "Please relogin";
 
     @GetMapping("/{cocktail_id}")
     public ResponseEntity<CommentRes> getComments(@RequestHeader Map<String, String> data, @PathVariable("cocktail_id") String cocktailId) {
@@ -28,9 +30,9 @@ public class CommentController {
         ArrayList<CommentDetail> commentDetails = commentService.getComments(cocktailId, accessToken); // 칵테일의 댓글 가져오기
         if (commentDetails != null) { // 옳바르지 않은 사용자이면
             boolean isWrired = commentService.isWrited(cocktailId, accessToken); // 칵테일 작성 여부 확인
-            return ResponseEntity.status(200).body(CommentRes.of(200, "Success", commentDetails, isWrired));
+            return ResponseEntity.status(200).body(CommentRes.of(200, success, commentDetails, isWrired));
         }
-        return ResponseEntity.status(404).body(CommentRes.of(404, "Please relogin", commentDetails, false));
+        return ResponseEntity.status(404).body(CommentRes.of(404, relogin, commentDetails, false));
     }
 
     @PostMapping("/{cocktail_id}")
@@ -38,9 +40,9 @@ public class CommentController {
         // 댓들 등록
         int state = commentService.saveOrUpdateComment(cocktailId, null, req, accessToken); // 댓글 저장 또는 업데이트
         if (state == 0) { // 요청 성공
-            return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+            return ResponseEntity.status(200).body(BaseResponseBody.of(200, success));
         } else if (state == 1) { // 옳바르지 않은 사용자이면
-            return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Please relogin"));
+            return ResponseEntity.status(404).body(BaseResponseBody.of(404, relogin));
         } else { // 중복 댓글 등록이면
             return ResponseEntity.status(405).body(BaseResponseBody.of(405, "Duplicate comments"));
         }
@@ -50,17 +52,17 @@ public class CommentController {
     public ResponseEntity<?> updateComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId, @PathVariable("comment_id") String commentId, @RequestBody CommentReq req) {
         // 댓글 내용 수정
         if (commentService.saveOrUpdateComment(cocktailId, commentId, req, accessToken) == 0) { // 댓글 수정에 성공했으면
-            return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+            return ResponseEntity.status(200).body(BaseResponseBody.of(200, success));
         }
-        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Please relogin"));
+        return ResponseEntity.status(404).body(BaseResponseBody.of(404, relogin));
     }
 
     @DeleteMapping("/{cocktail_id}/{comment_id}")
     public ResponseEntity<?> removeComment(@RequestHeader("Authorization") String accessToken, @PathVariable("cocktail_id") String cocktailId, @PathVariable("comment_id") String commentId) {
         // 댓글 삭제
         if (commentService.removeComment(cocktailId, commentId, accessToken)) { // 댓글 삭제에 성공 했으면
-            return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+            return ResponseEntity.status(200).body(BaseResponseBody.of(200, success));
         }
-        return ResponseEntity.status(404).body(BaseResponseBody.of(404, "Please relogin"));
+        return ResponseEntity.status(404).body(BaseResponseBody.of(404, relogin));
     }
 }

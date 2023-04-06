@@ -18,13 +18,13 @@ import java.util.Map;
 @Tag(name = "cocktail", description = "칵테일 API")
 @RestController
 @AllArgsConstructor
-@CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io", "https://kapi.kakao.com"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io"})
 @RequestMapping("/api/cocktails")
 public class CocktailController {
     private CocktailSearchService cocktailSearchService;
     private CocktailDetailService cocktailDetailService;
     private CocktailRecommendService cocktailRecommendService;
-    static String success = "Success";
+    private static final String success = "Success";
 
     @GetMapping("/search")
     public ResponseEntity<CocktailSearchRes> cocktailSerch(@RequestParam Map<String, Object> params) {
