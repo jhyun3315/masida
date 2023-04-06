@@ -284,27 +284,11 @@
 # 7. 📁 설계 문서
 ------------------------------------------------------
     
-  ## 6-1. ERD
+  ## 7-1. ERD
 
   ![ERD](./images/masida_erd.png)
 
-  ## 6-2. Design System
 
-  ![DesignSystem](./images/README/DesignSystem.png)
-
-  ![DESIGN_COMPONENT](./images/README/DESIGN_COMPONENT.png)
-
-
-  ## 6-3. Design
-
-  ![DesignConcept](./images/README/concept.png)
-
-    - 브랜딩 컨셉
-      - 전체적인 컨셉은 방대한 문제를 형상화한 바다, 그리고 그 속 주인공 상어
-      - 서비스 명인 'SharkShark🦈🦈'에 맞추어 상어의 모습를 연상 시킬 수 있는 지느러미와 백준 과의 연동을 상기 시키기 위한 코드 블럭 형상화
-
-    
-  
 
 --------------------------
 
@@ -313,7 +297,7 @@
 # 8. 🖊 Cooperation&Promises
 ------------------------------------------------------
   
-  ## 7-1. Tools
+  ## 8-1. Tools
 
     - Git
 
@@ -337,6 +321,4 @@
   - 프론트엔드: 손종효, 김지환, 김영주
   - 벡엔드: 이지현, 강지수, 김주성
   
-  ![PT_37](./images/README/PT_37.png)
-
-![Footer](./images/README/Footer.png)
+ 
