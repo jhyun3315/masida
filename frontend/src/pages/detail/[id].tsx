@@ -73,7 +73,7 @@ const detail = () => {
         store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
         setTimeout(() => {
           router.reload();
-        },1000);
+        },300);
       } else {
         store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
       }
