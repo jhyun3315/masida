@@ -27,7 +27,7 @@ public class CocktailController {
     private static final String success = "Success";
 
     @GetMapping("/search")
-    public ResponseEntity<CocktailSearchRes> cocktailSerch(@RequestParam Map<String, Object> params) {
+    public ResponseEntity<CocktailSearchRes> cocktailSearch(@RequestParam Map<String, Object> params) {
         // 칵테일 검색
         SearchInfo searchInfo = new SearchInfo(); // 검색어 정보
         if (params.get("page") != null) searchInfo.setPage((String) params.get("page")); // 검색어: 페이지 번호
