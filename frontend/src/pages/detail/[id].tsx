@@ -57,6 +57,7 @@ const detail = () => {
     useState<cocktailType[]>();
   const [enoughDataIngredient, setEnoughDataIngredient] = useState(true);
   const [enoughDataColor, setEnoughDataColor] = useState(true);
+  const [reload, setReload] = useState<boolean>(false);
 
   let atk: string = useSelector((state: RootState) => state.user.accessToken);
   if (!atk) {
@@ -64,19 +65,27 @@ const detail = () => {
   }
   //새로고침할때 이 useEffect보다 아래 return이 먼저 실행이 되어서 그런거같음.
   useEffect(() => {
+    console.log("나 동작해?");
+    
     if (!parseInt(router?.query.id as string)) {
       console.log(store.getState().page.currentPage);
       setCocktail_id(store.getState().page.currentPage);
       console.log(cocktail_id);
     } else {
-      store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
-      console.log("set cocktail id : ", cocktail_id);
+      if(parseInt(router?.query.id as string)) {   
+        setCocktail_id(store.getState().page.currentPage);
+        store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
+        router.reload();
+      }else {
+        store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
+        console.log("set cocktail id : ", cocktail_id);
+      }
     }
     if (cocktail_id >= 0) {
       console.log("set id : ", cocktail_id);
       setIsId(true);
     }
-  }, [cocktail_id]);
+  }, [cocktail_id, reload]);
 
   useEffect(() => {
     if (cocktail_id >= 0) {
@@ -122,10 +131,6 @@ const detail = () => {
     }
   }, [isId]);
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  // }, [detail]);
-
   const recommend_props: recommend_props = {
     color_recommend: cocktail_recommend_color,
     ingredient_recommend: cocktail_recommend_ingredient,
@@ -162,7 +167,7 @@ const detail = () => {
           </div>
           <div className={style.detail_layout_right}>
             {enoughDataColor && enoughDataIngredient ? (
-              <Cocktail_recommend {...recommend_props} />
+              <Cocktail_recommend props = {recommend_props} reload={reload} setReload={setReload} />
             ) : (
               " "
             )}
