@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.repository.*;
+import com.ssafy.cocktail.backend.myAnalysis.dto.CocktailIngredientInterface;
 import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendCocktail;
 import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendationRequestToPy;
 import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendationResponseFromPy;
@@ -37,7 +38,7 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 	 * 파이썬  FastAPI로 유사도 분석 자료 전송
 	 * 파이썬 FastAPI로부터 유사도가 가장 높은 칵테일 9개 전달받기
 	 * @param userId
-	 * @return List<Object[]>
+	 * @return List<RecommendCocktail>
 	 */
 	@Override
 	public List<RecommendCocktail> recommendCocktailByBase(Long userId)  throws UnirestException, JsonProcessingException{
@@ -64,7 +65,15 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 		Collections.sort(userLikeList);
 
 		// 칵테일별 베이스 인덱스 리스트
-		List<Long[]> cocktailBase = new ArrayList<>();
+		List<CocktailIngredientInterface> cocktailInterface = cocktailIngredientRepository.findCocktailBaseId();
+		List<List<String>> cocktailBase = new ArrayList<>();
+		for(CocktailIngredientInterface ci : cocktailInterface) {
+			if(ci.getIngredientList() != null) {
+				cocktailBase.add(ci.getIngredientList());
+			} else {
+				cocktailBase.add(new ArrayList<>());
+			}
+		}
 
 		// 재료 테이블에서 조회한 베이스 인덱스 리스트
 		List<Long> allBase = ingredientRepository.findBaseId();
@@ -95,7 +104,7 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 	 * 파이썬  FastAPI로 유사도 분석 자료 전송
 	 * 파이썬 FastAPI로부터 유사도가 가장 높은 칵테일 9개 전달받기
 	 * @param userId
-	 * @return List<Object[]>
+	 * @return List<RecommendCocktail>
 	 */
 	@Override
 	public List<RecommendCocktail> recommendCocktailByIngredient(Long userId) throws UnirestException, JsonProcessingException{
@@ -123,11 +132,18 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 		Collections.sort(userLikeList);
 
 		// 칵테일별 재료 인덱스 리스트 (General, Garnish)
-		List<Long[]> cocktailIngredients = new ArrayList<>();
+		List<CocktailIngredientInterface> cocktailInterface = cocktailIngredientRepository.findCocktailIngredientId();
+		List<List<String>> cocktailIngredients = new ArrayList<>();
+		for(CocktailIngredientInterface ci : cocktailInterface) {
+			if(ci.getIngredientList() != null) {
+				cocktailIngredients.add(ci.getIngredientList());
+			} else {
+				cocktailIngredients.add(new ArrayList<>());
+			}
+		}
 
 		// 재료 테이블에서 조회한 재료 인덱스 리스트 (General, Garnish)
 		List<Long> allIngredient = ingredientRepository.findIngredientsId();
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>> Long, string 으로 안바꿔도 괜찮은가");
 
 		// 파이썬 통신을 위한 DTO
 		RecommendationRequestToPy recommendationRequest = new RecommendationRequestToPy(userLikeIngredient, userLikeList, cocktailIngredients, allIngredient);
@@ -153,7 +169,7 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 	/**
 	 * 파이썬 통신
 	 * @param recommendationRequest
-	 * @return List<String> : 추천 칵테일 응답 리스트
+	 * @return List<Long> : 추천 칵테일 응답 리스트
 	 * @throws UnirestException
 	 * @throws JsonProcessingException
 	 */
@@ -165,7 +181,7 @@ public class CollaborativeRecommendServiceImpl implements CollaborativeRecommend
 				.findAndRegisterModules();
 		String requestBody = objectMapper.writeValueAsString(recommendationRequest);
 
-		HttpResponse<String> response = Unirest.post(PYTHON_API_URL + "/recommend/")
+		HttpResponse<String> response = Unirest.post(PYTHON_API_URL + "/recommend")
 				.header("Content-Type", "application/json")
 				.body(requestBody)
 				.asString();

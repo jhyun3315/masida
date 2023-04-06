@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @AllArgsConstructor
@@ -14,7 +15,7 @@ public class RecommendationRequestToPy {
 	@JsonProperty("userLikeList")
 	private List<String> userLikeList;
 	@JsonProperty("cocktailIngredients")
-	private List<Long[]> cocktailIngredients;	// 칵테일별 재료(General,Garnish) 혹은 베이스 인덱스 리스트
+	private List<List<String>> cocktailIngredients;	// 칵테일별 재료(General,Garnish) 혹은 베이스 인덱스 리스트
 	@JsonProperty("allIngredient")
 	private List<Long> allIngredient;			// 재료 테이블에서 조회한 재료(General, Garnish) 혹은 베이스 인덱스 리스트
 }
