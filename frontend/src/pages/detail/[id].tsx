@@ -71,7 +71,9 @@ const detail = () => {
       if (parseInt(router?.query.id as string)) {
         setCocktail_id(store.getState().page.currentPage);
         store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
-        router.reload();
+        setTimeout(() => {
+          router.reload();
+        },1000);
       } else {
         store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
       }
