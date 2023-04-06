@@ -1,14 +1,11 @@
 package com.ssafy.cocktail.backend.myAnalysis.service.impl;
 
-import com.ssafy.cocktail.backend.cocktails.dto.CocktailRecommendDetail;
 import com.ssafy.cocktail.backend.domain.entity.*;
 import com.ssafy.cocktail.backend.domain.repository.*;
 import com.ssafy.cocktail.backend.myAnalysis.dto.*;
-import com.ssafy.cocktail.backend.myAnalysis.dto.response.RecommendCocktailRes;
 import com.ssafy.cocktail.backend.myAnalysis.service.MyAnalysisUserService;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

@@ -2,7 +2,6 @@ package com.ssafy.cocktail.backend.myAnalysis.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ssafy.cocktail.backend.domain.dto.BaseResponseBody;
-import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisIngredient;
 import com.ssafy.cocktail.backend.myAnalysis.dto.MyAnalysisOthers;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Setter;
