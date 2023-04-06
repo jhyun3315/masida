@@ -63,11 +63,8 @@ const Result: React.FunctionComponent<propsType> = ({
     } else {
       tmpdifficulty = difficulty.join(",");
     }
-    //참인 것들만 재료에 담아줘..
-    tmpingredient = addNumIngredient.join(",");
 
     setPage(0);
-    console.log(name);
 
     axios
       .get(`https://j8b208.p.ssafy.io/api/cocktails/search`, {
@@ -252,7 +249,11 @@ const Result: React.FunctionComponent<propsType> = ({
       </>
     );
   } else {
-    return <Loading_spinner></Loading_spinner>;
+    return (
+      <div className={style.spinner_location}>
+        <Loading_spinner/>
+      </div>
+    )
   }
 };
 

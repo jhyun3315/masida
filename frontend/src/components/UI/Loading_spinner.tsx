@@ -1,6 +1,28 @@
 import style from "./Loading_spinner.module.scss";
+import { useState,useEffect } from "react";
+
+const writing = [{
+  content : "과도한 음주는 몸에 좋지 않습니다."
+},
+{
+  content : "MASIDA는 사랑입니다." 
+}, {
+  content : "술을 가장 최초로 술을 빚은 생명체는 사람이 아닌 원숭이로 알려져있는것을 아십니까?"
+}, {
+  content : "세계에서 가장 비싼 술은 20억이 넘는걸 알고 계셨나요?"
+}, {
+  content : "고대에는 맥주에다 벌꿀이나 과즙을 타서 마셨고 로마시대 때에는 포도주에다 물을 타서 마셨답니다."
+}
+]
+
+
 
 const Loading_spinner = () => {
+  const [content, setContent] = useState<string>("");
+  useEffect(() => {
+    let num = Math.floor(Math.random() * 5);
+    setContent(writing[num]?.content);
+  },[])
   return (
     <>
       <div className={style.loader_wrap}>
@@ -272,7 +294,7 @@ const Loading_spinner = () => {
           </div>
         </div>
         <div className={style.bar}></div>
-        <div className={style.text}>과도한 음주는 몸에 해롭습니다.</div>
+        <div className={style.text}>{content}</div>
       </div>
     </>
   );

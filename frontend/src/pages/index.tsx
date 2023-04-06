@@ -28,25 +28,6 @@ const landing = ({ random, likeList }: landing_props) => {
     likeList: likeList,
   };
 
-  // Landing page로 왔을 때, 현재 localStorage에 저장된 atk의 유효성을 검사
-  // 무효한 경우 dispatch(logout())을 활용해서 atk 초기화
-  // useEffect(() => {
-  //   axios
-  //     .get("https://j8b208.p.ssafy.io/api/oauth/users", {
-  //       headers: {
-  //         Authorization: store.getState().user.accessToken,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log(response);
-  //       if (response.status !== 200) {
-  //         dispatch(logout());
-  //       }
-  //     });
-  //     setIstLoading(true)
-
-  // },  [])
-  // if(isLoading){
   return (
     <>
       <Main_banner />
@@ -56,9 +37,6 @@ const landing = ({ random, likeList }: landing_props) => {
       <Footer />
     </>
   );
-  // } else {
-  //   return <Loading_spinner />
-  // }
 };
 
 export default landing;
@@ -86,15 +64,11 @@ landing.getInitialProps = async (ctx: NextPageContext) => {
     const random: randomType = response_random.data.data;
     const likeList: likeType[] = response_likeList.data.data;
 
-    console.log("성공");
-    console.log(random);
-
     return {
       random,
       likeList,
     };
   } catch (err) {
-    console.log("random, like list를 불러오지 못함");
     return {
       random: null,
       likeList: null,
