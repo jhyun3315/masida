@@ -195,6 +195,9 @@ export const user_cocktail_recommend = async() => {
     .get(url, config)
     .then((response) => {
       value = response.data.data;
+      console.log("==============================================")
+      console.log(response)
+      console.log(getAccessToken)
     })
     .catch((error) => { console.log(error) })
   
@@ -239,6 +242,7 @@ export const user_cocktail_ingredient_recommend = async() => {
       Authorization: getAccessToken,
     }
   }
+  console.log(getAccessToken)
   await axios
     .get(url, config)
     .then((response) => {

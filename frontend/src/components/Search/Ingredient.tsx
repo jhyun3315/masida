@@ -1,19 +1,20 @@
 import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { searchIngredientType } from "../../type/ingredientTypes";
-import { changeSelectIngredient } from "../../../store/category/ingredientSlice";
 import style from "./Ingredient.module.scss";
 import { search_props } from "../../pages/search";
 
 interface propsType {
   props: search_props;
-  addNumIngredient : number[];
-  setAddNumIngredient : Dispatch<SetStateAction<number[]>>
+  addNumIngredient: number[];
+  setAddNumIngredient: Dispatch<SetStateAction<number[]>>;
 }
 
-
-const Ingredient : React.FunctionComponent<propsType> = ({props, addNumIngredient, setAddNumIngredient}) => {
-  const dispatch = useDispatch();
+const Ingredient: React.FunctionComponent<propsType> = ({
+  props,
+  addNumIngredient,
+  setAddNumIngredient,
+}) => {
   const selectIngredient = props;
   let [inputvalue, setInputValue] = useState<string>("");
   let [addedIngredient, setAddedIngredient] = useState<searchIngredientType[]>(
@@ -55,14 +56,12 @@ const Ingredient : React.FunctionComponent<propsType> = ({props, addNumIngredien
 
   //재료추가
   const addIngredient = (e: searchIngredientType) => {
-    dispatch(changeSelectIngredient(e));
-    
-
     //추가시킬 것 등록.
     const addi: searchIngredientType = {
-      ingredient_id: selectIngredient.ingredient[e.ingredient_id].ingredient_id,
+      ingredient_id:
+        selectIngredient.ingredient[e.ingredient_id - 1].ingredient_id,
       ingredient_name:
-        selectIngredient.ingredient[e.ingredient_id].ingredient_name,
+        selectIngredient.ingredient[e.ingredient_id - 1].ingredient_name,
       ingredient_add: true,
     };
     console.log(e.ingredient_id);
@@ -86,7 +85,7 @@ const Ingredient : React.FunctionComponent<propsType> = ({props, addNumIngredien
   //깊은 복사 Object.assign 실패
   const removeIngredient = (e: searchIngredientType) => {
     //dispatch시켜주어 현재 선택한 것의 add를 반대로 저장해줍니다.
-    dispatch(changeSelectIngredient(e));
+    console.log(e);
 
     //추가재료 리스트에서 누른 재료의 id에 해당하는 것 삭제해서 안보여지게 함.
     setAddedIngredient(
@@ -94,16 +93,16 @@ const Ingredient : React.FunctionComponent<propsType> = ({props, addNumIngredien
     );
     setAddNumIngredient(
       addNumIngredient.filter((add) => add !== e.ingredient_id)
-    )
+    );
 
     //리스트 상시 업데이트.
     const addi: searchIngredientType = {
-      ingredient_id: selectIngredient.ingredient[e.ingredient_id].ingredient_id,
+      ingredient_id:
+        selectIngredient.ingredient[e.ingredient_id - 1].ingredient_id,
       ingredient_name:
-        selectIngredient.ingredient[e.ingredient_id].ingredient_name,
+        selectIngredient.ingredient[e.ingredient_id - 1].ingredient_name,
       ingredient_add: false,
     };
-    // if(addi.ingredient_name.includes(inputvalue))
     console.log(addi);
 
     setListIngredient((previnfo) => [...previnfo, addi]);

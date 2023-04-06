@@ -26,6 +26,7 @@ const Result: React.FunctionComponent<propsType> = ({
   let [likeChecked, setLikeChecked] = useState<boolean>(false);
   let [rankChecked, setRankChecked] = useState<boolean>(false);
   let [sortCheckName, setSortCheckName] = useState<string>("");
+  let [flag, setFlag] = useState<boolean>(false);
 
   let name = useSelector((state: RootState) => state.nameSelect.searchName);
   let base = useSelector((state: RootState) => state.baseSelect.base);
@@ -33,10 +34,6 @@ const Result: React.FunctionComponent<propsType> = ({
   let difficulty = useSelector(
     (state: RootState) => state.difficultySelect.difficulty
   );
-  let ingredient = useSelector(
-    (state: RootState) => state.ingredientSelect.ingredient
-  );
-
   //처음 시작할때, 검색할때 초기화 시켜줄 배열입니다.
   const resetCocktail: cocktailType[] = [];
 
@@ -44,8 +41,9 @@ const Result: React.FunctionComponent<propsType> = ({
     let tmpcolor: string = null;
     let tmpdifficulty: string = null;
     let tmpingredient: string = null;
-    setCokctail(resetCocktail);
+
     setSortingNum(sort);
+    console.log("나의 동작 횟수는? ", sort);
 
     if (name === "") {
       name = null;
@@ -62,6 +60,12 @@ const Result: React.FunctionComponent<propsType> = ({
       tmpdifficulty = null;
     } else {
       tmpdifficulty = difficulty.join(",");
+    }
+
+    if (addNumIngredient?.length === 0) {
+      tmpingredient = null;
+    } else {
+      tmpingredient = addNumIngredient.join(",");
     }
 
     setPage(0);
@@ -100,6 +104,8 @@ const Result: React.FunctionComponent<propsType> = ({
 
   //정렬 기준이 바뀔때마다 useEffect 새로해주어야함.(즉 axios통신 새로해주기.)
   useEffect(() => {
+    console.log("나도 동작해!", sortingNum);
+
     cocktailSearch(sortingNum);
   }, [sortingNum]);
 
@@ -141,9 +147,7 @@ const Result: React.FunctionComponent<propsType> = ({
   const [saveBase, setSaveBase] = useState<string>();
   const [saveColor, setSaveColor] = useState<string[]>([]);
   const [saveDifficulty, setSaveDifficulty] = useState<string[]>([]);
-  const [saveIngredient, setSaveIngredient] = useState<searchIngredientType[]>(
-    []
-  );
+  const [saveIngredient, setSaveIngredient] = useState<number[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -151,8 +155,8 @@ const Result: React.FunctionComponent<propsType> = ({
     setSaveBase(base);
     setSaveColor(color);
     setSaveDifficulty(difficulty);
-    setSaveIngredient(ingredient);
-  }, []);
+    setSaveIngredient(addNumIngredient);
+  }, [name, base, color, difficulty, addNumIngredient]);
 
   //무한 스크롤 구현.
   const handelScroll = (e: React.UIEvent<HTMLDivElement>) => {
@@ -161,13 +165,19 @@ const Result: React.FunctionComponent<propsType> = ({
       Math.round(target.scrollTop + target.clientHeight) >
       target.scrollHeight - 20;
 
-    if (isEnd && !pageEnd) {
+    if (isEnd && !pageEnd && !flag) {
+      setFlag(true);
+      let tmpName: string = null;
+      let tmpBase: string = null;
       let tmpcolor: string = null;
       let tmpdifficulty: string = null;
-      let tmpingredient: string = null;
+      let tmpIngredient: string = null;
 
-      if (saveBase === "") {
-        setSaveBase(null);
+      if (saveName.length === 0) {
+        tmpName = null;
+      }
+      if (saveBase.length === 0) {
+        tmpBase = null;
       }
       if (saveColor?.length === 0) {
         tmpcolor = null;
@@ -179,24 +189,31 @@ const Result: React.FunctionComponent<propsType> = ({
       } else {
         tmpdifficulty = saveDifficulty.join(",");
       }
+      if (saveIngredient?.length === 0) {
+        tmpIngredient = null;
+      } else {
+        tmpIngredient = saveIngredient.join(",");
+      }
 
       //끝을 감지했다면?
       axios
-        .post(`https://j8b208.p.ssafy.io/api/cocktails/search`, {
-          body: {
+        .get(`https://j8b208.p.ssafy.io/api/cocktails/search`, {
+          params: {
             page: page,
             sort_num: sortingNum,
-            cocktail_name: saveName,
-            cocktail_base: saveBase,
+            cocktail_name: tmpName,
+            cocktail_base: tmpBase,
             cocktail_color: tmpcolor,
             cocktail_difficulty: tmpdifficulty,
-            cocktail_ingredient: tmpingredient,
+            cocktail_ingredient: tmpIngredient,
           },
         })
         .then((response) => {
           setCokctail([...cocktail, ...response.data.data]);
           setPage(response.data.next_page);
           setPageEnd(response.data.is_end);
+          setFlag(false);
+          console.log(response);
         });
     }
   };
@@ -251,9 +268,9 @@ const Result: React.FunctionComponent<propsType> = ({
   } else {
     return (
       <div className={style.spinner_location}>
-        <Loading_spinner/>
+        <Loading_spinner />
       </div>
-    )
+    );
   }
 };
 

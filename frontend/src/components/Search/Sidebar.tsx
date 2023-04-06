@@ -10,16 +10,16 @@ interface propsType {
   props: search_props;
   clickSearchBtn: boolean;
   setClickSearchBtn: Dispatch<SetStateAction<boolean>>;
-  addNumIngredient : number[];
-  setAddNumIngredient : Dispatch<SetStateAction<number[]>>
+  addNumIngredient: number[];
+  setAddNumIngredient: Dispatch<SetStateAction<number[]>>;
 }
 
-const Sidebar2: React.FunctionComponent<propsType> = ({
+const Sidebar: React.FunctionComponent<propsType> = ({
   props,
   clickSearchBtn,
   setClickSearchBtn,
   addNumIngredient,
-  setAddNumIngredient
+  setAddNumIngredient,
 }) => {
   const dispatch = useDispatch();
 
@@ -32,10 +32,10 @@ const Sidebar2: React.FunctionComponent<propsType> = ({
   };
 
   let name = useSelector((state: RootState) => state.nameSelect.searchName);
-  
+
   useEffect(() => {
     setSearchName(name);
-  },[])
+  }, []);
 
   //칵테일 이름 dispatch해주어서 넣어주기
   useEffect(() => {
@@ -44,7 +44,7 @@ const Sidebar2: React.FunctionComponent<propsType> = ({
 
   const searchCocktail = (e: React.MouseEvent<HTMLElement>) => {
     setClickSearchBtn(!clickSearchBtn);
-    e.preventDefault()
+    e.preventDefault();
   };
 
   return (
@@ -62,11 +62,14 @@ const Sidebar2: React.FunctionComponent<propsType> = ({
             검색
           </button>
         </form>
-        <Category props={props} addNumIngredient={addNumIngredient}
-            setAddNumIngredient={setAddNumIngredient} />
+        <Category
+          props={props}
+          addNumIngredient={addNumIngredient}
+          setAddNumIngredient={setAddNumIngredient}
+        />
       </div>
     </>
   );
 };
 
-export default Sidebar2;
+export default Sidebar;

@@ -2,11 +2,18 @@ import style from "./Cocktail_recommend.module.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { Dispatch, SetStateAction } from 'react';
 import { Detail_recommend_card } from "../UI/Card_ui";
 import { recommend_props } from "../../pages/detail/[id]";
 
-const Cocktail_recommend = (props: recommend_props) => {
+interface propsType {
+  props : recommend_props,
+  reload : boolean,
+  setReload : Dispatch<SetStateAction<boolean>>
+}
+
+
+const Cocktail_recommend : React.FunctionComponent<propsType> = ({props, reload, setReload}) => {
   const ingredientList = props.ingredient_recommend;
   const colorList = props.color_recommend;
   console.log("props : ")
@@ -39,7 +46,7 @@ const Cocktail_recommend = (props: recommend_props) => {
           <div className={style.carousel}>
             <Slider {...settings}>
               {ingredientList?.map((key) => (
-                <Detail_recommend_card {...key} />
+                <Detail_recommend_card cocktail = {key} reload = {reload} setReload={setReload} />
               ))}
             </Slider>
           </div>
@@ -54,7 +61,7 @@ const Cocktail_recommend = (props: recommend_props) => {
           <div className={style.carousel}>
             <Slider {...settings}>
               {colorList?.map((key) => (
-                <Detail_recommend_card {...key} />
+                <Detail_recommend_card cocktail = {key} reload = {reload} setReload={setReload} />
               ))}
             </Slider>
           </div>
