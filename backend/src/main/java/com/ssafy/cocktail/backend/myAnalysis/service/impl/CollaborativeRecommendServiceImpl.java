@@ -11,7 +11,6 @@ import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendationResponseFromPy;
 import com.ssafy.cocktail.backend.myAnalysis.service.CollaborativeRecommendService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,7 +25,7 @@ import java.util.*;
 @Transactional
 @AllArgsConstructor
 public class CollaborativeRecommendServiceImpl implements CollaborativeRecommendService {
-	private final String PYTHON_API_URL = "https://j8b208.p.ssafy.io:8000";
+	private final String PYTHON_API_URL = "https://masida_fast:8000";
 	private MyAnalysisRepository myAnalysisRepository;
 	private LikeRepository likeRepository;
 	private CocktailRepository cocktailRepository;
