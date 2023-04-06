@@ -79,6 +79,7 @@ const detail = () => {
       }else {
         store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
         console.log("set cocktail id : ", cocktail_id);
+      }
     }
     if (cocktail_id >= 0) {
       console.log("set id : ", cocktail_id);
