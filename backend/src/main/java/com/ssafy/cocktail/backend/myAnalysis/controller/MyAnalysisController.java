@@ -137,7 +137,7 @@ public class MyAnalysisController {
         }
         try { // 토큰이 유효한 경우,
             User user = oAuthService.getUser(accessToken); // 해당 사용자 가져오기
-            ArrayList<RecommendCocktail> recommendationList = collaborativeRecommend.recommendCocktailByIngredient(user.getId());
+            List<RecommendCocktail> recommendationList = collaborativeRecommend.recommendCocktailByIngredient(user.getId());
 
             if(recommendationList.isEmpty()) { // 추천할 칵테일이 없다면
                 return ResponseEntity.status(200).body(RecommendCocktailRes.of(200, "추천 칵테일이 없습니다.", recommendationList));
@@ -150,22 +150,26 @@ public class MyAnalysisController {
         }
     }
 
-//    @GetMapping("/recommend/base")
-//    public ResponseEntity<?> getRecommendByBase(@RequestHeader Map<String, String> data) {
-//        String accessToken = data.get("authorization");
-//
-//        if(accessToken == null) { // 토큰이 없는 경우,
-//            return null;
-//        }
-//
-//        try { // 토큰이 유효한 경우,
-//            User user = oAuthService.getUser(accessToken); // 해당 사용자 가져오기
-//            collaborativeRecommend.recommendCocktailByBase(user.getId());
-//            return null;
-//        }
-//        catch (Exception e) { // 토큰이 유효하지 않은 경우
-//            return null;
-//        }
-//    }
+    @GetMapping("/recommend/base")
+    public ResponseEntity<?> getRecommendByBase(@RequestHeader Map<String, String> data) {
+        String accessToken = data.get("authorization");
+
+        if(accessToken == null) { // 토큰이 없는 경우,
+            return null;
+        }
+        try { // 토큰이 유효한 경우,
+            User user = oAuthService.getUser(accessToken); // 해당 사용자 가져오기
+            List<RecommendCocktail> recommendationList = collaborativeRecommend.recommendCocktailByBase(user.getId());
+
+            if(recommendationList.isEmpty()) { // 추천할 칵테일이 없다면
+                return ResponseEntity.status(200).body(RecommendCocktailRes.of(200, "추천 칵테일이 없습니다.", recommendationList));
+            }
+            // 추천 칵테일이 있다면
+            return ResponseEntity.status(200).body(RecommendCocktailRes.of(200, "Success", recommendationList));
+        }
+        catch (Exception e) { // 토큰이 유효하지 않은 경우
+            return null;
+        }
+    }
 
 }
