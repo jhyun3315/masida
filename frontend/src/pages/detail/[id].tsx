@@ -72,14 +72,10 @@ const detail = () => {
       setCocktail_id(store.getState().page.currentPage);
       console.log(cocktail_id);
     } else {
-      if(parseInt(router?.query.id as string)) {   
-        setCocktail_id(store.getState().page.currentPage);
-        store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
-        router.reload();
-      }else {
-        store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
-        console.log("set cocktail id : ", cocktail_id);
-      }
+      setCocktail_id(store.getState().page.currentPage);
+      store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
+      console.log("set cocktail id : ", cocktail_id);
+      router.reload();
     }
     if (cocktail_id >= 0) {
       console.log("set id : ", cocktail_id);
