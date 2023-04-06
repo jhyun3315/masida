@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.ssafy.cocktail.backend.domain.entity.Cocktail;
 import com.ssafy.cocktail.backend.domain.repository.*;
-import com.ssafy.cocktail.backend.myAnalysis.dto.CocktailIngredientInterface;
 import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendCocktail;
 import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendationRequestToPy;
 import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendationResponseFromPy;

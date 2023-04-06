@@ -6,7 +6,6 @@ import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendCocktail;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -17,11 +16,9 @@ public class RecommendCocktailRes extends BaseResponseBody {
 
     public static RecommendCocktailRes of(Integer statusCode, String message, List<RecommendCocktail> recommendCocktails) {
         RecommendCocktailRes res = new RecommendCocktailRes();
-
         res.setStatusCode(statusCode);
         res.setMessage(message);
         res.setData(recommendCocktails);
-
         return res;
     }
 }
