@@ -41,7 +41,6 @@ export const get_cocktails_detail = async (cocktail_id: number) => {
   await axios
     .get(url, config_loggedIn)
     .then((response) => {
-      console.log("get_cocktails_detail : ", response);
       value = response.data.data;
     })
     .catch((err) => {
@@ -60,9 +59,6 @@ export const get_cocktails_random = async () => {
   await axios
     .get(url)
     .then((response) => {
-      // console.log(response.data.data);
-      console.log("get_cocktails_random : ", response);
-
       value = response.data.data;
     })
     .catch((err) => {
@@ -81,8 +77,6 @@ export const get_cocktails_likes_top = async () => {
   await axios
     .get(url)
     .then((response) => {
-      // console.log(response);
-      console.log("get_cocktails_likes_top : ", response);
 
       value = response.data.data;
     })
@@ -102,11 +96,9 @@ export const get_cocktails_ingredients = async () => {
   await axios
     .get(url)
     .then((response) => {
-      console.log("내가가진 재료는 이것들이야", response);
       value = response.data.data;
     })
     .catch((err) => {
-      console.log("재료가 없습니다. 다시 입력해주세요.", err);
     });
   return value;
 };
