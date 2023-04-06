@@ -64,22 +64,16 @@ const detail = () => {
     atk = "";
   }
   //새로고침할때 이 useEffect보다 아래 return이 먼저 실행이 되어서 그런거같음.
-  useEffect(() => {
-    
+   useEffect(() => {
     if (!parseInt(router?.query.id as string)) {
-      console.log(store.getState().page.currentPage);
       setCocktail_id(store.getState().page.currentPage);
-      console.log(cocktail_id);
     } else {
-      if(parseInt(router?.query.id as string)) {   
-        setCocktail_id(parseInt(router?.query.id as string));
+      if (parseInt(router?.query.id as string)) {
+        setCocktail_id(store.getState().page.currentPage);
         store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
-        console.log("내가 동작하는 건가?");
-        console.log(router?.query.id as string);
         router.reload();
-      }else {
+      } else {
         store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
-        console.log("set cocktail id : ", cocktail_id);
       }
     }
     if (cocktail_id >= 0) {
