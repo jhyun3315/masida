@@ -314,17 +314,30 @@ const World_cup_league_card: React.FC<cocktail_worldcup_data> = (
               {cocktail.cocktail_name_en}
             </div>
           </div>
+
           <div className={style.ingredient_list}>
             <img
               className={style.ingredient_legendIMG}
               src="/assets/icons/ingredient_legendIMG.png"
               alt=""
             />
+            <div className={style.ingredients}>
+              {cocktail
+                ? cocktail.ingredient.map((key) => (
+                    <div className={style.ingredient_list_element}>
+                      - {key.ingredient_name}. {key.ingredient_amount}
+                    </div>
+                  ))
+                : ""}
+            </div>
           </div>
+
           <div className={style.recipe_content_textarea}>
             {/* 소개 or 레시피 */}
             <div className={style.recipe_content_title}>소개</div>
-            {cocktail.cocktail_content}
+            <div className={style.recipe_content}>
+              {cocktail.cocktail_content}
+            </div>
           </div>
         </div>
       </div>

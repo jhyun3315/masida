@@ -435,10 +435,14 @@
       padding-top: 5%;
       padding-left: 3%;
       text-align: left;
-
+      
       .ingredient_legendIMG {
         width: 35%;
         padding-bottom: 3%;
+      }
+      .ingredients{
+        height: 15vh;
+        overflow-y: scroll;
       }
 
       .ingredient_list_element {
@@ -447,13 +451,14 @@
     }
 
     .recipe_content_textarea {
-      padding-top: 5%;
-      padding-left: 3%;
+      // padding-top: 5%;
+      // padding-left: 3%;
       text-align: left;
 
       .recipe_content_title {
-        width: 65px;
-        height: 64px;
+        padding-left: 3%;
+        width: 60px;
+        height: 60px;
 
         font-family: "Roboto";
         font-style: normal;
@@ -464,6 +469,12 @@
         align-items: center;
 
         color: #6d8843;
+      }
+      .recipe_content{
+      padding: 3%;
+
+        height: 15vh;
+        overflow-y: scroll;
       }
     }
   }
