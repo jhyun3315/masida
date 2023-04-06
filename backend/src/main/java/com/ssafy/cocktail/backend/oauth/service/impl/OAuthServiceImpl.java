@@ -3,11 +3,16 @@ package com.ssafy.cocktail.backend.oauth.service.impl;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.ssafy.cocktail.backend.domain.entity.Bookmark;
+import com.ssafy.cocktail.backend.domain.entity.Like;
 import com.ssafy.cocktail.backend.domain.entity.User;
+import com.ssafy.cocktail.backend.domain.repository.BookmarkRepository;
+import com.ssafy.cocktail.backend.domain.repository.LikeRepository;
 import com.ssafy.cocktail.backend.domain.repository.UserRepository;
 import com.ssafy.cocktail.backend.oauth.dto.UserInfo;
 import com.ssafy.cocktail.backend.oauth.dto.UserLoginInfo;
 import com.ssafy.cocktail.backend.oauth.service.OAuthService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -17,6 +22,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @Transactional
@@ -24,6 +30,8 @@ import java.time.LocalDateTime;
 public class OAuthServiceImpl implements OAuthService {
     private final UserRepository userRepository;
     private UserLoginInfo userLoginInfo;
+    private final BookmarkRepository bookmarkRepository;
+    private final LikeRepository likeRepository;
 
     @Value("${spring.security.oauth2.client.registration.kakao.client-id}")
     private String clientId;
@@ -250,6 +258,16 @@ public class OAuthServiceImpl implements OAuthService {
             if (isdeleted) {
                 user.setUserDeleted(false); // 삭제 상태 삭제로 변경
                 userRepository.save(user); // 회원 정보 수정
+                List<Bookmark> bookmarks = bookmarkRepository.findAllByUserId(user.getId()); // 북마크 가져오기
+                for (Bookmark bookmark: bookmarks) { // 북마크
+                    bookmark.setBookmarkDeleted(true); // 북마크 삭제
+                    bookmarkRepository.save(bookmark); // 북마크 상태 수정
+                }
+                List<Like> likes = likeRepository.findAllByUserId(user.getId()); // 좋아요 가져오기
+                for (Like like: likes) { // 좋아요
+                    like.setLikeDeleted(true); // 좋아요 삭제
+                    likeRepository.save(like); // 좋아요 상태 수정
+                }
             }
             return true;
         } catch (IOException e) {

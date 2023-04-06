@@ -8,15 +8,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
-
-//    @Bean
-//    public GroupedOpenApi publicApi() {
-//        return GroupedOpenApi.builder()
-//                .group("vi-definition")
-//                .pathsToMatch("/api/**")
-//                .build();
-//    }
-
     @Bean
     public OpenAPI openAPI() {
         Info info = new Info()

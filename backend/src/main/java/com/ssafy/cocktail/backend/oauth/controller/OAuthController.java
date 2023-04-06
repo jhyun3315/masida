@@ -28,6 +28,7 @@ import java.util.Map;
 @CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io", "https://kapi.kakao.com"})
 public class OAuthController {
     private OAuthService oAuthService;
+    private static final String authorization = "Authorization";
 
     @GetMapping("/kakao/login")
     public void kakaoLogin(HttpServletResponse response) throws IOException {
@@ -50,7 +51,7 @@ public class OAuthController {
     }
 
     @GetMapping("/kakao/logout")
-    public ResponseEntity<?> kakaoLogout(@RequestHeader("Authorization") String accessToken) {
+    public ResponseEntity<?> kakaoLogout(@RequestHeader(authorization) String accessToken) {
         if (oAuthService.logoutUser(accessToken, false)) { // 로그아웃 요청
             return ResponseEntity.ok(BaseResponseBody.of(200, "Success"));
         }
@@ -58,7 +59,7 @@ public class OAuthController {
     }
 
     @DeleteMapping("/kakao/delete")
-    public ResponseEntity<?> kakaoDelete(@RequestHeader("Authorization") String accessToken) {
+    public ResponseEntity<?> kakaoDelete(@RequestHeader(authorization) String accessToken) {
         if (oAuthService.logoutUser(accessToken, true)) { // 회원 탈퇴 요청
             return ResponseEntity.ok(BaseResponseBody.of(200, "Success"));
         }
@@ -66,7 +67,7 @@ public class OAuthController {
     }
 
     @GetMapping("/users")
-    public ResponseEntity<UserInfoRes> mypageUserinfo(@RequestHeader("Authorization") String accessToken) {
+    public ResponseEntity<UserInfoRes> mypageUserinfo(@RequestHeader(authorization) String accessToken) {
         // 사용자 정보 조회
         User user = oAuthService.getUser(accessToken); // 조회할 사용자 가져오기
         if (user != null) {
@@ -77,7 +78,7 @@ public class OAuthController {
     }
 
     @PutMapping("/users")
-    public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader("Authorization") String accessToken, @RequestBody UserInfoReq req) {
+    public ResponseEntity<UserInfoRes> mypageEditUserInfo(@RequestHeader(authorization) String accessToken, @RequestBody UserInfoReq req) {
         // 사용자 정보 수정
         UserInfo userInfo = oAuthService.updateUser(accessToken, req.getUserGender(), req.getUserAgeRange()); // 사용자 정보 업데이트 후 사용자 정보 가져오기
         if(userInfo != null) { // 사용자 정보 수정에 성공했으면

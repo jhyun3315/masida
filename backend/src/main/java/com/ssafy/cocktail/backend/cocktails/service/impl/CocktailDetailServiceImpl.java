@@ -32,6 +32,7 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         // 칵테일 상세 정보를 리턴한다
         CocktailDetail cocktailDetail = new CocktailDetail(); // 칵테일 상세 정보 객체 생성
         Optional<Cocktail> cocktail = cocktailRepository.findById(Long.valueOf(cocktailId)); // 칵테일 가져오기
+        if (cocktail.isEmpty()) return null; // 예외처리: 칵테일이 없다면 리턴
         cocktailDetail.setCocktailId(Integer.parseInt(cocktailId)); // 칵테일 아이디 삽입
         cocktailDetail.setCocktailNameKo(cocktail.get().getCocktailNameKo()); // 칵테일 한글 이롬 삽입
         cocktailDetail.setCocktailNameEn(cocktail.get().getCocktailNameEn()); // 칵테일 영어 이름 삽입
@@ -71,7 +72,7 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         cocktailDetail.setIngredient(new ArrayList<>()); // 재료 리스트 생성
         cocktailDetail.setRecipe(new ArrayList<>()); // 레시피 리스트 생성
         for (CocktailIngredient ingredient: cocktailIngredients) { // 재료
-            if (ingredient.getIngredientType().equals("가니쉬")) { // 재료가 가니쉬 이면
+            if (ingredient.getIngredientType().equals("Garnish")) { // 재료가 가니쉬 이면
                 cocktailDetail.getGarnish().add(new GarnishDetail(ingredient.getIngredientName())); // 가니쉬 추가
             } else { // 가니쉬가 아닌 재료이면
                 cocktailDetail.getIngredient().add(new IngredientDetail(ingredient.getIngredientName(), ingredient.getIngredientAmount(), ingredient.getIngredientUnit())); // 가니쉬가 아닌 재료 추가

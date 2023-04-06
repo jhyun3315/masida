@@ -16,14 +16,14 @@ import java.util.ArrayList;
 @Tag(name = "worldcup", description = "월드컵 API")
 @RestController
 @AllArgsConstructor
-@CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io", "https://kapi.kakao.com"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://j8b208.p.ssafy.io"})
 @RequestMapping("/api/worldcups")
 public class WorldCupController {
     private WorldCupService worldCupService;
     @GetMapping
     public ResponseEntity<CocktailWorldCupRes> getWordCupMembers() {
         ArrayList<CocktailWorldCupDetail> members = worldCupService.getWorldCupCocktails(); // 칵테일을 랜덤으로 16개 가져오기
+
         return ResponseEntity.status(200).body(CocktailWorldCupRes.of(200, "Success", members));
     }
-
 }

@@ -12,8 +12,6 @@ public interface MyAnalysisUserService {
     RatingBase getAnalysisByRatingBase(String accessToken);
     RatingColor getAnalysisByRatingColor(String accessToken);
     RatingIngredient getAnalysisByRatingIngredient(String accessToken);
-    ArrayList<RecommendCocktail> getRecommendTest(String accessToken, String num);
-
     ArrayList<RecommendCocktail> getRecommendByColor(String accessToken);
     ArrayList<RecommendCocktail> getRecommendByAgeAndGender(String accessToken);
 

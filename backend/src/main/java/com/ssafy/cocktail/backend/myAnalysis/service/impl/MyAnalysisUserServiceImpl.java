@@ -138,7 +138,7 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
                 myAnalysisRatingBaseArrayList.add(map.get(key));
             }
 
-            rating_average = (double) total_rating / rating_count;
+            if (rating_count > 0 ) rating_average = (double) total_rating / rating_count;
             ratingBase = new RatingBase(rating_average, rating_count, rating_max, rating_max_base, myAnalysisRatingBaseArrayList);
 
             return ratingBase;
@@ -193,7 +193,7 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
                 myAnalysisRatingColorArrayList.add(map.get(key));
             }
 
-            rating_average = (double) total_rating / rating_count;
+            if (rating_count > 0 ) rating_average = (double) total_rating / rating_count;
             ratingColor = new RatingColor(rating_average, rating_count, rating_max, rating_max_color, myAnalysisRatingColorArrayList);
 
             return ratingColor;
@@ -243,7 +243,7 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
                 ingredientObjHashMap.put(ingredientRating, addArr);
             }
 
-            rating_average = (double) Math.round(total_rating / rating_count * 100) / 100.0;
+            if (rating_count > 0) rating_average = (double) Math.round((double)total_rating / (double)rating_count * 100.0) / 100.0;
 
 //          System.out.println(Arrays.toString(ingredientObjHashMap.get(2).toArray()));
 
@@ -282,35 +282,6 @@ public class MyAnalysisUserServiceImpl implements MyAnalysisUserService {
         } catch (Exception e) {
             return ratingIngredient;
         }
-    }
-
-
-    @Override
-    public ArrayList<RecommendCocktail> getRecommendTest(String accessToken, String num) {
-        // 추천 테스트로 임의 9개 리턴
-        ArrayList<RecommendCocktail> results = new ArrayList<>(); // 칵테일 추천 상위 6개를 저장하는 객체
-        Optional<Cocktail> cocktail = cocktailRepository.findById(1L); // 칵테일 가져오기
-        ArrayList<Cocktail> recommends = new ArrayList<>(); // 추천 칵테일 9개 목록
-        RecommendIngredient recommendIngredient = recommendIngredientRepository.findByCocktail(cocktail.get()); // 재료 기반 추천 상위 6개 가져오기
-        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient1())); // 추천 1번 삽입
-        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient2())); // 추천 2번 삽입
-        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient3())); // 추천 3번 삽입
-        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient4())); // 추천 4번 삽입
-        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient5())); // 추천 5번 삽입
-        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient6())); // 추천 6번 삽입
-        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient1())); // 추천 7번 삽입
-        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient2())); // 추천 8번 삽입
-        recommends.add(cocktailRepository.findCocktailById(recommendIngredient.getRecommendIngredient3())); // 추천 9번 삽입
-
-        for (Cocktail recommend : recommends) { // 추천 칵테일
-            RecommendCocktail testRecommend = new RecommendCocktail();
-            testRecommend.setCocktailId(recommend.getId()); // 칵테일 id 삽입
-            testRecommend.setCocktailNameKo(recommend.getCocktailNameKo() + num); // 칵테일 한글 이름 삽입
-            testRecommend.setCocktailImg(recommend.getCocktailImg()); // 칵테일 이미지 삽입
-            results.add(testRecommend); // 추천 칵테일 삽입
-        }
-
-        return results;
     }
 
     @Override

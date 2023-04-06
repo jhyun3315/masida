@@ -42,7 +42,7 @@ public class CommentServiceImpl implements CommentService {
             String commentCreateDate = comment.getCommentCreatedDate().toLocalDate().toString(); // 날짜를 년-월-일 형식으로 변환
             String commentDifficulty =
                     (int) comment.getCommentDifficulty() == 1 ? "하" :
-                            (int) comment.getCommentDifficulty() == 2 ? "중" : "상"; // 난이도를 하, 상, 중 으로 변환
+                            (int) comment.getCommentDifficulty() == 2 ? "중" : "상"; // 난이도를 하, 중, 상 으로 변환
             boolean writerChecker = commetUser.equals(user); // 작성자 확인
             commentDetail.setCommentId(comment.getId()); // id 삽입
             commentDetail.setCommentContent(comment.getCommentContent()); // 내용 삽입
@@ -62,7 +62,7 @@ public class CommentServiceImpl implements CommentService {
     public int saveOrUpdateComment(String cocktailId, String commentId, CommentReq commentInfo, String accessToken) {
         // 댓글 등록 또는 수정
         User user = oAuthService.getUser(accessToken); // 사용자 가져오기
-        if (user == null) return 1;
+        if (user == null) return 1; // 올바르지 않은 사용자이면
         Cocktail cocktail = cocktailRepository.findCocktailById(Long.valueOf(cocktailId)); // 칵테일 가져오기
         List<Comment> commets = commentRepository.findAllByCocktailAndCommentDeleted(cocktail, false); // 칵테일 댓글 가져오기
         int commentSize = commets.size(); // 칵테일의 댓글 전체 개수
@@ -95,6 +95,7 @@ public class CommentServiceImpl implements CommentService {
             ratingSum += curCocktailRating; // 평점의 총점 증가
         } else { // 댓글 수정 이면
             Optional<Comment> comment = commentRepository.findById(Long.valueOf(commentId)); // 댓글 가져오기
+            if (comment.isEmpty()) return 1;
             difficultySum -= comment.get().getCommentDifficulty(); // 이전 난이도 제거
             ratingSum -= comment.get().getCommentRating(); // 이전 평점 제거
             comment.get().setCommentContent(commentInfo.getCommentContent()); // 내용 업데이트
@@ -124,6 +125,7 @@ public class CommentServiceImpl implements CommentService {
         Cocktail cocktail = cocktailRepository.findCocktailById(Long.valueOf(cocktailId)); // 칵테일 가져오기
         List<Comment> commets = commentRepository.findAllByCocktailAndCommentDeleted(cocktail, false); // 칵테일 댓글들 가져오기
         Optional<Comment> removeComment = commentRepository.findById(Long.valueOf(commentId)); // 제거할 댓글 가져오기
+        if (removeComment.isEmpty()) return false;
         int commentSize = commets.size(); // 칵테일의 댓글 전체 개수
         double curCocktailDiffculty = removeComment.get().getCommentDifficulty(); // 제거할 댓글의 난이도
         double curCocktailRating = removeComment.get().getCommentRating(); // 제거할 댓글의 평점

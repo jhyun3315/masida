@@ -27,6 +27,7 @@ public class CocktailRecommendServiceImpl implements CocktailRecommendService {
         // 컨텐츠 기반 추천 상위 6개 리턴
         ArrayList<CocktailRecommendDetail> results = new ArrayList<>(); // 칵테일 추천 상위 6개를 저장하는 객체
         Optional<Cocktail> cocktail = cocktailRepository.findById(Long.valueOf(cocktailId)); // 칵테일 가져오기
+        if (cocktail.isEmpty()) return null; // 칵테일이 없으면 리턴
         ArrayList<Cocktail> recommends = new ArrayList<>();
 
         if (op == 0) { // 재료 기반 추천이면
