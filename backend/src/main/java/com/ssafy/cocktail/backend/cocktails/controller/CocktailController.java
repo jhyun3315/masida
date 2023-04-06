@@ -24,6 +24,7 @@ public class CocktailController {
     private CocktailSearchService cocktailSearchService;
     private CocktailDetailService cocktailDetailService;
     private CocktailRecommendService cocktailRecommendService;
+    static String success = "Success";
 
     @GetMapping("/search")
     public ResponseEntity<CocktailSearchRes> cocktailSerch(@RequestParam Map<String, Object> params) {
@@ -45,7 +46,7 @@ public class CocktailController {
         if (results.size() == 0) // 검색 결과가 없으면
             return ResponseEntity.status(404).body(CocktailSearchRes.of(404, "Cocktail Not Found", results, 0, true, 0));
 
-        return ResponseEntity.status(200).body(CocktailSearchRes.of(200, "Success", results, nextPage, isEnd, max));
+        return ResponseEntity.status(200).body(CocktailSearchRes.of(200, success, results, nextPage, isEnd, max));
     }
 
     @GetMapping("/ingredients")
@@ -55,7 +56,7 @@ public class CocktailController {
         for (IngredientSearch ingredientSearch: ingredientSearchList) {
             System.out.println(ingredientSearch.toString());
         }
-        return ResponseEntity.status(200).body(IngredientSearchRes.of(200, "Success", ingredientSearchList));
+        return ResponseEntity.status(200).body(IngredientSearchRes.of(200, success, ingredientSearchList));
     }
 
     @GetMapping("/{cocktail_id}")
@@ -64,7 +65,7 @@ public class CocktailController {
         String accessToken = data.get("authorization"); // 엑세스 토큰 가져오기
         CocktailDetail cocktailDetail = cocktailDetailService.getCocktailDetail(id, accessToken); // 칵테일 상세 정보 가져오기
 
-        return ResponseEntity.status(200).body(CocktailDetailRes.of(200, "Success", cocktailDetail));
+        return ResponseEntity.status(200).body(CocktailDetailRes.of(200, success, cocktailDetail));
     }
 
     @GetMapping("/likes-top")
@@ -72,7 +73,7 @@ public class CocktailController {
         // 칵테일 좋아요 상위 10개
         ArrayList<CocktailMain> cocktailMains = cocktailSearchService.getCocktailMainList(); // 상위 10개 좋아요 칵테일 가져오기
          if (cocktailMains.size() > 0) { // 칵테일을 찾았다면
-             return ResponseEntity.status(200).body(CocktailMainLikesRes.of(200, "Success", cocktailMains));
+             return ResponseEntity.status(200).body(CocktailMainLikesRes.of(200, success, cocktailMains));
          }
         return ResponseEntity.status(404).body(CocktailMainLikesRes.of(404, "Fail", null));
 
@@ -83,7 +84,7 @@ public class CocktailController {
         // 칵테일 랜덤 1개
         CocktailMain cocktailMain = cocktailSearchService.getCocktailRandomOne(); // 칵테일 랜덤으로 1개 가져오기
         if (cocktailMain != null) { // 칵테일이 있다면
-            return ResponseEntity.status(200).body(CocktailMainRandomRes.of(200, "Success", cocktailMain));
+            return ResponseEntity.status(200).body(CocktailMainRandomRes.of(200, success, cocktailMain));
         }
         return ResponseEntity.status(404).body(CocktailMainRandomRes.of(404, "Fail", null));
     }
@@ -93,7 +94,7 @@ public class CocktailController {
         // 칵테일 좋아요 요청
         cocktailDetailService.setCocktailLike(req.getCocktailId(), accessToken); // 칵테일 좋아요 체크 혹은 해제
 
-        return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+        return ResponseEntity.status(200).body(BaseResponseBody.of(200, success));
     }
 
     @PostMapping("/bookmarks")
@@ -102,7 +103,7 @@ public class CocktailController {
         // 칵테일 북마크 요청
         cocktailDetailService.setCocktailBookMark(req.getCocktailId(), accessToken); // 칵테일 북마크 체크 혹은 해제
 
-        return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
+        return ResponseEntity.status(200).body(BaseResponseBody.of(200, success));
     }
 
     @GetMapping("/recommend/ingredient/{cocktail_id}")
@@ -110,7 +111,7 @@ public class CocktailController {
         // 재료 기반 컨텐츠 베이스 알고리즘을 활용한 비슷한 칵테일 상위 6개
         ArrayList<CocktailRecommendDetail> recommends = cocktailRecommendService.getRecommendCocktails(0, cocktailId, accessToken); // 유사한 칵테일 6개 가져오기
 
-        return ResponseEntity.status(200).body(CocktailRecommendRes.of(200, "Success", recommends));
+        return ResponseEntity.status(200).body(CocktailRecommendRes.of(200, success, recommends));
     }
 
     @GetMapping("/recommend/color/{cocktail_id}")
@@ -118,6 +119,6 @@ public class CocktailController {
         // 색상 기반 컨텐츠 베이스 알고리즘을 활용한 비슷한 칵테일 상위 6개
         ArrayList<CocktailRecommendDetail> recommends = cocktailRecommendService.getRecommendCocktails(1, cocktailId, accessToken); // 유사한 칵테일 6개 가져오기
 
-        return ResponseEntity.status(200).body(CocktailRecommendRes.of(200, "Success", recommends));
+        return ResponseEntity.status(200).body(CocktailRecommendRes.of(200, success, recommends));
     }
 }
