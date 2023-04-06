@@ -23,7 +23,6 @@ const Ingredient: React.FunctionComponent<propsType> = ({
   let [listIngredient, setListIngredient] = useState<searchIngredientType[]>(
     []
   );
-  console.log(selectIngredient);
 
   //재료검색
   const searchIngredient = (e: React.ChangeEvent<HTMLInputElement>) => {

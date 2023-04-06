@@ -42,8 +42,8 @@ const Result: React.FunctionComponent<propsType> = ({
     let tmpdifficulty: string = null;
     let tmpingredient: string = null;
 
-    // setCokctail(resetCocktail);
     setSortingNum(sort);
+    console.log("나의 동작 횟수는? ", sort);
 
     if (name === "") {
       name = null;
@@ -104,7 +104,7 @@ const Result: React.FunctionComponent<propsType> = ({
 
   //정렬 기준이 바뀔때마다 useEffect 새로해주어야함.(즉 axios통신 새로해주기.)
   useEffect(() => {
-    console.log(sortingNum);
+    console.log("나도 동작해!", sortingNum);
 
     cocktailSearch(sortingNum);
   }, [sortingNum]);
@@ -160,8 +160,6 @@ const Result: React.FunctionComponent<propsType> = ({
 
   //무한 스크롤 구현.
   const handelScroll = (e: React.UIEvent<HTMLDivElement>) => {
-    console.log(saveColor);
-
     const target = e.target as HTMLDivElement;
     const isEnd =
       Math.round(target.scrollTop + target.clientHeight) >
