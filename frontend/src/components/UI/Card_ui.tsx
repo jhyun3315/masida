@@ -8,15 +8,38 @@ import {
 import { difficulty_img_url_converter } from "../../pages/api/utility/difficulty_img_url_converter";
 import { mypageCommentType } from "../../type/commentTypes";
 
+import { useDispatch } from "react-redux";
+import { setCurrentPage } from "../../../store/modules/pageSlice";
+import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import { store } from "../../../store/store";
 import { SetStateAction, Dispatch } from "react";
 
-const Detail_recommend_card: React.FC<cocktailType> = (
-  cocktail: cocktailType
+interface propsType {
+  cocktail : cocktailType,
+  reload : boolean,
+  setReload : Dispatch<SetStateAction<boolean>>
+}
+
+
+const Detail_recommend_card: React.FunctionComponent<propsType> = (
+  {cocktail, reload, setReload}
 ) => {
+  const dispatch = useDispatch();
+  const router =  useRouter();
+  const godetailPage = () => {  
+    dispatch(setCurrentPage(cocktail.cocktail_id));
+    setReload(!reload);
+    router.push(`/detail/${cocktail.cocktail_id}`);
+    console.log("나 동작하냐?");
+    console.log(cocktail.cocktail_id);
+    
+    
+  }
+
   return (
-    <Link href={`/detail/${cocktail.cocktail_id}`}>
+    // <Link href={`/detail/${cocktail.cocktail_id}`}>
+    <div onClick={godetailPage}>
       <div className={style.detail_card}>
         <div className={style.detail_card_top}>
           <img
@@ -43,7 +66,8 @@ const Detail_recommend_card: React.FC<cocktailType> = (
           </div>
         </div>
       </div>
-    </Link>
+    </div>
+    // </Link>
   );
 };
 

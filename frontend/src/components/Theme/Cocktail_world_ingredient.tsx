@@ -26,7 +26,7 @@ const options: Options = {
      return (
     <div className={ style.cocktailWord_ingredient}>
       <h1>Most popular Ingredients</h1>
-      <p>3700개의 칵테일에서 쓰인 재료 TOP 50</p>
+      <p>1700개의 칵테일에서 쓰인 재료 TOP 50</p>
       <ReactWordcloud
         words={arr[0]}
         options={options}

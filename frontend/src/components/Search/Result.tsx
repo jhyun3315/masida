@@ -15,7 +15,6 @@ interface propsType {
 
 const Result: React.FunctionComponent<propsType> = ({
   clickSearchBtn,
-  addNumIngredient,
 }) => {
   const [cocktail, setCokctail] = useState<cocktailType[]>([]);
   const [page, setPage] = useState<number>(0);
@@ -26,6 +25,7 @@ const Result: React.FunctionComponent<propsType> = ({
   let [likeChecked, setLikeChecked] = useState<boolean>(false);
   let [rankChecked, setRankChecked] = useState<boolean>(false);
   let [sortCheckName, setSortCheckName] = useState<string>("");
+  let [flag , setFlag] = useState<boolean>(false);
 
   let name = useSelector((state: RootState) => state.nameSelect.searchName);
   let base = useSelector((state: RootState) => state.baseSelect.base);
@@ -36,6 +36,7 @@ const Result: React.FunctionComponent<propsType> = ({
   let ingredient = useSelector(
     (state: RootState) => state.ingredientSelect.ingredient
   );
+  
 
   //처음 시작할때, 검색할때 초기화 시켜줄 배열입니다.
   const resetCocktail: cocktailType[] = [];
@@ -44,9 +45,10 @@ const Result: React.FunctionComponent<propsType> = ({
     let tmpcolor: string = null;
     let tmpdifficulty: string = null;
     let tmpingredient: string = null;
-    setCokctail(resetCocktail);
+    // setCokctail(resetCocktail);
     setSortingNum(sort);
-
+    console.log("나 동작해야해");
+    
     if (name === "") {
       name = null;
     }
@@ -100,6 +102,8 @@ const Result: React.FunctionComponent<propsType> = ({
 
   //정렬 기준이 바뀔때마다 useEffect 새로해주어야함.(즉 axios통신 새로해주기.)
   useEffect(() => {
+    console.log(sortingNum);
+    
     cocktailSearch(sortingNum);
   }, [sortingNum]);
 
@@ -141,7 +145,7 @@ const Result: React.FunctionComponent<propsType> = ({
   const [saveBase, setSaveBase] = useState<string>();
   const [saveColor, setSaveColor] = useState<string[]>([]);
   const [saveDifficulty, setSaveDifficulty] = useState<string[]>([]);
-  const [saveIngredient, setSaveIngredient] = useState<searchIngredientType[]>(
+  const [ , setSaveIngredient] = useState<searchIngredientType[]>(
     []
   );
   const [isLoading, setIsLoading] = useState(false);
@@ -161,7 +165,8 @@ const Result: React.FunctionComponent<propsType> = ({
       Math.round(target.scrollTop + target.clientHeight) >
       target.scrollHeight - 20;
 
-    if (isEnd && !pageEnd) {
+    if (isEnd && !pageEnd && !flag) {
+      setFlag(true);
       let tmpcolor: string = null;
       let tmpdifficulty: string = null;
       let tmpingredient: string = null;
@@ -182,8 +187,8 @@ const Result: React.FunctionComponent<propsType> = ({
 
       //끝을 감지했다면?
       axios
-        .post(`https://j8b208.p.ssafy.io/api/cocktails/search`, {
-          body: {
+        .get(`https://j8b208.p.ssafy.io/api/cocktails/search`, {
+          params: {
             page: page,
             sort_num: sortingNum,
             cocktail_name: saveName,
@@ -197,6 +202,9 @@ const Result: React.FunctionComponent<propsType> = ({
           setCokctail([...cocktail, ...response.data.data]);
           setPage(response.data.next_page);
           setPageEnd(response.data.is_end);
+          setFlag(false);
+          console.log(response);
+          
         });
     }
   };
