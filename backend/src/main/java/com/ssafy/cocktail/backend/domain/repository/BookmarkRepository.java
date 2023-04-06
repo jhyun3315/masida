@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.ArrayList;
+
 
 public interface BookmarkRepository extends JpaRepository<Bookmark, Long> {
     public Bookmark findByUserAndCocktail(User user, Cocktail cocktail);
@@ -20,4 +22,6 @@ public interface BookmarkRepository extends JpaRepository<Bookmark, Long> {
     // 해당 유저가 북마크한 칵테일 리스트
     @Query("select b.cocktail from Bookmark b where b.user.id = :userId and b.bookmarkDeleted = false")
     public Page<Cocktail> findBookmarkCocktailByUserId(@Param("userId") Long userId, Pageable pageable);
+
+    public ArrayList<Bookmark> findAllByUserId(Long userId);
 }

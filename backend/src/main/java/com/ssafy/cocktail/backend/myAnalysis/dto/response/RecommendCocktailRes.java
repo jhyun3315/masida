@@ -16,11 +16,9 @@ public class RecommendCocktailRes extends BaseResponseBody {
 
     public static RecommendCocktailRes of(Integer statusCode, String message, List<RecommendCocktail> recommendCocktails) {
         RecommendCocktailRes res = new RecommendCocktailRes();
-
         res.setStatusCode(statusCode);
         res.setMessage(message);
         res.setData(recommendCocktails);
-
         return res;
     }
 }

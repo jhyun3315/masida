@@ -11,6 +11,7 @@ import com.ssafy.cocktail.backend.myAnalysis.dto.RecommendationResponseFromPy;
 import com.ssafy.cocktail.backend.myAnalysis.service.CollaborativeRecommendService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
