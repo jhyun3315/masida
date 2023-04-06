@@ -32,6 +32,7 @@ public class CocktailDetailServiceImpl implements CocktailDetailService {
         // 칵테일 상세 정보를 리턴한다
         CocktailDetail cocktailDetail = new CocktailDetail(); // 칵테일 상세 정보 객체 생성
         Optional<Cocktail> cocktail = cocktailRepository.findById(Long.valueOf(cocktailId)); // 칵테일 가져오기
+        if (cocktail.isEmpty()) return null; // 예외처리: 칵테일이 없다면 리턴
         cocktailDetail.setCocktailId(Integer.parseInt(cocktailId)); // 칵테일 아이디 삽입
         cocktailDetail.setCocktailNameKo(cocktail.get().getCocktailNameKo()); // 칵테일 한글 이롬 삽입
         cocktailDetail.setCocktailNameEn(cocktail.get().getCocktailNameEn()); // 칵테일 영어 이름 삽입

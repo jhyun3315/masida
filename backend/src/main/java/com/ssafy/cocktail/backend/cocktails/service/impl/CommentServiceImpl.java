@@ -42,7 +42,7 @@ public class CommentServiceImpl implements CommentService {
             String commentCreateDate = comment.getCommentCreatedDate().toLocalDate().toString(); // 날짜를 년-월-일 형식으로 변환
             String commentDifficulty =
                     (int) comment.getCommentDifficulty() == 1 ? "하" :
-                            (int) comment.getCommentDifficulty() == 2 ? "중" : "상"; // 난이도를 하, 상, 중 으로 변환
+                            (int) comment.getCommentDifficulty() == 2 ? "중" : "상"; // 난이도를 하, 중, 상 으로 변환
             boolean writerChecker = commetUser.equals(user); // 작성자 확인
             commentDetail.setCommentId(comment.getId()); // id 삽입
             commentDetail.setCommentContent(comment.getCommentContent()); // 내용 삽입
