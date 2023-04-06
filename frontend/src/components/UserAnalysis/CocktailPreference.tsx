@@ -24,7 +24,7 @@ const CocktailPreference = (props: cocktail_props_analysis) => {
     };
 }, [isLoading2, props.cocktailRating]);
 
-  if (isLoading && isLoading2) {
+  if (isLoading && isLoading2 && cocktailRateList) {
     return (
       <div className={style.cocktailPreference}>
         <p className={style.baseTitle}><strong>{ userName}</strong>님의 칵테일 베이스 선호도 분석 결과</p>
@@ -65,7 +65,7 @@ const CocktailPreference = (props: cocktail_props_analysis) => {
           <div className={style.cocktailPreference_list}>
             <h3>{ userName}님과 취향(베이스)과 비슷한 칵테일 추천</h3>
             <div className={style.cocktailPreference_list_content}>
-              {cocktailRecordList.map((key => (
+              {cocktailRecordList?.map((key => (
                 <My_Analysis_card {...key} />
               )))}
             </div>

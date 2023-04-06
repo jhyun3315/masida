@@ -1,17 +1,17 @@
 // 마이페이지 별점 분포 (베이스)
 export type cocktailBaseRating = {
-  whisky: number,
-  tequila: number,
-  vodka: number,
-  mezcal: number,
-  spirits: number,
-  rum: number,
-  liqueur: number,
-  brandy: number,
+  Whisky: number,
+  Tequila: number,
+  Vodka: number,
+  Mezcal: number,
+  Spirits: number,
+  Rum: number,
+  Liqueur: number,
+  Brandy: number,
   rating_score: number,
-  jin: number,
-  beer: number,
-  wine: number
+  Gin: number,
+  Beer: number,
+  Wine: number
 }
 
 // 마이페이지 별점 분포 결과(베이스)
