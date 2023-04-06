@@ -268,7 +268,7 @@
   - https
     - certbot 컨테이너를 함께 실행
     - letsencrypt ssl 인증서 발급
-    - EC2 제공 도메인 'http://j7b205.p.ssafy.io/' 사용하여 인증
+    - EC2 제공 도메인 'http://j8b208.p.ssafy.io/' 사용하여 인증
   - 자동 배포
     - Gitlab에서 web hook 설정을 통해 jenkins 빌드 유발
     - jenkins의 shell script 실행 기능을 이용하여 git pull, docker compose up 커맨드 실행
@@ -283,8 +283,7 @@
     
   ## 6-1. ERD
 
-  ![ERD](./images/README/ERD.png)
-
+  ![ERD](./images/masida_erd.png)
 
   ## 6-2. Design System
 
@@ -332,6 +331,8 @@
 
 # 8. 👨‍👩‍👧‍👦 ![logo_dark](./images/README/logo_dark.png) 팀원 소개
 ------------------------------------------------------
+  - 프론트엔드: 손종효, 김지환, 김영주
+  - 벡엔드: 이지현, 강지수, 김주성
   
   ![PT_37](./images/README/PT_37.png)
 
