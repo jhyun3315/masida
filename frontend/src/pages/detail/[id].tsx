@@ -72,7 +72,7 @@ const detail = () => {
       console.log(cocktail_id);
     } else {
       if(parseInt(router?.query.id as string)) {   
-        setCocktail_id(store.getState().page.currentPage);
+        setCocktail_id(parseInt(router?.query.id as string));
         store.dispatch(setCurrentPage(parseInt(router?.query.id as string)));
         console.log("내가 동작하는 건가?");
         console.log(router?.query.id as string);
