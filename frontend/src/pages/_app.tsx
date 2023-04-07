@@ -6,6 +6,7 @@ import "../reset.scss";
 import { store, persistor } from "../../store/store";
 import { PersistGate } from "redux-persist/integration/react";
 import Loading_spinner from "../components/UI/Loading_spinner";
+import  Head  from 'next/head'; 
 
 import { wrapper } from "../../store";
 
@@ -43,6 +44,10 @@ function App({ Component, pageProps }: AppProps) {
   }, [router.events]);
   return (
     <div className={ibm.className}>
+      <Head>
+        <title>MASIDA</title>
+        <link rel ="icon" href="/favicon.ico" />
+      </Head>
       {loading && <Loading_spinner />}
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
