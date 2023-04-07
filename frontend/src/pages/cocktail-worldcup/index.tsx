@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import World_cup_leage from "@/components/Worldcup/World_cup_league";
-import Header from "../../components/Header/Header";
-
-
-const cocktail_worldcup = () => {
-
-    return (
-      <>
-        <Header />
-        <World_cup_leage />
-
-      </>
-    );
-  
-};
-export default cocktail_worldcup;
-=======
 import { NextPage } from "next";
 import { cocktail_worldcup_data } from "../../type/cocktailTypes";
 import World_cup_league from "../../components/Worldcup/World_cup_league";
@@ -62,4 +44,3 @@ cocktail_worldcup.getInitialProps = async () => {
     };
   }
 };
->>>>>>> frontend
