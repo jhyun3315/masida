@@ -27,7 +27,7 @@ const Main_search = () => {
           <input
             id="cocktailSearch"
             type="text"
-            placeholder="Seacrh"
+            placeholder="Search"
             ref={cocktailSearchRef}
             onKeyUp={searchCocktail}
           />
