@@ -36,13 +36,11 @@
 
     - Python 3.9
 
-    - Pycharm, Google Colab
+    - MySQL 8.0
 
     - Fast API
 
-    - MySQL
-
-    ※ [설치 파일](./back/pythonProject/requirements.txt/)
+    ※ [설치 파일](./pythonProject/requirements.txt/)
 
 ### **👩‍💻 CI/CD**
 
@@ -51,8 +49,6 @@
     - Jenkins
 
     - Docker 20.10.18
-
-    - Docker-compose
 
 
 ## 2-2. 서비스 아키텍처
@@ -71,93 +67,44 @@
 git clone
 ```
 
-2. **[도커 설치](https://docs.docker.com/get-docker/) 및 도커 [컴포즈 설치](https://docs.docker.com/compose/install/)**
+2. **[도커 설치](https://docs.docker.com/get-docker/) 
 
-3. **Dockerfile 및 docker-compose.yml작성**
+3. **Dockerfile 및 nginx 설정파일 작성**
 
-   - nginx Dockerfile
+   - nginxec2.conf 파일
 
-     ```docker
-      FROM node:16.17.0 as builder
-      # 작업 폴더로 소스 파일 복사
-      COPY {git 폴더}/front/sharkshark /home/react
-      WORKDIR /home/react
-      # node 패키지 설치 후 빌드
-      RUN npm install
-      RUN npm run build
-      FROM nginx
-      # nginx 설정 복사
-      COPY {nginx.conf 위치} /etc/nginx
-      # 빌드 파일 복사
-      COPY --from=builder /home/react/build /home/build
-      # 포트 개방
-      EXPOSE 80
-      CMD ["nginx", "-g", "daemon off;"]
-     ```
-
-   - fastapi dockerfile
-
-     ```docker
-      FROM python:3.9
-      # 작업 폴더로 실행 폴더 복사
-      WORKDIR /code
-      COPY {git 폴더}/back/pythonProject /code
-      # 파이썬 패키지 설치 후 실행
-      RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-      CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
-     ```
-
-   - nginx.conf 파일
-
-     ```bash
-      user nginx;
-      worker_processes auto;
-      events {
-        worker_connections 1024;
+```bash
+  server {
+    
+      location /{
+          proxy_pass http://localhost:3000;
       }
-      http{
-        include mime.types;
-        access_log /var/log/nginx/access.log;
-        error_log /var/log/nginx/error.log;
 
-        server {
-          // 포트 지정
+      location /api {
+          proxy_pass http://localhost:8080/api;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection "upgrade";
+          proxy_set_header Host $http_host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      }
+
+      listen 443 ssl;
+      ssl_certificate ${fullchain.pem}
+      ssl_certificate_key ${privkey.pem}
+
+  }
+
+  server {
+      if ($host = ${server_name}) {
+          return 301 https://$host$request_uri;
+      } # managed by Certbot
+
           listen 80;
-          listen [::]:80;
-
-          // 프론트 빌드파일 경로설정
-          location / {
-            root	/home/build;
-            index	index.html index.htm;
-            try_files 	$uri $uri/ /index.html;
-          }
-          // 백엔드 api 요청 포워딩
-          location /api/{
-            proxy_pass http://172.17.0.1:8000/;
-          }
-        }
-      }
-     ```
-
-   - docker-compose.yml
-
-     ```yml
-     version: "3"
-     services:
-       nginx:
-         build:
-           context: .
-           dockerfile: { nginx dockerfile 이름 }
-         ports:
-           - 80:80
-       api:
-         build:
-           context: .
-           dockerfile: { fastapi dockerfile 이름 }
-         ports:
-           - 8000:8000
-         extra_hosts:
-           - "localhost:host-gateway"
+          server_name ${server_name};
+      return 404; # managed by Certbot
+  }
      ```
 
 4. **도커 컨테이너 실행**
@@ -171,15 +118,6 @@ git clone
       docker run --name mysql -e MYSQL_ROOT_PASSWORD={password} -d -p 3306:3306 mysql
      ```
 
-   - 3306포트로 mySQL 접속하여 b205 스키마 생성
-
-   - docker-compose 실행
-
-     ```bash
-     docker compose up -d --build
-     # 혹은
-     docker-compose up -d --build
-     ```
 
 5. **작동 확인**
 
@@ -189,7 +127,7 @@ git clone
   docker ps
   ```
 
-- mySQL 접속하여 DB [덤프 파일](/exec/sharkshark_dp_dump.zip) 실행
+- mySQL 접속하여 DB [덤프 파일](/exec/b208_masida_dumps.sql) 실행
 
 ---
 
@@ -272,10 +210,10 @@ git clone
 - https
   - certbot 컨테이너를 함께 실행
   - letsencrypt ssl 인증서 발급
-  - EC2 제공 도메인 'http://j8b208.p.ssafy.io/' 사용하여 인증
+  - EC2 도메인 사용하여 인증
 - 자동 배포
   - Gitlab에서 web hook 설정을 통해 jenkins 빌드 유발
-  - jenkins의 shell script 실행 기능을 이용하여 git pull, docker compose up 커맨드 실행
+  - jenkins의 shell script 실행 기능을 이용하여 git pull, docker build 실행
 
 ---
 
@@ -316,6 +254,6 @@ git clone
 # 8. 👨‍👩‍👧‍👦 팀원 소개
 
 ---
-
+![Team_Madida](.\images\ourTeam.PNG)
 - 프론트엔드: 손종효, 김지환, 김영주
-- 벡엔드: 이지현, 강지수, 김주성
+- 벡엔드: 이지현(Infra), 강지수, 김주성
