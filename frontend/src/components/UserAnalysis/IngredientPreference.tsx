@@ -7,6 +7,7 @@ import { cocktail_props_analysis_ingredient } from '../../pages/user-analysis';
 import { My_Analysis_card } from '../UI/Card_ui';
 import { cocktailIngredientRating } from '../../type/cocktailRating';
 import { store } from '../../../store/store';
+import Image from 'next/image';
 
 const IngredientPreference = (props: cocktail_props_analysis_ingredient) => {
 
@@ -48,7 +49,7 @@ const IngredientPreference = (props: cocktail_props_analysis_ingredient) => {
                 <div className={style.cocktailPreference_analysis_lower_content_right}>
                   <div className={style.cocktailPreference_analysis_lower_content_right_star}>
                     <div className={style.cocktail_star}>별점 분포</div>
-                    <div><img src="assets/icons/ratingIcon.png"></img>{props.cocktailRating.rating_average}</div>
+                    <div><img src="assets/icons/ratingICON.png"></img>{props.cocktailRating.rating_average}</div>
                   </div>
                   <div className={style.cocktailPreference_analysis_lower_content_right_start_count}>
                     <div className={style.cocktail_star}>별점 개수</div>
@@ -56,7 +57,7 @@ const IngredientPreference = (props: cocktail_props_analysis_ingredient) => {
                   </div>
                   <div className={style.cocktailPreference_analysis_lower_content_right_star_max}>
                     <div className={style.cocktail_star}>최대 별점</div>
-                    <div><img src="assets/icons/ratingIcon.png"></img>{props.cocktailRating.rating_max + " " + props.cocktailRating.rating_max_ingredient}</div>
+                    <div><img src="assets/icons/ratingICON.png"></img>{props.cocktailRating.rating_max + " " + props.cocktailRating.rating_max_ingredient}</div>
                   </div>
                 </div>
               </div>
