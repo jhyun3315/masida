@@ -20,7 +20,7 @@ public interface BookmarkRepository extends JpaRepository<Bookmark, Long> {
     public Long findBookmarkCntByUserId(@Param("userId") Long userId);
 
     // 해당 유저가 북마크한 칵테일 리스트
-    @Query("select b.cocktail from Bookmark b where b.user.id = :userId and b.bookmarkDeleted = false")
+    @Query("select b.cocktail from Bookmark b where b.user.id = :userId and b.bookmarkDeleted = false order by b.bookmarkUpdateDate DESC")
     public Page<Cocktail> findBookmarkCocktailByUserId(@Param("userId") Long userId, Pageable pageable);
 
     public ArrayList<Bookmark> findAllByUserId(Long userId);
