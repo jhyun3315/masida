@@ -6,6 +6,7 @@ import "../reset.scss";
 import { store, persistor } from "../../store/store";
 import { PersistGate } from "redux-persist/integration/react";
 import Loading_spinner from "../components/UI/Loading_spinner";
+import  Head  from 'next/head'; 
 
 import { wrapper } from "../../store";
 
