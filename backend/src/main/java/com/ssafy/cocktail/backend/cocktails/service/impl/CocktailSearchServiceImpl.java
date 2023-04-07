@@ -155,8 +155,8 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
     @Override
     public ArrayList<IngredientSearch> getIngredientSearchList() {
         // 재료 검색에 필요한 모든 재료 리스트 반환
-//         List<Ingredient> ingredients = ingredientRepository.findAll(); // 모든 재료 목록 가져오기
-        List<Ingredient> ingredients = ingredientRepository.findAllByIngredientType("General");
+         List<Ingredient> ingredients = ingredientRepository.findAll(); // 모든 재료 목록 가져오기
+//        List<Ingredient> ingredients = ingredientRepository.findAllByIngredientType("General");
         ArrayList<IngredientSearch> ingredientSearchList  = new ArrayList<>(); // 모든 재료 리스트
         for (Ingredient ingredient: ingredients) { // 재료
             ingredientSearchList.add(new IngredientSearch(ingredient.getId(), ingredient.getIngredientName())); // 칵테일 재료 리스트에 추가
