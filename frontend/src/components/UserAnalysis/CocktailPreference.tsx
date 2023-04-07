@@ -8,6 +8,7 @@ import { My_Analysis_card } from '../UI/Card_ui';
 import { cocktailBaseRating } from '../../type/cocktailRating';
 import Loading_spinner from '../UI/Loading_spinner';
 import { store } from '../../../store/store';
+import Image from 'next/image';
 
 const CocktailPreference = (props: cocktail_props_analysis) => {
 
