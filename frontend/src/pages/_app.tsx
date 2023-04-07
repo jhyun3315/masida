@@ -46,7 +46,7 @@ function App({ Component, pageProps }: AppProps) {
     <div className={ibm.className}>
       <Head>
         <title>MASIDA</title>
-        <link rel ="icon" href="/favicon.ico" />
+        <link rel ="icon" href="/masida.ico" />
       </Head>
       {loading && <Loading_spinner />}
       <Provider store={store}>
