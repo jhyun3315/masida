@@ -43,6 +43,10 @@ function App({ Component, pageProps }: AppProps) {
   }, [router.events]);
   return (
     <div className={ibm.className}>
+      <Head>
+        <title>MASIDA</title>
+        <link rel ="icon" href="/masida.ico" />
+      </Head>
       {loading && <Loading_spinner />}
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
