@@ -18,6 +18,9 @@ const CocktailPreference = (props: cocktail_props_analysis) => {
   const isLoading2 = props.isLoading_props2;
   const cocktailBase = props.cocktailList;
   const cocktailRecordList = props.cocktailRecordList;
+
+  console.log(cocktailRecordList)
+
   useEffect(() => {
    if (isLoading2 && props.cocktailRating) {
      setCocktailRateList(props.cocktailRating.data);

@@ -11,11 +11,11 @@ const Base = () => {
   const clickBase = (e: React.MouseEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
     //base의 이름을 내가 선택한 것으로 변경해줌.
-    if(checkBase === target.value) {
+    if (checkBase === target.value) {
       setCheckBase("");
-    }else {
+    } else {
       setCheckBase(target.value);
-    } 
+    }
   };
 
   //base가 바뀔때마다 redux의 base에 저장해줍니다.
@@ -33,14 +33,20 @@ const Base = () => {
               <input
                 type="radio"
                 name="base"
-                value="위스키"
-                checked={checkBase === "위스키"}
+                value="Whisky"
+                checked={checkBase === "Whisky"}
                 onClick={clickBase}
               />{" "}
               위스키
             </label>
             <label className={style.base_value}>
-              <input type="radio" name="base" value="럼" checked={checkBase === "럼"} onClick={clickBase} />{" "}
+              <input
+                type="radio"
+                name="base"
+                value="Rum"
+                checked={checkBase === "Rum"}
+                onClick={clickBase}
+              />{" "}
               럼
             </label>
           </div>
@@ -49,14 +55,20 @@ const Base = () => {
               <input
                 type="radio"
                 name="base"
-                value="리퀴르"
-                checked={checkBase === "리퀴르"}
+                value="Liqueur"
+                checked={checkBase === "Liqueur"}
                 onClick={clickBase}
               />{" "}
               리퀴르
             </label>
             <label className={style.base_value}>
-              <input type="radio" name="base" value="진" checked={checkBase === "진"} onClick={clickBase} />{" "}
+              <input
+                type="radio"
+                name="base"
+                value="Gin"
+                checked={checkBase === "Gin"}
+                onClick={clickBase}
+              />{" "}
               진
             </label>
           </div>
@@ -65,8 +77,8 @@ const Base = () => {
               <input
                 type="radio"
                 name="base"
-                value="보드카"
-                checked={checkBase === "보드카"}
+                value="Vodka"
+                checked={checkBase === "Vodka"}
                 onClick={clickBase}
               />{" "}
               보드카
@@ -75,8 +87,8 @@ const Base = () => {
               <input
                 type="radio"
                 name="base"
-                value="브랜디"
-                checked={checkBase === "브랜디"}
+                value="Brandy"
+                checked={checkBase === "Brandy"}
                 onClick={clickBase}
               />{" "}
               브랜디
@@ -87,8 +99,8 @@ const Base = () => {
               <input
                 type="radio"
                 name="base"
-                value="테킬라"
-                checked={checkBase === "테킬라"}
+                value="Tequila"
+                checked={checkBase === "Tequila"}
                 onClick={clickBase}
               />{" "}
               테킬라
@@ -97,8 +109,8 @@ const Base = () => {
               <input
                 type="radio"
                 name="base"
-                value="기타"
-                checked={checkBase === "기타"}
+                value="etc"
+                checked={checkBase === "etc"}
                 onClick={clickBase}
               />{" "}
               기타
