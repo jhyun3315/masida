@@ -7,6 +7,7 @@ import { cocktail_props_analysis_ingredient } from '../../pages/user-analysis';
 import { My_Analysis_card } from '../UI/Card_ui';
 import { cocktailIngredientRating } from '../../type/cocktailRating';
 import { store } from '../../../store/store';
+import Image from 'next/image';
 
 const IngredientPreference = (props: cocktail_props_analysis_ingredient) => {
 

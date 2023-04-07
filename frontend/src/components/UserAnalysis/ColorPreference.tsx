@@ -7,6 +7,7 @@ import { cocktail_props_analysis_color } from '../../pages/user-analysis';
 import { My_Analysis_card } from '../UI/Card_ui';
 import { cocktailColorRating } from '../../type/cocktailRating';
 import { store } from '../../../store/store';
+import Image from 'next/image';
 
 const ColorPreference = (props: cocktail_props_analysis_color) => {
 
