@@ -20,7 +20,7 @@ public interface LikeRepository extends JpaRepository<Like, Long> {
     public Like findByUserAndCocktail(User user, Cocktail cocktail);
 
     // 해당 유저가 좋아요한 칵테일 리스트 - 페이지네이션 적용
-    @Query("select l.cocktail from Like l where l.user.id = :userId and l.likeDeleted = false")
+    @Query("select l.cocktail from Like l where l.user.id = :userId and l.likeDeleted = false order by l.likeUpdateDate DESC")
     public Page<Cocktail> findLikeCocktailByUserId(@Param("userId") Long userId, Pageable pageable);
 
     // 해당 유저가 좋아요한 칵테일 개수

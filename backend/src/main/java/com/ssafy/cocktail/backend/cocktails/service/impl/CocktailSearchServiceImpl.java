@@ -97,7 +97,7 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
                 String[] etcBases = {"Beer", "Wine", "Mezcal", "Spirits"}; // 기타 베이스
                 List<String> etcList = new ArrayList<>(Arrays.asList(etcBases));
                 if (!cocktailBase.equals(info.getCocktailBase())
-                 || !(info.getCocktailBase().equals("기타") && etcList.contains(cocktailBase))) // 조건 2-1: 검색어와 베이스가 일치하는가
+                 && !(info.getCocktailBase().equals("etc") && etcList.contains(cocktailBase))) // 조건 2-1: 검색어와 베이스가 일치하는가
                     continue;
                      // 일치한 베이스가 없으면 (x)
             }
@@ -155,7 +155,8 @@ public class CocktailSearchServiceImpl implements CocktailSearchService {
     @Override
     public ArrayList<IngredientSearch> getIngredientSearchList() {
         // 재료 검색에 필요한 모든 재료 리스트 반환
-        List<Ingredient> ingredients = ingredientRepository.findAll(); // 모든 재료 목록 가져오기
+         List<Ingredient> ingredients = ingredientRepository.findAll(); // 모든 재료 목록 가져오기
+//        List<Ingredient> ingredients = ingredientRepository.findAllByIngredientType("General");
         ArrayList<IngredientSearch> ingredientSearchList  = new ArrayList<>(); // 모든 재료 리스트
         for (Ingredient ingredient: ingredients) { // 재료
             ingredientSearchList.add(new IngredientSearch(ingredient.getId(), ingredient.getIngredientName())); // 칵테일 재료 리스트에 추가
